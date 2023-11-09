@@ -1,0 +1,2016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1540" classname="VAN_DS_SC_1540" left="0" top="0" width="803" height="1437" titletext="신규상품 등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_save00" taborder="27" text="저장" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21" onclick="btn_save00_onclick"/>
+        <Div id="div_menu" taborder="28" url="common::location.xfdl" text="Div01" left="0" top="0" right="406" height="21"/>
+        <Static id="sta_back_bar02" taborder="29" cssclass="sta_WF_Labelbg" left="109" top="164" right="15" height="81"/>
+        <Static id="sta_back_bar00" taborder="30" cssclass="sta_WF_Labelbg" left="109" top="66" right="15" height="29"/>
+        <Static id="sta_title00" taborder="31" text="조회구분" cssclass="sta_WF_Label" left="0" top="66" width="110" height="29"/>
+        <Static id="sta_title04" taborder="32" text="상품명 *" cssclass="sta_WF_Label" left="0" top="164" width="110" height="29"/>
+        <Static id="sta_back_bar01" taborder="33" cssclass="sta_WF_Labelbg" left="109" top="136" right="15" height="29"/>
+        <Static id="sta_pagename00" taborder="35" text="검색조건" cssclass="sta_WF_Subtitle" left="0" top="41" width="135" height="21"/>
+        <Static id="sta_title05" taborder="36" text="상품약어명&#13;&#10;영문명 *" cssclass="sta_WF_Label" left="0" top="192" width="110" height="53"/>
+        <Static id="sta_title02" taborder="37" text="상품코드 *" cssclass="sta_WF_Label" left="0" top="136" width="110" height="29"/>
+        <Static id="sta_back_bar04" taborder="38" onclick="Static00_onclick" cssclass="sta_WF_Labelbg" left="109" top="244" right="15" height="53"/>
+        <Static id="sta_title07" taborder="39" text="상품분류 *" cssclass="sta_WF_Label" left="0" top="244" width="110" height="53"/>
+        <Static id="sta_title09" taborder="40" text="규격 *" cssclass="sta_WF_Label" left="0" top="296" width="110" height="29"/>
+        <Static id="sta_back_bar05" taborder="41" cssclass="sta_WF_Labelbg" top="296" right="15" height="29" left="109"/>
+        <Static id="sta_title08" taborder="42" text="상품구분코드" cssclass="sta_WF_Label" left="380" top="244" width="110" height="53"/>
+        <Edit id="edt_data04" taborder="5" readonly="false" left="113" top="196" width="264" height="21" cssclass="WF_Essential"/>
+        <Edit id="edt_data05" taborder="6" readonly="false" left="113" top="220" width="264" height="21" cssclass="WF_Essential"/>
+        <Combo id="cbo_list_wrs02" taborder="19" codecolumn="codecolumn" datacolumn="datacolumn" left="493" top="140" width="90" height="21" index="1" value="2" text="수탁" onitemchanged="cbo_list_wrs02_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">매취</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">수탁</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Combo id="cbo_list_wrs00" taborder="15" innerdataset="@ds_wrs_id_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="234" top="300" width="143" height="21" readonly="true"/>
+        <Edit id="edt_data12" taborder="14" readonly="false" left="113" top="300" width="118" height="21" cssclass="WF_Essential"/>
+        <Static id="sta_pagename01" taborder="43" text="상품공통정보" cssclass="sta_WF_Subtitle" left="0" top="112" width="135" height="21"/>
+        <Edit id="edt_data06" taborder="7" maxlength="3" left="113" top="248" width="34" height="21" inputtype="number" enable="true" style=":disabled {font:9 Gulim;}"/>
+        <Edit id="edt_data07" taborder="8" maxlength="3" left="149" top="248" width="34" height="21" inputtype="number" enable="true" style=":disabled {font:9 Gulim;}"/>
+        <Edit id="edt_data08" taborder="9" maxlength="3" left="185" top="248" width="34" height="21" inputtype="number" enable="true" style=":disabled {font:9 Gulim;}"/>
+        <Edit id="edt_data09" taborder="10" maxlength="3" left="221" top="248" width="34" height="21" inputtype="number" enable="true" style=":disabled {font:9 Gulim;}"/>
+        <Edit id="edt_data10" taborder="11" maxlength="12" left="257" top="248" width="97" height="21" enable="false" inputtype="number"/>
+        <Button id="btn_popup01" taborder="12" cssclass="btn_WF_Searchbtn" left="356" top="248" width="21" height="21" onclick="btn_popup01_onclick"/>
+        <Edit id="edt_data11" taborder="13" readonly="true" left="113" top="272" width="264" height="21" cssclass="WF_Essential" enable="false"/>
+        <Static id="sta_title06" taborder="34" text="상품설명" cssclass="sta_WF_Label" left="380" top="164" width="110" height="81"/>
+        <Static id="sta_title10" taborder="44" text="과세구분 *" cssclass="sta_WF_Label" left="380" top="296" width="110" height="29"/>
+        <TextArea id="txa_contents00" taborder="20" left="493" top="168" width="291" height="73"/>
+        <Static id="sta_title03" taborder="45" text="계약구분 *" cssclass="sta_WF_Label" left="380" top="136" width="110" height="29"/>
+        <Edit id="edt_data13" taborder="3" maxlength="25" cssclass="WF_Essential" left="113" top="140" width="142" height="21" readonly="false" onkillfocus="edt_data13_onkillfocus" onkeydown="edt_data13_onkeydown"/>
+        <Radio id="rdo_store_code03" taborder="22" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="493" top="300" width="166" height="21" style="font:9 Gulim;" onitemchanged="rdo_store_code03_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">과세</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">면세</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">영세</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Combo id="cbo_list_wrs03" taborder="23" left="659" top="300" width="125" height="21" innerdataset="@ds_sma_apl_tpc" datacolumn="SIMP_CNM" codecolumn="SIMP_C" index="-1" enable="true" readonly="true"/>
+        <Static id="sta_back_bar06" taborder="46" cssclass="sta_WF_Labelbg" left="109" top="324" right="15" height="53"/>
+        <Static id="sta_title11" taborder="47" text="공동상품여부&#13;&#10;박스상품구분" cssclass="sta_WF_Label" left="0" top="324" width="110" height="53" style="font:9 Gulim;"/>
+        <Static id="sta_title12" taborder="48" text="제조처" cssclass="sta_WF_Label" left="380" top="324" width="110" height="53"/>
+        <Edit id="edt_data15" taborder="24" cssclass="WF_Essential" left="493" top="340" width="110" height="21" inputtype="number" maxlength="25" onkeydown="edt_data15_onkeydown"/>
+        <Button id="btn_popup02" taborder="26" cssclass="btn_WF_Searchbtn" left="740" top="340" width="21" height="21" onclick="btn_popup02_onclick"/>
+        <Edit id="edt_data16" taborder="25" cssclass="WF_Essential" left="606" top="340" width="131" height="21" onkeydown="edt_data16_onkeydown"/>
+        <Edit id="edt_data01" taborder="1" cssclass="WF_Essential" left="359" top="70" width="103" height="21" maxlength="10" visible="true"/>
+        <Edit id="edt_data02" taborder="2" cssclass="WF_Essential" left="465" top="70" width="131" height="21" visible="true"/>
+        <Button id="btn_popup00" taborder="49" cssclass="btn_WF_Searchbtn" left="599" top="70" width="21" height="21" onclick="btn_popup00_onclick" visible="true"/>
+        <CheckBox id="chk_TEMP_YN" taborder="50" text="임시저장" left="696" top="71" width="86" height="21" truevalue="1" falsevalue="0" value="0"/>
+        <Combo id="cbo_list_wrs01" taborder="17" left="113" top="352" width="118" height="21" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="cbo_list_wrs01_onitemchanged" value="1" text="낱개">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">낱개</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">박스</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="sta_pagename02" taborder="51" text="2차상품 상세정보" cssclass="sta_WF_Subtitle" left="0" top="394" width="180" height="21"/>
+        <Grid id="grd_main00" taborder="53" useinputpanel="false" left="0" top="1033" binddataset="ds_input_data" right="15" autofittype="none" oncellclick="grd_main00_oncellclick" cellclickbound="control" height="140">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="45"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="60"/>
+                <Column size="60"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="점포유형"/>
+                <Cell col="2" text="매입단가"/>
+                <Cell col="3" text="공급단가"/>
+                <Cell col="4" text="업체(B+C)"/>
+                <Cell col="5" text="관리(B)"/>
+                <Cell col="6" text="환급(C)"/>
+                <Cell col="7" text="물류(D)"/>
+                <Cell col="8" text="직송(E)"/>
+                <Cell col="9" text="지급기일"/>
+                <Cell col="10" text="삭제여부"/>
+                <Cell col="11" text="점포유형명"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:PRGR_C"/>
+                <Cell col="2" displaytype="number" edittype="none" text="bind:BYNG_UPR" mask="#,##0"/>
+                <Cell col="3" displaytype="number" text="bind:SEL_UPR" mask="#,##0"/>
+                <Cell col="4" displaytype="number" text="bind:COMP_FEERT" expr="expr:AMN_FEERT*1+TROT_FEERT*1" mask="#,##0"/>
+                <Cell col="5" displaytype="number" text="bind:AMN_FEERT" mask="#,##0"/>
+                <Cell col="6" displaytype="number" text="bind:TROT_FEERT" mask="#,##0"/>
+                <Cell col="7" displaytype="number" text="bind:PHD_FEERT" mask="#,##0"/>
+                <Cell col="8" displaytype="number" text="bind:DDLY_PHD_FEERT" mask="#,##0"/>
+                <Cell col="9" text="bind:PY_FDTCN"/>
+                <Cell col="10" displaytype="checkbox" edittype="checkbox" text="bind:DEL_YN"/>
+                <Cell col="11" displaytype="normal" text="bind:PRGR_C_TEXT"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_pagename03" taborder="54" text="입력정보" cssclass="sta_WF_Subtitle" left="0" top="921" width="180" height="21"/>
+        <Static id="sta_back_bar08" taborder="56" cssclass="sta_WF_Labelbg" left="109" top="973" right="15" height="29"/>
+        <Combo id="cbo_list_wrs04" taborder="57" codecolumn="codecolumn" datacolumn="datacolumn" left="113" top="977" width="80" height="21" enable="false" index="-1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">00</Col>
+                <Col id="datacolumn">센터입고</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">10</Col>
+                <Col id="datacolumn">DS</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">11</Col>
+                <Col id="datacolumn">DS2</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">20</Col>
+                <Col id="datacolumn">SSM</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">40</Col>
+                <Col id="datacolumn">SM</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">50</Col>
+                <Col id="datacolumn">SMS</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">60</Col>
+                <Col id="datacolumn">FMS</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="sta_title14" taborder="58" text="매입단가" cssclass="sta_WF_Label" left="196" top="973" width="110" height="29" style="font:9 Gulim;"/>
+        <Static id="sta_back_bar09" taborder="60" cssclass="sta_WF_Labelbg" left="109" top="1001" right="15" height="29"/>
+        <Static id="sta_title20" taborder="62" text="물류수수료" cssclass="sta_WF_Label" left="392" top="1001" width="110" height="29" style="font:9 Gulim;"/>
+        <Static id="sta_title15" taborder="64" text="공급단가" cssclass="sta_WF_Label" left="392" top="973" width="110" height="29" style="font:9 Gulim;"/>
+        <Static id="sta_title16" taborder="65" text="지급기일수" cssclass="sta_WF_Label" left="588" top="973" width="110" height="29" style="font:9 Gulim;"/>
+        <Grid id="grd_main01" taborder="66" useinputpanel="false" top="1273" right="15" left="0" autofittype="none" height="140" autosizebandtype="body" binddataset="ds_input_add_data" oncellclick="grd_main01_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="140"/>
+                <Column size="140"/>
+                <Column size="64"/>
+                <Column size="200"/>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="물류센터코드"/>
+                <Cell col="2" text="매입처코드"/>
+                <Cell col="3" text="삭제여부"/>
+                <Cell col="4" text="물류센터명"/>
+                <Cell col="5" text="매입처명"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:NA_BZPLC"/>
+                <Cell col="2" text="bind:CSER_TRPL_C"/>
+                <Cell col="3" text="bind:DEL_YN" expr="expr:DEL_YN=='1'?'삭제':''"/>
+                <Cell col="4" style="align:left;" text="bind:NA_BZPLC_NM"/>
+                <Cell col="5" style="align:left;" text="bind:CSER_TRPL_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_title19" taborder="67" text="계통탄력가격" cssclass="sta_WF_Label" left="196" top="1001" width="110" height="29" style="font:9 Gulim;"/>
+        <Static id="sta_title17" taborder="68" text="물류센터코드" cssclass="sta_WF_Label" left="0" top="1241" width="110" height="29" style="font:9 Gulim;"/>
+        <Static id="sta_title21" taborder="69" text="물류직송" cssclass="sta_WF_Label" left="588" top="1001" width="110" height="29" style="font:9 Gulim;"/>
+        <CheckBox id="chk_all_click00" taborder="74" text="일괄" left="736" top="1006" width="46" height="19" style="font:8 Gulim;" enable="false" truevalue="1" falsevalue="0" value="0"/>
+        <Edit id="edt_data19" taborder="18" inputtype="number" cssclass="WF_Essential" left="234" top="352" width="143" height="21" visible="false" maxlength="25"/>
+        <Static id="sta_back_bar07" taborder="75" cssclass="sta_WF_Labelbg" left="0" top="945" right="15" height="29"/>
+        <Static id="sta_treatment00" taborder="76" text="처리대상건수 :" left="7" top="949" width="110" height="21"/>
+        <Static id="sta_treat_count00" taborder="77" text="0" left="119" top="949" width="25" height="21"/>
+        <Button id="btn_add_modify00" taborder="80" text="행추가/수정" left="656" top="949" width="75" height="21" onclick="btn_control00_onclick" enable="false"/>
+        <Button id="btn_clear00" taborder="81" text="CLEAR" left="734" top="949" width="47" height="21" enable="false" onclick="btn_clear_onclick"/>
+        <MaskEdit id="mae_input_pay00" taborder="84" left="309" top="977" width="80" height="21" mask="#,##0" value="0" enable="false"/>
+        <MaskEdit id="mae_input_pay01" taborder="85" left="505" top="977" width="80" height="21" value="0" mask="#,##0" enable="false"/>
+        <MaskEdit id="mae_input_pay02" taborder="86" value="0" left="701" top="977" width="32" height="21" enable="false"/>
+        <MaskEdit id="mae_input_pay03" taborder="87" value="0" mask="#,##0" left="113" top="1005" width="80" height="21" enable="false"/>
+        <MaskEdit id="mae_input_pay04" taborder="88" value="0" mask="#,##0" left="309" top="1005" width="80" height="21" enable="false"/>
+        <MaskEdit id="mae_input_pay05" taborder="89" value="0" left="505" top="1005" width="80" height="21" enable="false" mask="#,##0"/>
+        <MaskEdit id="mae_input_pay06" taborder="90" value="0" left="701" top="1005" width="32" height="21" enable="false" mask="#,##0"/>
+        <Static id="sta_treat_count02" taborder="91" text="건" left="143" top="949" width="25" height="21"/>
+        <Static id="sta_input_val00" taborder="93" text="0" left="229" top="949" width="41" height="21" enable="true" visible="false"/>
+        <Div id="div_search" taborder="52" left="0" top="419" height="485" right="15" style="border:0 solid #808080ff ;bordertype:normal 0 0 ;">
+          <Layouts>
+            <Layout>
+              <Static id="Static26" taborder="20" cssclass="sta_WF_Labelbg" left="109" top="0" right="0" height="29"/>
+              <Static id="Static28" taborder="0" cssclass="sta_WF_Labelbg" left="109" top="56" right="0" height="29"/>
+              <Static id="sta_title00" taborder="1" text="상품유형" cssclass="sta_WF_Label" left="0" top="0" width="110" height="29"/>
+              <Static id="sta_title02" taborder="2" text="공병코드/수량" cssclass="sta_WF_Label" left="0" top="28" width="110" height="29"/>
+              <Static id="sta_title04" taborder="3" text="단량/단위/포장 *" left="0" top="56" width="110" height="29" style="color:#353e41ff;" cssclass="sta_WF_Label"/>
+              <Static id="Static27" taborder="4" cssclass="sta_WF_Labelbg" left="109" top="28" right="0" height="29"/>
+              <Static id="sta_title05" taborder="5" text="브랜드" cssclass="sta_WF_Label" left="380" top="56" width="110" height="29" visible="false"/>
+              <Static id="sta_title06" taborder="6" text="보관방식 *" cssclass="sta_WF_Label" left="0" top="84" width="110" height="29"/>
+              <Static id="Static05" taborder="7" cssclass="sta_WF_Labelbg" left="109" top="84" right="0" height="29"/>
+              <Static id="sta_title07" taborder="8" text="용도 *" cssclass="sta_WF_Label" left="380" top="84" width="110" height="29"/>
+              <Static id="sta_title03" taborder="9" text="공상자코드" cssclass="sta_WF_Label" left="380" top="28" width="110" height="29"/>
+              <Edit id="edt_div_data04" taborder="29" readonly="false" left="113" top="60" width="70" height="21" cssclass="WF_Essential"/>
+              <Static id="Static00" taborder="10" onclick="Static00_onclick" cssclass="sta_WF_Labelbg" left="109" top="140" right="0" height="53"/>
+              <Static id="Static04" taborder="11" text="수입여부" cssclass="sta_WF_Label" left="0" top="112" width="110" height="29"/>
+              <Static id="Static06" taborder="12" text="유통기한&#13;&#10;관리여부" cssclass="sta_WF_Label" left="0" top="140" width="110" height="53"/>
+              <Static id="Static07" taborder="13" cssclass="sta_WF_Labelbg" left="109" top="112" right="0" height="29"/>
+              <Static id="Static08" taborder="14" text="박스당입수 *" cssclass="sta_WF_Label" left="0" top="192" width="110" height="29"/>
+              <Static id="Static11" taborder="15" text="유통기한&#13;&#10;표기방법" cssclass="sta_WF_Label" left="380" top="140" width="110" height="53" visible="false"/>
+              <Static id="Static12" taborder="16" cssclass="sta_WF_Labelbg" left="109" top="192" right="0" height="29"/>
+              <Static id="Static16" taborder="17" text="RFID사용여부" cssclass="sta_WF_Label" left="380" top="112" width="110" height="29"/>
+              <Combo id="cbo_div_list00" taborder="30" innerdataset="@ds_wrs_dsc" codecolumn="NA_WRS_ATTR_C" datacolumn="NA_WRS_ATTNM" left="196" top="60" width="70" height="21" index="-1"/>
+              <Combo id="cbo_div_list02" taborder="32" codecolumn="NA_WRS_ATTR_C" datacolumn="NA_WRS_ATTNM" left="113" top="88" width="151" height="21" innerdataset="@ds_wrs_dsc3"/>
+              <Combo id="cbo_div_list04" taborder="45" left="493" top="88" width="151" height="21" codecolumn="NA_WRS_ATTR_C" datacolumn="NA_WRS_ATTNM" innerdataset="@ds_wrs_dsc4"/>
+              <Static id="sta_title01" taborder="18" text="주류상품여부" cssclass="sta_WF_Label" left="380" top="0" width="110" height="29"/>
+              <Static id="Static10" taborder="19" text="유효기간 *" cssclass="sta_WF_Label" left="380" top="192" width="110" height="29" visible="false"/>
+              <Radio id="rdo_store_code00" taborder="21" index="0" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="113" top="4" width="264" height="21" style="font:9 Gulim;" value="1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">일반상품</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">공병</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">공상자</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_div_data01" taborder="22" inputtype="number" cssclass="WF_Essential" left="113" top="32" width="80" height="21" maxlength="25" onkeydown="div_search_edt_div_data01_onkeydown"/>
+              <Edit id="edt_div_data02" taborder="23" cssclass="WF_Essential" left="196" top="32" width="100" height="21" onkeydown="div_search_edt_div_data02_onkeydown"/>
+              <Button id="btn_popup00" taborder="24" cssclass="btn_WF_Searchbtn" left="299" top="32" width="21" height="21" onclick="div_search_btn_popup00_onclick"/>
+              <Edit id="edt_div_data03" taborder="26" maxlength="3" cssclass="WF_Essential" left="323" top="32" width="30" height="21"/>
+              <Static id="Static13" taborder="25" text="개" left="358" top="32" width="20" height="21"/>
+              <Static id="Static14" taborder="27" text="/" left="186" top="60" width="10" height="21"/>
+              <Static id="Static15" taborder="28" text="/" left="269" top="60" width="10" height="21"/>
+              <Combo id="cbo_div_list01" taborder="31" codecolumn="NA_WRS_ATTR_C" datacolumn="NA_WRS_ATTNM" left="279" top="60" width="98" height="21" innerdataset="@ds_wrs_dsc2"/>
+              <Radio id="rdo_store_code01" taborder="33" index="-1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="113" top="116" width="151" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="rdo_store_code02" taborder="34" index="-1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="113" top="156" width="151" height="21" onitemchanged="div_search_rdo_store_code02_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="rdo_store_code03" taborder="36" index="-1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="493" top="4" width="151" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_div_data08" taborder="37" inputtype="number" cssclass="WF_Essential" left="493" top="32" width="110" height="21" maxlength="25" onkeydown="div_search_edt_div_data08_onkeydown"/>
+              <Edit id="edt_div_data09" taborder="38" cssclass="WF_Essential" left="606" top="32" width="131" height="21" onkeydown="div_search_edt_div_data09_onkeydown"/>
+              <Button id="btn_popup01" taborder="39" cssclass="btn_WF_Searchbtn" left="740" top="32" width="21" height="21" onclick="div_search_btn_popup01_onclick"/>
+              <Edit id="edt_div_data10" taborder="41" inputtype="number" cssclass="WF_Essential" left="493" top="60" width="110" height="21" visible="false" maxlength="25"/>
+              <Edit id="edt_div_data11" taborder="43" cssclass="WF_Essential" left="606" top="60" width="131" height="21" visible="false"/>
+              <Radio id="rdo_store_code04" taborder="40" index="-1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="493" top="116" width="151" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_div_data13" taborder="35" readonly="false" cssclass="WF_Essential" left="113" top="196" width="100" height="21" value="1"/>
+              <Combo id="cbo_div_list03" taborder="42" codecolumn="codecolumn" datacolumn="datacolumn" left="493" top="156" width="151" height="21" onitemchanged="div_edit_cbo_div_list03_onitemchanged" index="-1" visible="false">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">유통기한</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">제조일자</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static17" taborder="44" text="단수" cssclass="sta_WF_Label" left="0" top="228" width="110" height="29"/>
+              <Static id="Static18" taborder="46" cssclass="sta_WF_Labelbg" left="109" top="228" right="0" height="29"/>
+              <Static id="Static21" taborder="47" text="박스 수" cssclass="sta_WF_Label" left="380" top="228" width="110" height="29"/>
+              <Static id="Static22" taborder="48" onclick="Static00_onclick" cssclass="sta_WF_Labelbg" left="109" top="284" right="0" height="29"/>
+              <Static id="Static23" taborder="49" text="박스 중량(Kg)" cssclass="sta_WF_Label" left="0" top="256" width="110" height="29"/>
+              <Static id="Static24" taborder="50" text="측면이미지" cssclass="sta_WF_Label" left="0" top="284" width="110" height="29"/>
+              <Static id="Static25" taborder="51" cssclass="sta_WF_Labelbg" left="109" top="256" right="0" height="29"/>
+              <Static id="Static29" taborder="52" text="윗면이미지" cssclass="sta_WF_Label" left="380" top="284" width="110" height="29"/>
+              <Static id="Static30" taborder="53" text="전면이미지" cssclass="sta_WF_Label" left="0" top="312" width="110" height="29"/>
+              <Static id="Static31" taborder="54" cssclass="sta_WF_Labelbg" left="109" top="312" right="0" height="29"/>
+              <Static id="Static33" taborder="55" text="세로(CM)" cssclass="sta_WF_Label" left="380" top="256" width="110" height="29"/>
+              <Static id="Static34" taborder="56" cssclass="sta_WF_Label" left="380" top="312" width="110" height="29"/>
+              <Static id="Static36" taborder="57" text="적수" cssclass="sta_WF_Label" left="190" top="228" width="110" height="29"/>
+              <Static id="Static37" taborder="58" text="가로(CM)" cssclass="sta_WF_Label" left="190" top="256" width="110" height="29"/>
+              <Static id="Static38" taborder="59" text="박스 용적" cssclass="sta_WF_Label" left="583" top="228" width="110" height="29"/>
+              <Static id="Static39" taborder="60" text="상품높이(CM)" cssclass="sta_WF_Label" left="583" top="256" width="110" height="29"/>
+              <Edit id="edt_div_data14" taborder="61" readonly="false" cssclass="WF_Essential" left="113" top="232" width="74" height="21" value="0" enable="false"/>
+              <Edit id="edt_div_data15" taborder="62" readonly="false" cssclass="WF_Essential" left="303" top="232" width="74" height="21" value="0" enable="false"/>
+              <Edit id="edt_div_data16" taborder="63" readonly="false" cssclass="WF_Essential" left="493" top="232" width="87" height="21" value="0" enable="false"/>
+              <Edit id="edt_div_data17" taborder="64" readonly="false" cssclass="WF_Essential" left="696" top="232" width="88" height="21" value="0" enable="false"/>
+              <Edit id="edt_div_data18" taborder="65" readonly="false" cssclass="WF_Essential" left="113" top="260" width="74" height="21" value="0" enable="false"/>
+              <Edit id="edt_div_data19" taborder="66" readonly="false" cssclass="WF_Essential" left="303" top="260" width="74" height="21" value="0" enable="false"/>
+              <Edit id="edt_div_data20" taborder="67" readonly="false" cssclass="WF_Essential" left="493" top="260" width="87" height="21" value="0" enable="false"/>
+              <Edit id="edt_div_data21" taborder="68" readonly="false" cssclass="WF_Essential" left="696" top="260" width="88" height="21" value="0" enable="false"/>
+              <Static id="Static35" taborder="69" cssclass="sta_WF_Labelbg" left="109" top="400" right="0" height="29"/>
+              <Static id="Static40" taborder="70" text="기본단위&#13;&#10;구분코드" cssclass="sta_WF_Label" left="0" top="348" width="110" height="53"/>
+              <Static id="Static41" taborder="71" text="바이어 *" cssclass="sta_WF_Label" left="0" top="400" width="110" height="29"/>
+              <Static id="Static42" taborder="72" cssclass="sta_WF_Labelbg" left="109" top="348" right="0" height="53"/>
+              <Static id="Static43" taborder="73" text="신청내용&#13;&#10;신청자전화" cssclass="sta_WF_Label" left="380" top="348" width="110" height="53"/>
+              <Static id="Static44" taborder="74" text="최초등록일시" cssclass="sta_WF_Label" left="0" top="428" width="110" height="29"/>
+              <Static id="Static45" taborder="75" cssclass="sta_WF_Labelbg" left="109" top="428" right="0" height="29"/>
+              <Static id="Static46" taborder="76" text="최종변경일시" cssclass="sta_WF_Label" left="380" top="428" width="110" height="29"/>
+              <Edit id="edt_div_data30" taborder="77" readonly="false" left="493" top="404" width="110" height="21" inputtype="number" maxlength="25"/>
+              <Static id="Static47" taborder="78" text="최종사용자" cssclass="sta_WF_Label" left="0" top="456" width="110" height="29"/>
+              <Static id="Static48" taborder="79" cssclass="sta_WF_Labelbg" left="109" top="456" right="0" height="29"/>
+              <Static id="Static49" taborder="80" text="최종사용사업장" cssclass="sta_WF_Label" left="380" top="456" width="110" height="29"/>
+              <Edit id="edt_div_data31" taborder="81" readonly="false" left="606" top="404" width="131" height="21"/>
+              <Combo id="cbo_div_list06" taborder="82" left="113" top="364" width="234" height="21" innerdataset="@ds_unt_dsc" datacolumn="SIMP_CNM" codecolumn="SIMP_C" readonly="true"/>
+              <Static id="Static57" taborder="83" text="계약업체 *" cssclass="sta_WF_Label" left="380" top="400" width="110" height="29"/>
+              <Edit id="edt_div_data25" taborder="84" cssclass="WF_Essential" left="113" top="404" width="100" height="21" enable="true" maxlength="13" onkeydown="div_search_edt_div_data25_onkeydown"/>
+              <Edit id="edt_div_data26" taborder="85" cssclass="WF_Essential" left="216" top="404" width="131" height="21" onkeydown="div_search_edt_div_data26_onkeydown"/>
+              <Button id="btn_popup02" taborder="86" cssclass="btn_WF_Searchbtn" left="350" top="404" width="21" height="21" onclick="div_search_btn_popup02_onclick"/>
+              <Edit id="edt_div_data27" taborder="87" inputtype="number" cssclass="WF_Essential" left="113" top="432" width="234" height="21" enable="false"/>
+              <Edit id="edt_div_data28" taborder="88" inputtype="number" cssclass="WF_Essential" left="113" top="460" width="110" height="21" enable="false"/>
+              <Edit id="edt_div_data29" taborder="89" cssclass="WF_Essential" left="226" top="460" width="121" height="21" enable="false"/>
+              <Edit id="edt_div_data32" taborder="90" readonly="false" left="493" top="352" width="244" height="21"/>
+              <Edit id="edt_div_data33" taborder="91" readonly="false" left="493" top="376" width="244" height="21"/>
+              <Edit id="edt_div_data34" taborder="92" readonly="true" left="493" top="432" width="244" height="21" enable="false"/>
+              <Edit id="edt_div_data35" taborder="93" readonly="false" left="493" top="460" width="110" height="21" enable="false" maxlength="13"/>
+              <Edit id="edt_div_data36" taborder="94" readonly="true" left="606" top="460" width="131" height="21" enable="false"/>
+              <Combo id="cbo_div_list05" taborder="95" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="544" top="196" width="100" height="21" innerdataset="@ds_vld_prd_dsc" visible="false"/>
+              <FileUpload id="FileUpload00" taborder="96" retry="0" index="0" left="111" top="288" width="266" height="21" onitemchanged="div_search_FileUpload00_onitemchanged" onerror="FileUpload_onerror" onsuccess="FileUpload_onsuccess"/>
+              <FileUpload id="FileUpload01" taborder="97" retry="0" index="0" left="111" top="316" width="266" height="21" onitemchanged="div_search_FileUpload01_onitemchanged" onerror="FileUpload_onerror" onsuccess="FileUpload_onsuccess"/>
+              <FileUpload id="FileUpload02" taborder="98" retry="0" index="0" left="491" top="288" width="266" height="21" onitemchanged="div_search_FileUpload02_onitemchanged" onerror="FileUpload_onerror" onsuccess="FileUpload_onsuccess"/>
+              <Static id="sta_file_data" taborder="99" left="537" top="316" height="21" width="88" visible="false"/>
+              <Static id="sta_file2_data" taborder="100" left="624" top="316" height="21" width="89" visible="false"/>
+              <Static id="sta_file3_data" taborder="101" left="695" top="316" height="21" width="85" visible="false"/>
+              <Edit id="edt_day" taborder="102" left="493" top="196" height="21" width="48" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Radio id="rdo_store_code01" taborder="16" index="1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="113" top="328" width="151" height="21" style="font:9 Gulim;" value="0">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">여</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">부</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Button id="btn_clear02" taborder="94" text="초기화" cssclass="btn_WF_CRUD" top="0" right="59" width="53" height="21" onclick="btn_clear02_onclick"/>
+        <Static id="sta_title13" taborder="55" text="점포유형" cssclass="sta_WF_Label" left="0" top="973" width="110" height="29" style="font:9 Gulim;"/>
+        <Static id="sta_title18" taborder="61" text="관리수수료" cssclass="sta_WF_Label" left="0" top="1001" width="110" height="29" style="font:9 Gulim;"/>
+        <Static id="sta_back_bar10" taborder="95" cssclass="sta_WF_Labelbg" left="109" top="1241" right="15" height="29"/>
+        <Static id="sta_back_bar11" taborder="96" cssclass="sta_WF_Labelbg" left="0" top="1213" right="15" height="29"/>
+        <Button id="btn_clear01" taborder="82" text="CLEAR" left="737" top="1217" width="47" height="21" enable="false" onclick="btn_clear_onclick"/>
+        <Button id="btn_add_modify01" taborder="83" text="행추가/수정" left="659" top="1217" width="75" height="21" onclick="btn_control01_onclick" enable="false"/>
+        <Static id="sta_treat_count03" taborder="92" text="건" left="143" top="1217" width="25" height="21"/>
+        <Static id="sta_treatment01" taborder="78" text="처리대상건수 :" left="7" top="1217" width="110" height="21"/>
+        <Static id="sta_treat_count01" taborder="79" text="0" left="119" top="1217" width="25" height="21"/>
+        <Static id="sta_title22" taborder="72" text="매입처코드" cssclass="sta_WF_Label" left="392" top="1241" width="110" height="29" style="font:9 Gulim;"/>
+        <Combo id="cbo_list_wrs05" taborder="59" left="113" top="1245" width="221" height="21" enable="false" datacolumn="SHRT_BZPLNM" codecolumn="NA_BZPLC" index="-1" innerdataset="@ds_Bzplc"/>
+        <CheckBox id="chk_del_yn01" taborder="73" text="삭제" left="340" top="1246" width="46" height="19" style="font:8 Gulim;" enable="false" truevalue="1" falsevalue="0" value="0"/>
+        <Edit id="edt_data18" taborder="71" cssclass="WF_Essential" left="611" top="1245" width="149" height="21" enable="false" value="대상에프앤에프(주)"/>
+        <Button id="btn_popup03" taborder="63" cssclass="btn_WF_Searchbtn" left="763" top="1245" width="21" height="21" enable="false"/>
+        <Edit id="edt_data17" taborder="70" cssclass="WF_Essential" left="505" top="1245" width="103" height="21" enable="false" value="8801099000016"/>
+        <Static id="sta_back_bar03" taborder="97" cssclass="sta_WF_Labelbg" left="109" top="164" width="272" height="29"/>
+        <Edit id="edt_data03" taborder="4" readonly="false" left="113" top="168" width="264" height="21"/>
+        <Static id="sta_pagename04" taborder="98" text="추가정보" cssclass="sta_WF_Subtitle" left="0" top="1189" width="180" height="21"/>
+        <Radio id="rdo_search_sep" taborder="0" left="116" top="70" height="21" width="235" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="1" onitemchanged="rdo_search_sep_onitemchanged" index="0">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">신규상품등록</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">요청상품정보변경</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Radio id="rdo_store_code02" taborder="21" left="493" top="254" height="34" direction="vertical" codecolumn="codecolumn" datacolumn="datacolumn" value="6" width="256">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">5</Col>
+                <Col id="datacolumn">1차상품</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">6</Col>
+                <Col id="datacolumn">2차공산품</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">7</Col>
+                <Col id="datacolumn">2차자재품</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Edit id="edt_WRS_MODIFY_YN" taborder="99" top="5" height="21" value="0" readonly="true" width="84" right="172" visible="false"/>
+        <Static id="sta_input_sep" taborder="100" left="569" top="1217" height="21" width="65" text="0" visible="false"/>
+        <CheckBox id="chk_DELETE_YN" taborder="101" text="삭제" value="0" truevalue="1" falsevalue="0" left="696" top="71" width="86" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="edt_data13" propid="value" datasetid="ds_wrs_rg_req" columnid="RQ_NA_WRS_C"/>
+      <BindItem id="item3" compid="edt_data03" propid="value" datasetid="ds_wrs_rg_req" columnid="WRSNM"/>
+      <BindItem id="item4" compid="edt_data04" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_ABR_NM"/>
+      <BindItem id="item5" compid="edt_data05" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_ENM"/>
+      <BindItem id="item6" compid="edt_data06" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_LCLC"/>
+      <BindItem id="item7" compid="edt_data07" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_MCLC"/>
+      <BindItem id="item8" compid="edt_data08" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_SCLC"/>
+      <BindItem id="item9" compid="edt_data09" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_DTCF_C"/>
+      <BindItem id="item10" compid="edt_data12" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_STDNM"/>
+      <BindItem id="item11" compid="rdo_store_code03" propid="value" datasetid="ds_wrs_rg_req" columnid="TXT_DSC"/>
+      <BindItem id="item12" compid="div_search.rdo_store_code03" propid="value" datasetid="ds_wrs_rg_req" columnid="LIQ_YN"/>
+      <BindItem id="item13" compid="div_search.rdo_store_code00" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_TPC"/>
+      <BindItem id="item14" compid="edt_data15" propid="value" datasetid="ds_wrs_rg_req" columnid="MFT_NA_TRPL_C"/>
+      <BindItem id="item15" compid="div_search.edt_div_data04" propid="value" datasetid="ds_wrs_rg_req" columnid="WHT"/>
+      <BindItem id="item16" compid="div_search.cbo_div_list00" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_UNT_C"/>
+      <BindItem id="item17" compid="rdo_store_code01" propid="value" datasetid="ds_wrs_rg_req" columnid="COMM_WRS_YN"/>
+      <BindItem id="item18" compid="div_search.edt_div_data10" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_BRAN_C"/>
+      <BindItem id="item19" compid="div_search.cbo_div_list02" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_CSTD_METC"/>
+      <BindItem id="item20" compid="div_search.cbo_div_list04" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_UZC"/>
+      <BindItem id="item21" compid="div_search.rdo_store_code01" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_IPO_DSC"/>
+      <BindItem id="item22" compid="div_search.cbo_div_list05" propid="value" datasetid="ds_wrs_rg_req" columnid="VLD_PRD_DSC"/>
+      <BindItem id="item23" compid="cbo_list_wrs00" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_STD_UNT_C"/>
+      <BindItem id="item24" compid="div_search.edt_div_data21" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_HGHT"/>
+      <BindItem id="item25" compid="div_search.edt_div_data20" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_LEN_LEN"/>
+      <BindItem id="item26" compid="div_search.edt_div_data19" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_WDTH_LEN"/>
+      <BindItem id="item27" compid="div_search.edt_div_data01" propid="value" datasetid="ds_wrs_rg_req" columnid="VCBT_NA_WRS_C"/>
+      <BindItem id="item28" compid="div_search.edt_div_data03" propid="value" datasetid="ds_wrs_rg_req" columnid="VCBT_QT"/>
+      <BindItem id="item29" compid="txa_contents00" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_DTL_EXPL"/>
+      <BindItem id="item30" compid="div_search.edt_div_data13" propid="value" datasetid="ds_wrs_rg_req" columnid="BOXPE_AQZ"/>
+      <BindItem id="item31" compid="div_search.edt_div_data27" propid="value" datasetid="ds_wrs_rg_req" columnid="FSRG_DTM"/>
+      <BindItem id="item32" compid="div_search.edt_div_data34" propid="value" datasetid="ds_wrs_rg_req" columnid="LSCHG_DTM"/>
+      <BindItem id="item34" compid="div_search.edt_div_data35" propid="value" datasetid="ds_wrs_rg_req" columnid="LSCGMN_NA_BZPLC"/>
+      <BindItem id="item35" compid="div_search.cbo_div_list06" propid="value" datasetid="ds_wrs_rg_req" columnid="BSC_UNT_DSC"/>
+      <BindItem id="item37" compid="div_search.edt_div_data14" propid="value" datasetid="ds_wrs_rg_req" columnid="PLTPE_SGNO"/>
+      <BindItem id="item38" compid="div_search.edt_div_data15" propid="value" datasetid="ds_wrs_rg_req" columnid="PLTPE_LYNO"/>
+      <BindItem id="item39" compid="div_search.edt_div_data16" propid="value" datasetid="ds_wrs_rg_req" columnid="PLTPE_BOX_CN"/>
+      <BindItem id="item40" compid="div_search.edt_div_data17" propid="value" datasetid="ds_wrs_rg_req" columnid="BOX_BULK"/>
+      <BindItem id="item41" compid="div_search.edt_div_data18" propid="value" datasetid="ds_wrs_rg_req" columnid="BOX_WT"/>
+      <BindItem id="item42" compid="div_search.edt_div_data08" propid="value" datasetid="ds_wrs_rg_req" columnid="VCBX_NA_WRS_C"/>
+      <BindItem id="item44" compid="div_search.edt_div_data32" propid="value" datasetid="ds_wrs_rg_req" columnid="RQ_CNTN"/>
+      <BindItem id="item43" compid="div_search.edt_div_data33" propid="value" datasetid="ds_wrs_rg_req" columnid="CTCPL_TELNO"/>
+      <BindItem id="item45" compid="cbo_list_wrs02" propid="value" datasetid="ds_wrs_rg_req" columnid="SLGT_ETR_DSC"/>
+      <BindItem id="item2" compid="rdo_store_code02" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_DSC"/>
+      <BindItem id="item46" compid="div_search.rdo_store_code02" propid="value" datasetid="ds_wrs_rg_req" columnid="DSTR_TER_YN"/>
+      <BindItem id="item47" compid="div_search.rdo_store_code04" propid="value" datasetid="ds_wrs_rg_req" columnid="RFID_UYN"/>
+      <BindItem id="item48" compid="div_search.cbo_div_list03" propid="value" datasetid="ds_wrs_rg_req" columnid="DSTR_TER_MRK_DSC"/>
+      <BindItem id="item49" compid="edt_WRS_MODIFY_YN" propid="value" datasetid="ds_wrs_rg_req" columnid="WRS_MODIFY_YN"/>
+      <BindItem id="item1" compid="div_search.edt_div_data25" propid="value" datasetid="ds_wrs_rg_req" columnid="BUYER_ENO"/>
+      <BindItem id="item50" compid="div_search.cbo_div_list01" propid="value" datasetid="ds_wrs_rg_req" columnid="NA_WRS_PAK_C"/>
+      <BindItem id="item51" compid="edt_data19" propid="value" datasetid="ds_wrs_rg_req" columnid="STPL_AMN_NA_WRS_C"/>
+      <BindItem id="item33" compid="cbo_list_wrs03" propid="value" datasetid="ds_wrs_rg_req" columnid="SMA_APL_TPC"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_input_data" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="VAN_C_RQ_NO" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="15"/>
+          <Column id="NA_TEAM_C" type="STRING" size="2"/>
+          <Column id="PRGR_C" type="STRING" size="4"/>
+          <Column id="BYNG_UPR" type="STRING" size="25"/>
+          <Column id="SEL_UPR" type="STRING" size="25"/>
+          <Column id="COMP_FEERT" type="STRING" size="15"/>
+          <Column id="PHD_FEERT" type="STRING" size="15"/>
+          <Column id="DDLY_PHD_FEERT" type="STRING" size="15"/>
+          <Column id="TROT_FEERT" type="STRING" size="15"/>
+          <Column id="AMN_FEERT" type="STRING" size="15"/>
+          <Column id="PY_FDTCN" type="STRING" size="15"/>
+          <Column id="DEL_YN" type="STRING" size="15"/>
+          <Column id="PRGR_C_TEXT" type="STRING" size="10"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sma_apl_tpc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="10"/>
+          <Column id="SIMP_CNM" type="STRING" size="50"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_std_unt_c" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="10"/>
+          <Column id="SIMP_CNM" type="STRING" size="50"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_store_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NUM" type="STRING" size="256"/>
+          <Column id="CODE1" type="STRING" size="256"/>
+          <Column id="CODE2" type="STRING" size="256"/>
+          <Column id="CODE3" type="STRING" size="256"/>
+          <Column id="CODE4" type="STRING" size="256"/>
+          <Column id="CODE5" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_id_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="10"/>
+          <Column id="SIMP_CMN" type="STRING" size="50"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_rg_req" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="VAN_C_RQ_NO" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_NO" type="STRING" size="10"/>
+          <Column id="NA_C_RQ_OBJ_DSC" type="STRING" size="13"/>
+          <Column id="CTCPL_TELNO" type="STRING" size="14"/>
+          <Column id="RQ_CNTN" type="STRING" size="200"/>
+          <Column id="APV_RQ_NA_BZPLC" type="STRING" size="13"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="9"/>
+          <Column id="FSRGMN_NA_BZPLC" type="STRING" size="25"/>
+          <Column id="BUYER_ENO" type="STRING" size="9"/>
+          <Column id="RQ_NA_WRS_C" type="STRING" size="25"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRS_C_DSC" type="STRING" size="256"/>
+          <Column id="WRS_DSC" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="WRS_ABR_NM" type="STRING" size="256"/>
+          <Column id="WRS_ENM" type="STRING" size="256"/>
+          <Column id="WRS_TPC" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="TXT_DSC" type="STRING" size="256"/>
+          <Column id="SMA_APL_TPC" type="STRING" size="256"/>
+          <Column id="LIQ_YN" type="STRING" size="256"/>
+          <Column id="COMM_WRS_YN" type="STRING" size="256"/>
+          <Column id="MFT_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="WHT" type="STRING" size="256"/>
+          <Column id="NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_PAK_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_SZE_SEX_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_QLT_GRDC" type="STRING" size="256"/>
+          <Column id="NA_WRS_BRAN_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_PROENV_DSC" type="STRING" size="256"/>
+          <Column id="GAP_ATTC_YN" type="STRING" size="256"/>
+          <Column id="NA_WRS_NACF_QLT_ATTC_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_CSTD_METC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DSTR_STSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_UZC" type="STRING" size="256"/>
+          <Column id="NA_WRS_IPO_DSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_PDAA_C" type="STRING" size="256"/>
+          <Column id="VLD_PRD_CN" type="STRING" size="256"/>
+          <Column id="VLD_PRD_DSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_STD_UNT_C" type="STRING" size="256"/>
+          <Column id="WRS_HGHT" type="STRING" size="256"/>
+          <Column id="WRS_LEN_LEN" type="STRING" size="256"/>
+          <Column id="WRS_WDTH_LEN" type="STRING" size="256"/>
+          <Column id="WRS_SGRT" type="STRING" size="256"/>
+          <Column id="WRS_SDL_DSC" type="STRING" size="256"/>
+          <Column id="WRS_AHL_CN" type="STRING" size="256"/>
+          <Column id="MTRL_STD_THKN" type="STRING" size="256"/>
+          <Column id="CICL_WRS_STD_DMTR_CN" type="STRING" size="256"/>
+          <Column id="CICL_WRS_STD_DPTH_CN" type="STRING" size="256"/>
+          <Column id="VCBT_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="VCBT_QT" type="STRING" size="256"/>
+          <Column id="VCBX_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="CVS_QT" type="STRING" size="256"/>
+          <Column id="CVS_NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="WRS_DTL_EXPL" type="STRING" size="256"/>
+          <Column id="BSC_UNT_DSC" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+          <Column id="WRS_FL_CN" type="STRING" size="256"/>
+          <Column id="KNET_WRS_NO" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+          <Column id="TR_STOP_RSNC" type="STRING" size="256"/>
+          <Column id="TR_STOP_DT" type="STRING" size="256"/>
+          <Column id="DEL_YN" type="STRING" size="256"/>
+          <Column id="FSRGMN_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="LSCGMN_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="TEMP_YN" type="STRING" size="256"/>
+          <Column id="RFID_UYN" type="STRING" size="256"/>
+          <Column id="FOMNM" type="STRING" size="256"/>
+          <Column id="SLGT_ETR_DSC" type="STRING" size="256"/>
+          <Column id="DSTR_TER_YN" type="STRING" size="256"/>
+          <Column id="DSTR_TER_MRK_DSC" type="STRING" size="256"/>
+          <Column id="WRS_MODIFY_YN" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="RSP_C_CNTN" type="STRING" size="256"/>
+          <Column id="REQ_RESULT" type="STRING" size="256"/>
+          <Column id="CNF_ENO" type="STRING" size="256"/>
+          <Column id="CNF_DATE" type="STRING" size="256"/>
+          <Column id="CNF_NAME" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_REJ_RSNC" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_STSC" type="STRING" size="256"/>
+          <Column id="STPL_AMN_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="NA_SPYPL_C" type="STRING" size="256"/>
+          <Column id="NA_SPYPL_TEAM_C" type="STRING" size="256"/>
+          <Column id="PLTPE_LYNO" type="STRING" size="256"/>
+          <Column id="PLTPE_SGNO" type="STRING" size="256"/>
+          <Column id="PLTPE_BOX_CN" type="STRING" size="256"/>
+          <Column id="BOX_WT" type="STRING" size="256"/>
+          <Column id="BOX_BULK" type="STRING" size="256"/>
+          <Column id="BOX_WRS_YN" type="STRING" size="256"/>
+          <Column id="BYNG_UPR" type="STRING" size="256"/>
+          <Column id="SEL_UPR" type="STRING" size="256"/>
+          <Column id="CUD_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_vld_prd_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="10"/>
+          <Column id="SIMP_CNM" type="STRING" size="50"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_input_add_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="CSER_TRPL_C" type="STRING" size="256"/>
+          <Column id="DEL_YN" type="STRING" size="256"/>
+          <Column id="CSER_TRPL_NM" type="STRING" size="256"/>
+          <Column id="NA_BZPLC_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadsave" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="VAN_C_RQ_NO" type="STRING" size="32"/>
+          <Column id="FILE_SEQ" type="STRING" size="32"/>
+          <Column id="FILE_NAME" type="STRING" size="32"/>
+          <Column id="FILE_SIZE" type="bigdecimal" size="8"/>
+          <Column id="FILE_SYSTEM_NAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_unt_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1"/>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4"/>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_CIF_INFO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="ATEL" type="STRING" size="256"/>
+          <Column id="HTEL" type="STRING" size="256"/>
+          <Column id="STEL" type="STRING" size="256"/>
+          <Column id="MPSVNO" type="STRING" size="256"/>
+          <Column id="MPHNO" type="STRING" size="256"/>
+          <Column id="MPSQNO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_dsc">
+        <ColumnInfo>
+          <Column id="NA_WRS_ATTR_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_ATTNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_dsc2">
+        <ColumnInfo>
+          <Column id="NA_WRS_ATTR_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_ATTNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_dsc3">
+        <ColumnInfo>
+          <Column id="NA_WRS_ATTR_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_ATTNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_dsc4">
+        <ColumnInfo>
+          <Column id="NA_WRS_ATTR_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_ATTNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Bzplc">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="SHRT_BZPLNM" type="STRING" size="256"/>
+          <Column id="BZPL_TPC" type="STRING" size="256"/>
+          <Column id="BZPL_DTI_TPC" type="STRING" size="256"/>
+          <Column id="BZPL_TPNM" type="STRING" size="256"/>
+          <Column id="BZPL_DTI_TPNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var TRPL_C = application.gv_glnCode; // 로그인 사업장코드
+var TRPL_NM = application.gv_companyName; //로그인 사업장명
+
+
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+	this.ds_wrs_rg_req.addRow();
+	
+	var fileParam = {
+		form:this,		
+		param:[{
+				fileObj: this.div_search.FileUpload00,
+				maxSize:1,										//허용할 파일 사이즈(MB)
+				maxLength:1,									//허용할 파일갯수
+				ext:['jpg','jpeg'],								//허용할 확장자명
+				//valid_after_fail: 'FileUpload_onerror',  		//파일검사 실패후 호출할 함수이름
+				upload_after_succ: 'FileUpload_onsuccess'    	//파일 업로드 성공후 호출할 함수이름
+				//upload_after_fail: 'FileUpload_onerror'  		//파일 업로드 실패후 호출할 함수이름
+			},
+			{
+				fileObj: this.div_search.FileUpload01,
+				maxSize:1,										//허용할 파일 사이즈(MB)
+				maxLength:1,									//허용할 파일갯수
+				ext:['jpg','jpeg'],								//허용할 확장자명
+				upload_after_succ: 'FileUpload_onsuccess'
+			},
+			{
+				fileObj: this.div_search.FileUpload02,
+				maxSize:1,										//허용할 파일 사이즈(MB)
+				maxLength:1,									//허용할 파일갯수
+				ext:['jpg','jpeg'],								//허용할 확장자명
+				upload_after_succ: 'FileUpload_onsuccess'
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);
+	
+	var param = [
+ 		{code:"SMA_APL_TPC", dsName:"ds_sma_apl_tpc", selecttype:"S"}, 	// 0.영세구분코드
+ 		{code:"NA_WRS_UNT_C", dsName:"ds_std_unt_c", selecttype:"S"}, 	// 1.단위코드
+ 		{code:"WRS_ID_DSC", dsName:"ds_wrs_id_dsc", selecttype:"S"}, 	// 2.상품식별구분코드
+ 		{code:"VLD_PRD_DSC", dsName:"ds_vld_prd_dsc", selecttype:"S"}, 	// 3.유통기한표기방법
+ 		{code:"BSC_UNT_DSC", dsName:"ds_unt_dsc", selecttype:"S"}		// 4.기본단위구분코드
+    ];
+	this.gfn_setCommonCode(param);
+	
+	var todays = this.gfn_today('yyyy-MM-dd');
+	
+	this.edt_data15.set_value(TRPL_C);
+	this.edt_data16.set_value(TRPL_NM);
+	this.edt_data17.set_value(TRPL_C);
+	this.edt_data18.set_value(TRPL_NM);
+	this.div_search.edt_div_data27.set_value(todays);
+	this.div_search.edt_div_data28.set_value(application.gv_userId);
+	this.div_search.edt_div_data29.set_value(application.gv_userName);
+	this.div_search.edt_div_data34.set_value(todays);
+	this.div_search.edt_div_data35.set_value(TRPL_C);
+	this.div_search.edt_div_data36.set_value(TRPL_NM);
+	this.rdo_store_code01.set_value(0);
+	this.rdo_store_code02.set_value(6);
+	this.rdo_store_code03.set_value(1);
+	
+	this.cbo_list_wrs03.set_value("");
+	this.div_search.rdo_store_code00.set_value(1);
+	this.div_search.rdo_store_code01.set_value(0);
+	this.div_search.rdo_store_code02.set_value(0);
+	this.div_search.rdo_store_code03.set_value(0);
+	this.div_search.rdo_store_code04.set_value(0);
+	this.div_search.cbo_div_list00.set_value("");
+	this.div_search.cbo_div_list02.set_value("");
+	this.div_search.cbo_div_list04.set_value("");
+	this.div_search.cbo_div_list06.set_value("S");
+	this.cbo_list_wrs02.set_value(2);
+	this.div_search.edt_div_data13.set_value("1");
+	this.div_search.cbo_div_list03.set_index(0);
+	this.cbo_list_wrs05.set_index(0);
+	
+	this.btnDisable(this.btn_save00);
+	
+	this.initcif();
+	this.getBzpl();
+}
+
+//업체 정보
+this.initcif = function()
+{
+	var params		  = "TRPL_C="+TRPL_C
+						+" separator=0";
+	var sSvcID        = "p_initcif";//통신아이디
+	var sURL          = "svc::rest/pds/partner/Trade/retrieveDirectTrade";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_CIF_INFO=ds_CIF_INFO";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+//물류센터 조회
+this.getBzpl = function()
+{
+	var params = "TRPL_C="+application.gv_glnCode;
+	
+	var sSvcID        = "getBzpl_code";//통신아이디
+	var sURL          = "svc::rest/pds/stock/getBZPLCode";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_Bzplc=ds_Bzplc";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+
+// 계약구분에 따른 입력정보 enable 옵션
+this.cbo_list_wrs02_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	// 수탁일 경우
+	if(this.cbo_list_wrs02.value == 2){
+		this.cbo_list_wrs04.set_enable(false);
+		this.cbo_list_wrs05.set_enable(false);
+		this.mae_input_pay00.set_enable(false);
+		this.mae_input_pay01.set_enable(false);
+		this.mae_input_pay02.set_enable(false);
+		this.mae_input_pay03.set_enable(false);
+		this.mae_input_pay04.set_enable(false);
+		this.mae_input_pay05.set_enable(false);
+		this.mae_input_pay06.set_enable(false);
+		this.edt_data17.set_enable(false);
+		this.edt_data18.set_enable(false);
+		this.chk_del_yn01.set_enable(false);
+		this.chk_all_click00.set_enable(false);
+		this.btn_popup03.set_enable(false);
+		this.btn_add_modify00.set_enable(false);
+		this.btn_clear00.set_enable(false);
+		this.btn_add_modify01.set_enable(false);
+		this.btn_clear01.set_enable(false);
+		this.div_search.edt_div_data14.set_enable(false);
+		this.div_search.edt_div_data15.set_enable(false);
+		this.div_search.edt_div_data16.set_enable(false);
+		this.div_search.edt_div_data17.set_enable(false);
+		this.div_search.edt_div_data18.set_enable(false);
+		this.div_search.edt_div_data19.set_enable(false);
+		this.div_search.edt_div_data20.set_enable(false);
+		this.div_search.edt_div_data21.set_enable(false);
+	}else{
+	// 매입일 경우
+		this.cbo_list_wrs04.set_enable(true);
+		this.cbo_list_wrs05.set_enable(true);
+		this.mae_input_pay00.set_enable(true);
+		this.mae_input_pay01.set_enable(true);
+		this.mae_input_pay02.set_enable(true);
+		this.mae_input_pay03.set_enable(true);
+		this.mae_input_pay04.set_enable(true);
+		this.mae_input_pay05.set_enable(true);
+		this.mae_input_pay06.set_enable(true);
+		this.edt_data17.set_enable(true);
+		this.edt_data18.set_enable(true);
+		this.chk_del_yn01.set_enable(true);
+		this.chk_all_click00.set_enable(true);
+		this.btn_popup03.set_enable(true);
+		this.btn_add_modify00.set_enable(true);
+		this.btn_clear00.set_enable(true);
+		this.btn_add_modify01.set_enable(true);
+		this.btn_clear01.set_enable(true);
+		this.div_search.edt_div_data14.set_enable(true);
+		this.div_search.edt_div_data15.set_enable(true);
+		this.div_search.edt_div_data16.set_enable(true);
+		this.div_search.edt_div_data17.set_enable(true);
+		this.div_search.edt_div_data18.set_enable(true);
+		this.div_search.edt_div_data19.set_enable(true);
+		this.div_search.edt_div_data20.set_enable(true);
+		this.div_search.edt_div_data21.set_enable(true);
+		this.cbo_list_wrs04.set_value(00);
+	}
+}
+//조회구분
+this.rdo_search_sep_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.rdo_search_sep.value == "1"){
+		this.chk_TEMP_YN.set_visible(true);
+		this.chk_DELETE_YN.set_value(0);
+		this.chk_DELETE_YN.set_visible(false);
+	}else{
+		this.chk_TEMP_YN.set_visible(false);
+		this.chk_TEMP_YN.set_value(0);
+		this.chk_DELETE_YN.set_visible(true);
+	}
+}
+
+// 공동상품여부/박스상품구분 Edit visible 여부
+this.cbo_list_wrs01_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.cbo_list_wrs01.value == 1){
+		this.edt_data19.set_visible(false);
+		this.edt_data19.set_value("");
+	}else{
+		this.edt_data19.set_visible(true);
+	}
+}
+
+//상품변경(상품기본테이블) 조회 
+// this.search = function()
+// {
+// 	var params 		  = "NA_WRS_C="+this.edt_data20.value
+// 						+" separator=1";
+// 	var sSvcID        = "trpl_c_search";//통신아이디
+// 	var sURL          = "svc::rest/pds/pricat/Product/retrieveNewGoods";// 호출할 서버 페이지 주소
+// 	var sInDatasets   = "";//보내는데이터셋
+// 	var sOutDatasets  = "ds_wrs_rg_req=ds_wrs_rg_req";
+// 	var sArgument     = params;// 파라미터
+// 	var sCallbackFunc = "fn_callback";//콜백
+// 	var tranType 	  = "S"; // U:저장/삭제, S:조회
+// 	
+// 	//API 호출
+// 	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+// }
+
+this.van_search = function(van_code)
+{
+	var params 		  = "VAN_C="+van_code
+						+" separator=2";
+	var sSvcID        = "van_code_search";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveNewGoods";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_wrs_rg_req=ds_wrs_rg_req ds_input_data=ds_input_data ds_uploadsave=ds_uploadsave ds_input_add_data=ds_input_add_data";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+//저장 및 수정
+this.btn_save00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.validation() !=true){
+		return;
+	}
+	bok = application.confirm('[신규상품 (신규/변경) 요청] 등록을 하시겠습니까? \n\n\n※ 하나로마트분사의 승인처리가 완료되면 상품등록이 됩니다.');
+	if(bok == true){
+		var prgrval = "";
+		for(var i =0;i<this.grd_main00.rowcount;i++){
+			if(i<this.grd_main00.rowcount-1){
+				prgrval = "orgpr="+this.ds_input_data.getOrgColumn(i,"PRGR_C")+"/";
+			}else if(i==this.grd_main00.rowcount-1){
+				prgrval = "orgpr="+this.ds_input_data.getOrgColumn(i,"PRGR_C")
+			}
+		}
+		//상품 기본
+		this.addRowFile();	//이미지 파일 데이터셋에 저장
+		this.ds_wrs_rg_req.setColumn(0,"APV_RQ_NA_BZPLC",TRPL_C);
+		this.ds_wrs_rg_req.setColumn(0,"FSRGMN_NA_BZPLC",TRPL_C);
+		
+		prgrval += " rdo_sep="+this.rdo_search_sep.value
+				  +" chk_temp_yn="+this.chk_TEMP_YN.value
+				  +" chk_del_yn="+this.chk_DELETE_YN.value;
+		
+		var params 		  = prgrval;
+		var sSvcID        = "p_save";//통신아이디
+		var sURL          = "svc::rest/pds/pricat/Product/insertNewGoods";// 호출할 서버 페이지 주소
+		var sInDatasets   = "in_ds=ds_input_data:A in_mainds=ds_wrs_rg_req:A in_upload=ds_uploadsave:A in_ds_wrs=ds_input_add_data:A";//보내는데이터셋
+		var sOutDatasets  = "";
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callback";//콜백
+		var tranType 	  = "U"; // U:저장/삭제, S:조회
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}else{
+		return false;
+	}
+}
+
+//2차상품코드 조회
+this.searchCLC = function(gubuncode)
+{
+	var params = "clc_gubun="+gubuncode
+				+" wrs_dsc=01"
+				+" wrs_dsc2=02"
+				+" wrs_dsc3=09"
+				+" wrs_dsc4=11";
+	var sSvcID        = "search_lclc";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveCLCGoods";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_wrs_dsc=ds_wrs_dsc ds_wrs_dsc2=ds_wrs_dsc2 ds_wrs_dsc3=ds_wrs_dsc3 ds_wrs_dsc4=ds_wrs_dsc4";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG) //첫번째 인자값은 통신 ID
+{
+	if(nCD < 0)
+	{
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		if(svcID == "getBzpl_code"){
+			if (this.ds_Bzplc.insertRow(0) != -1){
+				this.ds_Bzplc.setColumn(0,"NA_BZPLC","00");
+				this.ds_Bzplc.setColumn(0,"SHRT_BZPLNM","- 선택 -");
+			};
+			this.cbo_list_wrs05.set_index(0);
+		}
+		if(svcID == "trpl_c_search" && sMSG == "completeSearch"){
+			this.edt_data13.set_value(this.edt_data21.value);
+			this.edt_data10.set_value(
+										this.edt_data06.value+"/"+
+										this.edt_data07.value+"/"+
+										this.edt_data08.value+"/"+
+										this.edt_data09.value
+										);
+			this.edt_data11.set_value(
+										this.ds_wrs_rg_req.getColumn(0,"WRS_LCLFNM")+"/"+
+										this.ds_wrs_rg_req.getColumn(0,"WRS_MCLFNM")+"/"+
+										this.ds_wrs_rg_req.getColumn(0,"WRS_SCLFNM")+"/"+
+										this.ds_wrs_rg_req.getColumn(0,"WRS_DTCFNM")
+										);
+			this.cbo_list_wrs00.set_value(this.ds_wrs_rg_req.getColumn(0,"WRS_ID_DSC"));
+		}
+		if(svcID == "van_code_search" && sMSG =="completeSearch"){
+			var ds_wrs = this.ds_wrs_rg_req;
+			var ds_upl = this.ds_uploadsave;
+			this.sta_treat_count00.set_text(this.grd_main00.rowcount);
+			
+			this.edt_data10.set_value(
+									ds_wrs.getColumn(0,"NA_WRS_LCLC")+
+									ds_wrs.getColumn(0,"NA_WRS_MCLC")+
+									ds_wrs.getColumn(0,"NA_WRS_SCLC")+
+									ds_wrs.getColumn(0,"NA_WRS_DTCF_C")
+									);
+			this.cbo_list_wrs02_onitemchanged();
+		}
+		if(svcID == "p_save" && sMSG == "SUCCESS"){
+			this.gfn_getMessage('alert','result.message.save.success');
+		}
+		if(svcID == "p_initcif"){
+			this.div_search.edt_div_data30.set_value(this.ds_CIF_INFO.getColumn(0,"NA_TRPL_C"));
+			this.div_search.edt_div_data31.set_value(this.ds_CIF_INFO.getColumn(0,"CLNTNM"));
+			this.div_search.edt_div_data33.set_value(this.ds_CIF_INFO.getColumn(0,"ATEL")
+													+"-"+this.ds_CIF_INFO.getColumn(0,"HTEL")
+													+"-"+this.ds_CIF_INFO.getColumn(0,"STEL")
+													);
+		}
+		if(svcID == "search_wrs" && sMSG == "SUCCESS"){
+			if(nCD == 1){
+				this.alert('이미 등록된 상품코드 입니다.');
+				return;
+			}
+		}
+		if(svcID == "search_lclc"){
+			if (this.ds_wrs_dsc.insertRow(0) != -1){
+				this.ds_wrs_dsc.setColumn(0,"NA_WRS_ATTR_C","");
+				this.ds_wrs_dsc.setColumn(0,"NA_WRS_ATTNM","[] 선택안됨");
+			};
+			
+			
+			if (this.ds_wrs_dsc2.insertRow(0) != -1){
+				this.ds_wrs_dsc2.setColumn(0,"NA_WRS_ATTR_C","");
+				this.ds_wrs_dsc2.setColumn(0,"NA_WRS_ATTNM","[] 선택안됨");
+			};
+			
+			if (this.ds_wrs_dsc3.insertRow(0) != -1){
+				this.ds_wrs_dsc3.setColumn(0,"NA_WRS_ATTR_C","");
+				this.ds_wrs_dsc3.setColumn(0,"NA_WRS_ATTNM","[] 선택안됨");
+			};
+
+			if (this.ds_wrs_dsc4.insertRow(0) != -1){
+				this.ds_wrs_dsc4.setColumn(0,"NA_WRS_ATTR_C","");
+				this.ds_wrs_dsc4.setColumn(0,"NA_WRS_ATTNM","[] 선택안됨");
+			};
+			this.div_search.cbo_div_list00.set_index(0);
+			this.div_search.cbo_div_list01.set_index(0);
+			this.div_search.cbo_div_list02.set_index(0);
+			this.div_search.cbo_div_list04.set_index(0);
+		}
+		
+	}
+}
+
+//상품코드 validation 체크
+this.isValueWrsCode = function()
+{
+	var trcode = this.gfn_nullToEmpty(this.edt_data13.value);
+	if(trcode.length < 8 || trcode.length > 18 || 
+	(trcode.length != 8 && trcode.length !=13 && trcode.length !=14 && trcode.length != 18)){
+		return false;
+	}
+	
+	var lastDigit = Number(trcode.substring(trcode.length -1));
+	var checkSum = 0;
+	if(isNaN(lastDigit)){return false;}
+	
+	var arr = trcode.substring(0,trcode.length-1).split("").reverse();
+	var oddTotal = 0;
+	var evenTotal = 0;
+	
+	for(var i=0; i<arr.length; i++)
+	{
+		if (isNaN(arr[i])) { return false; } 
+		if (i % 2 == 0) { oddTotal += Number(arr[i]) * 3; } 
+		else { evenTotal += Number(arr[i]); } 
+	}
+	checkSum = (10 - ((evenTotal + oddTotal) % 10)) % 10;
+	
+	return checkSum == lastDigit;
+}
+
+//등록하는 상품코드가 상품기본 테이블에 있는지 체크
+this.wrsCheck = function()
+{
+	var wrs_c = this.edt_data13.value;
+	
+	var params = 'wrs_c='+wrs_c
+				+' separator=0';
+	var sSvcID        = "search_wrs";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveNewGoods";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType, true);
+}
+
+// 입력정보 단가 행추가/수정 버튼
+this.btn_control00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if(this.validation() !=true)return false;
+	
+	if(this.mae_input_pay00.value == "0" || this.gfn_nullToEmpty(this.mae_input_pay00.value) == ""){
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text5');
+		return false;
+	}else if(this.mae_input_pay02.value == "0" || this.gfn_nullToEmpty(this.mae_input_pay02.value) == ""){
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text6');
+		return false;
+	}
+	
+	var rownum = [];
+	var bok;
+	for(var i=0;i<this.grd_main00.rowcount;i++){	//등록된 수만큼 돌린다.
+		rownum[i] = this.ds_input_data.getColumn(i,"PRGR_C");	//처음부터 끝까지의 점포유형코드
+		if(this.sta_input_val00.text == "0"){
+			if(rownum[i] == this.cbo_list_wrs04.value){
+				bok = application.confirm(this.edt_data13.text+" ["+this.edt_data03.text+"]["+this.cbo_list_wrs04.value+"] 는(은) 이미 등록된 자료입니다. 수정하시겠습니까 ?");
+				if(bok == true){
+					for(var y=0;y<this.grd_main00.rowcount;y++){
+						if(this.ds_input_data.getColumn(y,"PRGR_C") == this.cbo_list_wrs04.value){
+							this.alert("이미 같은 코드가 등록되어있습니다.");
+							this.btn_clear_onclick();
+							return;
+						}
+					}
+					this.sta_input_val00.set_text("1");
+				}else{
+					return false;
+				}
+			}
+		}else if(this.sta_input_val00.text == "1"){
+			if(rownum[i] == this.cbo_list_wrs04.value){
+				if(this.cbo_list_wrs04.value != this.ds_input_data.getColumn(this.ds_input_data.rowposition,"PRGR_C")){
+					this.alert("이미 같은 코드가 등록되어있습니다.");
+					this.btn_clear_onclick();
+					return;					
+				}
+			}		
+		}
+	}
+	var prgr_ch = this.cbo_list_wrs04.value;
+	if(prgr_ch == '0'){
+		prgr_ch = '00';
+	}
+	
+	//추가부분
+	if(this.sta_input_val00.text == "0"){
+		var aRow = this.ds_input_data.addRow();
+		this.ds_input_data.setColumn(aRow,"PRGR_C",prgr_ch); 							// 1.점포유형
+		this.ds_input_data.setColumn(aRow,"PRGR_C_TEXT",this.cbo_list_wrs04.text); 		// 2.점포유형명
+		this.ds_input_data.setColumn(aRow,"BYNG_UPR",this.mae_input_pay00.value);	  	// 3.매입단가
+		this.ds_input_data.setColumn(aRow,"SEL_UPR",this.mae_input_pay01.value);	  	// 4.공급단가
+		this.ds_input_data.setColumn(aRow,"PY_FDTCN",this.mae_input_pay02.value);	  	// 5.지급기일수
+		this.ds_input_data.setColumn(aRow,"AMN_FEERT",this.mae_input_pay03.value);	  	// 6.관리수수료
+		this.ds_input_data.setColumn(aRow,"TROT_FEERT",this.mae_input_pay04.value);	  	// 7.업체수수료
+		this.ds_input_data.setColumn(aRow,"PHD_FEERT",this.mae_input_pay05.value);	  	// 8.물류수수료
+		this.ds_input_data.setColumn(aRow,"DDLY_PHD_FEERT",this.mae_input_pay06.value);	// 9.물류직송
+		this.ds_input_data.setColumn(aRow,"COMP_FEERT",this.mae_input_pay03.value*1+this.mae_input_pay01.value*1);// 10.업체수수료율
+		this.ds_input_data.setColumn(aRow,"DEL_YN","0");								// 11.삭제여부
+	//수정부분
+	}else if(this.sta_input_val00.text == "1"){
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"PRGR_C",prgr_ch);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"PRGR_C_TEXT",this.cbo_list_wrs04.text);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"BYNG_UPR",this.mae_input_pay00.value);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"SEL_UPR",this.mae_input_pay01.value);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"PY_FDTCN",this.mae_input_pay02.value);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"AMN_FEERT",this.mae_input_pay03.value);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"TROT_FEERT",this.mae_input_pay04.value);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"PHD_FEERT",this.mae_input_pay05.value);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"DDLY_PHD_FEERT",this.mae_input_pay06.value);
+		this.ds_input_data.setColumn(this.ds_input_data.rowposition,"COMP_FEERT",this.mae_input_pay03.value*1+this.mae_input_pay01.value*1);
+	}
+	this.btn_clear_onclick();
+	this.sta_treat_count00.set_text(this.grd_main00.rowcount);
+}
+
+//validation check
+this.validation = function()
+{
+	if(this.gfn_nullToEmpty(this.edt_data13.value) == "" || this.gfn_nullToEmpty(this.edt_data13.value).length < 6){ //상품코드
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text2');
+		return false;
+	}
+	if(this.gfn_nullToEmpty(this.edt_data03.value) == ""){	//상품명
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text3');
+		return false;
+	}
+	var str = this.gfn_nullToEmpty(this.edt_data03.value);
+	var totcnt = 0;
+	for(var b=0; b<str.length; b++){
+		if(escape(str.charAt(b)).length > 4){
+			totcnt += 2;
+		}else{
+			totcnt++;
+		}
+	}
+	if(totcnt > 100){
+		this.alert("상품명은 100자 이내로 입력하세요\n 현재 입력 수["+totcnt+"]");
+		return false;
+	}
+	
+	var str = this.gfn_nullToEmpty(this.edt_data04.value);
+	var totcnt = 0;
+	for(var b=0; b<str.length; b++){
+		if(escape(str.charAt(b)).length > 4){
+			totcnt += 2;
+		}else{
+			totcnt++;
+		}
+	}
+	if(totcnt > 50){
+		this.alert("상품약어명은 50자 이내로 입력하세요\n 현재 입력 수["+totcnt+"]");
+		return false;
+	}
+	
+	var str = this.gfn_nullToEmpty(this.txa_contents00.value);
+	var totcnt = 0;
+	for(var b=0; b<str.length; b++){
+		if(escape(str.charAt(b)).length > 4){
+			totcnt += 2;
+		}else{
+			totcnt++;
+		}
+	}
+	if(totcnt > 200){
+		this.alert("상품상세 설명은 200자 이내로 입력하세요\n 현재 입력 수["+totcnt+"]");
+		return false;
+	}
+	if((this.ds_input_data.rowcount > 0) && (this.cbo_list_wrs02.value != '1')){
+		this.gfn_getMessage("alert",'msg.van_ds_sc_1540.view.simple.text19');
+		return false;
+	}
+	if((this.gfn_nullToEmpty(this.edt_data17.value).length > 0) && (this.cbo_list_wrs02.value != '1')){ // 물류센터와 계약구분
+		this.gfn_getMessage("alert",'msg.van_ds_sc_1540.view.simple.text20');
+		return false;
+	}
+	if((this.cbo_list_wrs01.value == "2") && (this.gfn_nullToEmpty(this.edt_data19.value) == "")){ //박스
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text17');
+		return false;
+	}
+	if(this.gfn_nullToEmpty(this.edt_data06.value) == ""){	//대분류코드
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text13');
+		return false;
+	}
+	if(this.gfn_nullToEmpty(this.edt_data07.value) == ""){	//중분류코드
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text14');
+		return false;
+	}
+	if(this.gfn_nullToEmpty(this.edt_data08.value) == ""){	//소분류코드
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text15');
+		return false;
+	}
+	if(this.gfn_nullToEmpty(this.edt_data09.value) == ""){	//세분류코드
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text16');
+		return false;
+	}
+	if(this.gfn_nullToEmpty(this.edt_data12.value) == ""){	//규격
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text4');
+		return false;
+	}
+	if(this.div_search.cbo_div_list06.value != "S"){	//기본단위 구분코드
+		this.gfn_getMessage("alert",'msg.van_ds_sc_1540.view.simple.text18');
+		return false;
+	}
+	if(this.gfn_nullToEmpty(this.div_search.edt_div_data04.value) == ""){
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text11');
+		return false;
+	}
+// 	if(this.div_search.cbo_div_list00.value == ""){
+// 		this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text12');
+// 		return false;
+// 	}
+	return true;
+}
+
+this.btn_control01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.validation() != true){
+		return;
+	}
+	
+	if(this.cbo_list_wrs02.value == 1){
+		if((this.div_search.edt_div_data14.value == 0 || this.div_search.edt_div_data14.value == undefined) &&
+		(this.div_search.edt_div_data15.value == 0 || this.div_search.edt_div_data15.value == undefined) &&
+		(this.div_search.edt_div_data16.value == 0 || this.div_search.edt_div_data16.value == undefined) &&
+		(this.div_search.edt_div_data17.value == 0 || this.div_search.edt_div_data17.value == undefined) &&
+		(this.div_search.edt_div_data18.value == 0 || this.div_search.edt_div_data18.value == undefined) &&
+		(this.div_search.edt_div_data19.value == 0 || this.div_search.edt_div_data19.value == undefined) &&
+		(this.div_search.edt_div_data20.value == 0 || this.div_search.edt_div_data20.value == undefined) &&
+		(this.div_search.edt_div_data21.value == 0 || this.div_search.edt_div_data21.value == undefined)){
+			this.gfn_getMessage("alert", 'msg.van_ds_sc_1540.view.simple.text9');
+			return;
+		}
+	}
+	if(this.cbo_list_wrs05.value == "00"){
+		this.gfn_getMessage('alert', 'msg.van_ds_sc_1540.view.simple.text7');
+		return;
+	}
+	if(this.cbo_list_wrs05.value == "8808983000015" && this.cbo_list_wrs02.value == "1"){
+	
+		this.gfn_getMessage('alert', 'msg.van_ds_sc_1540.view.simple.text10');
+		return;
+	}
+	
+	//추가/수정
+	var aRow = 0;
+	var list_wrs = this.cbo_list_wrs05.value;
+	for(var c=0;c<this.grd_main01.rowcount;c++){
+		if(this.ds_input_add_data.getColumn(c,"NA_BZPLC") == list_wrs){
+			bok = application.confirm(this.edt_data13.value+' ['+list_wrs+']'+' 는(은) 이미 등록된 자료입니다. \n\n 수정하시겠습니까?');
+			if(bok == true){
+				aRow = c;
+				this.sta_input_sep.set_text("1");
+			}
+		}
+	}
+	if(this.sta_input_sep.text == "0"){
+		aRow = this.ds_input_add_data.addRow();
+	}
+	if(this.sta_input_sep.text == "0"){
+		this.ds_input_add_data.setColumn(aRow,"NA_BZPLC",this.cbo_list_wrs05.value);
+		this.ds_input_add_data.setColumn(aRow,"CSER_TRPL_C",this.edt_data17.value);
+		this.ds_input_add_data.setColumn(aRow,"DEL_YN",this.chk_del_yn01.value);
+		this.ds_input_add_data.setColumn(aRow,"NA_BZPLC_NM",this.cbo_list_wrs05.text);
+		this.ds_input_add_data.setColumn(aRow,"CSER_TRPL_NM",this.edt_data18.value);
+	}
+	if(this.sta_input_sep.text == "1"){
+		this.ds_input_add_data.setColumn(this.ds_input_add_data.rowposition,"NA_BZPLC",this.cbo_list_wrs05.value);
+		this.ds_input_add_data.setColumn(this.ds_input_add_data.rowposition,"CSER_TRPL_C",this.edt_data17.value);
+		this.ds_input_add_data.setColumn(this.ds_input_add_data.rowposition,"DEL_YN",this.chk_del_yn01.value);
+		this.ds_input_add_data.setColumn(this.ds_input_add_data.rowposition,"NA_BZPLC_NM",this.cbo_list_wrs05.text);
+		this.ds_input_add_data.setColumn(this.ds_input_add_data.rowposition,"CSER_TRPL_NM",this.edt_data18.value);
+	}
+	
+	
+	this.btn_clear_onclick();
+	this.sta_treat_count01.set_text(this.grd_main01.rowcount);
+}
+
+//그리드를 클릭 할 경우 입력정보에 데이터를 보내줌
+this.grd_main00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.cbo_list_wrs04.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"PRGR_C"));			// 1.점포유형
+	this.mae_input_pay00.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"BYNG_UPR"));		// 2.매입단가	
+	this.mae_input_pay01.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"SEL_UPR"));			// 3.공급단가
+	this.mae_input_pay02.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"PY_FDTCN"));		// 4.지급기일수
+	this.mae_input_pay03.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"AMN_FEERT"));		// 5.관리수수료
+	this.mae_input_pay04.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"TROT_FEERT"));		// 6.계통탄력가격
+	this.mae_input_pay05.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"PHD_FEERT"));		// 7.물류수수료
+	this.mae_input_pay06.set_value(this.ds_input_data.getColumn(this.ds_input_data.rowposition,"DDLY_PHD_FEERT"));	// 8.물류직송
+	this.sta_input_val00.set_text("1");
+}
+
+//추가정보 그리드 클릭
+this.grd_main01_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.cbo_list_wrs05.set_value(this.ds_input_add_data.getColumn(this.ds_input_add_data.rowposition,"NA_BZPLC"));
+	this.sta_input_sep.set_text("1");
+}
+
+//입력정보 초기화
+this.btn_clear_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.sta_input_val00.set_text("0");
+	this.cbo_list_wrs04.set_value(00);
+	this.cbo_list_wrs05.set_value(0);
+	this.mae_input_pay00.set_value("0");
+	this.mae_input_pay01.set_value("0");
+	this.mae_input_pay02.set_value("0");
+	this.mae_input_pay03.set_value("0");
+	this.mae_input_pay04.set_value("0");
+	this.mae_input_pay05.set_value("0");
+	this.mae_input_pay06.set_value("0");
+	this.chk_all_click00.set_value(0);
+	this.chk_del_yn01.set_value(0);
+	this.sta_input_sep.set_text("0");
+}
+
+this.div_edit_cbo_div_list03_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.div_search.cbo_div_list03.value == 1){
+		this.div_search.Static10.set_visible(false);
+		this.div_search.cbo_div_list05.set_visible(false);
+		this.div_search.edt_day.set_visible(false);
+	}else{
+		this.div_search.Static10.set_visible(true);
+		this.div_search.cbo_div_list05.set_visible(true);
+		this.div_search.edt_day.set_visible(true);
+	}
+	this.div_search.cbo_div_list05.set_value("");
+}
+
+this.btn_clear02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+
+//측면이미지
+this.div_search_FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+//전면이미지
+this.div_search_FileUpload01_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+//윗면이미지
+this.div_search_FileUpload02_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.FileUpload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	this.ds_uploadresult.clear();
+	this.ds_uploadresult.copyData(e.datasets[0]);		
+	this.ds_uploadresult.addColumn("CHK", "string"); //멀티건 인경우 'CHK'컬럼추가
+	var thumbext = this.ds_uploadresult.getColumn(0,"ORGFNAME"); 		// 파일을 추가한 input 박스의 값
+	
+	if(obj.name == "FileUpload00"){
+		var pval = this.div_search.sta_file_data;
+		pval.set_text("");
+		pval.set_text("1"
+					 +"&"+this.ds_uploadresult.getColumn(0,"ORGFNAME")
+					 +"&"+this.ds_uploadresult.getColumn(0,"FILESIZE")
+					 +"&"+this.ds_uploadresult.getColumn(0,"SYSTEMFILENAME"));
+	}else if(obj.name == "FileUpload01"){
+		var pval = this.div_search.sta_file2_data;
+		pval.set_text("");
+		pval.set_text("2"
+					 +"&"+this.ds_uploadresult.getColumn(0,"ORGFNAME")
+					 +"&"+this.ds_uploadresult.getColumn(0,"FILESIZE")
+					 +"&"+this.ds_uploadresult.getColumn(0,"SYSTEMFILENAME"));
+	}else{
+		var pval = this.div_search.sta_file3_data;
+		pval.set_text("");
+		pval.set_text("3"
+					 +"&"+this.ds_uploadresult.getColumn(0,"ORGFNAME")
+					 +"&"+this.ds_uploadresult.getColumn(0,"FILESIZE")
+					 +"&"+this.ds_uploadresult.getColumn(0,"SYSTEMFILENAME"));
+	}
+}
+
+this.FileUpload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+
+//선택한 이미지 파일을 저장하기 위해 데이터셋에 담는다.
+this.addRowFile = function()
+{
+	var imginfo = this.gfn_nullToEmpty(this.div_search.sta_file_data);
+	var imginfo2 = this.gfn_nullToEmpty(this.div_search.sta_file2_data);
+	var imginfo3 = this.gfn_nullToEmpty(this.div_search.sta_file3_data);
+	if(imginfo.text !=""){
+		this.ds_uploadsave.addRow();
+		imginfo.text.split("&");
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SEQ",imginfo.text.split("&")[0]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_NAME",imginfo.text.split("&")[1]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SIZE",imginfo.text.split("&")[2]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SYSTEM_NAME",imginfo.text.split("&")[3]);
+	}
+	if(imginfo2.text !=""){
+		this.ds_uploadsave.addRow();
+		imginfo2.text.split("&");
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SEQ",imginfo2.text.split("&")[0]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_NAME",imginfo2.text.split("&")[1]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SIZE",imginfo2.text.split("&")[2]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SYSTEM_NAME",imginfo2.text.split("&")[3]);
+	}
+	if(imginfo3.text !=""){
+		this.ds_uploadsave.addRow();
+		imginfo3.text.split("&");
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SEQ",imginfo3.text.split("&")[0]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_NAME",imginfo3.text.split("&")[1]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SIZE",imginfo3.text.split("&")[2]);
+		this.ds_uploadsave.setColumn(this.ds_uploadsave.rowcount-1,"FILE_SYSTEM_NAME",imginfo3.text.split("&")[3]);
+	}
+}
+
+//상품요청 조회
+this.btn_popup00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rdo_sep = this.rdo_search_sep.value;
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, gubun:rdo_sep};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("van_wrs","PDS.PRICAT::VAN_DS_SC_1541.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+//상품분류 팝업 조회
+this.btn_popup01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"U", dsArg:this.Dataset00};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("wrs_lclc","POPUP::POPUP_SRC_WRS_CLF.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+//제조처 조회(거래처)
+this.btn_popup02_onclick = function(params)
+{
+	var code = this.edt_data15.value;
+	var textname = this.edt_data16.value;
+	var param = {
+				autoType:params,
+				searchCode:code,
+				searchText:textname
+	};
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+	var sp_code = this.edt_data15.value;
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, spTrpl:sp_code, autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("trpl_search","PDS.PRICAT::VAN_DS_SC_1542.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+// 바이어 조회
+this.div_search_btn_popup02_onclick = function(params)
+{
+	var code = this.div_search.edt_div_data25.value;
+	var textname = this.div_search.edt_div_data26.value;
+	var param = {
+				autoType:params,
+				searchCode:code,
+				searchText:textname,
+				comboType:"2"
+	};
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("src_buyer","POPUP::POPUP_SRC_BUYER.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+//공병 조회
+this.div_search_btn_popup00_onclick = function(params)
+{
+	var code = this.div_search.edt_div_data01.value;
+	var textname = this.div_search.edt_div_data02.value;
+	var param = {
+				autoType:params,
+				searchCode:code,
+				searchText:textname,
+				comboType:"2"
+	};
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("src_vcbtbx01","POPUP::POPUP_SRC_VCBTBX.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+//공상자 조회
+this.div_search_btn_popup01_onclick = function(params)
+{
+	var code = this.div_search.edt_div_data08.value;
+	var textname = this.div_search.edt_div_data09.value;
+	var param = {
+				autoType:params,
+				searchCode:code,
+				searchText:textname,
+				comboType:"3"
+	};
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("src_vcbtbx02","POPUP::POPUP_SRC_VCBTBX.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if(strVal != undefined){
+		var arrVal = strVal.split(",");
+		if(strId == "van_wrs"){
+			var van_code = arrVal[0];
+			this.van_search(van_code);
+		}
+		if(strId == "trpl_search"){
+			this.edt_data15.set_value(arrVal[0]);
+			this.edt_data16.set_value(arrVal[1]);
+		}
+		if(strId == "wrs_lclc"){
+			this.edt_data06.set_value(arrVal[0]);
+			this.edt_data07.set_value(arrVal[1]);
+			this.edt_data08.set_value(arrVal[2]);
+			this.edt_data09.set_value(arrVal[3]);
+			this.cbo_list_wrs00.set_value(arrVal[8]);
+			this.edt_data10.set_value(arrVal[0]+arrVal[1]+arrVal[2]+arrVal[3]);
+			this.edt_data11.set_value(arrVal[4]+"/"+arrVal[5]+"/"+arrVal[6]+"/"+arrVal[7]);
+			this.searchCLC(arrVal[8]);
+		}
+		if(strId == "src_buyer"){
+			this.div_search.edt_div_data25.set_value(arrVal[0]);
+			this.div_search.edt_div_data26.set_value(arrVal[1]);
+		}
+		if(strId == "src_wrs"){
+			this.edt_data20.set_value(arrVal[0]);
+			this.edt_data21.set_value(arrVal[1]);
+			this.search();
+		}
+		if(strId == "src_vcbtbx01"){
+			this.div_search.edt_div_data01.set_value(arrVal[0]);
+			this.div_search.edt_div_data02.set_value(arrVal[1]);
+		}
+		if(strId == "src_vcbtbx02"){
+			this.div_search.edt_div_data08.set_value(arrVal[0]);
+			this.div_search.edt_div_data09.set_value(arrVal[1]);
+		}
+	}
+}
+
+//영세 일 경우 콤보박스 풀림.
+this.rdo_store_code03_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.rdo_store_code03.value != "3"){
+		this.cbo_list_wrs03.set_readonly(true);
+		this.cbo_list_wrs03.set_value("");
+	}else if(this.rdo_store_code03.value == "3"){
+		this.cbo_list_wrs03.set_readonly(false);
+	}
+}
+
+this.div_search_rdo_store_code02_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.div_search.rdo_store_code02.value == "1"){
+		this.div_search.Static11.set_visible(true);
+		this.div_search.cbo_div_list03.set_visible(true);
+	}else{
+		this.div_search.Static11.set_visible(false);
+		this.div_search.cbo_div_list03.set_visible(false);
+		this.div_search.cbo_div_list03.set_value(1);
+		this.div_edit_cbo_div_list03_onitemchanged();
+	}
+}
+
+//제조처 자동 검색
+this.edt_data15_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode ==13){
+		this.btn_popup02_onclick(true);
+	}
+}
+
+this.edt_data16_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode ==13){
+		this.btn_popup02_onclick(true);
+	}
+}
+//
+this.div_search_edt_div_data01_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup00_onclick(true);
+	}
+}
+
+this.div_search_edt_div_data02_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup00_onclick(true);
+	}
+}
+//
+this.div_search_edt_div_data08_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup01_onclick(true);
+	}
+}
+
+this.div_search_edt_div_data09_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup01_onclick(true);
+	}
+}
+
+this.edt_data13_onkillfocus = function(obj:Edit, e:nexacro.KillFocusEventInfo)
+{
+	if(this.isValueWrsCode() !=true){
+		this.alert('상품코드가 형식에 맞지 않습니다. \n\n 다시 입력해주세요.');
+	}else{
+		this.wrsCheck();
+	}
+}
+
+this.edt_data13_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		if(this.isValueWrsCode() !=true){
+			this.alert('상품코드가 형식에 맞지 않습니다. \n\n 다시 입력해주세요.');
+		}else{
+			this.wrsCheck();
+		}
+	}
+}
+
+this.div_search_edt_div_data25_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup02_onclick(true);
+	}
+}
+
+this.div_search_edt_div_data26_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup02_onclick(true);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

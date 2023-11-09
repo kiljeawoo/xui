@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8110" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="교육 리스트" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="1" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="18" onclick="fn_search_onclick"/>
+        <Div id="Div01" taborder="4" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="5" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="6" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="10" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Static id="Static01" taborder="6" text="페이지당 게시물수" onclick="div_search_Static01_onclick" cssclass="sta_WFSA_Label" left="367" top="12" height="21" style="padding:0 20 0 11;" width="139"/>
+              <Combo id="cbo_pageNum" taborder="7" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="506" top="12" height="21" width="60" value="20">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">20</Col>
+                      <Col id="datacolumn">20</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">50</Col>
+                      <Col id="datacolumn">50</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">100</Col>
+                      <Col id="datacolumn">100</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Edit id="edu_title" taborder="11" maxlength="30" oneditclick="div_search_edt_menuId_oneditclick" left="57" top="10" height="21" width="140"/>
+              <Static id="Static05" taborder="12" text="제목" cssclass="sta_WFSA_Label" left="15" top="10" height="21" style="padding:0 20 0 11;" width="103"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="97" right="15" bottom="1">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Grid id="grd_comncList" taborder="2" binddataset="ds_edu" useinputpanel="false" left="0" top="2" right="0" bottom="69" autofittype="col" cellsizingtype="col" oncellclick="fn_update_onclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="54"/>
+                      <Column size="271"/>
+                      <Column size="95"/>
+                      <Column size="134"/>
+                      <Column size="180"/>
+                      <Column size="100"/>
+                      <Column size="82"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="번호"/>
+                      <Cell col="1" text="첨부"/>
+                      <Cell col="2" text="제목"/>
+                      <Cell col="3" text="작성자"/>
+                      <Cell col="4" text="날짜"/>
+                      <Cell col="5" text="조회수"/>
+                      <Cell col="6" text="신청자수"/>
+                      <Cell col="7" text="사용여부"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:ATTACHMENT"/>
+                      <Cell col="2" text="bind:TITLE"/>
+                      <Cell col="3" text="bind:REG_NM"/>
+                      <Cell col="4" displaytype="date" text="bind:EDU_DATE"/>
+                      <Cell col="5" text="bind:CNT"/>
+                      <Cell col="6" text="bind:USR_CNT"/>
+                      <Cell col="7" text="bind:USE_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_paging" taborder="6" url="common::pagingBTN.xfdl" left="28.55%" bottom="-2" height="29" style="align:center middle;" visible="false" width="338"/>
+              <Button id="btn_flag" taborder="7" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="346" top="-25" right="364" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_flag" taborder="14" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="72" right="363" height="12"/>
+        <Button id="btn_insert01" taborder="16" text="등록" onclick="fn_insert_onclick" cssclass="btn_WF_CRUD" top="0" right="81" width="41" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_edu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SEQ" type="STRING" size="32"/>
+          <Column id="ATTACHMENT" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="32"/>
+          <Column id="REG_NM" type="STRING" size="256"/>
+          <Column id="EDU_DATE" type="STRING" size="20"/>
+          <Column id="CNT" type="STRING" size="100"/>
+          <Column id="USR_CNT" type="STRING" size="100"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	this.fn_search_onclick();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.fn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* Paging 처리 */
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_pageVO.addRow();
+	
+	var vPageSize   = this.div_search.cbo_pageNum.value; // Grid에 보여줄 Row수 선택
+	var vTotalCount = 0;	// 전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	this.fn_retrieveEducationList();
+}
+
+/* 조회-서비스 Call */ 
+this.fn_retrieveEducationList = function()
+{
+	this.ds_param.clearData();
+	this.ds_param.addRow();
+	
+	this.ds_param.setColumn(0, "TITLE", this.gfn_nullToEmpty(this.div_search.edu_title.value));
+	
+	var sSvcID        = "retrieveEducationList";
+	var sURL          = "svc::rest/mg/edu/retrieveEducationList";
+	var sInDatasets   = "ds_param=ds_param ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_edu=ds_edu ds_pageVO=ds_pageVO";
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0,"PAGE_SIZE");
+	var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	trace("ErrorCode " + ErrorCode);
+	
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+	 	if (svcID == "retrieveEducationList") {
+	 		if (this.ds_edu.rowcount > 0) {
+				this.seq = this.ds_edu.getColumn(0, "SEQ");
+				this.div_list.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+			} else if(this.ds_edu.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 			this.div_list.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+			}
+		}
+	}
+}
+
+this.fn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("OMG_DS_SC_8111", "OMG.MG::OMG_DS_SC_8111.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.fn_update_onclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var seq = this.ds_edu.getColumn(e.row, "SEQ");
+	
+	var oArg = {seq:seq};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("OMG_DS_SC_8111", "OMG.MG::OMG_DS_SC_8111.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+/* 팝업호출확인하기 */
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+	switch(strId)
+	{
+		case "OMG_DS_SC_8111":
+			 this.fn_search_onclick();
+			 
+			 break;
+	}
+	
+}
+]]></Script>
+  </Form>
+</FDL>

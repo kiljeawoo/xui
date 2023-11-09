@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="main_bottom" classname="main_bottom" left="0" top="0" width="1010" height="150">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" taborder="11" cssclass="sta_INTRO_FooterLogo" left="0" top="63" width="165" height="24" style="background:URL('theme://images/new/footer_logo.png') left middle;"/>
+        <Div id="div_help" taborder="12" top="15" height="33" scrollbars="none" left="190" width="820">
+          <Layouts>
+            <Layout>
+              <Button id="btn_01" taborder="0" text="개인정보처리방침" onclick="btn_01_onclick" cssclass="btn_INTRO_Footer" left="0" top="0" width="120" style="align:left middle;font:bold 10 맑은 고딕, Gulim;cursor:hand;" bottom="0"/>
+              <Button id="btn_02" taborder="1" text="이용약관" onclick="btn_02_onclick" cssclass="btn_INTRO_Footer" left="150" top="0" width="65" style="align:left middle;font:bold 10 맑은 고딕, Gulim;cursor:hand;" bottom="0"/>
+              <Static id="btn_03" taborder="2" text="부패행위신고센터 (" left="245" top="0" width="165" style="background:transparent;border:0 none #808080ff ;color:#6b6b6bff;align:left middle;font:bold 13 맑은 고딕, Gulim;" bottom="0"/>
+              <Combo id="cmb_familySite" taborder="3" innerdataset="@ds_relatedSites" codecolumn="SITEURL" datacolumn="SITENAME" displayrowcount="10" onitemchanged="cmb_familySite_onitemchanged" cssclass="cmb_INTRO_FamilySite2" top="0" right="0" height="33" style="font:9 맑은 고딕, Gulim;cursor:hand;" width="170" value="0" text="관련사이트"/>
+              <Static id="Static00" taborder="6" text="/" left="488" top="0" width="21" style="color:#6b6b6bff;align:middle;font:bold 10 맑은 고딕, Gulim;" bottom="0"/>
+              <Static id="btn_00" taborder="7" text=")" left="602" top="0" bottom="0" width="25" style="background:transparent;border:0 none #808080ff ;color:#6b6b6bff;align:left middle;font:bold 13 맑은 고딕, Gulim;"/>
+              <Button id="btn_04" taborder="4" text="가공생필ㆍ수산" onclick="btn_04_onclick" cssclass="btn_INTRO_Footer" left="397" top="0" bottom="0" width="100" style="align:left middle;font:bold 10 맑은 고딕, Gulim;cursor:hand;"/>
+              <Button id="btn_05" taborder="5" text="판매장ㆍ테넌트" onclick="btn_05_onclick" cssclass="btn_INTRO_Footer" left="508" top="0" bottom="0" width="100" style="align:left middle;font:bold 10 맑은 고딕, Gulim;cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_copyright" taborder="13" text="Div01" left="190" top="63" width="820" height="70" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static03" taborder="0" text="하나로 eSCM사이트는 익스플로러 8이상을 권장 합니다. 익스플로러 7이하일 경우 구글 크롬을 설치 후 사용하시기 바랍니다." cssclass="sta_INTRO_FooterAdress" left="0" top="44" height="22" style="color:#6f6f6fff;align:left middle;font:8 맑은 고딕, Gulim;" right="0"/>
+              <Static id="Static00" taborder="1" text="Copyright 농협경제지주. All Rights Reserved. 이 시스템은 (주)이썸테크가 운영 관리합니다." cssclass="sta_INTRO_FooterAdress" left="0" top="22" height="22" style="color:#6f6f6fff;align:left middle;font:8 맑은 고딕, Gulim;" right="0"/>
+              <Static id="Static01" taborder="2" text="서울특별시 서대문구 통일로 81 NH농협생명빌딩 서관 8층      대표전화번호 : 1522-1211      FAX : 02-318-3456" cssclass="sta_INTRO_FooterAdress" left="0" top="0" height="22" style="color:#6f6f6fff;align:left middle;font:8 맑은 고딕, Gulim;" right="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_relatedSites" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SITEURL" type="STRING" size="256"/>
+          <Column id="SITENAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SITENAME">관련사이트</Col>
+            <Col id="SITEURL">0</Col>
+          </Row>
+          <Row>
+            <Col id="SITEURL">1</Col>
+            <Col id="SITENAME">────────</Col>
+          </Row>
+          <Row>
+            <Col id="SITEURL">http://www.nhabgroup.com/</Col>
+            <Col id="SITENAME">농협경제지주</Col>
+          </Row>
+          <Row>
+            <Col id="SITEURL">http://www.nhfngroup.com/</Col>
+            <Col id="SITENAME">NH농협금융지주</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">남해화학</Col>
+            <Col id="SITEURL">http://www.nhchem.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농민신문사</Col>
+            <Col id="SITEURL">http://www.nongmin.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농우바이오</Col>
+            <Col id="SITEURL">http://www.nongwoobio.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협대학교</Col>
+            <Col id="SITEURL">http://www.nonghyup.ac.kr/n_main.asp</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협목우촌</Col>
+            <Col id="SITEURL">http://www.moguchon.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협물류</Col>
+            <Col id="SITEURL">http://www.nonghyuplogis.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협사료</Col>
+            <Col id="SITEURL">http://www.nonghyupsaryo.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협아그로</Col>
+            <Col id="SITEURL">http://www.nonghyupagro.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협유통</Col>
+            <Col id="SITEURL">http://www.nhhanaro.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협자산관리</Col>
+            <Col id="SITEURL">http://www.acamco.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협재단</Col>
+            <Col id="SITEURL">http://jaedan.nonghyup.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협정보시스템</Col>
+            <Col id="SITEURL">http://www.nonghyupit.com</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협케미컬</Col>
+            <Col id="SITEURL">http://www.nhchemical.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협홍삼</Col>
+            <Col id="SITEURL">http://www.hansamin.org/page/main.html</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협흙사랑</Col>
+            <Col id="SITEURL">http://www.nhheuksarang.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">안성팜랜드</Col>
+            <Col id="SITEURL">http://www.nhasfarmland.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">우리선물</Col>
+            <Col id="SITEURL">http://www.futures.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">협동기획</Col>
+            <Col id="SITEURL">http://www.nhman.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH개발</Col>
+            <Col id="SITEURL">http://www.nhd.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협생명</Col>
+            <Col id="SITEURL">http://www.nhlife.co.kr/main.nhl</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협선물</Col>
+            <Col id="SITEURL">http://www.nfutures.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협손해보험</Col>
+            <Col id="SITEURL">http://www.nhfire.co.kr/index.nhfire</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협은행</Col>
+            <Col id="SITEURL">https://www.nhbank.com</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협캐피탈</Col>
+            <Col id="SITEURL">http://www.nhcapital.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH무역</Col>
+            <Col id="SITEURL">http://www.nhtra.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH저축은행</Col>
+            <Col id="SITEURL">http://www.nhsavingsbank.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH축산자재몰</Col>
+            <Col id="SITEURL">http://nhjajae.nonghyup.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH투자증권</Col>
+            <Col id="SITEURL">http://www.nhwm.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH-CA자산운용</Col>
+            <Col id="SITEURL">http://www.nh-ca.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITEURL">http://www.nonghyupmall.com</Col>
+            <Col id="SITENAME">농협몰</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+//개인정보처리방침
+this.btn_01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_openIntroMenu(20300000);
+}
+
+//이용약관
+this.btn_02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_openIntroMenu(20400000);
+}
+
+this.btn_05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//system.execBrowser("http://www.nonghyup.com/Complaint/Complaint_Tel.aspx");
+	window.open("https://www.redwhistle.org/report/reportNew.asp?organ=7862&RType=1");
+}
+
+this.cmb_familySite_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if (e.postvalue != "0" && e.postvalue != "1") {
+		system.execBrowser(e.postvalue);
+	} else {
+		obj.set_value("0");
+	}
+}
+
+this.btn_04_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	window.open("http://www.redwhistle.org/report/report.asp?organ=7655");
+}
+]]></Script>
+  </Form>
+</FDL>

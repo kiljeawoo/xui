@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="SYS_BATCH_RESULT" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="배치처리현황" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="1" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="18" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="4" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="5" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="6" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="10" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Static id="Static02" taborder="11" text="조회일자" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="79" onclick="div_search_Static02_onclick"/>
+              <Static id="Static03" taborder="15" text="30" visible="false" left="430" top="1" height="43" style="background:#dc143c5b;" width="30"/>
+              <Calendar id="cal_search" taborder="16" dateformat="yyyy-MM-dd" onchanged="cal_dvy_pla_dt_onchanged" oneditclick="cal_search_oneditclick" ontextchanged="cal_dvy_pla_dt_ontextchanged" left="96" top="8" width="105" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static05" taborder="14" text="69" onclick="Static04_onclick" visible="false" left="83.31%" top="29" right="12.95%" height="69" style="background:#dc143c5b;"/>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="97" right="15" bottom="1">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Grid id="grd_comncList" taborder="2" binddataset="ds_batch_list" useinputpanel="false" left="0" top="42" onheadclick="Div02_Grid01_onheadclick" autofittype="col" cellsizingtype="col" right="0" bottom="29">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="60"/>
+                      <Column size="65"/>
+                      <Column size="120"/>
+                      <Column size="155"/>
+                      <Column size="90"/>
+                      <Column size="100"/>
+                      <Column size="65"/>
+                      <Column size="90"/>
+                      <Column size="60"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="24" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" displaytype="normal" edittype="none" text="순번"/>
+                      <Cell col="1" rowspan="2" text="업무구분"/>
+                      <Cell col="2" rowspan="2" text="배치명"/>
+                      <Cell col="3" rowspan="2" text="배치설명"/>
+                      <Cell col="4" colspan="2" text="기준값"/>
+                      <Cell col="6" colspan="3" text="처리현황"/>
+                      <Cell col="9" colspan="2" text="체크결과"/>
+                      <Cell row="1" col="4" text="처리한계시간"/>
+                      <Cell row="1" col="5" text="최소처리건수"/>
+                      <Cell row="1" col="6" text="처리시간"/>
+                      <Cell row="1" col="7" text="완료건수"/>
+                      <Cell row="1" col="8" text="오류건수"/>
+                      <Cell row="1" col="9" text="시간체크"/>
+                      <Cell row="1" col="10" text="건수체크"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="normal" edittype="none" text="bind:seq"/>
+                      <Cell col="1" text="bind:bizDiv"/>
+                      <Cell col="2" text="bind:batchId"/>
+                      <Cell col="3" text="bind:batchDesc"/>
+                      <Cell col="4" text="bind:procLmitTime"/>
+                      <Cell col="5" text="bind:minProcCnt"/>
+                      <Cell col="6" text="bind:procTime"/>
+                      <Cell col="7" text="bind:cpCnt"/>
+                      <Cell col="8" text="bind:erCnt"/>
+                      <Cell col="9" style="color:EXPR((procTimeCheck == 'INVALID') ? 'red' : 'blue'); color2:EXPR((procTimeCheck == 'INVALID') ? 'red' : 'blue');" text="bind:procTimeCheck"/>
+                      <Cell col="10" style="color:EXPR((procCntCheck == 'INVALID') ? 'red' : 'blue'); color2:EXPR((procCntCheck == 'INVALID') ? 'red' : 'blue');" text="bind:procCntCheck"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static03" taborder="5" text="15" visible="false" left="731" top="1" width="56" height="41" style="background:#dc143c5b;"/>
+              <Button id="btn_flag" taborder="7" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_batch_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="seq" type="STRING" size="32"/>
+          <Column id="bizDiv" type="STRING" size="256"/>
+          <Column id="batchId" type="STRING" size="256"/>
+          <Column id="batchDesc" type="STRING" size="256"/>
+          <Column id="procLmitTime" type="STRING" size="256"/>
+          <Column id="minProcCnt" type="STRING" size="256"/>
+          <Column id="procTime" type="STRING" size="256"/>
+          <Column id="cpCnt" type="STRING" size="256"/>
+          <Column id="erCnt" type="STRING" size="256"/>
+          <Column id="procTimeCheck" type="STRING" size="256"/>
+          <Column id="procCntCheck" type="STRING" size="256"/>
+          <Column id="fromDate" type="DATE" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="procTimeCheck">INVALID</Col>
+            <Col id="procCntCheck">VALID</Col>
+          </Row>
+          <Row>
+            <Col id="procTimeCheck">VALID</Col>
+            <Col id="procCntCheck">INVALID</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+/* 페이지 로딩 후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+	/* 초기값세팅 */
+	this.div_search.cal_search.set_value(this.gfn_today("yyyyMMdd"));
+
+	/* 조회 호출 */
+	this.btn_search.click();  
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+ 
+/* 조회버튼 이벤트 */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_retrieveComnCList(); // 처음조회시 1페이지를 조회한다.
+}
+
+/* 업체조회 이벤트 */
+this.edt_NA_TRPL_C_onchanged = function()
+{
+	this.div_search.edt_CLNTNM.set_value("");
+}
+this.edt_NA_TRPL_C_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.btn_search_onclick();
+	}
+}
+this.btn_comname_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var param = {
+		autoType: false
+	};
+	var oArg = { paramMode: "U", dsArg: this.Dataset00, autoPop: param };
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("POPUP_SRC_SPYPL_TRPL","POPUP::POPUP_SRC_SPYPL_TRPL.xfdl", oArg, sOption, sPopupCallBack);
+}
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strId == "POPUP_SRC_SPYPL_TRPL" && strVal) {
+		var aryVal = strVal.split(",");
+		this.div_search.edt_NA_TRPL_C.set_value(aryVal[0]);
+		this.div_search.edt_CLNTNM.set_value(aryVal[1]);
+	}
+}
+
+/* 계좌번호 이벤트 */
+this.edt_ACNO_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.btn_search_onclick();
+	}
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/* 조회-서비스 Call */
+this.fn_retrieveComnCList = function()
+{
+	var sParams = "fromDate=" + this.gfn_nullToEmpty(this.div_search.cal_search.value);
+	
+	var sSvcID        = "retrieve";
+	var sURL          = "svc::/rest/system/batchPresent";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_batch_list=ds_batch_list";
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+	var sTotal       = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	this.ds_vr_ac.addColumn("NUMBER", "string");
+	
+	for (var i = 0; i < this.ds_vr_ac.rowcount; i++) {
+		this.ds_vr_ac.setColumn(i, "NUMBER", (current_page - 1) * page_size + i + 1);
+	}
+	
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "retrieve") {
+		if (this.ds_vr_ac.rowcount > 0) {
+			this.div_list.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+		} else {
+			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			this.div_list.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+		}
+	}
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.div_search_cal_dvy_pla_dt_oneditclick = function(obj:Calendar,  e:nexacro.EditClickEventInfo)
+{
+	alert()
+}
+]]></Script>
+  </Form>
+</FDL>

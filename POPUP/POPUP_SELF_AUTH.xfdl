@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="CHUCK" left="0" top="0" width="760" height="398" titletext="회원인증" onload="form_onload" style="border:1 solid #808080ff ;">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="6" text="@" left="37.11%" top="129" right="58.03%" height="20" style="font:bold 14 Gulim;"/>
+        <Div id="email_input_container" taborder="17" left="17.89%" top="115" right="2.11%" height="50" style="border:1 solid #808080ff ;">
+          <Layouts>
+            <Layout width="608" height="50"/>
+          </Layouts>
+        </Div>
+        <Div id="employe_number_input_container" taborder="15" left="17.89%" top="43" right="2.11%" height="50" style="border:1 solid #808080ff ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Edit id="edt_MB_ID" taborder="1" maxlength="9" onchanged="Div05_edt_MB_ID_onchanged" left="144" top="51" width="250" height="35" style="font:14 Gulim;"/>
+        <Button id="Button00" taborder="10" text="인증" left="43.5%" top="346" height="40" onclick="Button00_onclick" cssclass="btn_WF_CRUD" style="font:bold 14 Gulim;" width="100"/>
+        <Edit id="email_user_id_input_box" taborder="11" maxlength="25" left="144" top="122" width="138" height="35" style="font:bold 14 Gulim;"/>
+        <Edit id="email_domain_input_box" taborder="12" maxlength="25" left="320" top="123" width="208" height="35" style="font:bold 14 Gulim;cursor:default;"/>
+        <Static id="Static89" taborder="13" text="회사 정보" cssclass="sta_WF_Subtitle" left="17" top="8" width="135" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Div id="employe_number_title" taborder="14" text="사원번호" left="2.24%" top="43" height="50" width="120" style="background:lightcyan;border:1 solid #808080ff ;"/>
+        <Div id="email_title" taborder="16" text="이메일" left="2.24%" top="115" width="120" height="50" style="background:lightcyan;border:1 solid #808080ff ;"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item10" compid="edt_MB_ID" propid="value" datasetid="ds_userInfo" columnid="MB_ID"/>
+      <BindItem id="item14" compid="email_user_id_input_box" propid="value" datasetid="ds_userInfo" columnid="USR_EMAIL01"/>
+      <BindItem id="item15" compid="email_domain_input_box" propid="value" datasetid="ds_userInfo" columnid="USR_EMAIL02"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_auth">
+        <ColumnInfo>
+          <Column id="MD_ID" type="STRING" size="256"/>
+          <Column id="USR_EMAIL1" type="STRING" size="256"/>
+          <Column id="USR_EMAIL2" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_officeInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BZNO1" type="STRING" size="30"/>
+          <Column id="BZNO2" type="STRING" size="30"/>
+          <Column id="BZNO3" type="STRING" size="30"/>
+          <Column id="NA_TRPL_C" type="STRING" size="30"/>
+          <Column id="COMP_TPC" type="STRING" size="30"/>
+          <Column id="MB_ID" type="STRING" size="30"/>
+          <Column id="MB_PW" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="30"/>
+          <Column id="USR_TELNO" type="STRING" size="30"/>
+          <Column id="USR_EMAIL01" type="STRING" size="30"/>
+          <Column id="USR_EMAIL02" type="STRING" size="30"/>
+          <Column id="SMS_RMS_YN" type="STRING" size="30"/>
+          <Column id="EMAIL_RMS_YN" type="STRING" size="30"/>
+          <Column id="USR_HP" type="STRING" size="30"/>
+          <Column id="CLNTNM" type="STRING" size="30"/>
+          <Column id="REPMNM" type="STRING" size="30"/>
+          <Column id="DONGUP" type="STRING" size="30"/>
+          <Column id="DONGBW" type="STRING" size="30"/>
+          <Column id="FZIP" type="STRING" size="30"/>
+          <Column id="RZIP" type="STRING" size="30"/>
+          <Column id="TEL1" type="STRING" size="30"/>
+          <Column id="TEL2" type="STRING" size="30"/>
+          <Column id="TEL3" type="STRING" size="30"/>
+          <Column id="HP1" type="STRING" size="30"/>
+          <Column id="HP2" type="STRING" size="30"/>
+          <Column id="HP3" type="STRING" size="30"/>
+          <Column id="BIRTH" type="STRING" size="30"/>
+          <Column id="SEX_DSC" type="STRING" size="30"/>
+          <Column id="MB_CV_DSC" type="STRING" size="30"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="BZNO1"/>
+            <Col id="BZNO2"/>
+            <Col id="BZNO3"/>
+            <Col id="NA_TRPL_C"/>
+            <Col id="COMP_TPC"/>
+            <Col id="MB_ID"/>
+            <Col id="MB_PW"/>
+            <Col id="USR_NM"/>
+            <Col id="USR_TELNO"/>
+            <Col id="USR_EMAIL01"/>
+            <Col id="USR_EMAIL02"/>
+            <Col id="SMS_RMS_YN"/>
+            <Col id="EMAIL_RMS_YN"/>
+            <Col id="USR_HP"/>
+            <Col id="CLNTNM"/>
+            <Col id="REPMNM"/>
+            <Col id="DONGUP"/>
+            <Col id="DONGBW"/>
+            <Col id="FZIP"/>
+            <Col id="RZIP"/>
+            <Col id="TEL1"/>
+            <Col id="TEL2"/>
+            <Col id="TEL3"/>
+            <Col id="HP1"/>
+            <Col id="HP2"/>
+            <Col id="HP3"/>
+            <Col id="BIRTH"/>
+            <Col id="SEX_DSC"/>
+            <Col id="MB_CV_DSC"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_api_result"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj,e)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	console.log(document.getElementById(obj.edt_MB_ID._unique_id));
+	
+}
+
+this.fn_afterFormOnload = function()
+{
+
+}
+//회가인 3. 회원인증창을 그냥 닫았을 때.
+//alert 메시지 정도만 신경써주면 된다.
+this.btn_close_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+//회가인 4. 서버에 회원 인증을 요청하는 코드이며 경통과 api를 사용하여 값을 받아온다.
+//mbId:사번, email_1&2 =앞&뒤, usrTpc=유저유형(본부,사업장)
+ this.Button00_onclick = function(obj,e)
+{
+
+	if(this.gfn_isNull(this.edt_MB_ID.value)){
+		alert('사원번호를 입력하여 주십시오.');
+		return;
+	}
+	if(this.gfn_isNull(this.email_user_id_input_box.value) || this.gfn_isNull(this.email_domain_input_box.value))
+	{
+		alert('이메일을 입력하여 주십시오.');
+		return;
+	}
+	console.log(fn_joinUser_params.usrTpc);
+	//서버에 인증을 요청하는 코드
+	var param = "mbId="+this.edt_MB_ID.value
+		+" email_1="+this.email_user_id_input_box.value
+		+" email_2="+this.email_domain_input_box.value
+		+" usrTpc="+fn_joinUser_params.usrTpc;
+				
+	var sSvcID        = "check_authority";
+	var sURL          = "svc::rest/pt/usrinf/check_authority";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_officeInfo=ds_officeInfo ds_api_result=ds_api_result";
+	var sArgument     =  param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회	
+	 
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+
+this.fn_callBack = function(svcID,ErrorCode,ErrorMsg)
+{
+	//회가인 5. api정보 요청으로 가져온 값들을 
+	//회원가입 화면에 쓰기위해 localstorage에 param_obj 를 저장하고 
+	//메인화면에 공유하기위해 close함수에 param_obj 를 인자로 넣어준다.
+	if(svcID =="check_authority"){
+		console.log(this.ds_api_result)
+		if(ErrorCode == -1){
+			alert('이미 존재하는 사번입니다.');
+		}
+		else if(ErrorCode == -2){
+			alert('중복검사중 오류가 발생하였습니다.');
+		}
+		else if(ErrorCode == -2){
+			alert('인터페이스 통신중 오류가 발생하였습니다.');
+		}
+		else if(this.ds_api_result.getColumn(0,'tgrmRspC') == '1'){
+			alert('존재하지 않는 사번입니다.');
+		}else if(this.ds_api_result.getColumn(0,'tgrmRspC') == '2'){
+			alert('소비유통시스템 10-2001 사용자정보 화면에서 이메일 주소를 등록후 재시도 바랍니다.');
+		}else if(this.ds_api_result.getColumn(0,'tgrmRspC') == '3'){
+			alert('소비유통시스템에 등록된 이메일주소와 입력한 이메일주소가 다릅니다. \n '
+					+'소비유통시스템 10-2001 사용자정보에서 등록한 이메일주소를 입력해주시기 바랍니다.');
+		}else if(this.ds_api_result.getColumn(0,'tgrmRspC') == '0'){
+			//사원 정보 요청결과 
+			let ds_api_result_obj={};
+			for(let i=0; i<this.ds_api_result.getColCount(); i++){
+				ds_api_result_obj[this.ds_api_result.getColID(i)] = this.ds_api_result.getColumn(0,this.ds_api_result.getColID(i));
+			}
+			let ds_officeInfo_obj={};
+			for(let i=0; i<this.ds_officeInfo.getColCount(); i++){
+				ds_officeInfo_obj[this.ds_officeInfo.getColID(i)] = this.ds_officeInfo.getColumn(0,this.ds_officeInfo.getColID(i));
+			}
+			
+			let param_obj={
+				'ds_api_result_obj' : ds_api_result_obj,
+				'ds_officeInfo_obj' : ds_officeInfo_obj
+			}
+			//
+			localStorage.setItem('param_obj',JSON.stringify(param_obj));
+			
+			console.log(param_obj.ds_api_result_obj.tgrmRspC);
+
+			//when mb_id is ''
+			if (ds_officeInfo_obj.MB_ID==''){
+				alert('employe_number is not exist');
+				this.close();
+			}
+			//if it gets correct person data.
+			ds_officeInfo_obj.MB_ID = this.edt_MB_ID.value;
+			ds_officeInfo_obj.USR_EMAIL01 = this.email_user_id_input_box.value;
+			ds_officeInfo_obj.USR_EMAIL02 = this.email_domain_input_box.value;
+			console.log(param_obj);
+			//console.log(JSON.stringify(param_obj));
+			this.close(JSON.stringify(param_obj));
+		}
+			console.log('auth_check');
+			console.log('이메일 인증값 확인');
+			console.log(this.ds_api_result);
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

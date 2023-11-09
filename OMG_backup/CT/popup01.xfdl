@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="456" height="353" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="경재통합코드 조회화면">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="3" cssclass="btn_WFSA_Searchbtn" top="47" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Div id="div_search" taborder="4" left="17" top="76" right="17" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="edt_comp" taborder="18" left="148" top="10" width="257" height="21" value="8803712000014"/>
+              <Combo id="cbo_comp" taborder="20" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="15" top="10" width="130" height="21" onitemchanged="Div00_cbo_comp_onitemchanged" value="1" text="경제통합거래처">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">경제통합거래처</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">거래처명</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">사업자등록번호</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_tbTrTrplCif" taborder="5" binddataset="ds_tbTrTrplCif" useinputpanel="false" left="17" top="134" right="17" height="163" autofittype="none" oncellclick="grd_tbTrTrplCif_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="160"/>
+                <Column size="107"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="checkbox"/>
+                <Cell col="1" text="경재통합거래처코드"/>
+                <Cell col="2" text="거래처명"/>
+                <Cell col="3" text="사업자등록번호"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" text="bind:NA_TRPL_C"/>
+                <Cell col="2" text="bind:CLNTNM"/>
+                <Cell col="3" text="bind:BIZ_NUMBER"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" left="329" top="307" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" left="385" top="307" width="54" height="29" onclick="btn_cancel_onclick"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="9" text="17" visible="false" left="439" top="76" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="363" top="336" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="363" top="297" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="12" text="8" visible="false" left="363" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="119" width="76" height="15" style="background:#dc143c5b;"/>
+        <Static id="btn_newTop" taborder="17" cssclass="sta_WF_Menulist" left="0" top="0" width="456" height="30"/>
+        <Button id="btn_close" taborder="25" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" left="419" top="0" width="37" height="32"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_tbTrTrplCif" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="TRPL_ABR_NM" type="STRING" size="256"/>
+          <Column id="FZIP" type="STRING" size="256"/>
+          <Column id="RZIP" type="STRING" size="256"/>
+          <Column id="ZIP_SQNO" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="ATEL" type="STRING" size="256"/>
+          <Column id="HTEL" type="STRING" size="256"/>
+          <Column id="STEL" type="STRING" size="256"/>
+          <Column id="MPSVNO" type="STRING" size="256"/>
+          <Column id="MPHNO" type="STRING" size="256"/>
+          <Column id="MPSQNO" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+          <Column id="TR_STOP_RSNC" type="STRING" size="256"/>
+          <Column id="TR_STOP_DT" type="STRING" size="256"/>
+          <Column id="COPNO_CIF_NO" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+          <Column id="BZCCNM" type="STRING" size="256"/>
+          <Column id="BZTPNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(21); //팝업창 close시 전달할 값을 위한 배열 선언
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+// 	trace("paramMode : "+this.getOwnerFrame().paramMode);
+// 	trace("dsArg : "+this.parent.dsArg.rowcount);
+	this.ds_tbTrTrplCif.clearData();
+}
+
+	
+ /*조회*/
+this.search = function()
+{	
+
+	
+		var cboComp = this.gfn_nullToEmpty(this.div_search.cbo_comp.value);  //경제통합거래처코드, 업체명 선택 ,사업자번호 
+		var edtComp = this.gfn_nullToEmpty(this.div_search.edt_comp.value);  //경제통합거래처코드, 업체명 ,사업자번호 입력값
+
+		param = "cbo_comp="+cboComp+" edt_comp="+edtComp;
+
+
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/ct/eltctrw/retrieveNaBzplCList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_tbTrTrplCif=ds_tbTrTrplCif";	
+	var sArgument     = param
+
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	//trace(this.ds_param.saveXML());	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	
+	if(ErrorCode < 0){
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "search"){	
+			if(this.ds_tbTrTrplCif.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		}else{
+			if(this.ds_tbTrTrplCif.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		}
+	}
+	
+		trace(this.ds_tbTrTrplCif.saveXML());
+		
+}
+
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//this.close();
+	this.parent.div_naTrplC.set_visible(false);
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//this.close();
+	
+	this.parent.div_naTrplC.set_visible(false);
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+var StrTbTrTrplCif = "";
+	
+	//alert("this.ds_rclist.rowcount==>"+this.ds_rclist.rowcount);
+	if(this.ds_tbTrTrplCif.rowcount > 0){
+		for(var i = 0; i < this.ds_tbTrTrplCif.rowcount; i++){
+			if(this.ds_tbTrTrplCif.getColumn(i, "ISCHECKED") == 1)
+			{
+			
+				StrTbTrTrplCif = "NA_TRPL_C#" + this.ds_tbTrTrplCif.getColumn(i, "NA_TRPL_C");      //경제통합거래처코드
+				StrTbTrTrplCif += ",CLNTNM#" + this.ds_tbTrTrplCif.getColumn(i, "CLNTNM");            //거래처명
+				StrTbTrTrplCif += ",TRPL_ABR_NM#"+ this.ds_tbTrTrplCif.getColumn(i, "TRPL_ABR_NM");   //거래처약어명
+				StrTbTrTrplCif += ",FZIP#"+ this.ds_tbTrTrplCif.getColumn(i, "FZIP");                 //앞자리우편번호
+				StrTbTrTrplCif += ",RZIP#"+ this.ds_tbTrTrplCif.getColumn(i, "RZIP");                 //뒷자리우편번호
+				StrTbTrTrplCif += ",ZIP_SQNO#"+ this.ds_tbTrTrplCif.getColumn(i, "ZIP_SQNO");         //우편번호일련번호
+				StrTbTrTrplCif += ",DONGUP#"+ this.ds_tbTrTrplCif.getColumn(i, "DONGUP");             //동이상주소
+				StrTbTrTrplCif += ",DONGBW#"+ this.ds_tbTrTrplCif.getColumn(i, "DONGBW");             //동이하주소
+				StrTbTrTrplCif += ",ATEL#"+ this.ds_tbTrTrplCif.getColumn(i, "ATEL");                 //전화지역번호
+				StrTbTrTrplCif += ",HTEL#"+ this.ds_tbTrTrplCif.getColumn(i, "HTEL");                 //전화국번호
+				StrTbTrTrplCif += ",STEL#"+ this.ds_tbTrTrplCif.getColumn(i, "STEL");                //전화일련번호
+				StrTbTrTrplCif += ",MPSVNO#"+ this.ds_tbTrTrplCif.getColumn(i, "MPSVNO");            //휴대전화서비스번호
+				StrTbTrTrplCif += ",MPHNO#"+ this.ds_tbTrTrplCif.getColumn(i, "MPHNO");              //휴대전화국번호
+				StrTbTrTrplCif += ",MPSQNO#"+ this.ds_tbTrTrplCif.getColumn(i, "MPSQNO");            //휴대전화일련번호
+				StrTbTrTrplCif += ",TR_STOP_YN#"+ this.ds_tbTrTrplCif.getColumn(i, "TR_STOP_YN");    //거래중지여부
+				StrTbTrTrplCif += ",TR_STOP_RSNC#"+ this.ds_tbTrTrplCif.getColumn(i, "TR_STOP_RSNC");//거래중지사유코드
+				StrTbTrTrplCif += ",TR_STOP_DT#"+ this.ds_tbTrTrplCif.getColumn(i, "TR_STOP_DT");    //거래중지일자
+				StrTbTrTrplCif += ",COPNO_CIF_NO#"+ this.ds_tbTrTrplCif.getColumn(i, "COPNO_CIF_NO");//법인등록번호
+				StrTbTrTrplCif += ",REPMNM#"+ this.ds_tbTrTrplCif.getColumn(i, "REPMNM");            //대표자명
+				StrTbTrTrplCif += ",BZCCNM#"+ this.ds_tbTrTrplCif.getColumn(i, "BZCCNM");            //업종코드명
+				StrTbTrTrplCif += ",BZTPNM#"+ this.ds_tbTrTrplCif.getColumn(i, "BZTPNM");            //업태명
+				StrTbTrTrplCif += ",BIZ_NUMBER#"+ this.ds_tbTrTrplCif.getColumn(i, "BIZ_NUMBER");    //사업자등록번호
+	
+			}
+		}
+	
+	
+		this.parent.div_naTrplC.set_visible(false);
+		this.parent.fn_naTrplC(StrTbTrTrplCif);
+		
+		this.ds_tbTrTrplCif.clearData();
+		
+	}else{
+		alert("경재 통합코드를 조회 하세요");
+		return false;
+	}
+
+
+}
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+this.ds_tbTrTrplCif.clearData();
+  this.search();  	
+}
+
+
+
+]]></Script>
+  </Form>
+</FDL>

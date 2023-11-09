@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_TX_7003_WRS" classname="VAN_DS_SC_1111" left="0" top="0" width="1000" height="500" titletext="마감간소화 전표별 상품내역" onload="form_onload" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Button id="btn_excel" taborder="2" text="엑셀" cssclass="btn_WF_CRUD" top="47" right="17" width="41" height="21" onclick="common_onclick"/>
+        <Grid id="grd_detail" taborder="4" useinputpanel="false" left="15" top="100" right="15" bottom="58" binddataset="ds_detail_wrs" summarytype="top">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="70"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="115"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="25" band="head"/>
+                <Row size="35" band="head"/>
+                <Row size="28"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="No"/>
+                <Cell col="1" rowspan="2" text="상품코드"/>
+                <Cell col="2" rowspan="2" text="상품명"/>
+                <Cell col="3" rowspan="2" text="과세&#13;&#10;구분"/>
+                <Cell col="4" colspan="5" text="매입상세내역"/>
+                <Cell col="9" colspan="5" text="배송예정서"/>
+                <Cell row="1" col="4" text="매입단가"/>
+                <Cell row="1" col="5" text="매입수량"/>
+                <Cell row="1" col="6" text="공급금액"/>
+                <Cell row="1" col="7" text="부가세"/>
+                <Cell row="1" col="8" text="총공급금액"/>
+                <Cell row="1" col="9" text="전표상태"/>
+                <Cell row="1" col="10" text="배송상품&#13;&#10;단가"/>
+                <Cell row="1" col="11" text="배송예정&#13;&#10;수량"/>
+                <Cell row="1" col="12" text="배송금액"/>
+                <Cell row="1" col="13" text="부가세"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:NA_WRS_C"/>
+                <Cell col="2" style="align:left;" text="bind:WRSNM"/>
+                <Cell col="3" text="bind:TXT_DSC"/>
+                <Cell col="4" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:BYNG_UPR"/>
+                <Cell col="5" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:BYNG_QT"/>
+                <Cell col="6" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:BYAM"/>
+                <Cell col="7" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:BYNG_VAT"/>
+                <Cell col="8" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:TOT_AM"/>
+                <Cell col="9" text="bind:DVY_STSC"/>
+                <Cell col="10" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:DVY_WRS_UPR"/>
+                <Cell col="11" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:DVY_QT"/>
+                <Cell col="12" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:DVY_AM"/>
+                <Cell col="13" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:DVY_VAT"/>
+              </Band>
+              <Band id="summary">
+                <Cell/>
+                <Cell col="1" style="align:center;" text="합 계"/>
+                <Cell col="2" style="align:center;" expr="expr:dataset.getRowCount() + ' 건'"/>
+                <Cell col="3" style="align:center;"/>
+                <Cell col="4" displaytype="number"/>
+                <Cell col="5" displaytype="number" expr="expr:dataset.getSum('BYNG_QT')"/>
+                <Cell col="6" displaytype="number" expr="expr:dataset.getSum('BYAM')"/>
+                <Cell col="7" displaytype="number" expr="expr:dataset.getSum('BYNG_VAT')"/>
+                <Cell col="8" displaytype="number" expr="expr:dataset.getSum('TOT_AM')"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+                <Cell col="11" displaytype="number" expr="expr:dataset.getSum('DVY_QT')"/>
+                <Cell col="12" displaytype="number" expr="expr:dataset.getSum('DVY_AM')"/>
+                <Cell col="13" displaytype="number" expr="expr:dataset.getSum('DVY_VAT')"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static06" taborder="8" text="마감간소화 전표별 상품내역" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="btn_print" taborder="14" text="출력" onclick="common_onclick" cssclass="btn_WF_CRUD" top="47" right="63" width="41" height="21"/>
+        <Static id="sta_result" taborder="15" text="전표번호 :" left="15" top="71" width="90" height="21" cssclass="sta_WFSA_Label"/>
+        <Static id="sta_result00" taborder="16" text="(세금)계산서 승인 번호 :" left="15" top="47" width="160" height="21" cssclass="sta_WFSA_Label"/>
+        <Button id="btn_close" taborder="18" onclick="common_onclick" cssclass="btn_WF_PopupClose" top="0" width="37" height="32" right="0"/>
+        <Static id="sta_result01" taborder="20" text="매입사업장/매입사업장명 :" cssclass="sta_WFSA_Label" left="400" top="47" width="180" height="21"/>
+        <Static id="sta_info3" taborder="21" text="2021-01-01-00001" left="170" top="71" width="150" height="21"/>
+        <Static id="sta_info1" taborder="17" text="20210101012345kteba12345 (일반/과세)" left="170" top="47" width="300" height="21"/>
+        <Static id="sta_info2" taborder="19" text="8808983000015/상품본부" left="575" top="47" width="300" height="21"/>
+        <Button id="btn_close_all" taborder="22" text="모두닫기" onclick="common_onclick" cssclass="btn_WF_Popup" right="15" bottom="15" width="70" height="29"/>
+        <Button id="btn_close2" taborder="23" text="뒤로가기" onclick="common_onclick" cssclass="btn_WF_Popup" right="90" bottom="15" width="70" height="29"/>
+        <Static id="sta_info4" taborder="24" text="1000000000000010" left="575" top="71" width="150" height="21"/>
+        <Static id="sta_result02" taborder="25" text="배송예정서번호 :" cssclass="sta_WFSA_Label" left="400" top="71" width="120" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_detail_wrs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="NA_BZPLNM" type="string" size="32"/>
+          <Column id="NA_SLPNO" type="string" size="32"/>
+          <Column id="TR_DT" type="string" size="32"/>
+          <Column id="NA_WRS_C" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="WRS_STDNM" type="string" size="32"/>
+          <Column id="TXT_DSC" type="string" size="32"/>
+          <Column id="NA_CRC_CAN_DSC" type="string" size="32"/>
+          <Column id="BYNG_QT" type="string" size="32"/>
+          <Column id="BYNG_UPR" type="string" size="32"/>
+          <Column id="BYNG_VAT" type="string" size="32"/>
+          <Column id="BYAM" type="string" size="32"/>
+          <Column id="TOT_AM" type="STRING" size="256"/>
+          <Column id="NA_TR_DSC" type="STRING" size="256"/>
+          <Column id="DVY_STSC" type="STRING" size="256"/>
+          <Column id="DVY_QT" type="STRING" size="256"/>
+          <Column id="DVY_WRS_UPR" type="STRING" size="256"/>
+          <Column id="DVY_AM" type="STRING" size="256"/>
+          <Column id="DVY_VAT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_detail" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TR_DSC" type="string" size="32"/>
+          <Column id="SMA_SPY_AM" type="string" size="32"/>
+          <Column id="EXTX_SPY_AM" type="string" size="32"/>
+          <Column id="TOT_AM" type="string" size="32"/>
+          <Column id="TR_DT" type="string" size="32"/>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="NA_BZPLNM" type="STRING" size="256"/>
+          <Column id="TXT_SPY_AM" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="BYAM" type="string" size="32"/>
+          <Column id="BYNG_VAT" type="string" size="32"/>
+          <Column id="NA_SLPNO" type="string" size="32"/>
+          <Column id="DVY_SLPNO" type="STRING" size="256"/>
+          <Column id="DVY_STSC" type="STRING" size="256"/>
+          <Column id="DVY_AM" type="STRING" size="256"/>
+          <Column id="DVY_VAT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.PBC_SQNO;
+this.GLN;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	var xml = this.gfn_nullToEmpty(this.parent.dsXml);
+	this.ds_detail.set_enableevent(false);
+	this.ds_detail.loadXML(xml);
+	this.ds_detail.set_enableevent(true);
+
+	this.grd_detail.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	
+	if (this.ds_detail.rowcount == 0) {
+		this.alert("잘못된 정보입니다.");
+		this.close();
+	}
+	
+	this.fn_setResultMsg();
+	this.search();
+}
+
+//조회
+this.search = function()
+{
+	var sSvcID = "search";
+	var sURL = "svc::rest/tx/simplify/retrieveSubDetailList";
+	var sInDatasets = "ds_detail=ds_detail"; //보내는데이터셋
+	var sOutDatasets = "ds_detail_wrs=ds_detail"; //화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument = "type=WRS txtdsc=" + this.parent.txtDsc;
+	var sCallbackFunc = "fn_callback";
+	var sTranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_registerSvcDS(sSvcID, this.ds_detail_wrs, false);
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+this.fn_excel = function()
+{
+	excelDownHandler(this.gfn_svcUrl()+"rest/tx/simplify/excel/retrieveSubDetailList?type=WRS&txtdsc=" + this.parent.txtDsc + "&xml=" + this.fn_makeDsToParam(false), this);
+}
+
+this.fn_print = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var ozParam = {
+		sId: 'OMG_DS_TX_7003_WRS',
+		sUrl: '/rest/tx/simplify/oz/retrieveSubDetailList',
+		paramType: 'param',
+		sParam:{
+			type:"WRS",
+			txtdsc:this.parent.txtDsc,
+			xml:this.fn_makeDsToParam(true)
+		}
+	};
+	this.ozViewer(ozParam);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)//첫번째 인자값은 통신 ID
+{
+	this.gfn_svcDsToggle(svcID, true);
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}
+}
+
+this.common_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (obj.id == "btn_close" || obj.id == "btn_close2") {
+		this.close();
+	} else if (obj.id == "btn_close_all") {
+		this.close("all");
+	} else if (obj.id == "btn_excel") {
+		this.fn_excel();
+	} else if (obj.id == "btn_print") {
+		this.fn_print();
+	}
+}
+
+/**
+ * 엑셀 조회 파라매터 생성
+ */
+this.fn_makeDsToParam = function(isPrint)
+{
+	var gln = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "NA_TRPL_C")); // 0
+	var naBzplc = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "NA_BZPLC")); // 1
+	var trDt = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "TR_DT")); // 2
+	var slpno = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "NA_SLPNO")); // 3
+	
+	var param = gln + "@" + naBzplc + "@" + trDt + "@" + slpno;
+	
+	if (isPrint) {
+		var naTrDsc = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "NA_TR_DSC")); // 4
+		var spr = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "BYAM")); // 5
+		var txa = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "BYNG_VAT")); // 6
+		var tot = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "TOT_AM")); // 7
+		var bzplnm = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "NA_BZPLNM")); // 8
+		var crtYm = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "CRT_YM")); // 9
+		
+		param += "@" + naTrDsc + "@" + spr + "@" + txa + "@" + tot + "@" + bzplnm + "@" + crtYm;
+	}
+	var dvySlpno = this.gfn_nullToEmpty(this.ds_detail.getColumn(0, "DVY_SLPNO")); // 4, 10
+	param += "@" + dvySlpno;
+	
+	return isPrint ? param : encodeURIComponent(param);
+}
+
+this.fn_setResultMsg = function()
+{
+	var dvySlpno = this.ds_detail.getColumn(0, "DVY_SLPNO");
+	this.sta_info1.set_text(this.gfn_nullToEmpty(this.parent.txInfo));
+	this.sta_info2.set_text(this.ds_detail.getColumn(0, "NA_BZPLC") + " / " + this.ds_detail.getColumn(0, "NA_BZPLNM"));
+	this.sta_info3.set_text(this.ds_detail.getColumn(0, "TR_DT") + "-" + this.ds_detail.getColumn(0, "NA_SLPNO"));
+	this.sta_info4.set_text(this.gfn_nvl(dvySlpno, "배송예정서없음"));
+	
+	if (this.gfn_isNull(dvySlpno)) {
+		this.grd_detail.setRealColSize(9, 0);
+		this.grd_detail.setRealColSize(10, 0);
+		this.grd_detail.setRealColSize(11, 0);
+		this.grd_detail.setRealColSize(12, 0);
+		this.grd_detail.setRealColSize(13, 0);
+	}
+}]]></Script>
+  </Form>
+</FDL>

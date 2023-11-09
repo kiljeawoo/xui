@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_2311" classname="pattern_01" left="0" top="0" width="993" height="490" titletext="계약서 양식 등록" onload="OMG_DS_SC_2311_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_save" taborder="11" text="저장" top="1" width="41" height="21" cssclass="btn_WF_CRUD" right="15" onclick="btn_save_onclick"/>
+        <Static id="Static07" taborder="57" text="15" visible="false" left="978" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static47" taborder="83" text="신규 전자계약서 작성" cssclass="sta_WF_Subtitle" left="15" top="16" width="467" height="21"/>
+        <Static id="Static01" taborder="84" text="20" visible="false" left="15" top="0" width="803" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="85" text="계약서 종류" cssclass="sta_WF_Label" left="15" top="41" width="110" height="29"/>
+        <Static id="Static03" taborder="86" cssclass="sta_WF_Labelbg" left="124" top="41" height="29" right="15"/>
+        <Static id="Static05" taborder="88" text="계약서 버젼" cssclass="sta_WF_Label" left="15" top="69" width="110" height="29"/>
+        <Static id="Static06" taborder="89" cssclass="sta_WF_Labelbg" left="124" top="69" height="29" right="15"/>
+        <Static id="Static09" taborder="91" text="사용여부" cssclass="sta_WF_Label" left="496" top="69" width="110" height="29"/>
+        <Edit id="edt_ctrwStyVer" taborder="94" readonly="true" cssclass="edt_WF_Readonly" left="128" top="73" width="200" height="21" style="background:#ecececff;"/>
+        <Radio id="rdo_UYn" taborder="95" index="1" codecolumn="codecolumn" datacolumn="datacolumn" value="N" direction="vertical" left="612" top="73" width="158" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">사용안함</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Combo id="cbo_mnCtrwKdM" taborder="96" innerdataset="@ds_ctrwKdc" codecolumn="CTRW_KDC" datacolumn="SIMP_CNM" onitemchanged="cbo_mnCtrwKdM_onitemchanged" left="128" top="45" width="200" height="21"/>
+        <Static id="Static02" taborder="97" text="15" visible="false" left="0" top="8" width="15" height="490" style="background:#00ffffb5;"/>
+        <TextArea id="txa_ctrw_cntn" taborder="98" left="15" top="139" wordwrap="char" right="15" height="315" oneditclick="txa_ctrw_cntn_oneditclick"/>
+        <Static id="Static04" taborder="99" text="계약서 내용" cssclass="sta_WF_Subtitle" left="15" top="114" width="467" height="21"/>
+        <Static id="Static08" taborder="100" text="20" visible="false" left="15" top="98" width="803" height="20" style="background:#dc143c5b;"/>
+        <Button id="btn_update" taborder="101" text="수정" onclick="btn_update_onclick" cssclass="btn_WF_CRUD" top="1" right="15" width="41" height="21"/>
+        <TextArea id="txa_CtrwModCntn" taborder="102" wordwrap="char" left="15" top="494" right="15" height="130"/>
+        <Static id="Static10" taborder="103" text="계약서 수정내용" cssclass="sta_WF_Subtitle" left="15" top="469" width="467" height="21"/>
+        <Static id="Static11" taborder="104" text="20" visible="false" left="846" top="453" width="50" height="41" style="background:#dc143c5b;"/>
+        <Div id="Div00" taborder="105" left="26" top="624" width="230" height="15"/>
+        <Button id="btn_ctrwBrk" taborder="106" text="계약서내역" onclick="btn_ctrwBrk_onclick" cssclass="btn_WF_CRUD" top="1" right="60" width="74" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_in" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256"/>
+          <Column id="UYN" type="STRING" size="256"/>
+          <Column id="CTRW_CNTN" type="STRING" size="4000"/>
+          <Column id="CTRW_MOD_CNTN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ctrwKdc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="string" size="32" prop=""/>
+          <Column id="CTRW_STY_VER" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="txa_ctrw_cntn" propid="value" datasetid="ds_in" columnid=""/>
+      <BindItem id="item1" compid="txa_CtrwModCntn" propid="value" datasetid="ds_in"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.fn_cbo_mnCtrwKdM = "";
+this.fn_edt_ctrwStyVer = "";
+this.fn_mnCtrwKdM_Nm = "";
+this.fn_uyn = "";
+this.fv_paramMode = "";
+this.fn_buyerCd = "";
+
+this.OMG_DS_SC_2311_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e);
+	this.fv_paramMode = this.getOwnerFrame().paramMode;
+
+	this.fn_cbo_mnCtrwKdM = this.gfn_isEmpty(this.getOwnerFrame().CBO_MNCTRWKDM);
+	this.fn_edt_ctrwStyVer = this.gfn_isEmpty(this.getOwnerFrame().EDT_CTRWSTYVER);
+	this.fn_mnCtrwKdM_Nm = this.gfn_isEmpty(this.getOwnerFrame().CTRW_KDC_NM);
+	this.fn_uyn = this.gfn_isEmpty(this.getOwnerFrame().UYN);
+	this.fn_buyerCd = this.gfn_isEmpty(this.parent.BUYER_CD);
+
+	if (this.fv_paramMode == "N") {
+		this.btn_save.set_visible(true);
+		this.btn_update.set_visible(false);
+		this.fn_searchInit();
+	} else if (this.fv_paramMode == "S") {
+		var cnt = this.ds_ctrwKdc.addRow();
+		this.ds_ctrwKdc.setColumn(cnt, "CTRW_KDC", this.fn_cbo_mnCtrwKdM);
+		this.ds_ctrwKdc.setColumn(cnt, "SIMP_CNM", this.fn_mnCtrwKdM_Nm);
+
+		this.cbo_mnCtrwKdM.set_value(this.fn_cbo_mnCtrwKdM);
+		this.edt_ctrwStyVer.set_value(this.fn_edt_ctrwStyVer);
+		this.rdo_UYn.set_value(this.fn_uyn);
+
+		this.fn_search();
+		this.disable();
+	} else {
+		var cnt = this.ds_ctrwKdc.addRow();
+		this.ds_ctrwKdc.setColumn(cnt, "CTRW_KDC", this.fn_cbo_mnCtrwKdM);
+		this.ds_ctrwKdc.setColumn(cnt, "SIMP_CNM", this.fn_mnCtrwKdM_Nm);
+		this.cbo_mnCtrwKdM.set_value(this.fn_cbo_mnCtrwKdM);
+		this.edt_ctrwStyVer.set_value(this.fn_edt_ctrwStyVer);
+
+		this.fn_search();
+		this.disable();
+	}
+}
+
+/*조회 init */
+this.fn_searchInit = function()
+{
+	var sSvcID = "searchInit";//통신아이디
+	var sURL = "svc::rest/ct/eltctrwamn/retrieveCodelList";// 호출할 서버 페이지 주소
+	var sInDatasets = "";//보내는데이터셋
+	var sOutDatasets = "ds_ctrwKdc=ds_ctrwKdc";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument = "";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets , sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*조회*/
+this.fn_search = function()
+{
+	param = "cbo_mnCtrwKdM="+this.fn_cbo_mnCtrwKdM+" edt_ctrwStyVer="+this.fn_edt_ctrwStyVer;
+
+	var sSvcID = "search";//통신아이디
+	var sURL = "svc::rest/ct/eltctrwamn/retrieveCtrwStyDsclList";// 호출할 서버 페이지 주소
+	var sInDatasets = "";//보내는데이터셋
+	var sOutDatasets = "ds_in=ds_in";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets , sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_save_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_ctrw_cntn_division();
+	this.ds_in.setColumn(0, "UYN", "N"); //물류수수료율
+
+	if (this.cbo_mnCtrwKdM.value == "") {
+		alert("계약서 종류가 잘못 선택되었습니다.");
+		return;
+	}
+
+	var sSvcID = "insert";
+	var sURL = "svc::/rest/ct/eltctrwamn/insertContractForm";
+	var sInDatasets = "ds_in=ds_in";
+	var sOutDatasets = "";
+	var sArgument = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType = "U"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets , sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "search") {
+			if (this.ds_in.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			} else {
+				this.ctrw_cntn_add();
+				this.edt_ctrwStyVer.set_value(this.ds_in.getColumn(0, "CTRW_STY_VER"));
+				this.rdo_UYn.set_value(this.ds_in.getColumn(0, "UYN"));
+			}
+		} else if (svcID == "searchInit") {
+			if (this.ds_ctrwKdc.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			} else {
+				//this.cbo_mnCtrwKdM.set_index(0);
+				this.edt_ctrwStyVer.set_value(this.ds_ctrwKdc.getColumn(0, "CTRW_STY_VER"))
+
+				var cnt = this.ds_ctrwKdc.insertRow();
+ 				this.ds_ctrwKdc.setColumn(cnt, "CTRW_KDC", "")
+ 				this.ds_ctrwKdc.setColumn(cnt, "SIMP_CNM", "전체")
+				this.cbo_mnCtrwKdM.set_index(0);
+			}
+		} else if (svcID == "insert") {
+			if (ErrorCode == 1) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+
+				var num = 0;
+				this.fn_cbo_mnCtrwKdM = this.cbo_mnCtrwKdM.value;
+				num = nexacro.toNumber(this.edt_ctrwStyVer.value);
+				this.fn_edt_ctrwStyVer = num + 1;
+
+				this.fn_search();
+
+				this.fv_paramMode = "U";
+
+				//this.edt_ctrwStyVer.set_value(fn_edt_ctrwStyVer);
+				this.btn_save.set_visible(false);
+				this.btn_update.set_visible(true);
+				//this.disable();
+			}
+		} else if (svcID == "update") {
+			if (ErrorCode == 1) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+				var num = 0;
+				fn_edt_ctrwStyVer = this.edt_ctrwStyVer.value;
+				this.fn_search();
+				//this.disable();
+			}
+		}
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	if (this.gfn_isNull(calFrom)) {
+		this.gfn_getMessage("alert", "validation.message.fromDate.no.data");
+		return false;
+	}
+
+	if (this.gfn_isNull(calTo)) {
+		this.gfn_getMessage("alert", "validation.message.toDate.no.data");
+		return false;
+	}
+	return true;
+}
+
+this.fn_afterFormOnload = function()
+{
+}
+
+this.ctrw_cntn_add = function()
+{
+	var sColVal = "";
+	var sctrwModCntn = "";
+
+	for (var j=0; j<this.ds_in.rowcount; j++) {
+		if (j==0) {
+			sctrwModCntn = this.ds_in.getColumn(j, "CTRW_MOD_CNTN");
+			sColVal = this.ds_in.getColumn(j, "CTRW_CNTN");
+		} else {
+			sColVal += "^" +this.ds_in.getColumn(j, "CTRW_CNTN");
+		}
+	}
+
+	this.txa_ctrw_cntn.set_value(sColVal);
+	this.txa_CtrwModCntn.set_value(sctrwModCntn);
+}
+
+this.fn_ctrw_cntn_division = function()
+{
+	var fsRgm = "";
+	var fsrgDtm = "";
+	var arrVal = this.txa_ctrw_cntn.value.split("^");
+	var ctrwStyVer = this.edt_ctrwStyVer.value;
+
+	if (this.fv_paramMode == "N") {
+		ctrwStyVer = nexacro.toNumber( this.edt_ctrwStyVer.value) + 1;
+	} else {
+		fsRgm = this.ds_in.getColumn(0 , "FS_RGM");
+		fsrgDtm = this.ds_in.getColumn(0 , "FSRG_DTM");
+		this.ds_in.clearData();
+	}
+
+	var uyn = this.rdo_UYn.value;
+	var ctrwModCntn = this.txa_CtrwModCntn.value;
+
+	for (var v=0; v<arrVal.length; v++) {
+		var nARow = this.ds_in.addRow();
+		this.ds_in.setColumn(nARow, "CTRW_KDC", this.cbo_mnCtrwKdM.value);
+		this.ds_in.setColumn(nARow, "CTRW_STY_VER", ctrwStyVer);
+		this.ds_in.setColumn(nARow, "UYN", uyn);
+		this.ds_in.setColumn(nARow, "SQNO", v+1);
+
+		if (this.fv_paramMode != "N") {
+			this.ds_in.setColumn(nARow, "FS_RGM", fsRgm);
+			this.ds_in.setColumn(nARow, "FSRG_DTM", fsrgDtm);
+		}
+
+		this.ds_in.setColumn(nARow, "CTRW_CNTN", arrVal[v]);
+		if (nARow == 0) {
+			this.ds_in.setColumn(nARow, "CTRW_MOD_CNTN", ctrwModCntn);
+		}
+	}
+}
+
+this.cbo_mnCtrwKdM_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	var num = this.cbo_mnCtrwKdM.index;
+	this.edt_ctrwStyVer.set_value(this.ds_ctrwKdc.getColumn( num, "CTRW_STY_VER"))
+}
+
+this.disable = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.cbo_mnCtrwKdM.set_enable(false);
+	this.edt_ctrwStyVer.set_enable(false);
+	//this.txa_ctrw_cntn.set_readonly(true);
+	this.btn_save.set_visible(false);
+
+	if (this.fv_paramMode == "U") {
+		this.btn_update.set_visible(true);
+	} else if (this.fv_paramMode == "S") {
+		this.txa_CtrwModCntn.set_readonly(true);
+		this.txa_ctrw_cntn.set_readonly(true);
+		this.rdo_UYn.set_enable(false);
+		this.btn_update.set_visible(false);
+		this.btn_ctrwBrk.set_right(15);
+	} else {
+		this.btn_update.set_visible(false);
+	}
+}
+
+this.btn_update_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	//var uyn = this.rdo_UYn.value;
+	this.fv_paramMode = "U";
+	this.ds_in.setColumn(0, "UYN", this.rdo_UYn.value);
+	this.fn_ctrw_cntn_division();
+
+	var sSvcID = "update";
+	var sURL = "svc::/rest/ct/eltctrwamn/updateContractForm";
+	var sInDatasets = "ds_in=ds_in";
+	var sOutDatasets = "";
+	var sArgument = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType = "U"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets , sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_ctrwBrk_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	ctrw_kdc = this.cbo_mnCtrwKdM.value; //전제
+	ctrw_sty_ver = this.edt_ctrwStyVer.value;
+
+	var _url = "/rest/oz/ct/eltctrw/osEltctrwTest";
+	var _sid = "OMG_DS_SC_211301";
+
+	if (this.fn_buyerCd == "12" || this.fn_buyerCd == "14" || this.fn_buyerCd == "15" || ctrw_kdc == "503") {
+		if (ctrw_kdc == "121" || ctrw_kdc == "307" || ctrw_kdc == "415" || ctrw_kdc == "416") {
+			// 임대차거래계약서
+			_sid = "OMG_DS_SC_311301";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "122" || ctrw_kdc == "308" || ctrw_kdc == "503") {
+			// 직매입거래계약서(공통)
+			_sid = "OMG_DS_SC_311304";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "123" || ctrw_kdc == "417") {
+			// 특약매입거래계약서(공통)
+			_sid = "OMG_DS_SC_311305";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "418") {
+			// 특약서(협력업체 기여도평가)
+			_sid = "OMG_DS_SC_311601";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "141" || ctrw_kdc == "419") {
+			// 임대차거래계약서(테넌트)
+			_sid = "OMG_DS_SC_311501";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "143") {
+			// 특약매입거래계약서(테넌트)
+			_sid = "OMG_DS_SC_311503";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "144") {
+			// 단기 임대차 거래계약서(테넌트)
+			_sid = "OMG_DS_SC_311504";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "145") {
+			// 단기 특약매입 거래계약서(테넌트)
+			_sid = "OMG_DS_SC_311505";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "151") {
+			// 직매입거래계약서(수산)
+			_sid = "OMG_DS_SC_311601";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "152") {
+			// 특약매입거래계약서(수산)
+			_sid = "OMG_DS_SC_311602";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "192") {
+			// 부속계약서(임대차)
+			_sid = "OMG_DS_SC_311392";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "194") {
+			// 부속계약서(특약매입)
+			_sid = "OMG_DS_SC_311394";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "195") {
+			// 부속계약서(임대차_테넌트)
+			_sid = "OMG_DS_SC_311595";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "196") {
+			// 부속계약서(특약매입_테넌트)
+			_sid = "OMG_DS_SC_311596";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "197") {
+			// 부속계약서(테넌트_단기 임대차)
+			_sid = "OMG_DS_SC_311597";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "198") {
+			// 부속계약서(테넌트_단기 특약매입)
+			_sid = "OMG_DS_SC_311598";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		}
+	} else if (this.fn_buyerCd == "13") {
+		if (ctrw_kdc == "131") {
+			// 위수탁거래계약서(농산)
+			_sid = "OMG_DS_SC_311302";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "132" || ctrw_kdc == "206" || ctrw_kdc == "502") {
+			// 직매입거래계약서(농산)
+			_sid = "OMG_DS_SC_311303";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		} else if (ctrw_kdc == "193") {
+			// 부속계약서(농산)
+			_sid = "OMG_DS_SC_311393";
+			_url = "/rest/oz/ct/eltctrw/osEltctrwNewTest";
+		}
+	}
+
+	var ozParam = {
+		sId: _sid, 
+		sUrl: _url, 
+		paramType: 'param', 
+		sParam: {CTRW_KDC:ctrw_kdc, CTRW_STY_VER:ctrw_sty_ver}
+	};
+	this.ozViewer(ozParam, "ozViewerPotal", "HTML5");
+}]]></Script>
+  </Form>
+</FDL>

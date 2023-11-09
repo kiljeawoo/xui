@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4100" classname="pattern_01" left="0" top="0" width="803" height="3531" titletext="신규전자계약서 작성">
+    <Layouts>
+      <Layout>
+        <Div id="Div11" taborder="711" text="Div11" left="0" top="845" width="803" height="660">
+          <Layouts>
+            <Layout>
+              <Div id="Div09" taborder="0" text="Div09" left="0" top="0" width="788" height="70">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static24" taborder="5" text="기타" cssclass="sta_WF_Subtitle" left="0" top="16" width="467" height="21"/>
+                    <Static id="Static55" taborder="6" text="종류" cssclass="sta_WF_Label" left="0" top="41" width="110" height="29"/>
+                    <Static id="Static56" taborder="7" cssclass="sta_WF_Labelbg" left="109" top="41" width="679" height="29"/>
+                    <CheckBox id="CheckBox04" taborder="8" text="판촉사원 매장근무 요청서" left="117" top="45" width="179" height="21"/>
+                    <CheckBox id="CheckBox05" taborder="9" text="품질보증 협정서" left="290" top="45" width="179" height="21"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div08" taborder="1" text="Div08" left="0" top="70" width="788" height="433">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static57" taborder="33" text="판촉사원 매장근무 요청서" cssclass="sta_WF_Subtitle" left="0" top="17" width="467" height="21"/>
+                    <Button id="Button05" taborder="34" text="계약서보기" left="711" top="15" width="77" height="21"/>
+                    <Static id="Static71" taborder="35" cssclass="sta_WF_Labelbg" left="0" top="42" width="788" height="115"/>
+                    <WebBrowser id="WebBrowser01" left="4" top="46" width="781" height="108" taborder="36"/>
+                    <Static id="Static45" taborder="37" text="판촉사원" cssclass="sta_WF_Label_c" left="154" top="196" width="205" height="29"/>
+                    <Static id="Static12" taborder="38" text="점포명" cssclass="sta_WF_Label_c" left="0" top="196" width="155" height="29"/>
+                    <Static id="Static62" taborder="39" text="산출근거(상세히 기입)" cssclass="sta_WF_Label_c" left="358" top="196" width="430" height="29"/>
+                    <Static id="Static38" taborder="40" text="인건비" cssclass="sta_WF_Label_c" left="0" top="224" width="155" height="29"/>
+                    <Static id="Static40" taborder="41" text="기타" cssclass="sta_WF_Label_c" left="0" top="252" width="155" height="29"/>
+                    <Static id="Static46" taborder="42" text="계(A)" cssclass="sta_WF_Label_c" left="0" top="280" width="155" height="29"/>
+                    <Static id="Static53" taborder="43" text="(단워 : 천원)" cssclass="sta_WF_GridCount" left="710" top="175" width="78" height="21"/>
+                    <Static id="Static58" taborder="44" text="300" cssclass="sta_WF_Labelbg_R" left="154" top="224" width="205" height="29"/>
+                    <Static id="Static61" taborder="45" text="4500" cssclass="sta_WF_Labelbg_R" left="154" top="252" width="205" height="29"/>
+                    <Static id="Static63" taborder="46" text="4800" cssclass="sta_WF_Labelbg_R" left="154" top="280" width="205" height="29"/>
+                    <Static id="Static64" taborder="47" text="월급여 155*3 / 판촉사원 3명일 경우" cssclass="sta_WF_Labelbg" left="358" top="224" width="430" height="29"/>
+                    <Static id="Static65" taborder="48" cssclass="sta_WF_Labelbg" left="358" top="252" width="430" height="29"/>
+                    <Static id="Static66" taborder="49" cssclass="sta_WF_Labelbg" left="358" top="280" width="430" height="29"/>
+                    <Static id="Static68" taborder="50" text="1. 종업원 파견에 따른 소요비용" left="0" top="172" width="218" height="21"/>
+                    <Static id="Static69" taborder="51" text="2. 예상이익 및  산출근거" left="0" top="324" width="218" height="21"/>
+                    <Static id="Static74" taborder="52" text="월매출액" cssclass="sta_WF_Label_c" left="0" top="348" width="249" height="29"/>
+                    <Static id="Static76" taborder="53" text="인건비" cssclass="sta_WF_Label_c" left="0" top="376" width="125" height="29"/>
+                    <Static id="Static80" taborder="54" text="4500" cssclass="sta_WF_Labelbg_R" left="0" top="404" width="125" height="29"/>
+                    <Static id="Static82" taborder="55" text="예상이익&#13;&#10;(C-B-A)" cssclass="sta_WF_Label_c" left="648" top="348" width="140" height="57"/>
+                    <Static id="Static77" taborder="56" text="인건비" cssclass="sta_WF_Label_c" left="124" top="376" width="125" height="29"/>
+                    <Static id="Static78" taborder="57" text="4500" cssclass="sta_WF_Labelbg_R" left="124" top="404" width="125" height="29"/>
+                    <Static id="Static83" taborder="58" text="월매출이익" cssclass="sta_WF_Label_c" left="248" top="348" width="249" height="29"/>
+                    <Static id="Static84" taborder="59" text="인건비" cssclass="sta_WF_Label_c" left="248" top="376" width="125" height="29"/>
+                    <Static id="Static85" taborder="60" text="4500" cssclass="sta_WF_Labelbg_R" left="248" top="404" width="125" height="29"/>
+                    <Static id="Static101" taborder="61" text="인건비" cssclass="sta_WF_Label_c" left="372" top="376" width="125" height="29"/>
+                    <Static id="Static102" taborder="62" text="4500" cssclass="sta_WF_Labelbg_R" left="372" top="404" width="125" height="29"/>
+                    <Static id="Static73" taborder="63" text="매출이익&#13;&#10;(증가분 C-B)" cssclass="sta_WF_Label_c" left="496" top="348" width="153" height="57"/>
+                    <Static id="Static79" taborder="64" text="15000" cssclass="sta_WF_Labelbg_R" left="496" top="404" width="153" height="29"/>
+                    <Static id="Static81" taborder="65" text="10200" cssclass="sta_WF_Labelbg_R" left="648" top="404" width="140" height="29"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="Div10" taborder="2" text="Div10" left="0" top="503" width="788" height="157">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static70" taborder="4" text="품질보증 협정서" cssclass="sta_WF_Subtitle" left="0" top="17" width="467" height="21"/>
+                    <Button id="Button06" taborder="5" text="계약서보기" left="711" top="15" width="77" height="21"/>
+                    <Static id="Static72" taborder="6" cssclass="sta_WF_Labelbg" left="0" top="42" width="788" height="115"/>
+                    <WebBrowser id="WebBrowser02" left="4" top="46" width="781" height="108" taborder="7"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div07" taborder="707" text="Div07" left="0" top="455" width="803" height="70">
+          <Layouts>
+            <Layout>
+              <Static id="Static51" taborder="0" text="메인 계약서" cssclass="sta_WF_Subtitle" left="0" top="16" width="467" height="21"/>
+              <Static id="Static50" taborder="1" text="메인계약서종류" cssclass="sta_WF_Label" left="0" top="41" width="110" height="29"/>
+              <Static id="Static52" taborder="2" cssclass="sta_WF_Labelbg" left="109" top="41" right="15" height="29"/>
+              <Radio id="Radio00" taborder="3" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="117" top="45" width="680" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">물품구매(대형) 공급계약서</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">물품센터 이용계약서(일반)</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">물품센터 이용계약서(주류)</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">4</Col>
+                      <Col id="datacolumn">특약매입거래계약서</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div06" taborder="706" text="Div06" left="0" top="525" width="803" height="320">
+          <Layouts>
+            <Layout>
+              <Static id="Static11" taborder="0" cssclass="sta_WF_Labelbg" left="109" top="184" right="15" height="29"/>
+              <Static id="Static04" taborder="1" text="검수일" cssclass="sta_WF_Label" left="0" top="156" width="110" height="29"/>
+              <Static id="Static07" taborder="2" text="판매대금" cssclass="sta_WF_Label" left="244" top="184" width="110" height="29"/>
+              <Static id="Static08" taborder="3" cssclass="sta_WF_Labelbg" left="109" top="156" right="15" height="29"/>
+              <Static id="Static59" taborder="4" text="경과분" cssclass="sta_WF_Label" left="244" top="156" width="110" height="29"/>
+              <Edit id="Edit00" taborder="5" left="357" top="160" width="80" height="21"/>
+              <Static id="Static75" taborder="6" text="수탁사업수수료" cssclass="sta_WF_Label" left="0" top="184" width="110" height="29"/>
+              <Static id="Static86" taborder="7" text="특약매입거래 계약서" cssclass="sta_WF_Subtitle" left="0" top="17" width="467" height="21"/>
+              <Static id="Static87" taborder="8" cssclass="sta_WF_Labelbg" left="109" top="212" right="15" height="29"/>
+              <Static id="Static90" taborder="9" text="판매된상품대금" cssclass="sta_WF_Label" left="0" top="212" width="110" height="29"/>
+              <MaskEdit id="MaskEdit12" taborder="10" left="113" top="188" width="100" height="21"/>
+              <MaskEdit id="MaskEdit13" taborder="11" left="113" top="216" width="100" height="21"/>
+              <Static id="Static60" taborder="12" text="%" left="217" top="188" width="22" height="21"/>
+              <Static id="Static67" taborder="13" text="%" left="217" top="216" width="22" height="21"/>
+              <Static id="Static88" taborder="14" text="%" left="489" top="188" width="22" height="21"/>
+              <MaskEdit id="MaskEdit14" taborder="15" left="357" top="188" width="128" height="21"/>
+              <MaskEdit id="MaskEdit15" taborder="16" left="113" top="160" width="100" height="21"/>
+              <Static id="Static89" taborder="17" text="월" left="441" top="160" width="22" height="21"/>
+              <Static id="Static91" taborder="18" text="일" left="217" top="160" width="22" height="21"/>
+              <Static id="Static92" taborder="19" text="일" left="545" top="160" width="22" height="21"/>
+              <Edit id="Edit01" taborder="20" left="461" top="160" width="80" height="21"/>
+              <Static id="Static93" taborder="21" text="특이사항" cssclass="sta_WF_Label" left="0" top="240" width="110" height="80"/>
+              <Static id="Static94" taborder="22" cssclass="sta_WF_Labelbg" left="109" top="240" right="15" height="80"/>
+              <TextArea id="TextArea00" taborder="23" left="113" top="244" width="671" height="72"/>
+              <Button id="Button10" taborder="24" text="계약서보기" left="711" top="15" width="77" height="21"/>
+              <Static id="Static95" taborder="25" cssclass="sta_WF_Labelbg" left="0" top="42" height="115" width="788"/>
+              <WebBrowser id="WebBrowser00" left="4" top="46" width="781" height="108" taborder="26"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div05" taborder="705" text="Div05" left="0" top="1505" width="803" height="623">
+          <Layouts>
+            <Layout>
+              <Static id="Static103" taborder="0" text="○○○행사 약정서" cssclass="sta_WF_Subtitle" left="0" top="17" width="467" height="21"/>
+              <Button id="Button07" taborder="1" text="계약서보기" left="711" top="15" width="77" height="21"/>
+              <Static id="Static104" taborder="2" cssclass="sta_WF_Labelbg" left="0" top="42" height="115" width="788"/>
+              <WebBrowser id="WebBrowser03" left="4" top="46" width="781" height="108" taborder="3"/>
+              <Static id="Static105" taborder="4" text="행사제목" cssclass="sta_WF_Label" left="0" top="167" width="110" height="29"/>
+              <Static id="Static106" taborder="5" cssclass="sta_WF_Labelbg" left="109" top="167" height="29" width="679"/>
+              <Static id="Static107" taborder="6" text="행사기간" cssclass="sta_WF_Label" left="393" top="167" width="110" height="29"/>
+              <Edit id="Edit10" taborder="7" left="113" top="171" width="277" height="21"/>
+              <Static id="Static108" taborder="8" text="~" left="607" top="171" width="10" height="21"/>
+              <Calendar id="Calendar00" taborder="9" dateformat="yyyy-MM-dd" left="506" top="171" width="100" height="21"/>
+              <Calendar id="Calendar01" taborder="10" dateformat="yyyy-MM-dd" left="617" top="171" width="100" height="21"/>
+              <Static id="Static109" taborder="11" text="소요역" cssclass="sta_WF_Label_c" left="154" top="235" width="205" height="29"/>
+              <Static id="Static110" taborder="12" text="세부내역" cssclass="sta_WF_Label_c" left="0" top="235" width="155" height="29"/>
+              <Static id="Static111" taborder="13" text="산출근거(상세히 기입)" cssclass="sta_WF_Label_c" left="358" top="235" width="430" height="29"/>
+              <Static id="Static112" taborder="14" text="광고비" cssclass="sta_WF_Label_c" left="0" top="263" width="155" height="29"/>
+              <Static id="Static113" taborder="15" text="경품비" cssclass="sta_WF_Label_c" left="0" top="291" width="155" height="29"/>
+              <Static id="Static114" taborder="16" text="아르바이트비용" cssclass="sta_WF_Label_c" left="0" top="319" width="155" height="29"/>
+              <Static id="Static115" taborder="17" cssclass="sta_WF_Labelbg" left="154" top="263" height="29" width="205"/>
+              <Static id="Static116" taborder="18" cssclass="sta_WF_Labelbg" left="154" top="291" height="29" width="205"/>
+              <Static id="Static117" taborder="19" cssclass="sta_WF_Labelbg" left="154" top="319" height="29" width="205"/>
+              <Static id="Static118" taborder="20" cssclass="sta_WF_Labelbg" left="358" top="263" height="29" width="430"/>
+              <Static id="Static119" taborder="21" cssclass="sta_WF_Labelbg" left="358" top="291" height="29" width="430"/>
+              <Static id="Static121" taborder="22" cssclass="sta_WF_Labelbg" left="358" top="319" height="29" width="430"/>
+              <Static id="Static122" taborder="23" text="1. 전체예상 판촉비용" left="0" top="211" width="218" height="21"/>
+              <Static id="Static123" taborder="24" text="기타" cssclass="sta_WF_Label_c" left="0" top="347" width="155" height="29"/>
+              <Static id="Static124" taborder="25" text="계" cssclass="sta_WF_Label_c" left="0" top="375" width="155" height="29"/>
+              <Static id="Static125" taborder="26" cssclass="sta_WF_Labelbg" left="154" top="347" height="29" width="205"/>
+              <Static id="Static126" taborder="27" cssclass="sta_WF_Labelbg_R" left="154" top="375" height="29" width="205"/>
+              <Static id="Static127" taborder="28" cssclass="sta_WF_Labelbg" left="358" top="347" height="29" width="430"/>
+              <Static id="Static128" taborder="29" cssclass="sta_WF_Labelbg_R" left="358" top="375" height="29" width="430"/>
+              <Static id="Static129" taborder="30" text="2. 판촉비 부담비율" left="0" top="514" width="218" height="21"/>
+              <Static id="Static130" taborder="31" text="공급자" cssclass="sta_WF_Label_c" left="0" top="414" width="223" height="29"/>
+              <Static id="Static132" taborder="32" text="예상이익" cssclass="sta_WF_Label_c" left="0" top="442" width="112" height="29"/>
+              <Static id="Static133" taborder="33" cssclass="sta_WF_Labelbg_R" left="0" top="470" height="29" width="112"/>
+              <Static id="Static134" taborder="34" text="점유비(%)" cssclass="sta_WF_Label_c" left="555" top="414" width="233" height="29"/>
+              <Static id="Static135" taborder="35" text="산출근거" cssclass="sta_WF_Label_c" left="111" top="442" width="112" height="29"/>
+              <Static id="Static136" taborder="36" cssclass="sta_WF_Labelbg_R" left="111" top="470" height="29" width="112"/>
+              <Static id="Static137" taborder="37" text="구매자" cssclass="sta_WF_Label_c" left="222" top="414" width="223" height="29"/>
+              <Static id="Static138" taborder="38" text="예상이익" cssclass="sta_WF_Label_c" left="222" top="442" width="112" height="29"/>
+              <Static id="Static139" taborder="39" cssclass="sta_WF_Labelbg_R" left="222" top="470" height="29" width="112"/>
+              <Static id="Static140" taborder="40" text="산출근거" cssclass="sta_WF_Label_c" left="333" top="442" width="112" height="29"/>
+              <Static id="Static141" taborder="41" cssclass="sta_WF_Labelbg_R" left="333" top="470" height="29" width="112"/>
+              <Static id="Static143" taborder="42" text="계" cssclass="sta_WF_Label_c" left="444" top="414" width="112" height="29"/>
+              <Static id="Static144" taborder="43" cssclass="sta_WF_Labelbg_R" left="444" top="470" height="29" width="112"/>
+              <Static id="Static146" taborder="44" text="전체예상 판촉비용" cssclass="sta_WF_Label_c" left="0" top="538" width="249" height="57"/>
+              <Static id="Static148" taborder="45" cssclass="sta_WF_Labelbg_R" left="0" top="594" height="29" width="249"/>
+              <Static id="Static152" taborder="46" text="안분금액" cssclass="sta_WF_Label_c" left="248" top="538" width="249" height="29"/>
+              <Static id="Static153" taborder="47" text="공급자" cssclass="sta_WF_Label_c" left="248" top="566" width="125" height="29"/>
+              <Static id="Static154" taborder="48" cssclass="sta_WF_Labelbg_R" left="248" top="594" height="29" width="125"/>
+              <Static id="Static155" taborder="49" text="구매자" cssclass="sta_WF_Label_c" left="372" top="566" width="125" height="29"/>
+              <Static id="Static156" taborder="50" cssclass="sta_WF_Labelbg_R" left="372" top="594" height="29" width="125"/>
+              <Static id="Static157" taborder="51" text="비고" cssclass="sta_WF_Label_c" left="496" top="538" width="292" height="57"/>
+              <Static id="Static158" taborder="52" cssclass="sta_WF_Labelbg_R" left="496" top="594" height="29" width="292"/>
+              <Static id="Static147" taborder="53" text="예상이익" cssclass="sta_WF_Label_c" left="444" top="442" width="112" height="29"/>
+              <Static id="Static149" taborder="54" text="공급자" cssclass="sta_WF_Label_c" left="555" top="442" width="112" height="29"/>
+              <Static id="Static150" taborder="55" cssclass="sta_WF_Labelbg_R" left="555" top="470" height="29" width="112"/>
+              <Static id="Static151" taborder="56" text="구매자" cssclass="sta_WF_Label_c" left="666" top="442" width="122" height="29"/>
+              <Static id="Static159" taborder="57" cssclass="sta_WF_Labelbg_R" left="666" top="470" height="29" width="122"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div04" taborder="704" text="Div04" left="0" top="2140" width="803" height="98">
+          <Layouts>
+            <Layout>
+              <Static id="Static160" taborder="0" text="기타" cssclass="sta_WF_Subtitle" left="0" top="16" width="467" height="21"/>
+              <Static id="Static162" taborder="1" text="특약서 종류" cssclass="sta_WF_Label" left="0" top="41" width="110" height="57"/>
+              <Static id="Static163" taborder="2" cssclass="sta_WF_Labelbg" left="109" top="41" height="29" width="679"/>
+              <CheckBox id="CheckBox06" taborder="3" text="특약서(마진율)" left="117" top="45" width="117" height="21"/>
+              <CheckBox id="CheckBox07" taborder="4" text="특약서(판촉사원의 파견)" left="232" top="45" width="169" height="21"/>
+              <Static id="Static165" taborder="5" cssclass="sta_WF_Labelbg" left="109" top="69" height="29" width="679"/>
+              <CheckBox id="CheckBox08" taborder="6" text="특약서(매장위치 및 면적)" left="117" top="73" width="169" height="21"/>
+              <CheckBox id="CheckBox09" taborder="7" text="특약서(매장의 철수 등)" left="285" top="73" width="154" height="21"/>
+              <CheckBox id="CheckBox10" taborder="8" text="판촉사원 매장근무 요청서" left="400" top="45" width="171" height="21"/>
+              <CheckBox id="CheckBox11" taborder="9" text="특약서(판촉사원의 파견)" left="573" top="45" width="167" height="21"/>
+              <CheckBox id="CheckBox12" taborder="10" text="특약서(원산지 등)" left="478" top="73" width="127" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="703" text="Div03" left="0" top="2238" width="803" height="593">
+          <Layouts>
+            <Layout>
+              <Static id="Static164" taborder="0" text="특약서(마진율)" cssclass="sta_WF_Subtitle" left="0" top="17" width="467" height="21"/>
+              <Button id="Button09" taborder="1" text="계약서보기" left="711" top="15" width="77" height="21"/>
+              <Static id="Static166" taborder="2" cssclass="sta_WF_Labelbg" left="0" top="42" height="115" width="788"/>
+              <WebBrowser id="WebBrowser04" left="4" top="46" width="781" height="108" taborder="3"/>
+              <Static id="Static167" taborder="4" text="유효기간" cssclass="sta_WF_Label" left="0" top="167" width="110" height="29"/>
+              <Static id="Static168" taborder="5" cssclass="sta_WF_Labelbg" left="109" top="167" height="29" width="679"/>
+              <Static id="Static169" taborder="6" text="~" left="214" top="171" width="10" height="21"/>
+              <Calendar id="Calendar02" taborder="7" dateformat="yyyy-MM-dd" left="113" top="171" width="100" height="21"/>
+              <Calendar id="Calendar03" taborder="8" dateformat="yyyy-MM-dd" left="224" top="171" width="100" height="21"/>
+              <Grid id="Grid00" taborder="9" binddataset="Dataset00" useinputpanel="false" left="0" top="237" width="788" height="139">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="280"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="254"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="점포명"/>
+                      <Cell col="1" text="정상마진율(%)"/>
+                      <Cell col="2" text="행사마진율(%)"/>
+                      <Cell col="3" text="비고"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell cssclass="Cellgrd_WF_AlignLeft"/>
+                      <Cell col="1" cssclass="Cellgrd_WF_AlignRight"/>
+                      <Cell col="2" cssclass="Cellgrd_WF_AlignRight"/>
+                      <Cell col="3" cssclass="Cellgrd_WF_AlignLeft"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button11" taborder="10" text="행추가" top="211" width="53" height="21" left="680"/>
+              <Button id="Button12" taborder="11" text="행삭제" top="211" width="53" height="21" left="735"/>
+              <Static id="Static170" taborder="12" text="1. 정상마진율 및  행사마진율" left="0" top="213" width="218" height="21"/>
+              <Grid id="Grid01" taborder="13" binddataset="Dataset00" useinputpanel="false" left="0" top="417" width="788" height="176">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="174"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="34" band="head"/>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="점포명"/>
+                      <Cell col="1" colspan="5" text="할인판매 마진율"/>
+                      <Cell col="6" rowspan="2" text="비고"/>
+                      <Cell row="1" col="1" text="10% 할인"/>
+                      <Cell row="1" col="2" text="20% 할인"/>
+                      <Cell row="1" col="3" text="30% 할인"/>
+                      <Cell row="1" col="4" text="40% 할인"/>
+                      <Cell row="1" col="5" text="50% 할인"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell cssclass="Cellgrd_WF_AlignLeft"/>
+                      <Cell col="1" cssclass="Cellgrd_WF_AlignRight"/>
+                      <Cell col="2" cssclass="Cellgrd_WF_AlignRight"/>
+                      <Cell col="3" cssclass="Cellgrd_WF_AlignRight"/>
+                      <Cell col="4" cssclass="Cellgrd_WF_AlignRight"/>
+                      <Cell col="5" cssclass="Cellgrd_WF_AlignRight"/>
+                      <Cell col="6" cssclass="Cellgrd_WF_AlignLeft"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button13" taborder="14" text="행추가" top="391" width="53" height="21" left="680"/>
+              <Button id="Button14" taborder="15" text="행삭제" top="391" width="53" height="21" left="735"/>
+              <Static id="Static171" taborder="16" text="2. 계약담당자와 계약상대자 간 협의에 의하여 시행하는할인판매 행사 시 마진율" left="0" top="393" width="571" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="702" text="Div02" left="0" top="2831" width="803" height="349">
+          <Layouts>
+            <Layout>
+              <Static id="Static172" taborder="0" text="특약서(판촉사원의 파견)" cssclass="sta_WF_Subtitle" left="0" top="17" width="467" height="21"/>
+              <Button id="Button15" taborder="1" text="계약서보기" left="711" top="15" width="77" bottom="313"/>
+              <Static id="Static173" taborder="2" cssclass="sta_WF_Labelbg" left="0" top="42" height="115" width="788"/>
+              <WebBrowser id="WebBrowser05" left="4" top="46" width="781" height="108" taborder="3"/>
+              <Static id="Static174" taborder="4" text="파견기간" cssclass="sta_WF_Label" left="0" top="167" width="110" height="29"/>
+              <Static id="Static175" taborder="5" cssclass="sta_WF_Labelbg" left="109" top="167" height="29" width="679"/>
+              <Static id="Static176" taborder="6" text="~" left="214" top="171" width="10" height="21"/>
+              <Calendar id="Calendar04" taborder="7" dateformat="yyyy-MM-dd" left="113" top="171" width="100" height="21"/>
+              <Calendar id="Calendar05" taborder="8" dateformat="yyyy-MM-dd" left="224" top="171" width="100" height="21"/>
+              <Static id="Static177" taborder="9" text="근무기간" cssclass="sta_WF_Label" left="393" top="167" width="110" height="29"/>
+              <Static id="Static178" taborder="10" text=":" left="554" top="171" width="14" height="21"/>
+              <MaskEdit id="MaskEdit00" taborder="11" left="506" top="171" width="45" height="21"/>
+              <MaskEdit id="MaskEdit01" taborder="12" left="562" top="171" width="45" height="21"/>
+              <Static id="Static179" taborder="13" text="~" left="611" top="171" width="18" height="21"/>
+              <Static id="Static180" taborder="14" text=":" left="672" top="171" width="14" height="21"/>
+              <MaskEdit id="MaskEdit02" taborder="15" left="624" top="171" width="45" height="21"/>
+              <MaskEdit id="MaskEdit03" taborder="16" left="680" top="171" width="45" height="21"/>
+              <Static id="Static181" taborder="17" text="1. 점포별 판촉사원 파견내역" left="0" top="211" width="218" height="21"/>
+              <Static id="Static183" taborder="18" text="점포명" cssclass="sta_WF_Label_c" left="0" top="235" width="152" height="29"/>
+              <Static id="Static184" taborder="19" cssclass="sta_WF_Labelbg" left="0" top="263" height="29" width="152"/>
+              <Static id="Static186" taborder="20" text="판촉사원" cssclass="sta_WF_Label_c" left="151" top="235" width="112" height="29"/>
+              <Static id="Static187" taborder="21" text="명" cssclass="sta_WF_Labelbg_R" left="151" top="263" height="29" width="112"/>
+              <Static id="Static189" taborder="22" text="점포명" cssclass="sta_WF_Label_c" left="262" top="235" width="152" height="29"/>
+              <Static id="Static190" taborder="23" cssclass="sta_WF_Labelbg" left="262" top="263" height="29" width="152"/>
+              <Static id="Static191" taborder="24" text="판촉사원" cssclass="sta_WF_Label_c" left="413" top="235" width="112" height="29"/>
+              <Static id="Static192" taborder="25" text="명" cssclass="sta_WF_Labelbg_R" left="413" top="263" height="29" width="112"/>
+              <Static id="Static194" taborder="26" cssclass="sta_WF_Labelbg" left="524" top="263" height="29" width="152"/>
+              <Static id="Static195" taborder="27" text="점포명" cssclass="sta_WF_Label_c" left="524" top="235" width="152" height="29"/>
+              <Static id="Static196" taborder="28" text="판촉사원" cssclass="sta_WF_Label_c" left="675" top="235" width="113" height="29"/>
+              <Static id="Static197" taborder="29" text="명" cssclass="sta_WF_Labelbg_R" left="675" top="263" height="29" width="113"/>
+              <Static id="Static182" taborder="30" cssclass="sta_WF_Labelbg" left="0" top="291" height="29" width="152"/>
+              <Static id="Static185" taborder="31" text="명" cssclass="sta_WF_Labelbg_R" left="151" top="291" height="29" width="112"/>
+              <Static id="Static188" taborder="32" cssclass="sta_WF_Labelbg" left="262" top="291" height="29" width="152"/>
+              <Static id="Static193" taborder="33" text="명" cssclass="sta_WF_Labelbg_R" left="413" top="291" height="29" width="112"/>
+              <Static id="Static198" taborder="34" cssclass="sta_WF_Labelbg" left="524" top="291" height="29" width="152"/>
+              <Static id="Static199" taborder="35" text="명" cssclass="sta_WF_Labelbg_R" left="675" top="291" height="29" width="113"/>
+              <Static id="Static200" taborder="36" cssclass="sta_WF_Labelbg" left="0" top="319" height="29" width="152"/>
+              <Static id="Static201" taborder="37" text="명" cssclass="sta_WF_Labelbg_R" left="151" top="319" height="29" width="112"/>
+              <Static id="Static202" taborder="38" cssclass="sta_WF_Labelbg" left="262" top="319" height="29" width="152"/>
+              <Static id="Static203" taborder="39" text="명" cssclass="sta_WF_Labelbg_R" left="413" top="319" height="29" width="112"/>
+              <Static id="Static204" taborder="40" cssclass="sta_WF_Labelbg" left="524" top="319" height="29" width="152"/>
+              <Static id="Static205" taborder="41" text="명" cssclass="sta_WF_Labelbg_R" left="675" top="319" height="29" width="113"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div00" taborder="701" text="Div00" left="0" top="3180" width="803" height="349">
+          <Layouts>
+            <Layout>
+              <Static id="Static239" taborder="0" text="평" cssclass="sta_WF_Labelbg_R" left="693" top="291" height="29" width="96"/>
+              <Static id="Static243" taborder="1" text="평" cssclass="sta_WF_Labelbg_R" left="693" top="319" height="29" width="96"/>
+              <Static id="Static244" taborder="2" text="평" cssclass="sta_WF_Label_c" left="693" top="263" width="96" height="29"/>
+              <Static id="Static206" taborder="3" text="특약서(매장위치 및 면적)" cssclass="sta_WF_Subtitle" left="0" top="17" width="467" height="21"/>
+              <Button id="Button16" taborder="4" text="계약서보기" left="711" top="15" width="77" height="21"/>
+              <Static id="Static207" taborder="5" cssclass="sta_WF_Labelbg" left="0" top="42" height="115" width="788"/>
+              <WebBrowser id="WebBrowser06" left="4" top="46" width="781" height="108" taborder="6"/>
+              <Static id="Static208" taborder="7" text="유효기간" cssclass="sta_WF_Label" left="0" top="167" width="110" height="29"/>
+              <Static id="Static209" taborder="8" cssclass="sta_WF_Labelbg" left="109" top="167" height="29" width="679"/>
+              <Static id="Static210" taborder="9" text="~" left="214" top="171" width="10" height="21"/>
+              <Calendar id="Calendar06" taborder="10" dateformat="yyyy-MM-dd" left="113" top="171" width="100" height="21"/>
+              <Calendar id="Calendar07" taborder="11" dateformat="yyyy-MM-dd" left="224" top="171" width="100" height="21"/>
+              <Static id="Static211" taborder="12" text="행사기간" cssclass="sta_WF_Label" left="393" top="167" width="110" height="29"/>
+              <Static id="Static215" taborder="13" text="1. 전체예상 판촉비용" left="0" top="211" width="218" height="21"/>
+              <Static id="Static216" taborder="14" text="점포명" cssclass="sta_WF_Label_c" left="0" top="235" width="199" height="29"/>
+              <Static id="Static217" taborder="15" cssclass="sta_WF_Labelbg" left="0" top="291" height="29" width="100"/>
+              <Static id="Static219" taborder="16" text="층" cssclass="sta_WF_Labelbg_R" left="99" top="291" height="29" width="100"/>
+              <Static id="Static220" taborder="17" text="점포명" cssclass="sta_WF_Label_c" left="198" top="235" width="199" height="29"/>
+              <Static id="Static221" taborder="18" cssclass="sta_WF_Labelbg" left="198" top="291" height="29" width="100"/>
+              <Static id="Static223" taborder="19" text="평" cssclass="sta_WF_Labelbg_R" left="297" top="291" height="29" width="100"/>
+              <Static id="Static224" taborder="20" cssclass="sta_WF_Labelbg" left="396" top="291" height="29" width="100"/>
+              <Static id="Static225" taborder="21" text="점포명" cssclass="sta_WF_Label_c" left="396" top="235" width="199" height="29"/>
+              <Static id="Static227" taborder="22" text="층" cssclass="sta_WF_Labelbg_R" left="495" top="291" height="29" width="100"/>
+              <Static id="Static228" taborder="23" cssclass="sta_WF_Labelbg" left="0" top="319" height="29" width="100"/>
+              <Static id="Static229" taborder="24" text="층" cssclass="sta_WF_Labelbg_R" left="99" top="319" height="29" width="100"/>
+              <Static id="Static230" taborder="25" cssclass="sta_WF_Labelbg" left="198" top="319" height="29" width="100"/>
+              <Static id="Static231" taborder="26" text="평" cssclass="sta_WF_Labelbg_R" left="297" top="319" height="29" width="100"/>
+              <Static id="Static232" taborder="27" cssclass="sta_WF_Labelbg" left="396" top="319" height="29" width="100"/>
+              <Static id="Static233" taborder="28" text="층" cssclass="sta_WF_Labelbg_R" left="495" top="319" height="29" width="100"/>
+              <Static id="Static212" taborder="29" text="명" cssclass="sta_WF_Label_c" left="0" top="263" width="100" height="29"/>
+              <Static id="Static213" taborder="30" text="층" cssclass="sta_WF_Label_c" left="99" top="263" width="100" height="29"/>
+              <Static id="Static214" taborder="31" cssclass="sta_WF_Label_c" left="198" top="263" width="100" height="29"/>
+              <Static id="Static240" taborder="32" text="평" cssclass="sta_WF_Label_c" left="297" top="263" width="100" height="29"/>
+              <Static id="Static241" taborder="33" text="명" cssclass="sta_WF_Label_c" left="396" top="263" width="100" height="29"/>
+              <Static id="Static242" taborder="34" text="층" cssclass="sta_WF_Label_c" left="495" top="263" width="100" height="29"/>
+              <Static id="Static234" taborder="35" text="판촉사원" cssclass="sta_WF_Label_c" left="594" top="235" width="195" height="29"/>
+              <Static id="Static235" taborder="36" cssclass="sta_WF_Labelbg_R" left="594" top="291" height="29" width="100"/>
+              <Static id="Static236" taborder="37" cssclass="sta_WF_Labelbg_R" left="594" top="319" height="29" width="100"/>
+              <Static id="Static237" taborder="38" cssclass="sta_WF_Label_c" left="594" top="263" width="100" height="29"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="240" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Button id="Button08" taborder="38" text="저장" cssclass="btn_WF_CRUD" top="0" width="41" height="21" left="747"/>
+        <Static id="Static47" taborder="96" text="신규 전자계약서 작성" cssclass="sta_WF_Subtitle" left="0" top="37" width="467" height="21"/>
+        <Static id="Static01" taborder="97" text="20" visible="false" left="0" top="21" width="803" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="241" text="15" visible="false" left="788" top="65" height="3498" style="background:#00ffff4f;" width="15"/>
+        <Button id="Button01" taborder="288" text="등록" cssclass="btn_WF_CRUD" top="0" width="41" height="21" left="661"/>
+        <Button id="Button02" taborder="289" text="출력" cssclass="btn_WF_CRUD" top="0" width="41" height="21" left="704"/>
+        <Static id="Static02" taborder="290" text="계약자 GLN코드" cssclass="sta_WF_Label" left="0" top="62" width="110" height="29"/>
+        <Static id="Static03" taborder="291" cssclass="sta_WF_Labelbg" left="109" top="62" height="29" width="679"/>
+        <Static id="Static48" taborder="293" text="상호" cssclass="sta_WF_Label" left="393" top="62" width="110" height="29"/>
+        <Static id="Static05" taborder="295" text="메인계약서종류" cssclass="sta_WF_Label" left="0" top="90" width="110" height="29"/>
+        <Static id="Static06" taborder="296" cssclass="sta_WF_Labelbg" left="109" top="90" height="29" width="679"/>
+        <Combo id="Combo00" taborder="297" left="113" top="94" width="277" height="21"/>
+        <Static id="Static09" taborder="298" text="계약서종료" cssclass="sta_WF_Label" left="393" top="90" width="110" height="29"/>
+        <Static id="Static10" taborder="300" text="계약기간" cssclass="sta_WF_Label" left="0" top="118" width="110" height="29"/>
+        <Static id="Static13" taborder="301" cssclass="sta_WF_Labelbg" left="109" top="118" height="29" width="679"/>
+        <Static id="Static14" taborder="303" text="계약일자" cssclass="sta_WF_Label" left="393" top="118" width="110" height="29"/>
+        <Static id="Static15" taborder="305" text="사업자 등록번호" cssclass="sta_WF_Label" left="0" top="146" width="110" height="29"/>
+        <Static id="Static17" taborder="306" cssclass="sta_WF_Labelbg" left="109" top="146" height="29" width="679"/>
+        <Static id="Static18" taborder="308" text="대표이사" cssclass="sta_WF_Label" left="393" top="146" width="110" height="29"/>
+        <Static id="Static19" taborder="310" text="전화번호" cssclass="sta_WF_Label" left="0" top="174" width="110" height="29"/>
+        <Static id="Static20" taborder="311" cssclass="sta_WF_Labelbg" left="109" top="174" height="29" width="679"/>
+        <Static id="Static21" taborder="313" text="이메일" cssclass="sta_WF_Label" left="393" top="174" width="110" height="29"/>
+        <Static id="Static22" taborder="315" text="우편번호" cssclass="sta_WF_Label" left="0" top="202" width="110" height="29"/>
+        <Static id="Static23" taborder="316" cssclass="sta_WF_Labelbg" left="109" top="202" height="29" width="679"/>
+        <Static id="Static26" taborder="320" text="회사주소" cssclass="sta_WF_Label" left="0" top="230" width="110" height="29"/>
+        <Static id="Static27" taborder="321" cssclass="sta_WF_Labelbg" left="109" top="230" height="29" width="679"/>
+        <Static id="Static29" taborder="325" text="바이어소속" cssclass="sta_WF_Label" left="0" top="258" width="110" height="29"/>
+        <Static id="Static30" taborder="326" cssclass="sta_WF_Labelbg" left="109" top="258" height="29" width="679"/>
+        <Static id="Static31" taborder="328" text="바이어성명" cssclass="sta_WF_Label" left="393" top="258" width="110" height="29"/>
+        <Static id="Static25" taborder="330" text="바이어전화번호" cssclass="sta_WF_Label" left="0" top="286" width="110" height="29"/>
+        <Static id="Static28" taborder="331" cssclass="sta_WF_Labelbg" left="109" top="286" height="29" width="679"/>
+        <Static id="Static32" taborder="333" text="바이어이메일" cssclass="sta_WF_Label" left="393" top="286" width="110" height="29"/>
+        <Static id="Static33" taborder="335" text="계약담당자상호" cssclass="sta_WF_Label" left="0" top="314" width="110" height="29"/>
+        <Static id="Static34" taborder="336" cssclass="sta_WF_Labelbg" left="109" top="314" height="29" width="679"/>
+        <Static id="Static35" taborder="338" text="계약담당자 대..." cssclass="sta_WF_Label" left="393" top="314" width="110" height="29"/>
+        <Static id="Static36" taborder="340" text="법률상대리인" cssclass="sta_WF_Label" left="0" top="342" width="110" height="29"/>
+        <Static id="Static37" taborder="341" cssclass="sta_WF_Labelbg" left="109" top="342" height="29" width="679"/>
+        <Static id="Static41" taborder="345" text="우편번호" cssclass="sta_WF_Label" left="0" top="370" width="110" height="29"/>
+        <Static id="Static42" taborder="346" cssclass="sta_WF_Labelbg" left="109" top="370" height="29" width="679"/>
+        <Static id="Static44" taborder="350" text="계약담당자주소" cssclass="sta_WF_Label" left="0" top="398" width="110" height="29"/>
+        <Static id="Static49" taborder="351" cssclass="sta_WF_Labelbg" left="109" top="398" height="29" width="679"/>
+        <Static id="Static39" taborder="353" text="계약기간 자동..." cssclass="sta_WF_Label" left="0" top="426" width="110" height="29"/>
+        <Static id="Static43" taborder="354" cssclass="sta_WF_Labelbg" left="109" top="426" height="29" width="679"/>
+        <Button id="Button00" taborder="385" cssclass="btn_WF_Searchbtn" left="369" top="66" width="21" height="21"/>
+        <Edit id="Edit20" taborder="386" left="113" top="66" width="253" height="21" positionstep="0"/>
+        <Static id="Static131" taborder="387" text="~" left="214" top="122" width="10" height="21"/>
+        <Calendar id="Calendar09" taborder="388" dateformat="yyyy-MM-dd" left="224" top="122" width="100" height="21"/>
+        <Calendar id="Calendar10" taborder="389" dateformat="yyyy-MM-dd" left="113" top="122" width="100" height="21"/>
+        <Static id="Static142" taborder="390" text="-" left="173" top="206" width="9" height="21"/>
+        <MaskEdit id="MaskEdit16" taborder="391" value="123" left="113" top="206" width="58" height="21"/>
+        <MaskEdit id="MaskEdit17" taborder="392" value="456" left="182" top="206" width="58" height="21"/>
+        <Button id="Button03" taborder="393" cssclass="btn_WF_Searchbtn" left="243" top="206" width="21" height="21"/>
+        <Static id="Static96" taborder="394" text="-" left="166" top="178" width="9" height="21"/>
+        <Static id="Static97" taborder="395" text="-" left="225" top="178" width="9" height="21"/>
+        <MaskEdit id="MaskEdit18" taborder="396" value="1234" left="175" top="178" width="48" height="21"/>
+        <Combo id="Combo01" taborder="397" value="1" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="113" top="178" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">010</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">011</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <MaskEdit id="MaskEdit19" taborder="398" value="1234" left="234" top="178" width="48" height="21"/>
+        <Static id="Static120" taborder="399" text="-" left="185" top="150" width="9" height="21"/>
+        <MaskEdit id="MaskEdit20" taborder="400" left="113" top="150" width="70" height="21"/>
+        <MaskEdit id="MaskEdit21" taborder="401" type="string" left="194" top="150" width="70" height="21"/>
+        <Edit id="Edit02" taborder="402" left="113" top="234" width="220" height="21"/>
+        <Edit id="Edit03" taborder="403" left="336" top="234" width="448" height="21"/>
+        <Calendar id="Calendar11" taborder="404" left="506" top="122" width="151" height="21"/>
+        <Edit id="Edit04" taborder="405" left="506" top="66" width="278" height="21"/>
+        <Edit id="Edit05" taborder="406" left="506" top="150" width="278" height="21"/>
+        <Edit id="Edit06" taborder="407" left="506" top="178" width="278" height="21"/>
+        <Static id="Static98" taborder="408" text="-" left="173" top="374" width="9" height="21"/>
+        <MaskEdit id="MaskEdit04" taborder="409" value="123" left="113" top="374" width="58" height="21"/>
+        <MaskEdit id="MaskEdit05" taborder="410" value="456" left="182" top="374" width="58" height="21"/>
+        <Button id="Button04" taborder="411" cssclass="btn_WF_Searchbtn" left="243" top="374" width="21" height="21"/>
+        <Edit id="Edit07" taborder="412" left="113" top="262" width="277" height="21"/>
+        <Edit id="Edit08" taborder="413" left="113" top="318" width="277" height="21"/>
+        <Edit id="Edit09" taborder="414" left="113" top="346" width="277" height="21"/>
+        <Edit id="Edit11" taborder="415" left="113" top="402" width="220" height="21"/>
+        <Edit id="Edit12" taborder="416" left="336" top="402" width="448" height="21"/>
+        <Radio id="Radio01" taborder="417" left="117" top="430" width="158" height="21" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" index="0" value="1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">미사용</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <CheckBox id="CheckBox00" taborder="418" text="부가계약서" left="510" top="94" width="90" height="21"/>
+        <CheckBox id="CheckBox02" taborder="420" text="특약서" left="662" top="94" width="63" height="21"/>
+        <CheckBox id="CheckBox03" taborder="421" text="기타" left="726" top="94" width="54" height="21"/>
+        <CheckBox id="CheckBox01" taborder="419" text="약정서" left="598" top="94" width="63" height="21"/>
+        <Edit id="Edit13" taborder="422" left="506" top="262" width="278" height="21"/>
+        <Edit id="Edit14" taborder="423" left="506" top="290" width="278" height="21"/>
+        <Edit id="Edit15" taborder="424" left="506" top="318" width="278" height="21"/>
+        <Static id="Static99" taborder="425" text="-" left="166" top="290" width="9" height="21"/>
+        <Static id="Static100" taborder="426" text="-" left="225" top="290" width="9" height="21"/>
+        <MaskEdit id="MaskEdit06" taborder="427" value="1234" left="175" top="290" width="48" height="21"/>
+        <MaskEdit id="MaskEdit07" taborder="428" value="1234" left="234" top="290" width="48" height="21"/>
+        <Combo id="Combo02" taborder="429" value="1" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="113" top="290" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">010</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">011</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

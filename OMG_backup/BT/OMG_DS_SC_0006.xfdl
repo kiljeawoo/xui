@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_0006" classname="pattern_01" left="0" top="0" width="900" height="1100" titletext="계약상세 안내" onload="OMG_DS_SC_1110_onload" scrollbars="autovert">
+    <Layouts>
+      <Layout>
+        <Div id="div" taborder="3" left="0" top="0" bottom="0" width="900" style="align:left middle;">
+          <Layouts>
+            <Layout>
+              <WebBrowser id="WebB" left="0" top="0" taborder="0" right="0" bottom="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[/* Form Load */
+this.OMG_DS_SC_1110_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.div.WebB.set_url(application.gv_serviceHtml_url  +"escm/CTR/OMG_DS_SC_0006.html");
+}]]></Script>
+  </Form>
+</FDL>

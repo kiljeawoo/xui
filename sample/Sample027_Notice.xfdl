@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="606" height="357" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_close" taborder="15" left="643" top="0" width="37" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="0" text="농협 하나로eSCM 사용자 전환 안내" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+        <Static id="TextArea01" taborder="1" text="농협 하나로 eSCM 사용자 전환 안내" wordwrap="char" left="113" top="66" width="380" height="30" style="border:2 none #bfbfbfff ;padding:0 0 0 0;align:center middle;font:bold 16 arial;" readonly="true"/>
+        <Static id="TextArea00" taborder="18" text="-전환 일시: 2015년 11월 23일 ~ 2015년 12월 04일 18시&#13;&#10;-전환 대상: 기존 공급업체시스템 로그인 사용자 중 하나로유통 거래업체에 한 함&#13;&#10;-전환 방법: 홈페이지 &quot;서비스 가입안내&quot; 페이지 참조&#13;&#10;※회원 가입 및 사용자 전환 &quot;사용자 매뉴얼&quot; 추후 제공 예정&#13;&#10;-문의사항: IT추진팀 (02)3789-3457, 3458&#13;&#10;-기타: 사용자 교육 일정과 장소는 http://supply.nonghyup.com 공지사항을 참조 하시기 바랍니다." wordwrap="char" left="18" top="154" width="566" height="182" style="border:2 none #bfbfbfff ;padding:0 0 0 0;align:left middle;font:10 arial;" readonly="true"/>
+        <Static id="TextArea02" taborder="19" text="[사용자 전환 개요]" wordwrap="char" left="18" top="122" width="566" height="32" style="border:2 none #bfbfbfff ;padding:0 0 0 0;align:left middle;font:bold 12 arial;" readonly="true"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="grd01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	trace("paramMode : "+this.getOwnerFrame().paramMode);
+	trace("dsArg : "+this.parent.dsArg.rowcount);
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.objRtnArr[0] = this.grd01.getColumn(this.grd01.rowposition,1);
+	this.objRtnArr[1] = this.grd01.getColumn(this.grd01.rowposition,3);
+	
+	this.close(this.objRtnArr.toString());
+}]]></Script>
+  </Form>
+</FDL>

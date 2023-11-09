@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4110" classname="pattern_01" left="0" top="0" width="993" height="490" titletext="계약상담 신청자 조회" onload="OMG_DS_SC_4110_onload" onkeydown="OMG_DS_SC_4110_onkeydown">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="73" left="0" top="29" height="94" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="38" text="신청일자" cssclass="sta_WFSA_Label" left="15" top="10" width="79" height="21"/>
+              <Static id="Static01" taborder="39" text="신청회사" cssclass="sta_WFSA_Label" left="15" top="62" width="79" height="21"/>
+              <Static id="Static03" taborder="46" text="신청자" cssclass="sta_WFSA_Label" left="15" top="36" width="79" height="21"/>
+              <Edit id="edt_comp" taborder="4" left="94" top="62" height="21" inputfilter="symbol" inputtype="full,digit,alpha" maxlength="100" password="false" width="211"/>
+              <Static id="Static131" taborder="50" text="~" left="195" top="10" width="10" height="21"/>
+              <Calendar id="cal_from" taborder="0" dateformat="yyyy-MM-dd" left="94" top="10" width="100" height="21"/>
+              <Calendar id="cal_to" taborder="1" dateformat="yyyy-MM-dd" left="205" top="10" height="21" width="100"/>
+              <Static id="Static02" taborder="54" onclick="Static00_onclick" visible="false" left="238" top="31" width="30" height="5" style="background:#0000ff33;"/>
+              <Edit id="edt_chrrnm" taborder="2" inputfilter="symbol" inputtype="full,digit,alpha" left="94" top="36" height="21" maxlength="100" width="211"/>
+              <Static id="Static04" taborder="56" text="사업자번호" cssclass="sta_WFSA_Label" left="372" top="62" width="100" height="21"/>
+              <Edit id="edt_bzno" taborder="5" inputfilter="symbol" inputtype="full,digit,alpha" left="491" top="62" width="211" height="21" maxlength="10"/>
+              <Edit id="edt_chrrMpno" taborder="3" inputfilter="symbol" inputtype="full,digit,alpha" left="491" top="36" width="211" height="21" maxlength="14"/>
+              <Static id="Static05" taborder="59" text="핸드폰" cssclass="sta_WFSA_Label" left="372" top="36" width="100" height="21"/>
+              <Static id="Static06" taborder="61" onclick="Static00_onclick" visible="false" left="238" top="57" width="30" height="5" style="background:#0000ff33;"/>
+              <Static id="Static07" taborder="62" onclick="Static00_onclick" visible="false" left="238" top="83" width="30" height="10" style="background:#0000ff33;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Static id="Static02" taborder="56" text="8" visible="false" left="922" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static07" taborder="57" text="15" visible="false" left="978" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Div id="div_list" taborder="69" left="0" top="123" right="15" bottom="0">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="2" text="상담 신청 조회" cssclass="sta_WF_Subtitle" left="0" top="-93" width="228" height="21"/>
+              <Button id="btu_div" taborder="13" cssclass="btn_WFSA_SearchClose" left="46.83%" top="0" height="12" onclick="btu_div_onclick" width="63"/>
+              <Grid id="grd_bzpl" taborder="14" binddataset="ds_search" useinputpanel="false" oncellclick="grd_bzpl_oncellclick" oncelldblclick="btn_confirm_onclick" left="0" top="34" right="0" bottom="15">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="99"/>
+                      <Column size="229"/>
+                      <Column size="179"/>
+                      <Column size="115"/>
+                      <Column size="138"/>
+                      <Column size="337"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="30"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="신청자"/>
+                      <Cell col="1" text="업체명"/>
+                      <Cell col="2" text="사업자 번호"/>
+                      <Cell col="3" text="신청날짜"/>
+                      <Cell col="4" text="핸드폰"/>
+                      <Cell col="5" text="주력품목"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:CHRRNM"/>
+                      <Cell col="1" text="bind:CONM"/>
+                      <Cell col="2" text="bind:BZNO" mask="@@@-@@-@@@@@"/>
+                      <Cell col="3" text="bind:RQ_DT" mask="@@@@-@@-@@"/>
+                      <Cell col="4" text="bind:CHRR_MPNO" mask="@@@-@@@@-@@@@"/>
+                      <Cell col="5" style="align:left;" expr="bind:MAJ_LATC"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static47" taborder="15" text="상담신청자조회" cssclass="sta_WF_Subtitle" left="0" top="10" width="238" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="78" left="306" top="28" width="30" height="45" onclick="Static00_onclick" style="background:#0000ff33;" visible="false"/>
+        <Div id="Div01" taborder="79" url="common::location.xfdl" text="Div01" left="0" top="0" right="579" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BZNO" type="STRING" size="256" sumtext="사업자 번호"/>
+          <Column id="CHRRNM" type="STRING" size="256" sumtext="이름"/>
+          <Column id="CHRR_MPNO" type="STRING" size="256" sumtext="신청자 핸드폰"/>
+          <Column id="RQ_DT" type="STRING" size="256" sumtext="신청일자"/>
+          <Column id="MAJ_LATC" type="STRING" size="256" sumtext="주요품목"/>
+          <Column id="CONM" type="STRING" size="256" sumtext="업체명"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+
+var chkDay ;
+/* Form Load */
+this.OMG_DS_SC_4110_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+
+	this.gfn_setInitForm(obj,e);
+	
+	var toDay = this.gfn_today("yyyyMMdd");
+
+	chkDay = this.gfn_minusMonth(toDay, 1);
+
+
+	this.div_search.cal_from.set_value(chkDay);
+
+	this.div_search.cal_to.set_value(toDay);
+	
+	this.div_list.grd_bzpl.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+
+}
+
+
+
+
+this.fn_search =  function()
+{
+
+
+		chrrnm = this.gfn_nullToEmpty(this.div_search.edt_chrrnm.value);  //신청자
+
+		bzno = this.gfn_nullToEmpty(this.div_search.edt_bzno.value);  //사업자등록번호
+
+		chrrMpno = this.gfn_nullToEmpty(this.div_search.edt_chrrMpno.value);  //신청자 핸드폰번호
+
+		comp = this.gfn_nullToEmpty(this.div_search.edt_comp.value);  //신청회사
+		
+		cal_from = this.div_search.cal_from.value;
+	    cal_to   = this.div_search.cal_to.value;
+		
+		param = " chrrnm="+chrrnm
+		       +" bzno="+bzno
+		       +" chrrMpno="+chrrMpno
+		       +" comp="+comp
+		       +" cal_from="+cal_from
+		       +" cal_to="+cal_to
+		       ;
+		var sSvcID        = "search";//통신아이디
+		var sURL          = "svc::rest/mg/mbcslt/retrieveCtrRqCptInq";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_search=ds_search";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+
+
+
+
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "search"){
+
+			if(this.ds_search.rowcount > 0)
+			{ 
+		
+			}else if(this.ds_search.rowcount == 0){
+
+		//		alert("조회된 건수가 없습니다");
+				return false;
+			}
+			
+		}
+	}
+	
+}
+
+
+this.btu_div_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.OMG_DS_SC_4110_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode==13  ){
+		this.btn_search.click();
+	}
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+}
+]]></Script>
+  </Form>
+</FDL>

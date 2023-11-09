@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6411_P03" classname="popup01" left="0" top="0" width="767" height="400" titletext="회원권한정보 수정 이력" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_close" taborder="10" text="닫기" cssclass="btn_WF_CRUD" top="15" right="13" width="41" height="21" onclick="fn_close_onclick"/>
+        <Static id="text_title" taborder="11" cssclass="sta_WF_Subtitle" left="17" top="18" width="135" height="21" text="수정이력"/>
+        <Static id="Static00" taborder="70" text="17" visible="false" left="750" top="44" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="71" text="15" visible="false" left="673" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="72" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="73" text="8" visible="false" left="674" top="36" width="91" height="8" style="background:#dc143c5b;"/>
+        <Grid id="Grid00" taborder="128" useinputpanel="false" left="17" top="41" width="733" height="310" binddataset="ds_hst">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="121"/>
+                <Column size="90"/>
+                <Column size="90"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="27"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="등록 시간"/>
+                <Cell col="1" text="회원권한"/>
+                <Cell col="2" text="수정여부"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:AUTH_RG_DTM" mask="####-##-## ##:##:##"/>
+                <Cell col="1" displaytype="combo" text="bind:USR_AUTH_DSC" combodataset="ds_usrAuthDsc" combocodecol="code" combodatacol="name"/>
+                <Cell col="2" displaytype="combo" text="bind:ENT_PRG_STSC" combodataset="ds_entPrgStsc" combocodecol="code" combodatacol="name"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_hst">
+        <ColumnInfo>
+          <Column id="AUTH_RG_DTM" type="STRING" size="256"/>
+          <Column id="USR_AUTH_DSC" type="STRING" size="256"/>
+          <Column id="ENT_PRG_STSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_param">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_usr">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="name">협력업체</Col>
+          </Row>
+          <Row>
+            <Col id="code">04</Col>
+            <Col id="name">세금계산서</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_stsc">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="status" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="status">완료</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="status">거절</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="status">수정요청중</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="status">수정요청거절</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="status">해지</Col>
+          </Row>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="status">진행중</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_basicInfo">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_usrAuthDsc">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="name">빌링</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="name">전자계약</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="name">세금계산서</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="name">웹하드</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="name">계약상담</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="name">전자계약-사업장</Col>
+          </Row>
+          <Row>
+            <Col id="code">7</Col>
+            <Col id="name">세금계산서-사업장</Col>
+          </Row>
+          <Row>
+            <Col id="code">8</Col>
+            <Col id="name">BI조회</Col>
+          </Row>
+          <Row>
+            <Col id="code">9</Col>
+            <Col id="name">추이분석</Col>
+          </Row>
+          <Row>
+            <Col id="code">A</Col>
+            <Col id="name">시장분석(자사)</Col>
+          </Row>
+          <Row>
+            <Col id="code">B</Col>
+            <Col id="name">시장분석(경쟁사)</Col>
+          </Row>
+          <Row>
+            <Col id="code">M</Col>
+            <Col id="name">가격할인</Col>
+          </Row>
+          <Row>
+            <Col id="code">P</Col>
+            <Col id="name">PDA검수</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_entPrgStsc">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="name">진행중</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="name">완료</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="name">거절</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="name">수정요청중</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="name">수정요청거절</Col>
+          </Row>
+          <Row>
+            <Col id="code">5</Col>
+            <Col id="name">해지</Col>
+          </Row>
+          <Row>
+            <Col id="code">6</Col>
+            <Col id="name">휴면</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <InitValue/>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{	
+
+ 
+	//페이지 로딩후 실행부분      		
+	this.ds_basicInfo.copyData(this.parent.dsArg);
+	
+	var sSvcID        = "changeSvcChgHstMbApvrqr";
+	var sURL          = "svc::rest/mg/usrinf/changeAuthChgHstMbApvrqr";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_hst=ds_hst";
+	var sArgument     = "MB_ID="+this.ds_basicInfo.getColumn(0,"MB_ID");
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회		 
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+}
+
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(svcID == "changehstMbApvrqr"){
+		if(this.ds_hst.rowcount > 0){
+	
+		for(var i = 0; i < this.ds_hst.rowcount; i++){
+			if(this.ds_hst.getColumn(i,"CH_HST") == "USR_TPC"){
+				this.ds_hst.setColumn(i,"BEFORE_ENT_PRG_STSC","");
+				this.ds_hst.setColumn(i,"ENT_PRG_STSC","");
+			
+			}else if(this.ds_hst.getColumn(i,"CH_HST") == "STSC"){
+				this.ds_hst.setColumn(i,"BEFORE_USR_TPC","");
+				this.ds_hst.setColumn(i,"USR_TPC","");
+			}
+		}
+		
+		}else if(this.ds_hst.rowcount == 0){
+			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+		}
+	}
+}
+
+this.fn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

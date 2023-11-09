@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211340" classname="pattern_01" left="0" top="0" width="788" height="220" titletext="협력사원 매장근무 요청서" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="745" text="협력사원 매장근무 요청서" cssclass="sta_WF_Subtitle" left="0" top="0" width="467" height="21"/>
+        <Button id="Button00" taborder="746" text="계약서보기" left="711" top="0" width="77" height="21" visible="false"/>
+        <Static id="Static02" taborder="749" text="월 소요액" cssclass="sta_WF_Label_c" left="234" top="51" height="29" width="205"/>
+        <Static id="Static03" taborder="750" text="세부내역" cssclass="sta_WF_Label_c" left="101" top="51" height="29" width="134"/>
+        <Static id="Static04" taborder="751" text="산출근거" cssclass="sta_WF_Label_c" left="437" top="51" height="29" right="0"/>
+        <Static id="Static05" taborder="752" text="인건비" cssclass="sta_WF_Label_c" left="101" top="79" height="29" width="134"/>
+        <Static id="Static06" taborder="753" text="기타" cssclass="sta_WF_Label_c" left="101" top="107" height="29" width="134"/>
+        <Static id="Static07" taborder="754" text="계(a)" cssclass="sta_WF_Label_c" left="101" top="135" height="29" width="134"/>
+        <Static id="Static08" taborder="755" text="(단워 : 천원)" cssclass="sta_WF_GridCount" top="30" width="78" height="21" right="0"/>
+        <Static id="Static09" taborder="756" cssclass="sta_WF_Labelbg_R" left="234" top="79" height="29" width="205"/>
+        <Static id="Static10" taborder="757" cssclass="sta_WF_Labelbg_R" left="234" top="107" height="29" width="205"/>
+        <Static id="Static11" taborder="758" cssclass="sta_WF_Labelbg_R" left="234" top="135" height="29" width="205"/>
+        <Static id="Static13" taborder="759" cssclass="sta_WF_Labelbg" left="437" top="79" height="29" right="0"/>
+        <Static id="Static14" taborder="760" cssclass="sta_WF_Labelbg" left="437" top="107" height="29" right="0"/>
+        <Static id="Static15" taborder="761" cssclass="sta_WF_Labelbg" left="437" top="135" height="29" right="0"/>
+        <Static id="Static16" taborder="762" text="1. 종업원 파견에 따른 소요비용" left="0" top="27" width="218" height="21"/>
+        <Static id="Static18" taborder="764" text="실현예상이익(b-a)" cssclass="sta_WF_Label_c" left="0" top="191" height="29" width="235"/>
+        <Static id="Static21" taborder="767" text="소용비용" cssclass="sta_WF_Label_c" left="0%" top="79" height="85" width="102"/>
+        <Static id="Static30" taborder="776" cssclass="sta_WF_Labelbg_R" left="234" top="191" height="29" right="0%"/>
+        <Edit id="edt_lbrcsClcnBass" taborder="1" left="440" top="83" height="21" ontextchanged="OMG_DS_SC_211340_ontextchanged" right="0.76%"/>
+        <Edit id="edt_etcClcnBass" taborder="3" left="440" top="111" height="21" ontextchanged="OMG_DS_SC_211340_ontextchanged" right="0.76%"/>
+        <Static id="Static26" taborder="805" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <MaskEdit id="mae_lbrcs" taborder="0" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211340_ontextchanged" left="237" top="83" height="21" width="198"/>
+        <MaskEdit id="mae_etc" taborder="2" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211340_ontextchanged" left="237" top="111" height="21" width="198"/>
+        <MaskEdit id="mae_pmtnEmpeSs" taborder="808" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211340_ontextchanged" cssclass="msk_WF_Readonly" left="237" top="138" height="21" readonly="true" width="198"/>
+        <MaskEdit id="mae_rlzXpcPft" taborder="814" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211340_ontextchanged" left="237" top="195" height="21" cssclass="msk_WF_Readonly" right="0.76%" readonly="true"/>
+        <Static id="Static01" taborder="815" text="구분" cssclass="sta_WF_Label_c" left="0" top="51" height="29" width="102"/>
+        <Static id="Static32" taborder="816" text="예상이익" cssclass="sta_WF_Label_c" left="0" top="163" height="29" width="102"/>
+        <Static id="Static33" taborder="817" text="월매출액" cssclass="sta_WF_Label_c" left="101" top="163" height="29" width="134"/>
+        <Edit id="edt_maeNedBass" taborder="4" ontextchanged="OMG_DS_SC_211340_ontextchanged" left="440" top="138" right="0.76%" height="21"/>
+        <Static id="Static31" taborder="819" cssclass="sta_WF_Labelbg" left="234" top="163" right="0" height="29"/>
+        <MaskEdit id="mae_mslam" taborder="5" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211340_ontextchanged" left="237" top="167" height="21" width="198"/>
+        <Static id="Static12" taborder="821" text="월매출이익(b)" cssclass="sta_WF_Label_c" left="437" top="163" height="29" width="134"/>
+        <MaskEdit id="mae_mslamPft" taborder="6" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211340_ontextchanged" left="573" top="167" right="0.76%" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_etcEltCtrw01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호   "/>
+          <Column id="ETC_CTRW_KDC" type="STRING" size="256" sumtext="기타 계약서종류  "/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼   "/>
+          <Column id="LBRCS" type="STRING" size="256" sumtext="인건비"/>
+          <Column id="LBRCS_CLCN_BASS" type="STRING" size="256" sumtext="인건비 산출근거"/>
+          <Column id="ETC" type="STRING" size="256" sumtext="기타"/>
+          <Column id="ETC_CLCN_BASS" type="STRING" size="256" sumtext="기타 산출근거"/>
+          <Column id="NED_BASS" type="STRING" size="256" sumtext="소용비용 산출근거"/>
+          <Column id="NED_SS" type="STRING" size="256" sumtext="소용비용 계"/>
+          <Column id="MSLAM" type="STRING" size="256" sumtext="월매출액"/>
+          <Column id="MSLAM_PFT" type="STRING" size="256" sumtext="월매출액이익"/>
+          <Column id="RLZ_XPC_PFT" type="STRING" size="256" sumtext="실현예상이익"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm501" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="5000" sumtext="계약서내용"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item5" compid="edt_lbrcsClcnBass" propid="value" datasetid="ds_etcEltCtrw01" columnid="LBRCS_CLCN_BASS"/>
+      <BindItem id="item3" compid="edt_etcClcnBass" propid="value" datasetid="ds_etcEltCtrw01" columnid="ETC_CLCN_BASS"/>
+      <BindItem id="item25" compid="mae_lbrcs" propid="value" datasetid="ds_etcEltCtrw01" columnid="LBRCS"/>
+      <BindItem id="item26" compid="mae_etc" propid="value" datasetid="ds_etcEltCtrw01" columnid="ETC"/>
+      <BindItem id="item27" compid="mae_pmtnEmpeSs" propid="value" datasetid="ds_etcEltCtrw01" columnid="NED_SS"/>
+      <BindItem id="item9" compid="mae_rlzXpcPft" propid="value" datasetid="ds_etcEltCtrw01" columnid="RLZ_XPC_PFT"/>
+      <BindItem id="item1" compid="edt_maeNedBass" propid="value" datasetid="ds_etcEltCtrw01" columnid="NED_BASS"/>
+      <BindItem id="item0" compid="mae_mslam" propid="value" datasetid="ds_etcEltCtrw01" columnid="MSLAM"/>
+      <BindItem id="item2" compid="mae_mslamPft" propid="value" datasetid="ds_etcEltCtrw01" columnid="MSLAM_PFT"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0 ;  //데이터 체크 
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+
+	// this.ds_addEltCtrwDtl01.copyData(this.parent.ds_addEltCtrwDtl);   
+
+	// 폼양식
+   for(var i = 0 ; i < this.parent.ds_etcEltStylAmm.rowcount; i++){		
+
+		if(this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "501"){
+
+			this.ds_etcEltStylAmm501.copyRow(0, this.parent.ds_etcEltStylAmm ,i);   	
+		}
+	}		 
+
+	 for(var i = 0 ; i < this.parent.ds_etcEltCtrw.rowcount; i++){		
+
+		if(this.parent.ds_etcEltCtrw.getColumn(i, "ETC_CTRW_KDC") =="501"){
+		
+			fv_position = i;
+			fv_chk = 1 ;
+			this.ds_etcEltCtrw01.addRow();
+			this.ds_etcEltCtrw01.copyRow(0, this.parent.ds_etcEltCtrw ,fv_position);   	
+			
+		}
+	 }
+	
+	if (fv_chk == 0 ){
+	
+		var nRow = this.parent.ds_etcEltCtrw.addRow();
+		fv_position = nRow;
+		this.parent.ds_etcEltCtrw.setColumn(fv_position, "ETC_CTRW_KDC" , "501") ;	
+		this.parent.ds_etcEltCtrw.setColumn(fv_position, "CHG_SQNO" ,this.parent.ds_register.getColumn(0 ,"CHG_SQNO" ) ) ;	
+			
+			
+		this.parent.ds_etcEltCtrw.setColumn(fv_position, "CTRW_STY_VER" , this.ds_etcEltStylAmm501.getColumn(0,"CTRW_STY_VER") ) ;		
+		this.ds_etcEltCtrw01.addRow();
+		this.ds_etcEltCtrw01.copyRow(0, this.parent.ds_etcEltCtrw ,fv_position);   	
+		
+		
+		if(application.gv_serverType  ==  "LOCAL") {//개발			
+			this.mae_lbrcs.set_value("111") ;
+			this.mae_etc.set_value("224,544,552") ;
+			this.edt_lbrcsClcnBass.set_value("TRERT") ;
+			this.edt_etcClcnBass.set_value("SSSSS") ;
+			this.edt_maeNedBass.set_value("UUUUU") ;
+			this.mae_mslam.set_value("4444") ;
+			this.mae_mslamPft.set_value("5555") ;
+			this.OMG_DS_SC_211340_ontextchanged();
+
+		}
+		
+			
+	}
+	
+// 		trace("**********************OMG_DS_SC_211340_ontextchanged***************************");
+// 		trace(this.parent.ds_etcEltCtrw.saveXML());	
+// 		trace("*************************************************");
+	
+ 		
+}
+
+
+
+this.OMG_DS_SC_211340_ontextchanged = function(obj:Edit,  e:nexacro.TextChangedEventInfo)
+{
+
+	
+	var num01 = 0;
+	var num02 = 0;
+	var num03 = 0;
+	
+
+	if(this.mae_lbrcs.value != undefined){
+		 num01 = nexacro.toNumber(this.mae_lbrcs.value);  // 인건비
+	}
+	if(this.mae_etc.value != undefined){
+
+		 num02 = nexacro.toNumber(this.mae_etc.value);  // 기타
+	}
+	this.mae_pmtnEmpeSs.set_value(num01 + num02 );   // 소용 비용 소계
+	
+	// 월매출이익 
+	if(this.mae_mslamPft.value != undefined){
+		 num03 = nexacro.toNumber(this.mae_mslamPft.value);
+	}
+	
+	 // 실현예상이익(b-a)
+	this.mae_rlzXpcPft.set_value((num01 + num02) - num03 );  
+	
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "LBRCS" , this.mae_lbrcs.value) ;   //월 소요액 인건비
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "LBRCS_CLCN_BASS" , this.edt_lbrcsClcnBass.value) ;  //인건비 산출근거
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "ETC" , this.mae_etc.value) ;   //월 소요액  기타비 
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "ETC_CLCN_BASS" , this.edt_etcClcnBass.value) ;//기타 산출근거      
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "NED_SS" , this.mae_pmtnEmpeSs.value) ;  //계      
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "NED_BASS" , this.edt_maeNedBass.value) ;  //계  산출 근거
+	
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "MSLAM" , this.mae_mslam.value) ; //월매출액
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "MSLAM_PFT" , this.mae_mslamPft.value) ; //월매출액이익
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "RLZ_XPC_PFT" , this.mae_rlzXpcPft.value) ; //실현 예상 이익 
+	
+
+}
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+
+	var strTitletext = "협력사원 매장근무 요청서";
+
+ 	if(this.gfn_isNull(this.mae_lbrcs.value) ){
+		this.mae_lbrcs.setFocus();
+ 		this.alert(strTitletext + " 소요비용 인건비를 입력하세요. ");
+ 		return false;
+ 	}
+	
+	if(this.gfn_isNull(this.edt_lbrcsClcnBass.value)){
+		this.edt_lbrcsClcnBass.setFocus();
+		this.alert(strTitletext + " 소요비용 인건비 산출근거을 입력하세요.");
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.mae_etc.value)){
+		this.mae_etc.setFocus();
+		this.alert(strTitletext + " 소요비용 기타비을 입력하세요.");
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edt_etcClcnBass.value)){
+		this.edt_etcClcnBass.setFocus();
+		this.alert(strTitletext + " 소요비용  기타 산출근거을 입력하세요.");
+		return false;
+	}
+	
+// 	if(this.gfn_isNull(this.mae_mmSlAmDspcBf1.value)){
+// 		this.mae_mmSlAmDspcBf1.setFocus();
+// 		this.alert(strTitletext + "소요비용 기타 산");
+// 		return false;
+// 	}
+	
+	if(this.gfn_isNull(this.mae_mslam.value)){
+		this.mae_mslam.setFocus();
+		this.alert(strTitletext + " 예상이익 월 매출액을 입력하세요.");
+		return false;
+	}
+
+	if(this.gfn_isNull(this.mae_mslamPft.value)){
+		this.mae_mmSlAmDspcBf2.setFocus();
+		this.alert(strTitletext + " 예상이익 월 매출액이익(b)을 입력하세요. ");
+		return false;
+	}
+	his.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT" , this.txa_sctrSjt.value) ;         //특약사항
+
+	return true;
+}
+this.text_changed = function(){
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT" , this.txa_sctrSjt.value) ;         //특약사항
+}
+
+]]></Script>
+  </Form>
+</FDL>

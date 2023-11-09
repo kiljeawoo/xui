@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4630" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="서비스이용료안내" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="17" text="서비스이용료안내" left="11" top="23" width="777" height="26" style="font:12 맑은 고딕;"/>
+        <Static id="Static02" taborder="16" cssclass="sta_WF_Menulist" left="11" top="54" height="1" width="777"/>
+        <Static id="Static03" taborder="24" text="15" visible="false" left="787" top="80" width="15" height="490" style="background:#00ffffb5;"/>
+        <Div id="div_01" taborder="13" text="Div00" left="11" top="79" height="95" scrollbars="none" width="777" style="background:transparent;">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="4" left="709" top="0" right="0" height="29" state="open" style="background:URL('theme://images/btn_WF_ShuttleU.png') right middle;" cssclass="U" text="접기"/>
+              <Static id="st_title" taborder="3" text="요금체계" cssclass="sta_WF_Subtitle" left="0" top="0" height="29" right="0" onclick="Button_onclick" state="open" style="padding:0 0 0 14;"/>
+              <Div id="div" taborder="2" text="Div00" left="0" top="28" width="777" height="67" scrollbars="none" style="background:#f6f6f6ff;border:1 none #bfbfbfff ;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="1" text="하나로 eSCM의 요금체계는 기본료와 SCM업무의 EDI 문서 송수신 사용량에 대한 EDI서비스 이용요금, 부가정보의 매출현황 조회건수에 대한 부가정보 이용요금, 기타 부가서비스 이용요금으로 구성되어 있습니다." wordwrap="char" left="0" top="0" width="777" style="border:1 none #bfbfbfff ;padding:10 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_02" taborder="25" text="Div00" left="11" top="169" width="777" height="119" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="7" cssclass="U" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleU.png') right middle;" state="open" text="접기"/>
+              <Static id="st_title" taborder="6" text="기본료 " onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="0" height="29" state="open" style="padding:0 0 0 14;"/>
+              <Div id="div" taborder="4" text="Div00" left="0" top="28" width="777" height="90" scrollbars="none" style="background:#f6f6f6ff;padding:10 10 10 10;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="1" text="월 20,000원 (본사만 부과 / VAT 별도), 전자세금계산서 전용업체 : 건당 1,000원 (VAT별도) , 월 5,000원 (VAT 별도)&#13;&#10; - EDI사용량이 없는 지사인 경우 : 세금계산서 발행건수가 있는 경우 세금계산서 전용업체 기준으로 청구 (월 5,000원 VAT별도)&#13;&#10; - 자동이체 신청 업체 중 이용료 5,000원 미만인 업체는 격월 출금" wordwrap="char" left="0" top="0" width="777" style="background:transparent;border:1 none #bfbfbfff ;padding:10 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_03" taborder="26" text="Div00" left="11" top="287" width="777" height="569" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="6" cssclass="U" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleU.png') right middle;" state="open" text="접기"/>
+              <Static id="st_title" taborder="5" text="EDI서비스 이용요금 " onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="-8" height="29" state="open" style="padding:0 0 0 14;"/>
+              <Div id="div" taborder="4" text="Div00" left="0" top="28" width="777" height="540" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static11" taborder="8" text="40원" cssclass="sta_WF_Labelbg" left="167" top="172" width="75" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_11" taborder="9" text="50원" cssclass="sta_WF_Labelbg" left="167" top="144" width="75" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_08" taborder="10" text="60원" cssclass="sta_WF_Labelbg" left="167" top="116" width="75" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_07" taborder="11" text="0~1,000" cssclass="sta_WF_Labelbg" left="54" top="116" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_10" taborder="12" text="1,001~3,000" cssclass="sta_WF_Labelbg" left="54" top="144" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_13" taborder="13" text="3,001~5,000" cssclass="sta_WF_Labelbg" left="54" top="172" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_16" taborder="14" text="5,001~10,000" cssclass="sta_WF_Labelbg" left="54" top="200" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_19" taborder="15" text="10,001~50,000" cssclass="sta_WF_Labelbg" left="54" top="228" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_22" taborder="16" text="50,001~100,000" cssclass="sta_WF_Labelbg" left="54" top="256" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_25" taborder="17" text="100,000 KB초과" cssclass="sta_WF_Labelbg" left="54" top="284" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_24" taborder="18" text="7" cssclass="sta_WF_Labelbg" left="10" top="284" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_21" taborder="19" text="6" cssclass="sta_WF_Labelbg" left="10" top="256" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_18" taborder="20" text="5" cssclass="sta_WF_Labelbg" left="10" top="228" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_15" taborder="21" text="4" cssclass="sta_WF_Labelbg" left="10" top="200" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_12" taborder="22" text="3" cssclass="sta_WF_Labelbg" left="10" top="172" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_09" taborder="23" text="2" cssclass="sta_WF_Labelbg" left="10" top="144" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_06" taborder="24" text="1" cssclass="sta_WF_Labelbg" left="10" top="116" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_02" taborder="25" text="구간" cssclass="sta_WF_Labelbg" left="10" top="79" width="45" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_03" taborder="26" text="사용량&#13;&#10;(단위 : Kbyte)" cssclass="sta_WF_Labelbg" left="54" top="79" width="115" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_04" taborder="27" text="Kbyte당 단위 요금" wordwrap="english" cssclass="sta_WF_Labelbg" left="167" top="79" width="75" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_05" taborder="28" text="비고" cssclass="sta_WF_Labelbg" left="241" top="79" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;" width="526"/>
+                    <Static id="st_27" taborder="29" text=" 청구대상 : 수주업무, 검수업무, 출고정보, 배송업무(등록업무), 데이터마트, 마감간소화 서비스&#13;&#10; 지사의 경우 사용량 기준으로 산정한 EDI 이용요금이 5천원 미만일 경우, 최저 요금인 5천원 적용&#13;&#10; 해당 메뉴 조회, 출력, 다운로드 시 사용량 발생&#13;&#10; 배송예정서 등록업무 청구제외대상&#13;&#10; - 농협 발주서 기반 배송예정서 작성문서&#13;&#10; - 농협 협력업체 내부시스템에서 배송예정서를 작성하는 XML/EDI업체&#13;&#10;   (단, 하나로eSCM웹화면에서 무발주배송예정서 Excel 다운로드시 사용량 청구)" wordwrap="char" cssclass="sta_WF_Labelbg" left="241" top="116" height="197" style="linespace:5;background:#ffffffff;padding:2 0 0 0;font:9 Gulim;" width="526"/>
+                    <Static id="st_26" taborder="4" text="10원" cssclass="sta_WF_Labelbg" left="167" top="284" width="75" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_23" taborder="5" text="15원" cssclass="sta_WF_Labelbg" left="167" top="256" width="75" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_20" taborder="6" text="20원" cssclass="sta_WF_Labelbg" left="167" top="228" width="75" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static14" taborder="7" text="30원" cssclass="sta_WF_Labelbg" left="167" top="200" width="75" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="TextArea01" taborder="30" text="SCM업무에서 주문서, 납품확인서 등 EDI 문서를 송수신한 데이터량을 기준으로 구간별 요금이 부과됩니다.&#13;&#10;사용량이 증가할 수록 구간 단위 요금이 줄어드는 슬라이딩 할인 방식입니다." wordwrap="char" left="0" top="0" width="777" height="46" style="border:1 none #bfbfbfff ;padding:10 10 0 10;align:left middle;" readonly="true"/>
+                    <Static id="TextArea00" taborder="31" text="EDI 문서 최초 수신일 기준 D+2일까지 재수신 데이터에 대해 청구하지 않고, D+3일부터 재수신 시 사용량 기준 50% 할인이 적용됩니다.&#13;&#10;ex) 12월 1일 오후 4시 최초 수신 후 12월 3일 24시 이전 재수신 시 : 청구 제외 / 12월 4일 0시 이후 재수신 시 : 청구 대상 (50% 할인)&#13;&#10;&#9;&#9;&#13;&#10;EDI 이용요금 슬라이딩 요금체계 계산 예시&#13;&#10;당월 총 사용량 3,800 KB일 때,&#13;&#10;  1,000KB X 60원 =  60,000원 (1천 KB 이하 사용량)&#13;&#10;+ 2,000KB X 50원 = 100,000원 (1천KB 초과 ~ 3천 KB이하 사용량)&#13;&#10;+   800KB X 40원 =   32,000원 (3천 KB 초과 ~ 5천 KB 이하 사용량)&#13;&#10;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓&#13;&#10;                          192,000원 (VAT 별도)" wordwrap="char" left="0" top="312" width="777" style="border:1 none #bfbfbfff ;padding:0 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                    <Static id="TextArea02" taborder="32" text="(VAT 별도)" wordwrap="char" left="0" top="55" width="777" height="18" style="border:1 none #bfbfbfff ;padding:0 10 0 0;align:right middle;" readonly="true"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_04" taborder="27" text="Div00" left="11" top="863" width="777" height="850" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="8" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" cssclass="D" text="펼치기"/>
+              <Static id="st_title" taborder="7" text="부가정보 이용요금" onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="-8" height="29" state="close" style="padding:0 0 0 14;"/>
+              <Div id="div" taborder="6" text="Div00" left="0" top="28" width="777" height="821" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="st_06" taborder="31" text="비고" cssclass="sta_WF_Labelbg" left="320" top="113" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;" width="447"/>
+                    <Static id="st_05" taborder="32" text="종량제&#13;&#10;(SKU건당)" wordwrap="english" cssclass="sta_WF_Labelbg" left="236" top="113" width="85" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_04" taborder="33" text="정액제&#13;&#10;(월정액)" wordwrap="english" cssclass="sta_WF_Labelbg" left="167" top="113" width="70" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_03" taborder="34" text="매출액 (월)" cssclass="sta_WF_Labelbg" left="53" top="113" width="115" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_02" taborder="35" text="구간" cssclass="sta_WF_Labelbg" left="10" top="113" width="45" height="38" style="background:#f2f8faff;color:#353e41ff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_08" taborder="37" text="10억이상" cssclass="sta_WF_Labelbg" left="53" top="150" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_09" taborder="38" text="90만원" cssclass="sta_WF_Labelbg" left="167" top="150" width="70" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_10" taborder="39" text="10원" cssclass="sta_WF_Labelbg" left="236" top="150" width="85" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_35" taborder="40" text=" 정액제 할증&#9;&#13;&#10; 기본 500,000건 제공&#9;&#13;&#10; -     500,001 건 ~ 1,000,000 건 (추가 100,000 건당 5% 할증)&#13;&#10; -   1,000,001 건 ~ 2,000,000 건 (추가 100,000 건당 4% 할증)&#13;&#10; -   2,000,001 건 ~ 3,000,000 건 (추가 100,000 건당 3% 할증)&#13;&#10; -   3,000,001 건 ~ 5,000,000 건 (추가 100,000 건당 2% 할증)&#13;&#10; -   5,000,001 건 이상               (추가 100,000 건당 1% 할증)" wordwrap="english" cssclass="sta_WF_Labelbg" left="320" top="150" height="197" style="linespace:5;background:#ffffffff;padding:2 7 0 7;" width="447"/>
+                    <Static id="st_14" taborder="41" text="10원" cssclass="sta_WF_Labelbg" left="236" top="178" width="85" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_18" taborder="42" text="7원" cssclass="sta_WF_Labelbg" left="236" top="206" width="85" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_22" taborder="43" text="7원" cssclass="sta_WF_Labelbg" left="236" top="234" width="85" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_26" taborder="44" text="4원" cssclass="sta_WF_Labelbg" left="236" top="262" width="85" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_30" taborder="45" text="4원" cssclass="sta_WF_Labelbg" left="236" top="290" width="85" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_34" taborder="46" text="무료" cssclass="sta_WF_Labelbg" left="236" top="318" width="85" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_33" taborder="47" text="무료" cssclass="sta_WF_Labelbg" left="167" top="318" width="70" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_32" taborder="48" text="0.3억 미만" cssclass="sta_WF_Labelbg" left="53" top="318" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_31" taborder="49" text="7" cssclass="sta_WF_Labelbg" left="10" top="318" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_28" taborder="51" text="0.3억 ~ 0.5억" cssclass="sta_WF_Labelbg" left="53" top="290" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_29" taborder="52" text="3만원" cssclass="sta_WF_Labelbg" left="167" top="290" width="70" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_25" taborder="53" text="9만원" cssclass="sta_WF_Labelbg" left="167" top="262" width="70" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_21" taborder="54" text="15만원" cssclass="sta_WF_Labelbg" left="167" top="234" width="70" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_17" taborder="55" text="30만원" cssclass="sta_WF_Labelbg" left="167" top="206" width="70" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_13" taborder="56" text="45만원" cssclass="sta_WF_Labelbg" left="167" top="178" width="70" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_12" taborder="57" text="5억 ~ 10억" cssclass="sta_WF_Labelbg" left="53" top="178" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_16" taborder="58" text="3억 ~ 5억" cssclass="sta_WF_Labelbg" left="53" top="206" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_20" taborder="59" text="1억 ~ 3억" cssclass="sta_WF_Labelbg" left="53" top="234" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_24" taborder="60" text="0.5억 ~ 1억" cssclass="sta_WF_Labelbg" left="53" top="262" width="115" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_23" taborder="61" text="5" cssclass="sta_WF_Labelbg" left="10" top="262" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_19" taborder="62" text="4" cssclass="sta_WF_Labelbg" left="10" top="234" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_15" taborder="63" text="3" cssclass="sta_WF_Labelbg" left="10" top="206" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_11" taborder="64" text="2" cssclass="sta_WF_Labelbg" left="10" top="178" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="TextArea01" taborder="93" wordwrap="char" left="0" top="29" width="777" height="56" style="border:1 none #bfbfbfff ;padding:0 10 0 10;align:left middle;" readonly="true" text="매출현황 상세를 다운로드 할 경우 청구되며, 요금제는 종량제와 정액제로 구분됩니다. &#13;&#10;종량제는 조회하는 해당 일자에 마트별 조회되는 모든 SKU 건당 하기 요금표의 단위 요금이 적용 됩니다.&#13;&#10;단, 매출 수량과 금액이 0인 SKU는 청구되지 않습니다."/>
+                    <Static id="TextArea32" taborder="94" text="○ 판매정보" wordwrap="char" left="0" top="0" width="777" height="28" style="border:1 none #bfbfbfff ;padding:10 10 0 10;align:left middle;font:bold 9 Gulim;" readonly="true"/>
+                    <Static id="TextArea00" taborder="95" text="정액제 할증요금 예시&#13;&#10;매출액 10억이상 업체 (월 정액제 900,000원, VAT 별도)&#13;&#10;530,000건 다운로드 → 월 정액 (900,000원) + 할증 (45,000원) = 945,000원 부과 (VAT 별도)&#13;&#10;&#13;&#10;종량제 이용요금 예시" wordwrap="char" left="0" top="352" width="777" height="98" style="border:1 none #bfbfbfff ;padding:0 10 0 10;align:left middle;" readonly="true"/>
+                    <Static id="st_07" taborder="96" text="1" cssclass="sta_WF_Labelbg" left="10" top="150" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_27" taborder="97" text="6" cssclass="sta_WF_Labelbg" left="10" top="290" width="45" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static15" taborder="98" text="수신년월" cssclass="sta_WF_Label" left="10" top="451" width="160" height="32" style="align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="Static14" taborder="99" text="201810" cssclass="sta_WF_Labelbg" left="10" top="482" width="160" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static24" taborder="100" text="201810" cssclass="sta_WF_Labelbg" left="10" top="510" width="160" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static30" taborder="101" text="201810" cssclass="sta_WF_Labelbg" left="10" top="538" width="160" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static38" taborder="102" text="201810" cssclass="sta_WF_Labelbg" left="10" top="566" width="160" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static39" taborder="103" text="201810" cssclass="sta_WF_Labelbg" left="10" top="594" width="160" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static80" taborder="104" text="자료수신업체" cssclass="sta_WF_Label" left="169" top="451" width="170" height="32" style="align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="Static40" taborder="105" text="A" cssclass="sta_WF_Labelbg" left="169" top="482" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static41" taborder="106" text="A" cssclass="sta_WF_Labelbg" left="169" top="510" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static42" taborder="107" text="A" cssclass="sta_WF_Labelbg" left="169" top="538" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static43" taborder="108" text="A" cssclass="sta_WF_Labelbg" left="169" top="566" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static79" taborder="109" text="A" cssclass="sta_WF_Labelbg" left="169" top="594" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static106" taborder="110" text="총 수신 상품 수" cssclass="sta_WF_Label" left="10" top="622" width="498" height="32" style="align:center middle;"/>
+                    <Static id="Static97" taborder="111" text="20180905" cssclass="sta_WF_Labelbg" left="338" top="594" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static89" taborder="112" text="20180904" cssclass="sta_WF_Labelbg" left="338" top="566" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static87" taborder="113" text="20180903" cssclass="sta_WF_Labelbg" left="338" top="538" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static86" taborder="114" text="20180902" cssclass="sta_WF_Labelbg" left="338" top="510" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static82" taborder="115" text="20180901" cssclass="sta_WF_Labelbg" left="338" top="482" width="170" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static99" taborder="116" text="매출일자" cssclass="sta_WF_Label" left="338" top="451" width="170" height="32" style="align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="Static105" taborder="117" text="수신상품 수(SKU)" cssclass="sta_WF_Label" left="507" top="451" width="260" height="32" style="align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="Static100" taborder="118" text="4,256" cssclass="sta_WF_Labelbg" left="507" top="482" width="260" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static101" taborder="119" text="3,692" cssclass="sta_WF_Labelbg" left="507" top="510" width="260" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static102" taborder="120" text="3,891" cssclass="sta_WF_Labelbg" left="507" top="538" width="260" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static103" taborder="121" text="4,109" cssclass="sta_WF_Labelbg" left="507" top="566" width="260" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static104" taborder="122" text="4,154" cssclass="sta_WF_Labelbg" left="507" top="594" width="260" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="Static107" taborder="123" text="20,102" cssclass="sta_WF_Label" left="507" top="622" width="260" height="32" style="align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="TextArea02" taborder="124" text="1. A업체의 전월 매출액 5억 ~ 10억 이상일 경우 SKU 건당 10원&#13;&#10;총 수신 상품 수 : 20,102 X 10원 = 201,020원 (VAT 별도)&#13;&#10;2. A업체의 전월 매출액 1억 ~ 5억 미만일 경우 SKU 건당 7원&#13;&#10;총 수신 상품 수 : 20,102 X 7원 = 140,714원 (VAT 별도)&#13;&#10;3. A업체의 전월 매출액 3천만원 ~ 1억 미만일 경우 SKU 건당 4원&#13;&#10;총 수신 상품 수 : 20,102 X 4원 = 80,408원 (VAT 별도)&#13;&#10;4. A업체의 전월 매출액 3천만원 미만인 경우 무료" wordwrap="char" left="0" top="656" width="777" style="border:1 none #bfbfbfff ;padding:0 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                    <Static id="TextArea03" taborder="125" text="(VAT 별도)" wordwrap="char" left="0" top="87" width="777" height="18" style="border:1 none #bfbfbfff ;padding:0 10 0 0;align:right middle;" readonly="true"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_05" taborder="28" text="Div00" left="11" top="1735" width="777" height="29" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="5" cssclass="D" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" text="펼치기"/>
+              <Static id="st_title" taborder="4" text="부가서비스" onclick="Button_additional_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="-8" height="29" state="close" uname="additional01" style="padding:0 0 0 14;"/>
+            </Layout>
+          </Layouts>
+          <InitValue>
+            <Static id="st_title" uname="additional01"/>
+          </InitValue>
+        </Div>
+        <Div id="div_06" taborder="29" text="Div00" left="11" top="1783" width="777" height="340" scrollbars="none" style="background:transparent;">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="30" cssclass="D" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" text="펼치기"/>
+              <Static id="st_title" taborder="29" text="정보분석 이용요금" onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="-8" height="29" state="close" style="background:URL('theme://images/btn_WF_ShuttleR_O.png') 2 50;padding:0 10 0 30;" uname="additional02"/>
+              <Div id="div" taborder="4" text="Div00" left="0" top="28" width="777" height="311" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="2" text="서비스 이용 신청을 통해 서비스를 이용할 수 있으며, 취급하지 않은 상품의 카테고리도 신청하여 서비스를 이용할 수 있습니다." wordwrap="char" left="0" top="0" width="777" height="28" style="border:1 none #bfbfbfff ;padding:10 10 0 10;align:left middle;" readonly="true"/>
+                    <Static id="st_37" taborder="3" text="구분" cssclass="sta_WF_Labelbg" left="10" top="60" width="160" height="32" style="background:#f2f8faff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_38" taborder="4" text="상세내역" cssclass="sta_WF_Labelbg" left="169" top="60" width="340" height="32" style="background:#f2f8faff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_40" taborder="5" text="요금" wordwrap="english" cssclass="sta_WF_Labelbg" left="507" top="60" width="260" height="32" style="background:#f2f8faff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_44" taborder="6" text="10,000원 / 월" cssclass="sta_WF_Labelbg" left="507" top="91" width="260" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_48" taborder="7" text="10,000원 / 월" cssclass="sta_WF_Labelbg" left="507" top="119" width="260" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_52" taborder="8" text="10,000원 / 월" cssclass="sta_WF_Labelbg" left="507" top="147" width="260" height="86" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_56" taborder="9" text="20,000원 / 월&#13;&#10;(1개 소분류당)" cssclass="sta_WF_Labelbg" left="507" top="231" width="260" height="56" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_41" taborder="10" text="BI조회" cssclass="sta_WF_Labelbg" left="10" top="91" width="160" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_45" taborder="11" text="추이분석" cssclass="sta_WF_Labelbg" left="10" top="119" width="160" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_49" taborder="12" text="자사 시장분석" cssclass="sta_WF_Labelbg" left="10" top="147" width="160" height="86" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_53" taborder="13" text="카테고리 시장분석" cssclass="sta_WF_Labelbg" left="10" top="231" width="160" height="56" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_58" taborder="14" text="사업장별 ABC 분석" cssclass="sta_WF_Labelbg" left="169" top="203" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_54" taborder="15" text="주별 시장 점유율" cssclass="sta_WF_Labelbg" left="169" top="175" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_50" taborder="16" text="월별 시장점유율" cssclass="sta_WF_Labelbg" left="169" top="147" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_46" taborder="17" text="판매 / 재고추이" cssclass="sta_WF_Labelbg" left="169" top="119" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_42" taborder="18" text="판매추이 / TOP 10" cssclass="sta_WF_Labelbg" left="169" top="91" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_00" taborder="19" text="월별 카테고리 판매순위 / 시장분석" cssclass="sta_WF_Labelbg" left="169" top="231" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_01" taborder="20" text="주별 카테고리 판매순위 / 시장분석" cssclass="sta_WF_Labelbg" left="169" top="258" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="TextArea03" taborder="21" text="(VAT 별도)" wordwrap="char" left="0" top="31" width="777" height="18" style="border:1 none #bfbfbfff ;padding:0 10 0 0;align:right middle;" readonly="true"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+          <InitValue>
+            <Static id="st_title" uname="1"/>
+          </InitValue>
+        </Div>
+        <Div id="div_07" taborder="30" text="Div00" left="11" top="2159" width="777" height="244" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="50" cssclass="D" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" text="펼치기"/>
+              <Static id="st_title" taborder="49" text="판매상세정보 이용요금" onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="-8" height="29" style="background:URL('theme://images/btn_WF_ShuttleR_O.png') 2 50;padding:0 10 0 30;" state="close" uname="additional03"/>
+              <Div id="div" taborder="32" text="Div00" left="0" top="28" width="777" height="215" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="0" text="[내정보] - &quot;자사판매정보 제공동의&quot;를 체크해야만 서비스를 이용할 수 있으며, 주별/월별 카테고리 판매정보에서 엑셀 다운로드시 서비스 이용료가 발생 합니다.&#13;&#10;최초자료 다운일로 부터 30일간은 동일 SKU에 대해 중복으로 청구되지 않으며, D+29일 이후 부터는 동일한 요금체계로 청구됩니다.&#13;&#10;(빌링 권한을 갖는 ID만 SKU 등록이 가능하며, 일반 ID는 조회 및 다운로드만 가능합니다." wordwrap="char" left="0" top="0" width="777" height="90" style="border:1 none #bfbfbfff ;padding:10 10 0 10;align:left middle;" readonly="true"/>
+                    <Static id="st_37" taborder="2" text="구분" cssclass="sta_WF_Labelbg" left="10" top="111" width="160" height="32" style="background:#f2f8faff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_53" taborder="6" text="판매상세정보" cssclass="sta_WF_Labelbg" left="10" top="142" width="160" height="56" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_01" taborder="7" text="월별 카테고리 판매정보" cssclass="sta_WF_Labelbg" left="169" top="169" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_00" taborder="8" text="주별 카테고리 판매정보" cssclass="sta_WF_Labelbg" left="169" top="142" width="340" height="29" style="background:#ffffffff;align:center middle;"/>
+                    <Static id="st_56" taborder="9" text="월별 / 업체별 SKU건당 1,500원&#13;&#10;최대 500만원만 과금하는 상한 요금제 서비스)" cssclass="sta_WF_Labelbg" left="507" top="142" height="56" style="background:#ffffffff;align:center middle;" width="260"/>
+                    <Static id="st_38" taborder="18" text="상세내역" cssclass="sta_WF_Labelbg" left="169" top="111" width="340" height="32" style="background:#f2f8faff;align:center middle;font:bold 9 Gulim;"/>
+                    <Static id="st_40" taborder="19" text="요금" wordwrap="english" cssclass="sta_WF_Labelbg" left="507" top="111" height="32" style="background:#f2f8faff;align:center middle;font:bold 9 Gulim;" width="260"/>
+                    <Static id="TextArea03" taborder="20" text="(VAT 별도)" wordwrap="char" left="0" top="89" width="777" height="18" style="border:1 none #bfbfbfff ;padding:0 10 0 0;align:right middle;" readonly="true"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+          <InitValue>
+            <Static id="st_title" uname="1"/>
+          </InitValue>
+        </Div>
+        <Div id="div_08" taborder="31" text="Div00" left="11" top="2439" width="777" height="349" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="52" cssclass="D" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" text="펼치기"/>
+              <Static id="st_title" taborder="51" text="데이터 마트" onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="-8" height="29" style="background:URL('theme://images/btn_WF_ShuttleR_O.png') 2 50;padding:0 10 0 30;" state="close" uname="additional04"/>
+              <Div id="div" taborder="50" text="Div00" left="0" top="28" width="777" height="320" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="20" text="데이터 신청하고 진행 상태부터 서비스 이용료가 발생하며, 서비스 이용료는 EDI 서비스 요금으로 책정됩니다.&#13;&#10;최초 자료 다운일로부터 30일간은 동일 데이터에 대해 중복으로 청구되지 않으며, 31일 이후에는 데이터가 삭제됩니다.&#13;&#10;&#13;&#10;이용요금 예시&#13;&#10;18년 01월 ~ 06월까지의 검수업무_전표별 파일을 6월 30일에 요청&#13;&#10;7월 1일 데이터 다운로드 시 6개월 데이터량이 12,300KB 일 때,&#13;&#10; 1,000KB X 60원 =  60,000원 (1천 KB 이하 사용량)&#13;&#10;+2,000KB X 50원 = 100,000원 (1천KB 초과 ~ 3천 KB이하 사용량)&#13;&#10;+2,000KB X 40원 =  80,000원 (3천 KB 초과 ~ 5천 KB 이하 사용량)&#13;&#10;+5,000KB X 30원 = 150,000원 (5천 KB 초과 ~ 1만 KB 이하 사용량)&#13;&#10;+2,300KB X 20원 =  46,000원 (1만 KB 초과 ~ 5만 KB 이하 사용량)&#13;&#10;〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓&#13;&#10;                        436,000원 (VAT 별도) = 7월 31일까지 재수신 가능&#13;&#10;&#13;&#10;문서 최초 수신일 기준으로 D+30일까지 재수신 데이터에 대해 청구하지 않고, D+31일 이후 데이터 자동 삭제" wordwrap="char" left="0" top="0" width="777" style="border:1 none #bfbfbfff ;padding:10 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+          <InitValue>
+            <Static id="st_title" uname="1"/>
+          </InitValue>
+        </Div>
+        <Div id="div_09" taborder="32" text="Div00" left="11" top="2815" width="777" height="139" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="6" cssclass="D" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" text="펼치기"/>
+              <Static id="st_title" taborder="5" text="마감 간소화 서비스 이용요금" onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="0" height="29" state="close" style="background:URL('theme://images/btn_WF_ShuttleR_O.png') 2 50;padding:0 10 0 30;" uname="additional05"/>
+              <Div id="div" taborder="4" text="Div00" left="0" top="28" width="777" height="110" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="0" text="서비스 신청으로 이용할 수 있으며, 이용료는 조회 시 해당 월의 모든 납품확인서(검수 확정서 및 반품 확인서)에 대한 데이터량으로 EDI 서비스 요금이 책정됩니다.&#13;&#10;마감간소화에서 조회한 납품확인서 문서는 최초 1회만 EDI 요금이 청구되며, 이후 동일 문서를 마감간소화 서비스에서 재조회 시 EDI 요금이 청구되지 않습니다." wordwrap="char" left="0" top="0" width="777" style="background:transparent;border:1 none #bfbfbfff ;padding:10 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_10" taborder="33" text="Div00" left="11" top="2975" width="777" height="95" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="8" cssclass="D" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" text="펼치기"/>
+              <Static id="st_title" taborder="7" text="XML/EDI 이용요금" onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleR_O.png') 2 50;padding:0 10 0 30;" state="close" uname="additional06"/>
+              <Div id="div" taborder="6" text="Div00" left="0" top="28" width="777" height="67" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="0" text="하나로eSCM과 자사 시스템과의 직접 연계를 통해 주문, 납품, 매출 등의 데이터를 송수신 할 수 있는 서비스 입니다.&#13;&#10;월 이용료 : 20만원(VAT별도, 하나로eSCM 이용료와 합산청구)" wordwrap="char" left="0" top="0" width="777" style="border:1 none #bfbfbfff ;padding:10 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_11" taborder="34" text="Div00" left="11" top="3127" width="777" height="95" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="st_icon" taborder="10" cssclass="D" left="709" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleD.png') right middle;" state="open" text="펼치기"/>
+              <Static id="st_title" taborder="9" text="기타 이용요금 (SMS)" onclick="Button_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" right="0" height="29" style="background:URL('theme://images/btn_WF_ShuttleR_O.png') 2 50;padding:0 10 0 30;" state="close" uname="additional07"/>
+              <Div id="div" taborder="8" text="Div00" left="0" top="28" width="777" height="67" scrollbars="none" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="TextArea01" taborder="0" text="SMS 수신 서비스 신청을 통해 서비스를 이용할 수 있으며, SMS 수신 건당 20원이 부과됩니다. (VAT별도)&#13;&#10;청구 대상 : 매출세금계산서(역발행) 관련 알림 메시지" wordwrap="char" left="0" top="0" width="777" style="border:1 none #bfbfbfff ;padding:10 10 20 10;align:left middle;" readonly="true" bottom="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	
+}
+this.fn_afterFormOnload = function()
+{
+	//static FAQ
+	var num;
+	var txtSt;
+	var preNum;
+	var preObj;
+	for(com in this.components)
+	{
+		if(this.lookup(com) instanceof Div)
+		{
+			num = String(com).substr(4,2);
+			if(nexacro.toNumber(num) > 3)
+			{
+				if(String(this.lookup(com).st_title.uname).substr(0,10) == "additional"){
+					if(nexacro.toNumber(String(this.lookup(com).st_title.uname).substr(10,2)) > 1){
+						this.lookup(com).set_height(0);
+					}
+				}else{
+					this.lookup(com).set_height(this.lookup(com).st_title.height);
+				}	
+			}
+			if(num != "01")
+			{
+				preNum = nexacro.toNumber(num) - 1;
+				preObj = "div_" + String(preNum).padLeft(2, "0");
+				this.lookup(com).set_top(nexacro.toNumber(this.lookup(preObj).top) + nexacro.toNumber(this.lookup(preObj).height)-1);
+			}
+		}
+	}
+	this.resetScroll();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+
+ 
+
+
+
+this.Grid03_ontreestatuschanged = function(obj:Grid, e:nexacro.GridTreeStatusEventInfo)
+{
+	
+	obj.set_height(obj.getRealRowFullSize());
+}
+
+this.Button_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	var num;
+	var txtSt;
+	var preNum;
+	var preObj;
+	
+	
+	//DIV높이 변경
+	if(obj.state == 'close')
+	{
+		obj.state = 'open';
+		obj.parent.st_icon.set_text('접기');
+		obj.parent.st_icon.style.set_background_image("URL('theme://images/btn_WF_ShuttleU.png')");
+		obj.parent.set_height(nexacro.toNumber(obj.height) + nexacro.toNumber(obj.parent.div.height) - 1);
+	}
+	else
+	{
+		obj.state = 'close';
+		obj.parent.st_icon.set_text('펼치기');
+		obj.parent.st_icon.style.set_background_image("URL('theme://images/btn_WF_ShuttleD.png')");
+		obj.parent.set_height(nexacro.toNumber(obj.height));
+	}
+	
+	//DIV 위치(TOP)변경
+	for(com in this.components)
+	{
+		if(this.lookup(com) instanceof Div)
+		{
+			num = String(com).substr(4,2);
+			if(num != "01")
+			{
+				preNum = nexacro.toNumber(num) - 1;
+				preObj = "div_" + String(preNum).padLeft(2, "0");
+				this.lookup(com).set_top(nexacro.toNumber(this.lookup(preObj).top) + nexacro.toNumber(this.lookup(preObj).height)-1);
+			}
+		}
+	}
+	
+	this.resetScroll();
+}
+
+this.Button_additional_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	var num;
+	var txtSt;
+	var preNum;
+	var preObj;
+	
+	
+	//DIV높이 변경
+	if(obj.state == 'close')
+	{
+		obj.state = 'open';
+		obj.parent.st_icon.set_text('접기');
+		obj.parent.st_icon.style.set_background_image("URL('theme://images/btn_WF_ShuttleU.png')");
+		for(com in this.components)
+		{
+			if(this.lookup(com) instanceof Div)
+			{
+				num = String(com).substr(4,2);
+				if(String(this.lookup(com).st_title.uname).substr(0,10) == "additional"){
+					if(nexacro.toNumber(String(this.lookup(com).st_title.uname).substr(10,2)) > 1){
+						this.lookup(com).set_height(this.lookup(com).st_title.height);
+						if(this.lookup(com).st_icon.cssclass == "U"){
+							this.lookup(com).st_icon.set_cssclass("D");
+							this.lookup(com).st_icon.set_text('펼치기');
+							this.lookup(com).st_icon.style.set_background_image("URL('theme://images/btn_WF_ShuttleD.png')");							
+						}
+					}
+				}	
+				
+			}
+		}
+	}
+	else
+	{
+		obj.state = 'close';
+		obj.parent.st_icon.set_text('펼치기');
+		obj.parent.st_icon.style.set_background_image("URL('theme://images/btn_WF_ShuttleD.png')");
+		for(com in this.components)
+		{
+			if(this.lookup(com) instanceof Div)
+			{
+				num = String(com).substr(4,2);
+				if(String(this.lookup(com).st_title.uname).substr(0,10) == "additional"){
+					if(nexacro.toNumber(String(this.lookup(com).st_title.uname).substr(10,2)) > 1){
+						this.lookup(com).set_height(0);
+						this.lookup(com).st_title.state = 'close';
+						if(this.lookup(com).st_icon.cssclass == "D"){
+							this.lookup(com).st_icon.set_cssclass("U");
+							this.lookup(com).st_icon.set_text('접기');
+							this.lookup(com).st_icon.style.set_background_image("URL('theme://images/btn_WF_ShuttleU.png')");							
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	//DIV 위치(TOP)변경
+	for(com in this.components)
+	{
+		if(this.lookup(com) instanceof Div)
+		{
+			num = String(com).substr(4,2);
+			if(num != "01")
+			{
+				preNum = nexacro.toNumber(num) - 1;
+				preObj = "div_" + String(preNum).padLeft(2, "0");
+				this.lookup(com).set_top(nexacro.toNumber(this.lookup(preObj).top) + nexacro.toNumber(this.lookup(preObj).height)-1);
+			}
+		}
+	}
+	
+	this.resetScroll();
+}]]></Script>
+  </Form>
+</FDL>

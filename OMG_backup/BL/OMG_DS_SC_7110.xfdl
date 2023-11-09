@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5030" classname="pattern_01" left="0" top="0" width="993" height="490" titletext="기본과금정책" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_save" taborder="11" text="저장" top="0" width="41" height="21" right="16" cssclass="btn_WF_CRUD" onclick="btn_save_onclick"/>
+        <Static id="Static04" taborder="22" text="15" visible="false" left="978" top="0" width="15" height="491" style="background:#00ffffb5;"/>
+        <Div id="Div01" taborder="43" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Static id="Static03" taborder="44" text="8" visible="false" left="92.75%" top="21" right="1.71%" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="46" text="15" visible="false" left="68.98%" top="80" right="25.38%" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static_edi" taborder="47" text="EDI 서비스" cssclass="sta_WF_Subtitle" left="0%" top="32" right="87.92%" height="21"/>
+        <Static id="Static_buga" taborder="48" text="부가정보" cssclass="sta_WF_Subtitle" left="43.91%" top="32" right="44.01%" height="21"/>
+        <Static id="Static106" taborder="49" cssclass="sta_WF_Labelbg" left="22.86%" top="84" height="28" text="원/KB" style="align:right middle;" right="61.13%"/>
+        <Edit id="Edit_Rate1" taborder="50" left="26.59%" top="88" height="21" style="align:right middle;" inputtype="number,comma" right="66.47%"/>
+        <Static id="Static105" taborder="51" text="0 ~ 1,000" cssclass="sta_WF_Label" left="0%" top="84" height="28" style="align:center middle;" right="77.04%"/>
+        <Static id="Static15" taborder="52" text="사용량 구간(KB)" cssclass="sta_GID_Title" left="0%" top="55" height="30" right="77.04%"/>
+        <Static id="Static00" taborder="53" text="요금(KB당)" cssclass="sta_GID_Title" left="22.86%" top="55" height="30" position="absolute" right="61.13%"/>
+        <Static id="Static05" taborder="54" text="원/KB" cssclass="sta_WF_Labelbg" left="22.86%" top="111" height="28" style="align:right middle;" right="61.13%"/>
+        <Edit id="Edit_Rate2" taborder="55" left="26.59%" top="115" height="21" style="align:right middle;" inputtype="number,comma" right="66.47%"/>
+        <Static id="Static06" taborder="56" text="1,001 ~ 3,000" cssclass="sta_WF_Label" left="0%" top="111" height="28" style="align:center middle;" right="77.04%"/>
+        <Static id="Static08" taborder="57" text="원/KB" cssclass="sta_WF_Labelbg" left="22.86%" top="138" height="28" style="align:right middle;" right="61.13%"/>
+        <Edit id="Edit_Rate3" taborder="58" left="26.59%" top="142" height="21" style="align:right middle;" inputtype="number,comma" right="66.47%"/>
+        <Static id="Static10" taborder="59" text="원/KB" cssclass="sta_WF_Labelbg" left="22.86%" top="165" height="28" style="align:right middle;" right="61.13%"/>
+        <Edit id="Edit_Rate4" taborder="60" left="26.59%" top="169" height="21" style="align:right middle;" inputtype="number,comma" right="66.47%"/>
+        <Static id="Static11" taborder="61" text="5,001 ~ 10,000" cssclass="sta_WF_Label" left="0%" top="165" height="28" style="align:center middle;" right="77.04%"/>
+        <Static id="Static12" taborder="62" text="3,001 ~ 5,000" cssclass="sta_WF_Label" left="0%" top="138" height="28" style="align:center middle;" right="77.04%"/>
+        <Static id="Static13" taborder="63" text="원/KB" cssclass="sta_WF_Labelbg" left="22.86%" top="192" height="28" style="align:right middle;" right="61.13%"/>
+        <Edit id="Edit_Rate5" taborder="64" left="26.49%" top="196" height="21" style="align:right middle;" inputtype="number,comma" right="66.57%"/>
+        <Static id="Static14" taborder="65" text="원/KB" cssclass="sta_WF_Labelbg" left="22.86%" top="219" height="28" style="align:right middle;" right="61.13%"/>
+        <Edit id="Edit_Rate6" taborder="66" left="26.49%" top="223" height="21" style="align:right middle;" inputtype="number,comma" right="66.57%"/>
+        <Static id="Static16" taborder="67" text="원/KB" cssclass="sta_WF_Labelbg" left="22.86%" top="246" height="28" style="align:right middle;" right="61.13%"/>
+        <Edit id="Edit_Rate7" taborder="68" left="26.49%" top="250" height="21" style="align:right middle;" inputtype="number,comma" right="66.57%"/>
+        <Static id="Static17" taborder="69" text="100,000 초과" cssclass="sta_WF_Label" left="0%" top="246" height="28" style="align:center middle;" right="77.04%"/>
+        <Static id="Static18" taborder="70" text="50,001 ~ 100,000" cssclass="sta_WF_Label" left="0%" top="219" height="28" style="align:center middle;" right="77.04%"/>
+        <Static id="Static19" taborder="71" text="10,001 ~ 50,000" cssclass="sta_WF_Label" left="0%" top="192" height="28" style="align:center middle;" right="77.04%"/>
+        <Static id="Static20" taborder="72" text="원/월" cssclass="sta_WF_Labelbg" left="34.14%" top="339" right="49.85%" height="39" style="align:right middle;"/>
+        <MaskEdit id="Edit_FDAM1" taborder="73" left="36.25%" top="348" right="55.19%" height="21" style="align:right middle;" inputfilter="comma" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static21" taborder="74" text="매출추이&#13;&#10;TOP10" cssclass="sta_WF_Label" left="11.28%" top="339" right="65.76%" height="39" style="align:center middle;"/>
+        <Static id="Static22" taborder="75" text="상세내역" cssclass="sta_GID_Title" left="11.28%" top="310" right="65.76%" height="30"/>
+        <Static id="Static23" taborder="76" text="요금(월정액)" cssclass="sta_GID_Title" left="34.14%" top="310" right="49.85%" height="30"/>
+        <Static id="Static24" taborder="77" text="원/월" cssclass="sta_WF_Labelbg" left="34.14%" top="376" right="49.85%" height="39" style="align:right middle;"/>
+        <MaskEdit id="Edit_FDAM2" taborder="78" left="36.25%" top="386" right="55.19%" height="21" style="align:right middle;" inputfilter="comma" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static25" taborder="79" text="판매&#13;&#10;재고추이분석" cssclass="sta_WF_Label" left="11.28%" top="376" right="65.76%" height="39" style="align:center middle;"/>
+        <Static id="Static26" taborder="80" text="원/월" cssclass="sta_WF_Labelbg" left="34.14%" top="414" right="49.85%" height="55" style="align:right middle;"/>
+        <MaskEdit id="Edit_FDAM3" taborder="81" left="36.25%" top="431" right="55.19%" height="21" style="align:right middle;" inputfilter="comma" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static27" taborder="82" text="원/월" cssclass="sta_WF_Labelbg" left="34.14%" top="468" right="49.85%" height="77" style="align:right middle;" positionstep="0"/>
+        <MaskEdit id="Edit_FDAM4" taborder="83" left="36.25%" top="496" right="55.19%" height="21" style="align:right middle;" inputfilter="comma" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static28" taborder="84" text="월별 경쟁사 시장분석&#13;&#10;주별 경쟁사 시장분석&#13;&#10;경쟁사 판매정보 다운로드&#13;&#10;(카테고리별)" cssclass="sta_WF_Label" left="11.28%" top="468" right="65.76%" height="77" style="align:center middle;"/>
+        <Static id="Static29" taborder="85" text="시장점유율&#13;&#10;판매순위랭킹&#13;&#10;점포별ABC" cssclass="sta_WF_Label" left="11.28%" top="414" right="65.76%" height="55" style="align:center middle;"/>
+        <Static id="Static_edi00" taborder="86" text="정보분석" cssclass="sta_WF_Subtitle" left="0%" top="286" right="87.92%" height="21"/>
+        <Static id="Static30" taborder="87" text="시장분석&#13;&#10;(타사)" cssclass="sta_WF_Labelbg" left="0%" top="468" right="88.42%" height="77" style="align:center middle;"/>
+        <Static id="Static31" taborder="88" text="시장분석&#13;&#10;(자사)" cssclass="sta_WF_Labelbg" left="0%" top="414" right="88.42%" height="55" style="align:center middle;" wordwrap="none"/>
+        <Static id="Static32" taborder="89" text="추이분석" cssclass="sta_WF_Labelbg" left="0%" top="376" right="88.42%" height="39" style="align:center middle;"/>
+        <Static id="Static33" taborder="90" text="BI조회" cssclass="sta_WF_Labelbg" left="0%" top="338" right="88.42%" height="39" style="align:center middle;"/>
+        <Static id="Static34" taborder="91" text="구분" cssclass="sta_GID_Title" left="0%" top="310" right="88.42%" height="30"/>
+        <Static id="Static35" taborder="92" text="만원" cssclass="sta_WF_Labelbg" left="62.03%" top="82" right="19.44%" height="28" style="align:right middle;"/>
+        <MaskEdit id="Edit_ADAM1" taborder="93" left="67.37%" top="86" right="25.68%" height="21" style="align:right middle;" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static36" taborder="94" text="10억 이상" cssclass="sta_WF_Label" left="43.91%" top="82" right="37.87%" height="28" style="align:center middle;"/>
+        <Static id="Static37" taborder="95" text="정액제 (월정액)" cssclass="sta_GID_Title" left="62.03%" top="53" height="30" right="19.44%"/>
+        <Static id="Static38" taborder="96" text="만원" cssclass="sta_WF_Labelbg" left="62.03%" top="109" right="19.44%" height="28" style="align:right middle;"/>
+        <MaskEdit id="Edit_ADAM2" taborder="97" left="67.37%" top="113" right="25.68%" height="21" style="align:right middle;" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static39" taborder="98" text="5억 ~ 10억" cssclass="sta_WF_Label" left="43.91%" top="109" right="37.87%" height="28" style="align:center middle;"/>
+        <Static id="Static40" taborder="99" text="만원" cssclass="sta_WF_Labelbg" left="62.03%" top="136" right="19.44%" height="28" style="align:right middle;"/>
+        <MaskEdit id="Edit_ADAM3" taborder="100" left="67.37%" top="140" right="25.68%" height="21" style="align:right middle;" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static41" taborder="101" text="만원" cssclass="sta_WF_Labelbg" left="62.03%" top="163" right="19.44%" height="28" style="align:right middle;"/>
+        <MaskEdit id="Edit_ADAM4" taborder="102" left="67.37%" top="167" right="25.68%" height="21" style="align:right middle;" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static42" taborder="103" text="1억 ~ 3억" cssclass="sta_WF_Label" left="43.91%" top="163" right="37.87%" height="28" style="align:center middle;"/>
+        <Static id="Static43" taborder="104" text="3억 ~ 5억" cssclass="sta_WF_Label" left="43.91%" top="136" right="37.87%" height="28" style="align:center middle;"/>
+        <Static id="Static44" taborder="105" text="만원" cssclass="sta_WF_Labelbg" left="62.03%" top="190" right="19.44%" height="28" style="align:right middle;"/>
+        <MaskEdit id="Edit_ADAM5" taborder="106" left="67.27%" top="194" right="25.78%" height="21" style="align:right middle;" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static45" taborder="107" text="만원" cssclass="sta_WF_Labelbg" left="62.03%" top="217" right="19.44%" height="28" style="align:right middle;"/>
+        <MaskEdit id="Edit_ADAM6" taborder="108" left="67.27%" top="221" right="25.78%" height="21" style="align:right middle;" inputtype="number,comma" mask="###,###"/>
+        <Static id="Static46" taborder="109" text="무료" cssclass="sta_WF_Labelbg" left="62.03%" top="244" right="19.44%" height="28" style="align:center middle;"/>
+        <Static id="Static47" taborder="111" text="0.3억 미만" cssclass="sta_WF_Label" left="43.91%" top="244" right="37.87%" height="28" style="align:center middle;"/>
+        <Static id="Static48" taborder="112" text="0.3억 ~ 0.5억" cssclass="sta_WF_Label" left="43.91%" top="217" right="37.87%" height="28" style="align:center middle;"/>
+        <Static id="Static49" taborder="113" text="0.5억 ~ 1억" cssclass="sta_WF_Label" left="43.91%" top="190" right="37.87%" height="28" style="align:center middle;"/>
+        <Static id="Static50" taborder="114" text="월매출액구간" cssclass="sta_GID_Title" left="43.91%" top="53" height="30" right="37.87%"/>
+        <Static id="Static51" taborder="115" text="15" visible="false" left="89.22%" top="80" right="5.14%" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static52" taborder="116" text="원" cssclass="sta_WF_Labelbg" left="80.36%" top="82" right="1.71%" height="28" style="align:right middle;"/>
+        <Edit id="Edit_RTAM1" taborder="117" left="86%" top="86" right="7.05%" height="21" style="align:right middle;" inputtype="number,comma"/>
+        <Static id="Static53" taborder="118" text="원" cssclass="sta_WF_Labelbg" left="80.36%" top="109" right="1.71%" height="28" style="align:right middle;"/>
+        <Edit id="Edit_RTAM2" taborder="119" left="86%" top="113" right="7.05%" height="21" style="align:right middle;" inputtype="number,comma"/>
+        <Static id="Static54" taborder="120" text="원" cssclass="sta_WF_Labelbg" left="80.36%" top="136" right="1.71%" height="28" style="align:right middle;"/>
+        <Edit id="Edit_RTAM3" taborder="121" left="86%" top="140" right="7.05%" height="21" style="align:right middle;" inputtype="number,comma"/>
+        <Static id="Static55" taborder="122" text="원" cssclass="sta_WF_Labelbg" left="80.36%" top="163" right="1.71%" height="28" style="align:right middle;"/>
+        <Edit id="Edit_RTAM4" taborder="123" left="86%" top="167" right="7.05%" height="21" style="align:right middle;" inputtype="number,comma"/>
+        <Static id="Static56" taborder="124" text="원" cssclass="sta_WF_Labelbg" left="80.36%" top="190" right="1.71%" height="28" style="align:right middle;"/>
+        <Edit id="Edit_RTAM5" taborder="125" left="85.9%" top="194" right="7.15%" height="21" style="align:right middle;" inputtype="number,comma"/>
+        <Static id="Static57" taborder="126" text="원" cssclass="sta_WF_Labelbg" left="80.36%" top="217" right="1.71%" height="28" style="align:right middle;"/>
+        <Edit id="Edit_RTAM6" taborder="127" left="85.9%" top="221" right="7.15%" height="21" style="align:right middle;" inputtype="number,comma"/>
+        <Static id="Static58" taborder="128" text="무료" cssclass="sta_WF_Labelbg" left="80.36%" top="244" right="1.71%" height="28" style="align:center middle;"/>
+        <Static id="Static59" taborder="130" text="종량제 SKU(건당)" cssclass="sta_GID_Title" left="80.36%" top="53" right="1.71%" height="30"/>
+        <Static id="Static_edi01" taborder="131" text="기본요금" cssclass="sta_WF_Subtitle" left="54.68%" top="286" right="33.23%" height="21"/>
+        <Static id="Static02" taborder="132" text="원/월" cssclass="sta_WF_Labelbg" left="77.54%" top="339" right="6.45%" height="39" style="align:right middle;"/>
+        <MaskEdit id="Edit_FDAM5" taborder="133" inputfilter="comma" inputtype="number,comma" left="79.66%" top="350" right="11.78%" height="21" style="align:right middle;" mask="###,###"/>
+        <Static id="Static07" taborder="134" text="전자계약&#13;&#10;전자세금계산서" cssclass="sta_WF_Label" left="54.68%" top="339" right="22.36%" height="39" style="align:center middle;"/>
+        <Static id="Static09" taborder="135" text="요금(월정액)" cssclass="sta_GID_Title" left="77.54%" top="310" right="6.45%" height="30"/>
+        <Static id="Static60" taborder="136" text="상세내역" cssclass="sta_GID_Title" left="54.68%" top="310" right="22.36%" height="30"/>
+        <Button id="btn_his1" taborder="137" text="이력 조회" top="27" height="21" width="57" onclick="btn_his1_onclick" right="61.13%"/>
+        <Button id="btn_his2" taborder="138" text="이력 조회" top="27" height="21" right="1.71%" width="57" onclick="btn_his2_onclick"/>
+        <Button id="btn_his3" taborder="139" text="이력 조회" top="282" right="49.85%" height="21" width="57" onclick="btn_his3_onclick"/>
+        <Button id="btn_his4" taborder="140" text="이력 조회" top="282" right="6.45%" height="21" width="57" onclick="btn_his4_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_edi" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RATE" type="INT" size="256"/>
+          <Column id="UGQT_ST_STN" type="INT" size="256"/>
+          <Column id="UGQT_ED_STN" type="INT" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_adinf" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MM_FDAM" type="INT" size="256"/>
+          <Column id="MSR_RT_AM" type="INT" size="256"/>
+          <Column id="MM_SL_AM_ST_STN" type="STRING" size="256"/>
+          <Column id="MM_SL_AM_ED_STN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_fdam" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MM_FDAM" type="INT" size="256"/>
+          <Column id="RATE_NM" type="STRING" size="256"/>
+          <Column id="RATE_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+
+    var sParams = "";
+	var sSvcID        = "retrieveBaseChargePolicy";
+	var sURL          = "svc::rest/bl/retrieveBaseChargePolicy";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_edi=ds_edi ds_adinf=ds_adinf ds_fdam=ds_fdam";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회  
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+   
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+
+/*저장*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{		
+	this.ds_edi.setColumn(0,"RATE",this.Edit_Rate1.value);
+	this.ds_edi.setColumn(1,"RATE",this.Edit_Rate2.value);
+	this.ds_edi.setColumn(2,"RATE",this.Edit_Rate3.value);
+	this.ds_edi.setColumn(3,"RATE",this.Edit_Rate4.value);
+	this.ds_edi.setColumn(4,"RATE",this.Edit_Rate5.value);
+	this.ds_edi.setColumn(5,"RATE",this.Edit_Rate6.value);
+	this.ds_edi.setColumn(6,"RATE",this.Edit_Rate7.value);
+	
+	this.ds_edi.setColumn(0,"UGQT_ST_STN",0);
+	this.ds_edi.setColumn(0,"UGQT_ED_STN",1000);
+	this.ds_edi.setColumn(1,"UGQT_ST_STN",1001);
+	this.ds_edi.setColumn(1,"UGQT_ED_STN",3000);
+	this.ds_edi.setColumn(2,"UGQT_ST_STN",3001);
+	this.ds_edi.setColumn(2,"UGQT_ED_STN",5000);
+	this.ds_edi.setColumn(3,"UGQT_ST_STN",5001);
+	this.ds_edi.setColumn(3,"UGQT_ED_STN",10000);
+	this.ds_edi.setColumn(4,"UGQT_ST_STN",10001);
+	this.ds_edi.setColumn(4,"UGQT_ED_STN",50000);
+	this.ds_edi.setColumn(5,"UGQT_ST_STN",50001);
+	this.ds_edi.setColumn(5,"UGQT_ED_STN",100000);
+	this.ds_edi.setColumn(6,"UGQT_ST_STN",100000);
+	
+	this.ds_adinf.setColumn(0,"MM_FDAM",this.Edit_ADAM1.value);
+	this.ds_adinf.setColumn(1,"MM_FDAM",this.Edit_ADAM2.value);
+	this.ds_adinf.setColumn(2,"MM_FDAM",this.Edit_ADAM3.value);
+	this.ds_adinf.setColumn(3,"MM_FDAM",this.Edit_ADAM4.value);
+	this.ds_adinf.setColumn(4,"MM_FDAM",this.Edit_ADAM5.value);
+	this.ds_adinf.setColumn(5,"MM_FDAM",this.Edit_ADAM6.value);
+	this.ds_adinf.setColumn(6,"MM_FDAM","0");
+	
+	this.ds_adinf.setColumn(0,"MSR_RT_AM",this.Edit_RTAM1.value);
+	this.ds_adinf.setColumn(1,"MSR_RT_AM",this.Edit_RTAM2.value);
+	this.ds_adinf.setColumn(2,"MSR_RT_AM",this.Edit_RTAM3.value);
+	this.ds_adinf.setColumn(3,"MSR_RT_AM",this.Edit_RTAM4.value);
+	this.ds_adinf.setColumn(4,"MSR_RT_AM",this.Edit_RTAM5.value);
+	this.ds_adinf.setColumn(5,"MSR_RT_AM",this.Edit_RTAM6.value);
+	this.ds_adinf.setColumn(6,"MSR_RT_AM","0");
+	
+	this.ds_adinf.setColumn(0,"MM_SL_AM_ST_STN","10");
+	this.ds_adinf.setColumn(1,"MM_SL_AM_ST_STN","5");
+	this.ds_adinf.setColumn(2,"MM_SL_AM_ST_STN","3");
+	this.ds_adinf.setColumn(3,"MM_SL_AM_ST_STN","1");
+	this.ds_adinf.setColumn(4,"MM_SL_AM_ST_STN","0.5");
+	this.ds_adinf.setColumn(5,"MM_SL_AM_ST_STN","0.3");
+	
+	this.ds_adinf.setColumn(1,"MM_SL_AM_ED_STN","10");
+	this.ds_adinf.setColumn(2,"MM_SL_AM_ED_STN","5");
+	this.ds_adinf.setColumn(3,"MM_SL_AM_ED_STN","3");
+	this.ds_adinf.setColumn(4,"MM_SL_AM_ED_STN","1");
+	this.ds_adinf.setColumn(5,"MM_SL_AM_ED_STN","0.5");
+	this.ds_adinf.setColumn(6,"MM_SL_AM_ED_STN","0.3");	
+	
+	this.ds_fdam.setColumn(0,"MM_FDAM",this.Edit_FDAM1.value);
+	this.ds_fdam.setColumn(1,"MM_FDAM",this.Edit_FDAM2.value);
+	this.ds_fdam.setColumn(2,"MM_FDAM",this.Edit_FDAM3.value);
+	this.ds_fdam.setColumn(3,"MM_FDAM",this.Edit_FDAM4.value);
+	this.ds_fdam.setColumn(4,"MM_FDAM",this.Edit_FDAM5.value);
+	
+	this.ds_fdam.setColumn(0,"RATE_NM","BI조회");
+	this.ds_fdam.setColumn(1,"RATE_NM","추이분석");
+	this.ds_fdam.setColumn(2,"RATE_NM","시장분석(자사)");
+	this.ds_fdam.setColumn(3,"RATE_NM","시장분석(타사)");
+	this.ds_fdam.setColumn(4,"RATE_NM","기본요금");
+	
+	var sParams = "Rate1="+this.gfn_nullToEmpty(this.Edit_Rate1.value);
+	var sSvcID        = "updateBaseChargePolicy";
+	var sURL          = "svc::rest/bl/saveBaseChargePolicy";	
+	var sInDatasets   = "ds_edi=ds_edi ds_adinf=ds_adinf ds_fdam=ds_fdam";
+	var sOutDatasets  = "";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회			
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+				
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveBaseChargePolicy"){
+			this.Edit_Rate1.set_value(this.ds_edi.getColumn(0,"RATE"));
+			this.Edit_Rate2.set_value(this.ds_edi.getColumn(1,"RATE"));
+			this.Edit_Rate3.set_value(this.ds_edi.getColumn(2,"RATE"));
+			this.Edit_Rate4.set_value(this.ds_edi.getColumn(3,"RATE"));
+			this.Edit_Rate5.set_value(this.ds_edi.getColumn(4,"RATE"));
+			this.Edit_Rate6.set_value(this.ds_edi.getColumn(5,"RATE"));
+			this.Edit_Rate7.set_value(this.ds_edi.getColumn(6,"RATE"));
+
+			this.Edit_ADAM1.set_value(this.ds_adinf.getColumn(0,"MM_FDAM"));
+			this.Edit_ADAM2.set_value(this.ds_adinf.getColumn(1,"MM_FDAM"));
+			this.Edit_ADAM3.set_value(this.ds_adinf.getColumn(2,"MM_FDAM"));
+			this.Edit_ADAM4.set_value(this.ds_adinf.getColumn(3,"MM_FDAM"));
+			this.Edit_ADAM5.set_value(this.ds_adinf.getColumn(4,"MM_FDAM"));
+			this.Edit_ADAM6.set_value(this.ds_adinf.getColumn(5,"MM_FDAM"));
+
+			this.Edit_RTAM1.set_value(this.ds_adinf.getColumn(0,"MSR_RT_AM"));
+			this.Edit_RTAM2.set_value(this.ds_adinf.getColumn(1,"MSR_RT_AM"));
+			this.Edit_RTAM3.set_value(this.ds_adinf.getColumn(2,"MSR_RT_AM"));
+			this.Edit_RTAM4.set_value(this.ds_adinf.getColumn(3,"MSR_RT_AM"));
+			this.Edit_RTAM5.set_value(this.ds_adinf.getColumn(4,"MSR_RT_AM"));
+			this.Edit_RTAM6.set_value(this.ds_adinf.getColumn(5,"MSR_RT_AM"));
+
+			this.Edit_FDAM1.set_value(this.ds_fdam.getColumn(0,"MM_FDAM"));
+			this.Edit_FDAM2.set_value(this.ds_fdam.getColumn(1,"MM_FDAM"));
+			this.Edit_FDAM3.set_value(this.ds_fdam.getColumn(2,"MM_FDAM"));
+			this.Edit_FDAM4.set_value(this.ds_fdam.getColumn(3,"MM_FDAM"));
+			this.Edit_FDAM5.set_value(this.ds_fdam.getColumn(4,"MM_FDAM"));
+			}
+		else if(svcID == "updateBaseChargePolicy"){
+			
+			this.gfn_getMessage("alert", "result.message.save.success");
+			return;		
+		}
+	}	
+}
+
+this.btn_his1_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"S"};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","OMG.BL::OMG_DS_SC_7111.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_his2_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"S"};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","OMG.BL::OMG_DS_SC_7112.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_his3_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"S"};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","OMG.BL::OMG_DS_SC_7113.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_his4_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"S"};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","OMG.BL::OMG_DS_SC_7114.xfdl",oArg,sOption,sPopupCallBack);
+}
+]]></Script>
+  </Form>
+</FDL>

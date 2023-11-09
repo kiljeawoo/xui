@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="pattern_01" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="List Detail(n:n:n)">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0" top="29" height="151" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="기준년도" left="15" top="10" width="91" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static01" taborder="1" text="농협사업장" left="15" top="66" width="91" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static02" taborder="2" text="계통계약구분" left="15" top="36" width="103" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static03" taborder="3" text="조회구분" left="15" top="118" width="102" height="21" cssclass="sta_WFSA_Label"/>
+              <Radio id="Radio00" taborder="4" left="119" top="118" width="205" height="21" index="0" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">조합</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">상품</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="Radio01" taborder="5" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="119" top="66" width="204" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">실매업체(마트)</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Combo id="Combo00" taborder="8" text="Combo00" left="445" top="10" width="199" height="21"/>
+              <Static id="Static04" taborder="9" text="과세구분" cssclass="sta_WFSA_Label" left="330" top="118" width="102" height="21"/>
+              <Combo id="Combo01" taborder="10" text="전체" left="118" top="36" width="214" height="21"/>
+              <Combo id="Combo02" taborder="11" text="전체" left="445" top="118" width="199" height="21"/>
+              <Static id="Static05" taborder="12" text="상품코드" cssclass="sta_WFSA_Label" left="15" top="92" width="91" height="21"/>
+              <Radio id="Radio02" taborder="13" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="119" top="92" width="204" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">상품코드</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="Edit01" taborder="14" left="118" top="10" width="50" height="21" cssclass="WF_Essential" value="2015"/>
+              <Static id="Static06" taborder="15" text="상품대분류코드" cssclass="sta_WFSA_Label" left="330" top="10" width="115" height="21"/>
+              <Button id="Button67" taborder="16" cssclass="btn_WF_Searchbtn" left="623" top="92" width="21" height="21"/>
+              <Edit id="Edit04" taborder="17" cssclass="WF_Essential" left="445" top="92" width="175" height="21"/>
+              <Edit id="Edit03" taborder="18" cssclass="WF_Essential" left="332" top="92" width="110" height="21"/>
+              <Edit id="Edit00" taborder="20" cssclass="WF_Essential" left="332" top="66" width="110" height="21"/>
+              <Button id="Button00" taborder="21" cssclass="btn_WF_Searchbtn" left="623" top="66" width="21" height="21"/>
+              <Edit id="Edit02" taborder="22" cssclass="WF_Essential" left="445" top="66" width="175" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="47" text="Div01" left="0" top="0" height="21" right="563" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static09" taborder="48" text="15" visible="false" left="0" top="30" right="787" height="93" style="background:#dc143c5b;"/>
+        <Static id="Static08" taborder="53" text="30" visible="false" left="832" top="71" right="-54" height="122" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="58" text="15" visible="false" left="788" top="5" height="490" style="background:#00ffffb5;" width="15"/>
+        <Button id="Button07" taborder="65" text="초기화" cssclass="btn_WF_CRUD" top="0" right="161" width="53" height="21"/>
+        <Static id="Static23" taborder="66" text="권한사업장" cssclass="sta_WF_MiniTitle" top="0" right="489" width="67" height="21"/>
+        <Button id="Button06" taborder="67" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="118" width="41" height="21"/>
+        <Button id="Button08" taborder="68" text="저장" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Button id="Button09" taborder="69" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <CheckBox id="CheckBox00" taborder="70" text="CheckBox00" cssclass="chk_WF_allSlct" top="0" right="222" width="18" height="21"/>
+        <Static id="Static01" taborder="71" cssclass="sta_WF_Vdash" top="5" right="215" width="5" height="11"/>
+        <Combo id="Combo00" taborder="72" value="0" text="(주)도루코하나로상사[29001038000010]" innerdataset="ds_cmb" codecolumn="lv" datacolumn="data" index="0" displayrowcount="5" cssclass="WF_Essential" top="0" right="245" width="244" height="21"/>
+        <Div id="Div02" taborder="64" text="Div02" left="0" top="179" right="15" bottom="0">
+          <Layouts>
+            <Layout>
+              <Button id="Button02" taborder="0" text="엑셀다운로드" top="16" width="89" height="21" right="0"/>
+              <Button id="Button05" taborder="1" text="엑셀다운로드" top="183" width="89" height="21" right="0"/>
+              <Grid id="Grid00" taborder="2" binddataset="Dataset00" useinputpanel="false" top="42" right="0" height="126" left="414">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="153"/>
+                      <Column size="176"/>
+                      <Column size="140"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순서"/>
+                      <Cell col="1" text="경제통합 사업장코드"/>
+                      <Cell col="2" text="중앙회경제통합 사업장코드"/>
+                      <Cell col="3" text="경제통합 상품코드"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:Column0"/>
+                      <Cell col="1" text="bind:Column1"/>
+                      <Cell col="2" text="bind:Column2"/>
+                      <Cell col="3" text="bind:Column3"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="Grid01" taborder="3" binddataset="Dataset00" useinputpanel="false" autofittype="col" left="0" top="209" right="0" bottom="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="180"/>
+                      <Column size="180"/>
+                      <Column size="180"/>
+                      <Column size="135"/>
+                      <Column size="135"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순서"/>
+                      <Cell col="1" text="경제통합 사업장코드"/>
+                      <Cell col="2" text="중앙회경제통합 사업장코드"/>
+                      <Cell col="3" text="경제통합상품 대분류코드"/>
+                      <Cell col="4" text="경제통합 거래처코드"/>
+                      <Cell col="5" text="경제통합 상품코드"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:Column0"/>
+                      <Cell col="1" text="bind:Column1"/>
+                      <Cell col="2" text="bind:Column2"/>
+                      <Cell col="3" text="bind:Column3"/>
+                      <Cell col="4" text="bind:Column4"/>
+                      <Cell col="5" text="bind:Column5"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="Grid02" taborder="4" binddataset="Dataset00" useinputpanel="false" left="0" top="42" width="398" height="126">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="200"/>
+                      <Column size="140"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순서"/>
+                      <Cell col="1" text="경제통합 거래처코드"/>
+                      <Cell col="2" text="경제통합 상품코드"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:Column0"/>
+                      <Cell col="1" text="bind:Column1"/>
+                      <Cell col="2" text="bind:Column2"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button01" taborder="5" text="엑셀다운로드" left="309" top="16" width="89" height="21"/>
+              <Button id="Button75" taborder="9" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" width="63"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="73" text="15" visible="false" left="398" top="235" right="389" height="93" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="60" text="15" visible="false" left="732" top="347" height="15" style="background:#dc143c5b;" width="56"/>
+        <Static id="Static03" taborder="74" text="15" visible="false" left="732" top="180" width="56" height="15" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

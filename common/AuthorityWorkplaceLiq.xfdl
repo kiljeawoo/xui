@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="AuthorityWorkplace" classname="AuthorityWorkplace" left="0" top="0" width="431" height="21" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static23" taborder="0" text="권한사업장" cssclass="sta_WF_MiniTitle" left="0" top="0" height="21" width="67"/>
+        <Combo id="cbo_authorityWorkplace" taborder="1" innerdataset="@ds_authorityWorkplaceLiq" codecolumn="NA_TRPL_C" datacolumn="CLNTNM" displayrowcount="15" cssclass="WF_Essential" left="66" top="0" height="21" onitemchanged="cbo_authorityWorkplace_onitemchanged" right="40" index="0" onkillfocus="cbo_authorityWorkplace_onkillfocus"/>
+        <CheckBox id="chk_all" taborder="2" text="CheckBox00" cssclass="chk_WF_allSlct" top="0" height="21" width="18" onchanged="chk_all_onchanged" right="15"/>
+        <Static id="Static01" taborder="3" cssclass="sta_WF_Vdash" top="5" height="11" width="5" right="6"/>
+        <Button id="btn_popup01" taborder="4" cssclass="btn_WF_Searchbtn" visible="false" top="0" height="21" onclick="btn_popup01_onclick" onmousemove="btn_popup01_onmousemove" right="38" width="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_authorityWorkplaceLiq" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_authorityWorkplaceLiq_onload">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="CLNTNM" type="string" size="32"/>
+          <Column id="NA_MBCO_DSC" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var gFunctionName; //값이 변경될때 호출할 함수명
+var gFunctionNameChk; //체크값이 변경될때 호출할 함수명
+
+var index = "";
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	
+	// 본사 또는 위탁대리점이 아닌 경우, 권한사업장 숨김
+	if(application.gv_mbcoType != 1 && application.gv_mbcoType != 5){
+		if (application.gv_mbcoType == 2 && application.gv_userSystemCode == "21") {	// 가공장인 경우
+			
+		} else {
+			this.set_visible(false);
+			return;
+		}
+	}
+	
+	if(application.gds_authorityWorkplaceLiq.getRowCount() > 1){
+		this.cbo_authorityWorkplace.set_right(66);
+		this.btn_popup01.set_visible(true);
+	}
+	this.ds_authorityWorkplaceLiq.copyData(application.gds_authorityWorkplaceLiq);
+}
+
+this.ds_authorityWorkplaceLiq_onload = function(obj:Dataset, e:nexacro.DSLoadEventInfo)
+{	
+	var _index = 0;
+	if(this.isAuthEvent()){
+	 _index = this.getEventParam();
+	 if(!_index) _index = 0;
+	}
+	this.cbo_authorityWorkplace.set_index(_index);
+}
+
+this.cbo_authorityWorkplace_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{	
+	this.cbo_authorityWorkplace.set_type("dropdown");
+    if(this.isAuthEvent()) application.gds_eventInfo.setColumn(this.getEventIndex(), "PARAM", obj.index);
+    this._callBindFunction(e.postvalue); // 함수호출
+}
+
+//이벤트 등록된 화면인지 확인
+this.isAuthEvent = function(){
+	var sId = this.getScreenId(this.parent.url);
+	return this.isGlobalEvent(sId, 'SAVE_AUTH');	
+};
+this.getEventParam = function(){
+	var sId = this.getScreenId(this.parent.url);
+	return this.isGlobalEvent(sId, 'SAVE_AUTH', 'PARAM');	
+};
+this.getEventIndex = function(){
+	var sId = this.getScreenId(this.parent.url);
+	return this.isGlobalEvent(sId, 'SAVE_AUTH', 'INDEX');	
+};
+
+/**
+ * @desc 값이 변경될때 호출될 함수명을 지정한다.
+ * @param sFunctionName 함수명
+ */
+this.setFunctionName = function (sFunctionName, sFucntionNameChk) 
+{
+	gFunctionName = sFunctionName;
+	if (sFucntionNameChk != undefined) {
+		gFunctionNameChk = sFucntionNameChk;
+	}
+}
+
+/**
+ * @desc 값이 변경될때 마다 함수를 호출한다.
+ */
+this._callBindFunction = function (sVal)
+{
+	if (!this.gfn_isNull(gFunctionName)) {	
+		try {
+			this.lookupFunc(gFunctionName).call(sVal);
+		} catch(e) {
+		}
+	}
+}
+
+this._callBindFunctionChk = function (sVal)
+{
+	if (!this.gfn_isNull(gFunctionNameChk)) {	
+		try {
+			this.lookupFunc(gFunctionNameChk).call(sVal);
+		} catch(e) {
+		}
+	}
+}
+
+this.AuthorityWorkplace_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	if (e.timerid == 0) {
+		var nCnt = application.gds_authorityWorkplaceLiq.rowcount;
+		if (nCnt >0) {
+			this.ds_authorityWorkplaceLiq.copyData(application.gds_authorityWorkplaceLiq);
+			this.cbo_authorityWorkplace.set_index(0);
+			this.killTimer(0);
+		}
+	}
+}
+
+this.chk_all_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	this._callBindFunctionChk(e.postvalue); // 함수호출
+}
+
+this.btn_popup01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	index = this.cbo_authorityWorkplace.index;
+	this.cbo_authorityWorkplace.set_type("search");
+	this.cbo_authorityWorkplace.set_index(-1);
+	//this.cbo_authorityWorkplace.set_type("filterlike");
+	this.cbo_authorityWorkplace.setFocus();
+}
+
+this.btn_popup01_onmousemove = function(obj:Button, e:nexacro.MouseEventInfo)
+{
+	obj.set_tooltiptext("권한사업장검색");
+}
+
+this.cbo_authorityWorkplace_onkillfocus = function(obj:Combo, e:nexacro.KillFocusEventInfo)
+{
+	if(this.gfn_isNull(this.cbo_authorityWorkplace.text))
+	{	
+		this.cbo_authorityWorkplace.set_type("dropdown");
+		this.cbo_authorityWorkplace.set_index(index);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

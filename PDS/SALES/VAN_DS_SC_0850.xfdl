@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_van_ds_sc_0850" classname="pattern_01" left="0" top="0" width="803" height="490" oninit="form_init" onload="form_onload" titletext="자료수신">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="2" left="788" top="0" width="15" height="181" visible="false" style="background:#00ffff66;"/>
+        <Static id="Static12" taborder="4" text="40" visible="false" left="0" top="21" width="871" height="40" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="5" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Div id="div_auth" taborder="6" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="56" width="431" height="21"/>
+        <Static id="Static19" taborder="25" text="조회기간" cssclass="sta_WF_Label" left="0" top="180" width="110" height="29"/>
+        <Static id="Static20" taborder="26" cssclass="sta_WF_Labelbg" left="109" top="180" right="15" height="29"/>
+        <Static id="Static24" taborder="27" text="일일자료" cssclass="sta_WF_Subtitle" left="6" top="156" width="162" height="21" style="color:red;"/>
+        <Calendar id="cal_date_fr" taborder="28" dateformat="yyyy-MM-dd" left="118" top="184" width="100" height="21"/>
+        <Calendar id="cal_date_to" taborder="29" dateformat="yyyy-MM-dd" left="228" top="184" width="100" height="21"/>
+        <Static id="Static26" taborder="30" text="~" left="218" top="184" width="10" height="21"/>
+        <Static id="Static27" taborder="31" text="5" visible="false" left="0" top="176" width="871" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static30" taborder="32" text="40" visible="false" left="0" top="207" width="871" height="40" style="background:#dc143c5b;"/>
+        <CheckBox id="chk_part01" taborder="35" cssclass="chk_WF_Essential" left="83" top="156" width="120" height="21" onclick="chk_onclick"/>
+        <Static id="Static05" taborder="36" text="조회년월" cssclass="sta_WF_Label" left="0" top="87" width="110" height="29"/>
+        <Static id="Static09" taborder="37" cssclass="sta_WF_Labelbg" left="109" top="87" right="15" height="29"/>
+        <Static id="Static16" taborder="38" text="월별집계" cssclass="sta_WF_Subtitle" left="6" top="61" width="301" height="21"/>
+        <Static id="Static18" taborder="43" text="5" visible="false" left="-1" top="82" width="871" height="5" style="background:#dc143c5b;"/>
+        <CheckBox id="chk_part00" taborder="45" onclick="chk_onclick" cssclass="chk_WF_Essential" left="83" top="61" width="120" height="21"/>
+        <Static id="Static23" taborder="46" text="40" visible="false" left="-1" top="116" width="871" height="40" style="background:#dc143c5b;"/>
+        <Static id="Static25" taborder="47" text="선      택" cssclass="sta_WF_Label" left="336" top="87" width="110" height="29"/>
+        <Radio id="rdo_chk03" taborder="54" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="454" top="91" width="319" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">사업장별</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static17" taborder="41" text="~" left="218" top="91" width="10" height="21"/>
+        <Div id="cal_month_to" taborder="57" url="common::calendarMonth.xfdl" left="228" top="91" width="100" height="21"/>
+        <Div id="cal_month_fr" taborder="58" url="common::calendarMonth.xfdl" left="118" top="91" width="100" height="21"/>
+        <WebBrowser id="web_downExcel" left="685" top="268" width="61" height="20" taborder="59" visible="false"/>
+        <Button id="btn_excel" taborder="60" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21"/>
+        <CheckBox id="chk_atl" taborder="61" text="간선포함" onclick="chk_atl_onclick" cssclass="chk_WF_Essential" left="352" top="184" width="120" height="21" style="color:red;"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[/*##################################################################################
+ 화면명	: 자료수신
+ 화면ID  	: VAN_DS_SC_1050
+ 작성자 	: swha
+####################################################################################*/
+include "lib::comLib.xjs";
+
+var fromDate;
+var toDate;
+
+/* Form Load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e);
+}
+
+/* Form Init*/
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	///페이지 로딩후 실행부분
+	var toDay = this.gfn_today("yyyyMMdd");
+	var month = this.gfn_today("YYYYMM");
+
+	//this.cal_month_fr._setValue(this.gfn_firstDate(toDay));
+	//this.cal_month_to._setValue(this.gfn_firstDate(toDay));
+
+	this.cal_month_fr._setValue(this.gfn_minusMonth(toDay, 1).substr(0, 6));
+	this.cal_month_to._setValue(this.gfn_minusMonth(toDay, 1).substr(0, 6));
+
+	/*
+	this.cal_date_fr.set_value(this.gfn_firstDate(toDay));
+	this.cal_date_to.set_value(this.gfn_lastDate(toDay));
+	*/
+
+	this.cal_date_fr.set_value(this.gfn_minusDate(toDay, 10));
+	this.cal_date_to.set_value(this.gfn_minusDate(toDay, 1));
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	if (!this.chk_part00.isChecked() && !this.chk_part01.isChecked()) {
+		//월별집계, 일일자료 중 하나를 선택해 주세요.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0850.view.search.validation.select");
+		return false;
+	}
+
+	if (this.chk_part00.isChecked()) {
+		fromDate = this.gfn_nullToEmpty(this.cal_month_fr._getValue());
+		toDate = this.gfn_nullToEmpty(this.cal_month_to._getValue());
+
+		fromDate.concat("00");
+		toDate.concat("00");
+
+		///페이지 로딩후 실행부분
+		var toDay = this.gfn_today("yyyyMMdd");
+		chkDay = Number(this.gfn_minusMonth(toDay, 7).substr(0, 6));
+
+		// 시작일 종료일 확인
+		if (this.gfn_diffMonth(fromDate, toDate) < 0) {
+			this.gfn_getMessage("alert", "validation.message.fromDate.toDate.reConfirm");
+			return false;
+		}
+
+		//6개월 이내
+// 		if (Number(fromDate.toString().substr(0, 6)) - Number(chkDay) < 0) {
+// 			//최근 6개월까지 조회 가능합니다.
+// 			this.gfn_getMessage("alert", "msg.van_ds_sc_0850.view.search.validation.6month");
+// 			return false;
+// 		}
+
+		//6개월 이내
+// 		if (Number(toDate.toString().substr(0, 6)) - Number(chkDay) < 0) {
+// 			//최근 6개월까지 조회 가능합니다.
+// 			this.gfn_getMessage("alert", "msg.van_ds_sc_0850.view.search.validation.6month");
+// 			return false;
+// 		}
+	} else if (this.chk_part01.isChecked()) {
+		fromDate = this.gfn_nullToEmpty(this.cal_date_fr.value);
+		toDate = this.gfn_nullToEmpty(this.cal_date_to.value);
+
+		/*
+		if (this.gfn_getDiffDay(this.cal_date_fr.value, this.cal_date_to.value) > 31) {
+
+		//기간을 31일 이내로 선택해 주세요
+			this.gfn_getMessage("alert", "validation.message.selectDateIn31Day");
+			return false;
+		}
+		*/
+
+		if (this.gfn_getDiffDay(this.cal_date_fr.value, this.cal_date_to.value) > 10) {
+			//기간을 31일 이내로 선택해 주세요
+			alert("기간을 10일 이내로 선택해 주세요");
+			return false;
+		}
+
+		if (this.gfn_getDiffDay(fromDate, toDate) < 0) {
+			this.gfn_getMessage("alert", "validation.message.fromDate.toDate.reConfirm");
+			return false;
+		}
+	}
+
+	if (fromDate == '') {
+		this.gfn_getMessage("alert", "validation.message.fromDate.no.data");
+		return false;
+	}
+
+	if (toDate == '') {
+		this.gfn_getMessage("alert", "validation.message.toDate.no.data");
+		return false;
+	}
+
+	return true;
+}
+
+/* Excel */
+this.fn_exceldown = function()
+{
+	var chkPart = "";//집계구분 00 : 월별집계, 01 : 일일자료
+	var chkSelect = ""; //선택 1 : 사업장별 2: 상품별
+	var chkAtl = "0"; //간선포함여부  Y N
+
+	var excelName = "";
+
+	if (this.chk_part00.isChecked()) {
+		chkPart = "00";
+		chkSelect = this.rdo_chk03.value;
+		excelName = "월별집계";
+
+	} else if (this.chk_part01.isChecked()) {
+		chkPart = "01";
+		excelName = "일일자료";
+	}
+
+	if (this.chk_atl.isChecked()) {
+		chkAtl = "1"; // 간선포함여부
+	}
+
+	//권한사업장
+	var trplC = this.getTrplCode();
+
+	var title = '판매정보_'+this.parent.sNm+excelName;
+	title = title.replace(/ /gi, '');
+	var fileName = title + "_" + this.getDate() + ".xls";
+
+	var params =  "CHK_PART=" + chkPart
+				+ "&CHK_SELECT=" + chkSelect
+				+ "&CHK_ATL=" + chkAtl
+
+				+ "&TRPL_C=" + trplC
+				+ "&FROM_DATE=" + fromDate
+				+ "&TO_DATE=" + toDate
+				+ "&fileName=" + fileName;
+
+	params = encodeURI(encodeURI(params));
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelSales?"+params, this);
+	//this.web_downExcel.set_url(application.gv_server_url+"rest/excel/downloadExcelSales?"+params);
+}
+
+/* Event */
+this.btn_excel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		this.fn_exceldown();
+	}
+}
+
+this.chk_onclick = function(obj:CheckBox, e:nexacro.ClickEventInfo)
+{
+	if (obj.name == 'chk_part00') {
+		this.chk_part01.set_value(false);
+	}
+
+	if (obj.name == 'chk_part01') {
+		this.chk_part00.set_value(false);
+	}
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "downloadStoreSumCSV") {
+
+		} else if (svcID == "saveAtlSalesData") {
+		    alert("집계가 완료되었습니다.");
+		}
+	}
+}
+
+this.chk_atl_onclick = function(obj:CheckBox, e:nexacro.ClickEventInfo)
+{
+	var isConfirm = false;
+
+	if (this.chk_atl.value) {
+	    isConfirm = confirm("다운로드 하시기 전 간선자료를 재집계하시겠습니까? \n 간선자료 집계시 시간이 다소 소요될 수 있습니다.");
+	}
+
+	if (isConfirm) {
+		if (!this.fn_validationCheck()) {
+			return false;
+		}
+
+	    //alert("간선자료 집계중");
+	    var trplC = this.getTrplCode();
+		var dsParams = "";
+
+		var params =  "TRPL_C=" + trplC
+					+ " FROM_DATE=" + fromDate
+					+ " TO_DATE=" + toDate
+					;
+
+		var sSvcID        = "saveAtlSalesData";//통신아이디
+		var sURL          = "svc::rest/pds/saveAtlSalesData";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = ""; //화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callBack"; //콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	}
+}]]></Script>
+  </Form>
+</FDL>

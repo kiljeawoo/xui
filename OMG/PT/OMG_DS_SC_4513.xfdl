@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_013" classname="pattern_01" left="0" top="0" width="741" height="539" titletext="경쟁사 상품판매가 제공 동의" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static20" taborder="119" text="첨부파일" cssclass="sta_WF_Label" left="17" top="103" width="110" height="29"/>
+        <Static id="Static21" taborder="120" cssclass="sta_WF_Labelbg" left="126" top="103" right="18" height="29"/>
+        <Static id="Static06" taborder="102" text="자사 판매정보 제공 동의" cssclass="sta_WF_PopupTitle" left="0%" top="0" right="53.44%" height="32"/>
+        <Button id="btn_close" taborder="103" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" left="94.74%" top="0" right="0.27%" height="32"/>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="993" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static09" taborder="104" text="17" visible="false" left="0%" top="76" right="97.71%" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="105" text="17" visible="false" left="97.57%" top="96" height="333" style="background:#dc143c5b;" width="17"/>
+        <Static id="Static05" taborder="106" text="17" visible="false" left="78.14%" top="423" right="9.58%" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static10" taborder="107" text="10" visible="false" left="73.82%" top="384" right="13.9%" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_ok" taborder="108" text="동의" cssclass="btn_WF_Popup" right="375" height="29" width="54" bottom="20" onclick="btn_ok_onclick"/>
+        <Static id="Static11" taborder="109" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="110" text="8" visible="false" left="683" top="39" right="17" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static14" taborder="113" text="제목" cssclass="sta_WF_Label" left="17" top="47" width="110" height="29"/>
+        <Static id="Static16" taborder="115" cssclass="sta_WF_Labelbg" left="572" top="75" right="18" height="29" text="2016-07-04"/>
+        <Static id="Static17" taborder="116" text="작성자" cssclass="sta_WF_Label" left="17" top="75" width="110" height="29"/>
+        <Static id="Static18" taborder="117" cssclass="sta_WF_Label" left="463" top="75" width="110" height="29" text="날짜"/>
+        <Static id="Static19" taborder="118" cssclass="sta_WF_Labelbg" left="126" top="75" width="338" height="29" text="관리자"/>
+        <Static id="Static22" taborder="121" cssclass="sta_WF_Labelbg" left="17" top="103" right="18" bottom="59"/>
+        <Static id="Static13" taborder="123" text="자사 판매정보 제공동의" cssclass="sta_WF_Labelbg" left="17%" top="47" right="2.43%" height="29"/>
+        <TextArea id="TextArea00" taborder="126" left="3.1%" top="108" right="3.64%" height="364" oneditclick="TextArea00_oneditclick" value="안녕하십니까? 하나로eSCM 운영자 입니다.&#13;&#10;&#13;&#10;지난 4월부터 하나로eSCM 서비스 활성화를 위해 주요 협력업체와 운영 협의체를 구성하여&#13;&#10;매월 간담회를 진행하고 있습니다. &#13;&#10;간담회 주요안건 중, 협력업체의 마케팅 분석의 중요정보로서 타 업체의 판매자료 제공을 요청&#13;&#10;하였습니다. 그에 따라서 하나로eSCM은 정보분석서비스 고도화 추진을 준비중에 있습니다.&#13;&#10;&#13;&#10;서비스 제공에 앞서 협력업체의 사전 동의 절차를 거쳐서 동의한 업체에 한하여 귀사의 판매정&#13;&#10;보를 타사에서 확인할 수 있고, 타사의 정보를 귀사에서 이용할 수 있도록 서비스를 개발 진행&#13;&#10;예정입니다.&#13;&#10;아래 동의/비동의 버튼을 반드시 선택하여 귀사의 의견을 제시해 주시기 바라며, &#13;&#10; 기간내 체크하지 않은 업체는 정보제공에 동의한 것으로 처리할 예정입니다.&#13;&#10;&#13;&#10;  - 접수기간 : ‘16. 7. 1 ~ 15 (15일간), 하나로eSCM 팝업게시 &#13;&#10;  - 대상업체 : 농협 전 협력업체 본사 &#13;&#10; &#13;&#10;※ 변경사항 &#13;&#10;    - 판매정보 다운로드 (현행 : 자사 정보, 변경 : 자사정보 + 타사정보)&#13;&#10;    - 카테고리 시장정보 (현행 : 점  유  율, 변경 : 점유율 + SKU정보)&#13;&#10;       주) 판매정보 : 농협 사업장의 POS매출자료&#13;&#10;" style="border:0 solid #bfbfbfff ;" wordwrap="none"/>
+        <Button id="btn_no" taborder="127" text="비동의" cssclass="btn_WF_Popup" left="50.07%" right="42.65%" bottom="20" height="29" onclick="btn_no_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_usrConsent" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="CONSENT_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CONSENT_YN">Y</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item6" compid="OMG_DS_SC_013" propid="" datasetid="ds_notice" columnid=""/>
+      <BindItem id="item2" compid="OMG_DS_SC_013" propid="" datasetid="ds_notice" columnid=""/>
+      <BindItem id="item8" compid="Static19" propid="text" datasetid="ds_notice"/>
+      <BindItem id="item11" compid="Static21" propid="text" datasetid="ds_notice" columnid=""/>
+      <BindItem id="item1" compid="OMG_DS_SC_013" propid="" datasetid="ds_notice" columnid=""/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+//this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+this.noticeSeq = "";
+this.documentId = "";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//this.gfn_setInitForm(obj, e); //공통
+	
+
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+	//this.noticeSeq = this.getOwnerFrame().noticeSeq;
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+// 동의 
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    // 정보제공동의
+    this.fn_saveUsrConsent('Y');
+}
+// 거부
+this.btn_no_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    // 정보제공 거부
+    this.fn_saveUsrConsent('N');
+}
+
+
+this.fn_saveUsrConsent = function(strYN)
+{
+    // alert('fn_saveUsrConsent');
+    var msg = "";
+    
+    if(strYN == 'N'){
+        msg = "동의하지 않으시면 확인을 눌러주세요.";
+    }else{
+         msg = "확인을 누르시면 자사 판매정보 제공에 동의처리됩니다.";
+    }
+	if (!confirm(msg)) {
+		return;
+	}
+	
+	var bsnDsc = "sales_price";
+	var glnCode = application.gv_glnCode;
+	var consentYN = strYN;
+
+	var params =  "bsnDsc="     + bsnDsc
+				 + " naTrplC="  + glnCode 
+				 + " consentYN=" + consentYN 
+				 ;
+
+
+	var sArgument     = params;
+	var sSvcID        = "saveUsrConsent";
+	var sURL          = "svc::rest/pt/usrinf/saveUsrConsent";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "saveUsrConsent") {
+		alert("저장되었습니다.");
+		this.close("SUCCESS"); // strVal
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

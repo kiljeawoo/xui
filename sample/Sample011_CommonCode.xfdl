@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample011_CommonCode" classname="Sample011_CommonCode" left="0" top="0" width="1024" height="768" titletext="공통코드호출" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Combo id="Combo00" taborder="1" left="178" top="107" width="150" height="21" innerdataset="@ds_QSLPR_TPC" codecolumn="SIMP_C" datacolumn="SIMP_CNM"/>
+        <Combo id="Combo01" taborder="2" left="362" top="107" width="150" height="21" innerdataset="@ds_PHD_DLR_DSC" codecolumn="SIMP_C" datacolumn="SIMP_CNM"/>
+        <Static id="Static00" taborder="3" text="ds_QSLPR_TPC" left="180" top="82" width="120" height="21"/>
+        <Static id="Static01" taborder="4" text="ds_PHD_DLR_DSC" left="364" top="82" width="120" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_QSLPR_TPC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_PHD_DLR_DSC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_PRGR_C00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SIMP_C">00</Col>
+            <Col id="SIMP_CNM">센터입고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">01</Col>
+            <Col id="SIMP_CNM">유통(계통)</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">02</Col>
+            <Col id="SIMP_CNM">유통(업체)</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">03</Col>
+            <Col id="SIMP_CNM">대형점</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">04</Col>
+            <Col id="SIMP_CNM">중형점</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">05</Col>
+            <Col id="SIMP_CNM">일반점1</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">60</Col>
+            <Col id="SIMP_CNM">FMS</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">10</Col>
+            <Col id="SIMP_CNM">DS</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">11</Col>
+            <Col id="SIMP_CNM">DS2</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">20</Col>
+            <Col id="SIMP_CNM">SSM</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">40</Col>
+            <Col id="SIMP_CNM">SM</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">50</Col>
+            <Col id="SIMP_CNM">SMS</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">06</Col>
+            <Col id="SIMP_CNM">일반점2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_PHD_DLR_DSC00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SIMP_C">01</Col>
+            <Col id="SIMP_CNM">정상출고</Col>
+            <Col id="SIMP_C_EXPL">정상출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">03</Col>
+            <Col id="SIMP_CNM">덤출고</Col>
+            <Col id="SIMP_C_EXPL">덤출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">05</Col>
+            <Col id="SIMP_CNM">반품출고</Col>
+            <Col id="SIMP_C_EXPL">반품출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">07</Col>
+            <Col id="SIMP_CNM">행사출고</Col>
+            <Col id="SIMP_C_EXPL">행사출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">08</Col>
+            <Col id="SIMP_CNM">현장판매출고</Col>
+            <Col id="SIMP_C_EXPL">현장판매출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">09</Col>
+            <Col id="SIMP_CNM">폐기출고</Col>
+            <Col id="SIMP_C_EXPL">폐기출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">10</Col>
+            <Col id="SIMP_CNM">직매출</Col>
+            <Col id="SIMP_C_EXPL">직매출</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">11</Col>
+            <Col id="SIMP_CNM">긴급출고</Col>
+            <Col id="SIMP_C_EXPL">긴급출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">13</Col>
+            <Col id="SIMP_CNM">간선출고</Col>
+            <Col id="SIMP_C_EXPL">간선출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">25</Col>
+            <Col id="SIMP_CNM">직송반품출고</Col>
+            <Col id="SIMP_C_EXPL">직송반품출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">15</Col>
+            <Col id="SIMP_CNM">간선덤출고</Col>
+            <Col id="SIMP_C_EXPL">간선덤출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">50</Col>
+            <Col id="SIMP_CNM">물류장비출고</Col>
+            <Col id="SIMP_C_EXPL">물류장비출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">20</Col>
+            <Col id="SIMP_CNM">직송출고</Col>
+            <Col id="SIMP_C_EXPL">직송출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">60</Col>
+            <Col id="SIMP_CNM">유통가공출고</Col>
+            <Col id="SIMP_C_EXPL">유통가공출고</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">71</Col>
+            <Col id="SIMP_CNM">원물투입출고</Col>
+            <Col id="SIMP_C_EXPL">원물투입출고</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+/***************************************************************************************
+	code        : 호출할 공통코드
+	dsName      : 호출된 공통코드를 담을 Dataset
+	selecttype  : ComboBox 최상단에 추가할 문구( A: -전체-, S:-선택-, N: 빈칸)
+	 
+	selecttype은 추후 변경될 수 있음.
+	this.fn_commonAfterOnload를 화면에 선언하면 gfn_setCommonCode처리후 호출됨.
+*****************************************************************************************/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var param = [  
+ 		{code:"QSLPR_TPC",   dsName:"ds_QSLPR_TPC",   selecttype:"A"},
+ 		{code:"PHD_DLR_DSC", dsName:"ds_PHD_DLR_DSC", selecttype:"N"}
+    ];
+
+	this.gfn_setCommonCode(param);
+	//this.gfn_setPortalCommonCode(param);  portal공통코드호출용
+}
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	
+	//콤보에 최상단Row보이도록 설정
+	this.Combo00.set_index(0);
+	this.Combo01.set_index(0);
+}
+]]></Script>
+  </Form>
+</FDL>

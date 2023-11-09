@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_9020" classname="OMG_DS_SC_3212" left="0" top="0" width="456" height="429" titletext="바이어 조회" onload="OMG_DS_SC_9020_onload" style="border:2 solid #067394ff ;" visible="true" onkeydown="OMG_DS_SC_9020_onkeydown">
+    <Layouts>
+      <Layout>
+        <Button id="btn_bzplSearch" taborder="17" onclick="btn_bzplSearch_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Div id="div_search" taborder="18" left="17" top="29" right="17" height="67" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static02" taborder="1" text="바이어명" cssclass="sta_WFSA_Label" left="15" top="8" width="120" height="21"/>
+              <Edit id="edt_buyerNm" taborder="3" left="138" top="8" width="200" height="21"/>
+              <Static id="Static03" taborder="4" text="10" visible="false" left="0" top="-4" width="15" height="800" style="background:#dc143c5b;"/>
+              <Edit id="edt_chrgBsnNm" taborder="5" left="138" top="34" width="200" height="21"/>
+              <Static id="Static01" taborder="6" text="담당업무" cssclass="sta_WFSA_Label" left="15" top="34" width="120" height="21"/>
+              <Static id="Static12" taborder="7" text="5" visible="false" left="134" top="57" width="103" height="5" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_bzpl" taborder="19" binddataset="ds_bzpl" useinputpanel="false" left="17" top="111" height="239" autofittype="none" oncellclick="grd_bzpl_oncellclick" right="17">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="32"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="200"/>
+                <Column size="110"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="normal"/>
+                <Cell col="1" text="사업장명"/>
+                <Cell col="2" text="바이어명"/>
+                <Cell col="3" text="담당업무"/>
+                <Cell col="4" text="전화번호"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" text="bind:SHRT_BZPLNM"/>
+                <Cell col="2" text="bind:BUYER_NM"/>
+                <Cell col="3" text="bind:CHRG_BSNNM"/>
+                <Cell col="4" text="bind:BUYER_TELNO"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_confirm" taborder="20" text="확인" cssclass="btn_WF_Popup" left="329" top="389" width="54" height="29" onclick="btn_confirm_onclick"/>
+        <Button id="btn_cancel" taborder="21" text="취소" onclick="btn_cancel_onclick" cssclass="btn_WF_Popup" left="385" top="389" width="54" height="29"/>
+        <Div id="div_paging" taborder="22" url="common::pagingBTN.xfdl" text="Div03" left="84" width="338" height="29" visible="false" top="350"/>
+        <Static id="Static12" taborder="27" text="5" visible="false" left="142" top="61" width="103" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="28" text="10" visible="false" left="141" top="85" width="103" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="29" text="10" visible="false" left="289" top="96" width="103" height="15" style="background:#dc143c5b;"/>
+        <Edit id="edt_shrtBzplNm" taborder="30" left="663" top="29" width="200" height="21" visible="false"/>
+        <Static id="Static02" taborder="31" text="사업장명" cssclass="sta_WFSA_Label" left="540" top="29" width="120" height="21" visible="false"/>
+        <Static id="Static03" taborder="32" text="10" visible="false" left="149" top="29" width="103" height="10" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bzpl" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="SHRT_BZPLNM" type="STRING" size="256"/>
+          <Column id="USR_TP" type="STRING" size="256"/>
+          <Column id="BUYER_ENO" type="STRING" size="256"/>
+          <Column id="BUYER_NM" type="STRING" size="256"/>
+          <Column id="DEPTNM" type="STRING" size="256"/>
+          <Column id="CHRG_BSNNM" type="STRING" size="256"/>
+          <Column id="BUYER_TELNO" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TOTAL_ROW_COUNT">13</Col>
+            <Col id="PAGE_SIZE">10</Col>
+            <Col id="CURRENT_PAGE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_usrTp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+this.OMG_DS_SC_9020_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); // 공통
+	
+	this.grd_bzpl.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+}
+
+this.btn_bzplSearch_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1); // 처음 조회시, 1페이지를 조회한다.
+}
+
+this.fn_bzplSearch = function()
+{
+	var buyerNm = this.gfn_nullToEmpty(this.div_search.edt_buyerNm.value);  // 바이어명
+	var chrgBsnNm = this.gfn_nullToEmpty(this.div_search.edt_chrgBsnNm.value);  // 담당업무
+	
+	var param = " buyerNm=" + buyerNm
+			+ " chrgBsnNm=" + chrgBsnNm;
+	
+	var sSvcID        = "search";//통신아이디
+	var sURL          = "svc::rest/pt/comn/retrieveBuyerInq";
+	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_bzpl=ds_bzpl ds_pageVO=ds_pageVO";
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "search") {
+		if (this.ds_bzpl.rowcount == 0) {
+			this.div_paging.fn_pageSet(0, 10, "div_paging", lsNowPage);
+			return;
+		}
+		
+		var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+		var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+		
+		this.div_paging.fn_pageSet(sTotal, sPagesize, "div_paging", lsNowPage);
+	}
+}
+
+this.fn_afterFormOnload = function()
+{
+//	trace("fn_afterFormOnload  9020 ");
+}
+
+this.grd_bzpl_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_singleChk(obj, e);
+	}
+}
+
+/************************************************************************************************
+ * 페이징처리
+************************************************************************************************/
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_bzpl.clearData(); // Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow();
+	
+	var vPageSize  = 10; // Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 0; // 전체건수. 화면조회후 리턴받아 사용
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); // 현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	
+	var argumentObj = "";
+	
+	lsNowPage = vPageNum; // 현재 페이지 설정 
+	
+	this.fn_bzplSearch();
+}
+
+this.btn_newClose_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.parent.div_product.set_visible(false);
+	this.parent.div_product.set_url("");
+}
+
+this.btn_cancel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_confirm_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var chkIdx = -1;
+	for (var i = 0; i < this.ds_bzpl.rowcount; i++) {
+		if (this.ds_bzpl.getColumn(i, "ISCHECKED") == 1) {
+			chkIdx = i;
+			break;
+		}
+	}
+	if (chkIdx == -1) {
+		alert("선택된 바이어가 없습니다.");
+		return;
+	}
+	
+	var strVal = "ShrtBzplNm=" + encodeURIComponent(this.gfn_isEmpty(this.ds_bzpl.getColumn(chkIdx, "SHRT_BZPLNM"))) // 바이어 사업장명
+			   + "&buyerNm="   + encodeURIComponent(this.gfn_isEmpty(this.ds_bzpl.getColumn(chkIdx, "BUYER_NM")))    // 바이어명
+			   + "&chrgBsnnm=" + encodeURIComponent(this.gfn_isEmpty(this.ds_bzpl.getColumn(chkIdx, "CHRG_BSNNM")))  // 바이어 업무명
+			   + "&naBzplc="   + encodeURIComponent(this.gfn_isEmpty(this.ds_bzpl.getColumn(chkIdx, "NA_BZPLC")))
+			   + "&buyerEno="  + encodeURIComponent(this.gfn_isEmpty(this.ds_bzpl.getColumn(chkIdx, "BUYER_ENO")));
+	
+	this.close(strVal);
+}
+
+this.OMG_DS_SC_9020_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+ 	if (e.keycode == 13) { // 13 == enter
+ 		this.btn_bzplSearch.click();
+ 	}
+}
+]]></Script>
+  </Form>
+</FDL>

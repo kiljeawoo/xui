@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample016_multiCheckCombo" classname="Sample016_multiCheckCombo" left="0" top="0" width="584" height="371" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="1" text="_getValue" onclick="Button00_onclick" left="339" top="118" height="21" width="120"/>
+        <Button id="Button02" taborder="2" text="_clearValue" onclick="Button02_onclick" left="339" top="158" height="21" width="120"/>
+        <Button id="Button03" taborder="3" text="_enable" onclick="Button03_onclick" left="339" top="198" height="21" width="120"/>
+        <Button id="Button01" taborder="4" text="_readonly" left="339" top="240" height="21" width="120" onclick="Button01_onclick"/>
+        <Button id="Button04" taborder="6" text="_essential" left="339" top="280" height="21" onclick="Button04_onclick" width="120"/>
+        <Div id="Div00" taborder="7" url="common::multiCheckCombo.xfdl" left="120" top="114" height="21" width="140"/>
+        <Static id="Static00" taborder="8" text="Div의 url에 아래 Url입력&#13;&#10;common::multiCheckCombo.xfdl&#13;&#10;또는&#13;&#10;그냥 복사후 해당 화면 붙여넣기" left="120" top="8" height="85" width="213" style="font:bold 10 arial;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="NAME">테스트A</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="NAME">테스트B</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">3</Col>
+            <Col id="NAME">테스트C</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">4</Col>
+            <Col id="NAME">테스트D</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">5</Col>
+            <Col id="NAME">테스트E</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">6</Col>
+            <Col id="NAME">테스트F</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">7</Col>
+            <Col id="NAME">테스트G</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">8</Col>
+            <Col id="NAME">테스트H</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+/*
+
+Div는 풀경로로 선언해야 합니다.
+조회조건으로 사용하는 경우 Div으로 한번 감싸지므로 유의.
+예) this.div_search.div_combo.setFunctionName("fn_afterCall");
+
+*/
+
+
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.Div00.setFunctionName("fn_afterCall"); //후처리함수 선언
+	
+	//선택사항. 선언안하면 기본으로 설정됨. Width:140, displayrowcount:5
+	this.Div00._setWidth(140);                  //가로사이즈 설정(단, 140보다 작으면 기본사이즈인 140으로 설정됨)
+	this.Div00._setDisplayCount(9);            //보여줄 Row수. Combo의 displayrowcount와 동일.
+	
+	/*
+	_binddataset(innerdataset, codecolumn, datacolumn)
+	
+	Combo와 동일하게 innerdataset/codecolumn/datacolumn 설정
+	innerdataset: Dataset obj
+	codecolumn: innerdataset한 Dataset컬럼 중 Code값에 설정할 컬럼명
+	datacolumn: innerdataset한 Dataset컬럼 중 Name값에 설정할 컬럼명
+	*/
+	this.Div00._binddataset(this.Dataset00,"CODE","NAME");
+}
+
+this.fn_afterCall = function (sVal)
+{
+	trace(sVal.saveXML()); //Dataset으로 받음
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert(this.Div00._getValue()); //Dataset으로 받음
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._clearValue();
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._enable(false); // true / false
+}
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._readonly(true); // true / false
+}
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._essential(true); // true / false
+}
+]]></Script>
+  </Form>
+</FDL>

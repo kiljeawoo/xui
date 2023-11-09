@@ -1,0 +1,1426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1590" classname="VAN_DS_SC_1590" left="0" top="0" width="900" height="1425" titletext="온라인 취급상품 등록" onload="form_onload" onsize="div_list_onsize" onactivate="VAN_DS_SC_1590_onactivate">
+    <Layouts>
+      <Layout>
+        <Static id="stc_namo_msg03" taborder="99" text="※ 업무처리 관련 문의 : 02) 2022 - 3473, 3477, 3478, 3444&#13;&#10;※ 시스템 관련 문의 : 02) 1522-1211" left="487" top="23" height="36" style="color:blue;align:right middle;font:bold 9 Gulim;" right="7"/>
+        <Static id="Static00" taborder="98" left="793" top="1412" right="15" height="24"/>
+        <Static id="stc_ad_b01" taborder="38" cssclass="sta_WF_Labelbg" left="1025" top="214" right="-901" height="29" visible="false"/>
+        <Static id="stc_ad_b02" taborder="43" cssclass="sta_WF_Labelbg" left="1025" top="242" right="-901" height="29" visible="false"/>
+        <Static id="stc_ad_b03" taborder="48" cssclass="sta_WF_Labelbg" left="1025" top="270" right="-901" height="29" visible="false"/>
+        <Static id="stc_ad_b04" taborder="53" cssclass="sta_WF_Labelbg" left="1025" top="298" right="-901" height="29" visible="false"/>
+        <Static id="stc_bs_b02" taborder="21" cssclass="sta_WF_Labelbg" left="109" top="88" right="15" height="29"/>
+        <Static id="stc_bs_b00" taborder="14" cssclass="sta_WF_Labelbg" left="109" top="60" right="15" height="29"/>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="397" height="21"/>
+        <Button id="btn_search" taborder="2" cssclass="btn_WFSA_Searchbtn" top="0" right="58" width="58" height="21" onclick="btn_search_onclick"/>
+        <Button id="btn_clear" taborder="1" text="초기화" onclick="btn_clear_onclick" cssclass="btn_WF_CRUD" top="0" right="118" height="21" width="53"/>
+        <Button id="btn_save" taborder="3" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21"/>
+        <Static id="stc_bs_info" taborder="4" text="기본정보" cssclass="sta_WF_Subtitle" left="0" top="37" width="135" height="21"/>
+        <Static id="stc_bs_info_03" taborder="15" text="상품분류" cssclass="sta_WF_Label" left="0" top="88" width="150" height="29"/>
+        <Static id="stc_bs_b03" taborder="27" cssclass="sta_WF_Labelbg" left="109" top="116" right="15" height="29"/>
+        <Static id="stc_bs_info_06" taborder="25" text="과세구분코드" cssclass="sta_WF_Label" left="0" top="116" width="150" height="29"/>
+        <Static id="stc_bs_info_07" taborder="28" text="생산자/제조원 (필수)" cssclass="sta_WF_Label" left="917" top="144" width="150" height="29" style="color:#ff2222ff;" visible="false"/>
+        <Static id="stc_bs_info_08" taborder="30" text="상품규격" cssclass="sta_WF_Label" left="310" top="116" width="150" height="29"/>
+        <Static id="Static10" taborder="33" text="부가정보" cssclass="sta_WF_Subtitle" left="916" top="189" width="135" height="21" visible="false"/>
+        <Static id="stc_ad_info_02" taborder="44" text="판매단위총용량" cssclass="sta_WF_Label" left="1342" top="270" width="150" height="29" visible="false"/>
+        <Static id="stc_ad_info_03" taborder="46" text="기준용량" cssclass="sta_WF_Label" left="1342" top="298" width="150" height="29" visible="false"/>
+        <Static id="stc_ad_info_04" taborder="49" text="표시단위" cssclass="sta_WF_Label" left="916" top="298" width="150" height="29" visible="false"/>
+        <Static id="stc_ad_info_05" taborder="51" text="성인인증필수여부" cssclass="sta_WF_Label" left="1342" top="242" width="150" height="29" visible="false"/>
+        <Static id="stc_ad_info_01_d4" taborder="41" text="원료농축산물원산지" cssclass="sta_WF_Label" left="916" top="242" width="150" height="29" visible="false"/>
+        <Static id="stc_ad_info_01_d3" taborder="36" cssclass="sta_WF_Label" left="1342" top="214" width="150" height="29" text="농축산물가공품여부" visible="false"/>
+        <Static id="stc_ad_info_01_d2" taborder="39" text="생산지역" cssclass="sta_WF_Label" left="916" top="270" width="150" height="29" visible="false"/>
+        <Static id="stc_ad_info_01_d1" taborder="34" text="국가 (필수)" cssclass="sta_WF_Label" left="916" top="214" width="150" height="29" style="color:#ff2222ff;" visible="false"/>
+        <Static id="Static12" taborder="54" text="상품고시정보 (필수)" cssclass="sta_WF_Subtitle" left="0" top="164" width="150" height="21" style="color:#ff2222ff;"/>
+        <Static id="stc_no_info_01" taborder="55" text="품목" cssclass="sta_WF_Label" left="0" top="189" width="110" height="29" style="color:#222222ff;"/>
+        <Static id="stc_no_b01" taborder="57" cssclass="sta_WF_Labelbg" left="109" top="189" right="15" height="29"/>
+        <Combo id="cbo_wrs_ntfy" taborder="56" left="115" top="193" width="365" height="21" innerdataset="@ds_wrs_nfty_sel" codecolumn="WRS_NTFY_C" datacolumn="WRS_NTFY_NM" onitemchanged="cbo_wrs_ntfy_onitemchanged" type="dropdown" displayrowcount="10"/>
+        <Grid id="grd_wrs_nfty_hdng" taborder="58" binddataset="ds_wrs_nfty_hdng_sel" useinputpanel="false" left="0" top="217" right="15" position="absolute" height="196" autosizingtype="none" extendsizetype="none" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40" band="left"/>
+                <Column size="240" band="left"/>
+                <Column size="240"/>
+                <Column size="240"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순서"/>
+                <Cell col="1" text="품목명"/>
+                <Cell col="2" text="품목내용 입력"/>
+                <Cell col="3" text="항목설명"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SORT_SEQ"/>
+                <Cell col="1" style="align:left middle;" text="bind:WRS_NTFY_HDNG_NM"/>
+                <Cell col="2" displaytype="text" edittype="expr:comp.parent.setNtfyCustomerInfoFix(currow)" style="align:left middle;" text="bind:WRS_NTFY_HDNG_CNTN" editlimit="4000" editlengthunit="ascii"/>
+                <Cell col="3" displaytype="normal" edittype="none" style="align:left middle;" text="bind:WRS_NTFY_HDNG_EXPL"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static34" taborder="59" text="상품이미지" cssclass="sta_WF_Subtitle" left="0" top="449" width="180" height="21"/>
+        <Static id="stc_wrs_img_01" taborder="60" text="대표이미지 (필수)" cssclass="sta_WF_Label" left="0" top="474" width="137" height="29" style="color:#ff2222ff;"/>
+        <Static id="stc_img_b01" taborder="66" cssclass="sta_WF_Labelbg" left="136" top="474" right="15" height="29"/>
+        <Static id="Static37" taborder="88" text="상품상세내용 (필수)" cssclass="sta_WF_Subtitle" left="0" top="676" width="248" height="21" style="color:#ff2222ff;"/>
+        <FileUpload id="fu_img_upload_rep" taborder="61" multiselect="false" timeout="0" retry="0" async="true" index="0" left="139" top="478" width="253" height="21" onload="fu_img_upload_onload" onsuccess="fn_fileupload_onsuccess" onerror="fn_fileupload_onerror" onitemchanged="fn_fileupload_onitemchanged"/>
+        <Button id="btn_cancel_rep" taborder="62" text="취소 " left="393" top="478" width="51" height="21" onclick="btn_cancel_onclick"/>
+        <Static id="stc_bs_info_02" taborder="10" text="상품 (필수)" cssclass="sta_WF_Label" left="0" top="60" width="150" height="29" style="color:#ff2222ff;"/>
+        <Edit id="edt_na_wrs_lclc" taborder="16" left="154" top="92" width="40" height="21" maxlength="3" enable="false"/>
+        <Edit id="edt_na_wrs_mclc" taborder="17" left="199" top="92" width="40" height="21" maxlength="3" enable="false"/>
+        <Edit id="edt_na_wrs_sclc" taborder="18" left="244" top="92" width="40" height="21" maxlength="3" enable="false"/>
+        <Edit id="edt_na_wrs_dtcf_c" taborder="19" left="289" top="92" width="40" height="21" maxlength="3" enable="false"/>
+        <Edit id="edt_na_wrs_lcnm" taborder="20" left="334" top="92" width="363" height="21" enable="false"/>
+        <Combo id="cbo_txt_dsc" taborder="26" left="154" top="120" width="150" height="21" enable="false" innerdataset="@ds_txt_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM"/>
+        <Edit id="edt_pdm_mftco" taborder="29" left="1071" top="148" width="235" height="21" maxlength="50" lengthunit="ascii" visible="false"/>
+        <Combo id="cbo_orgpl_natcd" taborder="35" left="1070" top="218" width="150" height="21" innerdataset="@ds_rgn_c" codecolumn="SIMP_C" datacolumn="SIMP_CNM" displayrowcount="10" visible="false"/>
+        <Edit id="edt_pd_rgn" taborder="40" left="1070" top="274" width="235" height="21" maxlength="250" visible="false" enable="false" lengthunit="ascii"/>
+        <CheckBox id="chk_aplvpd_mfcpd_yn" taborder="37" left="1501" top="218" width="150" height="21" truevalue="1" falsevalue="0" value="0" visible="false"/>
+        <Edit id="edt_mtr_aglvpd_org_orgpl" taborder="42" left="1070" top="246" width="235" height="21" lengthunit="ascii" maxlength="250" visible="false"/>
+        <MaskEdit id="mae_tot_cap" taborder="45" left="1496" top="274" width="235" height="21" mask="##,###,###" limitbymask="integer" enable="false" visible="false"/>
+        <MaskEdit id="mae_unt_cap" taborder="47" left="1496" top="302" width="235" height="21" mask="##,###,###" limitbymask="integer" enable="false" visible="false"/>
+        <Combo id="cbo_wrs_unt_c" taborder="50" left="1070" top="302" width="150" height="21" index="-1" innerdataset="@ds_wrs_unt_c" codecolumn="SIMP_C" datacolumn="SIMP_CNM" enable="false" visible="false"/>
+        <CheckBox id="chk_adlt_attc_required_yn" taborder="52" value="0" truevalue="1" falsevalue="0" left="1501" top="246" width="150" height="21" visible="false"/>
+        <Static id="stc_wrs_img_02" taborder="67" text="추가이미지1" cssclass="sta_WF_Label" left="0" top="502" width="137" height="29"/>
+        <Static id="stc_img_b02" taborder="73" cssclass="sta_WF_Labelbg" left="136" top="502" right="15" height="29"/>
+        <FileUpload id="fu_img_upload_add1" taborder="68" multiselect="false" timeout="0" retry="0" async="true" index="0" onsuccess="fn_fileupload_onsuccess" left="139" top="506" width="253" height="21" onload="fu_img_upload_onload" onerror="fn_fileupload_onerror" onitemchanged="fn_fileupload_onitemchanged"/>
+        <Button id="btn_cancel_add1" taborder="69" text="취소 " onclick="btn_cancel_onclick" left="393" top="506" width="51" height="21"/>
+        <Static id="stc_wrs_img_03" taborder="74" text="추가이미지2" cssclass="sta_WF_Label" left="0" top="530" width="137" height="29"/>
+        <Static id="stc_img_b03" taborder="80" cssclass="sta_WF_Labelbg" left="136" top="530" right="15" height="29"/>
+        <FileUpload id="fu_img_upload_add2" taborder="75" multiselect="false" timeout="0" retry="0" async="true" index="0" onsuccess="fn_fileupload_onsuccess" left="139" top="534" width="253" height="21" onload="fu_img_upload_onload" onerror="fn_fileupload_onerror" onitemchanged="fn_fileupload_onitemchanged"/>
+        <Button id="btn_cancel_add2" taborder="76" text="취소 " onclick="btn_cancel_onclick" left="393" top="534" width="51" height="21"/>
+        <Static id="stc_wrs_img_04" taborder="81" text="라벨이미지 (필수)" cssclass="sta_WF_Label" left="0" top="621" width="137" height="29" wordwrap="none" style="color:#ff2222ff;"/>
+        <Static id="stc_img_b04" taborder="84" cssclass="sta_WF_Labelbg" left="136" top="621" right="15" height="29"/>
+        <FileUpload id="fu_img_upload_add3" taborder="82" multiselect="false" timeout="0" retry="0" async="true" index="0" onsuccess="fn_fileupload_onsuccess" left="139" top="625" width="253" height="21" onload="fu_img_upload_onload" onerror="fn_fileupload_onerror" onitemchanged="fn_fileupload_onitemchanged"/>
+        <Button id="btn_cancel_add3" taborder="83" text="취소 " onclick="btn_cancel_onclick" left="393" top="625" width="51" height="21"/>
+        <Edit id="edt_wrs_std" taborder="31" left="465" top="120" width="232" height="21" maxlength="100" enable="false"/>
+        <Button id="btn_showimage_rep" taborder="65" text="보기" left="722" top="478" width="56" height="21" visible="false" onclick="fn_showImage_onclick"/>
+        <Static id="stc_reg_img_rep" taborder="63" left="455" top="478" width="202" height="21" text="등록이미지 :" visible="false" style="color:#333333ff;"/>
+        <Static id="stc_reg_img_add1" taborder="70" text="등록이미지 :" left="455" top="506" width="202" height="21" visible="false"/>
+        <Button id="btn_showimage_add1" taborder="72" text="보기" left="722" top="506" width="56" height="21" visible="false" onclick="fn_showImage_onclick"/>
+        <Static id="stc_reg_img_add2" taborder="77" text="등록이미지 :" left="455" top="534" width="202" height="21" visible="false"/>
+        <Button id="btn_showimage_add2" taborder="79" text="보기" left="722" top="534" width="56" height="21" visible="false" onclick="fn_showImage_onclick"/>
+        <Static id="stc_reg_img_add3" taborder="85" text="등록이미지 :" left="455" top="625" width="202" height="21" visible="false"/>
+        <Button id="btn_showimage_add3" taborder="87" text="보기" left="722" top="625" width="56" height="21" visible="false" onclick="fn_showImage_onclick"/>
+        <Button id="btn_delete_add3" taborder="86" text="삭제" onclick="btn_delete_onclick" left="666" top="625" width="56" height="21" visible="false"/>
+        <Button id="btn_delete_add2" taborder="78" text="삭제" onclick="btn_delete_onclick" left="666" top="534" width="56" height="21" visible="false"/>
+        <Button id="btn_delete_add1" taborder="71" text="삭제" onclick="btn_delete_onclick" left="666" top="506" width="56" height="21" visible="false"/>
+        <Button id="btn_delete_rep" taborder="64" text="삭제" onclick="btn_delete_onclick" left="666" top="478" width="56" height="21" visible="false"/>
+        <Edit id="edt_na_wrs_c" taborder="11" inputtype="number" maxlength="25" onkeydown="fn_wrs_onkeydown" cssclass="WF_Essential" left="154" top="64" width="160" height="21" ontextchanged="edt_na_wrs_c_ontextchanged"/>
+        <Edit id="edt_wrsnm" taborder="12" onkeydown="fn_wrs_onkeydown" cssclass="WF_Essential" left="319" top="64" width="181" height="21"/>
+        <Button id="btn_popup_na_wrs_c" taborder="13" onclick="fn_callPopupNaWrsC" cssclass="btn_WF_Searchbtn" left="505" top="64" width="21" height="21"/>
+        <ImageViewer id="img_show" taborder="90" left="927" top="497" width="150" height="114" visible="false" onmouseleave="img_show_onmouseleave" onclick="img_show_onclick"/>
+        <Static id="stc_mny_unit" taborder="24" text="원" left="1195" top="120" width="20" height="21" visible="false"/>
+        <Static id="stc_bs_info_05" taborder="22" text="판매단가" cssclass="sta_WF_Label" left="917" top="116" width="150" height="29" visible="false"/>
+        <MaskEdit id="mae_sel_upr" taborder="23" left="1072" top="120" width="119" height="21" mask="#,###" limitbymask="integer" enable="false" visible="false"/>
+        <Static id="stc_namo_msg" taborder="93" text="※ 툴바(도구모음)의 그림 버튼을 선택하여 업로드 할 수 있습니다. 상세내용 이미지는 최대 5개까지 업로드 가능합니다." left="0" top="697" width="685" height="21" style="color:darkblue;"/>
+        <Button id="btn_save00" taborder="94" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="1394" right="15" width="92" height="21"/>
+        <Static id="stc_namo_msg00" taborder="95" text="※ 이미지 사이즈 : &lt;b v='true'&gt;가로800픽셀*세로800픽셀&lt;/b&gt; / 이미지 용량 : 1MB 미만 / RGB 이미지(jpg, jpeg) 등록&#13;&#10;※ 상품 이미지는 (농협몰 시스템에서 600*600으로) 자동 리사이징 처리됩니다." left="205" top="434" width="650" height="42" style="color:blue;" usedecorate="true"/>
+        <Static id="stc_namo_msg01" taborder="96" text="※ 취급 상품에 해당하는 고시 품목을 선택" left="495" top="193" width="258" height="21" style="color:blue;"/>
+        <Static id="stc_namo_msg02" taborder="97" text="※ 이미지 사이즈 : 900~1000*무제한" left="153" top="676" width="232" height="21" style="color:blue;"/>
+        <Static id="Static01" taborder="100" text="라벨(상품표시사항) 이미지" cssclass="sta_WF_Subtitle" left="0" top="595" width="180" height="21"/>
+        <Static id="stc_namo_msg04" taborder="101" text="※ 이미지 사이즈 : &lt;b v='true'&gt;가로1000픽셀*&lt;fc v='#ff0000'&gt;세로제한없음&lt;/fc&gt;&lt;/b&gt; / 이미지 용량 : 1MB 미만 / RGB 이미지(jpg, jpeg) 등록&#13;&#10;※ 라벨 이미지는 자동 리사이징을 지원하지 않습니다.(등록한 이미지가 그대로 온라인 반영)" left="205" top="580" width="650" height="42" style="color:blue;" usedecorate="true"/>
+        <WebBrowser id="wb_namo" left="0" top="730" height="650" taborder="102" right="15" onusernotify="wb_namo_onusernotify"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+          <Column id="FILEPATH" type="STRING" size="256"/>
+          <Column id="ERR_YN" type="STRING" size="256"/>
+          <Column id="ERR_MSG" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadsave" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="VAN_C_RQ_NO" type="STRING" size="32"/>
+          <Column id="FILE_SEQ" type="STRING" size="32"/>
+          <Column id="FILE_NAME" type="STRING" size="32"/>
+          <Column id="FILE_SIZE" type="bigdecimal" size="8"/>
+          <Column id="FILE_SYSTEM_NAME" type="STRING" size="32"/>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="FILE_STATUS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_trtwrs">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="STRING" size="25"/>
+          <Column id="PDM_MFTCO" type="STRING" size="50"/>
+          <Column id="WRS_STD" type="STRING" size="100"/>
+          <Column id="ORGPL_NATCD" type="STRING" size="3"/>
+          <Column id="PD_RGN" type="STRING" size="250"/>
+          <Column id="AGLVPD_MFCPD_YN" type="STRING" size="1"/>
+          <Column id="MTR_AGLVPD_ORG_ORGPL" type="STRING" size="250"/>
+          <Column id="TOT_CAP" type="BIGDECIMAL" size="8"/>
+          <Column id="UNT_CAP" type="BIGDECIMAL" size="8"/>
+          <Column id="WRS_UNT_C" type="STRING" size="3"/>
+          <Column id="ADLT_ATTC_REQUIRED_YN" type="STRING" size="1"/>
+          <Column id="IMG_EXPL_FL_NM" type="STRING" size="40"/>
+          <Column id="IMG_FL0_NM" type="STRING" size="40"/>
+          <Column id="IMG_FL1_NM" type="STRING" size="40"/>
+          <Column id="IMG_FL2_NM" type="STRING" size="40"/>
+          <Column id="IMG_FL3_NM" type="STRING" size="40"/>
+          <Column id="IMG_DTL1_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL2_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL3_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL4_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL5_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_img">
+        <ColumnInfo>
+          <Column id="xRowStatusType" type="STRING" size="1"/>
+          <Column id="WRS_IMG_SEQ" type="BIGDECIMAL" size="18"/>
+          <Column id="NA_WRS_C" type="STRING" size="25"/>
+          <Column id="IMG_PATH" type="STRING" size="200"/>
+          <Column id="IMG_NM" type="STRING" size="50"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_nfty_hdng">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRS_NTFY_C" type="STRING" size="4"/>
+          <Column id="WRS_NTFY_HDNG_C" type="STRING" size="2"/>
+          <Column id="WRS_NTFY_HDNG_CNTN" type="STRING" size="4000"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_txt_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rgn_c" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_trtwrs_sel">
+        <ColumnInfo>
+          <Column id="ON_REG_YN" type="STRING" size="1"/>
+          <Column id="NA_WRS_C" type="STRING" size="25"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="3"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="3"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="3"/>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="3"/>
+          <Column id="WRS_LFNM" type="STRING" size="256"/>
+          <Column id="SL_UPR" type="BIGDECIMAL" size="18"/>
+          <Column id="TXT_DSC" type="STRING" size="1"/>
+          <Column id="PDM_MFTCO" type="STRING" size="50"/>
+          <Column id="WRS_STD" type="STRING" size="100"/>
+          <Column id="ORGPL_NATCD" type="STRING" size="3"/>
+          <Column id="PD_RGN" type="STRING" size="250"/>
+          <Column id="AGLVPD_MFCPD_YN" type="STRING" size="1"/>
+          <Column id="MTR_AGLVPD_ORG_ORGPL" type="STRING" size="250"/>
+          <Column id="TOT_CAP" type="BIGDECIMAL" size="18"/>
+          <Column id="UNT_CAP" type="BIGDECIMAL" size="18"/>
+          <Column id="WRS_UNT_C" type="STRING" size="3"/>
+          <Column id="ADLT_ATTC_REQUIRED_YN" type="STRING" size="1"/>
+          <Column id="WRS_NTFY_C" type="STRING" size="4"/>
+          <Column id="IMG_EXPL_FL_NM" type="STRING" size="256"/>
+          <Column id="IMG_FL0_NM" type="STRING" size="256"/>
+          <Column id="IMG_FL1_NM" type="STRING" size="256"/>
+          <Column id="IMG_FL2_NM" type="STRING" size="256"/>
+          <Column id="IMG_FL3_NM" type="STRING" size="256"/>
+          <Column id="HTML_DATA" type="STRING" size="256"/>
+          <Column id="IMG_DTL1_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL2_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL3_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL4_NM" type="STRING" size="256"/>
+          <Column id="IMG_DTL5_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_nfty_hdng_sel">
+        <ColumnInfo>
+          <Column id="SORT_SEQ" type="BIGDECIMAL" size="5"/>
+          <Column id="WRS_NTFY_C" type="STRING" size="4"/>
+          <Column id="WRS_NTFY_HDNG_C" type="STRING" size="2"/>
+          <Column id="WRS_NTFY_HDNG_NM" type="STRING" size="50"/>
+          <Column id="WRS_NTFY_HDNG_EXPL" type="STRING" size="4000"/>
+          <Column id="WRS_NTFY_HDNG_CNTN" type="STRING" size="4000"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_nfty_sel">
+        <ColumnInfo>
+          <Column id="RN" type="STRING" size="25"/>
+          <Column id="WRS_NTFY_C" type="STRING" size="256"/>
+          <Column id="WRS_NTFY_NM" type="STRING" size="256"/>
+          <Column id="NTFY_RMK" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_wrs_unt_c" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_namo_editor">
+        <ColumnInfo>
+          <Column id="ORG_FILENM" type="STRING" size="256"/>
+          <Column id="MHT_DATA" type="STRING" size="256"/>
+          <Column id="IMG_DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ban_word">
+        <ColumnInfo>
+          <Column id="BANNED_WORD_NO" type="STRING" size="10"/>
+          <Column id="BANNED_WORD_NM" type="STRING" size="20"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="div_edit.Radio00" propid="value" datasetid="ds_wrs" columnid="WRS_DSC"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/******************************************************************************/
+/* filename  : VAN_DS_SC_1590.xfdl                                            */
+/* comments  : 온라인취급상품등록                                          */
+/* developer : mjkang                                                         */
+/* add date  : 2017-09-04                                                     */
+/******************************************************************************/
+include "lib::comLib.xjs";
+
+var arrCompWrsBase = [ this.div_menu
+                     , this.edt_na_wrs_c
+                     , this.edt_wrsnm
+                     , this.edt_na_wrs_lclc
+                     , this.edt_na_wrs_mclc
+                     , this.edt_na_wrs_sclc
+                     , this.edt_na_wrs_dtcf_c
+                     , this.edt_na_wrs_lcnm
+                     , this.mae_sel_upr
+                     , this.cbo_txt_dsc
+					 , this.edt_wrs_std
+                     , this.btn_clear
+                     , this.btn_search
+                     , this.btn_save
+                     , this.btn_save00
+                     , this.btn_popup_na_wrs_c
+                     , this.mae_tot_cap
+                     , this.mae_unt_cap
+                     , this.cbo_wrs_unt_c
+                     ]
+;
+
+this.NAMO_DATA;
+this.NAMO_IMG;
+this.CHK_BODY;
+this.CHK_IMG;
+
+//개발. 상품상세내용 접근경로
+//var aMarketPath = "http://121.156.58.242/escm/amarket";
+//var aMarketPath = "C:/NHVANDATA/amarket";
+
+/******************************************************************************/
+/* function : btn_clear_onclick                                               */
+/* comments : init button onclick event                                       */
+/******************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+/******************************************************************************/
+/* function : fn_afterFormOnload                                              */
+/* comments : onload 처리후 처리 로직                                       */
+/******************************************************************************/
+this.fn_afterFormOnload = function()
+{
+	var param = [
+ 		{code:"TXT_DSC", dsName:"ds_txt_dsc", selecttype:"S"} // 과세구분코드
+    ];
+	this.gfn_setCommonCode(param);
+	this.fn_getCommCode_1590();
+	this.fn_frmCompsEnable(false);
+	
+	var parent = this.getOwnerFrame();
+	if (parent.findEventHandler("onactivate", this.VAN_DS_SC_1590_onactivate, this) < 0) {
+		parent.setEventHandler("onactivate", this.VAN_DS_SC_1590_onactivate, this);
+	}
+
+	// 크로스에디터 로드
+ 	var ceUrl = "ce/blbdNamo.html?type=nhm";
+ 	if (application.gv_serverType != "LOCAL") {
+		ceUrl = "nhvan/ce/blbdNamo.html?type=nhm";
+ 	}
+
+	this.wb_namo.set_url(application.gv_serviceHtml_url + ceUrl);
+}
+
+this.fn_postOnLoad = function()
+{
+	// 조회에서 상세보기
+	var WRS_C = this.getOwnerFrame().arguments["FORM_PARAM"];
+	if (!this.gfn_isNull(WRS_C)) {
+		this.edt_na_wrs_c.set_value(WRS_C);
+		this.fn_callPopupNaWrsC(true);
+	}
+}
+
+/******************************************************************************/
+/* function : fn_getCommCode_1590                                             */
+/* comments : 공통코드조회                                                  */
+/******************************************************************************/
+this.fn_getCommCode_1590 = function()
+{
+	var sSvcID        = "searchCommCode1590";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveCommCode1590";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_rgn_c=ds_rgn_c ds_wrs_unt_c=ds_wrs_unt_c ds_wrs_nfty_sel=ds_wrs_nfty_sel ds_ban_word=ds_ban_word";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "rgn_c='CM0025' txt_dsc='GD0001' wrs_unt_c='GD0017'";// 파라미터
+	var sCallbackFunc = "fn_callback_commcode";//콜백
+	var tranType      = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출 
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType, true);
+}
+
+/******************************************************************************/
+/* function : fn_callback_ntfy                                                */
+/* comments : 공통코드조회콜백                                             */
+/******************************************************************************/
+this.fn_callback_commcode = function(svcID, nCD, sMSG)
+{
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	} else {
+		//테스트용 임시데이터 셋팅
+		if (this.ds_rgn_c.rowcount == 0) {
+			var param = [  
+			    {code:"ETR_IV_RGN_C", dsName:"ds_rgn_c"    , selecttype:"N"} //국가코드
+			];
+			this.gfn_setCommonCode(param);
+		}
+		/*
+		if (this.ds_txt_dsc.rowcount == 0) {
+			var param = [  
+			    {code:"TXT_DSC"     , dsName:"ds_txt_dsc"  , selecttype:"N"} //과세구분
+			];
+			this.gfn_setCommonCode(param);
+		}
+		*/
+		if (this.ds_wrs_unt_c.rowcount == 0) {
+			var param = [  
+			    {code:"NA_WRS_UNT_C", dsName:"ds_wrs_unt_c", selecttype:"N"} //상품단위코드
+			];
+			this.gfn_setCommonCode(param);
+		}
+	}
+}
+
+/******************************************************************************/
+/* function : fn_frmCompsEnable                                               */
+/* comments : component enable / disable                                      */
+/******************************************************************************/
+this.fn_frmCompsEnable = function(bParam)
+{
+	try {
+	var arrFrmComps = this.components;
+	var iChk = 0;
+	for (var i = 0 ; i < arrFrmComps.length ; i++) {
+		iChk = 0;
+		if (arrFrmComps[i].valueOf() != "[object Static]") {
+			for (var j = 0 ; j < arrCompWrsBase.length ; j++) {
+				if (arrFrmComps[i].name == arrCompWrsBase[j].name) {
+					iChk++;
+					break;
+				}
+			}
+			if (iChk == 0) {
+				arrFrmComps[i].set_enable(bParam);
+			}
+		}
+	}
+	}catch(e) {trace(e);}
+}
+
+/******************************************************************************/
+/* function : btn_clear_onclick                                               */
+/* comments : init button onclick event                                       */
+/* argument : obj : Button object                                             */
+/*              e : ClickEventInfo                                            */
+/******************************************************************************/
+this.btn_clear_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+/******************************************************************************/
+/* function : btn_search_onclick                                              */
+/* comments : search button onclick event                                     */
+/******************************************************************************/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (!this.fn_validationSearch()) {
+		return;
+	}
+
+	var fv_na_wrs_c = this.gfn_nullToEmpty(this.edt_na_wrs_c.value); 	// 1.상품코드
+
+	var params = "na_wrs_c='"+fv_na_wrs_c+"'";
+		
+	var sSvcID        = "retrieveOnWrsInfo";                              //통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveOnWrsInfo"; //호출할 서버 페이지 주소
+	var sInDatasets   = "";                             //보내는데이터셋
+	var sOutDatasets  = "ds_trtwrs_sel=ds_trtwrs_sel";  //화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;                                           //파라미터
+	var sCallbackFunc = "fn_callback_search";                             //콜백
+	var tranType      = "S";                                              // U:저장/삭제, S:조회
+	
+	//API 호출 
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType, true);
+}
+
+/******************************************************************************/
+/* function : fn_validationSearch                                             */
+/* comments : 조회전 유효성 체크                                            */
+/******************************************************************************/
+this.fn_validationSearch = function()
+{
+	if(this.gfn_isNull(this.edt_na_wrs_c.value))
+	{
+		//this.gfn_getMessage('alert','상품은 필수입력항목입니다.');
+		this.alert("상품은 필수입력항목입니다.");
+		this.edt_na_wrs_c.setFocus();
+		return false;
+	}
+	return true;
+}
+
+/******************************************************************************/
+/* function : fn_callback_search                                              */
+/* comments : 조회 콜백                                                      */
+/******************************************************************************/
+this.fn_callback_search = function(svcID, nCD, sMSG)
+{
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	} else {
+		if (this.ds_trtwrs_sel.rowcount > 0) {
+			this.fn_frmCompsEnable(true);
+			this.edt_na_wrs_c.set_enable(false);
+			this.edt_wrsnm.set_enable(false);
+			this.btn_popup_na_wrs_c.set_enable(false);
+			this.fn_setSelectDataWrsTrtWrs(this.ds_trtwrs_sel);
+			this.fn_setSelectDataWrsImg(this.ds_trtwrs_sel);
+		} else {
+			var alertMsg = "상품["  + this.edt_na_wrs_c.value +  " " + this.edt_wrsnm.value + "] \n"
+			             + "상품 정보에 상품의 정보가 존재하지 않습니다.";
+			alert(alertMsg);
+		}
+	}
+}
+
+/******************************************************************************/
+/* function : fn_setSelectDataWrsTrtWrs                                       */
+/* comments : 조회된 내용을 component에 셋팅                                */
+/******************************************************************************/
+this.fn_setSelectDataWrsTrtWrs = function(ds:Dataset)
+{
+	//상품기본정보 값셋팅
+	this.edt_na_wrs_lclc.set_value(ds.getColumn(0, "NA_WRS_LCLC"));                       //경제통합상품대분류코드
+	this.edt_na_wrs_mclc.set_value(ds.getColumn(0, "NA_WRS_MCLC"));                       //경제통합상품중분류코드
+	this.edt_na_wrs_sclc.set_value(ds.getColumn(0, "NA_WRS_SCLC"));                       //경제통합상품소분류코드
+	this.edt_na_wrs_dtcf_c.set_value(ds.getColumn(0, "NA_WRS_DTCF_C"));                   //경제통합상품세분류코드
+	this.edt_na_wrs_lcnm.set_value(ds.getColumn(0, "WRS_LFNM"))                           //경제통합상품분류명
+	this.mae_sel_upr.set_value(ds.getColumn(0, "SL_UPR"));                                //판매단가
+	this.cbo_txt_dsc.set_value(ds.getColumn(0, "TXT_DSC"));                               //과세구분코드
+	this.edt_pdm_mftco.set_value(ds.getColumn(0, "PDM_MFTCO"));                           //생산자/제조원
+	this.edt_wrs_std.set_value(ds.getColumn(0, "WRS_STD"));                               //상품규격
+	this.cbo_orgpl_natcd.set_value(ds.getColumn(0, "ORGPL_NATCD"));                       //국가코드
+	this.edt_pd_rgn.set_value(ds.getColumn(0, "PD_RGN"));                                 //생산지역
+	this.chk_aplvpd_mfcpd_yn.set_value(ds.getColumn(0, "AGLVPD_MFCPD_YN"));               //농축상물가공품여부
+	this.edt_mtr_aglvpd_org_orgpl.set_value(ds.getColumn(0, "MTR_AGLVPD_ORG_ORGPL"));     //원료농축산물원산지
+	this.mae_tot_cap.set_value(ds.getColumn(0, "TOT_CAP"));                               //판매단위총용량
+	this.mae_unt_cap.set_value(ds.getColumn(0, "UNT_CAP"));                               //기준용량
+	this.cbo_wrs_unt_c.set_value(ds.getColumn(0, "WRS_UNT_C"));                           //상품단위코드
+	this.chk_adlt_attc_required_yn.set_value(ds.getColumn(0, "ADLT_ATTC_REQUIRED_YN"));   //성인인증필수여부
+	this.cbo_wrs_ntfy.set_value(ds.getColumn(0, "WRS_NTFY_C"));                           //상품고시코드
+	if (!this.gfn_isNull(ds.getColumn(0, "WRS_NTFY_C"))) {                                  //상품고시항목조회
+		this.cbo_wrs_ntfy_onitemchanged(this.cbo_wrs_ntfy);
+	}
+	
+	//온라인취급상품상세내용
+	if (!this.gfn_isNull(ds.getColumn(0, "IMG_EXPL_FL_NM"))) {
+		/*
+		 * 운영서버 설정문제로 was의 컨트롤러에서 mht파일을 제공하는 형태
+		 * 추후 문제가 수정되면 webtob방식으로 변경
+		 */
+		 
+		// PATH방식(webtob)
+		// var mftUrl = aMarketPath + "/" + this.edt_na_wrs_c.value + "/" + ds.getColumn(0, "IMG_EXPL_FL_NM");
+		// URL방식(was)
+		// 웹캐시를 방지하기 위한 현재시간 파라매터 포함
+		// 확장자(.mht)가 URL끝에 위치하지 않으면 나모에디터가 mht파일로 인식하지 못함 (주의점)
+		//var mftUrl = application.gv_server_url+"rest/pds/pricat/Product/onWrsInfoDtlConts?na_wrs_c="+this.edt_na_wrs_c.value+ "&t=" + Date.now() + "&fileName="+ds.getColumn(0, "IMG_EXPL_FL_NM");
+  		//this.namoEditor.callMethod("OpenFile", mftUrl);
+  		if (ds.getColumn(0, "IMG_EXPL_FL_NM").indexOf(".html") != -1) {
+			this.wb_namo.callMethod("setValue", ds.getColumn(0, "HTML_DATA"));
+		}
+	}
+}
+
+/******************************************************************************/
+/* function : fn_setSelectDataWrsImg                                          */
+/* comments : 조회된 내용을 component에 셋팅(image)                        */
+/******************************************************************************/
+this.fn_setSelectDataWrsImg = function(ds:Dataset)
+{
+	var strReqImgInfo;
+	if (!this.gfn_isNull(ds.getColumn(0, "IMG_FL0_NM")) && ds.getColumn(0, "IMG_FL0_NM").valueOf() != "undefined") {
+		strReqImgInfo = "등록이미지 : " + ds.getColumn(0, "IMG_FL0_NM");
+		this.stc_reg_img_rep.set_text(strReqImgInfo);
+		this.stc_reg_img_rep.set_visible(true);
+		this.btn_showimage_rep.set_visible(true);
+		//this.btn_delete_rep.set_visible(true);
+	} else {
+		this.stc_reg_img_rep.set_text("");
+		this.stc_reg_img_rep.set_visible(false);
+		this.btn_showimage_rep.set_visible(false);
+		//this.btn_delete_rep.set_visible(false);
+	}
+
+ 	if (!this.gfn_isNull(ds.getColumn(0, "IMG_FL1_NM")) && ds.getColumn(0, "IMG_FL1_NM").valueOf() != "undefined") {
+ 		strReqImgInfo = "등록이미지 : " + ds.getColumn(0, "IMG_FL1_NM");
+		this.stc_reg_img_add1.set_text(strReqImgInfo);
+		this.stc_reg_img_add1.set_visible(true);
+		this.btn_showimage_add1.set_visible(true);
+		this.btn_delete_add1.set_visible(true);
+ 	} else {
+		this.stc_reg_img_add1.set_text("");
+		this.stc_reg_img_add1.set_visible(false);
+		this.btn_showimage_add1.set_visible(false);
+		this.btn_delete_add1.set_visible(false);
+	}
+
+ 	if (!this.gfn_isNull(ds.getColumn(0, "IMG_FL2_NM")) && ds.getColumn(0, "IMG_FL2_NM").valueOf() != "undefined") {
+ 		strReqImgInfo = "등록이미지 : " + ds.getColumn(0, "IMG_FL2_NM");
+		this.stc_reg_img_add2.set_text(strReqImgInfo);
+		this.stc_reg_img_add2.set_visible(true);
+		this.btn_showimage_add2.set_visible(true);
+		this.btn_delete_add2.set_visible(true);
+ 	} else {
+		this.stc_reg_img_add2.set_text("");
+		this.stc_reg_img_add2.set_visible(false);
+		this.btn_showimage_add2.set_visible(false);
+		this.btn_delete_add2.set_visible(false);
+	}
+
+ 	if (!this.gfn_isNull(ds.getColumn(0, "IMG_FL3_NM")) && ds.getColumn(0, "IMG_FL3_NM").valueOf() != "undefined") {
+ 		strReqImgInfo = "등록이미지 : " + ds.getColumn(0, "IMG_FL3_NM");
+		this.stc_reg_img_add3.set_text(strReqImgInfo);
+		this.stc_reg_img_add3.set_visible(true);
+		this.btn_showimage_add3.set_visible(true);
+		//this.btn_delete_add3.set_visible(true);
+ 	} else {
+		this.stc_reg_img_add3.set_text("");
+		this.stc_reg_img_add3.set_visible(false);
+		this.btn_showimage_add3.set_visible(false);
+		//this.btn_delete_add3.set_visible(false);
+	}
+
+	this.ds_wrs_img.clearData();
+	for (var i = 0 ; i < 4 ; i++) {
+		var strColumn = "IMG_FL"+i.toString()+"_NM";
+		if (!this.gfn_isNull(ds.getColumn(0, strColumn)) && ds.getColumn(0, strColumn).valueOf() != "undefined") {
+			var aRow = this.ds_wrs_img.addRow();
+			this.ds_wrs_img.setColumn(aRow, "xRowStatusType", "A");
+			this.ds_wrs_img.setColumn(aRow, "WRS_IMG_SEQ", i + 1);
+			this.ds_wrs_img.setColumn(aRow, "NA_WRS_C", ds.getColumn(0, "NA_WRS_C"));
+			this.ds_wrs_img.setColumn(aRow, "IMG_PATH", ds.getColumn(0, "FILE_PATH"));
+			this.ds_wrs_img.setColumn(aRow, "IMG_NM", ds.getColumn(0, strColumn));
+		}
+	}
+}
+
+/******************************************************************************/
+/* function : fn_downloadWrsImg                                               */
+/* comments : 이미지 local에 download                                        */
+/******************************************************************************/
+this.fn_downloadWrsImg = function(strSYSNM, strORGNM)
+{
+	var strDownUrl = application.gv_server_url+"rest/common/fileDownload?systemFileName="+strSYSNM+"&fileName="+strORGNM+"&isSampleFile=Y";
+	var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+	
+	wbs_dw.set_url(strDownUrl);
+}
+
+
+/******************************************************************************/
+/* function : btn_save_onclick                                                */
+/* comments : save button onclick event                                       */
+/******************************************************************************/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	trace("btn_save_onclick 시작");
+	this.CHK_BODY = false;
+	this.CHK_IMG = false;
+	this.wb_namo.callMethod("getEditorInput", "Y"); // 크로스에디터 입력 값 체크
+}
+
+this.fn_save = function()
+{
+	if (!this.fn_validationSave()) {
+		return;
+	}
+	
+	this.fn_setSaveData();
+	
+	// alert("현재는 시범운영 기간이며, 등록하신 정보는 농협몰에서 확인을 하실 수 없음을 알려드립니다.");
+	if (application.confirm('[온라인 취급상품 등록 / 수정]저장하시겠습니까?')) {
+		var params 		  = "";
+		var sSvcID        = "insertOnWrsInfo";                                                            //통신아이디
+		var sURL          = "svc::rest/pds/pricat/Product/insertOnWrsInfo";                               // 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_trtwrs=ds_trtwrs ds_wrs_nfty_hdng=ds_wrs_nfty_hdng ds_wrs_img=ds_wrs_img ds_namo_editor=ds_namo_editor";//보내는데이터셋
+		var sOutDatasets  = "";
+		var sArgument     = params;                                                                       // 파라미터
+		var sCallbackFunc = "fn_callback_save";                                                           //콜백
+		var tranType 	  = "U";                                                                          // U:저장/삭제, S:조회
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	} else {
+		return false;
+	}
+}
+
+/******************************************************************************/
+/* function : fn_callback_save                                                */
+/* comments : 저장 callback                                                  */
+/******************************************************************************/
+this.fn_callback_save = function(svcID, nCD, sMSG)
+{
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}
+	alert("저장 되었습니다.");
+	this.reload();
+}
+
+/******************************************************************************/
+/* function : fn_validationSave                                               */
+/* comments : 저장 전 유효성 체크                                           */
+/******************************************************************************/
+this.fn_validationSave = function()
+{
+	// 기본정보
+	if (this.gfn_isNull(this.edt_na_wrs_c.value)) {
+		alert("상품은 필수입력항목입니다.");
+		this.edt_na_wrs_c.setFocus();
+		return false;
+	}
+	/*
+	if (this.gfn_isNull(this.edt_pdm_mftco.value)) {
+		alert("생산자/제조원은 필수입력항목입니다.");
+		this.edt_pdm_mftco.setFocus();
+		return false;
+	}
+	
+	// 부가정보
+	if (this.gfn_isNull(this.cbo_orgpl_natcd.value)) {
+		alert("국가는 필수선택항목입니다.");
+		this.cbo_orgpl_natcd.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_pd_rgn.value)) {
+		alert("생산지역은 필수입력항목입니다.");
+		this.edt_pd_rgn.setFocus();
+		return false;
+	}
+	*/
+	
+	// 고시정보
+	if (this.gfn_isNull(this.cbo_wrs_ntfy.value)) {
+		alert("상품고시정보는 필수선택항목입니다.");
+		this.cbo_wrs_ntfy.setFocus();
+		return false;
+	}
+ 	
+ 	//고시정보 및 금칙어관련
+ 	var strBanWord = "";
+ 	var strBanWordMsg = "";
+ 	var strNtfyData = "";
+ 	var bChk = true; 	
+ 	
+ 	for (var j = 0; j < this.ds_wrs_nfty_hdng_sel.rowcount; j++) {
+		var cntn = this.ds_wrs_nfty_hdng_sel.getColumn(j, "WRS_NTFY_HDNG_CNTN");
+		if (this.gfn_isNull(cntn)) {
+			this.alert("상품고시정보 [" + this.ds_wrs_nfty_hdng_sel.getColumn(j, "WRS_NTFY_HDNG_NM") + "] 를 입력해주세요.");
+			return;
+		}
+		strNtfyData += this.ds_wrs_nfty_hdng_sel.getColumn(j, "WRS_NTFY_HDNG_CNTN") + "\n";
+ 	}
+ 	
+ 	var strNamoData = this.NAMO_DATA;
+ 	
+ 	if (this.ds_ban_word.rowcount > 0) {
+		for (var i = 0; i < this.ds_ban_word.rowcount; i++) {
+			strBanWord = this.ds_ban_word.getColumn(i, "BANNED_WORD_NM");
+			if (strNtfyData.indexOf(strBanWord) > -1) {
+				bChk = false;
+				strBanWordMsg = "상품고시정보 품목내용 중 금칙어 '" + strBanWord + "'가 포함되어 있습니다.";
+				break;
+			}
+			if (strNamoData.indexOf(strBanWord) > -1) {
+				bChk = false;
+				strBanWordMsg = "상품상세설명 내용 중 금칙어 '" + strBanWord + "'가 포함되어 있습니다.";
+				break;
+			}
+		}
+ 	}
+ 	
+	if (!bChk) {
+		alert(strBanWordMsg);
+		return false;
+	}
+
+	// 이미지 (대표, 라벨)
+	var imgChkRep1 = this.ds_uploadsave.findRow("FILE_SEQ", "1"); // 업로드한 파일
+	var imgChkRep2 = this.ds_wrs_img.findRow("WRS_IMG_SEQ", 1); // 기등록된 파일
+ 	if (imgChkRep1 == -1 && imgChkRep2 == -1) {
+ 		this.alert("대표이미지는 필수입력항목입니다.");
+ 		this.fu_img_upload_rep.setFocus();
+ 		return false;
+ 	}
+	var imgChkAdd1 = this.ds_uploadsave.findRow("FILE_SEQ", "4"); // 업로드한 파일
+	var imgChkAdd2 = this.ds_wrs_img.findRow("WRS_IMG_SEQ", 4); // 기등록된 파일
+ 	if (imgChkAdd1 == -1 && imgChkAdd2 == -1) {
+ 		this.alert("라벨이미지는 필수입력항목입니다.");
+ 		this.fu_img_upload_add3.setFocus();
+ 		return false;
+ 	}
+ 	
+	return true;
+}
+
+/******************************************************************************/
+/* function : fn_setSaveData                                                  */
+/* comments : 저장할 값을 param dataset에 셋팅                              */
+/******************************************************************************/
+this.fn_setSaveData = function()
+{
+	this.ds_trtwrs.clearData();
+	this.ds_namo_editor.clearData();
+	this.ds_wrs_nfty_hdng.clearData();
+	
+	// 기준용량, 총용량, 표시단위 비활성화로 기본값 설정
+	this.mae_tot_cap.set_value("0");
+	this.mae_unt_cap.set_value("0");
+	this.cbo_wrs_unt_c.set_value("000");
+	
+	//기본정보셋팅
+	var aRow = this.ds_trtwrs.addRow();
+	this.ds_trtwrs.setColumn(aRow, "NA_WRS_C", this.edt_na_wrs_c.value); //경제통합상품코드
+	this.ds_trtwrs.setColumn(aRow, "PDM_MFTCO", this.edt_pdm_mftco.value); //생산자제조사
+	this.ds_trtwrs.setColumn(aRow, "WRS_STD", this.edt_wrs_std.value); //상품규격
+	this.ds_trtwrs.setColumn(aRow, "ORGPL_NATCD", this.cbo_orgpl_natcd.value); //원산지국가코드
+	this.ds_trtwrs.setColumn(aRow, "PD_RGN", this.edt_pd_rgn.value); //생산지역
+	this.ds_trtwrs.setColumn(aRow, "AGLVPD_MFCPD_YN", this.chk_aplvpd_mfcpd_yn.value); //농축산물가공품여부
+	this.ds_trtwrs.setColumn(aRow, "MTR_AGLVPD_ORG_ORGPL", this.edt_mtr_aglvpd_org_orgpl.value); //원료농축산물원산지
+	this.ds_trtwrs.setColumn(aRow, "ADLT_ATTC_REQUIRED_YN", String(this.chk_adlt_attc_required_yn.value)); //성인인증필수여부
+	
+	// 사용안함
+	this.ds_trtwrs.setColumn(aRow, "TOT_CAP", this.mae_tot_cap.value); //총용량(비활성화)
+	this.ds_trtwrs.setColumn(aRow, "UNT_CAP", this.mae_unt_cap.value); //단위용량(비활성화)
+	this.ds_trtwrs.setColumn(aRow, "WRS_UNT_C", this.cbo_wrs_unt_c.value); //상품단위코드(비활성화)
+	
+	//나모웹에디터MIMEValue 데이터 셋팅
+	this.NAMO_DATA = this.NAMO_DATA.replace(/(\/ce\/image\/)/gm, "/ce/nhmimg/" + this.edt_na_wrs_c.value + "/"); // 이미지 경로 변경
+	trace("this.NAMO_DATA111======================>"+this.NAMO_DATA);
+	aRow = this.ds_namo_editor.addRow();
+	this.ds_namo_editor.setColumn(aRow, "ORG_FILENM", this.edt_na_wrs_c.value + ".html");
+	this.ds_namo_editor.setColumn(aRow, "MHT_DATA", this.NAMO_DATA);
+	this.ds_namo_editor.setColumn(aRow, "IMG_DATA", this.NAMO_IMG);
+	
+	//상품고시항목상세정보셋팅
+ 	for (var i = 0 ; i < this.ds_wrs_nfty_hdng_sel.rowcount ; i++) {
+ 		aRow = this.ds_wrs_nfty_hdng.addRow();
+ 		this.ds_wrs_nfty_hdng.setColumn(aRow, "NA_WRS_C", this.edt_na_wrs_c.value);  //경제통합상품코드
+ 		this.ds_wrs_nfty_hdng.setColumn(aRow, "WRS_NTFY_C", this.cbo_wrs_ntfy.value);  //상품고시코드
+ 		this.ds_wrs_nfty_hdng.setColumn(aRow, "WRS_NTFY_HDNG_C", this.ds_wrs_nfty_hdng_sel.getColumn(i, "WRS_NTFY_HDNG_C"));  //상품고시항목코드
+ 		this.ds_wrs_nfty_hdng.setColumn(aRow, "WRS_NTFY_HDNG_CNTN", this.ds_wrs_nfty_hdng_sel.getColumn(i, "WRS_NTFY_HDNG_CNTN"));  //상품고시항목내용
+ 	}
+ 	
+ 	//이미지정보셋팅
+ 	for (var j = 0 ; j < this.ds_uploadsave.rowcount ; j++) {
+		if (this.ds_wrs_img.findRow("WRS_IMG_SEQ", this.ds_uploadsave.getColumn(j, "FILE_SEQ")) > -1) {
+			aRow = this.ds_wrs_img.findRow("WRS_IMG_SEQ", nexacro.toNumber(this.ds_uploadsave.getColumn(j, "FILE_SEQ")));
+
+			if (this.ds_uploadsave.getColumn(j, "FILE_STATUS") != "C") {
+				this.ds_wrs_img.setColumn(aRow, "xRowStatusType", "U");
+			} else {
+				this.ds_wrs_img.setColumn(aRow, "xRowStatusType", "C");
+			}
+		} else {
+			aRow = this.ds_wrs_img.addRow();
+			if (this.ds_uploadsave.getColumn(j, "FILE_STATUS") != "C") {
+				this.ds_wrs_img.setColumn(aRow, "xRowStatusType", "I");
+			} else {
+				this.ds_wrs_img.setColumn(aRow, "xRowStatusType", "C");
+			}
+			this.ds_wrs_img.setColumn(aRow, "WRS_IMG_SEQ", nexacro.toNumber(this.ds_uploadsave.getColumn(j, "FILE_SEQ"))); //상품이미지순번
+			this.ds_wrs_img.setColumn(aRow, "NA_WRS_C", this.edt_na_wrs_c.value); //경제통합상품코드
+		}
+
+ 		this.ds_wrs_img.setColumn(aRow, "IMG_NM", this.ds_uploadsave.getColumn(j, "FILE_SYSTEM_NAME").replace("temp_", "")); //이미지명
+ 		this.ds_wrs_img.setColumn(aRow, "IMG_PATH", this.ds_uploadsave.getColumn(j, "FILE_PATH")); //이미지명
+ 	}
+ 	
+ 	// 이미지 파일명 셋팅
+ 	this.ds_trtwrs.setColumn(0, "IMG_FL0_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_FL0_NM"));
+ 	this.ds_trtwrs.setColumn(0, "IMG_FL1_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_FL1_NM"));
+ 	this.ds_trtwrs.setColumn(0, "IMG_FL2_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_FL2_NM"));
+ 	this.ds_trtwrs.setColumn(0, "IMG_FL3_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_FL3_NM"));
+ 	
+ 	// 상세이미지 파일명 세팅
+ 	this.ds_trtwrs.setColumn(0, "IMG_DTL1_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_DTL1_NM"));
+ 	this.ds_trtwrs.setColumn(0, "IMG_DTL2_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_DTL2_NM"));
+ 	this.ds_trtwrs.setColumn(0, "IMG_DTL3_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_DTL3_NM"));
+ 	this.ds_trtwrs.setColumn(0, "IMG_DTL4_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_DTL4_NM"));
+ 	this.ds_trtwrs.setColumn(0, "IMG_DTL5_NM", this.ds_trtwrs_sel.getColumn(0, "IMG_DTL5_NM"));
+ 	
+ 	for (var k = 0 ; k < this.ds_wrs_img.rowcount ; k++) {
+		var i_img_seq = this.ds_wrs_img.getColumn(k, "WRS_IMG_SEQ");
+		var p_img_sts = this.ds_wrs_img.getColumn(k, "xRowStatusType");
+		
+		if (p_img_sts == "I" || p_img_sts == "U") {
+			this.ds_trtwrs.setColumn(0, "IMG_FL" +  String(i_img_seq - 1) + "_NM", this.ds_wrs_img.getColumn(k, "IMG_NM"));
+		} else if (p_img_sts == "D") {
+			this.ds_trtwrs.setColumn(0, "IMG_FL" +  String(i_img_seq - 1) + "_NM", "");
+		}
+ 	}
+}
+
+/******************************************************************************/
+/* function : btn_cancel_onclick                                              */
+/* comments : fileupload cancel event                                         */
+/******************************************************************************/
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var objnum;
+	var objFu;
+ 	switch (obj.name) {
+ 		case "btn_cancel_rep"  : objnum = "1";
+ 		                         objFu  = this.fu_img_upload_rep;
+ 		                         break;
+ 		case "btn_cancel_add1" : objnum = "2";
+ 		                         objFu  = this.fu_img_upload_add1;
+ 		                         break;
+ 		case "btn_cancel_add2" : objnum = "3";
+ 		                         objFu  = this.fu_img_upload_add2;
+ 		                         break;
+ 		case "btn_cancel_add3" : objnum = "4";
+ 		                         objFu  = this.fu_img_upload_add3;
+ 		                         break;
+ 		default                : objnum = "X";
+ 		                         objFu  = null;
+ 		                         break;
+ 	}
+ 	
+ 	if (objnum == "X") return;
+ 	
+ 	var fRow = this.ds_uploadsave.findRow("FILE_SEQ", objnum);
+ 	var bRet;
+	
+	if (fRow > -1) {
+		objFu.deleteItem(0);
+		objFu.appendItem();
+		bRet = this.ds_uploadsave.setColumn(fRow, "FILE_STATUS", "C");
+	}
+}
+
+/******************************************************************************/
+/* function : btn_delete_onclick                                              */
+/* comments : 등록이미지삭제버튼 onclick event                             */
+/******************************************************************************/
+this.btn_delete_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var objnum;
+	var objFu;
+	var objStc;
+	var objBtn;
+	
+ 	switch (obj.name) {
+ 		case "btn_delete_rep"  : objnum = "1";
+ 		                         objFu  = this.fu_img_upload_rep;
+ 		                         objStc = this.stc_reg_img_rep;
+ 		                         objBtn = this.btn_cancel_rep;
+ 		                         break;
+ 		case "btn_delete_add1" : objnum = "2";
+ 		                         objFu  = this.fu_img_upload_add1;
+ 		                         objStc = this.stc_reg_img_add1;
+ 		                         objBtn = this.btn_cancel_add1;
+ 		                         break;
+ 		case "btn_delete_add2" : objnum = "3";
+ 		                         objFu  = this.fu_img_upload_add2;
+ 		                         objStc = this.stc_reg_img_add2;
+ 		                         objBtn = this.btn_cancel_add2;
+ 		                         break;
+ 		case "btn_delete_add3" : objnum = "4";
+ 		                         objFu  = this.fu_img_upload_add3;
+ 		                         objStc = this.stc_reg_img_add3;
+ 		                         objBtn = this.btn_cancel_add3;
+ 		                         break;
+ 		default                : objnum = "X";
+ 		                         objFu  = null;
+ 		                         objStc = null;
+ 		                         objBtn = null;
+ 		                         break;
+ 	}
+ 	if (objnum == "X") return;
+ 	
+ 	var fRow = this.ds_uploadsave.findRow("FILE_SEQ", objnum);
+ 	var bRet;
+	
+	if (fRow > -1) {
+		objFu.deleteItem(0);
+		objFu.appendItem();
+		bRet = this.ds_uploadsave.deleteRow(fRow);
+	}
+
+	fRow = this.ds_wrs_img.findRow("WRS_IMG_SEQ", nexacro.toNumber(objnum));
+
+	if (fRow > -1) {
+		this.ds_wrs_img.setColumn(fRow, "xRowStatusType", "D");
+	}
+	
+	objFu.set_enable(!objFu.enable);
+	objBtn.set_enable(!objBtn.enable);
+	
+	if (obj.text == "삭제") {
+		objStc.style.set_color("red");
+		objStc.set_text(objStc.text.replace("등록이미지", "삭제예정이미지"));
+		obj.set_text("삭제취소");
+	} else {
+		objStc.style.set_color("333333ff");
+		objStc.set_text(objStc.text.replace("삭제예정이미지", "등록이미지"));
+		obj.set_text("삭제");
+	}
+}
+
+/******************************************************************************/
+/* function : fn_callPopupNaWrsC                                              */
+/* comments : call 상품조회팝업                                             */
+/******************************************************************************/
+this.fn_callPopupNaWrsC = function(params)
+{
+	if (params == true) {
+		if (this.gfn_nullToEmpty(this.edt_na_wrs_c.value).length > 0 && this.gfn_nullToEmpty(this.edt_na_wrs_c.value).length < 7) {
+			this.alert("상품코드 7자리 이상 입력하시기 바랍니다.");
+			return;
+		}
+		if (this.gfn_nullToEmpty(this.edt_wrsnm.value).length == 1) {
+			this.alert("상품명 2자이상 입력하시기 바랍니다.");
+			return;
+		}
+	}
+
+	var code = this.edt_na_wrs_c.value;
+	var textname = this.edt_wrsnm.value;
+	var param = {
+				autoType:params,
+				searchCode:code,
+				searchText:textname,
+				chkUsrTpc:'Y'
+	};
+	if (typeof params == "boolean") {
+		//if(!this.searPopValue(param)){return};
+	}
+	
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, autoPop:param};
+	var sOption = "autosize=true, titleText=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("na_wrs_c","POPUP::POPUP_SRC_WRS.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/******************************************************************************/
+/* function : fn_popupAfter                                                   */
+/* comments : 상품조회 return popup                                          */
+/******************************************************************************/
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strVal != undefined) {
+		var arrVal = strVal.split(",");
+		if (strId == "na_wrs_c") {
+			this.edt_na_wrs_c.set_value(arrVal[0]);
+			this.edt_wrsnm.set_value(arrVal[1]);
+			this.btn_search_onclick();
+		}
+	}
+}
+
+/******************************************************************************/
+/* function : cbo_wrs_ntfy_onitemchanged                                      */
+/* comments : 고시품목 combo onitemchanged event                             */
+/******************************************************************************/
+this.cbo_wrs_ntfy_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if (!this.gfn_isNull(obj.value)) {
+		this.fn_getWrsNtfyDtl();
+	} else {
+		this.ds_wrs_nfty_hdng_sel.clearData();
+	}
+}
+
+/******************************************************************************/
+/* function : fn_getWrsNtfyDtl                                                */
+/* comments : 고시항목상세조회                                              */
+/******************************************************************************/
+this.fn_getWrsNtfyDtl = function()
+{
+	var sSvcID        = "searchGdWrsNtfyDtl";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveGdWrsNtfyDtl";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_wrs_nfty_hdng_sel=ds_wrs_nfty_hdng_sel";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "na_wrs_c='"+ this.edt_na_wrs_c.value +"' wrs_ntfy_c='"+this.cbo_wrs_ntfy.value+"'";// 파라미터
+	var sCallbackFunc = "fn_callback_ntfy_dtl";//콜백
+	var tranType      = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출 
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType, true);
+}
+
+this.fn_callback_ntfy_dtl = function(svcID, nCD, sMSG)
+{
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	} else {
+		// 아래 고시 정보 마지막이 AS유형이어야 함, 농협몰 고객센터만 입력하도록
+		var last = this.ds_wrs_nfty_hdng_sel.rowcount-1;
+		if (this.gfn_nullToEmpty(this.ds_wrs_nfty_hdng_sel.getColumn(last, "WRS_NTFY_HDNG_CNTN")) != "농협몰 고객센터/1588-0028") {
+			this.ds_wrs_nfty_hdng_sel.setColumn(last, "WRS_NTFY_HDNG_CNTN", "농협몰 고객센터/1588-0028");
+		}
+		if (!this.cbo_wrs_ntfy.enable) {
+			this.ds_wrs_nfty_hdng_sel.clearData();
+		}
+	}
+}
+
+// 고시 정보 마지막 행 입력 잠금(고객지원 관련 항목 고정값 사용 위함)
+this.setNtfyCustomerInfoFix = function(idx){
+	var last = this.ds_wrs_nfty_hdng_sel.rowcount-1;
+	if (last > -1 && idx == last) {
+		return "none";
+	}
+	return "text";
+}
+
+/******************************************************************************/
+/* function : fn_wrs_onkeydown                                                */
+/* comments : 상품코드 및 상품명 edit onkeydown event, 상품조회 call       */
+/******************************************************************************/
+this.fn_wrs_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {	
+		this.fn_callPopupNaWrsC(true);
+	}
+}
+
+/******************************************************************************/
+/* function : fn_bzpl_onkeydown                                               */
+/* comments : 사업장코드 및 사업장명 edit onkeydown event, 사업장팝업call */
+/******************************************************************************/
+this.fn_bzpl_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.fn_callPopupNaBzplC(true);
+	}
+}
+
+/******************************************************************************/
+/* function : fn_fileupload_onitemchanged                                     */
+/* comments : 상품이미지upload ,temp_상품코드_이미지구분 형태로 저장됨  */
+/******************************************************************************/
+this.fn_fileupload_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	var permExt   =  ["jpg", "jpeg"];                                        //허용확장자셋팅
+	var fileValue = String(obj.value);                                              //image path + name
+	var fileExt   = fileValue.substr(fileValue.lastIndexOf(".") + 1).toLowerCase(); //선택이미지 확장자(소문자로변환한형태)
+	var chkValid  = false;                                                          //허용확장자여부 flag
+	var fileList  = obj.filelist;                                                   //해당components의 filelist(virtual file 형태라 HTML5 ver에선 지원 되지 않는 듯 함)
+	
+	if (this.gfn_isNull(fileValue)) return;                                          //선택파일이 없으면 return;
+	
+	/*선택파일확장자가 없으면 return 처리*/
+	if (fileValue.indexOf(".") == -1) {
+		alert("잘못된 형식의 파일 확장자 입니다.");
+		obj.deleteItem(0);
+		obj.appendItem();
+		return;
+	}
+	
+	/*선택파일의 확장자가 허용되는 확장자인지 check*/
+	for (var i = 0; i < permExt.length; i++) {
+		if (permExt[i] == fileExt) {
+			chkValid = true;
+			break;
+		}
+	}
+	
+	if (!chkValid) {
+		alert("지원하지 않는 파일 형식입니다. 지원파일(jpg, jpeg");
+		obj.deleteItem(0);
+		obj.appendItem();
+		return;
+	}
+	
+	try{
+		/*파일허용갯수가 몇개인지 확인, filelist가 virtual file 형태로 들어오기 때문에 제대로 처리하지 못하는 듯 함.*/
+		if (fileList.length > 1) { 
+			alert("파일 최대 허용 갯수를 초과하였습니다. 최대(1개)");
+			obj.deleteItem(0);
+			obj.appendItem();
+			return;
+		}
+		
+		//파일사이즈 검사
+		var fileSize = fileList[0].getFileSize();
+		if (fileSize > (1*1048576)) {
+			alert('최대 파일용량을 초과하였습니다.\n(최대: 1MB)');
+			obj.deleteItem(0);
+			obj.appendItem();
+			return;
+		}
+	}catch(e){
+		fileList = '';
+	}
+	
+	var objName;
+ 	switch (obj.name) {
+ 		case "fu_img_upload_rep"  : objName = "rep";
+ 		                            break;
+ 		case "fu_img_upload_add1" : objName = "add1";
+ 		                            break;
+ 		case "fu_img_upload_add2" : objName = "add2";
+ 		                            break;
+ 		case "fu_img_upload_add3" : objName = "add3";
+ 		                            break;
+ 		default                   : objName = "X";
+ 		                            break;
+ 	}
+ 	
+ 	if (objName == "X") return;
+ 	
+ 	/*해당파일 upload 처리, 서버 해당 경로에 'temp_상품코드'으로 저장됨*/
+	obj.callUpload    = true;
+	var fileUploadUrl = application.gv_server_url + "rest/pds/pricat/Product/onWrsImgFileUpload"
+	                  + "?filepath=" + this.edt_na_wrs_c.value
+	                  + "&filename=temp_" + this.edt_na_wrs_c.value + "_" + objName + "." + fileExt;
+	var result = obj.upload(fileUploadUrl);
+}
+
+/******************************************************************************/
+/* function : fn_fileupload_onerror                                           */
+/* comments : 상품이미지upload ,temp_상품코드_이미지구분 형태로 저장됨  */
+/******************************************************************************/
+this.fn_fileupload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	alert(e.errormsg);
+	//obj.find('input').val('');
+}
+
+/******************************************************************************/
+/* function : fn_fileupload_onsuccess                                         */
+/* comments : image upload onsuccess event                                    */
+/******************************************************************************/
+this.fn_fileupload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if (e.datasets != null) {
+		this.ds_uploadresult.clearData();
+		this.ds_uploadresult.copyData(e.datasets[0]);
+		if (this.ds_uploadresult.getColumn(0, "ERR_YN") == "1") {
+			alert(this.ds_uploadresult.getColumn(0, "ERR_MSG"));
+			obj.deleteItem(0);
+			obj.appendItem();
+			return;
+		}
+		this.fn_setWrsImageData(obj, this.ds_uploadresult);
+	}	
+}
+
+/******************************************************************************/
+/* function : fn_setWrsImageData                                              */
+/* comments : 이미지 업로드 처리후 이미지 정보를 하나의 데이터셋에 취합*/
+/******************************************************************************/
+this.fn_setWrsImageData = function(obj:FileUpload, ds:Dataset)
+{
+	var objnum;
+ 	switch (obj.name) {
+ 		case "fu_img_upload_rep"  : objnum = "1";
+ 		                            break;
+ 		case "fu_img_upload_add1" : objnum = "2";
+ 		                            break;
+ 		case "fu_img_upload_add2" : objnum = "3";
+ 		                            break;
+ 		case "fu_img_upload_add3" : objnum = "4";
+ 		                            break;
+ 		default                   : objnum = "X";
+ 		                            break;
+ 	}
+ 	
+ 	if (objnum == "X") return;
+ 	
+ 	var fRow = this.ds_uploadsave.findRow("FILE_SEQ", objnum);
+ 	var aRow;
+ 	if (fRow > -1) {
+ 		aRow = fRow;
+ 	} else {
+ 		aRow = this.ds_uploadsave.addRow();
+ 	}
+ 		
+ 	this.ds_uploadsave.setColumn(aRow, "FILE_SEQ", objnum);
+ 	this.ds_uploadsave.setColumn(aRow, "FILE_NAME", ds.getColumn(0, "ORGFNAME"));
+ 	this.ds_uploadsave.setColumn(aRow, "FILE_SIZE", ds.getColumn(0, "FILESIZE"));
+ 	this.ds_uploadsave.setColumn(aRow, "FILE_SYSTEM_NAME", ds.getColumn(0, "SYSTEMFILENAME"));
+ 	this.ds_uploadsave.setColumn(aRow, "FILE_PATH", ds.getColumn(0, "FILEPATH"));
+ 	this.ds_uploadsave.setColumn(aRow, "FILE_STATUS", "N");
+ 	
+ 	ds.clearData();
+}
+
+/******************************************************************************/
+/* function : fn_showImage_onclick                                            */
+/* comments : 보기 버튼 onclick event, 이미지 show                          */
+/******************************************************************************/
+this.fn_showImage_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var objnum;
+ 	switch (obj.name) {
+ 		case "btn_showimage_rep"  : objnum = "0";
+ 		                            break;
+ 		case "btn_showimage_add1" : objnum = "1";
+ 		                            break;
+ 		case "btn_showimage_add2" : objnum = "2";
+ 		                            break;
+ 		case "btn_showimage_add3" : objnum = "3";
+ 		                            break;
+ 		default                   : objnum = "X";
+ 		                            break;
+ 	}
+ 	
+ 	if (objnum == "X") return;
+	
+	//파일다운로드시
+ 	var fv_na_wrs_c  = this.edt_na_wrs_c.value;
+ 	var fv_file_name = this.ds_trtwrs_sel.getColumn(0, "IMG_FL" + objnum + "_NM");
+ 	var strDownUrl = application.gv_server_url+"rest/pds/pricat/Product/onWrsInfoFileDownload?na_wrs_c="+fv_na_wrs_c+"&fileName="+fv_file_name;
+ 	var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+ 	
+ 	wbs_dw.set_url(strDownUrl);
+
+	//이미지 뷰어로 보여줄때
+	//  	this.img_show.move(obj.getPixelLeft(), this.stc_img_b01.getPixelTop());
+	//  	
+	//  	var strImgColName = "IMG_FL" + objnum + "_NM";
+	//  	var strImgURL     = aMarketPath + "/" + this.edt_na_wrs_c.value + "/" + this.ds_trtwrs_sel.getColumn(0, strImgColName);
+	//  	alert(strImgURL);
+	//  	this.img_show.set_image(strImgURL);
+	//  	this.img_show.set_visible(true);
+}
+
+/******************************************************************************/
+/* function : img_show_onmouseleave                                           */
+/* comments : 이미지 visible false                                           */
+/******************************************************************************/
+this.img_show_onmouseleave = function(obj:ImageViewer, e:nexacro.MouseEventInfo)
+{
+	obj.set_visible(false);
+	this.img_show.set_image("");
+}
+
+/******************************************************************************/
+/* function : img_show_onclick                                                */
+/* comments : 이미지 visible false                                           */
+/******************************************************************************/
+this.img_show_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	obj.set_visible(false);
+	this.img_show.set_image("");
+}
+
+this.edt_na_wrs_c_ontextchanged = function(obj:Edit,  e:nexacro.TextChangedEventInfo)
+{
+	this.edt_wrsnm.set_value("");
+}
+
+this.VAN_DS_SC_1590_onactivate = function(obj:Form, e:nexacro.ActivateEventInfo)
+{
+	if (!this.gfn_isNull(application.amarket)) {
+		obj.clearEventHandler("onactivate");
+		obj.form.reload();
+	}
+}
+
+this.wb_namo_onusernotify = function(obj:WebBrowser, e:nexacro.WebTitleChangeEventInfo)
+{
+	var result = e.userdata;
+	if (!this.gfn_isNull(result)) {
+		var key = result.substring(0, 6);
+		var value = result.substring(6);
+		
+		if (key == "#INIT@") {
+			this.edt_na_wrs_c.setFocus();
+			this.div_load.set_visible(false);
+			
+			// 조회에서 상세보기
+			var WRS_C = this.getOwnerFrame().arguments["FORM_PARAM"];
+			//var WRS_C = this.getOwnerFrame().arguments["FORM_PARAM"] || application.amarket;
+			if (!this.gfn_isNull(WRS_C)) {
+		// 		application.amarket = "";
+		// 		this.getOwnerFrame().arguments["FORM_PARAM"] = "";
+				this.edt_na_wrs_c.set_value(WRS_C);
+				this.fn_callPopupNaWrsC(true);
+			}
+		} else if (key == "#EDIT@") {
+			// 입력 값 체크 후 데이터 가져옴(텍스트 수 + 이미지 수)
+			var lens = value.split(",");
+			var textL = Number(lens[0]);
+			var imgL = Number(lens[1]);
+			
+			if ((textL + imgL) == 0) {
+				this.alert("상품상세내용은 필수입력항목입니다.\n이미지 업로드 시 '900~1000(가로) * 무제한(세로)' 사이즈로 업로드 해주세요.");
+				return;
+			} else if (imgL > 5) {
+				this.alert("상품상세내용 내 이미지는 5개까지 등록할 수 있습니다.");
+				return;
+			} else {
+				this.wb_namo.callMethod("getImgList");
+				this.wb_namo.callMethod("getValue", false); // true : body값만 가져옴
+			}
+		} else if (key == "#IMGS@") {
+			this.CHK_IMG = true;
+			this.NAMO_IMG = value;
+			trace("thisNAMO_IMG======================>"+this.NAMO_IMG);
+	
+			if (this.CHK_BODY && this.CHK_IMG) {
+				this.fn_save();
+			}
+		} else if (key == "#HTML@") {
+			this.CHK_BODY = true;
+			this.NAMO_DATA = value;
+			trace("thisNAMO_DATA======================>"+this.NAMO_DATA);
+			
+			if (this.CHK_BODY && this.CHK_IMG) {
+				this.fn_save();
+			}
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

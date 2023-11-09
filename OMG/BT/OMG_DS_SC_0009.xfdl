@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_0009" classname="pattern_01" left="0" top="0" width="950" height="490" titletext="신규 계약업체 선정기준표" onload="OMG_DS_SC_0009_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="97" text="20" visible="false" left="15" top="0" width="871" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static24" taborder="338" text="신규 계약 업체 선정기준표" cssclass="sta_WF_Subtitle" left="15" top="16" width="301" height="21"/>
+        <Static id="Static214" taborder="576" text="항목구분" cssclass="sta_WF_Label" left="404" top="16" width="110" height="21"/>
+        <Combo id="cbo_dsc" taborder="577" innerdataset="ds_dsc" codecolumn="code" datacolumn="name" onitemchanged="cbo_dsc_onitemchanged" left="514" top="16" width="270" height="21" displayrowcount="-1" index="-1"/>
+        <Div id="div01" taborder="578" text="div01" left="0" top="40" height="986" visible="true" width="800" enable="true">
+          <Layouts>
+            <Layout>
+              <Static id="Static45" taborder="1" text="평가기준" cssclass="sta_WF_Label_c" left="133" top="5" width="246" height="29"/>
+              <Static id="Static47" taborder="3" text="매출규모&#13;&#10;(직전년)" cssclass="sta_WF_Labelbg" left="133" top="117" width="246" height="141" style="align:center middle;"/>
+              <Static id="Static48" taborder="4" text="업  력" cssclass="sta_WF_Labelbg" left="133" top="33" width="246" height="85" style="align:center middle;"/>
+              <Static id="Static55" taborder="5" text="항목" cssclass="sta_WF_Label_c" left="14" top="5" width="120" height="29"/>
+              <Static id="Static57" taborder="6" text="2. 실적" cssclass="sta_WF_Labelbg" left="14" top="117" width="120" height="141"/>
+              <Static id="Static58" taborder="7" text="1. 업력" cssclass="sta_WF_Labelbg" left="14" top="33" width="120" height="85"/>
+              <Static id="Static62" taborder="8" text="구  분" cssclass="sta_WF_Label_c" left="378" top="5" width="290" height="29"/>
+              <Static id="Static63" taborder="9" text="배점" cssclass="sta_WF_Label_c" left="667" top="5" width="119" height="29"/>
+              <Static id="Static65" taborder="11" text="개업 1년 이상 ~ 3년 미만" cssclass="sta_WF_Labelbg" left="378" top="33" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static66" taborder="12" text="5" cssclass="sta_WF_Labelbg_R" left="667" top="33" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static69" taborder="14" text="3년 이상 ~ 10년 미만" cssclass="sta_WF_Labelbg" left="378" top="61" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static70" taborder="15" text="10" cssclass="sta_WF_Labelbg_R" left="667" top="61" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static72" taborder="17" text="10년 이상" cssclass="sta_WF_Labelbg" left="378" top="89" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static73" taborder="18" text="15" cssclass="sta_WF_Labelbg_R" left="667" top="89" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static56" taborder="23" text="1억원 미만" cssclass="sta_WF_Labelbg_R" left="378" top="117" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static79" taborder="24" text="0" cssclass="sta_WF_Labelbg_R" left="667" top="117" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static81" taborder="26" text="1억원 이상 ~ 3억원 미만" cssclass="sta_WF_Labelbg" left="378" top="145" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static82" taborder="27" text="5" cssclass="sta_WF_Labelbg_R" left="667" top="145" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static84" taborder="29" text="3억원 이상 ~ 10억원 미만" cssclass="sta_WF_Labelbg" left="378" top="173" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static85" taborder="30" text="10" cssclass="sta_WF_Labelbg_R" left="667" top="173" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static87" taborder="32" text="10억원 이상 ~ 50억원 미만" cssclass="sta_WF_Labelbg" left="378" top="201" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static88" taborder="33" text="15" cssclass="sta_WF_Labelbg_R" left="667" top="201" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static90" taborder="35" text="50억원 이상" cssclass="sta_WF_Labelbg" left="378" top="229" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static91" taborder="36" text="20" cssclass="sta_WF_Labelbg_R" left="667" top="229" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static102" taborder="43" text="오프라인 거래" cssclass="sta_WF_Labelbg" left="133" top="453" width="246" height="29" style="align:center middle;"/>
+              <Static id="Static103" taborder="44" text="백화점, 대형마트, 편의점" cssclass="sta_WF_Labelbg" left="378" top="453" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static104" taborder="45" text="5" cssclass="sta_WF_Labelbg_R" left="667" top="453" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static106" taborder="47" text="온라인몰, 홈쇼핑" cssclass="sta_WF_Labelbg" left="378" top="481" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static107" taborder="48" text="5" cssclass="sta_WF_Labelbg_R" left="667" top="481" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static113" taborder="50" text="5. 상품력" cssclass="sta_WF_Labelbg" left="14" top="453" width="120" height="57"/>
+              <Static id="Static115" taborder="52" text="기업신용등급" cssclass="sta_WF_Labelbg" left="133" top="257" width="246" height="141" style="align:center middle;"/>
+              <Static id="Static116" taborder="53" text="3. 신용평가" cssclass="sta_WF_Labelbg" left="14" top="257" width="120" height="141"/>
+              <Static id="Static117" taborder="54" text="D ~ CCC" cssclass="sta_WF_Labelbg" left="378" top="257" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static118" taborder="55" text="0" cssclass="sta_WF_Labelbg_R" left="667" top="257" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static120" taborder="57" text="CCC+ ~ B" cssclass="sta_WF_Labelbg" left="378" top="285" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static121" taborder="58" text="5" cssclass="sta_WF_Labelbg_R" left="667" top="285" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static123" taborder="60" text="B+ ~ BB+" cssclass="sta_WF_Labelbg" left="378" top="313" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static124" taborder="61" text="10" cssclass="sta_WF_Labelbg_R" left="667" top="313" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static126" taborder="63" text="BBB- ~ BBB+" cssclass="sta_WF_Labelbg" left="378" top="341" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static127" taborder="64" text="20" cssclass="sta_WF_Labelbg_R" left="667" top="341" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static129" taborder="68" text="공장등록증" cssclass="sta_WF_Labelbg" left="378" top="397" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static130" taborder="69" text="20" cssclass="sta_WF_Labelbg_R" left="667" top="397" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static133" taborder="71" text="제조공장 보유" cssclass="sta_WF_Labelbg" left="133" top="397" width="246" height="29" style="align:center middle;"/>
+              <Static id="Static134" taborder="72" text="4. 제조여부" cssclass="sta_WF_Labelbg" left="14" top="397" width="120" height="57"/>
+              <Static id="Static136" taborder="76" text="공인인증 I&#13;&#10;(개당 5점)" wordwrap="char" cssclass="sta_WF_Labelbg" left="133" top="574" width="246" height="50" style="align:center middle;"/>
+              <Static id="Static137" taborder="77" text="6. 품질관리" cssclass="sta_WF_Labelbg" left="14" top="574" width="120" height="99"/>
+              <Static id="Static140" taborder="78" text="ISO9001, ISO22000, FSSC22000, 일반HACCP,&#13;&#10;GMP(건강식품), 축산물 HACCP" wordwrap="char" cssclass="sta_WF_Labelbg" left="378" top="574" width="290" height="50" style="align:center middle;"/>
+              <Static id="Static141" taborder="79" text="10" cssclass="sta_WF_Labelbg_R" left="667" top="574" width="119" height="99" style="align:center middle;"/>
+              <Static id="Static161" taborder="94" text="유통계열사ㆍ조합&#13;&#10;하나로마트ㆍ농협경제 판매사업" cssclass="sta_WF_Labelbg" left="378" top="672" width="290" height="50" style="align:center middle;"/>
+              <Static id="Static162" taborder="95" text="3" cssclass="sta_WF_Labelbg_R" left="667" top="672" width="119" height="50" style="align:center middle;"/>
+              <Static id="Static167" taborder="97" text="농협 경제&#13;&#10;사업 참여" cssclass="sta_WF_Labelbg" left="133" top="672" width="246" height="50" style="align:center middle;"/>
+              <Static id="Static174" taborder="98" text="7. 기타" cssclass="sta_WF_Labelbg" left="14" top="672" width="120" height="134"/>
+              <Static id="Static195" taborder="105" text="A- ~ AAA" cssclass="sta_WF_Labelbg" left="378" top="369" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static196" taborder="106" text="25" cssclass="sta_WF_Labelbg_R" left="667" top="369" width="119" height="29" style="align:center middle;"/>
+              <Div id="Div00" taborder="121" text="□ 가점 및 감점" left="13" top="522" right="4.38%" height="21" style="align:left middle;font:bold 9 arial;"/>
+              <Static id="Static208" taborder="124" text="항목" cssclass="sta_WF_Label_c" left="14" top="547" width="120" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static209" taborder="125" text="평가기준" cssclass="sta_WF_Label_c" left="133" top="547" width="246" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static210" taborder="126" text="구  분" cssclass="sta_WF_Label_c" left="378" top="547" width="290" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static211" taborder="127" text="배점" cssclass="sta_WF_Label_c" left="667" top="547" width="119" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static139" taborder="129" text="타사와의 제조하도급 거래증빙" cssclass="sta_WF_Labelbg" left="378" top="425" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static152" taborder="130" text="10" cssclass="sta_WF_Labelbg_R" left="667" top="425" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static220" taborder="137" text="OEM거래" cssclass="sta_WF_Labelbg" left="133" top="425" width="246" height="29" style="align:center middle;"/>
+              <Static id="Static221" taborder="138" text="온라인 거래" cssclass="sta_WF_Labelbg" left="133" top="481" width="246" height="29" style="align:center middle;"/>
+              <Static id="Static59" taborder="141" text="전통식품품질인증, 특허증, 소규모 HACCP,&#13;&#10;실용신안" wordwrap="char" cssclass="sta_WF_Labelbg" left="378" top="623" width="290" height="50" style="align:center middle;"/>
+              <Static id="Static95" taborder="142" text="공인인증 II&#13;&#10;(개당 1점)" wordwrap="char" cssclass="sta_WF_Labelbg" left="133" top="623" width="246" height="50" style="align:center middle;"/>
+              <Static id="Static94" taborder="147" text="사회적 기업, 중소기업" cssclass="sta_WF_Labelbg" left="378" top="721" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static96" taborder="148" text="2" cssclass="sta_WF_Labelbg_R" left="667" top="721" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static100" taborder="155" text="동반성장" cssclass="sta_WF_Labelbg" left="133" top="721" width="246" height="29" style="align:center middle;"/>
+              <Static id="Static101" taborder="156" text="기타평가" cssclass="sta_WF_Labelbg" left="133" top="749" width="246" height="57" style="align:center middle;"/>
+              <Static id="Static110" taborder="157" text="△10" cssclass="sta_WF_Labelbg_R" left="667" top="749" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static111" taborder="158" text="카테고리 포화도" cssclass="sta_WF_Labelbg" left="378" top="749" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static147" taborder="159" text="△10" cssclass="sta_WF_Labelbg_R" left="667" top="777" width="119" height="29" style="align:center middle;"/>
+              <Static id="Static148" taborder="160" text="하향 카테고리 계약검토" cssclass="sta_WF_Labelbg" left="378" top="777" width="290" height="29" style="align:center middle;"/>
+              <Static id="Static188" taborder="163" text="신용등급(상 →하) : AAA, AA, A+, A, A-, BBB+, BBB, BBB-, BB+, BB, B+,B, B-, CCC+, CCC, CCC-, CC, C, D" cssclass="sta_WF_DescriptionB01" left="13" top="815" right="20" height="21"/>
+              <Static id="Static00" taborder="164" text="계약 종료 후 2년 내 계약상담 불가, 식품업체 70점이상, 비식품업체 60점이상 획득시 계약 가능" cssclass="sta_WF_DescriptionB01" left="13" top="840" right="20" height="21"/>
+              <Static id="Static01" taborder="165" text="(OEM거래) 보유 공장을 활용하여 타사의 상품을 제조하는 거래증빙 必" cssclass="sta_WF_DescriptionB01" left="13" top="865" right="20" height="21"/>
+              <Static id="Static02" taborder="166" text="(농협 경제사업 참여) 연간 거래실적 1억원 이상일 때 가점" cssclass="sta_WF_DescriptionB01" left="13" top="940" right="20" height="21"/>
+              <Static id="Static03" taborder="167" text="(공인인증) Ⅰ+Ⅱ 합산하여 최대 10점, 공인인증Ⅰ 개당 5점, 공인인증Ⅱ 개당 1점 인정" cssclass="sta_WF_DescriptionB01" left="13" top="915" right="20" height="21"/>
+              <Static id="Static04" taborder="168" text="(온ㆍ오프라인거래) 건당 1점씩, 최대 5점 단, 판매장이 5개 이하인 유통채널 제외" cssclass="sta_WF_DescriptionB01" left="13" top="890" right="20" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div02" taborder="579" left="0" top="1038" height="94" width="800" enable="true"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="string" size="13"/>
+          <Column id="name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">101</Col>
+            <Col id="name">마트상품부</Col>
+          </Row>
+          <Row>
+            <Col id="code">201</Col>
+            <Col id="name">선어/활어(냉동 원물 비규격포함)</Col>
+          </Row>
+          <Row>
+            <Col id="code">202</Col>
+            <Col id="name">건어/수산 가공품</Col>
+          </Row>
+          <Row>
+            <Col id="code">203</Col>
+            <Col id="name">수산 규격품(냉동·냉장)</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div01.cbo_b01" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B1"/>
+      <BindItem id="item1" compid="Div01.rdo_a01" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A1"/>
+      <BindItem id="item2" compid="Div01.rdo_a02" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A2"/>
+      <BindItem id="item3" compid="Div01.rdo_a05" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A5"/>
+      <BindItem id="item4" compid="Div01.rdo_a03" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A3"/>
+      <BindItem id="item5" compid="Div01.rdo_a04" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A4"/>
+      <BindItem id="item6" compid="Div01.chk_a06" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A6"/>
+      <BindItem id="item7" compid="Div01.chk_b11" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B11"/>
+      <BindItem id="item8" compid="Div01.chk_b02" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B2"/>
+      <BindItem id="item9" compid="Div01.rdo_b03" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B3"/>
+      <BindItem id="item10" compid="Div01.rdo_b04" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B4"/>
+      <BindItem id="item11" compid="Div01.rdo_b05" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B5"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://www.kedkorea.com/ci/CIINT01R0.do");
+}
+
+this.Button06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://www.clipq.co.kr//");
+}
+
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("https://www.srms.co.kr/srms/zsrms/mems/a200_MemberIns.jsp");
+}
+
+this.cbo_dsc_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{	
+	if (this.cbo_dsc.value == "101") {
+		this.div01.set_visible(true);
+		this.div02.set_visible(false);
+	}else{
+		this.div01.set_visible(false);
+		this.div02.set_visible(true);
+		if (this.cbo_dsc.value == "201") {
+			this.div02.set_url("OMG.BT::OMG_DS_SC_21111.xfdl");
+			this.div02.set_top(40);
+			this.div02.set_height(950);
+		}else if (this.cbo_dsc.value == "202") {
+			this.div02.set_url("OMG.BT::OMG_DS_SC_21112.xfdl");
+			this.div02.set_top(40);
+			this.div02.set_height(1000);
+		}else if (this.cbo_dsc.value == "203") {
+			this.div02.set_url("OMG.BT::OMG_DS_SC_21113.xfdl");
+			this.div02.set_top(40);
+			this.div02.set_height(1100);
+		}
+	}
+	this.resetScroll() ;
+}
+
+this.OMG_DS_SC_0009_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.cbo_dsc.set_index(0);
+}
+]]></Script>
+  </Form>
+</FDL>

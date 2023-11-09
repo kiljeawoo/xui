@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_1211" classname="OMG_DS_SC_3212" left="0" top="0" width="500" height="430" titletext="상담신청내역확인" onload="OMG_DS_SC_1211_onload" style="background:#ffffffff;">
+    <Layouts>
+      <Layout>
+        <Button id="btn_newConfirm" taborder="5" text="확인" onclick="btn_newConfirm_onclick" left="233" top="254" width="41" height="21"/>
+        <Static id="Static20" taborder="6" text="사업자등록번호" cssclass="sta_WF_Label" left="94" top="149" width="110" height="29"/>
+        <Static id="Static28" taborder="7" cssclass="sta_WF_Labelbg" left="203" top="149" width="210" height="29"/>
+        <Static id="Static01" taborder="8" text="신청자" cssclass="sta_WF_Label" left="94" top="177" width="110" height="29"/>
+        <Static id="Static02" taborder="9" cssclass="sta_WF_Labelbg" left="203" top="177" width="210" height="29"/>
+        <Edit id="edt_chrrNm" taborder="1" left="207" top="181" width="202" height="21" lengthunit="ascii" maxlength="50"/>
+        <Static id="Static03" taborder="10" text="휴대폰" cssclass="sta_WF_Label" left="94" top="205" width="110" height="29"/>
+        <Static id="Static04" taborder="11" cssclass="sta_WF_Labelbg" left="203" top="205" width="210" height="29"/>
+        <Static id="Static09" taborder="12" text="-" left="319" top="209" width="9" height="21"/>
+        <Static id="Static40" taborder="13" text="-" left="260" top="209" width="9" height="21"/>
+        <MaskEdit id="mae_bzno" taborder="0" type="string" mask="###-##-#####" trimtype="right" limitbymask="integer" left="207" top="153" width="151" height="21"/>
+        <Edit id="edt_chrwMphno" taborder="3" inputtype="digit" maxlength="4" left="269" top="209" width="48" height="21"/>
+        <Edit id="edt_chrwMpsqno" taborder="4" inputtype="digit" maxlength="4" left="328" top="209" width="48" height="21"/>
+        <Combo id="cbo_chrwMpsvno" taborder="2" innerdataset="@ds_hp" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="207" top="209" width="51" height="21" index="-1"/>
+        <Button id="btn_search" taborder="17" cssclass="btn_WF_Searchbtn" left="362" top="153" width="21" height="21" onclick="btn_search_onclick"/>
+        <Div id="div_search" taborder="18" left="514" top="0" width="460" height="390" style="background:white;" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_hp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+this.OMG_DS_SC_1211_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); // 공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 공통코드 가져오기
+	var param = [
+		{ code: "HP", dsName: "ds_hp" } // 휴대전화번호
+	];
+	this.gfn_setPortalCommonCode(param);
+}
+
+// 공통코드 가져오기 - 콜백
+this.fn_commonAfterOnload = function()
+{
+	this.cbo_chrwMpsvno.set_index(this.ds_hp.findRow("SIMP_C", "010")); // 휴대전화번호 (기본값: 010)
+}
+
+this.btn_newConfirm_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (!this.fn_validationCheck()) {
+		return;
+	}
+	
+	var param = "mae_bzno=" + this.gfn_nullToEmpty(this.mae_bzno.value)
+			+ " edt_chrrNm=" + encodeURIComponent(this.gfn_nullToEmpty(this.edt_chrrNm.value)) // encode
+			+ " chrr_mpno=" + this.gfn_nullToEmpty(this.cbo_chrwMpsvno.value)
+							+ this.gfn_nullToEmpty(this.edt_chrwMphno.value)
+							+ this.gfn_nullToEmpty(this.edt_chrwMpsqno.value);
+	
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/bt/rqBrk/retrieveRqBrk";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+this.fn_validationCheck = function()
+{
+	if (this.gfn_isNull(this.mae_bzno.value)) {
+		this.alert("사업자등록번호를 입력하세요.");
+		this.mae_bzno.setFocus();
+		return false;
+	} else if (this.gfn_length(this.gfn_replace(this.mae_bzno.value, " ", "")) < 10) {
+		this.alert("사업자등록번호 10자리를 확인 후 다시 입력하세요.");
+		this.mae_bzno.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.edt_chrrNm.value)) {
+		this.alert("신청자를 입력하세요.");
+		this.edt_chrrNm.setFocus();
+		return false;
+	}
+	
+	if  (this.gfn_isNull(this.cbo_chrwMpsvno.value)) {
+		this.alert("휴대폰 번호 앞자리를 선택하세요.");
+		this.cbo_chrwMpsvno.setFocus();
+		return false;
+	} else if (this.gfn_isNull(this.edt_chrwMphno.value)) {
+		this.alert("휴대폰 번호를 입력하세요.");
+		this.edt_chrwMphno.setFocus();
+		return false;
+	} else if (this.gfn_isNull(this.edt_chrwMpsqno.value)) {
+		this.alert("휴대폰 번호를 입력하세요.");
+		this.edt_chrwMpsqno.setFocus();
+		return false;
+	}
+	
+	return true;
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "search") {
+			if (ErrorCode == 0) {
+				alert("상담신청내역이 없습니다.");
+				return;
+			}
+			
+			var objRtnArr = [
+				this.mae_bzno.value,
+				encodeURIComponent(this.edt_chrrNm.value),
+				this.cbo_chrwMpsvno.value + this.edt_chrwMphno.value + this.edt_chrwMpsqno.value
+			];
+			
+			this.close(objRtnArr.toString()); // strVal
+		}
+	}
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_chrrSearch(); // 신청자 조회
+}
+
+this.fn_chrrSearch = function()
+{
+	this.div_search.set_url("OMG.PT::OMG_DS_SC_9060.xfdl"); 
+	this.div_search.move(20, 20);
+	this.div_search.bringToFront();
+	this.div_search.set_visible(true);
+}
+]]></Script>
+  </Form>
+</FDL>

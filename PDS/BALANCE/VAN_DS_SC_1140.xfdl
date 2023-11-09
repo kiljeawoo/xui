@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1140" classname="VAN_DS_SC_1610" left="0" top="0" width="803" height="490" titletext="미수금원장조회(농협기준)" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="323" height="21"/>
+        <Div id="div_auth" taborder="1" url="common::AuthorityWorkplace.xfdl" top="0" right="117" width="379" height="21"/>
+        <Button id="btn_search" taborder="2" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Button id="btn_excel" taborder="8" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="76" width="41" height="21" onclick="btn_excel_onclick"/>
+        <Div id="div_search" taborder="9" left="0" top="29" right="15" height="81" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="41" text="사업장" cssclass="sta_WFSA_Label" left="13" top="42" width="106" height="21"/>
+              <Static id="Static01" taborder="42" text="기준일자" onclick="div_search_Static01_onclick" cssclass="sta_WFSA_Label" left="13" top="13" width="106" height="21"/>
+              <Calendar id="TR_DT" taborder="43" dateformat="yyyy-MM-dd" oneditclick="div_search_cal_fsrg00_oneditclick" left="108" top="13" width="100" height="21"/>
+              <Combo id="ACRV_SBJC" taborder="44" innerdataset="@ds_ACRV_SBJC" codecolumn="SIMP_C" datacolumn="SIMP_CNM" value="all" left="401" top="13" width="179" height="21"/>
+              <Static id="Static03" taborder="46" text="미수금과목" cssclass="sta_WFSA_Label" left="300" top="13" width="107" height="21"/>
+              <Radio id="rdo_is_na_all" taborder="47" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="all" direction="vertical" left="110" top="42" width="140" height="21" onitemchanged="div_search_rdo_is_na_all_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">all</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">one</Col>
+                      <Col id="datacolumn">정산처</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="NA_BZPLC" taborder="48" cssclass="WF_Essential" left="293" top="42" width="132" height="21" readonly="true" inputtype="number" onkeydown="div_search_edt_data00_onkeydown"/>
+              <Edit id="NA_BZPLC_NM" taborder="49" cssclass="WF_Essential" left="428" top="42" width="152" height="21" readonly="true" style="background:#ffffffff;" onkeydown="div_search_edt_data00_onkeydown"/>
+              <Button id="btn_popup" taborder="50" onclick="div_search_btn_popup_onclick" cssclass="btn_WF_Searchbtn" left="583" top="42" width="21" height="21" enable="false" visible="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="5" text="Div00" left="0" top="110" right="15" bottom="27">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="3" cssclass="btn_WFSA_SearchClose" left="368" top="1" right="357" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_main" taborder="4" useinputpanel="false" visible="true" left="0" top="42" right="0" bottom="21" binddataset="ds_main" nodatatext="조회된 데이터가 없습니다." scrollbars="autoboth">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="110"/>
+                      <Column size="190"/>
+                      <Column size="110"/>
+                      <Column size="160"/>
+                      <Column size="120"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="사업장코드"/>
+                      <Cell col="2" text="사업장"/>
+                      <Cell col="3" text="정산처코드"/>
+                      <Cell col="4" text="정산처"/>
+                      <Cell col="5" text="미수금과목"/>
+                      <Cell col="6" text="차변누계"/>
+                      <Cell col="7" text="대변누계"/>
+                      <Cell col="8" text="잔액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:NA_BZPLC"/>
+                      <Cell col="2" style="align:left;" text="bind:BZPL_NM"/>
+                      <Cell col="3" text="bind:NA_ADJPL_C"/>
+                      <Cell col="4" style="align:left;" text="bind:CLIENT_NM"/>
+                      <Cell col="5" text="bind:ACRV_SBJC"/>
+                      <Cell col="6" displaytype="number" style="align:right;" text="bind:OCU_AM"/>
+                      <Cell col="7" displaytype="number" style="align:right;" text="bind:WDR_AM"/>
+                      <Cell col="8" displaytype="number" style="align:right;" text="bind:BAC"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_main" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BZPL_NM" type="STRING" size="256"/>
+          <Column id="NA_ADJPL_C" type="STRING" size="256"/>
+          <Column id="CLIENT_NM" type="STRING" size="256"/>
+          <Column id="TR_DT" type="STRING" size="256"/>
+          <Column id="ACRV_SBJC" type="STRING" size="256"/>
+          <Column id="OCU_AM" type="STRING" size="256"/>
+          <Column id="WDR_AM" type="STRING" size="256"/>
+          <Column id="BAC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_BZPLC">a123</Col>
+            <Col id="BZPL_NM">a123</Col>
+            <Col id="NA_ADJPL_C">a123</Col>
+            <Col id="CLIENT_NM">a123</Col>
+            <Col id="TR_DT">20150707</Col>
+            <Col id="ACRV_SBJC">a123</Col>
+            <Col id="OCU_AM">123212421</Col>
+            <Col id="WDR_AM">1231223</Col>
+            <Col id="BAC">23423423</Col>
+          </Row>
+          <Row>
+            <Col id="NA_BZPLC">a123</Col>
+            <Col id="BZPL_NM">a123</Col>
+            <Col id="NA_ADJPL_C">a123</Col>
+            <Col id="CLIENT_NM">a123</Col>
+            <Col id="TR_DT">20150707</Col>
+            <Col id="ACRV_SBJC">a123</Col>
+            <Col id="OCU_AM">123212421</Col>
+            <Col id="WDR_AM">1231223</Col>
+            <Col id="BAC">23423423</Col>
+          </Row>
+          <Row>
+            <Col id="NA_BZPLC">a123</Col>
+            <Col id="BZPL_NM">a123</Col>
+            <Col id="NA_ADJPL_C">a123</Col>
+            <Col id="CLIENT_NM">a123</Col>
+            <Col id="TR_DT">20150707</Col>
+            <Col id="ACRV_SBJC">a123</Col>
+            <Col id="OCU_AM">123212421</Col>
+            <Col id="WDR_AM">1231223</Col>
+            <Col id="BAC">23423423</Col>
+          </Row>
+        </Rows>
+        -->
+      </Dataset>
+      <Dataset id="ds_ACRV_SBJC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SIMP_C">all</Col>
+            <Col id="SIMP_CNM">- 전체 -</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">10</Col>
+            <Col id="SIMP_CNM">공병(기타의당좌자산)</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">11</Col>
+            <Col id="SIMP_CNM">공상자((기타의당좌자산)</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">16</Col>
+            <Col id="SIMP_CNM">공파레트</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+   	var searchParam =
+	{
+		form: this,									
+		param:[
+		{									
+			edit: this.div_search.TR_DT,
+			fnc: 'btn_search00_onclick'
+		},
+		{									
+			edit: this.div_search.NA_BZPLC,
+			fnc: 'btn_search00_onclick'
+		}
+		]
+	};
+	this.addEventEnterSearch(searchParam);	
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	this.div_list.grd_main.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	this.div_search.TR_DT.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"),1));
+	/*
+	var param = [  
+		{code:"ACRV_SBJC", dsName:"ds_ACRV_SBJC", selecttype:"A"},
+	];
+	this.gfn_setCommonCode(param);
+	*/
+}
+
+this.fn_commonAfterOnload= function()
+{
+	this.div_search.ACRV_SBJC.set_index(0);
+}
+
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	this.ds_main.clearData();
+	if(this.fn_validationCheck()) {
+		//권한사업장 코드
+		var trplC = this.getTrplCode();
+		var na_bizcode = this.div_search.NA_BZPLC.value;
+		if(na_bizcode == null) {
+			trace('all');
+			na_bizcode='all';
+		}
+		var param = "TR_DT="+this.div_search.TR_DT.value
+					+" ACRV_SBJC="+this.div_search.ACRV_SBJC.value
+					+" NA_BZPLC="+na_bizcode
+					+" TRPL_C="+trplC;
+		var sSvcID        = "getArcvOcuList";
+		var sURL          = "svc::rest/pds/balance/getArcvOcuList";
+		var sInDatasets   = "";
+		var sOutDatasets  = "ds_main=DATASET";
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callback";//콜백
+		var tranType 	  = "U"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0)
+	{
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		if(svcID == "getArcvOcuList"){
+			if(this.ds_main.rowcount == 0){				
+				this.div_list.grd_main.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));								
+			}else{							
+			}			
+		}	
+	}
+	
+}
+
+this.fn_validationCheck = function(){
+	
+	return true;
+}
+
+//조회 조건 숨김 여부 이벤트
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	var strArray = strVal.split(',');
+	this.div_search.NA_BZPLC.set_value(strArray[0]);
+	this.div_search.NA_BZPLC_NM.set_value(strArray[1]);
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+
+
+this.div_search_edt_data00_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup00_onclick(true);
+	}
+}
+
+//제조업체 팝업 조회(수요처)
+this.div_search_btn_popup00_onclick = function(params)
+{
+	var param = {
+				autoType:params,
+				searchCode:this.div_search.NA_BZPLC.value,
+				searchText:this.div_search.NA_BZPLC_NM.value
+	};
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("rvopl_trpl","POPUP::POPUP_SRC_RVOPL_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.fn_validationCheck()) {
+		//권한사업장 코드
+		var trplC = this.getTrplCode();
+		var na_bizcode = this.div_search.NA_BZPLC.value;
+		if(na_bizcode == null) {
+			trace('all');
+			na_bizcode='all';
+		}
+		var param = "TR_DT="+this.div_search.TR_DT.value
+					+"&ACRV_SBJC="+this.div_search.ACRV_SBJC.value
+					+"&NA_BZPLC="+na_bizcode
+					+"&TRPL_C="+trplC;
+		var strDownUrl = application.gv_server_url+"rest/excel/pds/balance/getArcvOcuList?"+param;
+		excelDownHandler(strDownUrl, this);
+		//var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+		//wbs_dw.set_url(strDownUrl);
+	}
+}
+
+this.div_search_rdo_is_na_all_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(e.postvalue =='one') {
+		this.div_search.NA_BZPLC.set_readonly(false);
+		this.div_search.NA_BZPLC_NM.set_readonly(false);
+		this.div_search.btn_popup.set_enable(true);
+	} else {
+		this.div_search.NA_BZPLC.set_readonly(true);
+		this.div_search.NA_BZPLC_NM.set_readonly(true);
+		this.div_search.btn_popup.set_enable(false);
+	}
+}
+
+this.btn_print_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("준비중입니다...");
+}
+
+this.div_search_btn_popup_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_search_btn_popup00_onclick(true);
+}
+]]></Script>
+  </Form>
+</FDL>

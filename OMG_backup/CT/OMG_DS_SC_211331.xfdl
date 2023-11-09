@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211331" classname="pattern_01" left="0" top="0" width="788" height="300" titletext="특약서(판촉사원의 파견)" scrollbars="none" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static172" taborder="717" text="특약서(판촉사원의 파견)" onclick="Div02_Static172_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" width="467" height="21"/>
+        <Button id="Button15" taborder="718" text="계약서보기" left="711" top="0" width="77" height="21" onclick="Button15_onclick" visible="false"/>
+        <Static id="Static174" taborder="721" text="파견기간" cssclass="sta_WF_Label" left="0" top="27" height="29" right="86%"/>
+        <Static id="Static175" taborder="722" cssclass="sta_WF_Labelbg" left="14%" top="27" height="29" right="0%"/>
+        <Static id="Static176" taborder="723" text="~" left="27.16%" top="31" height="21" right="71.57%"/>
+        <Calendar id="cal_dspcPrdStDt" taborder="0" dateformat="yyyy-MM-dd" left="14.34%" top="31" height="21" ontextchanged="OMG_DS_SC_211331_ontextchanged" onchanged="Cal_onchanged" right="72.97%"/>
+        <Calendar id="cal_dspcPrdEdDt" taborder="1" dateformat="yyyy-MM-dd" left="28.43%" top="31" height="21" ontextchanged="OMG_DS_SC_211331_ontextchanged" onchanged="Cal_onchanged" right="58.88%"/>
+        <Static id="Static177" taborder="726" text="근무시간" cssclass="sta_WF_Label" left="49.87%" top="27" height="29" right="36.17%"/>
+        <Static id="Static179" taborder="730" text="~" left="77.54%" top="31" height="21" right="20.18%"/>
+        <Static id="Static181" taborder="734" text="1. 점포별 판촉사원 파견내역" left="0" top="71" width="218" height="21"/>
+        <MaskEdit id="mae_wrkEdHr" taborder="3" ontextchanged="OMG_DS_SC_211331_ontextchanged" left="79.19%" top="31" height="21" mask="##:##" type="string" onchanged="OMG_DS_SC_211331_onchanged" right="7.99%"/>
+        <MaskEdit id="mae_wrkStHr" taborder="2" ontextchanged="OMG_DS_SC_211331_ontextchanged" left="64.21%" top="31" height="21" type="string" mask="##:##" right="22.97%"/>
+        <Grid id="grd_sctrwPmtnEmpeDspcBrk" taborder="7" binddataset="ds_sctrwPmtnEmpeDspcBrk" useinputpanel="false" onheadclick="ds_sctrwPmtnEmpeDspcBrk_onheadclick" top="92" scrollbars="autoboth" autofittype="col" autoenter="select" bottom="0" right="0%" left="0">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="160"/>
+                <Column size="97"/>
+                <Column size="160"/>
+                <Column size="97"/>
+                <Column size="160"/>
+                <Column size="97"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" text="점포명"/>
+                <Cell col="2" displaytype="number" edittype="mask" text="판촉사원" mask="######"/>
+                <Cell col="3" text="점포명"/>
+                <Cell col="4" displaytype="number" edittype="mask" text="판촉사원" mask="######"/>
+                <Cell col="5" text="점포명"/>
+                <Cell col="6" displaytype="number" edittype="mask" text="판촉사원" mask="######"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM1" editlimit="50" editlengthunit="ascii"/>
+                <Cell col="2" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:PMTN_EMPE1" mask="###"/>
+                <Cell col="3" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM2" editlimit="50" editlengthunit="ascii"/>
+                <Cell col="4" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:PMTN_EMPE2" mask="###"/>
+                <Cell col="5" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM3" editlimit="50" editlengthunit="ascii"/>
+                <Cell col="6" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:PMTN_EMPE3" mask="###"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_sctrwPmtnEmpeDspcBrk_add" taborder="4" text="행추가" onclick="btn_sctrwPmtnEmpeDspcBrk_addRow_onclick" top="66" width="53" height="21" right="55"/>
+        <Button id="btn_sctrwPmtnEmpeDspcBrk_del" taborder="5" text="행삭제" onclick="btn_sctrwPmtnEmpeDspcBrk_delRow_onclick" top="66" width="53" height="21" right="0"/>
+        <Static id="Static12" taborder="765" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <Static id="Static94" taborder="766" cssclass="sta_WF_Labelbg" left="13.83%" top="215" right="0%" height="80"/>
+        <Static id="Static93" taborder="767" text="특약사항" cssclass="sta_WF_Label" left="0" top="215" right="86.04%" height="80"/>
+        <TextArea id="txa_sctrSjt" taborder="6" wordwrap="char" ontextchanged="txatext_changed" left="14.34%" top="219" right="0.38%" height="72" lengthunit="ascii" maxlength="1998"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sctrwPmtnEmpeDspcBrk" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_sctrwPmtnEmpeDspcBrk_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="일련번호"/>
+          <Column id="STORNM1" type="STRING" size="256" sumtext="점포명1"/>
+          <Column id="PMTN_EMPE1" type="STRING" size="256" sumtext="판촉사원1"/>
+          <Column id="STORNM2" type="STRING" size="256" sumtext="점포명2"/>
+          <Column id="PMTN_EMPE2" type="STRING" size="256" sumtext="판촉사원2"/>
+          <Column id="STORNM3" type="STRING" size="256" sumtext="점포명3"/>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="PMTN_EMPE3" type="STRING" size="256" sumtext="판촉사원3"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm402" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sctrwDtl02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256" sumtext="특약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="VLD_PRD_ST_DT" type="STRING" size="256" sumtext="유효기간 시작일자"/>
+          <Column id="VLD_PRD_ED_DT" type="STRING" size="256" sumtext="유효기간 종료일자"/>
+          <Column id="DSPC_PRD_ST_DT" type="STRING" size="256" sumtext="파견기간 시작일자"/>
+          <Column id="DSPC_PRD_ED_DT" type="STRING" size="256" sumtext="파견기간 종료일자"/>
+          <Column id="WRK_ST_HR" type="STRING" size="256" sumtext="근무시간 시작시간"/>
+          <Column id="WRK_ED_HR" type="STRING" size="256" sumtext="근무시간 종료시간"/>
+          <Column id="EVT_PRD_ST_DT" type="STRING" size="256" sumtext="행사기간 시작일자"/>
+          <Column id="EVT_PRD_ED_DT" type="STRING" size="256" sumtext="행사기간 종료일자"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="PY_NT" type="STRING" size="256"/>
+          <Column id="SEL_SSDY_RTO" type="STRING" size="256"/>
+          <Column id="WRS_SPYAM" type="STRING" size="256"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="SCTR_SJT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item2" compid="mae_wrkStHr" propid="value" datasetid="ds_sctrwDtl02" columnid="WRK_ST_HR"/>
+      <BindItem id="item3" compid="mae_wrkEdHr" propid="value" datasetid="ds_sctrwDtl02" columnid="WRK_ED_HR"/>
+      <BindItem id="item0" compid="cal_dspcPrdStDt" propid="value" datasetid="ds_sctrwDtl02" columnid="DSPC_PRD_ST_DT"/>
+      <BindItem id="item1" compid="cal_dspcPrdEdDt" propid="value" datasetid="ds_sctrwDtl02" columnid="DSPC_PRD_ED_DT"/>
+      <BindItem id="item4" compid="txa_sctrSjt" propid="value" datasetid="ds_sctrwDtl02" columnid="SCTR_SJT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+// SCTRW_KD_C
+// 1.특약서(마진율)
+// 2.특약서(판촉사원의 파견
+// 3.특약서(매장위치 및 면적
+// 4.특약서(매장의 철수 등)
+// 5.특약서(원산지 등)
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "402") {
+			this.ds_etcEltStylAmm402.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	for (var i = 0; i < this.parent.ds_sctrwDtl.rowcount; i++) {
+		if (this.parent.ds_sctrwDtl.getColumn(i, "SCTRW_KDC") == "402") {
+			fv_position = i;
+			fv_chk = 1;
+			this.ds_sctrwDtl02.addRow();
+			this.ds_sctrwDtl02.copyRow(0, this.parent.ds_sctrwDtl , fv_position);
+		}
+ 	}
+
+	if (fv_chk == 0) {
+		var toDay = this.gfn_today("yyyyMMdd");
+		chkDay = this.gfn_addMonth(toDay, 1);
+
+		var nRow = this.parent.ds_sctrwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTRW_KDC", "402");
+		this.parent.ds_sctrwDtl.setColumn(fv_position, 	"CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm402.getColumn(0, "CTRW_STY_VER"));
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "DSPC_PRD_ST_DT", toDay);
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "DSPC_PRD_ED_DT", chkDay);
+		this.ds_sctrwDtl02.addRow();
+		this.ds_sctrwDtl02.copyRow(0, this.parent.ds_sctrwDtl, fv_position);
+	}
+
+	if (this.parent.ds_sctrwPmtnEmpeDspcBrk.rowcount  > 0) {
+		this.ds_sctrwPmtnEmpeDspcBrk.addRow();
+		this.ds_sctrwPmtnEmpeDspcBrk.copyData(this.parent.ds_sctrwPmtnEmpeDspcBrk);
+	} else {
+		this.ds_sctrwPmtnEmpeDspcBrk.addRow();
+		this.ds_sctrwPmtnEmpeDspcBrk.setColumn(0, "SCTRW_KDC", "402");
+		this.ds_sctrwPmtnEmpeDspcBrk.setColumn(0, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+	}
+}
+
+this.Cal_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	obj.updateToDataset();
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "DSPC_PRD_ST_DT", this.cal_dspcPrdStDt.value);
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "DSPC_PRD_ED_DT", this.cal_dspcPrdEdDt.value);
+}
+
+this.OMG_DS_SC_211331_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+// 	if (stringWrapper.toString().length !== 4) {
+// 		return false;
+// 	}
+
+// 	var time1 = "0";
+// 	var time2 = "0";
+// 	var time3 = "0";
+// 	var time4 = "0";
+//
+//  	if (!this.mae_wrkStHr.value.substr(0, 1) == "") {
+// 			time1 = this.mae_wrkStHr.value.substr(0, 1);
+//  	}
+//
+//  	if (!this.mae_wrkStHr.value.substr(1, 1) == "") {
+// 			time2 = this.mae_wrkStHr.value.substr(0, 1);
+//  	}
+//
+//  	if (!this.mae_wrkStHr.value.substr(2, 1) == "") {
+// 			time3 = this.mae_wrkStHr.value.substr(0, 1);
+//  	}
+//
+//  	if (!this.mae_wrkStHr.value.substr(3, 1) == "") {
+// 			time4 = this.mae_wrkStHr.value.substr(0, 1);
+//  	}
+//  this.mae_wrkStHr.set_value(time1+time2+time3+time4);
+
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "WRK_ST_HR", this.mae_wrkStHr.value);
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "WRK_ED_HR", this.mae_wrkEdHr.value);
+
+	//obj.updateToDataset();
+}
+
+this.ds_sctrwPmtnEmpeDspcBrk_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	this.parent.ds_sctrwPmtnEmpeDspcBrk.copyData(this.ds_sctrwPmtnEmpeDspcBrk);
+	this.fn_sctrwPmtnEmpeDspcBrk_update();
+}
+
+this.btn_sctrwPmtnEmpeDspcBrk_addRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_sctrwPmtnEmpeDspcBrk.addRow();
+	var nRow = this.ds_sctrwPmtnEmpeDspcBrk.rowcount -1;
+	this.ds_sctrwPmtnEmpeDspcBrk.setColumn(nRow, "SCTRW_KDC", "402");
+	this.ds_sctrwPmtnEmpeDspcBrk.setColumn(nRow, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+	this.parent.ds_sctrwPmtnEmpeDspcBrk.copyData(this.ds_sctrwPmtnEmpeDspcBrk);
+	this.fn_sctrwPmtnEmpeDspcBrk_update();
+}
+
+this.btn_sctrwPmtnEmpeDspcBrk_delRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	for (var i = this.ds_sctrwPmtnEmpeDspcBrk.rowcount; i > -1; i--) {
+		var nCheck = this.ds_sctrwPmtnEmpeDspcBrk.getColumn(i, "ISCHECKED");
+
+		if (nCheck == 1) {
+			this.parent.ds_sctrwPmtnEmpeDspcBrk.deleteRow(i);
+			this.ds_sctrwPmtnEmpeDspcBrk.deleteRow(i);
+		}
+	}
+}
+
+this.ds_sctrwPmtnEmpeDspcBrk_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_setGridCheckAll(obj, e);
+	}
+}
+
+this.fn_validationCheck = function()
+{
+	var strTitletext = "특약서(판촉사원의 파견)";
+
+ 	if (this.gfn_isNull(this.cal_dspcPrdStDt.value)) {
+		this.cal_dspcPrdStDt.setFocus();
+ 		this.alert(strTitletext + " 유효기간 시작일자를 입력하세요. ");
+ 		return false;
+ 	}
+
+	if (this.gfn_isNull(this.cal_dspcPrdEdDt.value)) {
+		this.cal_dspcPrdEdDt.setFocus();
+		this.alert(strTitletext + " 유효기간 종료일자을 입력하세요.");
+		return false;
+	} else {
+		var nStart = this.cal_dspcPrdStDt.value;
+		var nEnd   = this.cal_dspcPrdEdDt.value;
+
+		if (this.gfn_getDiffDay(nStart , nEnd) < 0) {
+			this.alert(strTitletext + "유효기간 종료일자를 다시 입력하세요. ");
+			return false;
+		}
+ 	}
+
+ 	var wrkStHr1 = "0";
+	var wrkStHr2 = "0";
+	var wrkStHr3 = "0";
+	var wrkStHr4 = "0";
+	var wrkStHr1 = "0";
+	var wrkStHr2 = "0";
+	var wrkStHr3 = "0";
+	var wrkStHr4 = "0";
+
+	//근무 시간 시작
+	if (this.gfn_isNull(this.mae_wrkStHr.value) == false) {
+		if (this.mae_wrkStHr.value.substr(0, 1) != " ") {
+			wrkStHr1 = this.mae_wrkStHr.value.substr(0, 1);
+		}
+
+		if (this.mae_wrkStHr.value.substr(1, 1) != " ") {
+			wrkStHr2 = this.mae_wrkStHr.value.substr(1, 1);
+			var wrkStHr=  nexacro.toNumber(  wrkStHr1+wrkStHr2);
+			if (wrkStHr < 1 ||  wrkStHr > 23) {
+				this.mae_wrkStHr.setFocus();
+				this.alert(strTitletext + " 근무 시간 시작 시간을 정확하게  입력하세요.");
+				return false;
+			}
+		}
+
+		if (this.mae_wrkStHr.value.substr(2, 1) != " ") {
+				wrkStHr3 = this.mae_wrkStHr.value.substr(2, 1);
+		}
+
+		if (this.mae_wrkStHr.value.substr(3, 1) != " ") {
+			wrkStHr4 = this.mae_wrkStHr.value.substr(3, 1);
+			var wrkStHr=  nexacro.toNumber(wrkStHr3+wrkStHr4);
+
+			if (wrkStHr < 0 ||  wrkStHr > 59) {
+				this.mae_wrkStHr.setFocus();
+				this.alert(strTitletext + " 근무 시간 시작 시간을 정확하게  입력하세요.");
+				return false;
+			}
+		}
+ 	} else {
+ 	    this.alert(strTitletext + " 근무 시간 시작 시간을 정확하게  입력하세요.");
+		return false;
+ 	}
+
+	this.mae_wrkStHr.set_value(wrkStHr1+wrkStHr2+wrkStHr3+wrkStHr4);
+
+	//근무 종료 시작
+	if (this.gfn_isNull(this.mae_wrkEdHr.value) == false) {
+		if (this.mae_wrkEdHr.value.substr(0, 1) != " ") {
+			wrkEdHr1 = this.mae_wrkEdHr.value.substr(0, 1);
+		}
+
+		if (this.mae_wrkEdHr.value.substr(1, 1) != " ") {
+			wrkEdHr2 = this.mae_wrkEdHr.value.substr(1, 1);
+			var wrkEdHr=  nexacro.toNumber(  wrkEdHr1+wrkEdHr2);
+			if (wrkEdHr < 1 ||  wrkEdHr > 23) {
+				this.mae_wrkEdHr.setFocus();
+				this.alert(strTitletext + " 근무 시간 종료 시간을 정확하게  입력하세요.");
+				return false;
+			}
+		}
+
+		if (this.mae_wrkEdHr.value.substr(2, 1) != " ") {
+			wrkEdHr3 = this.mae_wrkEdHr.value.substr(2, 1);
+		}
+
+		if (this.mae_wrkEdHr.value.substr(3, 1) != " ") {
+			wrkEdHr4 = this.mae_wrkEdHr.value.substr(3, 1);
+			var wrkEdHr=  nexacro.toNumber(  wrkEdHr3+wrkEdHr4);
+
+			if (wrkEdHr < 0 ||  wrkEdHr > 59) {
+				this.mae_wrkEdHr.setFocus();
+				this.alert(strTitletext + " 근무 시간 종료 분을 정확하게  입력하세요.");
+				return false;
+			}
+		}
+	} else {
+ 	    this.alert(strTitletext + " 근무 시간 종료 분을 정확하게  입력하세요.");
+		return false;
+ 	}
+
+	this.mae_wrkEdHr.set_value(wrkEdHr1+wrkEdHr2+wrkEdHr3+wrkEdHr4);
+
+	var wrkStHr = nexacro.toNumber(this.mae_wrkStHr.value);
+	var wrkEdHr = nexacro.toNumber(this.mae_wrkEdHr.value);
+	if (wrkStHr >= wrkEdHr) {
+		this.mae_wrkEdHr.setFocus();
+		this.alert(strTitletext + " 근무 종료 시간을 다시 입력하세요.");
+		return false;
+	}
+
+	if (this.gfn_isNull(this.mae_wrkStHr.value)) {
+		this.mae_wrkStHr.setFocus();
+ 		this.alert(strTitletext + " 근무 시작시간를 입력하세요. ");
+ 		return false;
+ 	}
+
+	if (this.gfn_isNull(this.mae_wrkEdHr.value)) {
+		this.mae_wrkEdHr.setFocus();
+		this.alert(strTitletext + " 근무 종료시간을 입력하세요.");
+		return false;
+	}
+
+	var strChk = this.gfn_checkImportant(this.grd_sctrwPmtnEmpeDspcBrk, "STORNM1, PMTN_EMPE1");
+	if (strChk == false) {
+		return false;
+	}
+
+	var strChk_STORNM2 = this.fn_checkImportant(this.grd_sctrwPmtnEmpeDspcBrk, "STORNM2");
+	var strChk_PMTN_EMPE2 = this.fn_checkImportant(this.grd_sctrwPmtnEmpeDspcBrk, "PMTN_EMPE2");
+
+	if (strChk_STORNM2 == true  || strChk_PMTN_EMPE2 == true) {
+		var strChk2 = this.gfn_checkImportant(this.grd_sctrwPmtnEmpeDspcBrk, "STORNM2, PMTN_EMPE2");
+		if (strChk2 == false) {
+			return false;
+		}
+	}
+
+	var strChk_STORNM3 = this.fn_checkImportant(this.grd_sctrwPmtnEmpeDspcBrk, "STORNM3");
+	var strChk_PMTN_EMPE3 = this.fn_checkImportant(this.grd_sctrwPmtnEmpeDspcBrk, "PMTN_EMPE3");
+
+	if (strChk_STORNM3 == true  || strChk_PMTN_EMPE3 == true) {
+		var strChk3 = this.gfn_checkImportant(this.grd_sctrwPmtnEmpeDspcBrk, "STORNM3, PMTN_EMPE3");
+		if (strChk3 == false) {
+			return false;
+		}
+	}
+
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+	return true;
+}
+
+this.fn_checkImportant = function(obj:Grid, arrParam)
+{
+	var objGrid = obj;
+	var arrList = arrParam.split(",");
+
+	if (arrList.length == 0) return false;
+
+	var dsBind = this.gfn_getDataset(objGrid.binddataset);
+	if (dsBind != undefined) {
+		for ( var iRow=0; iRow<dsBind.rowcount; iRow++) {
+			var iRowType = dsBind.getRowType( iRow);
+			if (iRowType == 8) continue;
+
+			for (var i=0; i<arrList.length; i++) {
+				var sColNm = arrList[i];
+				var iCellIdx = this.gfn_getCellIdx( objGrid, sColNm);
+				var sColVal = String( dsBind.getColumn( iRow, sColNm)).trim();
+				if (this.gfn_isNull(sColVal)) {
+					var bSucc = objGrid.setCellPos(iCellIdx);
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
+
+this.fn_sctrwPmtnEmpeDspcBrk_update = function()
+{
+	for (var i = 0; i < this.ds_sctrwPmtnEmpeDspcBrk.rowcount; i++) {
+		this.parent.ds_sctrwPmtnEmpeDspcBrk.set_updatecontrol(false);
+		this.parent.ds_sctrwPmtnEmpeDspcBrk.setRowType(i, this.ds_sctrwPmtnEmpeDspcBrk.getRowType(i));
+		this.parent.ds_sctrwPmtnEmpeDspcBrk.set_updatecontrol(true);
+	}
+
+	if (this.ds_sctrwPmtnEmpeDspcBrkrowcount == 0) {
+		for (var i = 0; i < this.parent.ds_sctrwPmtnEmpeDspcBrk.rowcount; i++) {
+			this.parent.ds_sctrwPmtnEmpeDspcBrk.set_updatecontrol(false);
+			this.parent.ds_sctrwPmtnEmpeDspcBrk.setRowType(i, Dataset.ROWTYPE_DELETE);
+			this.parent.ds_sctrwPmtnEmpeDspcBrk.set_updatecontrol(true);
+		}
+	}
+}
+
+this.Button15_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_validationCheck();
+}
+
+this.txatext_changed = function(obj:TextArea, e:nexacro.TextChangedEventInfo)
+{
+	var text = this.txa_sctrSjt.value;
+	var lc = text.indexOf("^");
+	if (lc != -1) {
+		alert('^는 사용하실 수 없습니다.');
+		text = nexacro.replaceAll(text, "^", " ");
+		this.txa_sctrSjt.set_value(text);
+	}
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+}]]></Script>
+  </Form>
+</FDL>

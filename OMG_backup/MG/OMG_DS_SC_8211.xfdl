@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8211" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="교육신청 상세" onload="form_onload" scrollbars="autoboth">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="163" cssclass="sta_WF_Labelbg" left="126" top="44" right="266" height="29"/>
+        <MaskEdit id="MaskEdit00" taborder="159" left="644" top="71" width="142" height="30" readonly="true"/>
+        <Static id="Static10" taborder="137" text="10" visible="false" left="376" top="430" right="328" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static12" taborder="139" cssclass="sta_WF_Labelbg" top="44" right="17" height="29" width="141"/>
+        <Static id="Static14" taborder="141" text="제목" cssclass="sta_WF_Label" left="17" top="44" width="110" height="29"/>
+        <Static id="Static15" taborder="142" text="등록일시" cssclass="sta_WF_Label" top="44" width="110" height="29" right="157"/>
+        <Static id="Static17" taborder="144" text="작성자" cssclass="sta_WF_Label" left="17" top="72" width="110" height="29"/>
+        <Static id="Static18" taborder="145" text="조회수" cssclass="sta_WF_Label" top="72" width="110" height="29" right="157"/>
+        <Static id="Static19" taborder="146" cssclass="sta_WF_Labelbg" left="126" top="72" height="29" right="266"/>
+        <Static id="st_title" taborder="155" text="첨부파일" cssclass="sta_WF_Subtitle" left="17" bottom="52" width="301" height="21"/>
+        <Button id="btn_down" taborder="156" text="다운로드" onclick="fn_download" right="17" bottom="48" width="72" height="21"/>
+        <Grid id="grd_file" taborder="157" binddataset="ds_file" scrollbars="autoboth" useinputpanel="false" autofittype="col" left="17" right="17" bottom="15" height="29">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="631"/>
+                <Column size="81"/>
+              </Columns>
+              <Rows>
+                <Row size="29"/>
+              </Rows>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" style="selectbackground: ;" text="bind:CHK"/>
+                <Cell col="1" style="align:left;selectbackground: ;" text="bind:ORGFNAME" expandshow="hide"/>
+                <Cell col="2" style="align:right;" text="expr:FILESIZE + ' KB'"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="st_content" taborder="147" cssclass="sta_WF_Labelbg" left="17" top="128" right="17" onclick="st_content_onclick" style="background:#ffffffff;" bottom="15"/>
+        <TextArea id="txt_content" taborder="148" wordwrap="char" readonly="true" cssclass="txt_WF_file" left="32" top="139" right="33" mask="###,###" oneditclick="TextArea01_oneditclick" style="background:#ffffff00;" bottom="31"/>
+        <Div id="div_pop" taborder="160" text="Div00" left="17" top="100" right="17" height="30" style="background:transparent;" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="Static03" taborder="12" cssclass="sta_WF_Labelbg" left="90" top="0" right="0" height="29"/>
+              <Static id="Static04" taborder="13" text="팝업게시기간" cssclass="sta_WF_Label" left="152" top="0" width="110" height="29"/>
+              <Calendar id="cal_to" taborder="14" dateformat="yyyy-MM-dd" left="377" top="4" width="100" height="21"/>
+              <Calendar id="cal_from" taborder="15" dateformat="yyyy-MM-dd" left="266" top="4" width="100" height="21"/>
+              <Static id="Static131" taborder="16" text="~" left="367" top="9" width="10" height="21"/>
+              <Static id="Static123" taborder="18" text="팝업" cssclass="sta_WF_Label" left="0" top="0" width="110" height="29"/>
+              <CheckBox id="chk_bbrdPupYn" taborder="21" value="0" truevalue="1" falsevalue="0" onchanged="chk_bbrdPupYn_onchanged" left="16.08%" top="4" width="15" height="21"/>
+              <Button id="btn_popup" taborder="22" text="미리보기" onclick="div_pop_btn_popup_onclick" top="4" right="5" width="80" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_subscription" taborder="161" text="신청" onclick="fn_subscription" cssclass="btn_WF_CRUD" top="15" right="17" width="41" height="21" visible="true"/>
+        <Edit id="Edit00" taborder="162" left="127" top="45" width="409" height="27" readonly="true" style="border:0 none #808080ff ;"/>
+        <Button id="btn_print" taborder="164" text="출력" onclick="fn_print" top="15" right="61" width="41" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_edu_detail">
+        <ColumnInfo>
+          <Column id="SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="CONTENT" type="STRING" size="256"/>
+          <Column id="REG_NM" type="STRING" size="256"/>
+          <Column id="REG_DT" type="STRING" size="256"/>
+          <Column id="SUBSCRIPTION_YN" type="STRING" size="256"/>
+          <Column id="CNT" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="256"/>
+          <Column id="ORGFNAME" type="STRING" size="256"/>
+          <Column id="FILESIZE" type="STRING" size="256"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_file" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_edu_cnt">
+        <ColumnInfo>
+          <Column id="MEMBER_CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_edu_blacklist">
+        <ColumnInfo>
+          <Column id="BLACKLIST_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item9" compid="Static12" propid="text" datasetid="ds_notice" columnid="FSRG_DTM"/>
+      <BindItem id="item8" compid="Static19" propid="text" datasetid="ds_notice" columnid="FS_RGM"/>
+      <BindItem id="item12" compid="txt_content" propid="text" datasetid="ds_notice" columnid=""/>
+      <BindItem id="item0" compid="txt_content" propid="value" datasetid="ds_notice" columnid="OFANC_CNTN"/>
+      <BindItem id="item1" compid="OMG_DS_SC_1641" propid="" datasetid="ds_notice" columnid=""/>
+      <BindItem id="item2" compid="MaskEdit00" propid="value" datasetid="ds_notice" columnid="OFANC_PRU_NT"/>
+      <BindItem id="item3" compid="div_pop.chk_bbrdPupYn" propid="value" datasetid="ds_notice" columnid="BBRD_PUP_YN"/>
+      <BindItem id="item4" compid="div_pop.cal_from" propid="value" datasetid="ds_notice" columnid="BBRD_PUP_ST_DT"/>
+      <BindItem id="item5" compid="div_pop.cal_to" propid="value" datasetid="ds_notice" columnid="BBRD_PUP_ED_DT"/>
+      <BindItem id="item6" compid="Edit00" propid="value" datasetid="ds_notice" columnid="OFANC_TINM"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.seq = "";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); // 공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 페이지 로딩후 실행부분
+	try {
+		this.seq = this.parent.seq;
+	} catch(e) {
+		trace("부모화면 필요");
+	}
+	
+	this.fn_retrieveEducationDetails();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveEducationDetails = function()
+{
+	var sSvcID        = "retrieveEducationDetails";
+	var sURL          = "svc::rest/mg/edu/retrieveEducationDetails";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_edu_detail=ds_edu_detail";
+	var sArgument     = "seq=" + this.seq;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+ 	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "retrieveEducationDetails":
+				 var fileNm = this.ds_edu_detail.getColumn(0, "FILENAME");
+				 
+				 if (!this.gfn_isNull(fileNm)) {
+					this.ds_file.addRow();
+					
+					this.ds_file.setColumn(0, "CHK", "0");
+					this.ds_file.setColumn(0, "FILENAME", this.ds_edu_detail.getColumn(0, "FILENAME"));
+					this.ds_file.setColumn(0, "ORGFNAME", this.ds_edu_detail.getColumn(0, "ORGFNAME"));
+					this.ds_file.setColumn(0, "FILESIZE", this.ds_edu_detail.getColumn(0, "FILESIZE"));
+					this.ds_file.setColumn(0, "SYSTEMFILENAME", this.ds_edu_detail.getColumn(0, "SYSTEMFILENAME"));
+				 }
+				 
+				 this.position();
+				 this.fn_reDraw();
+				 
+				 if (this.ds_edu_detail.getColumn(0, "SUBSCRIPTION_YN") == "N") {
+					this.btn_subscription.set_visible(false);
+				 }
+				 
+				 var title = this.ds_edu_detail.getColumn(0, "TITLE");
+				 var content = this.ds_edu_detail.getColumn(0, "CONTENT");
+				 var regNm = this.ds_edu_detail.getColumn(0, "REG_NM");
+				 var regDt = this.ds_edu_detail.getColumn(0, "REG_DT");
+				 var cnt = this.ds_edu_detail.getColumn(0, "CNT");
+				 
+				 this.Edit00.set_value(title);				// 제목
+				 this.txt_content.set_value(content);		// 내용
+				 this.Static19.set_text(regNm);				// 작성자
+				 this.Static12.set_text(regDt);				// 등록일시
+				 this.MaskEdit00.set_value(cnt);			// 조회수
+				 
+				 break;
+			
+			case "checkEducationMemberValidation":
+				 var cnt = this.ds_edu_cnt.getColumn(0, "MEMBER_CNT");
+				 var blackListYn = this.ds_edu_blacklist.getColumn(0, "BLACKLIST_YN");
+				 
+				 if (blackListYn == "Y") {
+					this.alert("해당 업체는 전월 불참사유로 인해 당월에 교육신청 등록할 수 없습니다.");
+				 } else {
+					 //if (cnt < 2) {
+					 if(cnt < 1) {
+					 	var eduDt = this.ds_edu_detail.getColumn(0, "EDU_DATE");
+						//application.open("Modeless", "OMG.MG::OMG_DS_SC_8212.xfdl", this.getOwnerFrame(), {SEQ:this.seq, EDU_DT:eduDt, CNT:cnt}, "showtitlebar=true", 0, 0, 400, 300, this);
+						application.open("Modeless", "OMG.MG::OMG_DS_SC_8214.xfdl", this.getOwnerFrame(), {SEQ:this.seq, EDU_DT:eduDt, CNT:cnt}, "showtitlebar=true", 0, 0, 400, 300, this);
+					 } else {
+						//this.alert("하나의 업체에서 2명이상 교육신청 등록할 수 없습니다.");
+						this.alert("하나의 업체에서 1명이상 교육신청 등록할 수 없습니다.");
+					 }
+				 }
+				 
+				 break;
+		}
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_reDraw = function()
+{
+	var grdHeight = nexacro.toNumber(this.grd_file.getRealRowSize(0)) * nexacro.toNumber(this.ds_file.rowcount);
+	
+	if(this.ds_file.rowcount > 0)
+	{
+		this.grd_file.set_height(grdHeight);
+			
+		this.txt_content.set_bottom(60 + grdHeight);
+		this.st_content.set_bottom(60 + grdHeight);
+		this.btn_down.set_bottom(20 + grdHeight);
+		this.st_title.set_bottom(22 + grdHeight);
+	}
+	else
+	{
+		this.st_content.set_bottom(15);
+		this.txt_content.set_bottom(31);
+	}
+}
+
+this.position = function()
+{
+	this.st_content.set_top(98);
+	this.txt_content.set_top(109);
+}
+
+this.fn_subscription = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSvcID        = "checkEducationMemberValidation";
+	var sURL          = "svc::rest/mg/edu/checkEducationMemberValidation";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_edu_cnt=ds_edu_cnt ds_edu_blacklist=ds_edu_blacklist";
+	var sArgument     = "seq=" + this.seq + " gln=" + application.gv_glnCode;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_print = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.fn_download = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.ds_file.findRow("CHK", "1") < 0)
+	{
+		this.alert("선택된 파일이 없습니다.");
+		return;
+	}
+	
+	this.gfn_callDownload(this.ds_file, "CHK");	// 두번째 인자에 체크박스에 bind된 컬럼명
+}
+]]></Script>
+  </Form>
+</FDL>

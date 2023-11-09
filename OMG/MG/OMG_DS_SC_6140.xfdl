@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6120" classname="pattern_01" left="0" top="0" width="1200" height="783" titletext="주소등록관리" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Button id="btn_insert" taborder="3" text="등록" cssclass="btn_WF_CRUD" top="29" width="50" height="21" onclick="btn_insert_onclick" enable="false" right="10"/>
+        <Div id="Div01" taborder="4" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <WebBrowser id="wb_addr" left="10" top="53" taborder="14" onusernotify="wb_addr_onusernotify" width="600" bottom="60"/>
+        <Static id="Static47" taborder="16" text="행정안전부 도로명주소 조회 (www.juso.go.kr)" cssclass="sta_WF_Subtitle" left="10" top="29" width="340" height="21"/>
+        <Grid id="Grid00" taborder="17" useinputpanel="false" left="620" top="53" binddataset="ds_addr" oncellclick="Grid00_oncellclick" right="10" bottom="60" onheadclick="Grid00_onheadclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="68"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="65"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" text="0"/>
+                <Cell col="1" text="상태"/>
+                <Cell col="2" text="우편번호"/>
+                <Cell col="3" text="시/도"/>
+                <Cell col="4" text="시군구"/>
+                <Cell col="5" text="읍면동"/>
+                <Cell col="6" text="도로명"/>
+                <Cell col="7" text="건물번호본번"/>
+                <Cell col="8" text="건물번호부번"/>
+                <Cell col="9" text="건물명"/>
+                <Cell col="10" text="법정동"/>
+                <Cell col="11" text="리"/>
+                <Cell col="12" text="산여부"/>
+                <Cell col="13" text="지번본번"/>
+                <Cell col="14" text="지번부번"/>
+              </Band>
+              <Band id="body" style="selectcolor:EXPR(STS == 'R' ? '#3333FFFF' : STS == 'E' ? '#FF3333FF' : '#333333FF');cellline:1 solid #d6d6d6ff ;cellcolor:EXPR(STS == 'R' ? '#3333FFFF' : STS == 'E' ? '#FF3333FF' : '#333333FF');cellcolor2:EXPR(STS == 'R' ? '#3333FFFF' : STS == 'E' ? '#FF3333FF' : '#333333FF');">
+                <Cell displaytype="checkbox" text="bind:CHK"/>
+                <Cell col="1" text="expr:STS == 'R' ? '등록가능' : STS == 'E' ? '등록됨' : '미확인'"/>
+                <Cell col="2" text="bind:DTCT_NO"/>
+                <Cell col="3" text="bind:PROVNM"/>
+                <Cell col="4" text="bind:CCWNM"/>
+                <Cell col="5" text="bind:TTVNM"/>
+                <Cell col="6" text="bind:RODNM"/>
+                <Cell col="7" text="bind:BLD_NO_MHZNO"/>
+                <Cell col="8" text="bind:BLD_NO_SHZNO"/>
+                <Cell col="9" text="bind:CCWN_BLDNM"/>
+                <Cell col="10" text="bind:LWDGNM"/>
+                <Cell col="11" text="bind:RINM"/>
+                <Cell col="12" text="expr:MNT_YN == &quot;1&quot; ? &quot;여&quot; : &quot;부&quot;"/>
+                <Cell col="13" text="bind:LTNO_MHZNO"/>
+                <Cell col="14" text="bind:LTNO_SHZNO"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="18" text="주소등록대상 확인" cssclass="sta_WF_Subtitle" top="29" width="318" height="21" left="620"/>
+        <Button id="btn_delete" taborder="22" text="행삭제" cssclass="btn_WF_CRUD" enable="false" top="29" width="55" height="21" onclick="btn_delete_onclick" right="164"/>
+        <Button id="btn_check" taborder="23" text="등록가능확인" cssclass="btn_WF_CRUD" enable="false" top="29" width="93" height="21" onclick="btn_check_onclick" right="65"/>
+        <Static id="Static01" taborder="24" text="- 주소검색 후 추가버튼을 눌러 주소등록대상에 추가&#13;&#10;- 등록가능여부 확인 후 등록버튼을 통해 주소 저장(등록가능 상태만 저장됨)" left="10" width="829" bottom="10" height="40"/>
+        <Button id="btn_addr_mois" taborder="25" text="도로명주소 홈페이지" cssclass="btn_WF_CRUD" left="319" top="27" width="130" height="21" onclick="btn_addr_mois_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_addr">
+        <ColumnInfo>
+          <Column id="BLD_AMNNO" type="STRING" size="256"/>
+          <Column id="DTCT_NO" type="STRING" size="256"/>
+          <Column id="PROVNM" type="STRING" size="256"/>
+          <Column id="PROV_ENM" type="STRING" size="256"/>
+          <Column id="CCWNM" type="STRING" size="256"/>
+          <Column id="CCW_ENM" type="STRING" size="256"/>
+          <Column id="TTVNM" type="STRING" size="256"/>
+          <Column id="TTV_ENM" type="STRING" size="256"/>
+          <Column id="RODNM_C" type="STRING" size="256"/>
+          <Column id="RODNM" type="STRING" size="256"/>
+          <Column id="RODNM_ENM" type="STRING" size="256"/>
+          <Column id="UGR_YN" type="STRING" size="256"/>
+          <Column id="BLD_NO_MHZNO" type="STRING" size="256"/>
+          <Column id="BLD_NO_SHZNO" type="STRING" size="256"/>
+          <Column id="LGQT_DVPNM" type="STRING" size="256"/>
+          <Column id="CCWN_BLDNM" type="STRING" size="256"/>
+          <Column id="LWDG_C" type="STRING" size="256"/>
+          <Column id="LWDGNM" type="STRING" size="256"/>
+          <Column id="RINM" type="STRING" size="256"/>
+          <Column id="ADDGNM" type="STRING" size="256"/>
+          <Column id="MNT_YN" type="STRING" size="256"/>
+          <Column id="LTNO_MHZNO" type="STRING" size="256"/>
+          <Column id="TTV_SQNO" type="STRING" size="256"/>
+          <Column id="LTNO_SHZNO" type="STRING" size="256"/>
+          <Column id="ZIP" type="STRING" size="256"/>
+          <Column id="ZIP_SQNO" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="STS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_check">
+        <ColumnInfo>
+          <Column id="BLD_AMNNO" type="STRING" size="256"/>
+          <Column id="DTCT_NO" type="STRING" size="256"/>
+          <Column id="PROVNM" type="STRING" size="256"/>
+          <Column id="PROV_ENM" type="STRING" size="256"/>
+          <Column id="CCWNM" type="STRING" size="256"/>
+          <Column id="CCW_ENM" type="STRING" size="256"/>
+          <Column id="TTVNM" type="STRING" size="256"/>
+          <Column id="TTV_ENM" type="STRING" size="256"/>
+          <Column id="RODNM_C" type="STRING" size="256"/>
+          <Column id="RODNM" type="STRING" size="256"/>
+          <Column id="RODNM_ENM" type="STRING" size="256"/>
+          <Column id="UGR_YN" type="STRING" size="256"/>
+          <Column id="BLD_NO_MHZNO" type="STRING" size="256"/>
+          <Column id="BLD_NO_SHZNO" type="STRING" size="256"/>
+          <Column id="LGQT_DVPNM" type="STRING" size="256"/>
+          <Column id="CCWN_BLDNM" type="STRING" size="256"/>
+          <Column id="LWDG_C" type="STRING" size="256"/>
+          <Column id="LWDGNM" type="STRING" size="256"/>
+          <Column id="RINM" type="STRING" size="256"/>
+          <Column id="ADDGNM" type="STRING" size="256"/>
+          <Column id="MNT_YN" type="STRING" size="256"/>
+          <Column id="LTNO_MHZNO" type="STRING" size="256"/>
+          <Column id="TTV_SQNO" type="STRING" size="256"/>
+          <Column id="LTNO_SHZNO" type="STRING" size="256"/>
+          <Column id="ZIP" type="STRING" size="256"/>
+          <Column id="ZIP_SQNO" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.CHECK_DUP = "N";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	this.ds_addr.clearData();
+	var jusoUrl = "https://www.nhescm.co.kr/escm/OpenWeb_API/juso.html";
+	this.wb_addr.set_url(jusoUrl);
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.wb_addr_onusernotify = function(obj:WebBrowser, e:nexacro.WebTitleChangeEventInfo)
+{
+	if (!this.gfn_isNull(e.userdata)) {
+		this.returnAddrStr(e.userdata);
+	}
+}
+
+// 등록
+this.btn_insert_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.CHECK_DUP == "Y") {
+		if (this.confirm("주소를 등록하시겠습니까?\n(등록가능 상태의 주소만 저장합니다.)")) {
+			var sSvcID        = "insertAddr";//통신아이디
+			var sURL          = "svc::rest/mg/insertAddress";// 호출할 서버 페이지 주소
+			var sInDatasets   = "ds_addr=ds_addr";//보내는데이터셋
+			var sOutDatasets  = "";		//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+			var sArgument     = "";// 파라미터
+			var sCallbackFunc = "fn_callBack";//콜백
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+			//API 호출
+
+			this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+			this.btn_insert.set_enable(false);
+		}
+	} else {
+		// 예외처리
+		this.alert("주소 등록가능 여부를 먼저 확인해주세요.");
+	}
+}
+
+// 중복검사
+this.btn_check_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var sSvcID        = "dupCheck";//통신아이디
+	var sURL          = "svc::rest/mg/checkDupAddr";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_addr=ds_addr";//보내는데이터셋
+	var sOutDatasets  = "ds_check=ds_check";		//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	//API 호출
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+// 그리드 삭제
+this.btn_delete_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.ds_addr.findRow("CHK", "1") == -1) {
+		this.alert("선택된 행이 없습니다.");
+	}
+	for (var i=this.ds_addr.getRowCount()-1; i>=0; i--) {
+		if (this.ds_addr.getColumn(i, "CHK") == "1") {
+			this.ds_addr.deleteRow(i);
+		}
+	}
+	if (this.ds_addr.getRowCount() == 0) {
+		this.btn_check.set_enable(false);
+		this.btn_delete.set_enable(false);
+		this.btn_insert.set_enable(false);
+		this.CHECK_DUP = "N";
+	}
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.returnAddrStr = function(str)
+{
+	if (!this.gfn_isNull(str)) {
+		var temp = str.split("|");
+		if (this.ds_addr.findRow("BLD_AMNNO", temp[0]) != -1) {
+			this.alert("이미 주소등록대상으로 선택한 주소입니다.");
+			return;
+		}
+		
+		var row = this.ds_addr.addRow();
+		this.ds_addr.setColumn(row, "CHK", "0");
+		this.ds_addr.setColumn(row, "STS", "N");
+		this.ds_addr.setColumn(row, "BLD_AMNNO", temp[0]);
+		this.ds_addr.setColumn(row, "DTCT_NO", temp[1]);
+		this.ds_addr.setColumn(row, "PROVNM", temp[2]);
+		this.ds_addr.setColumn(row, "CCWNM", temp[3]);
+		this.ds_addr.setColumn(row, "TTVNM", temp[4]);
+		this.ds_addr.setColumn(row, "RODNM_C", temp[5]);
+		this.ds_addr.setColumn(row, "RODNM", temp[6]);
+		this.ds_addr.setColumn(row, "UGR_YN", temp[7]);
+		this.ds_addr.setColumn(row, "BLD_NO_MHZNO", temp[8]);
+		this.ds_addr.setColumn(row, "BLD_NO_SHZNO", temp[9]);
+		this.ds_addr.setColumn(row, "CCWN_BLDNM", temp[10]);
+		this.ds_addr.setColumn(row, "LWDG_C", temp[11]);
+		this.ds_addr.setColumn(row, "LWDGNM", temp[12]);
+		this.ds_addr.setColumn(row, "RINM", temp[13]);
+		this.ds_addr.setColumn(row, "MNT_YN", temp[14]);
+		this.ds_addr.setColumn(row, "LTNO_MHZNO", temp[15]);
+		this.ds_addr.setColumn(row, "TTV_SQNO", temp[16]);
+		this.ds_addr.setColumn(row, "LTNO_SHZNO", temp[17]);
+		
+		//this.div_result.edt_road.set_value(temp[18]);
+		//this.div_result.edt_jibun.set_value(temp[19]);
+		this.btn_check.set_enable(true);
+		this.btn_delete.set_enable(true);
+		this.btn_insert.set_enable(false);
+		this.CHECK_DUP = "N";
+	}
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "dupCheck") {
+			for (var i=0; i<this.ds_addr.rowcount; i++) {
+				var row = this.ds_check.findRow("BLD_AMNNO", this.ds_addr.getColumn(i, "BLD_AMNNO"));
+				if (row != -1) {
+					//this.ds_addr.deleteRow(row);
+					this.ds_addr.setColumn(i, "STS", "E"); // 등록 불가(Exist)
+				} else {
+					this.ds_addr.setColumn(i, "STS", "R"); // 등록 가능(Regist)
+					this.btn_insert.set_enable(true);
+					this.CHECK_DUP = "Y";
+				}
+			}
+		} else if (svcID == "insertAddr") {
+			this.alert("주소가 등록되었습니다.");
+			this.btn_check_onclick();
+		}
+	}
+}
+
+this.fn_popupAfter = function(strId,strVal)
+{
+	if (strId == "zipCode") {
+	}
+}
+
+this.Grid00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.col == 0) {
+		this.ds_addr.setColumn(e.row, "CHK", this.ds_addr.getColumn(e.row, "CHK") == "0" ? "1" : "0");
+	}
+}
+
+this.btn_addr_mois_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	window.open("http://www.juso.go.kr");
+}
+
+this.Grid00_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}]]></Script>
+  </Form>
+</FDL>

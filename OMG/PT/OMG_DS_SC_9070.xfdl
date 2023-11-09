@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_9060" classname="OMG_DS_SC_3212" left="0" top="0" width="458" height="425" titletext="업체 담당자 조회" onload="OMG_DS_SC_9060_onload" style="border:2 solid #067394ff ;" visible="true" scrollbars="none" onkeydown="OMG_DS_SC_9060_onkeydown">
+    <Layouts>
+      <Layout>
+        <Static id="btn_newTop" taborder="14" cssclass="sta_WF_Menulist" left="0" top="0" width="456" height="30" text="업체 담당자 조회"/>
+        <Button id="btn_Close" taborder="15" cssclass="btn_WF_PopupClose" left="416" top="0" width="37" height="30" onclick="btn_Close_onclick"/>
+        <Button id="btn_search" taborder="17" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="47" right="17" width="58" height="21"/>
+        <Div id="div_search" taborder="18" left="17" top="76" right="17" height="39" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static02" taborder="1" text="거래처코드" cssclass="sta_WFSA_Label" left="15" top="8" width="120" height="21"/>
+              <Static id="Static03" taborder="4" text="10" visible="false" left="0" top="-4" width="15" height="800" style="background:#dc143c5b;"/>
+              <Static id="Static00" taborder="9" text="5" visible="false" left="134" top="125" width="103" height="5" style="background:#dc143c5b;"/>
+              <Edit id="edt_naTrplC" taborder="11" left="138" top="8" right="46" height="21" readonly="true" cssclass="edt_WF_Readonly"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_search" taborder="19" binddataset="ds_search" useinputpanel="false" left="17" top="130" right="17" height="246" autofittype="none" oncelldblclick="grd_search_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="134"/>
+                <Column size="124"/>
+                <Column size="115"/>
+                <Column size="138"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="업체  담당자"/>
+                <Cell col="2" text="핸드폰"/>
+                <Cell col="3" text="이메일"/>
+                <Cell col="4" text="회원상태"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" text="bind:CTR_CHRR"/>
+                <Cell col="2" text="bind:MPNO"/>
+                <Cell col="3" text="bind:EMAIL"/>
+                <Cell col="4" text="bind:STS_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="29" text="10" visible="false" left="289" top="115" width="103" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="32" text="10" visible="false" left="213" top="105" width="103" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_ok" taborder="33" text="확인" onclick="btn_confirm_onclick" cssclass="btn_WF_Popup" top="386" width="54" height="29" right="61"/>
+        <Button id="btn_cancel" taborder="34" text="취소" onclick="btn_cancel_onclick" cssclass="btn_WF_Popup" top="386" height="29" right="17" width="42"/>
+        <Static id="Static02" taborder="35" text="10" visible="false" left="347" top="376" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="36" text="10" visible="false" left="344" top="415" width="91" height="10" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="CTR_CHRR" type="STRING" size="256" sumtext="업체담당자"/>
+          <Column id="MPNO" type="STRING" size="256" sumtext="핸드폰"/>
+          <Column id="EMAIL" type="STRING" size="256" sumtext="이메일"/>
+          <Column id="STS_NM" type="STRING" size="256" sumtext="회원등록상태"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256" sumtext="주요품목"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="div_search.edt_naTrplC" propid="value" datasetid="ds_register" columnid="NA_TRPL_C"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+this.new_elt = "" ;
+this.OMG_DS_SC_9060_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	this.gfn_setInitForm(obj, e); //공통
+
+    //new_elt  ==  true   신규 계약서 작성시
+    //new_elt  ==  false  계약서 수정시
+
+	this.new_elt = this.getOwnerFrame().new_elt ;
+	
+	if(this.new_elt == true){
+	
+		this.div_search.edt_naTrplC.set_value(this.getOwnerFrame().NATRPIC );
+		
+		this.fn_search();
+		
+	}else{
+		this.div_search.edt_naTrplC.set_value(this.parent.edt_naTrplC.value);
+	}
+
+	this.grd_search.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	this.fn_search();
+}
+
+
+this.fn_search =  function()
+{
+	var edtnaTrplC = this.gfn_nullToEmpty(this.div_search.edt_naTrplC.value);  //사업자등록번호
+	param = "edtnaTrplC="+edtnaTrplC ;
+			
+	var sSvcID        = "search";//통신아이디
+	var sURL          = "svc::rest/pt/comn/retrieveEltChrrInq";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_search=ds_search";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "search"){
+
+			if(this.ds_search.rowcount > 0)
+			{ 
+		
+			}else if(this.ds_search.rowcount == 0){
+
+				alert("회원 가입된 회원이 없습니다. ");
+				return false;
+			}
+			
+		}
+	}
+//	trace("ds_search    = >>" + this.ds_search.saveXML());
+	
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+
+}
+
+this.fn_afterFormOnload = function()
+{
+
+ 	//this.div_search.edt_naTrplC.set_value( this.parent.edt_naTrplC.value);
+}
+
+
+
+
+//전화 번호 타입 변경
+this.fn_telNo_mask = function(strTelNo){
+
+var telNo = "" ;
+	 if(strTelNo.length > 8 ){
+		var RegPhonNum = ""; 
+		var num= "****"; 
+		
+		
+
+		//문자열 길이에 따른 값 처리
+		if(strTelNo.length == 9 ) {
+			RegPhonNum = /([0-9]{2})([0-9]{3})([0-9]+)/; 
+			
+		} else if(strTelNo.length == 10){
+			if(strTelNo.substring(0,2)=="02"){
+				RegPhonNum = /([0-9]{2})([0-9]{4})([0-9]+)/; 
+				
+			}else{
+				RegPhonNum = /([0-9]{3})([0-9]{3})([0-9]+)/;
+				
+			}
+		} else if(strTelNo.length > 10){ 
+			RegPhonNum = /([0-9]{3})([0-9]{4})([0-9]+)/; 
+
+		}
+
+		strTelNo = strTelNo.replace(RegPhonNum, "$1-$2-$3"); 
+
+		var naTrplCVal = strTelNo.split("-");
+            
+         telNo = naTrplCVal[0] + "-" + naTrplCVal[1] + "-"+ num;   
+
+	}
+	return telNo ;
+}
+
+this.fn_name = function(name)
+{
+   var sName = "";
+   
+   for(var i = 0 ; i < name.length; i++)
+   {
+      if(i%2 == 0)
+      {   
+         sName += name.substr(i, 1);
+      }
+      else
+      {
+         sName += "*";
+      }
+      
+   }
+   return sName ;
+}
+
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	//if(this.new_elt  ==  true){
+		this.close();
+// 	}else{
+// 		this.parent.div_chrr.set_url("");
+// 		this.parent.div_chrr.set_visible(false);
+// 	}
+}
+
+this.btn_Close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+// 	if(this.new_elt  ==  true){
+ 		this.close();
+// 	}else{
+// 		this.parent.div_chrr.set_url("");
+// 		this.parent.div_chrr.set_visible(false);
+// 	}
+}
+
+
+this.btn_confirm_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var result;
+	if(this.ds_search.rowcount > 0){
+		for(var i = 0; i < this.ds_search.rowcount; i++){
+			if(this.ds_search.getColumn(i, "ISCHECKED") == 1)
+			{
+				result = "CTR_CHRR#" + this.ds_search.getColumn(i, "CTR_CHRR");      //경제통합거래처코드
+				result += ",MPNO#" + this.ds_search.getColumn(i, "MPNO");            //거래처명
+				result += ",EMAIL#"+ this.ds_search.getColumn(i, "EMAIL");   //거래처약어명
+
+			}
+		}
+		if(this.gfn_isNull(result)){
+			alert("입력할 주소를 체크 하세요");
+			return false;
+		}
+	}else
+	{
+		alert("업체 담당자를 조회 하세요");
+		return false;
+	}
+	
+	//if(this.new_elt  ==  true){
+		this.close(result);
+// 	}else{
+// 	    
+// 		this.parent.fn_addr(result);
+// 		this.parent.div_chrr.set_url("");
+// 		this.parent.div_chrr.set_visible(false);
+// 		
+// 	}	
+}
+
+
+
+this.grd_search_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+
+	var result;
+	var i  =   this.ds_search.rowposition  ;
+		result = "CTR_CHRR#" + this.ds_search.getColumn(i, "CTR_CHRR");      //경제통합거래처코드
+		result += ",MPNO#" + this.ds_search.getColumn(i, "MPNO");            //거래처명
+		result += ",EMAIL#"+ this.ds_search.getColumn(i, "EMAIL");   //거래처약어명
+	
+//if(this.new_elt  ==  true){
+		this.close(result);
+// 	}else{
+// 	    
+// 		this.parent.fn_chrr(result);
+// 		this.parent.div_chrr.set_url("");
+// 		this.parent.div_chrr.set_visible(false);
+// 		
+// 	}				
+				
+}
+
+// this.OMG_DS_SC_9060_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+// {
+// 	if (e.keycode==13  ){
+//  		this.btn_search.click() ;
+//  	}
+// }
+]]></Script>
+  </Form>
+</FDL>

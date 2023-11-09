@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1541" classname="VAN_DS_SC_1541" left="0" top="0" width="803" height="490" titletext="등록신청내역 조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="0" cssclass="btn_WFSA_Searchbtn" top="47" right="17" width="58" height="21" onclick="btn_search_onclick"/>
+        <Div id="div_search" taborder="8" left="17" top="76" right="17" height="107" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Calendar id="cal_fsrg00" taborder="0" left="271" top="26" width="100" height="21" dateformat="yyyy-MM-dd" value="null"/>
+              <Calendar id="cal_fsrg01" taborder="1" left="392" top="26" width="100" height="21" dateformat="yyyy-MM-dd" value="null"/>
+              <Edit id="edt_van_c" taborder="2" left="392" top="57" width="154" height="21"/>
+              <Combo id="cbo_van_code" taborder="3" left="245" top="57" width="126" height="21" codecolumn="codecolumn" datacolumn="datacolumn">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">등록신청내역코드</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">등록신청내역명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static00" taborder="4" text="등록일" left="204" top="26" width="67" height="21"/>
+              <Static id="Static01" taborder="5" text="~" left="377" top="26" width="15" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static06" taborder="9" text="등록신청내역 조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Static id="Static04" taborder="10" text="15" visible="false" left="695" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="11" text="8" visible="false" left="695" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="12" text="15" visible="false" left="710" top="183" width="76" height="15" style="background:#dc143c5b;"/>
+        <Grid id="grd_main" taborder="13" binddataset="ds_main_req" useinputpanel="false" left="17" top="198" right="17" bottom="56" oncellclick="grd_main_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="45"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="110"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="140"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="140"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="90"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="90"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="순번"/>
+                <Cell col="1" rowspan="2" text="코드신청번호"/>
+                <Cell col="2" rowspan="2" text="코드신청&#13;&#10;상태코드"/>
+                <Cell col="3" rowspan="2" text="코드신청&#13;&#10;대상구분코드"/>
+                <Cell col="4" rowspan="2" text="연락처&#13;&#10;전화번호"/>
+                <Cell col="5" rowspan="2" text="접수일시"/>
+                <Cell col="6" rowspan="2" text="접수자&#13;&#10;개인번호"/>
+                <Cell col="7" rowspan="2" text="접수자&#13;&#10;사업장코드"/>
+                <Cell col="8" rowspan="2" text="처리일시"/>
+                <Cell col="9" rowspan="2" text="처리자&#13;&#10;개인번호"/>
+                <Cell col="10" rowspan="2" text="처리자&#13;&#10;사업장코드"/>
+                <Cell col="11" rowspan="2" text="신청거절&#13;&#10;사유코드"/>
+                <Cell col="12" rowspan="2" text="신청내용"/>
+                <Cell col="13" rowspan="2" text="처리내용"/>
+                <Cell col="14" rowspan="2" text="승인신청&#13;&#10;사업장코드"/>
+                <Cell col="15" rowspan="2" text="삭제여부"/>
+                <Cell col="16" rowspan="2" text="최초등록일시"/>
+                <Cell col="17" rowspan="2" text="최초등록자&#13;&#10;개인번호"/>
+                <Cell col="18" rowspan="2" text="최초등록자&#13;&#10;사업장코드"/>
+                <Cell col="19" rowspan="2" text="최종변경일시"/>
+                <Cell col="20" rowspan="2" text="최종변경자&#13;&#10;개인번호"/>
+                <Cell col="21" rowspan="2" text="최종변경자&#13;&#10;사업장코드"/>
+                <Cell col="22" rowspan="2" text="자체상품&#13;&#10;신청사유코드"/>
+                <Cell col="23" rowspan="2" text="바이어접수일시"/>
+                <Cell col="24" rowspan="2" text="바이어&#13;&#10;접수자&#13;&#10;개인번호"/>
+                <Cell col="25" rowspan="2" text="바이어&#13;&#10;접수자&#13;&#10;사업장코드"/>
+                <Cell col="26" rowspan="2" text="바이어&#13;&#10;처리일시"/>
+                <Cell col="27" rowspan="2" text="바이어&#13;&#10;처리자&#13;&#10;개인번호"/>
+                <Cell col="28" rowspan="2" text="바이어&#13;&#10;처리자&#13;&#10;사업장코드"/>
+                <Cell col="29" rowspan="2" text="개당&#13;&#10;납품단가"/>
+                <Cell col="30" rowspan="2" text="박스당&#13;&#10;납품단가"/>
+                <Cell col="31" rowspan="2" text="매출액당&#13;&#10;수수료율"/>
+                <Cell col="32" rowspan="2" text="판촉지원&#13;&#10;인원수"/>
+                <Cell col="33" rowspan="2" text="상품취급&#13;&#10;경쟁점수"/>
+                <Cell col="34" rowspan="2" text="추정매출&#13;&#10;기여금"/>
+                <Cell col="35" rowspan="2" text="대체삭제&#13;&#10;상품코드"/>
+                <Cell col="36" rowspan="2" text="계통상품&#13;&#10;확인여부"/>
+                <Cell col="37" rowspan="2" text="납품거래처명"/>
+                <Cell col="38" rowspan="2" text="납품거래처&#13;&#10;전화번호"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:currow+1"/>
+                <Cell col="1" text="bind:NA_C_RQ_NO"/>
+                <Cell col="2" text="bind:NA_C_RQ_STSC"/>
+                <Cell col="3" text="bind:NA_C_RQ_OBJ_DSC"/>
+                <Cell col="4" text="bind:CTCPL_TELNO"/>
+                <Cell col="5" text="bind:CNF_DMT"/>
+                <Cell col="6" text="bind:FSRGMN_ENO"/>
+                <Cell col="7" text="bind:FSRGMN_NA_BZPLC"/>
+                <Cell col="8"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+                <Cell col="11" text="bind:NA_C_RQ_REJ_RSNC"/>
+                <Cell col="12" text="bind:RQ_CNTN"/>
+                <Cell col="13"/>
+                <Cell col="14" text="bind:APV_RQ_NA_BZPLC"/>
+                <Cell col="15" text="bind:DEL_YN"/>
+                <Cell col="16" text="bind:FSRG_DTM"/>
+                <Cell col="17" text="bind:FSRGMN_ENO"/>
+                <Cell col="18" text="bind:FSRGMN_NA_BZPLC"/>
+                <Cell col="19" text="bind:LSCHG_DTM"/>
+                <Cell col="20" text="bind:LS_CMENO"/>
+                <Cell col="21" text="bind:LSCGMN_NA_BZPLC"/>
+                <Cell col="22"/>
+                <Cell col="23"/>
+                <Cell col="24"/>
+                <Cell col="25"/>
+                <Cell col="26"/>
+                <Cell col="27"/>
+                <Cell col="28"/>
+                <Cell col="29"/>
+                <Cell col="30"/>
+                <Cell col="31"/>
+                <Cell col="32"/>
+                <Cell col="33"/>
+                <Cell col="34"/>
+                <Cell col="35"/>
+                <Cell col="36"/>
+                <Cell col="37"/>
+                <Cell col="38"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" taborder="14" text="17" visible="false" width="91" style="background:#dc143c5b;" right="17" height="17" bottom="0"/>
+        <Button id="btn_ok" taborder="15" text="확인" cssclass="btn_WF_Popup" left="676" top="444" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Button id="btn_cancle" taborder="16" text="취소" onclick="btn_close_onclick" cssclass="btn_WF_Popup" top="444" height="29" width="54" right="17"/>
+        <Static id="Static02" taborder="17" text="10" visible="false" top="434" width="91" height="10" style="background:#dc143c5b;" right="17"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_main_req" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RN" type="STRING" size="256"/>
+          <Column id="VAN_C_RQ_NO" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_NO" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_OBJ_DSC" type="STRING" size="256"/>
+          <Column id="CTCPL_TELNO" type="STRING" size="256"/>
+          <Column id="RQ_CNTN" type="STRING" size="256"/>
+          <Column id="APV_RQ_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="FSRGMN_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BUYER_ENO" type="STRING" size="256"/>
+          <Column id="RQ_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRS_C_DSC" type="STRING" size="256"/>
+          <Column id="WRS_DSC" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="WRS_ABR_NM" type="STRING" size="256"/>
+          <Column id="WRS_ENM" type="STRING" size="256"/>
+          <Column id="WRS_TPC" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="TXT_DSC" type="STRING" size="256"/>
+          <Column id="SMA_APL_TPC" type="STRING" size="256"/>
+          <Column id="LIQ_YN" type="STRING" size="256"/>
+          <Column id="COMM_WRS_YN" type="STRING" size="256"/>
+          <Column id="MFT_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="WHT" type="STRING" size="256"/>
+          <Column id="NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_PAK_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_BRAN_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_CSTD_METC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DSTR_STSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_UZC" type="STRING" size="256"/>
+          <Column id="NA_WRS_IPO_DSC" type="STRING" size="256"/>
+          <Column id="VCBT_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="VCBT_QT" type="STRING" size="256"/>
+          <Column id="VCBX_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRS_DTL_EXPL" type="STRING" size="256"/>
+          <Column id="BSC_UNT_DSC" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+          <Column id="RFID_UYN" type="STRING" size="256"/>
+          <Column id="FOMNM" type="STRING" size="256"/>
+          <Column id="SLGT_ETR_DSC" type="STRING" size="256"/>
+          <Column id="DSTR_TER_YN" type="STRING" size="256"/>
+          <Column id="DSTR_TER_MRK_DSC" type="STRING" size="256"/>
+          <Column id="WRS_MODIFY_YN" type="STRING" size="256"/>
+          <Column id="TEMP_YN" type="STRING" size="256"/>
+          <Column id="REQ_RESULT" type="STRING" size="256"/>
+          <Column id="CNF_ENO" type="STRING" size="256"/>
+          <Column id="CNF_DMT" type="STRING" size="256"/>
+          <Column id="CNF_NAME" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="RSP_C_CNTN" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_REJ_RSNC" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_STSC" type="STRING" size="256"/>
+          <Column id="EDI_IF_ID" type="STRING" size="256"/>
+          <Column id="NA_WRS_SZE_SEX_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_QLT_GRDC" type="STRING" size="256"/>
+          <Column id="NA_WRS_PROENV_DSC" type="STRING" size="256"/>
+          <Column id="GAP_ATTC_YN" type="STRING" size="256"/>
+          <Column id="NA_WRS_NACF_QLT_ATTC_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_PDAA_C" type="STRING" size="256"/>
+          <Column id="ACHMI_LATCNM" type="STRING" size="256"/>
+          <Column id="ACHMI_IGRQT" type="STRING" size="256"/>
+          <Column id="FTLZ_PHAC_IGRDRT" type="STRING" size="256"/>
+          <Column id="FTLZ_NTRG_IGRDRT" type="STRING" size="256"/>
+          <Column id="FTLZ_KLM_IGRDRT" type="STRING" size="256"/>
+          <Column id="FMACH_PATS_CLF_DSC" type="STRING" size="256"/>
+          <Column id="NUMN_YN" type="STRING" size="256"/>
+          <Column id="GEN_LON_LMT_AM" type="STRING" size="256"/>
+          <Column id="COMM_LON_LMT_AM" type="STRING" size="256"/>
+          <Column id="NA_WRS_STD_UNT_C" type="STRING" size="256"/>
+          <Column id="WRS_SGRT" type="STRING" size="256"/>
+          <Column id="WRS_SDL_DSC" type="STRING" size="256"/>
+          <Column id="WRS_AHL_CN" type="STRING" size="256"/>
+          <Column id="MTRL_STD_THKN" type="STRING" size="256"/>
+          <Column id="CICL_WRS_STD_DMTR_CN" type="STRING" size="256"/>
+          <Column id="CICL_WRS_STD_DPTH_CN" type="STRING" size="256"/>
+          <Column id="FED_PD_METC" type="STRING" size="256"/>
+          <Column id="SNUM_CNTN" type="STRING" size="256"/>
+          <Column id="CVS_QT" type="STRING" size="256"/>
+          <Column id="CVS_NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="WRS_FL_CN" type="STRING" size="256"/>
+          <Column id="KNET_WRS_NO" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+          <Column id="TR_STOP_RSNC" type="STRING" size="256"/>
+          <Column id="FMACH_FOMNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var TRPL_C = application.gv_glnCode; // 로그인 사업장코드
+var TRPL_NM = application.gv_companyName; //로그인 사업장명
+this.objRtnArr = new Array(1);
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+		var searchParam =
+	{
+				form: this,									//고정
+				param:[{
+						edit: this.div_search.edt_van_c,	//타겟 컴포넌트
+						fnc: 'btn_search_onclick'			//엔터키 눌렀을시 실행할 함수 이름
+				}]
+	};
+	this.addEventEnterSearch(searchParam);
+	this.div_search.cal_fsrg00.set_value(this.gfn_today('yyyyMM')+'01');
+	this.div_search.cal_fsrg01.set_value(this.gfn_today('yyyyMMdd'));
+	this.div_search.cbo_van_code.set_value(2);
+	this.grd_main.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var gubun = "";
+	if(this.parent.gubun == "1"){
+		gubun = "T";
+	}else{
+		gubun = "Y";
+	}
+
+	var params 		  = "NA_WRS_RADIO="+this.div_search.cbo_van_code.value
+						+" start_date="+this.div_search.cal_fsrg00.value
+						+" end_date="+this.div_search.cal_fsrg01.value
+						+" NA_WRS_C='"+this.gfn_nullToEmpty(this.div_search.edt_van_c.value)+"'"
+						+" GUBUN="+gubun;
+
+	var sSvcID        = "pop_van_search";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveNewGoodsPopUp";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_main_req=ds_main_req";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0){
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		if(svcID == "pop_van_search"){
+			if(this.grd_main.rowcount < 1){
+				this.grd_main.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+	}
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if(this.ds_main_req.rowcount > 0){
+		this.objRtnArr[0] = this.ds_main_req.getColumn(this.ds_main_req.rowposition,"VAN_C_RQ_NO");
+		this.close(this.objRtnArr.toString());
+	}else{
+		this.close();
+	}
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.grd_main_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.btn_ok_onclick();
+}
+]]></Script>
+  </Form>
+</FDL>

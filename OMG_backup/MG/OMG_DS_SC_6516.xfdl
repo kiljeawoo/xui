@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6516" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="매출조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static87" taborder="1" text="17" visible="false" left="98.13%" top="1" height="1195" style="background:#dc143c5b;" width="15"/>
+        <Static id="Static41" taborder="10" text="20" visible="false" left="2.86%" top="697" right="-24.53%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static89" taborder="13" text="매출조회" cssclass="sta_WF_Subtitle" left="15" top="9" right="76.09%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static06" taborder="66" text="17" visible="false" left="0%" top="1" right="98.51%" height="1195" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="67" text="조회" cssclass="btn_WF_CRUD" top="5" right="15" height="21" onclick="btn_search_onclick" width="44"/>
+        <Div id="div_search" taborder="70" left="11" top="39" right="15" height="40" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="102" text="검색기간" cssclass="sta_WFSA_Label" left="1.94%" top="10" right="84.99%" height="21"/>
+              <Calendar id="cal_to" taborder="120" dateformat="yyyy-MM-dd" left="28.72%" top="10" right="58.86%" height="21"/>
+              <Static id="Static04" taborder="121" text="~" left="27.43%" top="10" right="71.28%" height="21"/>
+              <Calendar id="cal_from" taborder="122" dateformat="yyyy-MM-dd" left="15.01%" top="10" right="72.57%" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_result" taborder="71" text="Div02" left="0%" top="77" right="15" bottom="2">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_slInqList" taborder="13" binddataset="ds_master" useinputpanel="false" autofittype="col" left="11" top="20" height="152" right="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="109"/>
+                      <Column size="147"/>
+                      <Column size="151"/>
+                      <Column size="147"/>
+                      <Column size="158"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="매출일자"/>
+                      <Cell col="1" text="공급업체코드"/>
+                      <Cell col="2" text="상품수"/>
+                      <Cell col="3" text="매출 수량"/>
+                      <Cell col="4" text="매출 합계"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:SL_DT" mask="####-##-##"/>
+                      <Cell col="1" style="align:center middle;" text="bind:NA_TRPL_C"/>
+                      <Cell col="2" displaytype="number" style="align:right middle;" text="bind:SL_WRS_CN"/>
+                      <Cell col="3" displaytype="number" style="align:right middle;" text="bind:SL_QT"/>
+                      <Cell col="4" displaytype="number" style="align:right middle;" text="bind:SL_AM"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="align:center;" text="합계"/>
+                      <Cell col="1"/>
+                      <Cell col="2" displaytype="number" text="expr:dataset.getSum(&quot;nexacro.toNumber(SL_WRS_CN)&quot;)"/>
+                      <Cell col="3" displaytype="number" text="expr:dataset.getSum(&quot;nexacro.toNumber(SL_QT)&quot;)"/>
+                      <Cell col="4" displaytype="number" text="expr:dataset.getSum(&quot;nexacro.toNumber(SL_AM)&quot;)"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button" taborder="14" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" width="62" onclick="div_result_Button_onclick"/>
+              <Grid id="grd_mbApvrqrList00" taborder="15" binddataset="ds_detail" useinputpanel="false" autofittype="col" left="11" top="189" right="0" bottom="32">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="88"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="175"/>
+                      <Column size="158"/>
+                      <Column size="207"/>
+                      <Column size="96"/>
+                      <Column size="96"/>
+                      <Column size="96"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="매출일자"/>
+                      <Cell col="2" text="공급업체코드"/>
+                      <Cell col="3" text="사업장코드"/>
+                      <Cell col="4" text="사업장명"/>
+                      <Cell col="5" text="상품코드"/>
+                      <Cell col="6" text="상품명"/>
+                      <Cell col="7" text="매출수량"/>
+                      <Cell col="8" text="매입단가"/>
+                      <Cell col="9" text="매출합계"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:RN"/>
+                      <Cell col="1" style="align:center middle;" text="bind:SL_DT" mask="####-##-##"/>
+                      <Cell col="2" style="align:center middle;" text="bind:SPY_NA_TRPL_C"/>
+                      <Cell col="3" style="align:center middle;" text="bind:NA_BZPLC"/>
+                      <Cell col="4" style="align:left middle;" text="bind:SHRT_BZPLNM"/>
+                      <Cell col="5" style="align:center middle;" text="bind:NA_WRS_C"/>
+                      <Cell col="6" style="align:left middle;" text="bind:WRSNM"/>
+                      <Cell col="7" displaytype="number" style="align:right middle;" text="bind:SL_QT"/>
+                      <Cell col="8" displaytype="number" style="align:right middle;" text="bind:TOT_SLAM"/>
+                      <Cell col="9" displaytype="number" style="align:right middle;" text="bind:TOT_AMT"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_paging" taborder="16" url="common::pagingBTN.xfdl" left="226" bottom="3" width="44.42%" height="29" style="align:center middle;" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Edit id="edt_NA_TRPL_C" taborder="72" left="24" top="513" width="17.43%" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_master" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_master_onrowposchanged">
+        <ColumnInfo>
+          <Column id="SL_DT" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="SL_QT" type="STRING" size="256"/>
+          <Column id="SL_AM" type="STRING" size="256"/>
+          <Column id="SL_WRS_CN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_detail" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RN" type="STRING" size="256"/>
+          <Column id="SL_DT" type="STRING" size="256"/>
+          <Column id="SPY_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="SHRT_BZPLNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="SL_QT" type="STRING" size="256"/>
+          <Column id="TOT_SLAM" type="STRING" size="256"/>
+          <Column id="TOT_AMT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+   this.div_result.grd_slInqList.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+   this.div_result.grd_mbApvrqrList00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분   
+   /*초기값세팅*/      
+}
+
+/*조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	   this.fn_retriveUsrInfo(this.edt_NA_TRPL_C.value,"N");
+}
+
+/*******************************************************************************
+	TAB호출시 호출되는 함수
+*******************************************************************************/
+this.fn_retriveUsrInfo = function (na_trpl_c, initParam){	
+	
+	this.edt_NA_TRPL_C.set_value(na_trpl_c);	    	
+    if(initParam == "Y"){	
+		this.div_search.cal_from.set_value(this.gfn_minusDate(application.gv_today,1));
+		this.div_search.cal_to.set_value(application.gv_today);	
+    }
+    else{    
+		if(nexacro.toNumber(this.div_search.cal_from.value) > nexacro.toNumber(this.div_search.cal_to.value)){
+			alert("조회시작일이 조회종료일보다 클 수는 없습니다.");
+			return ;
+		}    
+			
+		 if(nexacro.toNumber(this.div_search.cal_from.value) < nexacro.toNumber(this.gfn_minusMonth(String(this.div_search.cal_to.value),1))){
+			alert("조회 기간은 최대 한달입니다.");
+			return ;
+		}
+    }
+    
+	var sParams = "FROM="+this.gfn_nullToEmpty(this.div_search.cal_from.value)
+				+ " TO="+this.gfn_nullToEmpty(this.div_search.cal_to.value)				
+				+ " NA_TRPL_C="+this.gfn_nullToEmpty(na_trpl_c)				
+				;	
+	var sSvcID        = "retrieveSlInqList";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveSlInqList";		 
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_master=ds_master" ;	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";	
+	var sTranType     = "S"; // U:저장/삭제, S:조회		
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);  
+}
+/*******************************************************************************
+	master dataset 변경시 호출
+*******************************************************************************/
+this. fn_retrieveSlInqDetailList = function (){
+	
+	var sParams = "SL_DT="+this.gfn_nullToEmpty(this.ds_master.getColumn(this.ds_master.rowposition,"SL_DT"))				
+				+ " NA_TRPL_C="+this.gfn_nullToEmpty(this.ds_master.getColumn(this.ds_master.rowposition,"NA_TRPL_C"))				
+				;
+	
+	var sSvcID        = "retrieveSlInqDetailList";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveSlInqDetailList";		 
+	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_detail=ds_detail ds_pageVO=ds_pageVO" ;	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";	
+	var sTranType     = "S"; // U:저장/삭제, S:조회			
+	trace(sParams);
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);  
+	
+}
+
+
+this.div_result_Button_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_result);
+}
+
+this.ds_master_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+/*******************************************************************************
+	페이징처리
+*******************************************************************************/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_detail.clearData();     //Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = 20;	//Grid에 보여줄 Row수 선택
+	var vTotalCount = 0;	//전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	
+	var argumentObj = "";	
+	this.fn_retrieveSlInqDetailList();
+}
+   
+/*******************************************************************************
+	콜백메소드
+*******************************************************************************/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveSlInqList"){			
+	 		if(this.ds_master.rowcount == 0){ 		
+		//		this.gfn_getMessage("alert", "result.message.search.no.exist.data");	 			
+			}		 		
+		}else if(svcID == "retrieveSlInqDetailList"){
+			var current_page = this.ds_pageVO.getColumn(0,"CURRENT_PAGE");
+			var page_size    = this.ds_pageVO.getColumn(0,"PAGE_SIZE");
+			var sTotal    	 = this.ds_pageVO.getColumn(0,"TOTAL_ROW_COUNT");	
+			
+			if(this.ds_detail.rowcount == 0){
+		//		this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+				this.div_result.div_paging.fn_pageSet(0, 0,"div_paging",current_page);
+			} else if(this.ds_detail.rowcount > 0){				
+				this.div_result.div_paging.fn_pageSet(sTotal, page_size,"div_paging",current_page);	
+			}
+		}
+	}	
+}
+  
+]]></Script>
+  </Form>
+</FDL>

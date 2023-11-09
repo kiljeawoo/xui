@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="SYS_BATCH_SMS" classname="pattern_01" left="0" top="0" width="803" height="700" titletext="역발행세금계산서SMS" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="1" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="18" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="4" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="5" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="6" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="10" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Static id="Static02" taborder="11" text="조회년" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="79" onclick="div_search_Static02_onclick"/>
+              <Static id="Static03" taborder="15" text="30" visible="false" left="430" top="1" height="43" style="background:#dc143c5b;" width="30"/>
+              <Calendar id="cal_search" taborder="16" dateformat="yyyy" onchanged="cal_dvy_pla_dt_onchanged" oneditclick="cal_search_oneditclick" ontextchanged="cal_dvy_pla_dt_ontextchanged" left="96" top="8" width="105" height="21" value="null" editformat="yyyy"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static05" taborder="14" text="69" onclick="Static04_onclick" visible="false" left="83.31%" top="29" right="12.95%" height="69" style="background:#dc143c5b;"/>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="97" right="15" height="650">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Static id="Static03" taborder="5" text="15" visible="false" left="667" top="1" width="56" height="41" style="background:#dc143c5b;"/>
+              <Button id="btn_flag" taborder="7" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+              <Grid id="Grid00" taborder="8" binddataset="ds_tx_sms" autoenter="select" useinputpanel="false" autofittype="col" left="0.76%" top="42" right="0%" height="549">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="43"/>
+                      <Column size="71"/>
+                      <Column size="65"/>
+                      <Column size="57"/>
+                      <Column size="349"/>
+                      <Column size="126"/>
+                      <Column size="77"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none" text="삭제"/>
+                      <Cell col="1" text="정산년월"/>
+                      <Cell col="2" text="발송일자"/>
+                      <Cell col="3" text="발송여부"/>
+                      <Cell col="4" text="발송메시지"/>
+                      <Cell col="5" text="최종변경일시"/>
+                      <Cell col="6" text="최종변경자"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                      <Cell col="1" displaytype="text" edittype="text" style="align:center middle;" text="bind:BAS_YM"/>
+                      <Cell col="2" displaytype="text" edittype="text" style="align:center;" text="bind:TMS_DT"/>
+                      <Cell col="3" edittype="text" style="align:center;" text="bind:TMS_YN"/>
+                      <Cell col="4" edittype="text" style="align:left;" text="bind:SMS_TEXT"/>
+                      <Cell col="5" edittype="text" style="align:center;" text="bind:LSCHG_DTM"/>
+                      <Cell col="6" text="bind:LS_CHGM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_addRow" taborder="9" text="행추가" onclick="btn_addrow_onclick" left="92.01%" top="11" right="0.38%" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_save" taborder="15" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="0" right="82" width="42" height="21" style="background:URL('theme://images/btn_WF_CRUD.png') stretch 7,7;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_tx_sms" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="32"/>
+          <Column id="BAS_YM" type="STRING" size="256"/>
+          <Column id="TMS_DT" type="DATE" size="256"/>
+          <Column id="TMS_YN" type="STRING" size="256"/>
+          <Column id="SMS_TEXT" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="BAS_YM">201809</Col>
+            <Col id="BSN_DSC">TX_BILL_MON</Col>
+            <Col id="TMS_DT">20181005</Col>
+            <Col id="TMS_YN">N</Col>
+            <Col id="SMS_TEXT">하나로 eSCM에서 확인 후 9월 10일까지 전자서명 부탁드립니다.</Col>
+            <Col id="FSRG_DTM">18/05/02</Col>
+            <Col id="FS_RGM">TX_SMS</Col>
+            <Col id="LSCHG_DTM">18/05/02</Col>
+            <Col id="LS_CHGM">TX_SMS</Col>
+          </Row>
+        </Rows>
+        -->
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+/* 페이지 로딩 후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+	/* 초기값세팅 */
+	this.div_search.cal_search.set_value(this.gfn_today("yyyy"));
+
+	/* 조회 호출 */
+	this.btn_search.click();  
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+ 
+/* 조회버튼 이벤트 */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+    this.fn_retrieveTxSmsList(); // 처음조회시 1페이지를 조회한다.
+}
+
+/* 대금리스트  조회*/
+this.fn_retrieveTxSmsList = function()
+{
+    // alert('search_item_list');
+	// this.ds_ctEtcItemList.clearData();
+	
+    var curRow = this.ds_tx_sms.rowposition;
+    var bas_y = this.div_search.cal_search.getYear();
+    
+    // alert(bas_y);
+    // var bas_y = bas_dt.substring(0, 3);
+    // alert(bas_dt.nodeType);
+
+	// var eltCtrwNo  = this..ds_tx_sms.getColumn(curRow, "ELT_CTRW_NO");    //전자계약서번호
+	// var chgSqno    =  this..ds_tx_sms.getColumn(curRow, "CHG_SQNO");   // 변경일련번호
+	// var ctrwStyVer = this.ds_ctEtcItemList.getColumn(curRow, "CTRW_STY_VER");  
+	// 
+	
+	param = " BAS_Y=" + bas_y
+
+			;
+			
+	var sSvcID        = "retrieveTxSmsList";//통신아이디
+	var sURL          = "svc::rest/tx/retrieveTxSmsList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_tx_sms=ds_tx_sms";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+}
+
+// 행추가
+this.btn_addrow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nRow = this.ds_tx_sms.addRow();
+	this.ds_tx_sms.setColumn(this.ds_tx_sms.rowposition, "TMS_YN", "N");
+
+	this.ds_tx_sms.set_updatecontrol(false); //
+	this.ds_tx_sms.setRowType(nRow, Dataset.ROWTYPE_INSERT);
+	this.ds_tx_sms.set_updatecontrol(true); // 이걸 해주지 않으면 자동으로 바뀌지 않음
+
+
+} // 
+
+/*
+ * 저장
+ */
+ this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+    // alert('btn_save_onclick');
+    
+	var dsParams = "";
+	var params = "";
+
+	//trace("[ Params ] >>>>>> " + params);	
+	dsParams = "ds_tx_sms=ds_tx_sms ";
+
+	var sSvcID        = "saveTxSmsList";//통신아이디
+	var sURL          = "svc::rest/tx/saveTxSmsList";// 호출할 서버 페이지 주소
+	var sInDatasets   = dsParams;//보내는데이터셋
+	var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/* 조회-서비스 Call */
+
+/* 콜백메소드 */
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+    // alert(svcID);
+    
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveTxSmsList"){
+			if(this.ds_rsclist.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		} else if(svcID == "saveTxSmsList"){
+		    alert("저장되었습니다.");
+			this.fn_retrieveTxSmsList();
+		}
+
+	}
+
+  //trace("ds_rsclist" + this.ds_rsclist.saveXML());
+}]]></Script>
+  </Form>
+</FDL>

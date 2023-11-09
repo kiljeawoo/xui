@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="location" classname="location" left="0" top="0" width="240" height="21" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_bookmarkS" taborder="2" onclick="btn_bookmark_onclick" cssclass="btn_WF_BookmarkS" left="0" top="0" height="21" width="15" visible="false"/>
+        <Static id="sta_location" taborder="0" text="제목" usedecorate="false" cssclass="sta_WF_Location" left="18" top="0" height="21" right="15" onclick="sta_location_onclick"/>
+        <Button id="btn_bookmark" taborder="1" cssclass="btn_WF_Bookmark" left="0" top="0" width="15" height="21" onclick="btn_bookmark_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var nMenuID = "";
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if(!application.gv_quickviewmode){
+		try
+		{
+			this.sta_location.set_text(this.getOwnerFrame().arguments["FORM_NM"]);
+			this._gfn_myMenuCheck();
+		}
+		catch(e)
+		{
+		}
+		
+	}	
+}
+
+this._gfn_myMenuCheck = function()
+{
+	nMenuID  = this.getOwnerFrame().arguments["FORM_ID"];	
+	var nRow = application.gds_myMenu.findRow("MENU_ID", nMenuID);
+	
+	if(nRow != -1) {
+		this.btn_bookmarkS.set_visible(true);
+		this.btn_bookmark.set_visible(false);
+	}
+}
+
+this.btn_bookmark_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//등록
+	if(obj.cssclass == "btn_WF_Bookmark"){
+		this.gfn_addMyMenu();
+				
+	//해제
+	}else{
+		this.gfn_delMyMenu();
+	}
+}
+
+this.gfn_addMyMenu = function()
+{
+	var sSvcID        = "insertMyMenu";      
+	var sURL          = "svc::rest/pt/insertMyMenu";
+	var sInDatasets   = "";
+	var sOutDatasets  = "gds_myMenu=ds_myMenu";
+	var sArgument     = "menuId="+nMenuID;
+	var sCallbackFunc = "fn_callBackLocation";
+	var sTranType     = "U";         
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType)
+}
+
+this.gfn_delMyMenu = function()
+{
+	var sSvcID        = "deleteMyMenu";      
+	var sURL          = "svc::rest/pt/deleteMyMenu";
+	var sInDatasets   = "";
+	var sOutDatasets  = "gds_myMenu=ds_myMenu";
+	var sArgument     = "menuId="+nMenuID;
+	var sCallbackFunc = "fn_callBackLocation";
+	var sTranType     = "U";
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBackLocation = function(svcId, eCode, eMsg)
+{
+	if(eCode == 2)
+	{	
+		if(svcId == "insertMyMenu"){
+			alert("My Menu에 등록되었습니다.");
+			this.btn_bookmarkS.set_visible(true);
+			this.btn_bookmark.set_visible(false);
+		}else if(svcId == "deleteMyMenu"){
+			alert("My Menu에서 해제되었습니다.");
+			this.btn_bookmarkS.set_visible(false);
+			this.btn_bookmark.set_visible(true);
+		}
+	}
+	else if(eCode > -1){
+		
+		if(svcId == "insertMyMenu"){
+			alert("My Menu에 등록되었습니다.");
+			this.btn_bookmarkS.set_visible(true);
+			this.btn_bookmark.set_visible(false);
+		}else if(svcId == "deleteMyMenu"){
+			alert("My Menu에서 해제되었습니다.");
+			this.btn_bookmarkS.set_visible(false);
+			this.btn_bookmark.set_visible(true);
+		}
+	}
+}
+this.sta_location_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

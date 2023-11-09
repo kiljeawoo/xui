@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="629" height="402" titletext="공급처 차량정보 조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button07" taborder="0" text="초기화" cssclass="btn_WF_CRUD" top="47" right="76" width="53" height="21" onclick="Button07_onclick"/>
+        <Button id="btn_search" taborder="3" cssclass="btn_WFSA_Searchbtn" top="47" right="16" width="58" height="21" onclick="btn_search_onclick"/>
+        <Grid id="grd_master" taborder="5" binddataset="ds_dataM" useinputpanel="false" left="17" top="134" right="17" autofittype="none" height="188" oncellclick="grd_master_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="41"/>
+                <Column size="98"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="116"/>
+                <Column size="155"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="차량번호"/>
+                <Cell col="2" text="기사명"/>
+                <Cell col="3" text="전화번호"/>
+                <Cell col="4" text="거래처코드"/>
+                <Cell col="5" text="거래처명"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:VHCNO"/>
+                <Cell col="2" text="bind:PHD_DVY_CAFFNM"/>
+                <Cell col="3" text="bind:TELNO"/>
+                <Cell col="4" text="bind:NA_TRPL_C"/>
+                <Cell col="5" text="bind:CLNTNM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="74" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="363" top="361" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="363" top="322" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="119" width="76" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" top="0" cssclass="btn_WF_PopupClose" right="4" onclick="btn_close_onclick" height="32" width="46"/>
+        <Static id="Static14" taborder="38" text="5" visible="false" left="243" top="106" width="91" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="39" text="공급처 차량정보 조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Div id="div_search" taborder="41" left="17" top="76" right="17" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="11" text="10" visible="false" left="157" top="0" width="91" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static06" taborder="13" text="10" visible="false" left="165" top="31" width="91" height="10" style="background:#dc143c5b;"/>
+              <Edit id="edt_searchWord" taborder="14" cssclass="WF_Essential" left="161" top="10" width="414" height="21" onkeydown="div_search_edt_searchWord_onkeydown"/>
+              <Combo id="rdo_searchType" taborder="15" index="0" displayrowcount="5" onitemchanged="div_search_cbo_nacode_onitemchanged" left="15" top="10" width="143" height="21" codecolumn="codecolumn" datacolumn="datacolumn" value="1" text="차량번호">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">차량번호</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">기사명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="42" text="8" visible="false" left="579" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="str_text" taborder="43" text="조건을 입력하고 조회버튼을 클릭하세요." left="183" top="335" cssclass="sta_WF_Location" right="184" bottom="43" style="align:center;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_car_onrowposchanged">
+        <ColumnInfo>
+          <Column id="PHD_NA_BZPLC" type="string" size="32"/>
+          <Column id="SPYPL_VHC_PHD_IDVD_NO" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="CLNTNM" type="string" size="32"/>
+          <Column id="VHCNO" type="string" size="32"/>
+          <Column id="PHD_DVY_CAFFNM" type="string" size="32"/>
+          <Column id="TELNO" type="string" size="32"/>
+          <Column id="UYN" type="string" size="32"/>
+          <Column id="DEL_YN" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+/*##################################################################################
+ 화면명	: 협력업체본지사 조회
+ 화면ID  	: VAN_DS_SC_0600_P00
+ 작성자 	: hroh
+ 작성일자 : 2015.07.14
+####################################################################################*/
+
+this.objRtnArr = new Array(5); //팝업창 close시 전달할 값을 위한 배열 선언
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{	
+	this.gfn_setInitForm(obj, e); //공통
+		
+	this.div_search.edt_searchWord.set_value(this.getOwnerFrame().code);	
+	this.fn_search();
+
+};
+
+this.fn_afterFormOnload = function(){	
+	
+};
+
+//Search
+this.fn_search = function(){
+	this.ds_dataM.clearData();	
+	
+	var searchType = this.gfn_nullToEmpty(this.div_search.rdo_searchType.value); //조회구분(1.차량번호, 2:기사명)
+	var searchWord = this.gfn_nullToEmpty(this.div_search.edt_searchWord.value); //조회단어		
+	
+	var na_trpl_c = this.gfn_nullToEmpty(this.getOwnerFrame().p_trplC); //권한사업장	
+	
+	var params =  	"searchType=" + searchType
+					+ " searchWord=" + searchWord
+					+ " TRPL_C=" + na_trpl_c;
+	
+	trace("params : " + params);	
+	
+	var sSvcID        = "retrieveCarList";//통신아이디
+	var sURL          = "svc::/rest/reserve/retrieveCarList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_dataM=ds_car";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveCarList"){
+			//this.gfn_getMessage("alert", "result.message.save.success");
+			
+			if(this.ds_dataM.rowcount != 0){
+			
+			//초기 클릭 안되어 있게 만듬
+			this.ds_dataM.set_enableevent(false);
+			this.ds_dataM.set_rowposition(-1);
+			this.ds_dataM.set_enableevent(true);
+			//"조회결과 : ?건이 조회되었습니다."
+			this.str_text.set_text(this.gfn_getTextMessage("msg.van_ds_sc_0400_P00.view.search.result.text1")
+									+this.ds_dataM.rowcount+this.gfn_getTextMessage("msg.van_ds_sc_0400_P00.view.search.result.text2"));
+			}else if(this.ds_dataM.rowcount == 0){
+			//조회결과가 없습니다.
+			this.str_text.set_text(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			
+			
+			}
+		}
+	}
+}
+
+//Close
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+//Event
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+}
+
+this.grd_master_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{		
+	
+	//연락처가 통으로 들어와 '-' 단위로 스플릿해서 나눠서 넣어줘야함	
+   	var telno = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"TELNO"); 	
+   	var lstTelNo = telno.split('-');
+   	/*
+   	var vhcno = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "VHCNO");
+	var phd_dvy_caffnm = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "PHD_DVY_CAFFNM");	
+
+	this.opener.div_list.cbo_num01.set_value(lstTelNo[0]);
+	this.opener.div_list.mae_num02.set_value(lstTelNo[1]);
+	this.opener.div_list.mae_num03.set_value(lstTelNo[2]);
+		
+	this.opener.div_list.edt_vhcno.set_value(vhcno);
+	this.opener.div_list.edt_phd_dvy_caffnm.set_value(phd_dvy_caffnm);
+	*/
+	//this.opener.fn_search();
+		
+	this.objRtnArr[0] = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "VHCNO"); //차량번호
+	this.objRtnArr[1] = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "PHD_DVY_CAFFNM"); //기사명
+	this.objRtnArr[2] = lstTelNo[0]; //연락처1
+	this.objRtnArr[3] = lstTelNo[1]; //연락처2
+	this.objRtnArr[4] = lstTelNo[2]; //연락처3
+	trace(this.objRtnArr.toString());
+	this.close(this.objRtnArr.toString());
+	
+	this.close();
+}
+
+this.div_search_edt_searchWord_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{
+		this.fn_search();
+	}
+	
+}
+
+/*초기화버튼*/
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_dataM.clearData();
+	this.div_search.edt_searchWord.set_value("");
+}
+]]></Script>
+  </Form>
+</FDL>

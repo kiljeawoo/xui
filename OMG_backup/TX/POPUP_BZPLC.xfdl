@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="POPUP_BZPLC" classname="popup01" left="0" top="0" width="456" height="321" onload="form_onload" titletext="사업장조회">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="3" cssclass="btn_WFSA_Searchbtn" top="15" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Div id="div_search" taborder="4" left="17" top="44" right="17" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="searchText" taborder="18" left="148" top="10" width="257" height="21" onkeydown="div_search_searchText_onkeydown"/>
+              <Combo id="searchType" taborder="20" left="15" top="10" width="130" height="21" codecolumn="s_code" datacolumn="s_name" innerdataset="@ds_searchType" text="수요처명" value="name"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_rvopl" taborder="5" binddataset="ds_BZPLC" useinputpanel="false" left="17" top="102" right="17" height="163" autofittype="none" oncelldblclick="grd_rvopl_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="200"/>
+                <Column size="100"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="no."/>
+                <Cell col="1" text="거래처코드"/>
+                <Cell col="2" text="거래처명"/>
+                <Cell col="3" text="사업자번호"/>
+                <Cell col="4" text="대표자"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:NA_TRPL_C"/>
+                <Cell col="2" style="align:left;" text="bind:CLNTNM"/>
+                <Cell col="3" text="bind:BIZ_NUMBER"/>
+                <Cell col="4" text="bind:REPMNM" editlengthunit="utf8"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" left="329" top="275" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" left="385" top="275" width="54" height="29" onclick="btn_cancel_onclick"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="44" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="9" text="17" visible="false" left="439" top="44" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="363" top="304" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="363" top="265" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="12" text="8" visible="false" left="363" top="36" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="87" width="76" height="15" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_BZPLC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_DSC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_TRPL_C">1</Col>
+            <Col id="CLNTNM">가나다라마바</Col>
+            <Col id="NA_TEAM_C">ABC123456789</Col>
+            <Col id="TEAMNM">ABC123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_searchType" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="s_code" type="string" size="13"/>
+          <Column id="s_name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="s_code">1</Col>
+            <Col id="s_name">거래처명</Col>
+          </Row>
+          <Row>
+            <Col id="s_code">2</Col>
+            <Col id="s_name">사업자번호</Col>
+          </Row>
+          <Row>
+            <Col id="s_code">3</Col>
+            <Col id="s_name">거래처코드</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	this.div_search.searchType.set_index(0);
+	
+	var word;
+	try {
+		if (!this.gfn_isNull(this.parent.searchType)) {
+			this.div_search.searchType.set_value(this.parent.searchType);
+		}
+		if (!this.gfn_isNull(this.getOwnerFrame().searchWord)) {
+			word = this.getOwnerFrame().searchWord;
+			this.div_search.searchText.set_value(word);
+			this.btn_search.click();
+		}
+	} catch (e) {
+	}
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.objRtnArr[0] = this.ds_BZPLC.getColumn(this.ds_BZPLC.rowposition,"NA_TRPL_C");
+	this.objRtnArr[1] = this.ds_BZPLC.getColumn(this.ds_BZPLC.rowposition,"CLNTNM");
+	
+	this.close(this.objRtnArr.toString());
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.fn_validationCheck()){
+		var searchType = this.gfn_nullToEmpty(this.div_search.searchType.value); //검색조건
+		var searchText = this.gfn_nullToEmpty(this.div_search.searchText.value); //검색어
+		
+		var param = "searchType="+searchType+
+					" searchText='"+searchText + "'";
+							
+		var sSvcID        = "retrieveBZPLC";//통신아이디
+		var sURL          = "svc::rest/tx/retrieveBZPLC";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_BZPLC=ds_BZPLC";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);	
+	}
+}
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+	if (this.gfn_length(this.div_search.searchText.value) < 2) {
+		this.alert('검색어는 2자이상이어야 합니다.');
+		return false;
+	} 
+	return true;
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "retrieveBZPLC"){										
+			if(this.ds_BZPLC.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}else{							
+			}			
+		}	
+	}
+}
+
+this.div_search_searchText_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13)
+	{ 
+		obj.updateToDataset();
+		this.btn_search.click();
+	}
+}
+
+this.grd_rvopl_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.btn_ok.click();
+}
+]]></Script>
+  </Form>
+</FDL>

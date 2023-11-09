@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project active_adl="escm" version="1.3">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <ADL id="escm" url="escm.xadl"/>
+  <Themes>
+    <RecentlyUsed>
+      <Theme url="escm.xtheme" extern="false"/>
+      <Theme url="201503default.xtheme" extern="false"/>
+    </RecentlyUsed>
+  </Themes>
+  <ComponentInfoGroup>
+    <ComponentInfo name="Button" defaultwidth="120" defaultheight="21" image="2"/>
+    <ComponentInfo name="Combo" defaultwidth="150" defaultheight="21" image="5"/>
+    <ComponentInfo name="CheckBox" defaultwidth="150" defaultheight="21" image="4"/>
+    <ComponentInfo name="Edit" defaultwidth="140" defaultheight="21" image="3"/>
+    <ComponentInfo name="MaskEdit" defaultwidth="90" defaultheight="21" image="16"/>
+    <ComponentInfo name="Radio" defaultwidth="280" defaultheight="21" image="7"/>
+    <ComponentInfo name="Static" defaultwidth="120" defaultheight="21" image="8"/>
+    <ComponentInfo name="Spin" defaultwidth="150" defaultheight="21" image="9"/>
+    <ComponentInfo name="Calendar" defaultwidth="100" defaultheight="21" image="12"/>
+    <ComponentInfo name="WebBrowser" defaultwidth="" defaultheight="" image="18"/>
+    <ComponentInfo name="ExcelImportObject" defaultwidth="" defaultheight="" image="18"/>
+  </ComponentInfoGroup>
+  <Services>
+    <Service id="css" file_ext="" include_subdir=""/>
+    <Service id="dsLayout" url="(null).xds"/>
+  </Services>
+</Project>

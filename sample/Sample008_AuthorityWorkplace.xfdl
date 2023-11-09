@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample008_AuthorityWorkplace" classname="Sample008_AuthorityWorkplace" left="0" top="0" width="1024" height="768" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="Div00" left="46" top="45" width="431" height="21" url="common::AuthorityWorkplace.xfdl"/>
+        <Button id="Button00" taborder="1" text="Get" left="486" top="45" width="120" height="21" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/*************************************************************************
+* Combo ID    : cbo_authorityWorkplace
+* Checkbox ID : chk_all
+*
+* 1.화면에 Div생성(Width/Height = 431/21)
+* 2.Div의 url에 common::AuthorityWorkplace.xfdl 입력
+* 3.Combo값 -> 생성한 Div ID.cbo_authorityWorkplace.value
+* 4.Checkbox값 -> 생성한 Div ID.chk_all.value
+**************************************************************************/
+include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);	
+	this.Div00.setFunctionName("fn_afterCall");	
+}
+
+this.fn_afterCall = function(sVal)
+{
+	alert("sVal>> "+sVal);
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	trace(this.Div00.cbo_authorityWorkplace.value);
+	trace(this.Div00.chk_all.value);
+}
+
+]]></Script>
+  </Form>
+</FDL>

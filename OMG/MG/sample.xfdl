@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="sample" classname="sample" left="0" top="0" width="1024" height="768" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Edit id="Edit00" taborder="0" left="25" top="35" width="69.14%" height="21" maxlength="65"/>
+        <Button id="Button00" taborder="1" text="한글테스트" left="52" top="108" width="11.72%" height="21" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+
+       
+}
+
+///rest/mg/test
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		var sParams = 
+					"test="+this.Edit00.value					
+				   ;
+							
+		var sSvcID        = "test";		
+		var sURL          = "svc::rest/mg/test";	
+		var sInDatasets   = "";
+		var sOutDatasets  = "";	
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회			
+		trace("param>>>>>>>>>>>>>>>>>>>>>>>"+sParams);
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+
+  /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	//저장시 사용되는 ds초기화	
+	trace("콜백");
+	 
+}
+
+ ]]></Script>
+  </Form>
+</FDL>

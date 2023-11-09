@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample025_suppress_sum" classname="Sample0024_txbilTest" left="0" top="0" width="1024" height="768" titletext="소계+합계">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid01" taborder="1" binddataset="ds_subsum" useinputpanel="false" autofittype="col" suppresslevel="allcompare" left="21" top="325" width="358" height="391" selecttype="cell">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="60"/>
+                <Column size="50"/>
+                <Column size="50"/>
+                <Column size="80"/>
+                <Column size="50"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="rowlevel"/>
+                <Cell col="1" text="col1"/>
+                <Cell col="2" text="col2"/>
+                <Cell col="3" text="col3"/>
+                <Cell col="4" text="col4"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:dataset.getRowLevel(currow)"/>
+                <Cell col="1" style="background:lightgreen;background2:lightgreen;" text="expr:dataset.getRowLevel(currow) == 0 ? col1 : dataset.getColumn(currow-dataset.getRowLevel(currow), &quot;col1&quot;)" suppress="1"/>
+                <Cell col="2" style="background:EXPR(dataset.getRowLevel(currow) == 0 ? 'lightblue' : ( dataset.getRowLevel(currow) == 1 ? 'lightblue' : 'lightgreen' ));background2:EXPR(dataset.getRowLevel(currow) == 0 ? 'lightblue' : ( dataset.getRowLevel(currow) == 1 ? 'lightblue' : 'lightgreen' ));" text="expr:dataset.getRowLevel(currow) &lt; 2 ? dataset.getColumn(currow-dataset.getRowLevel(currow), &quot;col2&quot;) : getColumn(currow-dataset.getRowLevel(currow), &quot;col1&quot;)" suppress="2"/>
+                <Cell col="3" style="background:EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : ( dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '' ));background2:EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : ( dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '' ));" text="bind:col3" subsumtext="소계"/>
+                <Cell col="4" style="background:EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : ( dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '' ));background2:EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : ( dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '' ));" text="bind:col4"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="4" text="총계"/>
+                <Cell col="4" text="expr:getSum(&quot;col4&quot;)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static04" taborder="2" text="1) Suppress" usedecorate="true" onclick="Static00_onclick" left="5" top="5" width="717" height="25" style="border:0px solid #808080ff ;" class="_SS_Title3"/>
+        <Grid id="Grid00" taborder="3" binddataset="ds_suppress" useinputpanel="false" autofittype="col" left="25" top="29" width="270" height="238">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head" fix="fixed"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="col1"/>
+                <Cell col="1" text="col2"/>
+                <Cell col="2" text="col3"/>
+                <Cell col="3" text="col4"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:col1" suppress="1"/>
+                <Cell col="1" text="bind:col2" suppress="2"/>
+                <Cell col="2" text="bind:col3"/>
+                <Cell col="3" text="bind:col4"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <GroupBox id="GroupBox03" text=" 설명 " taborder="4" left="308" top="19" width="414" height="81"/>
+        <Static id="Static19" taborder="5" text="Property" usedecorate="true" onclick="Static00_onclick" left="375" top="40" width="217" height="17" class="_SS_Table_Title"/>
+        <Static id="Static21" taborder="6" text="contents editor &lt;fs v='11'&gt;⇒&lt;/fs&gt; cell &lt;fs v='11'&gt;⇒&lt;/fs&gt; suppress" usedecorate="true" onclick="Static00_onclick" left="375" top="56" width="217" height="17" class="_SS_Table_Text"/>
+        <Static id="Static20" taborder="7" text="Value" usedecorate="true" onclick="Static00_onclick" left="591" top="40" width="65" height="17" class="_SS_Table_Title"/>
+        <TextArea id="TextArea02" taborder="8" value="1" scrollbars="none" readonly="true" enableevent="false" left="591" top="56" width="65" height="17" class="_SS_Table_Text"/>
+        <Static id="Static00" taborder="9" text="col1" usedecorate="true" onclick="Static00_onclick" left="319" top="56" width="57" height="17" class="_SS_Table_Text"/>
+        <Static id="Static02" taborder="10" text="Column" usedecorate="true" onclick="Static00_onclick" left="319" top="40" width="57" height="17" class="_SS_Table_Title"/>
+        <Static id="Static03" taborder="11" text="contents editor &lt;fs v='11'&gt;⇒&lt;/fs&gt; cell &lt;fs v='11'&gt;⇒&lt;/fs&gt; suppress" usedecorate="true" onclick="Static00_onclick" left="375" top="72" width="217" height="17" class="_SS_Table_Text"/>
+        <TextArea id="TextArea00" taborder="12" value="2" scrollbars="none" readonly="true" enableevent="false" left="591" top="72" width="65" height="17" class="_SS_Table_Text"/>
+        <Static id="Static05" taborder="13" text="col2" usedecorate="true" onclick="Static00_onclick" left="319" top="72" width="57" height="17" class="_SS_Table_Text"/>
+        <Static id="Static13" taborder="14" usedecorate="true" onclick="Static00_onclick" left="655" top="56" width="57" height="17" class="_SS_Table_Text"/>
+        <Static id="Static14" taborder="15" text="설명" usedecorate="true" onclick="Static00_onclick" left="655" top="40" width="57" height="17" class="_SS_Table_Title"/>
+        <Static id="Static15" taborder="16" usedecorate="true" onclick="Static00_onclick" left="655" top="72" width="57" height="17" class="_SS_Table_Text"/>
+        <Static id="Static01" taborder="17" text="2) TotalSum + Subsum" usedecorate="true" onclick="Static00_onclick" left="5" top="285" width="717" height="25" style="border:0px solid #808080ff ;" class="_SS_Title3"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_item" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" keystring="G:+a,+c">
+        <ColumnInfo>
+          <Column id="a" type="STRING" size="256"/>
+          <Column id="b" type="STRING" size="256"/>
+          <Column id="c" type="STRING" size="256"/>
+          <Column id="d" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="a">농심</Col>
+            <Col id="b">신라면</Col>
+            <Col id="c">라면</Col>
+            <Col id="d">200</Col>
+          </Row>
+          <Row>
+            <Col id="a">농심</Col>
+            <Col id="b">너구리</Col>
+            <Col id="c">라면</Col>
+            <Col id="d">410</Col>
+          </Row>
+          <Row>
+            <Col id="a">CJ</Col>
+            <Col id="c">라면</Col>
+            <Col id="b">짜파로니</Col>
+            <Col id="d">500</Col>
+          </Row>
+          <Row>
+            <Col id="a">CJ</Col>
+            <Col id="c">라면</Col>
+            <Col id="b">불닭볶음면</Col>
+            <Col id="d">200</Col>
+          </Row>
+          <Row>
+            <Col id="c">과자</Col>
+            <Col id="d">500</Col>
+            <Col id="a">농심</Col>
+            <Col id="b">비스켓</Col>
+          </Row>
+          <Row>
+            <Col id="c">과자</Col>
+            <Col id="d">700</Col>
+            <Col id="a">농심</Col>
+            <Col id="b">초콜릿</Col>
+          </Row>
+          <Row>
+            <Col id="c">과자</Col>
+            <Col id="d">800</Col>
+            <Col id="a">CJ</Col>
+            <Col id="b">스낵</Col>
+          </Row>
+          <Row>
+            <Col id="c">과자</Col>
+            <Col id="d">900</Col>
+            <Col id="a">CJ</Col>
+            <Col id="b">새우깡</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_subsum" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" keystring="G:col1,-col2" onrowsetchanged="ds_subsum_onrowsetchanged">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="col1"/>
+          <Column type="STRING" size="256" id="col2"/>
+          <Column type="STRING" size="255" id="col3"/>
+          <Column type="INT" size="255" id="col4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">맛있을라면</Col>
+            <Col id="col4">1</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">심양라면</Col>
+            <Col id="col4">2</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">센라면</Col>
+            <Col id="col4">3</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">언성탕면</Col>
+            <Col id="col4">4</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">투깨더</Col>
+            <Col id="col4">5</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">바바빅</Col>
+            <Col id="col4">6</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">메롱바</Col>
+            <Col id="col4">7</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">스크롤바</Col>
+            <Col id="col4">8</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_suppress" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="col1"/>
+          <Column type="STRING" size="256" id="col2"/>
+          <Column type="STRING" size="255" id="col3"/>
+          <Column type="INT" size="255" id="col4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">맛있을라면</Col>
+            <Col id="col4">1</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">심양라면</Col>
+            <Col id="col4">2</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">센라면</Col>
+            <Col id="col4">3</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">언성탕면</Col>
+            <Col id="col4">4</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">투깨더</Col>
+            <Col id="col4">5</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">바바빅</Col>
+            <Col id="col4">6</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">메롱바</Col>
+            <Col id="col4">7</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">스크롤바</Col>
+            <Col id="col4">8</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_subsum00" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" keystring="G:col1,-col2" onrowsetchanged="ds_subsum_onrowsetchanged">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="col1"/>
+          <Column type="STRING" size="256" id="col2"/>
+          <Column type="STRING" size="255" id="col3"/>
+          <Column type="INT" size="255" id="col4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">맛있을라면</Col>
+            <Col id="col4">1</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">심양라면</Col>
+            <Col id="col4">2</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">센라면</Col>
+            <Col id="col4">3</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">언성탕면</Col>
+            <Col id="col4">4</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">투깨더</Col>
+            <Col id="col4">5</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">바바빅</Col>
+            <Col id="col4">6</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">메롱바</Col>
+            <Col id="col4">7</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">스크롤바</Col>
+            <Col id="col4">8</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_suppress00" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="col1"/>
+          <Column type="STRING" size="256" id="col2"/>
+          <Column type="STRING" size="255" id="col3"/>
+          <Column type="INT" size="255" id="col4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">맛있을라면</Col>
+            <Col id="col4">1</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">심양</Col>
+            <Col id="col3">심양라면</Col>
+            <Col id="col4">2</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">센라면</Col>
+            <Col id="col4">3</Col>
+          </Row>
+          <Row>
+            <Col id="col1">라면류</Col>
+            <Col id="col2">농섬</Col>
+            <Col id="col3">언성탕면</Col>
+            <Col id="col4">4</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">투깨더</Col>
+            <Col id="col4">5</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">방그레</Col>
+            <Col id="col3">바바빅</Col>
+            <Col id="col4">6</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">메롱바</Col>
+            <Col id="col4">7</Col>
+          </Row>
+          <Row>
+            <Col id="col1">빙과류</Col>
+            <Col id="col2">로데</Col>
+            <Col id="col3">스크롤바</Col>
+            <Col id="col4">8</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+include "lib::comTSToolKit.xjs";
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rtnvalue = this.gfn_eTaxSign(this.TSXMLToolkit, this.ds_taxCopy, this.dsTaxForSvc, this.ds_item);
+			
+	if(rtnvalue)
+	{
+		//this.fn_insertTxbilElsg(this.ds_taxCopy);
+		//trace(this.ds_taxCopy.getColumn(0, "ELSG_CNTN"));
+		this.TextArea00.set_value(this.ds_taxCopy.getColumn(0, "ELSG_CNTN"));
+		
+	}
+	else
+	{
+		alert("인증실패");
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

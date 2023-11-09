@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5130" classname="popup01" left="0" top="0" width="803" height="490" titletext="비밀번호변경" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static10" taborder="17" cssclass="sta_WF_Labelbg" left="5.98%" top="312" right="5.98%" height="29"/>
+        <Div id="Div01" taborder="1" url="common::location.xfdl" text="Div01" left="0%" top="0" right="70.11%" height="21"/>
+        <Static id="Static07" taborder="4" text="15" visible="false" left="98.01%" top="0" right="0.12%" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="5" text="8" visible="false" left="91.16%" top="21" right="1.87%" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="6" text="주기적인(90일) 비밀번호 변경을 통해" usedecorate="true" left="30.01%" top="104" right="23.16%" height="44" style="font:bold 15 Gulim;"/>
+        <Static id="Static01" taborder="7" text="개인정보를 안전하게 보호하세요." usedecorate="true" left="30.01%" top="150" right="23.16%" height="44" style="font:bold 15 Gulim;"/>
+        <Static id="Static118" taborder="8" cssclass="sta_WF_Labelbg" left="5.98%" top="340" right="5.98%" height="29"/>
+        <Static id="Static115" taborder="9" cssclass="sta_WF_Labelbg" left="5.98%" top="284" right="5.98%" height="29"/>
+        <Static id="Static113" taborder="10" cssclass="sta_WF_Labelbg" left="5.98%" top="256" right="5.98%" height="29"/>
+        <Static id="Static03" taborder="11" text="비밀번호생성규칙" cssclass="sta_WF_Label" left="5.98%" top="340" right="79.08%" height="29"/>
+        <Static id="Static114" taborder="12" text="신규비밀번호" cssclass="sta_WF_Label" left="5.98%" top="284" right="79.08%" height="29"/>
+        <Static id="Static04" taborder="13" text="기존비밀번호" onclick="Div05_Static03_onclick" cssclass="sta_WF_Label" left="5.98%" top="256" right="79.08%" height="29"/>
+        <Edit id="edt_new_pw01" taborder="2" password="true" maxlength="16" left="21.3%" top="288" right="59.03%" height="21" lengthunit="utf8"/>
+        <ImageViewer id="ImageViewer00" taborder="14" image="URL('theme://images\img_PassWord.jpg')" left="13.82%" top="89" right="72.23%" height="127" style="border:0 solid #bfbfbfff ;"/>
+        <Button id="btn_save" taborder="15" text="저장" cssclass="btn_WF_CRUD" left="92.9%" top="0" right="1.99%" height="21" onclick="btn_save_onclick"/>
+        <Edit id="edt_new_pw02" taborder="3" password="true" maxlength="16" left="21.3%" top="316" right="59.03%" height="21" lengthunit="utf8"/>
+        <Static id="Static09" taborder="16" text="신규비밀번호확인" cssclass="sta_WF_Label" left="5.98%" top="312" right="79.08%" height="29"/>
+        <Edit id="edt_pw" taborder="0" password="true" maxlength="16" left="21.3%" top="260" right="59.03%" height="21"/>
+        <Static id="sta_text" taborder="18" left="21.67%" top="344" right="6.97%" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{   
+	/*결과값 초기화*/
+	this.sta_text.set_text("8~16자리 영문,숫자의 조합으로 이루어져야합니다.");
+// 						  +"- 연속되는 영문 대/소문자, 숫자는 보안을 위하여 금지합니다.\n"
+// 						  +"- 같은 영문 대/소문자 3자 이상은 피해서 만들어주세요.");
+}
+ 
+ 
+/***************************************************
+	비밀번호조회 메소드
+****************************************************/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		
+	if(this.gfn_isNull(this.edt_pw.value)){
+		alert("비밀번호를 입력해주세요.");		
+		this.edt_pw.setFocus();
+		return false;
+	}		
+	if(this.gfn_isNull(this.edt_new_pw01.value)){
+		alert("신규 비밀번호를 입력해주세요.");		
+		this.edt_new_pw01.setFocus();
+		return false;
+	}		
+	if(this.gfn_isNull(this.edt_new_pw02.value)){
+		alert("신규 비밀번호 확인을 입력해주세요.");		
+		this.edt_new_pw02.setFocus();
+		return false;
+	}
+	
+	if(this.edt_new_pw01.value != this.edt_new_pw02.value){
+		alert("신규 비밀번호와 신규 비밀번호 확인 값이 동일하지 않습니다.");		
+		this.edt_new_pw01.setFocus();
+		return false;
+	}
+	if(!this.gfn_pwValidation(this.edt_new_pw01.value)){
+		return false;
+	}
+			
+	
+	var sSvcID        = "changePW";
+	var sURL          = "svc::rest/pt/changePW";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";
+	var sArgument     = "pw="+this.edt_pw.value+" new_pw="+this.edt_new_pw01.value;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회		 
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+} 
+
+/*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode ==-1){				
+		this.gfn_getMessage("alert", "error.message.server.exception");	// 서버 API 실행중 오류가 발생하였습니다. 관리자에 문의하세요.
+	}else if(ErrorCode ==-2) {	 
+		this.gfn_getMessage("alert", "error.message.noUserPw");			// 비밀번호가 잘못되었습니다.		
+	}else if (ErrorCode ==0){
+		this.gfn_getMessage("alert", "result.message.savePw.success");	// 비밀번호가 정상적으로 변경되었습니다. 재 로그인해주시기 바랍니다.
+		this.gfn_logout();	
+	}
+}
+
+]]>
+</Script>
+  </Form>
+</FDL>

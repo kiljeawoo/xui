@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6120" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="공통코드조회" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Button id="btn_update" taborder="2" text="수정" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="125" onclick="btn_update_onclick"/>
+        <Button id="btn_search" taborder="1" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="18" onclick="btn_search_onclick"/>
+        <Button id="btn_insert" taborder="3" text="등록" cssclass="btn_WF_CRUD" top="0" width="41" height="21" right="168" onclick="btn_insert_onclick"/>
+        <Div id="Div01" taborder="4" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="5" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="6" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="10" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Combo id="cbo_select" taborder="4" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="324" top="10" height="21" width="92">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">단순코드</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">단순코드명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static01" taborder="6" text="페이지당 게시물수" onclick="div_search_Static01_onclick" cssclass="sta_WFSA_Label" left="15" top="36" height="21" style="padding:0 20 0 11;" width="139"/>
+              <Combo id="cbo_pageNum" taborder="7" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="154" top="36" height="21" width="60">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">20</Col>
+                      <Col id="datacolumn">20</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">50</Col>
+                      <Col id="datacolumn">50</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">100</Col>
+                      <Col id="datacolumn">100</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Edit id="edt_simpCCnm" taborder="8" maxlength="150" oneditclick="div_search_edt_menuId00_oneditclick" left="419" top="10" height="21" width="140"/>
+              <Static id="Static00" taborder="9" text="사용여부" cssclass="sta_WFSA_Label" left="589" top="10" height="21" style="padding:0 20 0 11;" width="79"/>
+              <Combo id="cbo_useYn" taborder="10" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="668" top="10" height="21" width="105">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">Y</Col>
+                      <Col id="datacolumn">사용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">N</Col>
+                      <Col id="datacolumn">사용안함</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Edit id="edt_simpTpc" taborder="11" maxlength="30" oneditclick="div_search_edt_menuId_oneditclick" left="153" top="10" height="21" width="140"/>
+              <Static id="Static05" taborder="12" text="단순유형코드" cssclass="sta_WFSA_Label" left="15" top="10" height="21" style="padding:0 20 0 11;" width="103"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_delete" taborder="13" text="삭제" onclick="btn_delete_onclick" cssclass="btn_WF_CRUD" top="0" height="21" width="45" right="78"/>
+        <Static id="Static05" taborder="14" text="69" onclick="Static04_onclick" visible="false" left="80.82%" top="29" right="15.44%" height="69" style="background:#dc143c5b;"/>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="97" right="15" bottom="1">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Grid id="grd_comncList" taborder="2" binddataset="ds_cc" useinputpanel="false" left="0" top="42" right="0" bottom="29" onheadclick="Div02_Grid01_onheadclick" autofittype="col" cellsizingtype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="80"/>
+                      <Column size="180"/>
+                      <Column size="100"/>
+                      <Column size="250"/>
+                      <Column size="280"/>
+                      <Column size="180"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="checkbox" edittype="checkbox"/>
+                      <Cell col="1" text="번호"/>
+                      <Cell col="2" text="단순유형코드"/>
+                      <Cell col="3" text="단순코드"/>
+                      <Cell col="4" text="단순코드명"/>
+                      <Cell col="5" text="단순코드설명"/>
+                      <Cell col="6" text="단순코드정렬순서"/>
+                      <Cell col="7" text="사용여부"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHK"/>
+                      <Cell col="1" text="bind:NUMBER"/>
+                      <Cell col="2" text="bind:SIMP_TPC"/>
+                      <Cell col="3" text="bind:SIMP_C"/>
+                      <Cell col="4" text="bind:SIMP_CNM"/>
+                      <Cell col="5" text="bind:SIMP_C_EXPL"/>
+                      <Cell col="6" text="bind:SIMP_C_SORT_SQ"/>
+                      <Cell col="7" text="bind:UYN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static03" taborder="5" text="15" visible="false" left="731" top="1" width="56" height="41" style="background:#dc143c5b;"/>
+              <Div id="div_paging" taborder="6" url="common::pagingBTN.xfdl" left="28.55%" bottom="-2" height="29" style="align:center middle;" visible="false" width="338"/>
+              <Button id="btn_flag" taborder="7" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_cc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NUMBER" type="STRING" size="32"/>
+          <Column id="CHK" type="STRING" size="32"/>
+          <Column id="SIMP_TPC" type="STRING" size="30"/>
+          <Column id="SIMP_C" type="STRING" size="20"/>
+          <Column id="SIMP_CNM" type="STRING" size="150"/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="100"/>
+          <Column id="SIMP_C_SORT_SQ" type="INT" size="18"/>
+          <Column id="FSRG_DTM" type="DATE" size="30"/>
+          <Column id="FS_RGM" type="STRING" size="16"/>
+          <Column id="LSCHG_DTM" type="DATE" size="30"/>
+          <Column id="LS_CHGM" type="STRING" size="16"/>
+          <Column id="UYN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NUMBER" type="STRING" size="32"/>
+          <Column id="CHK" type="STRING" size="32"/>
+          <Column id="SIMP_TPC" type="STRING" size="30"/>
+          <Column id="SIMP_C" type="STRING" size="20"/>
+          <Column id="SIMP_CNM" type="STRING" size="150"/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="100"/>
+          <Column id="SIMP_C_SORT_SQ" type="INT" size="18"/>
+          <Column id="FSRG_DTM" type="DATE" size="30"/>
+          <Column id="FS_RGM" type="STRING" size="16"/>
+          <Column id="LSCHG_DTM" type="DATE" size="30"/>
+          <Column id="LS_CHGM" type="STRING" size="16"/>
+          <Column id="UYN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+   /*초기값세팅*/   
+   this.div_search.cbo_select.set_index(0);
+   this.div_search.cbo_useYn.set_index(0);
+   this.div_search.cbo_pageNum.set_index(0);
+   
+    /*조회 호출*/
+   this.btn_search.click();  
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+ 
+ /*조회버튼 이벤트*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+ /*등록버튼 이벤트*/
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"I", dsArg:this.ds_cc};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_6121.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+/*수정버튼 이벤트*/
+this.btn_update_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+	var position =0 ;	//선택된 체크박스 위치
+	for(var i = 0 ; i < this.ds_cc.rowcount; i++){		
+		if(this.ds_cc.getColumn(i, "CHK") =="1"){
+			checkCnt = checkCnt +1;			
+			position = i;
+		}
+	}
+
+	if(checkCnt > 1){
+		alert("하나만 선택해주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	}else if(checkCnt == 0){
+		alert("수정해야할 데이터를 선택해 주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	}else{
+		this.ds_param.clearData();
+		this.ds_param.insertRow(0);
+		this.ds_param.copyRow(0,this.ds_cc,position);		
+
+		var oArg = {paramMode:"U", dsArg:this.ds_param};			
+		var sOption = "autosize=true";
+		var sPopupCallBack = "fn_popupAfter";    				
+		this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_6121.xfdl",oArg,sOption,sPopupCallBack);	
+	}
+}
+
+/*삭제버튼 이벤트*/
+this.btn_delete_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+	
+	this.ds_param.clearData();
+	// 체크된 행들을 순차적으로 ds_param에 적재한다.
+	for(var i = 0 ; i < this.ds_cc.rowcount; i++){		
+		if(this.ds_cc.getColumn(i, "CHK") =="1"){
+		  checkCnt = checkCnt +1;
+		  this.ds_param.insertRow(checkCnt-1);
+		  this.ds_param.copyRow(checkCnt-1,this.ds_cc,i);
+		}	
+	}
+		
+	if(checkCnt > 0){
+		
+		var sParams       = "";
+		var sSvcID        = "delete";
+		var sURL          = "svc::rest/mg/deleteComnC"
+		var sInDatasets   = "ds_param=ds_param";
+		var sOutDatasets  = "";	
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		
+	}else {
+		alert("삭제할 데이터를 선택해 주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	 } 
+	
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+ /*Paging 처리*/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_cc.clearData();     //Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = this.div_search.cbo_pageNum.value //Grid에 보여줄 Row수 선택
+	var vTotalCount = 0;	//전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	this.fn_retrieveComnCList();
+} 
+ 
+
+ /*조회-서비스 Call*/ 
+this.fn_retrieveComnCList = function()
+{
+	var sParams = "simp_tpc="+this.gfn_nullToEmpty(this.div_search.edt_simpTpc.value)
+				+ " selection="+this.gfn_nullToEmpty(this.div_search.cbo_select.value)
+				+ " simp_c_cnm="+this.gfn_nullToEmpty(this.div_search.edt_simpCCnm.value)
+				+ " use_y_n="+this.gfn_nullToEmpty(this.div_search.cbo_useYn.value);
+	
+	var sSvcID        = "retrieve";
+	var sURL          ="svc::rest/mg/retrieveComnCList";
+	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_cc=ds_cc ds_pageVO=ds_pageVO";
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+ /*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{	
+	this.btn_search.click();
+}
+
+ /*상단 체크박스 선택 시 전체선택 및 해제하는 이벤트*/
+this.Div02_Grid01_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0,"PAGE_SIZE");
+	var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	this.ds_cc.addColumn("CHK", "string");
+	this.ds_cc.addColumn("NUMBER", "string");
+	
+	for(var i = 0 ; i < this.ds_cc.rowcount; i++)
+	{
+		this.ds_cc.setColumn(i,"CHK",0);
+	 	this.ds_cc.setColumn(i,"NUMBER",(current_page-1)*(page_size)+(i+1));
+	}
+
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+	 	if(svcID == "retrieve"){		
+	 		if(this.ds_cc.rowcount > 0)
+				{ 		
+					this.div_list.div_paging.fn_pageSet(sTotal, page_size,"div_paging",current_page);	
+				}	
+	 		else if(this.ds_cc.rowcount == 0){
+	 			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 			this.div_list.div_paging.fn_pageSet(0, 0,"div_paging",current_page);
+	 		}
+	 	}
+	 	else if(svcID=="delete"){		
+	 		if(ErrorCode == 1){
+	 			this.gfn_getMessage("alert", "result.message.save.success");		
+	 			this.btn_search.click();
+	 			}
+	 	}
+	 	else{
+	 		if(this.ds_cc.rowcount == 0){
+	 			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 		}
+	 	}
+	 }	
+
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+]]></Script>
+  </Form>
+</FDL>

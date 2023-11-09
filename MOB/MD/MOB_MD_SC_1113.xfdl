@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6130" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="유형코드조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Button id="btn_update" taborder="72" text="저장" onclick="btn_update_onclick" cssclass="btn_WF_CRUD" top="0" right="77" height="21" width="41"/>
+        <Button id="btn_search" taborder="73" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="18" height="21" width="58"/>
+        <Button id="btn_insert" taborder="74" text="추가" onclick="btn_insert_onclick" cssclass="btn_WF_CRUD" top="0" right="167" height="21" width="41"/>
+        <Static id="Static00" taborder="75" text="15" visible="false" left="98.01%" top="0" right="0.12%" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="76" text="8" visible="false" left="91.16%" top="21" right="1.87%" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_delete" taborder="78" text="삭제" onclick="btn_delete_onclick" cssclass="btn_WF_CRUD" top="0" height="21" right="120" width="45"/>
+        <Div id="div_list" taborder="80" text="Div02" left="0%" top="25" right="15" bottom="1">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_mdUsrSigList" taborder="0" binddataset="ds_mdUsrSig" useinputpanel="false" cellsizingtype="col" autofittype="none" onheadclick="Div02_Grid01_onheadclick" left="0%" top="42" right="0%" bottom="29" autoenter="select">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="102"/>
+                      <Column size="241"/>
+                      <Column size="170"/>
+                      <Column size="68"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="서명자"/>
+                      <Cell col="2" text="최종변경일"/>
+                      <Cell col="3" text="상태"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell edittype="text" style="align:center;" text="bind:SIG_ORD" autosizecol="none"/>
+                      <Cell col="1" edittype="text" style="align:center;" text="bind:TITLE"/>
+                      <Cell col="2" displaytype="text" text="bind:LSCHG_DTM"/>
+                      <Cell col="3" text="bind:STAT"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_paging" taborder="2" url="common::pagingBTN.xfdl" left="28.55%" bottom="-2" height="29" style="align:center middle;" visible="false" width="338"/>
+              <Static id="Static03" taborder="3" text="15" visible="false" left="92.77%" top="1" right="0.13%" height="41" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_mdUsrSig" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_mdUsrSig_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="STAT" type="STRING" size="256"/>
+          <Column id="CRUD" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="32"/>
+          <Column id="SIG_ID" type="STRING" size="32"/>
+          <Column id="SIG_ORD" type="STRING" size="30"/>
+          <Column id="TITLE" type="STRING" size="60"/>
+          <Column id="FSRG_DTM" type="DATE" size="30"/>
+          <Column id="FS_RGM" type="STRING" size="16"/>
+          <Column id="LSCHG_DTM" type="DATE" size="30"/>
+          <Column id="LS_CHGM" type="STRING" size="16"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NUMBER" type="STRING" size="32"/>
+          <Column id="CHK" type="STRING" size="32"/>
+          <Column id="SIMP_TPC" type="STRING" size="30"/>
+          <Column id="SIMP_TPCNM" type="STRING" size="150"/>
+          <Column id="SYSNM" type="STRING" size="150"/>
+          <Column id="SIMP_T_EXPL" type="STRING" size="100"/>
+          <Column id="UYN" type="STRING" size="1"/>
+          <Column id="FSRG_DTM" type="DATE" size="30"/>
+          <Column id="FS_RGM" type="STRING" size="16"/>
+          <Column id="LSCHG_DTM" type="DATE" size="30"/>
+          <Column id="LS_CHGM" type="STRING" size="16"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_mdUsrSig_Struct" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_mdUsrSig_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="STAT" type="STRING" size="256"/>
+          <Column id="CRUD" type="STRING" size="256"/>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="32"/>
+          <Column id="SIG_ID" type="STRING" size="32"/>
+          <Column id="SIG_ORD" type="STRING" size="30"/>
+          <Column id="TITLE" type="STRING" size="60"/>
+          <Column id="FSRG_DTM" type="DATE" size="30"/>
+          <Column id="FS_RGM" type="STRING" size="16"/>
+          <Column id="LSCHG_DTM" type="DATE" size="30"/>
+          <Column id="LS_CHGM" type="STRING" size="16"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+
+    /*조회 호출*/
+   this.btn_search.click();  
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+ 
+ /*조회버튼 이벤트*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	var param	=  "MD_ID="	+ ""
+				;
+
+	var sSvcID			= "retrieveMdUsrSigList";
+	var sURL			= "svc::rest/mob/retrieveMdUsrSigList";
+	var sInDatasets		= "";				   	     // 보내는데이터셋
+	var sOutDatasets	= "ds_mdUsrSig=ds_mdUsrSig"; // 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";										// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*
+ *  등록정보 없을때 데이터셋 구조생성
+ */
+this.addFirstRow = function(){
+    var ds = this.ds_mdUsrSig ;
+    this.ds_mdUsrSig.addColumn("STAT");
+    this.ds_mdUsrSig.addColumn("CRUD");
+    this.ds_mdUsrSig.addColumn("CHK");
+    this.ds_mdUsrSig.addColumn("MB_ID");
+    this.ds_mdUsrSig.addColumn("SIG_ID");
+    this.ds_mdUsrSig.addColumn("SIG_ORD");
+    this.ds_mdUsrSig.addColumn("TITLE");
+    this.ds_mdUsrSig.addColumn("FSRG_DTM");
+    this.ds_mdUsrSig.addColumn("FS_RGM");
+    this.ds_mdUsrSig.addColumn("LSCHG_DTM");
+    this.ds_mdUsrSig.addColumn("LS_CHGM");
+    this.ds_mdUsrSig.addRow();
+
+}
+ /*등록버튼 이벤트*/
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    if(this.ds_mdUsrSig.rowcount<1){
+        // 구조생성
+        this.addFirstRow();
+        // ds_mdUsrSig_Struct
+        // this.ds_mdUsrSig = this.ds_mdUsrSig_Struct;
+    }else{
+        this.ds_mdUsrSig.addRow();
+    }
+    
+    var rowPos = this.ds_mdUsrSig.rowcount-1;
+    // alert( rowPos);
+    
+    this.ds_mdUsrSig.setColumn(rowPos, "CRUD", "C");
+    this.ds_mdUsrSig.setColumn(rowPos, "CRUD", "C");
+    this.ds_mdUsrSig.setColumn(rowPos, "SIG_ID",rowPos*1+1);
+    this.ds_mdUsrSig.setColumn(rowPos, "SIG_ORD",rowPos*1+1);
+
+    
+}
+
+ /* 값 수정시 CRUD 변경 */
+this.ds_mdUsrSig_oncolumnchanged = function(obj:Dataset,  e:nexacro.DSColChangeEventInfo)
+{
+    // alert(e.row);
+
+   if(e.columnid != "CRUD")
+   {
+      // obj:Dataset  ds_mdUsrSig
+      // this.ds_mdUsrSig.setColumn(this.ds_mdUsrSig.rowposition, "CRUD", "U");
+       
+       if( obj.getColumn(e.row, "CRUD") != "C"
+           &&
+           obj.getColumn(e.row, "CRUD") != "D"
+           )
+           {
+               obj.setColumn( obj.rowposition, "CRUD", "U");
+           }
+        
+   }else{
+       // alert(e.columnid);
+       // alert(e.row);
+   }
+   
+}
+
+/* 수정버튼 이벤트 */
+this.btn_update_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+	
+	for(var i = 0 ; i < this.ds_mdUsrSig.rowcount; i++){		
+	
+		if(this.ds_mdUsrSig.getColumn(i, "CHK") == "1"){
+		  checkCnt = checkCnt +1;
+		}	
+	}
+
+    // validation
+    
+	if(this.ds_mdUsrSig.rowcount > 0){
+
+		var sParams       = "";
+		var sSvcID        = "saveMdUsrSigList";
+		var sURL          = "svc::rest/mob/saveMdUsrSigList"
+		var sInDatasets   = "ds_mdUsrSig=ds_mdUsrSig";
+		var sOutDatasets  = "";	
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+	}else {
+		alert("삭제할 데이터를 선택해 주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	 } 
+}
+
+/*삭제버튼 이벤트*/
+this.btn_delete_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var ds = this.ds_mdUsrSig ;
+    var rowpos = ds.rowposition;
+    var curCrud = this.ds_mdUsrSig.getColumn(rowpos, "CRUD") ;
+    trace("rowpos: " + rowpos);
+    trace("curCrud: " + curCrud);
+    
+   if( curCrud == "C" )
+   {
+       this.ds_mdUsrSig.deleteRow(rowpos);
+       //setColumn(this.ds_mdUsrSig.rowposition, "CRUD", "D");
+   }else{
+       this.ds_mdUsrSig.setColumn(rowpos, "CRUD", "D");
+       this.ds_mdUsrSig.setColumn(rowpos, "STAT", "삭제");
+       
+   }
+	
+
+}
+
+
+ /*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{	
+	this.btn_search.click();
+}
+
+ /*상단 체크박스 선택 시 전체선택 및 해제하는 이벤트*/
+this.Div02_Grid01_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	//var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	//var page_size    = this.ds_pageVO.getColumn(0,"PAGE_SIZE");
+	//var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	trace("ErrorCode: " + ErrorCode);
+	trace("svcID: " + svcID);
+	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+			
+	}else{
+	 	if(svcID == "retrieveMdUsrSigList"){		
+	 		if(this.ds_mdUsrSig.rowcount == 0){
+	 			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 			//this.div_list.div_paging.fn_pageSet(0, 0,"div_paging",current_page);
+	 		}
+	 	}
+	 	else if(svcID=="saveMdUsrSigList"){		
+
+			this.gfn_getMessage("alert", "result.message.save.success");		
+			
+			// 저장 시 자동조회
+			this.btn_search.click();
+	 	}
+	 	else{
+	 		if(this.ds_mdUsrSig.rowcount == 0){
+	 			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 		}
+	 	}
+	 }	
+			
+
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="825" height="329" titletext="수주예정 상품조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="5" binddataset="ds_dataM" useinputpanel="false" left="17" top="47" right="17" height="226" autofittype="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="120"/>
+                <Column size="250"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="140"/>
+                <Column size="140"/>
+                <Column size="140"/>
+              </Columns>
+              <Rows>
+                <Row size="50" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="상품코드"/>
+                <Cell col="1" text="상품명"/>
+                <Cell col="2" text="규격"/>
+                <Cell col="3" text="단위"/>
+                <Cell col="4" text="입수"/>
+                <Cell col="5" text="단가"/>
+                <Cell col="6" text="수주량"/>
+                <Cell col="7" text=" BOX수량"/>
+                <Cell col="8" text="공병금액"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:NA_WRS_C"/>
+                <Cell col="1" cssclass="Cellgrd_WF_AlignLeft" text="bind:WRSNM"/>
+                <Cell col="2" text="bind:WRS_STDNM"/>
+                <Cell col="3" text="bind:NA_WRS_UNT_C"/>
+                <Cell col="4" text="bind:BOXPE_AQZ"/>
+                <Cell col="5" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:ODR_PCS" mask="#,##0.99"/>
+                <Cell col="6" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:ODR_QT" mask="#,##0"/>
+                <Cell col="7" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:BOX_QT" mask="#,##0"/>
+                <Cell col="8" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:VCBT_AM" mask="#,##0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button65" taborder="6" text="확인" cssclass="btn_WF_Popup" left="753" top="283" width="54" height="29" onclick="Button65_onclick"/>
+        <Static id="Static01" taborder="8" text="17" visible="false" left="733" top="312" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="9" text="10" visible="false" left="733" top="273" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="10" text="15" visible="false" left="363" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="11" text="17" visible="false" left="808" top="32" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="12" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Button id="Button01" taborder="13" cssclass="btn_WF_PopupClose" left="770" top="0" height="32" onclick="btn_close_onclick" right="0"/>
+        <Static id="Static06" taborder="14" text="수주예정 상품조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="INT" size="256"/>
+          <Column id="ODR_PCS" type="FLOAT" size="256"/>
+          <Column id="ODR_QT" type="FLOAT" size="256"/>
+          <Column id="ODR_VAT" type="FLOAT" size="256"/>
+          <Column id="BOX_QT" type="FLOAT" size="256"/>
+          <Column id="ODR_AM" type="BIGDECIMAL" size="256"/>
+          <Column id="VCBT_AM" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.Grid00.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+	
+	var ODRPL_NA_TRPL_C = this.parent.PODRPL_NA_TRPL_C;
+	var ODRPL_NA_TEAM_C = this.parent.PODRPL_NA_TEAM_C;
+	var ODR_SLPNO = this.parent.PODR_SLPNO;
+	var ODR_DT = this.parent.PODR_DT;
+	var SPYPL_NA_TRPL_C = this.parent.PSPYPL_NA_TRPL_C;
+	
+	var params = "ODRPL_NA_TRPL_C="+ODRPL_NA_TRPL_C
+			 + 	" ODRPL_NA_TEAM_C="+ODRPL_NA_TEAM_C
+			 +	" ODR_SLPNO=" + ODR_SLPNO
+			 +	" SPYPL_NA_TRPL_C=" + SPYPL_NA_TRPL_C
+			 +	" ODR_DT=" + ODR_DT;
+	trace("PARAMS="+params);
+	
+	var sSvcID        = "getOrderRSVThird";//통신아이디
+	var sURL          = "svc::/rest/scm/order/getOrderRSVThird";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_dataM=DATASET";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "getOrderRSVThird"){
+			if(this.ds_dataM.rowcount == 0){
+				this.Grid00.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+			}
+		}
+	}
+}
+
+
+this.Button65_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

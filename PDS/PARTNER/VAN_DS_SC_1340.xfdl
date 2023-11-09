@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1340" classname="VAN_DS_SC_1340" left="0" top="0" width="803" height="490" titletext="사업장조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="397" height="21"/>
+        <Static id="Static28" taborder="1" cssclass="sta_WF_Labelbg" left="109" top="122" right="15" height="29"/>
+        <Static id="Static01" taborder="2" cssclass="sta_WF_Labelbg" left="109" top="66" right="15" height="29"/>
+        <Static id="sta_title00" taborder="3" text="수요처" cssclass="sta_WF_Label" left="0" top="66" width="110" height="29"/>
+        <Static id="sta_title01" taborder="4" text="실명번호" cssclass="sta_WF_Label" left="0" top="94" width="110" height="29"/>
+        <Static id="sta_title02" taborder="5" text="고객명" cssclass="sta_WF_Label" left="0" top="122" width="110" height="29"/>
+        <Static id="Static27" taborder="6" cssclass="sta_WF_Labelbg" left="109" top="94" right="15" height="29"/>
+        <Static id="sta_title08" taborder="7" text="법인번호" cssclass="sta_WF_Label" left="453" top="122" width="110" height="29"/>
+        <Static id="sta_pagename00" taborder="8" text="CIF 기본정보 확인" cssclass="sta_WF_Subtitle" left="0" top="41" width="135" height="21"/>
+        <Static id="sta_title03" taborder="9" text="세무구분" cssclass="sta_WF_Label" left="0" top="150" width="110" height="29"/>
+        <Static id="Static05" taborder="10" cssclass="sta_WF_Labelbg" left="109" top="150" right="15" height="29"/>
+        <Static id="sta_title09" taborder="11" text="대표자명" cssclass="sta_WF_Label" left="453" top="150" width="110" height="29"/>
+        <Static id="sta_title07" taborder="12" text="사업자유형" cssclass="sta_WF_Label" left="453" top="94" width="110" height="29"/>
+        <Edit id="edt_data01" taborder="13" value="130861-7811" readonly="true" left="267" top="98" width="183" height="21"/>
+        <Edit id="edt_data02" taborder="14" readonly="true" left="113" top="126" width="151" height="21"/>
+        <Edit id="edt_data00" taborder="15" readonly="false" left="113" top="70" width="110" height="21" inputtype="number" onkeydown="edt_data00_onkeydown"/>
+        <Edit id="edt_data06" taborder="16" value="121111-0139866" readonly="true" left="566" top="126" width="151" height="21"/>
+        <Static id="Static00" taborder="17" onclick="Static00_onclick" cssclass="sta_WF_Labelbg" left="109" top="206" right="15" height="53"/>
+        <Static id="sta_title04" taborder="18" text="업종" cssclass="sta_WF_Label" left="0" top="178" width="110" height="29"/>
+        <Static id="sta_title05" taborder="19" text="주류&#13;&#10;도매업체구분" cssclass="sta_WF_Label" left="0" top="206" width="110" height="53"/>
+        <Static id="Static07" taborder="20" cssclass="sta_WF_Labelbg" left="109" top="178" right="15" height="29"/>
+        <Static id="sta_title11" taborder="21" text="주류&#13;&#10;소매업체구분" cssclass="sta_WF_Label" left="453" top="206" width="110" height="53"/>
+        <Static id="sta_title06" taborder="22" text="주류&#13;&#10;판매신고번호" cssclass="sta_WF_Label" left="0" top="258" width="110" height="53"/>
+        <Static id="Static12" taborder="23" cssclass="sta_WF_Labelbg" left="109" top="258" right="15" height="53"/>
+        <Static id="sta_title10" taborder="24" text="업태" cssclass="sta_WF_Label" left="453" top="178" width="110" height="29"/>
+        <Edit id="edt_data03" taborder="25" readonly="true" left="113" top="182" width="151" height="21"/>
+        <Edit id="edt_data04" taborder="26" readonly="true" left="267" top="182" width="183" height="21"/>
+        <Edit id="edt_data07" taborder="27" value="백학기,홍주식" readonly="true" left="566" top="154" width="151" height="21"/>
+        <Edit id="edt_data08" taborder="28" value="제조업 도소매 서비스" readonly="true" left="566" top="182" width="151" height="21"/>
+        <Combo id="cbo_sel_item00" taborder="29" readonly="true" innerdataset="ds_rlno_cfc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="113" top="98" width="151" height="21"/>
+        <Radio id="rdo_wrs_chk00" taborder="30" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" readonly="true" direction="vertical" left="116" top="154" width="334" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">면세</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">과세</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">간이과세</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">4</Col>
+                <Col id="datacolumn">없음</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Combo id="cbo_sel_item02" taborder="31" readonly="true" innerdataset="ds_trpl_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="566" top="98" width="151" height="21"/>
+        <Combo id="cbo_sel_item01" taborder="32" readonly="true" innerdataset="ds_whsl_comp_c" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="113" top="222" width="151" height="21"/>
+        <Combo id="cbo_sel_item03" taborder="33" text="[1100] 서울" readonly="true" innerdataset="ds_rtl_comp_c" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="566" top="222" width="151" height="21"/>
+        <Static id="Static03" taborder="34" cssclass="sta_WF_Labelbg" left="109" top="410" right="15" height="29"/>
+        <Static id="Static10" taborder="35" cssclass="sta_WF_Labelbg" left="109" top="354" right="15" height="29"/>
+        <Static id="sta_title12" taborder="36" text="거래처명" cssclass="sta_WF_Label" left="0" top="354" width="110" height="29"/>
+        <Static id="sta_title13" taborder="37" text="주소" cssclass="sta_WF_Label" left="0" top="382" width="110" height="29"/>
+        <Static id="sta_title14" taborder="38" text="전화번호" cssclass="sta_WF_Label" left="0" top="410" width="110" height="29"/>
+        <Static id="Static18" taborder="39" cssclass="sta_WF_Labelbg" left="109" top="382" right="15" height="29"/>
+        <Static id="sta_title21" taborder="40" text="팩스번호" cssclass="sta_WF_Label" left="453" top="410" width="110" height="29"/>
+        <Static id="sta_pagename01" taborder="41" text="거래처 기본정보" cssclass="sta_WF_Subtitle" left="5" top="331" width="135" height="21"/>
+        <Static id="sta_title15" taborder="42" text="휴대전화번호" cssclass="sta_WF_Label" left="0" top="438" width="110" height="29"/>
+        <Static id="Static25" taborder="43" cssclass="sta_WF_Labelbg" left="109" top="438" right="15" height="29"/>
+        <Static id="sta_title22" taborder="44" text="지역코드" cssclass="sta_WF_Label" left="453" top="438" width="110" height="29"/>
+        <Static id="sta_title20" taborder="45" text="단축거래처명" cssclass="sta_WF_Label" left="453" top="354" width="110" height="29"/>
+        <Edit id="edt_data12" taborder="46" readonly="true" left="267" top="386" width="183" height="21"/>
+        <Edit id="edt_data10" taborder="47" readonly="true" left="566" top="358" width="191" height="21"/>
+        <Static id="Static33" taborder="48" cssclass="sta_WF_Labelbg" left="109" top="494" right="15" height="53"/>
+        <Static id="sta_title16" taborder="49" text="본지사구분" cssclass="sta_WF_Label" left="0" top="466" width="110" height="29"/>
+        <Static id="sta_title17" taborder="50" text="사용시스템종류" cssclass="sta_WF_Label" left="0" top="494" width="110" height="53"/>
+        <Static id="Static36" taborder="51" cssclass="sta_WF_Labelbg" left="109" top="466" right="15" height="29"/>
+        <Static id="sta_title24" taborder="52" text="농기계부품&#13;&#10;취급여부" cssclass="sta_WF_Label" left="453" top="494" width="110" height="53"/>
+        <Static id="sta_title18" taborder="53" text="세무신고&#13;&#10;형태코드" cssclass="sta_WF_Label" left="0" top="546" width="110" height="53"/>
+        <Static id="Static39" taborder="54" cssclass="sta_WF_Labelbg" left="109" top="546" right="15" height="53"/>
+        <Static id="sta_title25" taborder="55" text="전자세금계산서사용" cssclass="sta_WF_Label" left="453" top="546" width="110" height="53"/>
+        <Static id="sta_title23" taborder="56" text="상위거래처" cssclass="sta_WF_Label" left="453" top="466" width="110" height="29"/>
+        <Edit id="edt_data11" taborder="57" readonly="true" left="113" top="386" width="151" height="21"/>
+        <Static id="sta_title19" taborder="58" text="거래중지" cssclass="sta_WF_Label" left="0" top="598" width="110" height="29"/>
+        <Static id="Static43" taborder="59" cssclass="sta_WF_Labelbg" left="109" top="598" right="15" height="29"/>
+        <Edit id="edt_data05" taborder="60" readonly="true" left="113" top="274" width="151" height="21"/>
+        <Edit id="edt_data13" taborder="61" readonly="true" left="453" top="386" width="204" height="21"/>
+        <Edit id="edt_data09" taborder="62" readonly="true" left="113" top="358" width="191" height="21"/>
+        <Static id="Static48" taborder="63" text="-" left="166" top="414" width="9" height="21"/>
+        <MaskEdit id="mae_number00" taborder="64" value="1234" left="175" top="414" width="48" height="21"/>
+        <Static id="Static30" taborder="65" text="-" left="225" top="414" width="9" height="21"/>
+        <MaskEdit id="mae_number01" taborder="66" value="1234" left="234" top="414" width="48" height="21"/>
+        <Static id="Static44" taborder="67" text="-" left="166" top="442" width="9" height="21"/>
+        <MaskEdit id="mae_number02" taborder="68" value="1234" left="175" top="442" width="48" height="21"/>
+        <Static id="Static45" taborder="69" text="-" left="225" top="442" width="9" height="21"/>
+        <MaskEdit id="mae_number03" taborder="70" value="1234" left="234" top="442" width="48" height="21"/>
+        <Static id="Static46" taborder="71" text="-" left="619" top="414" width="9" height="21"/>
+        <MaskEdit id="mae_number04" taborder="72" value="1234" left="628" top="414" width="48" height="21"/>
+        <Static id="Static49" taborder="73" text="-" left="678" top="414" width="9" height="21"/>
+        <MaskEdit id="mae_number05" taborder="74" value="1234" left="687" top="414" width="48" height="21"/>
+        <Radio id="rdo_chk02" taborder="75" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" readonly="true" direction="vertical" left="116" top="602" width="188" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">여</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">부</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Combo id="cbo_sel_item07" taborder="76" readonly="true" innerdataset="ds_tr_stop_rsnc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="304" top="602" width="151" height="21"/>
+        <Radio id="rdo_chk00" taborder="77" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" readonly="true" direction="vertical" left="569" top="510" width="188" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">여</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">부</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Radio id="rdo_chk01" taborder="78" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" readonly="true" direction="vertical" left="569" top="562" width="188" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">여</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">0</Col>
+                <Col id="datacolumn">부</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Edit id="edt_data14" taborder="79" value="1159" readonly="true" cssclass="WF_Essential" left="566" top="442" width="110" height="21"/>
+        <Edit id="edt_data15" taborder="80" readonly="true" cssclass="WF_Essential" left="679" top="442" width="130" height="21"/>
+        <Edit id="edt_data16" taborder="81" readonly="true" cssclass="WF_Essential" left="566" top="470" width="110" height="21"/>
+        <Edit id="edt_data17" taborder="82" readonly="true" cssclass="WF_Essential" left="679" top="470" width="130" height="21"/>
+        <Button id="btn_search00" taborder="83" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Combo id="cbo_sel_item04" taborder="84" readonly="true" innerdataset="ds_mbco_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="113" top="470" width="240" height="21"/>
+        <Combo id="cbo_sel_item05" taborder="85" readonly="true" innerdataset="ds_usr_sys_kdc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="113" top="510" width="240" height="21"/>
+        <Combo id="cbo_sel_item06" taborder="86" readonly="true" innerdataset="ds_bzpl_txbz" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="113" top="562" width="240" height="21"/>
+        <Static id="sta_title26" taborder="87" text="GLN" cssclass="sta_WF_Label" left="453" top="66" width="110" height="29"/>
+        <Edit id="edt_data18" taborder="88" readonly="true" left="566" top="70" width="151" height="21"/>
+        <Button id="btn_print00" taborder="89" text="출력" onclick="btn_print00_onclick" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Button id="btn_clear00" taborder="90" text="초기화" onclick="btn_clear00_onclick" cssclass="btn_WF_CRUD" top="0" right="118" width="53" height="21"/>
+        <Button id="btn_popup00" taborder="91" onclick="div_search_btn_popup00_onclick" cssclass="btn_WF_Searchbtn" left="429" top="70" width="21" height="21"/>
+        <Edit id="edt_data19" taborder="92" left="226" top="70" width="200" height="21" onkeydown="edt_data19_onkeydown"/>
+        <Combo id="cbo_tel00" taborder="93" value="02" text="02" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="113" top="414" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">02</Col>
+                <Col id="datacolumn">02</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">031</Col>
+                <Col id="datacolumn">031</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">032</Col>
+                <Col id="datacolumn">032</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">033</Col>
+                <Col id="datacolumn">033</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">041</Col>
+                <Col id="datacolumn">041</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">042</Col>
+                <Col id="datacolumn">042</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">043</Col>
+                <Col id="datacolumn">043</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">051</Col>
+                <Col id="datacolumn">051</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">052</Col>
+                <Col id="datacolumn">052</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">053</Col>
+                <Col id="datacolumn">053</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">054</Col>
+                <Col id="datacolumn">054</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">055</Col>
+                <Col id="datacolumn">055</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">061</Col>
+                <Col id="datacolumn">061</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">062</Col>
+                <Col id="datacolumn">062</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">063</Col>
+                <Col id="datacolumn">063</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">064</Col>
+                <Col id="datacolumn">064</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Combo id="cbo_phone00" taborder="94" value="010" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="113" top="442" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">010</Col>
+                <Col id="datacolumn">010</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">011</Col>
+                <Col id="datacolumn">011</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">016</Col>
+                <Col id="datacolumn">016</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">017</Col>
+                <Col id="datacolumn">017</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">018</Col>
+                <Col id="datacolumn">018</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">019</Col>
+                <Col id="datacolumn">019</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Combo id="cbo_fex00" taborder="95" value="02" text="02" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="566" top="414" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">02</Col>
+                <Col id="datacolumn">02</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">031</Col>
+                <Col id="datacolumn">031</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">032</Col>
+                <Col id="datacolumn">032</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">033</Col>
+                <Col id="datacolumn">033</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">041</Col>
+                <Col id="datacolumn">041</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">042</Col>
+                <Col id="datacolumn">042</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">043</Col>
+                <Col id="datacolumn">043</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">051</Col>
+                <Col id="datacolumn">051</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">052</Col>
+                <Col id="datacolumn">052</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">053</Col>
+                <Col id="datacolumn">053</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">054</Col>
+                <Col id="datacolumn">054</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">055</Col>
+                <Col id="datacolumn">055</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">061</Col>
+                <Col id="datacolumn">061</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">062</Col>
+                <Col id="datacolumn">062</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">063</Col>
+                <Col id="datacolumn">063</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">064</Col>
+                <Col id="datacolumn">064</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item16" compid="edt_data01" propid="value" datasetid="ds_infodata" columnid="BIZ_NUMBER"/>
+      <BindItem id="item0" compid="edt_data00" propid="value" datasetid="ds_infodata" columnid="NA_TRPL_C"/>
+      <BindItem id="item25" compid="edt_data06" propid="value" datasetid="ds_infodata" columnid="COPNO_CIF_NO"/>
+      <BindItem id="item31" compid="edt_data04" propid="value" datasetid="ds_infodata" columnid="BZCCNM"/>
+      <BindItem id="item26" compid="edt_data07" propid="value" datasetid="ds_infodata" columnid="REPMNM"/>
+      <BindItem id="item27" compid="edt_data08" propid="value" datasetid="ds_infodata" columnid="BZTPNM"/>
+      <BindItem id="item1" compid="rdo_wrs_chk00" propid="value" datasetid="ds_infodata" columnid="NA_TXBZ_DSC"/>
+      <BindItem id="item29" compid="cbo_sel_item01" propid="value" datasetid="ds_infodata" columnid="LIQ_WHSL_COMP_C"/>
+      <BindItem id="item30" compid="cbo_sel_item03" propid="value" datasetid="ds_infodata" columnid="LIQ_RTL_COMP_C"/>
+      <BindItem id="item7" compid="edt_data12" propid="value" datasetid="ds_infodata" columnid="DONGUP"/>
+      <BindItem id="item3" compid="edt_data10" propid="value" datasetid="ds_infodata" columnid="TRPL_ABR_NM"/>
+      <BindItem id="item6" compid="edt_data11" propid="value" datasetid="ds_infodata" columnid="ZIP_SQNO"/>
+      <BindItem id="item28" compid="edt_data05" propid="value" datasetid="ds_infodata" columnid="LIQ_SEL_RPT_NO"/>
+      <BindItem id="item8" compid="edt_data13" propid="value" datasetid="ds_infodata" columnid="DONGBW"/>
+      <BindItem id="item2" compid="edt_data09" propid="value" datasetid="ds_infodata" columnid="CLNTNM"/>
+      <BindItem id="item11" compid="mae_number00" propid="value" datasetid="ds_infodata" columnid="HTEL"/>
+      <BindItem id="item12" compid="mae_number01" propid="value" datasetid="ds_infodata" columnid="STEL"/>
+      <BindItem id="item17" compid="mae_number02" propid="value" datasetid="ds_infodata" columnid="MPHNO"/>
+      <BindItem id="item18" compid="mae_number03" propid="value" datasetid="ds_infodata" columnid="MPSQNO"/>
+      <BindItem id="item14" compid="mae_number04" propid="value" datasetid="ds_infodata" columnid="HFAX"/>
+      <BindItem id="item15" compid="mae_number05" propid="value" datasetid="ds_infodata" columnid="FAX_SQNO"/>
+      <BindItem id="item23" compid="rdo_chk02" propid="value" datasetid="ds_infodata" columnid="TR_STOP_YN"/>
+      <BindItem id="item24" compid="cbo_sel_item07" propid="value" datasetid="ds_infodata" columnid="TR_STOP_RSNC"/>
+      <BindItem id="item19" compid="rdo_chk00" propid="value" datasetid="ds_infodata" columnid="FMACH_PATS_TRT_YN"/>
+      <BindItem id="item22" compid="rdo_chk01" propid="value" datasetid="ds_infodata" columnid="ELT_TXBIL_UYN"/>
+      <BindItem id="item9" compid="edt_data14" propid="value" datasetid="ds_infodata" columnid="NA_RGN_C"/>
+      <BindItem id="item10" compid="edt_data15" propid="value" datasetid="ds_infodata" columnid="RGN_CNM"/>
+      <BindItem id="item5" compid="edt_data16" propid="value" datasetid="ds_infodata" columnid="UP_NA_TRPL_C"/>
+      <BindItem id="item13" compid="edt_data17" propid="value" datasetid="ds_infodata" columnid="UP_NA_TRPL_NM"/>
+      <BindItem id="item4" compid="cbo_sel_item04" propid="value" datasetid="ds_infodata" columnid="NA_MBCO_DSC"/>
+      <BindItem id="item21" compid="cbo_sel_item05" propid="value" datasetid="ds_infodata" columnid="NA_USR_SYS_KDC"/>
+      <BindItem id="item20" compid="cbo_sel_item06" propid="value" datasetid="ds_infodata" columnid="NA_BZPL_TXBZ_RPT_FORM_C"/>
+      <BindItem id="item33" compid="edt_data18" propid="value" datasetid="ds_infodata" columnid="NA_TRPL_C"/>
+      <BindItem id="item32" compid="cbo_tel00" propid="value" datasetid="ds_infodata" columnid="ATEL"/>
+      <BindItem id="item35" compid="cbo_phone00" propid="value" datasetid="ds_infodata" columnid="MPSVNO"/>
+      <BindItem id="item34" compid="cbo_fex00" propid="value" datasetid="ds_infodata" columnid="FAX_RGNO"/>
+      <BindItem id="item36" compid="cbo_sel_item02" propid="value" datasetid="ds_infodata" columnid="NA_TRPL_DSC"/>
+    </Bind>
+    <Objects>
+      <Dataset id="ds_infodata" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_DSC" type="STRING" size="256"/>
+          <Column id="NAAC_DSC" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="TRPL_ABR_NM" type="STRING" size="256"/>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="UP_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="UP_NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="FZIP" type="STRING" size="256"/>
+          <Column id="RZIP" type="STRING" size="256"/>
+          <Column id="ZIP_SQNO" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="NA_RGN_C" type="STRING" size="256"/>
+          <Column id="RGN_CNM" type="STRING" size="256"/>
+          <Column id="TEL_NAT_NO" type="STRING" size="256"/>
+          <Column id="ATEL" type="STRING" size="256"/>
+          <Column id="HTEL" type="STRING" size="256"/>
+          <Column id="STEL" type="STRING" size="256"/>
+          <Column id="FAX_RGNO" type="STRING" size="256"/>
+          <Column id="HFAX" type="STRING" size="256"/>
+          <Column id="FAX_SQNO" type="STRING" size="256"/>
+          <Column id="MPSVNO" type="STRING" size="256"/>
+          <Column id="MPHNO" type="STRING" size="256"/>
+          <Column id="MPSQNO" type="STRING" size="256"/>
+          <Column id="FMACH_PATS_TRT_YN" type="STRING" size="256"/>
+          <Column id="NA_BZPL_TXBZ_RPT_FORM_C" type="STRING" size="256"/>
+          <Column id="NA_USR_SYS_KDC" type="STRING" size="256"/>
+          <Column id="ELT_TXBIL_UYN" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+          <Column id="TR_STOP_RSNC" type="STRING" size="256"/>
+          <Column id="TR_STOP_DT" type="STRING" size="256"/>
+          <Column id="COPNO_CIF_NO" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+          <Column id="BZCCNM" type="STRING" size="256"/>
+          <Column id="BZTPNM" type="STRING" size="256"/>
+          <Column id="LIQ_SEL_RPT_NO" type="STRING" size="256"/>
+          <Column id="LIQ_WHSL_COMP_C" type="STRING" size="256"/>
+          <Column id="LIQ_RTL_COMP_C" type="STRING" size="256"/>
+          <Column id="NA_TXBZ_DSC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="CHG_YN" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="LS_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="SEND_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">8801099000016</Col>
+            <Col id="data">[8801099000016] 대상에프앤에프(주)</Col>
+          </Row>
+          <Row>
+            <Col id="code">8801099000023</Col>
+            <Col id="data">[8801099000023] 대상에프앤에프(주)동부지점</Col>
+          </Row>
+          <Row>
+            <Col id="code">8801099000030</Col>
+            <Col id="data">[8801099000030] 대상에프앤에프(주)서부지점</Col>
+          </Row>
+          <Row>
+            <Col id="code">8801099000047</Col>
+            <Col id="data">[8801099000047] 대상에프앤에프(주)남부지점(안양)</Col>
+          </Row>
+          <Row>
+            <Col id="code">2000000000004</Col>
+            <Col id="data">[8801099000054] 대상에프앤에프(주)남부지점(강원)</Col>
+          </Row>
+          <Row>
+            <Col id="code">2000000000005</Col>
+            <Col id="data">[8801099000061] 대상에프앤에프(주)대전지점</Col>
+          </Row>
+          <Row>
+            <Col id="code">2000000000006</Col>
+            <Col id="data">[8801099000078] 대상에프앤에프(주)광주지점</Col>
+          </Row>
+          <Row>
+            <Col id="code">2000000000007</Col>
+            <Col id="data">[8801099000085] 대상에프앤에프(주)대구지점</Col>
+          </Row>
+          <Row>
+            <Col id="code">2000000000008</Col>
+            <Col id="data">[8801099000092] 대상에프앤에프(주)부산지점</Col>
+          </Row>
+          <Row>
+            <Col id="code">2000000000009</Col>
+            <Col id="data">[8801099000108] 대상에프앤에프(주)신선지점</Col>
+          </Row>
+          <Row>
+            <Col id="code">2000000000010</Col>
+            <Col id="data">[8801099000115] 대상에프앤에프(주)지호상사</Col>
+          </Row>
+          <Row>
+            <Col id="code">11</Col>
+            <Col id="data">[8801099000122] 대상에프앤에프(주)청원유통</Col>
+          </Row>
+          <Row>
+            <Col id="code">12</Col>
+            <Col id="data">[8801099000139] 대상에프앤에프(주)승진상사</Col>
+          </Row>
+          <Row>
+            <Col id="code">13</Col>
+            <Col id="data">[8801099000146] 대상에프앤에프(주)여주대상</Col>
+          </Row>
+          <Row>
+            <Col id="code">14</Col>
+            <Col id="data">[8801099000153] 대상에프앤에프(주)청정원상사(위탁)</Col>
+          </Row>
+          <Row>
+            <Col id="code">15</Col>
+            <Col id="data">[8801099000160] 대상에프앤에프(주)대성상사</Col>
+          </Row>
+          <Row>
+            <Col id="code">16</Col>
+            <Col id="data">[8801099000177] 대상에프앤에프(주)대상위탁상사</Col>
+          </Row>
+          <Row>
+            <Col id="code">17</Col>
+            <Col id="data">[8801099000184] 대상에프앤에프(주)청정원상사(홍성)</Col>
+          </Row>
+          <Row>
+            <Col id="code">18</Col>
+            <Col id="data">[8801099000191] 대상에프앤에프(주)홍성위탁</Col>
+          </Row>
+          <Row>
+            <Col id="code">19</Col>
+            <Col id="data">[8801099000207] 대상에프앤에프(주)해송유통</Col>
+          </Row>
+          <Row>
+            <Col id="code">20</Col>
+            <Col id="data">[8801099000214] 대상에프앤에프(주)청정원태안위탁</Col>
+          </Row>
+          <Row>
+            <Col id="code">21</Col>
+            <Col id="data">[8801099000221] 대상에프앤에프(주)송암상사</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_tr_stop_rsnc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_mbco_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_bzpl_txbz" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rlno_cfc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_usr_sys_kdc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_trpl_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_whsl_comp_c" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rtl_comp_c" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+	var param = [  
+ 		{code:"RLNO_CFC", dsName:"ds_rlno_cfc", selecttype:"N"}, // 0.실명번호분류코드
+ 		{code:"NA_TRPL_DSC", dsName:"ds_trpl_dsc", selecttype:"N"}, // 1.경제통합거래처구분코드
+ 		{code:"NA_MBCO_DSC",   dsName:"ds_mbco_dsc",   selecttype:"N"}, // 2.경제통합본지사구분코드
+ 		{code:"NA_USR_SYS_KDC", dsName:"ds_usr_sys_kdc", selecttype:"N"}, // 3.경제통합사용자시스템종류코드
+ 		{code:"LIQ_WHSL_COMP_C", dsName:"ds_whsl_comp_c", selecttype:"N"}, // 4.주류도매업체코드
+ 		{code:"LIQ_RTL_COMP_C", dsName:"ds_rtl_comp_c", selecttype:"N"}, // 5.주류소매업체코드
+ 		{code:"TR_STOP_RSNC", dsName:"ds_tr_stop_rsnc", selecttype:"N"}, // 6.거래중지사유코드
+ 		{code:"NA_BZPL_TXBZ_RPT_FORM_C", dsName:"ds_bzpl_txbz", selecttype:"N"} // 7.경제통합사업장세무신고형태코드
+    ];
+	this.gfn_setCommonCode(param);
+};
+
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_nullToEmpty(this.edt_data00.value) == ""){
+		this.gfn_getMessage('alert','result.message.search.no.exist.data');
+		return;
+	}
+	var json = this.getParamJson(this.components);
+	json.TRPL_C=this.edt_data00.value;	// 수요처 사업장 코드
+	var params = this.getParamJsonToString(json);
+	
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/partner/Trade/retrieveStore";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";// 보내는데이터셋
+	var sOutDatasets  = "ds_infodata=ds_infodata";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";// 콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);	
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)//첫번째 인자값은 통신 ID
+{
+	if(nCD < 0){
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		if(svcID == "p_search")
+		{
+			if(sMSG != "SUCCESS"){
+				this.gfn_getMessage('alert','result.message.search.no.exist.data');
+			}else{
+				this.cbo_sel_item00.set_value(13);
+			}
+			if(this.gfn_nullToEmpty(this.edt_data09.value) == "" && this.gfn_nullToEmpty(this.edt_data10.value) == ""){
+				this.gfn_getMessage('alert','result.message.search.no.exist.data');
+			}
+		}
+	}
+}
+
+//수요처 팝업 조회 
+this.div_search_btn_popup00_onclick = function(params)
+{
+	if(params == true){
+		if(this.gfn_nullToEmpty((this.edt_data00.value).length < 7 && this.gfn_nullToEmpty(this.edt_data00.value).length > 0) || (this.gfn_nullToEmpty(this.edt_data00.value).length > 13)){
+			this.gfn_getMessage("alert",'msg.van_ds_sc_1302.view.text.between');
+			return;
+		}
+		if(this.gfn_nullToEmpty(this.edt_data19.value).length == 1){
+			this.gfn_getMessage("alert",'msg.van_ds_sc_1302.view.input.bzplcnm');
+			return;
+		}
+	}
+	
+	var code = this.edt_data00.value;
+	var textname = this.edt_data19.value;
+	var param = {
+				autoType:params,
+				searchCode:code,
+				searchText:textname
+	};
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+
+	var oArg = {paramMode:"U", sepVal:"1340", autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","PDS.PARTNER::VAN_DS_SC_1302.xfdl",oArg,sOption,sPopupCallBack);	  
+}
+
+//팝업 닫은 후 실행
+this.fn_popupAfter = function(strId, strVal)
+{	
+	if(strVal != "" && strVal != undefined)
+	{
+		this.edt_data00.set_value(strVal.split(",")[0]); 	//팝업 창 데이터 선택(사업장코드)
+		this.edt_data19.set_value(strVal.split(",")[3]);	//팝업 창 데이터 선택(사업장명)
+	}
+}
+
+//초기화 버튼
+this.btn_clear00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+this.btn_print00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var trpl_text = "사업장 : ["+this.edt_data00.value+"]"+this.edt_data19.value+" ,중/조합구분 : 내부";
+	var ozParam = {
+		sId: 'VAN_DS_SC_1340',
+		sUrl: '/rest/oz/pds/partner/Trade/retrieveStore',
+		paramType: 'param',
+		sParam: {
+			TRPL_C:this.edt_data00.value,
+			TRPL_C_TEXT:trpl_text
+		}
+	};
+	this.ozViewer(ozParam);	
+}
+
+this.edt_data00_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup00_onclick(true);
+	}
+}
+
+this.edt_data19_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.div_search_btn_popup00_onclick(true);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

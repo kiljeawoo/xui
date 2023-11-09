@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_008002" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="검수실적제외 상품관리" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="89" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static02" taborder="31" text="상품조회" cssclass="sta_WFSA_Label" left="34.73%" top="10" right="54.33%" height="21"/>
+              <Static id="Static01" taborder="35" text="사업장조회" cssclass="sta_WFSA_Label" left="2.16%" top="10" right="86.9%" height="21"/>
+              <Edit id="Edit_comnum" taborder="36" left="11.7%" top="10" right="79.39%" height="21" oneditclick="div_search_Edit_comnum_oneditclick"/>
+              <Edit id="Edit_comname" taborder="37" left="20.87%" top="10" right="69.72%" height="21" enable="true"/>
+              <Button id="btn_comname" taborder="38" onclick="div_search_btn_comname_onclick" cssclass="btn_WF_Searchbtn" left="30.53%" top="10" right="66.79%" height="21"/>
+              <Static id="Static03" taborder="39" text="사용여부" cssclass="sta_WFSA_Label" left="68.83%" top="10" right="20.1%" height="21"/>
+              <Radio id="rdo_use" taborder="40" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="2" direction="vertical" left="77.1%" top="10" right="1.15%" height="21" style="font:9 Gulim;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">사용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">중지</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static04" taborder="43" text="파일명" cssclass="sta_WFSA_Label" left="2.16%" top="42" right="86.9%" height="21"/>
+              <Edit id="Edit_wrsnum" taborder="46" left="44.27%" top="10" right="46.82%" height="21"/>
+              <Edit id="Edit_wrsname" taborder="47" left="53.44%" top="10" right="37.15%" height="21" oneditclick="div_search_Edit_wrsname_oneditclick" enable="true"/>
+              <Button id="btn_wrsname" taborder="48" onclick="div_search_btn_wrsname_onclick" cssclass="btn_WF_Searchbtn" left="63.1%" top="10" right="34.22%" height="21"/>
+              <Edit id="edt_data00" taborder="49" left="11.7%" top="42" right="67%" height="21"/>
+              <Static id="Static05" taborder="50" text="처리결과" cssclass="sta_WFSA_Label" left="61.58%" top="42" right="30.03%" height="21"/>
+              <TextArea id="txa_excel00" taborder="51" value="엑셀다운로드 후 사용하시기 바랍니다." readonly="true" left="69.97%" top="42" right="2.04%" height="21" style="align:left middle;"/>
+              <FileUpload id="FileUpload00" taborder="52" multiselect="true" timeout="0" retry="0" async="true" index="0" onsuccess="FileUpload00_onsuccess" onerror="FileUpload00_onerror" onitemchanged="FileUpload00_onitemchanged" left="32.95%" top="42" width="72" height="21" onload="FileUpload00_onload"/>
+              <Button id="btn_upload" taborder="53" text="업로드" onclick="btn_file_onclick" visible="false" left="43%" top="42" width="72" height="21"/>
+              <Button id="btn_sample" taborder="54" text="양식" onclick="btn_sample_onclick" visible="false" left="53.05%" top="42" width="72" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="97" right="15" bottom="1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Button id="Button75" taborder="3" onclick="Div_Md_Button75_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+              <Grid id="Grd01" taborder="2" binddataset="ds_kpiExptWrs" useinputpanel="false" left="0" top="42" right="0" bottom="66" cellsizingtype="col" autofittype="col" summarytype="top" treeusebutton="use" treeusecheckbox="false" treeuseexpandkey="true" treeuseimage="false" treeuseline="true">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="140"/>
+                      <Column size="100"/>
+                      <Column size="140"/>
+                      <Column size="0"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No"/>
+                      <Cell col="1" text="사업장코드"/>
+                      <Cell col="2" text="사업장명"/>
+                      <Cell col="3" text="상품코드"/>
+                      <Cell col="4" text="상품명"/>
+                      <Cell col="5" text="레벨"/>
+                      <Cell col="6" text="사용/중지"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="text" text="bind:RN"/>
+                      <Cell col="1" edittype="expr:(dataset.getRowType(currow)==2||NA_BZPLC==null)?'normal':'none'" text="bind:NA_BZPLC" tooltiptext="bind:NA_BZPLC"/>
+                      <Cell col="2" style="align:left;" text="bind:STR_NM" tooltiptext="bind:STR_NM"/>
+                      <Cell col="3" edittype="expr:(dataset.getRowType(currow)==2||WRS_C==null)?'normal':'none'" text="bind:NA_WRS_C" tooltiptext="bind:WRS_C"/>
+                      <Cell col="4" style="align:left;" text="bind:WRS_NM" tooltiptext="bind:WRS_NM"/>
+                      <Cell col="5" displaytype="number" text="bind:LEV" tooltiptext="bind:LEV"/>
+                      <Cell col="6" displaytype="checkbox" edittype="checkbox" text="bind:USE_YN" tooltiptext="bind:USE_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_paging" taborder="4" url="common::pagingBTN.xfdl" left="226" bottom="40" width="338" height="29" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_execl" taborder="11" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="80" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="91" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="0" right="128" width="41" height="21" visible="false"/>
+        <Button id="btn_insert" taborder="92" text="추가" onclick="btn_insert_onclick" cssclass="btn_WF_CRUD" top="0" right="176" width="41" height="21" visible="false"/>
+        <Button id="btn_clear" taborder="93" text="초기화" onclick="btn_clear_onclick" cssclass="btn_WF_CRUD" visible="false" top="0" right="224" width="41" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_kpiExptWrs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="13"/>
+          <Column id="STR_NM" type="STRING" size="50"/>
+          <Column id="NA_WRS_C" type="STRING" size="50"/>
+          <Column id="WRS_NM" type="STRING" size="50"/>
+          <Column id="USE_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_kpiExptWrsChg" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="13"/>
+          <Column id="STR_NM" type="STRING" size="50"/>
+          <Column id="NA_WRS_C" type="STRING" size="50"/>
+          <Column id="WRS_NM" type="STRING" size="50"/>
+          <Column id="USE_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_excel_bind" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="String" size="256"/>
+          <Column id="WRS_C" type="String" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item2" compid="div_search.rdo_use" propid="value" datasetid="ds_dataM" columnid="DVY_VHC_DSC"/>
+      <BindItem id="item0" compid="div_search.edt_data00" propid="value" datasetid="ds_uploadresult" columnid="ORGFNAME"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+// Form Init: 페이지 호출 후 실행
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+ 
+}
+
+// Form Onload: DataSet 로딩 후 실행
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+
+//	시스템관리자가 아니면 권한확인을 한다
+	if(application.gv_userTPC != "admin")
+	{
+	//	로그인한 ID가 추가, 저장버튼 활성화 권한을 확인한다	
+		this.fn_getAuth();
+	//	사업장 권한이면 검색조건의 사업장조회를 고정한다
+		if(application.gv_userType == '03')
+		{
+			//	읽기전용 입력창 배경색
+			var	rdonly_bgcolor = "#999999ff";
+			//	조회조건 사업장코드 고정 & 비활성화
+			this.div_search.Edit_comnum.set_value(application.gv_glnCode);
+			this.div_search.Edit_comnum.set_readonly(true);
+			this.div_search.Edit_comnum.style.set_background(rdonly_bgcolor);
+			//	조회조건 사업장명 고정 & 비활성화
+			this.div_search.Edit_comname.set_value(application.gv_companyName);
+			this.div_search.Edit_comname.set_readonly(true);
+			this.div_search.Edit_comname.style.set_background(rdonly_bgcolor);
+			//	사업장조회 버튼 비활성화
+			this.div_search.btn_comname.set_enable(false);
+		}
+	}
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+	var fileParam = {
+		form:this,		
+		param:[{//필요없는 프로퍼티는 주석처리
+				fileObj: this.div_search.FileUpload00,
+				maxSize:10,											//허용할 파일 사이즈(MB)
+				maxLength:1,										//허용할 파일갯수
+				ext:['xls','xlsx'],									//허용할 확장자명
+				cancel_after:function(obj){							//파일선택후, 취소버튼 눌렀을때 실행할 함수명 또는 함수
+					this.form.div_search.txa_excel00.set_value(""); //this대신 this.form으로 접근		
+				},
+				valid_after_fail: 'FileUpload00_onerror',  			//파일검사 실패후 호출할 함수명 또는 함수
+				upload_after_succ: 'FileUpload00_onsuccess',    	//파일 업로드 성공후 호출할 함수명 또는 함수
+				upload_after_fail: 'FileUpload00_onerror'  	    	//파일 업로드 실패후 호출할 함수명 또는 함수
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);
+	this.Div02.Grd01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+//UPLOAD
+this.FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if( e.datasets == null )
+	{
+		trace("업로드 실패");
+		this.div_search.txa_excel00.set_value("업로드 실패");
+	} else {
+		trace("업로드 성공");
+		this.div_search.txa_excel00.set_value("업로드 성공");
+		
+		this.ds_uploadresult.clear();
+		this.ds_uploadresult.copyData(e.datasets[0]);		
+	//	this.ds_uploadresult.addColumn("CHK", "string"); //멀티건 인경우 'CHK'컬럼추가
+	}	
+}
+
+this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: " + e.errorcode);
+	trace("e.errormsg: " + e.errormsg);
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* Paging 처리 */
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_kpiExptWrs.clearData(); // Grid에 Binding된 Dataset명
+
+	this.ds_pageVO.addRow();
+
+	var vPageSize = 20; // Grid에 보여줄 Row수 선택
+	var vTotalCount = 0; // 전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+	this.ds_pageVO.setColumn(0, "CURRENT_PAGE", vPageNum); // 현재 페이지
+	this.ds_pageVO.setColumn(0, "PAGE_SIZE", vPageSize);
+	this.ds_pageVO.setColumn(0, "TOTAL_ROW_COUNT", vTotalCount);
+
+	var argumentObj = "";
+
+	this.fn_search();
+}
+
+this.fn_setAuth = function()
+{
+//	권한에 따른 가능 및 제약업무 설정
+
+}
+
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+	var sTotal       = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	if(ErrorCode < 0)
+	{
+		if(svcID == "uploadExcelSmtPdaKpiExptWrs")
+		{
+			this.alert(ErrorMsg);
+		}
+		else this.gfn_getMessage("alert", "error.message.server.exception");
+	}
+	else
+	{
+		if(svcID == "retrieveSmtPdaKpiExptWrsList")
+		{
+		//	trace("ds_kpiGroup:" + this.ds_kpiGroup.saveXML());
+					
+			if (this.ds_kpiExptWrs.rowcount > 0)
+			{
+				this.Div02.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+			}
+			else if(this.ds_kpiExptWrs.rowcount == 0)
+			{
+				this.Div02.Grd01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+				this.Div02.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+			}
+					
+		}
+		else if(svcID == "updateSmtPdaKpiExptWrs")
+		{
+			if(ErrorCode == 0)
+			{
+				this.alert("변경내역을 반영 하였습니다.");
+				// 변경내역 저장 데이터셋 초기화
+				this.ds_kpiExptWrsChg.clearData();
+				this.fn_search();
+			}
+			else if(ErrorCode == 1)
+			{
+				this.alert(ErrorMsg + " 는 이미 등록되어 있습니다.");
+			}
+			else if(ErrorCode == 2)
+			{
+				this.alert(ErrorMsg + " 는 삭제되었거나 존재하지 않습니다.");
+			}
+			else if(ErrorCode == 3)
+			{
+				this.alert(ErrorMsg + "는 공백이면 안됩니다.");
+			}
+
+		}
+		else if(svcID == "getAuthSmtPdaKpiGroupChg")
+		{
+		//	trace("getAuthSmtPdaKpiGroupChg ErrorCode:" + ErrorCode);
+			if(ErrorCode == 1)
+			{
+				this.btn_insert.set_visible(true);
+				this.btn_save.set_visible(true);
+				this.btn_clear.set_visible(true);
+				this.div_search.btn_upload.set_visible(true);
+				this.div_search.btn_sample.set_visible(true);
+			}
+		}
+		else if(svcID == "uploadExcelSmtPdaKpiExptWrs")
+		{
+			var ret = application.confirm(this.ds_excel_bind.getRowCount() + "건에 대해 업로드하시겠습니까?", "업로드확인", "QUESTION");
+			if (ret == false)
+			{
+				return;
+			}
+			else
+			{
+				var params	      = "";
+				var sSvcID        = "updateSmtPdaKpiExptWrs"; 					// 통신아이디
+				var sURL          = "svc::rest/pda/updateSmtPdaKpiExptWrs";	// 호출할 서버 페이지 주소
+				var sInDatasets   = "in_ds=ds_excel_bind";						// 보내는데이터셋
+				var sOutDatasets  = "";
+				var sArgument     = ""											// 파라미터
+				var sCallbackFunc = "fn_callBack";								// 콜백
+				var tranType 	  = "U";										// U:저장/삭제, S:조회
+
+				//API 호출
+				this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+			}
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+// 조회조건 영역 펼치기, 접기
+this.Div_Md_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rownum = this.ds_kpiExptWrs.addRow();
+	// 초기값 설정
+	this.ds_kpiExptWrs.setColumn(rownum, "USE_YN", '1');
+}
+
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_kpiExptWrsChg.clearData();
+	for(var i = 0, length = this.ds_kpiExptWrs.getRowCount(); i < length; i++)
+	{
+		if(this.ds_kpiExptWrs.getRowType(i) == "2" || this.ds_kpiExptWrs.getRowType(i) == "4")	// INSERT OR UPDATE
+		{
+			var nRow	= this.ds_kpiExptWrsChg.addRow();
+			var bSucc	= this.ds_kpiExptWrsChg.copyRow(nRow, this.ds_kpiExptWrs, i);
+			this.ds_kpiExptWrsChg.setColumn(nRow, "ROW_TYPE", this.ds_kpiExptWrs.getRowType(i));
+
+		}
+	}
+
+	if(this.ds_kpiExptWrsChg.getRowCount() > 0)
+	{
+		var ret = application.confirm(this.ds_kpiExptWrsChg.getRowCount() + "건에 대해 변경하시겠습니까?", "변경확인", "QUESTION");
+		if (ret == false)
+		{
+			this.reload();
+		}
+	}
+	else if(this.ds_kpiExptWrsChg.getRowCount() == 0)
+	{
+		alert("저장할 변경내역이 없습니다");
+		return;
+	}
+
+	trace("ds_kpiExptWrsChg:" + this.ds_kpiExptWrsChg.saveXML());
+	var params	      = "";
+	var sSvcID        = "updateSmtPdaKpiExptWrs"; 					// 통신아이디
+	var sURL          = "svc::rest/pda/updateSmtPdaKpiExptWrs";	// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_kpiExptWrsChg:A";					// 보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = ""											// 파라미터
+	var sCallbackFunc = "fn_callBack";								// 콜백
+	var tranType 	  = "U";										// U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+// 엑셀 다운로드
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bzplC	= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var strNm	= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var wrs_cd	= this.gfn_nullToEmpty(this.div_search.Edit_wrsnum.value);
+	var wrs_nm	= this.gfn_nullToEmpty(this.div_search.Edit_wrsname.value);
+	var use_cd	= this.div_search.rdo_use.value;
+	if(use_cd == '2')	use_cd = "";
+
+	var param	=  "BZPL_C="	+ bzplC
+				+ "&STR_NM="	+ strNm
+				+ "&WRS_CD="	+ wrs_cd
+				+ "&WRS_NM="	+ wrs_nm
+				+ "&USE_CD="	+ use_cd
+				;
+
+	this.fn_excel(param);
+}
+
+this.fn_excel = function(param)
+{
+	trace("엑셀 다운로드 params >>> " + param);
+	excelDownHandler(application.gv_server_url + "rest/excel/pda/downloadExcelSmtPdaKpiExptWrsList?" + param, this);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+// 검수실적 그룹관리 목록조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);
+}
+
+this.fn_getAuth = function()
+{
+	var param			=  "USR_ID="	+ application.gv_userId;
+
+	var sSvcID			= "getAuthSmtPdaKpiGroupChg";
+	var sURL			= "svc::rest/pda/getAuthSmtPdaKpiGroupChg";
+	var sInDatasets		= "";				// 보내는데이터셋
+	var sOutDatasets	= "";				// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";				// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_search = function()
+{
+	
+	var bzplC	= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var strNm	= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var wrs_cd	= this.gfn_nullToEmpty(this.div_search.Edit_wrsnum.value);
+	var wrs_nm	= this.gfn_nullToEmpty(this.div_search.Edit_wrsname.value);
+	var use_cd	= this.div_search.rdo_use.value;
+	if(use_cd == '2')	use_cd = "";
+
+	var param	=  "BZPL_C="	+ bzplC
+				+ " STR_NM="	+ strNm
+				+ " WRS_CD="	+ wrs_cd
+				+ " WRS_NM="	+ wrs_nm
+				+ " USE_CD="	+ use_cd
+				;
+
+	var sSvcID			= "retrieveSmtPdaKpiExptWrsList";
+	var sURL			= "svc::rest/pda/retrieveSmtPdaKpiExptWrsList";
+	var sInDatasets		= "ds_pageVO=ds_pageVO";								// 보내는데이터셋
+	var sOutDatasets	= "ds_kpiExptWrs=ds_kpiExptWrs ds_pageVO=ds_pageVO";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";													// U:저장/삭제, S:조회
+
+	trace("param:" + param);
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 사업장 조회버튼
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = "";
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("trplSearchPopup","MOB.MD::MOB_MD_SC_1111_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+// 상품 조회버튼
+this.div_search_btn_wrsname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg			= "";
+	var sOption			= "autosize=true,title=true";
+	var sPopupCallBack	= "fn_popupAfter";    
+	this.gfn_openPopup("wrsSearchPopup", "MOB.MD::MOB_MD_SC_1112_P01.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+// 팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+//	trace(" strId : " + strId + " strVal : " + strVal);	
+	if(strId == "trplSearchPopup"){
+		if(strVal != ''){
+			var paramsArr = strVal.split(",");
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+	else if(strId == "wrsSearchPopup"){
+		if(strVal != ''){
+			var paramsArr = strVal.split(",");
+			this.div_search.Edit_wrsnum.set_value(paramsArr[0]);
+			this.div_search.Edit_wrsname.set_value(paramsArr[1]);
+		}
+	}
+}
+
+// 초기화 버튼 클릭
+this.btn_clear_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+// 업로드 버튼 클릭
+this.btn_file_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.gfn_isEmpty(this.div_search.edt_data00.value) == ""){
+		this.alert("파일을 선택해 주세요");
+		return false;
+	}
+	var fileName	  = "dsName=ds_excel_bind"
+					  + " systemFileName=" + this.ds_uploadresult.getColumn(0,"SYSTEMFILENAME");
+	var sSvcID        = "uploadExcelSmtPdaKpiExptWrs";//통신아이디	
+	var sURL          = "svc::rest/pda/uploadExcelSmtPdaKpiExptWrs";// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_excel_bind:A";//보내는데이터셋
+	var sOutDatasets  = "ds_excel_bind=ds_excel_bind";
+	var sArgument     = fileName;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.btn_sample_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var systemFileName ="expt_wrs_sample.xlsx";
+	var fileName = "expt_wrs_sample.xlsx";		//다운로드 할 파일 이름
+
+	var strDownUrl = application.gv_server_url + "rest/common/fileDownload?systemFileName=" + systemFileName + "&fileName=" + fileName + "&isSampleFile=Y";
+	var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+
+	wbs_dw.set_url(strDownUrl);
+}]]></Script>
+  </Form>
+</FDL>

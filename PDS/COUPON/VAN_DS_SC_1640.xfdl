@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1640" classname="VAN_DS_SC_1610" left="0" top="0" width="803" height="490" titletext="할인쿠폰거래사무소조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="323" height="21"/>
+        <Div id="div_auth" taborder="1" url="common::AuthorityWorkplace.xfdl" top="0" right="117" width="379" height="21"/>
+        <Button id="btn_search" taborder="2" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Div id="div_search" taborder="9" left="0" top="29" right="15" height="81" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="41" text="사업장" cssclass="sta_WFSA_Label" left="13" top="42" width="106" height="21"/>
+              <Static id="Static01" taborder="42" text="조회일자" onclick="div_search_Static01_onclick" cssclass="sta_WFSA_Label" left="13" top="13" width="106" height="21"/>
+              <Calendar id="START_DT" taborder="11" dateformat="yyyyMMdd" oneditclick="div_search_cal_fsrg00_oneditclick" left="89" top="13" width="100" height="21"/>
+              <Static id="Static131" taborder="12" text="~" onclick="div_list_Static131_onclick" left="193" top="13" width="10" height="21"/>
+              <Calendar id="END_DT" taborder="13" dateformat="yyyyMMdd" left="206" top="13" width="100" height="21"/>
+              <Combo id="CPN_KDC" taborder="44" innerdataset="@ds_CPN_KDC" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="397" top="13" width="178" height="21"/>
+              <Static id="Static03" taborder="46" text="쿠폰종류" cssclass="sta_WFSA_Label" left="324" top="13" width="107" height="21" onclick="div_search_Static03_onclick"/>
+              <Radio id="rdo_is_na_all" taborder="47" codecolumn="codecolumn" datacolumn="datacolumn" value="all" direction="vertical" left="92" top="42" width="140" height="21" onitemchanged="div_search_rdo_is_na_all_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">all</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">one</Col>
+                      <Col id="datacolumn">사업장</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="NA_BZPLC" taborder="48" onkeyup="div_search_edt_na_bzplc_code_onkeyup" cssclass="WF_Essential" left="261" top="42" width="132" height="21" readonly="true"/>
+              <Edit id="NA_BZPLC_NM" taborder="49" cssclass="WF_Essential" left="396" top="42" width="152" height="21" readonly="true" style="background:#ffffffff;"/>
+              <Button id="btn_popup" taborder="50" onclick="div_search_btn_popup_onclick" cssclass="btn_WF_Searchbtn" left="551" top="42" width="21" height="21" enable="false" visible="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="5" text="Div00" left="0" top="110" right="15" bottom="27">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="3" cssclass="btn_WFSA_SearchClose" left="368" top="1" right="357" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_main" taborder="4" useinputpanel="false" visible="true" left="0" top="42" right="0" bottom="21" binddataset="ds_main" nodatatext="조회된 데이터가 없습니다." scrollbars="autoboth">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="110"/>
+                      <Column size="190"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="110"/>
+                      <Column size="100"/>
+                      <Column size="250"/>
+                      <Column size="150"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="50"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="사업장코드"/>
+                      <Cell col="2" text="사업장"/>
+                      <Cell col="3" text="사업자번호"/>
+                      <Cell col="4" text="대표자명"/>
+                      <Cell col="5" text="전화번호"/>
+                      <Cell col="6" text="우편번호"/>
+                      <Cell col="7" text="기본주소"/>
+                      <Cell col="8" text="상세주소"/>
+                      <Cell col="9" text="쿠폰건수"/>
+                      <Cell col="10" text="상품건수"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:NA_BZPLC"/>
+                      <Cell col="2" displaytype="text" style="align:left;" text="bind:TRPL_ABR_NM" wordwrap="char"/>
+                      <Cell col="3" text="bind:BIZ_NUMBER"/>
+                      <Cell col="4" text="bind:REPMNM"/>
+                      <Cell col="5" text="bind:TEL_NO"/>
+                      <Cell col="6" text="bind:NO_ZIP"/>
+                      <Cell col="7" displaytype="text" style="align:left;" text="bind:DONGUP" wordwrap="char"/>
+                      <Cell col="8" displaytype="text" style="align:left;" text="bind:DONGBW" wordwrap="char"/>
+                      <Cell col="9" displaytype="number" style="align:right;" text="bind:NA_CPN_C_CNT"/>
+                      <Cell col="10" displaytype="number" style="align:right;" text="bind:NA_WRS_C_CNT"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_print" taborder="10" text="출력" cssclass="btn_WF_CRUD" top="0" right="76" width="41" height="21" onclick="btn_print_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_main" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="TRPL_ABR_NM" type="STRING" size="256"/>
+          <Column id="CPN_KDC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+          <Column id="TEL_NO" type="STRING" size="256"/>
+          <Column id="NO_ZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="NA_CPN_C_CNT" type="STRING" size="256"/>
+          <Column id="NA_WRS_C_CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_BZPLC">a123</Col>
+            <Col id="TRPL_ABR_NM">사업장이름</Col>
+            <Col id="CPN_KDC">NCPN</Col>
+            <Col id="BIZ_NUMBER">123123123</Col>
+            <Col id="REPMNM">a123</Col>
+            <Col id="TEL_NO">010-7897-9888</Col>
+            <Col id="NO_ZIP">333111</Col>
+            <Col id="DONGUP">서울특별시 중구 다동 가나다라마바사 가나다라마바사</Col>
+            <Col id="DONGBW">한국놀이문화 연구소</Col>
+            <Col id="NA_CPN_C_CNT">999999</Col>
+            <Col id="NA_WRS_C_CNT">999999</Col>
+          </Row>
+          <Row>
+            <Col id="NA_BZPLC">a123</Col>
+            <Col id="TRPL_ABR_NM">사업장이름</Col>
+            <Col id="CPN_KDC">NCPN</Col>
+            <Col id="BIZ_NUMBER">123123123</Col>
+            <Col id="REPMNM">a123</Col>
+            <Col id="TEL_NO">010-7897-9888</Col>
+            <Col id="NO_ZIP">333111</Col>
+            <Col id="DONGUP">서울특별시 중구 다동 가나다라마바사 가나다라마바사</Col>
+            <Col id="DONGBW">한국놀이문화 연구소</Col>
+            <Col id="NA_CPN_C_CNT">999999</Col>
+            <Col id="NA_WRS_C_CNT">999999</Col>
+          </Row>
+          <Row>
+            <Col id="NA_BZPLC">a123</Col>
+            <Col id="TRPL_ABR_NM">사업장이름</Col>
+            <Col id="CPN_KDC">NCPN</Col>
+            <Col id="BIZ_NUMBER">123123123</Col>
+            <Col id="REPMNM">a123</Col>
+            <Col id="TEL_NO">010-7897-9888</Col>
+            <Col id="NO_ZIP">333111</Col>
+            <Col id="DONGUP">서울특별시 중구 다동 가나다라마바사 가나다라마바사</Col>
+            <Col id="DONGBW">한국놀이문화 연구소</Col>
+            <Col id="NA_CPN_C_CNT">999999</Col>
+            <Col id="NA_WRS_C_CNT">999999</Col>
+          </Row>
+        </Rows>
+        -->
+      </Dataset>
+      <Dataset id="ds_CPN_KDC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	this.div_list.grd_main.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	var todays = this.gfn_today('yyyyMMdd');
+	this.div_search.START_DT.set_value(this.gfn_minusDate(todays,7));
+	this.div_search.END_DT.set_value(todays);
+	
+	var param = [  
+		{code:"CPN_KDC", dsName:"ds_CPN_KDC", selecttype:"S"},
+	];
+	this.gfn_setCommonCode(param);
+	
+}
+
+this.fn_commonAfterOnload= function()
+{
+	this.div_search.CPN_KDC.set_index(0);
+}
+
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	
+	if(this.fn_validationCheck()) {
+		this.ds_main.clearData();
+		//권한사업장 코드
+		var trplC = this.getTrplCode();
+		var na_bizcode = this.div_search.NA_BZPLC.value;
+		if(na_bizcode == null) {
+			trace('all');
+			na_bizcode='all';
+		}
+		var param = "START_DT="+this.div_search.START_DT.value
+					+" END_DT="+this.div_search.END_DT.value
+					+" NA_BZPLC="+na_bizcode
+					+" CPN_KDC="+this.div_search.CPN_KDC.value;
+		var sSvcID        = "getCouponBizPlcList";
+		var sURL          = "svc::rest/pds/coupon/getCouponBizPlcList";
+		var sInDatasets   = "";
+		var sOutDatasets  = "ds_main=DATASET";
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callback";//콜백
+		var tranType 	  = "U"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0)
+	{
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		if(svcID == "getCouponBizPlcList"){
+			if(this.ds_main.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}else{							
+			}			
+		}	
+	}
+	
+}
+
+this.fn_validationCheck = function(){
+	if(this.div_search.CPN_KDC.index == 0){
+		this.alert('조회할 쿠폰종류를 선택 하세요.');	
+		return false;
+	}
+	return true;
+}
+
+//조회 조건 숨김 여부 이벤트
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	var strArray = strVal.split(',');
+	this.div_search.NA_BZPLC.set_value(strArray[0]);
+	this.div_search.NA_BZPLC_NM.set_value(strArray[1]);
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+this.div_search_btn_popup_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var oArg = "";
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","POPUP::POPUP_SRC_RVOPL_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.div_search_rdo_is_na_all_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(e.postvalue =='one') {
+		this.div_search.btn_popup.set_enable(true);
+	} else {
+		this.div_search.btn_popup.set_enable(false);
+	}
+}
+
+this.btn_print_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		if(!this.fn_validationCheck()) {
+		return;
+	}
+		
+	var trplC = this.getTrplCode();
+	var na_bizcode = this.div_search.NA_BZPLC.value;
+	if(na_bizcode == null) {
+		trace('all');
+		na_bizcode='all';
+	}
+
+	var searchText = "[조회기간]:"+this.div_search.START_DT.value+" ~ "+this.div_search.END_DT.value;
+	
+	trace(searchText);
+	
+	var ozParam = {
+		sId: 'VAN_DS_SC_1640',
+		sUrl: '/rest/oz/pds/coupon/getCouponBizPlcList',
+		paramType: 'param',
+		sParam:{
+			TRPL_C_TEXT:searchText,
+			START_DT:this.gfn_nullToEmpty(this.div_search.START_DT.value),
+			END_DT:this.gfn_nullToEmpty(this.div_search.END_DT.value),
+			CPN_KDC:this.gfn_nullToEmpty(this.div_search.CPN_KDC.value),
+			NA_BZPLC:na_bizcode
+		}
+	};
+	this.ozViewer(ozParam);	
+}
+]]></Script>
+  </Form>
+</FDL>

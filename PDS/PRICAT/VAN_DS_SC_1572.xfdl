@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1572" classname="VAN_DS_SC_1572" left="0" top="0" width="803" height="490" titletext="물류상품 정보 조회" onload="form_onload" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Button id="btn_clear00" taborder="1" text="초기화" onclick="btn_clear00_onclick" cssclass="btn_WF_CRUD" top="47" right="77" width="53" height="21"/>
+        <Button id="btn_search00" taborder="2" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="47" right="17" width="58" height="21"/>
+        <Static id="Static04" taborder="4" text="15" visible="false" top="32" right="17" width="50" height="15" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="5" left="17" top="76" right="17" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title00" taborder="11" text="공급업체코드" cssclass="sta_WFSA_Label" left="15" top="10" width="103" height="21"/>
+              <Edit id="edt_title00" taborder="13" left="118" top="10" width="151" height="21"/>
+              <Static id="Static12" taborder="14" text="10" visible="false" left="16.67%" top="31" right="70.23%" height="10" style="background:#dc143c5b;"/>
+              <Edit id="edt_title01" taborder="15" left="272" top="10" width="30" height="21"/>
+              <Edit id="edt_title02" taborder="16" left="546" top="10" width="151" height="21"/>
+              <Combo id="cbo_trtwrs" taborder="17" left="433" top="10" width="110" height="21" codecolumn="codecolumn" datacolumn="datacolumn">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">물류상품코드</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">물류상품명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Edit id="edt_title03" taborder="18" left="305" top="10" width="120" height="21" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static02" taborder="6" text="10" visible="false" left="699" top="434" width="91" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_ok" taborder="7" text="확인" cssclass="btn_WF_Popup" top="444" width="54" height="29" onclick="btn_ok_onclick" right="73"/>
+        <Button id="btn_close" taborder="8" text="취소" onclick="btn_close_onclick" cssclass="btn_WF_Popup" top="444" right="17" width="54" height="29"/>
+        <Static id="Static01" taborder="9" text="17" visible="false" left="699" bottom="0" width="91" height="17" style="background:#dc143c5b;"/>
+        <Grid id="grd_pop_master" taborder="10" useinputpanel="false" left="17" top="159" right="17" height="275" binddataset="ds_pop_master" oncellclick="grd_pop_master_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="45"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="상품코드"/>
+                <Cell col="2" text="상품명"/>
+                <Cell col="3" text="규격"/>
+                <Cell col="4" text="다매가유형"/>
+                <Cell col="5" text="공급업체코드"/>
+                <Cell col="6" text="공급업체명"/>
+                <Cell col="7" text="원가"/>
+                <Cell col="8" text="업체수수료"/>
+                <Cell col="9" text="관리수수료"/>
+                <Cell col="10" text="환급수수료"/>
+                <Cell col="11" text="물류수수료"/>
+                <Cell col="12" text="물류직송수수료"/>
+                <Cell col="13" text="물류센터코드"/>
+                <Cell col="14" text="물류센터명"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:currow+1"/>
+                <Cell col="1" text="bind:NA_WRS_C"/>
+                <Cell col="2" text="bind:WRSNM"/>
+                <Cell col="3" text="bind:WRS_STDNM"/>
+                <Cell col="4" text="bind:PRGRNM"/>
+                <Cell col="5" text="bind:SPYPL_NA_TRPL_C"/>
+                <Cell col="6" text="bind:TRPL_NM"/>
+                <Cell col="7" text="bind:BYNG_UPR"/>
+                <Cell col="8" text="bind:COMP_FEERT"/>
+                <Cell col="9" text="bind:AMN_FEERT"/>
+                <Cell col="10" text="bind:TROT_FEERT"/>
+                <Cell col="11" text="bind:PHD_FEERT"/>
+                <Cell col="12" text="bind:DDLY_PHD_FEERT"/>
+                <Cell col="13" text="bind:NA_BZPLC"/>
+                <Cell col="14" text="bind:BZPLCNM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="11" text="40" visible="false" left="710" top="119" width="76" height="40" style="background:#dc143c5b;"/>
+        <Button id="Button01" taborder="12" cssclass="btn_WF_PopupClose" top="0" width="37" height="32" right="1" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="13" text="물류상품 정보 조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Static id="sta_auto" taborder="14" text="0" left="19" top="46" right="670" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pop_master">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="TRPL_NM" type="STRING" size="256"/>
+          <Column id="BYNG_UPR" type="STRING" size="256"/>
+          <Column id="PRGR_C" type="STRING" size="256"/>
+          <Column id="PRGRNM" type="STRING" size="256"/>
+          <Column id="COMP_FEERT" type="STRING" size="256"/>
+          <Column id="AMN_FEERT" type="STRING" size="256"/>
+          <Column id="TROT_FEERT" type="STRING" size="256"/>
+          <Column id="PHD_FEERT" type="STRING" size="256"/>
+          <Column id="DDLY_PHD_FEERT" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BZPLCNM" type="STRING" size="256"/>
+          <Column id="DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(10);
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	this.div_search.edt_title00.set_value(this.parent.mtrpl_c);
+	this.div_search.edt_title01.set_value("0");
+	this.div_search.edt_title03.set_value(this.parent.mbzplc_c);
+	this.div_search.cbo_trtwrs.set_value("2");
+	this.grd_pop_master.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	
+	if(this.parent.wrsc != undefined && this.parent.wrsc != ""){
+		this.div_search.cbo_trtwrs.set_value("1");
+		this.div_search.edt_title02.set_value(this.parent.wrsc);
+		this.sta_auto.set_text("1");
+		this.btn_search00_onclick();
+	}
+}
+
+//조회
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_nullToEmpty(this.div_search.edt_title02.value) == ""){
+		this.alert('조건을 입력하고 조회버튼을 클릭하세요.');
+		return;
+	}
+	if(this.div_search.cbo_trtwrs.value == "1" && this.gfn_nullToEmpty(this.div_search.edt_title02.value).length < 7){
+		this.gfn_getMessage('alert','msg.van_ds_sc_1530.view.wrsc.moredata');
+		return;
+	}
+	if(this.div_search.cbo_trtwrs.value == "2" && this.gfn_nullToEmpty(this.div_search.edt_title02.value).length < 2){
+		this.gfn_getMessage('alert','msg.van_ds_sc_1530.view.wrsnm.moredata');
+		return;
+	}
+	
+	var params = "TRPL_C="+this.parent.mtrpl_c
+				+" bzplc="+this.div_search.edt_title03.value
+				+" cbo_trt="+this.div_search.cbo_trtwrs.value
+				+" searchText="+this.gfn_nullToEmpty(this.div_search.edt_title02.value)
+	;
+	
+	var sSvcID        = "trtwrs_search";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/getWRSInfoForShortage";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_pop_master=ds_pop_master";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID,nCD,sMSG)
+{
+	if(nCD < 0){
+		this.gfn_getMessage('alert',sMSG);
+		return;
+	}else{
+		if(svcID == "trtwrs_search"){
+			if(this.sta_auto.text != "0"){
+				this.btn_ok_onclick();
+			}
+		}
+	}
+}
+
+//초기화
+this.btn_clear00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+this.grd_pop_master_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.btn_ok_onclick();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rowp = this.ds_pop_master.rowposition;
+	this.objRtnArr[0] = this.ds_pop_master.getColumn(rowp,"NA_WRS_C");
+	this.objRtnArr[1] = this.ds_pop_master.getColumn(rowp,"WRSNM");
+	this.objRtnArr[2] = this.ds_pop_master.getColumn(rowp,"WRS_STDNM");
+	this.objRtnArr[3] = this.ds_pop_master.getColumn(rowp,"DTM");
+	this.objRtnArr[4] = this.ds_pop_master.getColumn(rowp,"SPYPL_NA_TRPL_C");
+	this.objRtnArr[5] = this.ds_pop_master.getColumn(rowp,"TRPL_NM");
+	this.objRtnArr[6] = this.ds_pop_master.getColumn(rowp,"LS_CMENO");
+	this.close(this.objRtnArr.toString());
+}
+
+//닫기
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}]]></Script>
+  </Form>
+</FDL>

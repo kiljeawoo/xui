@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SAMPLE_FileUpload" classname="SAMPLE_FileUpload" inheritanceid="" position="absolute" titletext="New Form" left="0" top="0" width="925" height="371" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <FileUpload id="FileUpload00" taborder="0" timeout="0" retry="0" async="true" index="0" onload="FileUpload00_onload" position="absolute" onitemchanged="FileUpload00_onitemchanged" top="43" width="72" height="21" onerror="FileUpload00_onerror" onsuccess="FileUpload00_onsuccess" multiselect="true" visible="true" right="186"/>
+        <Button id="Button01" taborder="1" text="Single" onclick="Button01_onclick" position="absolute" top="43" width="70" height="21" right="109"/>
+        <Grid id="Grid00" taborder="2" useinputpanel="false" left="26" top="77" height="275" binddataset="ds_uploadresult" autofittype="col" right="27">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="33"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" text="FILENAME"/>
+                <Cell col="2" text="FILETYPE"/>
+                <Cell col="3" text="FILESIZE"/>
+                <Cell col="4" text="ORGFNAME"/>
+                <Cell col="5" text="SYSTEMFILENAME"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHK"/>
+                <Cell col="1" text="bind:FILENAME"/>
+                <Cell col="2" text="bind:FILETYPE"/>
+                <Cell col="3" text="bind:FILESIZE"/>
+                <Cell col="4" text="bind:ORGFNAME"/>
+                <Cell col="5" text="bind:SYSTEMFILENAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <WebBrowser id="WebBrowser00" left="32" top="29" width="0" height="0" taborder="3"/>
+        <Button id="Button02" taborder="4" text="Multi" top="43" right="30" width="70" height="21" onclick="Button02_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+//UPLOAD
+this.FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+//SINGLE DOWNLOAD
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_callDownload(this.ds_uploadresult);	
+}
+
+//MULTI DOWNLOAD
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_callDownload(this.ds_uploadresult, "CHK");	// 두번째 인자에 체크박스에 bind된 컬럼명
+}
+
+this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{	
+
+	if( e.datasets == null )
+	{
+		trace("업로드 실패");
+	} else {
+		trace("업로드 성공");
+	
+		this.ds_uploadresult.clear();
+		this.ds_uploadresult.copyData(e.datasets[0]);		
+		this.ds_uploadresult.addColumn("CHK", "string"); //멀티건 인경우 'CHK'컬럼추가
+	}	
+}
+
+this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}]]></Script>
+  </Form>
+</FDL>

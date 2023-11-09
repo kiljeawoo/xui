@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LeftFrame" classname="LeftFrame" left="0" top="0" width="190" height="552" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_myMenu" taborder="22" text="Div00" left="0" top="32" width="190" bottom="0">
+          <Layouts>
+            <Layout>
+              <Static id="sta_myMenu" taborder="0" cssclass="sta_LF_MenuGrdBg" visible="true" left="0" top="0" right="0" bottom="0"/>
+              <Grid id="grd_myMenu" cssclass="grd_LF_Menu" taborder="1" binddataset="gds_myMenu" useinputpanel="false" visible="true" left="1" top="10" right="0" bottom="0" oncellclick="div_myMenu_grd_myMenu_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="13"/>
+                      <Column size="23"/>
+                      <Column size="139"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell/>
+                      <Cell col="1" displaytype="image" style="selectbackground: ;" text="theme://images/ico_LF_treeitem.png"/>
+                      <Cell col="2" style="padding:0 0 0 0;" cssclass="Cellgrd_WF_AlignLeft" text="bind:MENU_NM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_myMenu" taborder="4" text="My Menu" left="95" top="0" width="95" height="32" cssclass="btn_LF_MyMenu" onclick="btn_myMenu_onclick" style="cursor:hand;"/>
+        <Button id="btn_menuList" taborder="5" text="상품정보" cssclass="btn_LF_2DepthMenuS" left="0" top="0" width="95" height="32" onclick="btn_menuList_onclick" style="cursor:hand;"/>
+        <Div id="div_menu" taborder="21" left="0" top="32" width="190" style="background:transparent;" bottom="0">
+          <Layouts>
+            <Layout>
+              <Static id="sta_menu" taborder="1" cssclass="sta_LF_MenuGrdBg" left="0%" top="36" right="0%" bottom="0"/>
+              <Static id="sta_search" taborder="3" cssclass="sta_LF_MenuBg" left="0%" top="0" height="36" right="0"/>
+              <Edit id="edt_search" taborder="4" cssclass="edt_LF_Search" left="4" top="8" height="21" style="padding:2 30 0 5;" autoselect="true" width="180" onkeydown="div_menu_edt_search_onkeydown" imemode="hangul"/>
+              <Button id="btn_search" taborder="2" cssclass="btn_LF_Search" left="80.53%" top="8" right="3.16%" height="21" onclick="div_menu_btn_search_onclick"/>
+              <Grid id="grd_myInfo" cssclass="grd_LF_Menu" taborder="5" binddataset="ds_userInfoMenu" scrollbars="autovert" useinputpanel="false" treeuseline="false" treeusecheckbox="false" treeinitstatus="expand,all" left="0%" top="46" right="4.21%" bottom="12" oncellclick="grd_oncellclick" visible="false">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="180"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="tree" edittype="tree" style="cursor:hand; :focused {background:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_1dpth.png') repeat-x&quot;:&quot;&quot;);background2:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_1dpth.png') repeat-x&quot;:&quot;&quot;);color:EXPR(lev=='0'?&quot;#3a3a3a&quot;:&quot;&quot;);color2:EXPR(lev=='0'?&quot;#3a3a3a&quot;:&quot;&quot;);font:EXPR(lev=='0'?&quot;bold 9 Gulim&quot;:&quot;&quot;);selectbackground:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_S.png') stretch&quot;:&quot;&quot;);selectfont:EXPR(lev=='0'?&quot;bold 9 Gulim&quot;:&quot;&quot;);}" text="bind:MENU_NAME" treestartlevel="1" treelevel="bind:MENU_LEVEL" tooltiptext="bind:MENU_NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_menu" cssclass="grd_LF_Menu" taborder="0" binddataset="ds_menu" scrollbars="autovert" useinputpanel="false" treeuseline="false" treeusecheckbox="false" treeinitstatus="collapse,all" oncellclick="grd_oncellclick" left="0%" top="46" right="0%" bottom="6" style="cursor:hand;" visible="false">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="180"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="tree" edittype="tree" style="color:EXPR(BL_UYN=='Y'?'red':'');color2:EXPR(BL_UYN=='Y'?'red':'');font:EXPR(BL_UYN=='Y'?'bold 9 arial':'');selectcolor:EXPR(BL_UYN=='Y'?'red':'');selectfont:EXPR(BL_UYN=='Y'?'bold 9 arial':''); :focused {background:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_1dpth.png') repeat-x&quot;:&quot;&quot;);background2:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_1dpth.png') repeat-x&quot;:&quot;&quot;);color:EXPR(lev=='0'?&quot;#3a3a3a&quot;:&quot;&quot;);color2:EXPR(lev=='0'?&quot;#3a3a3a&quot;:&quot;&quot;);font:EXPR(lev=='0'?&quot;bold 9 Gulim&quot;:&quot;&quot;);selectbackground:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_S.png') stretch&quot;:&quot;&quot;);selectfont:EXPR(lev=='0'?&quot;bold 9 Gulim&quot;:&quot;&quot;);}" text="bind:MENU_NAME" treestartlevel="1" treelevel="bind:MENU_LEVEL" tooltiptext="bind:MENU_NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <PopupDiv id="pdiv_list" text="PopupDiv01" left="190" top="37" width="267" height="344" cssclass="pdiv_WF_MenuList" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="4" text="메뉴검색결과" cssclass="sta_WF_Menulist" left="0%" top="0" right="0%" height="30"/>
+              <Grid id="grd_list" cssclass="grd_WF_pdiv" taborder="5" binddataset="ds_find" useinputpanel="false" left="5.66%" top="45" right="5.66%" height="251" oncelldblclick="pdiv_list_grd_list_oncelldblclick" autofittype="col" style="cursor:hand;">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="187"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell style="line: ;" cssclass="Cellgrd_WF_AlignLeft" text="bind:MENU_NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_cancel" taborder="6" text="취소" left="50.19%" top="306" right="34.34%" height="21" onclick="pdiv_list_btn_cancel_onclick" style="cursor:hand;"/>
+              <Button id="btn_ok" taborder="7" text="확인" left="33.96%" top="306" right="50.57%" height="21" onclick="pdiv_list_btn_ok_onclick" style="cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="mymenu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면01</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면02</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면03</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면04</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면05</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면06</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면07</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면08</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">나의메뉴-업무화면09</Col>
+            <Col id="Column0">URL('theme://images/ico_LF_treeitem.png')</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_userInfoMenu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_find" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="string" size="32" prop=""/>
+          <Column id="MENU_ID" type="string" size="32" prop=""/>
+          <Column id="MENU_LEVEL" type="string" size="32" prop=""/>
+          <Column id="MENU_NAME" type="string" size="32" prop=""/>
+          <Column id="SVC_GROUP" type="string" size="32" prop=""/>
+          <Column id="FILE_NAME" type="string" size="32" prop=""/>
+          <Column id="FILE_TYPE" type="string" size="32" prop=""/>
+          <Column id="FILE_PATH" type="string" size="32" prop=""/>
+          <Column id="DISPLAY_YN" type="string" size="32" prop=""/>
+          <Column id="USE_YN" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.nCurRow = 0; 
+this.treeStatus = 0;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.ds_menu.copyData(application.gds_menu);
+	this.ds_userInfoMenu.copyData(application.gds_userInfoMenu);
+	this.ds_find.copyData(application.gds_menu);	
+}
+
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	//트리버튼의 영역이 눌렸을 경우는 로직을 타지 않도록 처리 함.	
+	if( e.canvasX < 26 ){ 
+		return; 
+	}
+	
+	var objDs = this[obj.binddataset];
+
+	if (this.treeStatus == 1){
+		this.treeStatus = 0;
+		return;
+	}
+
+	var childRow = obj.getTreeChildRow(objDs.rowposition, 0, true);
+
+	// 자식 노드가 존재할 경우
+	if (childRow >= 0) 
+	{
+		var gridRow = obj.getTreeRow(objDs.rowposition);
+		if (obj.isTreeCollapsedRow(childRow, true)) 
+		{
+			obj.setTreeStatus(gridRow, true);
+		}
+		else 
+		{
+			obj.setTreeStatus(gridRow, false);
+		}
+	}
+	this.treeStatus = 0;
+	
+	var nLv = objDs.getColumn(objDs.rowposition,"MENU_LEVEL");
+	
+	if(nLv == 2){
+		var psMenuId = objDs.getColumn(objDs.rowposition,"MENU_ID");
+		if(obj.name == "grd_menu"){
+        	if(psMenuId == "16008002"){	//26007001
+        		this.gfn_OpenMenuId(psMenuId);
+        		application.mainframe.VFrameSet0.HFrameSet0.VFrameSet1.FrameSet0.getActiveFrame().form.all[0].fn_videoEduMenu();
+        	}else{
+        		this.gfn_OpenMenuId(psMenuId);
+        	}
+		}else{
+			this.gfn_OpenMenuId(psMenuId,"","INFO");
+		}		
+	}
+
+}
+
+this.ds_menu_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	if(e.reason == 51) {
+      this.ds_menu.set_enableevent(false);
+      this.ds_menu.set_rowposition(-1);
+      this.ds_menu.set_enableevent(true);
+      return;
+	}   	
+   	
+	var psMenuId = obj.getColumn(e.newrow,"MENU_ID");
+	var psMenuLv = obj.getColumn(e.newrow,"MENU_LEVEL");
+		
+	if(psMenuLv == 2){
+		this.gfn_OpenMenuId(psMenuId);
+	}
+}
+
+this.btn_myMenu_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.btn_myMenu.set_cssclass("btn_LF_MyMenuS");
+	this.btn_menuList.set_cssclass("btn_LF_2DepthMenu");
+	
+	this.div_menu.set_visible(false);
+	this.div_myMenu.set_visible(true);
+}
+
+this.btn_menuList_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.btn_myMenu.set_cssclass("btn_LF_MyMenu");
+	this.btn_menuList.set_cssclass("btn_LF_2DepthMenuS");
+	
+	this.div_menu.set_visible(true);
+	this.div_myMenu.set_visible(false);
+}
+
+this.div_myMenu_grd_myMenu_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var sMenuId = application.gds_myMenu.getColumn(e.row,"MENU_ID");	
+	this.gfn_moveMenuId(sMenuId);
+}
+
+this.div_menu_btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this._gfn_findMenu();
+}
+
+this.pdiv_list_btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.pdiv_list.closePopup();
+}
+
+this.pdiv_list_btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sMenuId = this.ds_find.getColumn(this.ds_find.rowposition, "MENU_ID");
+	this.gfn_OpenMenuId(sMenuId);
+	this.pdiv_list.closePopup();
+}
+
+this.pdiv_list_grd_list_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var sMenuId = this.ds_find.getColumn(this.ds_find.rowposition, "MENU_ID");
+	this.gfn_OpenMenuId(sMenuId);
+	this.pdiv_list.closePopup();
+}
+
+this.div_menu_edt_search_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode ==13) {
+		this._gfn_findMenu();
+	}
+}
+
+this._gfn_findMenu = function()
+{
+	var sText = this.div_menu.edt_search.value;
+	
+	if(this.gfn_isNull(sText)){
+		alert("검색할 메뉴명을 입력하세요.");
+		this.div_menu.edt_search.setFocus();
+		return;
+	}
+	
+    var sFindCol = "MENU_NAME";	
+    
+	var sFilter = "String(MENU_ID).valueOf() != 'undefined' && String(MENU_ID).length > 0 && String("+sFindCol+").toUpperCase().indexOf('" + sText.toUpperCase() + "') >= 0 && MENU_LEVEL==2";
+	
+	this.ds_find.filter(sFilter);
+	
+	if(this.ds_find.rowcount == 0) {
+		alert("검색결과가 없습니다.");
+		this.div_menu.edt_search.setFocus();
+		return;
+	}
+	
+	this.ds_find.set_rowposition(0);
+
+	var nX = system.clientToScreenX(this.div_menu.sta_search, 0) - system.clientToScreenX(application.mainframe, 0); 
+	var nY = system.clientToScreenY(this.div_menu.sta_search, parseInt(this.div_menu.sta_search.height)) - system.clientToScreenY(application.mainframe, 0); 
+		
+	var nRtn = this.pdiv_list.trackPopup(nX,nY);
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_TX_2001" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="매출세금계산서(역발행)_IT경제부" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="49" left="0" top="29" right="15" height="95" scrollbars="none" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="46" text="일자" cssclass="sta_WFSA_Label" left="15" top="10" width="127" height="21"/>
+              <Calendar id="cal_start" taborder="50" value="20190101" dateformat="yyyy-MM-dd" onkeydown="Calendar_onkeydown" onchanged="Calendar_onchanged" left="176" top="10" width="100" height="21" readonly="false"/>
+              <Static id="Static06" taborder="51" text="~" left="282" top="10" width="12" height="21"/>
+              <Calendar id="cal_end" taborder="52" dateformat="yyyy-MM-dd" onkeydown="Calendar_onkeydown" onchanged="Calendar_onchanged" left="300" top="10" width="100" height="21" value="null" readonly="false"/>
+              <Combo id="cbo_dt" taborder="54" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="106" top="10" width="67" height="21" onitemchanged="div_search_cbo_dt_onitemchanged" value="1" text="발행일" displayrowcount="1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">발행일</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Static id="Static04" taborder="22" text="15" visible="false" top="1" width="15" height="491" style="background:#00ffffb5;" right="0"/>
+        <Div id="div_grd" taborder="39" left="0" top="123" right="15" bottom="0">
+          <Layouts>
+            <Layout width="788" height="367">
+              <Button id="btn_flag" taborder="0" cssclass="btn_WFSA_SearchClose" left="329" top="0" right="332" height="12" onclick="btn_flag_onclick"/>
+              <Grid id="grd_tax" taborder="1" binddataset="ds_tax" useinputpanel="false" left="0" top="42" right="0" bottom="29" autofittype="none" onheadclick="div_grd_grd_tax_onheadclick" enable="true" oncelldblclick="div_grd_grd_tax_oncelldblclick" cellsizingtype="col" nodatatext="조회된 건수가 없습니다." summarytype="top">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="150"/>
+                      <Column size="133"/>
+                      <Column size="135"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="122"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell/>
+                      <Cell col="1" text="현 시간"/>
+                      <Cell col="2" text="발행 월"/>
+                      <Cell col="3" text="유형 코드"/>
+                      <Cell col="4" text="발행상태"/>
+                      <Cell col="5" text="발행 수"/>
+                      <Cell col="6" text="총 금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="number" expr="expr:currow+1"/>
+                      <Cell col="1" text="bind:DT"/>
+                      <Cell col="2" text="bind:REGS_DATE"/>
+                      <Cell col="3" text="bind:TXBIL_STSC"/>
+                      <Cell col="4" text="bind:STATUS"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:COUNT"/>
+                      <Cell col="6" displaytype="number" style="align:right;" text="bind:TOT_AMT"/>
+                    </Band>
+                  </Format>
+                  <Format id="format_copy"/>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="44" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Div id="div_auth" taborder="47" url="common::AuthorityWorkplace.xfdl" text="div_auth" top="0" right="72" width="431" height="21"/>
+        <Edit id="Edit00" taborder="50" visible="false" left="170" top="0" width="120" height="22"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_tax">
+        <ColumnInfo>
+          <Column id="DT" type="STRING" size="256"/>
+          <Column id="REGS_DATE" type="STRING" size="256"/>
+          <Column id="TXBIL_STSC" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+          <Column id="COUNT" type="STRING" size="256"/>
+          <Column id="TOT_AMT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_condition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DT_TYPE" type="STRING" size="256"/>
+          <Column id="STARTDT" type="STRING" size="256"/>
+          <Column id="ENDDT" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="TXBIL_STSC" type="STRING" size="256"/>
+          <Column id="NTS_TMS_SQNO" type="STRING" size="256"/>
+          <Column id="TXBIL_KD" type="STRING" size="256"/>
+          <Column id="SPLR_BZNO" type="STRING" size="256"/>
+          <Column id="CODE01" type="STRING" size="256"/>
+          <Column id="CODE02" type="STRING" size="256"/>
+          <Column id="BUY_BZNO" type="STRING" size="256"/>
+          <Column id="RPBC_DSC" type="STRING" size="256"/>
+          <Column id="NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="NA_CLNT_TEAM_C" type="STRING" size="256"/>
+          <Column id="OCU_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="STARTDT"/>
+            <Col id="ENDDT"/>
+            <Col id="DT_TYPE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_search.cbo_dt" propid="value" datasetid="ds_condition" columnid="DT_TYPE"/>
+      <BindItem id="item1" compid="div_search.cal_start" propid="value" datasetid="ds_condition" columnid="STARTDT"/>
+      <BindItem id="item2" compid="div_search.cal_end" propid="value" datasetid="ds_condition" columnid="ENDDT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+	this.div_search.cal_start.set_value("20190101");
+	this.div_search.cal_end.set_value(application.gv_today);
+    this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{  
+   /*조회 호출*/
+   this.div_search.cbo_ENT_PRG_STSC.set_value("A");
+   this.div_search.rdo_DT_YN.set_value("N");
+
+}
+
+//조회 
+this.btn_search_onclick = function()
+{
+			
+	var sSvcID        = "TaxbillListIT";
+	var sURL          = "svc::rest/tx/TaxbillListIT";
+    var sInDatasets   = "ds_condition=ds_condition";
+	var sOutDatasets  = "ds_tax=ds_tax";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+
+	if(sSvcID=="TaxbillListIT" ){
+	    trace("TaxbillListIT 완료 " );
+	}
+}
+
+this.fn_retrieveTaxBillList = function()
+{
+
+
+		var sSvcID        = "TaxbillListIT";
+		var sURL          = "svc::rest/tx/retrieveTaxBillList";
+		var sInDatasets   = "ds_condition=ds_condition ds_pageVO=ds_pageVO";
+		var sOutDatasets  = "ds_tax=ds_tax ds_pageVO=ds_pageVO";	
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회 
+		
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

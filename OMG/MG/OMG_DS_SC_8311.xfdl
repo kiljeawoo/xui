@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8311" classname="popup01" left="0" top="0" width="767" height="466" titletext="설문조사 등록" onload="form_onload" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Static id="Static12" taborder="151" cssclass="sta_WF_Labelbg" left="126" top="308" right="17" height="65"/>
+        <Static id="Static40" taborder="19" cssclass="sta_WF_Labelbg" left="126" top="115" right="17" height="195"/>
+        <Static id="Static08" taborder="14" cssclass="sta_WF_Labelbg" left="126" top="59" right="17" height="29"/>
+        <Static id="upper_level1" taborder="15" cssclass="sta_WF_Labelbg" left="126" top="87" right="17" height="29"/>
+        <Button id="btn_close" taborder="10" text="닫기" cssclass="btn_WF_CRUD" top="34" right="17" width="41" height="21" onclick="fn_close_onclick"/>
+        <Static id="text_title" taborder="11" cssclass="sta_WF_Subtitle" left="17" top="37" width="135" height="21" text="설문조사 등록"/>
+        <Static id="Static07" taborder="13" text="부제목" cssclass="sta_WF_Label" left="17" top="87" height="29" width="110" onclick="Static07_onclick"/>
+        <Static id="Static24" taborder="17" text="내용" cssclass="sta_WF_Label" left="17" top="115" width="110" height="195"/>
+        <Static id="Static00" taborder="70" text="17" visible="false" left="750" top="44" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="71" text="15" visible="false" left="673" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="72" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="73" text="8" visible="false" left="674" top="36" width="91" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="95" text="저장" cssclass="btn_WF_CRUD" top="34" right="66" width="43" height="21" onclick="btn_save_onclick"/>
+        <Static id="Static04" taborder="127" text="제목" cssclass="sta_WF_Label" left="17" top="59" height="29" width="110"/>
+        <Static id="Static02" taborder="138" text="적용기간" cssclass="sta_WF_Label" left="17" top="372" height="29" width="110"/>
+        <Static id="Static10" taborder="139" cssclass="sta_WF_Labelbg" left="126" top="428" right="17" height="29"/>
+        <Radio id="use_yn" taborder="140" index="0" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemclick="Radio00_onitemclick" left="130" top="432" height="21" width="158" value="Y">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">사용안함</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static01" taborder="146" text="사용여부" cssclass="sta_WF_Label" left="17" top="428" width="110" height="29"/>
+        <Static id="Static06" taborder="148" cssclass="sta_WF_Labelbg" left="126" top="372" right="17" height="29"/>
+        <Static id="Static11" taborder="149" text="비고" cssclass="sta_WF_Label" left="17" top="309" width="110" height="64"/>
+        <Edit id="ed_title" taborder="152" left="130" top="64" width="440" height="21"/>
+        <Edit id="ed_subtitle" taborder="153" left="130" top="91" width="440" height="21" oneditclick="ed_subtitle_oneditclick"/>
+        <Edit id="ed_rmk" taborder="155" left="130" top="315" width="609" height="52"/>
+        <Calendar id="APL_ST_DT" taborder="156" dateformat="yyyy-MM-dd" onchanged="Calendar_onchanged" visible="true" top="375" right="538" width="100" height="21" style="align:center middle;" value="null"/>
+        <Calendar id="APL_ED_DT" taborder="157" dateformat="yyyy-MM-dd" onchanged="Calendar_onchanged" visible="true" top="375" right="427" width="100" height="21" style="align:center middle;" value="null"/>
+        <Static id="st_char" taborder="158" text="~" visible="true" top="374" right="526" width="12" height="21" style="align:center middle;"/>
+        <Static id="Static13" taborder="159" cssclass="sta_WF_Labelbg" left="126" top="400" right="17" height="29"/>
+        <Static id="Static14" taborder="160" text="설문기간" cssclass="sta_WF_Label" left="17" top="400" width="110" height="29"/>
+        <Calendar id="SRV_ST_DT" taborder="161" dateformat="yyyy-MM-dd" onchanged="Calendar_onchanged" top="404" right="538" width="100" height="21" style="align:center middle;"/>
+        <Calendar id="SRV_ED_DT" taborder="162" dateformat="yyyy-MM-dd" onchanged="Calendar_onchanged" top="404" right="427" width="100" height="21" style="align:center middle;"/>
+        <Static id="st_char00" taborder="163" text="~" top="405" right="525" width="12" height="21" style="align:center middle;"/>
+        <Button id="brn_cls" taborder="164" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" left="729" top="0" width="37" height="32"/>
+        <Edit id="Edit00" taborder="165" left="426" top="35" width="105" height="22" visible="false"/>
+        <TextArea id="ed_intro" taborder="167" left="131" top="120" width="609" height="183"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_file" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_survey">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="SUBTITLE" type="STRING" size="256"/>
+          <Column id="INTRO" type="STRING" size="256"/>
+          <Column id="APL_ST_DT" type="STRING" size="256"/>
+          <Column id="APL_ED_DT" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SRV_ST_DT" type="STRING" size="256"/>
+          <Column id="SRV_ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SRV_A_NUM" type="STRING" size="256"/>
+          <Column id="ANSWER" type="STRING" size="256"/>
+          <Column id="INPUT_TYPE" type="STRING" size="256"/>
+          <Column id="TXT_COL_CNT" type="STRING" size="256"/>
+          <Column id="TXT_ROW_CNT" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_SEQ" type="STRING" size="256"/>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <InitValue/>
+    <Bind>
+      <BindItem id="item0" compid="ed_title" propid="value" datasetid="ds_survey" columnid="TITLE"/>
+      <BindItem id="item1" compid="ed_subtitle" propid="value" datasetid="ds_survey" columnid="SUBTITLE"/>
+      <BindItem id="item3" compid="ed_rmk" propid="value" datasetid="ds_survey" columnid="RMK_CNTN"/>
+      <BindItem id="item4" compid="APL_ST_DT" propid="value" datasetid="ds_survey" columnid="APL_ST_DT"/>
+      <BindItem id="item5" compid="APL_ED_DT" propid="value" datasetid="ds_survey" columnid="APL_ED_DT"/>
+      <BindItem id="item6" compid="SRV_ST_DT" propid="value" datasetid="ds_survey" columnid="SRV_ST_DT"/>
+      <BindItem id="item7" compid="SRV_ED_DT" propid="value" datasetid="ds_survey" columnid="SRV_ED_DT"/>
+      <BindItem id="item8" compid="use_yn" propid="value" datasetid="ds_survey" columnid="USE_YN"/>
+      <BindItem id="item10" compid="ed_intro" propid="value" datasetid="ds_survey" columnid="INTRO"/>
+      <BindItem id="item9" compid="Edit00" propid="value" datasetid="ds_survey" columnid="SRV_SEQ"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+	this.gfn_setInitForm(obj, e); //공통
+
+	this.ds_survey.addRow();
+}
+
+this.fn_afterFormOnload = function() //페이지 로딩후 실행부분
+{
+	var fv_paramMode = this.getOwnerFrame().paramMode;	
+	if(fv_paramMode == "S"){ 
+		this.search();
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/*상세 조회*/
+this.search = function()
+{
+	var title = this.getOwnerFrame().title;	
+	var srv_seq = this.getOwnerFrame().srv_seq;
+	
+	
+	var sParams = "TITLE=" + title
+				+" SRV_SEQ=" + srv_seq;
+	var sSvcID        = "retrievesurveyOne";
+	var sURL          = "svc::rest/mg/survey/retrievesurveyOne";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_survey=ds_survey";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+/*저장버튼 액션정의*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if(this.getOwnerFrame().paramMode== "U"){ //등록			
+		this.insert();	
+	}else if(this.getOwnerFrame().paramMode== "S"){	 //수정
+	     this.update();
+	}
+}
+
+/*수정*/
+this.update = function()
+{
+	if(confirm("질문을 수정하시겠습니까?")){
+		this.ds_survey.setColumn(0,"SRV_SEQ", this.gfn_nullToEmpty(this.Edit00.value));
+		this.ds_survey.setColumn(0,"TITLE", this.gfn_nullToEmpty(this.ed_title.value));
+		this.ds_survey.setColumn(0,"SUBTITLE", this.gfn_nullToEmpty(this.ed_subtitle.value));
+		this.ds_survey.setColumn(0,"INTRO", this.gfn_nullToEmpty(this.ed_intro.value));
+		this.ds_survey.setColumn(0,"APL_ST_DT", this.gfn_nullToEmpty(this.APL_ST_DT.value));
+		this.ds_survey.setColumn(0,"APL_ED_DT", this.gfn_nullToEmpty(this.APL_ED_DT.value));
+		this.ds_survey.setColumn(0,"RMK_CNTN", this.gfn_nullToEmpty(this.ed_rmk.value));
+		this.ds_survey.setColumn(0,"SRV_ST_DT", this.gfn_nullToEmpty(this.SRV_ST_DT.value));
+		this.ds_survey.setColumn(0,"SRV_ED_DT", this.gfn_nullToEmpty(this.SRV_ED_DT.value));
+		this.ds_survey.setColumn(0,"USE_YN", this.gfn_nullToEmpty(this.use_yn.value));
+
+			
+		var sSvcID        = "updateSurvey";
+		var sURL          = "svc::rest/mg/survey/updateSurvey";
+		var sInDatasets   = "ds_survey=ds_survey";
+		var sOutDatasets  = "";
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+				
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+
+}
+
+/* 등록 */
+this.insert = function()
+{
+	
+	if (this.fn_validationCheck()) {
+		if(confirm("질문을 등록하시겠습니까?")){	
+			this.ds_survey.setColumn(0,"TITLE", this.gfn_nullToEmpty(this.ed_title.value));
+			this.ds_survey.setColumn(0,"SUBTITLE", this.gfn_nullToEmpty(this.ed_subtitle.value));
+			this.ds_survey.setColumn(0,"INTRO", this.gfn_nullToEmpty(this.ed_intro.value));
+			this.ds_survey.setColumn(0,"APL_ST_DT", this.gfn_nullToEmpty(this.APL_ST_DT.value));
+			this.ds_survey.setColumn(0,"APL_ED_DT", this.gfn_nullToEmpty(this.APL_ED_DT.value));
+			this.ds_survey.setColumn(0,"RMK_CNTN", this.gfn_nullToEmpty(this.ed_rmk.value));
+			this.ds_survey.setColumn(0,"SRV_ST_DT", this.gfn_nullToEmpty(this.SRV_ST_DT.value));
+			this.ds_survey.setColumn(0,"SRV_ED_DT", this.gfn_nullToEmpty(this.SRV_ED_DT.value));
+			this.ds_survey.setColumn(0,"USE_YN", this.gfn_nullToEmpty(this.use_yn.value));
+
+			
+			var sSvcID        = "insertSurvey";
+			var sURL          = "svc::rest/mg/survey/insertSurvey";
+			var sInDatasets   = "ds_survey=ds_survey";
+			var sOutDatasets  = "";
+			var sArgument     = "";
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+			
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		}
+	}
+}
+
+/* 창닫기 버튼 이벤트 */
+this.fn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/* 등록 및 수정시 사용되는 Validation Check */
+this.fn_validationCheck = function(){
+    
+	if (this.ed_title.value == '') {
+		alert('제목을 입력하세요.');
+		return;
+	}
+	 
+	if (this.ed_subtitle.value == '') {
+		alert('부제목을 입력하세요.');
+		return;
+	}
+	if (this.ed_intro.value == '') {
+		alert('내용을 입력하세요');
+		return;
+	}
+	if (this.ed_rmk.value == '') {
+		alert('비고내용을 입력하세요');
+		return;
+	}
+	if (this.APL_ST_DT.value == '') {
+		alert('시작일을 입력하세요');
+		return;
+	}
+	if (this.APL_ED_DT.value == '') {
+		alert('종료일을 입력하세요');
+		return;
+	}
+	if (this.SRV_ST_DT.value == '') {
+		alert('시작일을 입력하세요');
+		return;
+	}
+	if (this.SRV_ED_DT.value == '') {
+		alert('종료일을 입력하세요');
+		return;
+	}
+	if (this.use_yn.value == '') {
+		alert('사용여부를 입력하세요');
+		return;
+	}
+    return true;
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "insertSurvey") {
+			if (ErrorCode == 0) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.close();
+			}
+		}else if(svcID == "updateSurvey"){
+			if (ErrorCode == 0) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.close();
+			}
+		}
+	}
+}
+
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6517" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="서비스변경현황" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static87" taborder="1" text="17" visible="false" left="98.13%" top="1" height="1195" style="background:#dc143c5b;" width="15"/>
+        <Static id="Static41" taborder="10" text="20" visible="false" left="2.86%" top="697" right="-24.53%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static89" taborder="13" text="서비스변경현황" cssclass="sta_WF_Subtitle" left="1.49%" top="17" right="77.09%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static06" taborder="66" text="17" visible="false" left="0%" top="1" right="98.51%" height="1195" style="background:#dc143c5b;"/>
+        <Grid id="grd_svcChgPsttList" taborder="74" binddataset="ds_resultDtl" useinputpanel="false" autofittype="col" oncellclick="div_result_grd_mbApvrqrList_oncellclick" left="1.49%" top="125" right="16" height="355">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="47"/>
+                <Column size="120"/>
+                <Column size="147"/>
+                <Column size="91"/>
+                <Column size="115"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="번호"/>
+                <Cell col="1" text="서비스가입일시"/>
+                <Cell col="2" text="신청서비스"/>
+                <Cell col="3" text="요청구분"/>
+                <Cell col="4" text="처리상태"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center middle;" text="bind:RN"/>
+                <Cell col="1" style="align:center middle;" text="bind:SVC_ENT_DTM" mask="####-##-## ##:##:##"/>
+                <Cell col="2" style="align:left middle;" text="bind:SVC_ID_NM"/>
+                <Cell col="3" style="align:left middle;" text="bind:RQ_DSC_NM"/>
+                <Cell col="4" style="align:left middle;" text="bind:ENT_PRG_STSC_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_mst" taborder="75" binddataset="ds_resultMst" useinputpanel="false" autofittype="col" oncellclick="Div00_grd_mst_oncellclick" left="12" top="47" height="49" width="775">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="111"/>
+                <Column size="111"/>
+                <Column size="111"/>
+                <Column size="111"/>
+                <Column size="111"/>
+                <Column size="111"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="정액제"/>
+                <Cell col="1" text="종량제"/>
+                <Cell col="2" text="BI조회"/>
+                <Cell col="3" text="추이분석"/>
+                <Cell col="4" text="시장분석(자사)"/>
+                <Cell col="5" text="시장분석(타사)"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:SVC21 == 0?'미사용':'사용'"/>
+                <Cell col="1" text="expr:SVC22 == 0?'미사용':'사용'"/>
+                <Cell col="2" text="expr:SVC31 == 0?'미사용':'사용'"/>
+                <Cell col="3" text="expr:SVC32 == 0?'미사용':'사용'"/>
+                <Cell col="4" text="expr:SVC33 == 0?'미사용':'사용'"/>
+                <Cell col="5" text="expr:SVC34 == 0?'미사용':'사용'"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_resultMst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SVC21" type="STRING" size="256"/>
+          <Column id="SVC22" type="STRING" size="256"/>
+          <Column id="SVC31" type="STRING" size="256"/>
+          <Column id="SVC32" type="STRING" size="256"/>
+          <Column id="SVC33" type="STRING" size="256"/>
+          <Column id="SVC34" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SVC21">0</Col>
+            <Col id="SVC22">0</Col>
+            <Col id="SVC31">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_resultDtl" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RN" type="STRING" size="256"/>
+          <Column id="SVC_ENT_DTM" type="STRING" size="256"/>
+          <Column id="SVC_ID_NM" type="STRING" size="256"/>
+          <Column id="RQ_DSC_NM" type="STRING" size="256"/>
+          <Column id="ENT_PRG_STSC_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+      <BindItem id="item8" compid="grd_svcChgPsttList" propid="binddataset" datasetid="ds_result" columnid=""/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+/*******************************************************************
+	전역변수 선언
+	sNaTrplC : 조회할 거래처번호	
+*******************************************************************/
+this.sNaTrplC = "";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+   this.grd_svcChgPsttList.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분            
+   this.fn_retrieveSvcChgPsttMaster();   
+}
+
+
+/*******************************************************************************
+	TAB호출시 호출되는 함수
+*******************************************************************************/
+this.fn_retriveUsrInfo = function (naTrplC){		
+	//this.edt_NA_TRPL_C.set_value(na_trpl_c);
+	//this.fn_retrieveSvcChgPsttMaster();
+	this.sNaTrplC = naTrplC;
+	
+}
+
+
+/*******************************************************************************
+	그리드셀 호출
+*******************************************************************************/
+this.Div00_grd_mst_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	var svcId ;
+	if(e.cell == 0 ){
+		svcId = '21';
+	}else if(e.cell == 1 ){
+		svcId = '22';
+	}else if(e.cell == 2 ){
+		svcId = '31';
+	}else if(e.cell == 3 ){
+		svcId = '32';
+	}else if(e.cell == 4 ){
+		svcId = '33';
+	}else if(e.cell == 5 ){
+		svcId = '34';
+	}	
+	this.fn_retrieveSvcChgPsttDetail(svcId);
+	
+}
+
+/*******************************************************************************
+	조회메소드
+*******************************************************************************/
+this.fn_retrieveSvcChgPsttMaster = function(){
+	var sParams 	  = "NA_TRPL_C="+this.sNaTrplC;				
+	var sSvcID        = "retrieveSvcChgPsttMaster";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveSvcChgPsttMaster";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_resultMst=ds_resultMst";	
+	var sArgument     = sParams;	
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+
+this.fn_retrieveSvcChgPsttDetail = function(svcId){
+	var sParams 	  = "SVC_ID="+svcId +" NA_TRPL_C="+this.sNaTrplC;
+	var sSvcID        = "retrieveSvcChgPsttDetail";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveSvcChgPsttDetail";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_resultDtl=ds_resultDtl";	
+	var sArgument     = sParams;	
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+/*******************************************************************************
+	콜백메소드
+*******************************************************************************/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	
+	if(ErrorCode < 0){
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{	
+	 	if(svcID == "retrieveSvcChgPsttMaster"){
+			if(this.ds_resultMst.rowcount == 0){
+			//	this.gfn_getMessage("alert", "result.message.search.no.exist.data");				
+			} 
+	 	}
+	 	else if(svcID == "retrieveSvcChgPsttDetail"){
+			if(this.ds_resultDtl.rowcount == 0){
+			//	this.gfn_getMessage("alert", "result.message.search.no.exist.data");				
+			} 
+	 	}else{
+			alert("서비스ID매핑이 잘못되었습니다.");
+	 	}	 	
+	}		  
+}
+ 
+
+ 
+
+
+]]></Script>
+  </Form>
+</FDL>

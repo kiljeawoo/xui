@@ -1,0 +1,904 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5061" classname="popup01" left="0" top="0" width="880" height="1354" titletext="신규상품등록 상세조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static06" taborder="74" text="신규상품등록 상세조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32" onclick="Static06_onclick"/>
+        <Button id="brn_cls" taborder="75" cssclass="btn_WF_PopupClose" left="839" top="0" width="37" height="32" onclick="btn_close_onclick"/>
+        <Div id="div_search" taborder="110" left="15" top="47" right="15" style="border:0 solid #808080ff ;bordertype:normal 0 0 ;" scrollbars="autovert" bottom="11">
+          <Layouts>
+            <Layout>
+              <Static id="Static19" taborder="174" cssclass="sta_WF_Labelbg" left="109" top="493" right="0" height="29"/>
+              <Static id="Static01" taborder="125" cssclass="sta_WF_Labelbg" left="109" top="409" right="0" height="29"/>
+              <Static id="Static12" taborder="126" cssclass="sta_WF_Labelbg" left="109" top="465" right="0" height="29"/>
+              <Static id="Static05" taborder="127" cssclass="sta_WF_Labelbg" left="109" top="381" right="0" height="29"/>
+              <Static id="Static26" taborder="128" cssclass="sta_WF_Labelbg" left="109" top="297" right="0" height="29"/>
+              <Static id="Static28" taborder="129" cssclass="sta_WF_Labelbg" left="109" top="353" right="0" height="29"/>
+              <Static id="sta_title00" taborder="130" text="상품유형" cssclass="sta_WF_Label" left="0" top="297" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title02" taborder="131" text="공병코드/수량" cssclass="sta_WF_Label" left="0" top="325" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title04" taborder="132" text="단량/단위/포장" cssclass="sta_WF_Label" left="0" top="353" width="110" height="29" style="color:#353e41ff;padding:2 7 0 7;"/>
+              <Static id="Static27" taborder="133" cssclass="sta_WF_Labelbg" left="109" top="325" right="0" height="29"/>
+              <Static id="sta_title06" taborder="135" text="보관방식" cssclass="sta_WF_Label" left="0" top="409" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title07" taborder="136" text="주류용도" cssclass="sta_WF_Label" left="435" top="493" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title03" taborder="137" text="공상자코드" cssclass="sta_WF_Label" left="435" top="325" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Edit id="edt_div_data04" taborder="138" cssclass="WF_Essential" left="113" top="357" width="70" height="21" readonly="true"/>
+              <Static id="Static04" taborder="139" text="수입여부" cssclass="sta_WF_Label" left="0" top="381" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static06" taborder="140" text="유통기한관리여부" cssclass="sta_WF_Label" left="0" top="437" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static07" taborder="141" cssclass="sta_WF_Labelbg" left="109" top="437" right="0" height="29"/>
+              <Static id="Static08" taborder="142" text="박스당입수" cssclass="sta_WF_Label" left="0" top="493" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static16" taborder="143" text="RFID사용여부" cssclass="sta_WF_Label" left="435" top="381" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title01" taborder="146" text="주류상품여부" cssclass="sta_WF_Label" left="435" top="297" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Radio id="rdo_store_code00" taborder="147" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemclick="div_search_rdo_store_code00_onitemclick" left="113" top="301" width="317" height="21" style="font:9 Gulim;" enable="true" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">일반상품</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">공병</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">공상자</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">4</Col>
+                      <Col id="datacolumn">공파렛트</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_div_data01" taborder="148" inputtype="number" maxlength="25" onkeydown="div_search_edt_div_data01_onkeydown" cssclass="WF_Essential" left="113" top="329" width="80" height="21" enable="true" readonly="true"/>
+              <Edit id="edt_div_data02" taborder="149" onkeydown="div_search_edt_div_data02_onkeydown" cssclass="WF_Essential" enable="true" left="196" top="329" width="100" height="21" readonly="true"/>
+              <Edit id="edt_div_data03" taborder="151" inputtype="number" maxlength="3" cssclass="WF_Essential" left="323" top="329" width="30" height="21" enable="true" readonly="true"/>
+              <Static id="Static13" taborder="152" text="개" left="358" top="329" width="20" height="21" enable="false" style=":disabled {color:#353e41ff;}"/>
+              <Static id="Static14" taborder="153" text="/" left="186" top="357" width="10" height="21" enable="false"/>
+              <Static id="Static15" taborder="154" text="/" left="269" top="357" width="10" height="21" enable="false"/>
+              <Radio id="rdo_store_code01" taborder="156" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="113" top="385" width="200" height="21" enable="true" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="rdo_store_code02" taborder="157" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemchanged="div_search_rdo_store_code02_onitemchanged" left="113" top="441" width="200" height="21" enable="true" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="rdo_store_code03" taborder="158" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemchanged="div_search_rdo_store_code03_onitemchanged" left="548" top="301" width="200" height="21" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_div_data08" taborder="159" inputtype="number" maxlength="25" onkeydown="div_search_edt_div_data08_onkeydown" cssclass="WF_Essential" left="548" top="329" width="110" height="21" enable="true" readonly="true"/>
+              <Edit id="edt_div_data09" taborder="160" onkeydown="div_search_edt_div_data09_onkeydown" cssclass="WF_Essential" enable="true" left="661" top="329" width="131" height="21" readonly="true"/>
+              <Radio id="rdo_store_code04" taborder="164" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="548" top="385" width="200" height="21" enable="true" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_div_data13" taborder="165" inputtype="number" cssclass="WF_Essential" left="113" top="497" width="100" height="21" enable="true" readonly="true"/>
+              <Static id="sta_title24" taborder="168" text="용도" cssclass="sta_WF_Label" left="435" top="409" width="110" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_title08" taborder="170" text="친환경인증" cssclass="sta_WF_Label" left="435" top="465" width="110" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="Static24" taborder="172" cssclass="sta_WF_Labelbg" left="109" top="549" right="0" height="29" visible="false"/>
+              <Static id="Static22" taborder="173" cssclass="sta_WF_Labelbg" left="109" top="521" right="0" height="29" visible="false"/>
+              <Static id="Static20" taborder="176" text="품질(등급)" cssclass="sta_WF_Label" left="0" top="521" width="110" height="29" style="padding:2 7 0 7;" visible="false"/>
+              <Static id="sta_title14" taborder="177" text="크기(성별)" cssclass="sta_WF_Label" left="435" top="521" width="110" height="29" style="padding:2 7 0 7;" visible="false"/>
+              <Static id="Static21" taborder="180" text="농협관리구분" cssclass="sta_WF_Label" left="0" top="549" width="110" height="29" style="padding:2 7 0 7;" visible="false"/>
+              <Static id="sta_title15" taborder="181" text="유통상태" cssclass="sta_WF_Label" left="435" top="549" width="110" height="29" style="padding:2 7 0 7;" visible="false"/>
+              <Edit id="edt_day" taborder="183" left="113" top="469" width="48" height="21" enable="true" readonly="true"/>
+              <Static id="Static23" taborder="185" text="유효기간" cssclass="sta_WF_Label" left="0" top="465" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_pagename02" taborder="187" text="상품 상세정보" cssclass="sta_WF_Subtitle" left="0" top="272" width="140" height="21"/>
+              <Static id="sta_pagename05" taborder="188" text="가격표시제 단위 :" cssclass="sta_WF_Subtitle" left="0" top="608" width="129" height="21"/>
+              <Static id="Static00" taborder="190" text="내용량" cssclass="sta_WF_Label" left="0" top="634" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="Static02" taborder="191" cssclass="sta_WF_Labelbg" left="109" top="634" right="0" height="29"/>
+              <Static id="Static03" taborder="192" text="기준량" cssclass="sta_WF_Label" left="280" top="634" width="110" height="29" enable="false" style="padding:2 7 0 7; :disabled {color:#353e41ff;}"/>
+              <Static id="Static09" taborder="193" text="표시단위" cssclass="sta_WF_Label" left="557" top="634" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Edit id="edt_div_data00" taborder="194" inputtype="number" maxlength="25" onkeydown="div_search_edt_div_data01_onkeydown" cssclass="WF_Essential" left="114" top="638" width="137" height="21" enable="true" readonly="true"/>
+              <Edit id="edt_div_data05" taborder="195" inputtype="number" maxlength="25" onkeydown="div_search_edt_div_data01_onkeydown" cssclass="WF_Essential" left="394" top="638" width="137" height="21" enable="true" readonly="true"/>
+              <Static id="sta_back_bar04" taborder="198" cssclass="sta_WF_Labelbg" left="109" top="192" right="0" height="29"/>
+              <Static id="sta_back_bar03" taborder="199" cssclass="sta_WF_Labelbg" left="109" top="80" width="328" height="29"/>
+              <Static id="sta_back_bar13" taborder="200" cssclass="sta_WF_Labelbg" left="109" top="108" width="328" height="29"/>
+              <Static id="sta_back_bar14" taborder="201" cssclass="sta_WF_Labelbg" left="109" top="136" width="328" height="29"/>
+              <Static id="sta_back_bar12" taborder="202" cssclass="sta_WF_Labelbg" left="109" top="24" right="0" height="29"/>
+              <Static id="sta_back_bar02" taborder="203" cssclass="sta_WF_Labelbg" left="489" top="80" right="0" height="85"/>
+              <Static id="sta_title10" taborder="204" text="상품명" cssclass="sta_WF_Label" left="0" top="80" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_back_bar01" taborder="205" cssclass="sta_WF_Labelbg" left="109" top="52" right="0" height="29"/>
+              <Static id="sta_title11" taborder="206" text="상품약어명" cssclass="sta_WF_Label" left="0" top="108" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title12" taborder="207" text="상품분류" cssclass="sta_WF_Label" left="0" top="52" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title13" taborder="208" text="규격" cssclass="sta_WF_Label" left="0" top="164" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_back_bar05" taborder="209" cssclass="sta_WF_Labelbg" left="109" top="164" right="0" height="29"/>
+              <Edit id="edt_data04" taborder="210" cssclass="WF_Essential" enable="true" left="113" top="112" width="264" height="21" readonly="true"/>
+              <Edit id="edt_data05" taborder="211" cssclass="WF_Essential" enable="true" left="113" top="140" width="264" height="21" readonly="true"/>
+              <Edit id="edt_data12" taborder="213" cssclass="WF_Essential" enable="true" left="113" top="168" width="264" height="21" readonly="true"/>
+              <Static id="sta_pagename01" taborder="214" text="상품공통정보" cssclass="sta_WF_Subtitle" left="0" top="0" width="135" height="21"/>
+              <Edit id="edt_data06" taborder="215" inputtype="number" maxlength="3" enable="true" left="113" top="56" width="34" height="21" style=":disabled {font:9 Gulim;}" readonly="true"/>
+              <Edit id="edt_data07" taborder="216" inputtype="number" maxlength="3" enable="true" left="149" top="56" width="34" height="21" style=":disabled {font:9 Gulim;}" readonly="true"/>
+              <Edit id="edt_data08" taborder="217" inputtype="number" maxlength="3" enable="true" left="185" top="56" width="34" height="21" style=":disabled {font:9 Gulim;}" readonly="true"/>
+              <Edit id="edt_data09" taborder="218" inputtype="number" maxlength="3" enable="true" left="221" top="56" width="34" height="21" style=":disabled {font:9 Gulim;}" readonly="true"/>
+              <Edit id="edt_data10" taborder="219" inputtype="number" maxlength="12" enable="true" left="257" top="56" width="218" height="21" readonly="true"/>
+              <Static id="sta_title17" taborder="220" text="상품설명" cssclass="sta_WF_Label" left="435" top="80" width="110" height="85" style="padding:2 7 0 7;"/>
+              <Static id="sta_title18" taborder="221" text="과세구분" cssclass="sta_WF_Label" left="435" top="164" width="110" height="29" style="padding:2 7 0 7;"/>
+              <TextArea id="txa_contents00" taborder="222" scrollbars="autovert" wordwrap="char" enable="true" left="548" top="86" width="291" height="73" readonly="true"/>
+              <Radio id="rdo_store_code05" taborder="223" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemchanged="rdo_store_code03_onitemchanged" enable="true" left="548" top="168" width="166" height="21" style="font:9 Gulim;" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">과세</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">면세</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">영세</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="sta_title19" taborder="225" text="제조처" cssclass="sta_WF_Label" left="0" top="192" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Edit id="edt_data15" taborder="226" inputtype="number" maxlength="25" onkeydown="edt_data15_onkeydown" cssclass="WF_Essential" enable="true" left="113" top="196" width="122" height="21" readonly="true"/>
+              <Edit id="edt_data16" taborder="227" onkeydown="edt_data16_onkeydown" cssclass="WF_Essential" enable="true" left="240" top="196" width="137" height="21" readonly="true"/>
+              <Edit id="edt_data03" taborder="229" enable="true" left="113" top="84" width="264" height="21" readonly="true"/>
+              <Radio id="rdo_store_code07" taborder="230" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemchanged="rdo_store_code02_onitemchanged" enable="true" left="528" top="56" width="206" height="21" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">1차상품</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">2차공산품</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="sta_title20" taborder="231" text="신청코드구분" cssclass="sta_WF_Label" left="0" top="24" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title23" taborder="233" text="상품영문명" cssclass="sta_WF_Label" left="0" top="136" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Static id="sta_title21" taborder="234" text="GAP인증" cssclass="sta_WF_Label" left="0" top="220" width="110" height="29" style="padding:2 7 0 7;font:9 Gulim;" visible="false"/>
+              <Static id="sta_back_bar00" taborder="235" cssclass="sta_WF_Labelbg" left="109" top="220" right="0" height="29" visible="false"/>
+              <Static id="sta_title22" taborder="236" text="저탄소인증여부" cssclass="sta_WF_Label" left="435" top="220" width="110" height="29" style="padding:2 7 0 7;" visible="false"/>
+              <Radio id="rdo_store_code08" taborder="237" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" enable="true" left="113" top="224" width="200" height="21" style="font:9 Gulim;" readonly="true" visible="false">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="rdo_store_code09" taborder="238" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" enable="true" left="547" top="224" width="200" height="21" style="font:9 Gulim;" readonly="true" visible="false">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_data00" taborder="241" enable="true" left="113" top="28" width="80" height="21" readonly="true"/>
+              <Static id="sta_title26" taborder="242" text="상품코드구분" cssclass="sta_WF_Label" left="435" top="24" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Edit id="edt_data01" taborder="243" enable="true" left="691" top="28" width="42" height="21" readonly="true" visible="false"/>
+              <Edit id="edt_data02" taborder="244" enable="true" left="548" top="28" width="141" height="21" readonly="true"/>
+              <Edit id="edt_data11" taborder="245" inputtype="number" maxlength="25" onkeydown="edt_data15_onkeydown" cssclass="WF_Essential" enable="true" left="717" top="168" width="110" height="21" readonly="true"/>
+              <Edit id="edt_data13" taborder="246" cssclass="WF_Essential" enable="true" left="113" top="413" width="264" height="21" readonly="true"/>
+              <Edit id="edt_data14" taborder="247" cssclass="WF_Essential" enable="true" left="548" top="413" width="264" height="21" readonly="true"/>
+              <Edit id="edt_data17" taborder="248" cssclass="WF_Essential" enable="true" left="548" top="469" width="264" height="21" readonly="true"/>
+              <Edit id="edt_data18" taborder="249" cssclass="WF_Essential" enable="true" left="548" top="497" width="264" height="21" readonly="true"/>
+              <Edit id="edt_data19" taborder="250" cssclass="WF_Essential" enable="true" left="113" top="525" width="264" height="21" readonly="true" visible="false"/>
+              <Edit id="edt_data20" taborder="251" cssclass="WF_Essential" enable="true" left="113" top="553" width="264" height="21" readonly="true" visible="false"/>
+              <Edit id="edt_data21" taborder="252" cssclass="WF_Essential" enable="true" left="548" top="553" width="264" height="21" readonly="true" visible="false"/>
+              <Edit id="edt_data22" taborder="253" cssclass="WF_Essential" enable="true" left="548" top="525" width="264" height="21" readonly="true" visible="false"/>
+              <Edit id="edt_day00" taborder="254" enable="true" left="164" top="469" width="130" height="21" readonly="true"/>
+              <Edit id="edt_day01" taborder="255" enable="true" left="126" top="608" width="168" height="21" readonly="true"/>
+              <Edit id="edt_div_data06" taborder="256" cssclass="WF_Essential" enable="true" left="196" top="357" width="70" height="21" readonly="true"/>
+              <Edit id="edt_div_data07" taborder="257" cssclass="WF_Essential" enable="true" left="279" top="357" width="98" height="21" readonly="true"/>
+              <Static id="sta_title25" taborder="259" text="유통기한표기방법" cssclass="sta_WF_Label" left="435" top="437" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Edit id="edt_data24" taborder="260" readonly="true" cssclass="WF_Essential" left="548" top="441" width="264" height="21"/>
+              <Edit id="edt_data25" taborder="261" readonly="true" left="314" top="28" width="108" height="21"/>
+              <Static id="sta_title16" taborder="262" text="상품코드" cssclass="sta_WF_Label" left="201" top="24" width="110" height="29" style="padding:2 7 0 7;"/>
+              <Edit id="edt_div_data12" taborder="263" inputtype="number" readonly="true" maxlength="25" onkeydown="div_search_edt_div_data01_onkeydown" cssclass="WF_Essential" left="671" top="638" width="137" height="21"/>
+              <Static id="sta_back_bar07" taborder="264" onclick="sta_back_bar07_onclick" cssclass="sta_WF_Labelbg" left="109" top="741" right="0" height="29"/>
+              <Static id="sta_title27" taborder="265" text="공급처코드" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="0" top="741" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_back_bar08" taborder="266" cssclass="sta_WF_Labelbg" left="109" top="825" right="0" height="29"/>
+              <Static id="sta_back_bar10" taborder="267" onclick="sta_back_bar10_onclick" cssclass="sta_WF_Labelbg" left="109" top="769" right="0" height="29"/>
+              <Static id="sta_back_bar16" taborder="268" onclick="sta_back_bar10_onclick" cssclass="sta_WF_Labelbg" left="109" top="797" right="0" height="29"/>
+              <Static id="sta_back_bar17" taborder="269" onclick="sta_back_bar10_onclick" cssclass="sta_WF_Labelbg" left="109" top="853" right="0" height="29" style="font:9 Gulim;"/>
+              <Static id="sta_title28" taborder="270" text="박스중량(Kg)" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="0" top="769" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_title29" taborder="271" text="박스가로길이(Cm)" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="0" top="825" width="125" height="29" style="padding:2 7 0 7;font:8 Gulim;"/>
+              <Static id="sta_title30" taborder="272" text="파렛트당단수" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="0" top="881" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_title31" taborder="273" text="박스용적(㎠)" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="435" top="769" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_title32" taborder="274" text="박스세로길이(Cm)" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="435" top="825" width="125" height="29" style="padding:2 7 0 7;font:8 Gulim;"/>
+              <Static id="sta_title33" taborder="275" text="박스높이(Cm)" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="0" top="853" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_back_bar18" taborder="276" onclick="sta_back_bar10_onclick" cssclass="sta_WF_Labelbg" left="124" top="881" right="0" height="29"/>
+              <Static id="sta_title34" taborder="277" text="매입단가" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="0" top="797" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_title35" taborder="278" text="판매단가" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="435" top="797" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Edit id="edt_search_wrs03" taborder="279" inputtype="number" maxlength="14" cssclass="WF_Essential" left="133" top="885" width="92" height="21" oneditclick="div_search_edt_search_wrs03_oneditclick"/>
+              <Edit id="edt_search_wrs04" taborder="280" inputtype="number" maxlength="14" onkeyup="edt_search_wrs_onkeyup" oneditclick="edt_search_wrs04_oneditclick" cssclass="WF_Essential" left="568" top="857" width="117" height="21"/>
+              <Edit id="edt_search_wrs05" taborder="281" inputtype="number" maxlength="14" onkeyup="edt_search_wrs_onkeyup" oneditclick="edt_search_wrs05_oneditclick" cssclass="WF_Essential" left="568" top="801" width="117" height="21"/>
+              <Edit id="edt_search_wrs06" taborder="282" inputtype="number" maxlength="14" onkeyup="edt_search_wrs_onkeyup" oneditclick="edt_search_wrs06_oneditclick" cssclass="WF_Essential" left="133" top="801" width="92" height="21"/>
+              <Edit id="edt_search_wrs08" taborder="283" inputtype="number" maxlength="14" cssclass="WF_Essential" left="133" top="857" width="92" height="21"/>
+              <Edit id="edt_search_wrs09" taborder="284" inputtype="number" maxlength="14" oneditclick="edt_search_wrs09_oneditclick" cssclass="WF_Essential" left="568" top="829" width="117" height="21"/>
+              <Edit id="edt_search_wrs10" taborder="285" inputtype="number" maxlength="14" onkeyup="edt_search_wrs_onkeyup" cssclass="WF_Essential" left="133" top="829" width="92" height="21"/>
+              <Edit id="edt_search_wrs11" taborder="286" inputtype="number" maxlength="14" oneditclick="edt_search_wrs11_oneditclick" cssclass="WF_Essential" left="568" top="773" width="117" height="21"/>
+              <Edit id="edt_search_wrs12" taborder="287" inputtype="number" maxlength="14" oneditclick="edt_search_wrs12_oneditclick" cssclass="WF_Essential" left="133" top="773" width="92" height="21"/>
+              <Static id="sta_pagename03" taborder="288" text="R1 상품 물류정보 입력" cssclass="sta_WF_Subtitle" left="0" top="715" width="190" height="21"/>
+              <Edit id="edt_NA_SPYPL_C" taborder="289" inputtype="number" lengthunit="ascii" maxlength="13" cssclass="WF_Essential" left="133" top="745" width="92" height="21"/>
+              <Edit id="edt_NA_SPYPL_NM" taborder="290" cssclass="WF_Essential" left="230" top="745" width="98" height="21"/>
+              <Static id="sta_title36" taborder="292" text="낱개/박스구분코드" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="435" top="741" width="125" height="29" style="padding:2 7 0 7;font:8 Gulim;"/>
+              <Edit id="edt_search_wrs02" taborder="294" inputtype="number" maxlength="14" oneditclick="edt_search_wrs02_oneditclick" cssclass="WF_Essential" left="568" top="885" width="117" height="21"/>
+              <Static id="sta_title37" taborder="295" text="파렛트당층수" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="435" top="853" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Static id="sta_title38" taborder="296" text="파렛트당박스수" onclick="sta_title21_onclick" cssclass="sta_WF_Label" left="435" top="881" width="125" height="29" style="padding:2 7 0 7;font:9 Gulim;"/>
+              <Edit id="edt_NA_SPYPL_TEAM_NM" taborder="297" enable="false" visible="false" left="333" top="745" width="70" height="21"/>
+              <Edit id="edt_NA_SPYPL_TEAM_C" taborder="298" enable="false" left="333" top="745" width="70" height="21"/>
+              <Static id="stc_no_b01" taborder="299" cssclass="sta_WF_Labelbg" left="1254" top="3173" right="-1130" height="29"/>
+              <Static id="stc_no_info_01" taborder="300" text="품목" onclick="stc_no_info_01_onclick" cssclass="sta_WF_Label" left="1145" top="3173" width="110" height="29" style="color:#222222ff;"/>
+              <Combo id="cbo_wrs_ntfy" taborder="301" innerdataset="ds_wrs_nfty_sel" codecolumn="WRS_NTFY_C" datacolumn="WRS_NTFY_NM" displayrowcount="10" onitemchanged="cbo_wrs_ntfy_onitemchanged" enable="false" left="1260" top="3177" width="365" height="21"/>
+              <Static id="stc_namo_msg01" taborder="302" text="※ 취급 상품에 해당하는 고시 품목을 선택" left="1640" top="3177" width="258" height="21" style="color:blue;"/>
+              <Grid id="grd_wrs_nfty_hdng" taborder="303" binddataset="ds_wrs_nfty_hdng_sel" useinputpanel="false" autofittype="col" enable="false" left="1145" top="3201" right="-1130" height="196">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40" band="left"/>
+                      <Column size="240" band="left"/>
+                      <Column size="240"/>
+                      <Column size="240"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순서"/>
+                      <Cell col="1" text="품목명"/>
+                      <Cell col="2" text="품목내용 입력"/>
+                      <Cell col="3" text="항목설명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:SORT_SEQ"/>
+                      <Cell col="1" style="align:left middle;" text="bind:WRS_NTFY_HDNG_NM"/>
+                      <Cell col="2" displaytype="text" edittype="expr:comp.parent.setNtfyCustomerInfoFix(currow)" style="align:left middle;" text="bind:WRS_NTFY_HDNG_CNTN" editlimit="4000" editlengthunit="ascii"/>
+                      <Cell col="3" displaytype="normal" edittype="none" style="align:left middle;" text="bind:WRS_NTFY_HDNG_EXPL"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static10" taborder="304" text="상품고시정보 (필수)" cssclass="sta_WF_Subtitle" left="1145" top="3148" width="150" height="21" style="color:#ff2222ff;"/>
+              <Static id="stc_no_b00" taborder="305" cssclass="sta_WF_Labelbg" left="124" top="993" right="1" height="29"/>
+              <Static id="stc_no_info_00" taborder="306" text="품목" onclick="stc_no_info_01_onclick" cssclass="sta_WF_Label" left="0" top="993" width="125" height="29" style="color:#222222ff;"/>
+              <Static id="stc_namo_msg00" taborder="308" text="※ 취급 상품에 해당하는 고시 품목을 선택" left="550" top="997" width="258" height="21" style="color:blue;"/>
+              <Grid id="grd_wrs_nfty_hdng00" taborder="309" binddataset="ds_wrs_nfty_hdng_sel" useinputpanel="false" autofittype="col" enable="false" left="0" top="1021" right="1" height="196">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40" band="left"/>
+                      <Column size="240" band="left"/>
+                      <Column size="240"/>
+                      <Column size="240"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순서"/>
+                      <Cell col="1" text="품목명"/>
+                      <Cell col="2" text="품목내용 입력"/>
+                      <Cell col="3" text="항목설명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:SORT_SEQ"/>
+                      <Cell col="1" style="align:left middle;" text="bind:WRS_NTFY_HDNG_NM"/>
+                      <Cell col="2" displaytype="text" edittype="expr:comp.parent.setNtfyCustomerInfoFix(currow)" style="align:left middle;" text="bind:WRS_NTFY_HDNG_CNTN" editlimit="4000" editlengthunit="ascii"/>
+                      <Cell col="3" displaytype="normal" edittype="none" style="align:left middle;" text="bind:WRS_NTFY_HDNG_EXPL"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static11" taborder="310" text="상품고시정보 (필수)" cssclass="sta_WF_Subtitle" left="15" top="968" width="150" height="21" style="color:#ff2222ff;"/>
+              <Radio id="BOX_WRS_YN" taborder="313" index="1" codecolumn="codecolumn" datacolumn="datacolumn" value="0" direction="vertical" left="568" top="745" width="190" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+            </Layout>
+          </Layouts>
+          <InitValue>
+            <Edit id="edt_search_wrs03" enable="true"/>
+            <Edit id="edt_search_wrs04" enable="true"/>
+            <Edit id="edt_search_wrs05" enable="true"/>
+            <Edit id="edt_search_wrs06" enable="true"/>
+            <Edit id="edt_search_wrs08" enable="true"/>
+            <Edit id="edt_search_wrs09" enable="true"/>
+            <Edit id="edt_search_wrs10" enable="true"/>
+            <Edit id="edt_search_wrs11" enable="true"/>
+            <Edit id="edt_search_wrs12" enable="true"/>
+            <Edit id="edt_NA_SPYPL_NM" enable="true"/>
+            <Edit id="edt_search_wrs02" enable="true"/>
+          </InitValue>
+        </Div>
+        <TextArea id="memo01" taborder="111" left="890" top="261" width="179" height="31" visible="false" displaynulltext="맨아래의 GAP인증과 저탄소 인증여부는 테스트 데이터를 찾아보았으나 활성화된 케이스를 찾을 수 없으므로 안쓰는 것으로 간주함." wordwrap="char"/>
+        <Edit id="Edit00" taborder="112" left="148" top="1044" width="373" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_detail" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BOXPE_AQZ" type="string" size="32"/>
+          <Column id="BSC_UNT_DSC" type="string" size="32"/>
+          <Column id="BSC_UNT_DSC_NM" type="string" size="32"/>
+          <Column id="COMM_WRS_YN" type="STRING" size="32"/>
+          <Column id="DSTR_TER_YN" type="string" size="32"/>
+          <Column id="GAP_ATTC_YN" type="string" size="32"/>
+          <Column id="GBN" type="string" size="32"/>
+          <Column id="LIQ_UZ_DSC" type="string" size="32"/>
+          <Column id="LIQ_YN" type="string" size="32"/>
+          <Column id="LWCRBN_ATTC_YN" type="string" size="32"/>
+          <Column id="MFT_NA_TRPL_C" type="string" size="32"/>
+          <Column id="MFT_NA_TRPL_NM" type="string" size="32"/>
+          <Column id="NA_C_RQ_OBJ_DSC_NM" type="string" size="32"/>
+          <Column id="NA_WRS_CSTD_METC" type="string" size="32"/>
+          <Column id="NA_WRS_CSTD_METC_NM" type="string" size="32"/>
+          <Column id="NA_WRS_DSTR_STSC" type="string" size="32"/>
+          <Column id="NA_WRS_DSTR_STSC_NM" type="string" size="32"/>
+          <Column id="NA_WRS_DTCF_C" type="string" size="32"/>
+          <Column id="NA_WRS_IPO_DSC_NM" type="string" size="32"/>
+          <Column id="NA_WRS_LCLC" type="string" size="32"/>
+          <Column id="NA_WRS_MCLC" type="string" size="32"/>
+          <Column id="NA_WRS_PAK_C" type="string" size="32"/>
+          <Column id="NA_WRS_PAK_NM" type="string" size="32"/>
+          <Column id="NA_WRS_PROENV_DSC" type="string" size="32"/>
+          <Column id="NA_WRS_QLT_GRDC" type="string" size="32"/>
+          <Column id="NA_WRS_QLT_GRDC_NM" type="string" size="32"/>
+          <Column id="NA_WRS_SCLC" type="string" size="32"/>
+          <Column id="NA_WRS_SZE_SEX_C" type="string" size="32"/>
+          <Column id="NA_WRS_SZE_SEX_C_NM" type="string" size="32"/>
+          <Column id="NA_WRS_UNT_C" type="string" size="32"/>
+          <Column id="NA_WRS_UNT_NM" type="string" size="32"/>
+          <Column id="NA_WRS_UZC" type="string" size="32"/>
+          <Column id="RFID_UYN" type="string" size="32"/>
+          <Column id="RQ_NA_WRS_C" type="string" size="32"/>
+          <Column id="SMA_APL_TPC" type="string" size="32"/>
+          <Column id="SMA_APL_TPC_NM" type="string" size="32"/>
+          <Column id="TXT_DSC" type="string" size="32"/>
+          <Column id="TXT_DSC_NM" type="string" size="32"/>
+          <Column id="VCBT_NA_WRS_C" type="string" size="32"/>
+          <Column id="VCBT_QT" type="string" size="32"/>
+          <Column id="VCBX_NA_WRS_C" type="string" size="32"/>
+          <Column id="VLD_PRD_CN" type="string" size="32"/>
+          <Column id="VLD_PRD_DSC" type="string" size="32"/>
+          <Column id="VLD_PRD_DSC_NM" type="string" size="32"/>
+          <Column id="WHT" type="string" size="32"/>
+          <Column id="WRS_ABR_NM" type="string" size="32"/>
+          <Column id="WRS_C_DSC" type="string" size="32"/>
+          <Column id="WRS_C_DSC_NM" type="string" size="32"/>
+          <Column id="WRS_DSC" type="string" size="32"/>
+          <Column id="WRS_DSC_NM" type="string" size="32"/>
+          <Column id="WRS_DTCFNM" type="string" size="32"/>
+          <Column id="WRS_DTL_EXPL" type="string" size="32"/>
+          <Column id="WRS_ENM" type="string" size="32"/>
+          <Column id="WRS_LCLFNM" type="string" size="32"/>
+          <Column id="WRS_MCLFNM" type="string" size="32"/>
+          <Column id="WRS_SCLFNM" type="string" size="32"/>
+          <Column id="WRS_STDNM" type="string" size="32"/>
+          <Column id="WRS_TPC" type="string" size="32"/>
+          <Column id="WRS_TPC_NM" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="DSTR_TER_MRK_DSC" type="string" size="32"/>
+          <Column id="DSTR_TER_MRK_DSC_NM" type="string" size="32"/>
+          <Column id="NA_WRS_IPO_DSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_PROENV_DSC_NM" type="STRING" size="256"/>
+          <Column id="LIQ_UZ_DSC_NM" type="STRING" size="256"/>
+          <Column id="PR_MRK_WHT" type="STRING" size="256"/>
+          <Column id="PR_MRK_STD_BAS_WHT" type="STRING" size="256"/>
+          <Column id="PR_MRK_BAS_UNIT" type="STRING" size="256"/>
+          <Column id="PR_MRK_BAS_UNIT_NM" type="STRING" size="256"/>
+          <Column id="공급처코드" type="STRING" size="256"/>
+          <Column id="낱개박스구분코드" type="STRING" size="256"/>
+          <Column id="박스중량" type="STRING" size="256"/>
+          <Column id="박스용적" type="STRING" size="256"/>
+          <Column id="매입단가" type="STRING" size="256"/>
+          <Column id="판매단가" type="STRING" size="256"/>
+          <Column id="가로길이" type="STRING" size="256"/>
+          <Column id="세로길이" type="STRING" size="256"/>
+          <Column id="박스높이" type="STRING" size="256"/>
+          <Column id="파렛트당층수" type="STRING" size="256"/>
+          <Column id="파렛트당단수" type="STRING" size="256"/>
+          <Column id="파렛트당박스수" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_detail_org">
+        <ColumnInfo>
+          <Column id="VAN_C_RQ_NO" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_NO" type="STRING" size="10"/>
+          <Column id="NA_C_RQ_OBJ_DSC" type="STRING" size="13"/>
+          <Column id="CTCPL_TELNO" type="STRING" size="14"/>
+          <Column id="RQ_CNTN" type="STRING" size="200"/>
+          <Column id="APV_RQ_NA_BZPLC" type="STRING" size="13"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="9"/>
+          <Column id="FSRGMN_NA_BZPLC" type="STRING" size="25"/>
+          <Column id="BUYER_ENO" type="STRING" size="9"/>
+          <Column id="RQ_NA_WRS_C" type="STRING" size="25"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRS_C_DSC" type="STRING" size="256"/>
+          <Column id="WRS_DSC" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="WRS_ABR_NM" type="STRING" size="256"/>
+          <Column id="WRS_ENM" type="STRING" size="256"/>
+          <Column id="WRS_TPC" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="TXT_DSC" type="STRING" size="256"/>
+          <Column id="SMA_APL_TPC" type="STRING" size="256"/>
+          <Column id="LIQ_YN" type="STRING" size="256"/>
+          <Column id="COMM_WRS_YN" type="STRING" size="256"/>
+          <Column id="MFT_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="WHT" type="STRING" size="256"/>
+          <Column id="NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_PAK_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_SZE_SEX_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_QLT_GRDC" type="STRING" size="256"/>
+          <Column id="NA_WRS_BRAN_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_PROENV_DSC" type="STRING" size="256"/>
+          <Column id="GAP_ATTC_YN" type="STRING" size="256"/>
+          <Column id="NA_WRS_NACF_QLT_ATTC_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_CSTD_METC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DSTR_STSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_UZC" type="STRING" size="256"/>
+          <Column id="NA_WRS_IPO_DSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_PDAA_C" type="STRING" size="256"/>
+          <Column id="VLD_PRD_CN" type="STRING" size="256"/>
+          <Column id="VLD_PRD_DSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_STD_UNT_C" type="STRING" size="256"/>
+          <Column id="WRS_HGHT" type="STRING" size="256"/>
+          <Column id="WRS_LEN_LEN" type="STRING" size="256"/>
+          <Column id="WRS_WDTH_LEN" type="STRING" size="256"/>
+          <Column id="WRS_SGRT" type="STRING" size="256"/>
+          <Column id="WRS_SDL_DSC" type="STRING" size="256"/>
+          <Column id="WRS_AHL_CN" type="STRING" size="256"/>
+          <Column id="MTRL_STD_THKN" type="STRING" size="256"/>
+          <Column id="CICL_WRS_STD_DMTR_CN" type="STRING" size="256"/>
+          <Column id="CICL_WRS_STD_DPTH_CN" type="STRING" size="256"/>
+          <Column id="VCBT_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="VCBT_QT" type="STRING" size="256"/>
+          <Column id="VCBX_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="CVS_QT" type="STRING" size="256"/>
+          <Column id="CVS_NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="WRS_DTL_EXPL" type="STRING" size="256"/>
+          <Column id="BSC_UNT_DSC" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+          <Column id="WRS_FL_CN" type="STRING" size="256"/>
+          <Column id="KNET_WRS_NO" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+          <Column id="TR_STOP_RSNC" type="STRING" size="256"/>
+          <Column id="TR_STOP_DT" type="STRING" size="256"/>
+          <Column id="DEL_YN" type="STRING" size="256"/>
+          <Column id="FSRGMN_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="LSCGMN_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="TEMP_YN" type="STRING" size="256"/>
+          <Column id="RFID_UYN" type="STRING" size="256"/>
+          <Column id="FOMNM" type="STRING" size="256"/>
+          <Column id="SLGT_ETR_DSC" type="STRING" size="256"/>
+          <Column id="DSTR_TER_YN" type="STRING" size="256"/>
+          <Column id="DSTR_TER_MRK_DSC" type="STRING" size="256"/>
+          <Column id="WRS_MODIFY_YN" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="RSP_C_CNTN" type="STRING" size="256"/>
+          <Column id="REQ_RESULT" type="STRING" size="256"/>
+          <Column id="CNF_ENO" type="STRING" size="256"/>
+          <Column id="CNF_DATE" type="STRING" size="256"/>
+          <Column id="CNF_NAME" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_REJ_RSNC" type="STRING" size="256"/>
+          <Column id="NA_C_RQ_STSC" type="STRING" size="256"/>
+          <Column id="STPL_AMN_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="NA_SPYPL_C" type="STRING" size="256"/>
+          <Column id="NA_SPYPL_TEAM_C" type="STRING" size="256"/>
+          <Column id="PLTPE_LYNO" type="STRING" size="256"/>
+          <Column id="PLTPE_SGNO" type="STRING" size="256"/>
+          <Column id="PLTPE_BOX_CN" type="STRING" size="256"/>
+          <Column id="BOX_WT" type="STRING" size="256"/>
+          <Column id="BOX_BULK" type="STRING" size="256"/>
+          <Column id="BOX_WRS_YN" type="STRING" size="256"/>
+          <Column id="BYNG_UPR" type="STRING" size="256"/>
+          <Column id="SEL_UPR" type="STRING" size="256"/>
+          <Column id="CUD_DSC" type="STRING" size="256"/>
+          <Column id="LIQ_UZ_DSC" type="STRING" size="256"/>
+          <Column id="LIQ_UZ_DSC_NM" type="STRING" size="256"/>
+          <Column id="NA_WRS_PROENV_DSC_NM" type="STRING" size="256"/>
+          <Column id="PR_MRK_WHT" type="STRING" size="256"/>
+          <Column id="PR_MRK_STD_BAS_WHT" type="STRING" size="256"/>
+          <Column id="PR_MRK_BAS_UNIT" type="STRING" size="256"/>
+          <Column id="PR_MRK_BAS_UNIT_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item12" compid="div_search.rdo_store_code03" propid="value" datasetid="ds_detail" columnid="LIQ_YN"/>
+      <BindItem id="item13" compid="div_search.rdo_store_code00" propid="value" datasetid="ds_detail" columnid="WRS_TPC"/>
+      <BindItem id="item15" compid="div_search.edt_div_data04" propid="value" datasetid="ds_detail" columnid="WHT"/>
+      <BindItem id="item21" compid="div_search.rdo_store_code01" propid="value" datasetid="ds_detail" columnid="NA_WRS_IPO_DSC"/>
+      <BindItem id="item27" compid="div_search.edt_div_data01" propid="value" datasetid="ds_detail" columnid="VCBT_NA_WRS_C"/>
+      <BindItem id="item28" compid="div_search.edt_div_data03" propid="value" datasetid="ds_detail" columnid="VCBT_QT"/>
+      <BindItem id="item30" compid="div_search.edt_div_data13" propid="value" datasetid="ds_detail" columnid="BOXPE_AQZ"/>
+      <BindItem id="item42" compid="div_search.edt_div_data08" propid="value" datasetid="ds_detail" columnid="VCBX_NA_WRS_C"/>
+      <BindItem id="item46" compid="div_search.rdo_store_code02" propid="value" datasetid="ds_detail" columnid="DSTR_TER_YN"/>
+      <BindItem id="item47" compid="div_search.rdo_store_code04" propid="value" datasetid="ds_detail" columnid="RFID_UYN"/>
+      <BindItem id="item32" compid="div_search.edt_day" propid="value" datasetid="ds_detail" columnid="VLD_PRD_CN"/>
+      <BindItem id="item0" compid="div_search.edt_data00" propid="value" datasetid="ds_detail" columnid="GBN"/>
+      <BindItem id="item26" compid="div_search.edt_data01" propid="value" datasetid="ds_detail" columnid="WRS_C_DSC"/>
+      <BindItem id="item34" compid="div_search.edt_data02" propid="value" datasetid="ds_detail" columnid="WRS_C_DSC_NM"/>
+      <BindItem id="item37" compid="div_search.edt_data06" propid="value" datasetid="ds_detail" columnid="NA_WRS_LCLC"/>
+      <BindItem id="item38" compid="div_search.edt_data07" propid="value" datasetid="ds_detail" columnid="NA_WRS_MCLC"/>
+      <BindItem id="item39" compid="div_search.edt_data08" propid="value" datasetid="ds_detail" columnid="NA_WRS_SCLC"/>
+      <BindItem id="item40" compid="div_search.edt_data09" propid="value" datasetid="ds_detail" columnid="NA_WRS_DTCF_C"/>
+      <BindItem id="item41" compid="div_search.rdo_store_code07" propid="value" datasetid="ds_detail" columnid="WRS_DSC"/>
+      <BindItem id="item43" compid="div_search.edt_data03" propid="value" datasetid="ds_detail" columnid="WRSNM"/>
+      <BindItem id="item44" compid="div_search.edt_data04" propid="value" datasetid="ds_detail" columnid="WRS_ABR_NM"/>
+      <BindItem id="item45" compid="div_search.edt_data05" propid="value" datasetid="ds_detail" columnid="WRS_ENM"/>
+      <BindItem id="item48" compid="div_search.txa_contents00" propid="value" datasetid="ds_detail" columnid="WRS_DTL_EXPL"/>
+      <BindItem id="item49" compid="div_search.rdo_store_code05" propid="value" datasetid="ds_detail" columnid="TXT_DSC"/>
+      <BindItem id="item51" compid="div_search.edt_data15" propid="value" datasetid="ds_detail" columnid="MFT_NA_TRPL_C"/>
+      <BindItem id="item53" compid="div_search.edt_data16" propid="value" datasetid="ds_detail" columnid="MFT_NA_TRPL_NM"/>
+      <BindItem id="item54" compid="div_search.edt_data12" propid="value" datasetid="ds_detail" columnid="WRS_STDNM"/>
+      <BindItem id="item55" compid="div_search.edt_data11" propid="value" datasetid="ds_detail" columnid="SMA_APL_TPC_NM"/>
+      <BindItem id="item57" compid="div_search.rdo_store_code08" propid="value" datasetid="ds_detail" columnid="GAP_ATTC_YN"/>
+      <BindItem id="item60" compid="div_search.rdo_store_code09" propid="value" datasetid="ds_detail" columnid="LWCRBN_ATTC_YN"/>
+      <BindItem id="item19" compid="div_search.edt_data13" propid="value" datasetid="ds_detail" columnid="NA_WRS_CSTD_METC_NM"/>
+      <BindItem id="item20" compid="div_search.edt_data14" propid="value" datasetid="ds_detail" columnid="NA_WRS_UZC"/>
+      <BindItem id="item36" compid="div_search.edt_data17" propid="value" datasetid="ds_detail" columnid="NA_WRS_PROENV_DSC_NM"/>
+      <BindItem id="item52" compid="div_search.edt_data18" propid="value" datasetid="ds_detail" columnid="LIQ_UZ_DSC_NM"/>
+      <BindItem id="item22" compid="div_search.edt_data19" propid="value" datasetid="ds_detail" columnid="NA_WRS_QLT_GRDC_NM"/>
+      <BindItem id="item25" compid="div_search.edt_data21" propid="value" datasetid="ds_detail" columnid="NA_WRS_DSTR_STSC_NM"/>
+      <BindItem id="item31" compid="div_search.edt_data22" propid="value" datasetid="ds_detail" columnid="NA_WRS_SZE_SEX_C_NM"/>
+      <BindItem id="item24" compid="div_search.edt_day00" propid="value" datasetid="ds_detail" columnid="VLD_PRD_DSC_NM"/>
+      <BindItem id="item35" compid="div_search.edt_day01" propid="value" datasetid="ds_detail" columnid="BSC_UNT_DSC_NM"/>
+      <BindItem id="item16" compid="div_search.edt_div_data06" propid="value" datasetid="ds_detail" columnid="NA_WRS_UNT_NM"/>
+      <BindItem id="item50" compid="div_search.edt_div_data07" propid="value" datasetid="ds_detail" columnid="NA_WRS_PAK_NM"/>
+      <BindItem id="item62" compid="div_search.edt_data24" propid="value" datasetid="ds_detail" columnid="DSTR_TER_MRK_DSC_NM"/>
+      <BindItem id="item63" compid="div_search.edt_data25" propid="value" datasetid="ds_detail" columnid="RQ_NA_WRS_C"/>
+      <BindItem id="item1" compid="div_search.edt_div_data00" propid="value" datasetid="ds_detail" columnid="PR_MRK_WHT"/>
+      <BindItem id="item2" compid="div_search.edt_div_data05" propid="value" datasetid="ds_detail" columnid="PR_MRK_STD_BAS_WHT"/>
+      <BindItem id="item3" compid="div_search.edt_div_data12" propid="value" datasetid="ds_detail" columnid="PR_MRK_BAS_UNIT_NM"/>
+      <BindItem id="item4" compid="div_search.edt_NA_SPYPL_C" propid="value" datasetid="ds_detail" columnid="공급처코드"/>
+      <BindItem id="item5" compid="div_search.edt_NA_SPYPL_NM" propid="value" datasetid="ds_detail" columnid="낱개박스구분코드"/>
+      <BindItem id="item6" compid="div_search.BOX_WRS_YN" propid="value" datasetid="ds_detail" columnid="낱개박스구분코드"/>
+      <BindItem id="item7" compid="div_search.edt_search_wrs12" propid="value" datasetid="ds_detail" columnid="박스중량"/>
+      <BindItem id="item8" compid="div_search.edt_search_wrs11" propid="value" datasetid="ds_detail" columnid="박스용적"/>
+      <BindItem id="item9" compid="div_search.edt_search_wrs06" propid="value" datasetid="ds_detail" columnid="매입단가"/>
+      <BindItem id="item10" compid="div_search.edt_search_wrs05" propid="value" datasetid="ds_detail" columnid="판매단가"/>
+      <BindItem id="item11" compid="div_search.edt_search_wrs10" propid="value" datasetid="ds_detail" columnid="가로길이"/>
+      <BindItem id="item14" compid="div_search.edt_search_wrs09" propid="value" datasetid="ds_detail" columnid="세로길이"/>
+      <BindItem id="item17" compid="div_search.edt_search_wrs08" propid="value" datasetid="ds_detail" columnid="박스높이"/>
+      <BindItem id="item23" compid="div_search.edt_search_wrs04" propid="value" datasetid="ds_detail" columnid="파렛트당층수"/>
+      <BindItem id="item29" compid="div_search.edt_search_wrs02" propid="value" datasetid="ds_detail" columnid="파렛트당박스수"/>
+      <BindItem id="item33" compid="div_search.edt_search_wrs03" propid="value" datasetid="ds_detail" columnid="파렛트당단수"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	if (this.parent.gbn == "U") {
+		this.Static06.set_text("상품수정신청 상세조회");
+	}
+};
+
+this.fn_afterFormOnload = function()
+{
+	this.search();
+}
+
+ /*조회*/
+this.search = function()
+{
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveNewGoodsDetailByKornet";
+	var sInDatasets   = "";
+//	var sOutDatasets  = "ds_detail=ds_detail ds_detail_org=ds_detail_org";	
+	var sOutDatasets  = "ds_detail=ds_detail";	
+	var sArgument     = "VAN_C_RQ_NO=" + this.parent.rqno
+								+ " FSRGMN_NA_BZPLC=" + this.parent.trplc
+								//+ " GBN=" + this.parent.gbn;//
+								;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*창닫기*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+} 
+ 
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		this.close();
+	} else {
+		if (svcID == "search") {
+			this.div_search.edt_data10.set_value(
+				this.ds_detail.getColumn(0,"WRS_LCLFNM")+"/"+
+				this.ds_detail.getColumn(0,"WRS_MCLFNM")+"/"+
+				this.ds_detail.getColumn(0,"WRS_SCLFNM")+"/"+
+				this.ds_detail.getColumn(0,"WRS_DTCFNM")
+			);
+			
+// 			if (this.ds_detail.getColumn(0, "TXT_DSC") != "3") {
+// 				this.div_search.edt_data11.set_enable(false);
+// 			}
+			
+// 			if (this.ds_detail.getColumn(0, "LIQ_YN") != "1") {
+// 				this.div_search.edt_data18.set_enable(false);
+// 			}
+			
+// 			if (this.ds_detail.getColumn(0, "DSTR_TER_YN") != "1") {
+// 				this.div_search.edt_day.set_enable(false);
+// 				this.div_search.edt_day00.set_enable(false);
+// 				this.div_search.edt_data24.set_enable(false);
+// 			}
+			
+			if (this.ds_detail.getColumn(0, "WRS_DSC") == "1") {
+				// 1차상품
+				this.div_search.sta_pagename02.set_text("1차상품 상세정보");
+				this.div_search.rdo_store_code00.set_enable(false); // 상품유형
+				this.div_search.rdo_store_code03.set_enable(false); // 주류상품여부
+				this.div_search.edt_div_data01.set_enable(false); // 공병코드
+				this.div_search.edt_div_data02.set_enable(false); // 공병수량
+				this.div_search.edt_div_data08.set_enable(false); // 공상자코드
+				this.div_search.edt_data18.set_enable(false); // 주류용도
+			} else {
+				// 2차상품
+				this.div_search.sta_pagename02.set_text("2차상품 상세정보");
+				this.div_search.edt_data20.set_enable(false); // 농협관리구분
+				this.div_search.edt_data22.set_enable(false); // 크기(성별)
+				this.div_search.edt_data21.set_enable(false); // 유통상태
+				this.div_search.edt_data19.set_enable(false); // 품질(등급)
+			}
+			
+			if (this.parent.gbn == "U") {
+				this.fn_checkModifyInfo();
+			}
+		}
+	}	
+}
+
+// 변경된 정보 강조
+this.fn_checkModifyInfo = function()
+{
+	try {
+	var changeInfos = new Array();
+	for (var i=0; i<this.ds_detail_org.colcount; i++) {
+		var col = this.ds_detail_org.getColumnInfo(i);
+		var before = this.ds_detail_org.getColumn(0, i);
+		var after = this.ds_detail.getColumn(0, col.name);
+		
+		//trace(col.name + " : " + before + " → " + after);
+		
+		// 필수값은 값 변화 체크
+		// 선택값은 널 체크
+		if (this.gfn_nullToEmpty(after) != "") {
+			if (col.name == "LIQ_YN") {
+				changeInfos.push(this.div_search.rdo_store_code03);
+			} else if (col.name == "WRS_TPC") {
+				changeInfos.push(this.div_search.rdo_store_code00);
+			} else if (col.name == "WHT") {
+				changeInfos.push(this.div_search.edt_div_data04);
+			} else if (col.name == "NA_WRS_BRAN_C") {
+				changeInfos.push(this.div_search.edt_div_data10);
+			} else if (col.name == "NA_WRS_IPO_DSC") {
+				changeInfos.push(this.div_search.rdo_store_code01);
+			} else if (col.name == "VCBT_NA_WRS_C") {
+				changeInfos.push(this.div_search.edt_div_data01);
+			} else if (col.name == "VCBT_QT") {
+				changeInfos.push(this.div_search.edt_div_data03);
+			} else if (col.name == "BOXPE_AQZ") {
+				changeInfos.push(this.div_search.edt_div_data13);
+			} else if (col.name == "VCBX_NA_WRS_C") {
+				changeInfos.push(this.div_search.edt_div_data08);
+			} else if (col.name == "DSTR_TER_YN") {
+				changeInfos.push(this.div_search.rdo_store_code02);
+			} else if (col.name == "RFID_UYN") {
+				changeInfos.push(this.div_search.rdo_store_code04);
+			} else if (col.name == "VLD_PRD_CN") {
+				changeInfos.push(this.div_search.edt_day);
+			} else if (col.name == "GBN" && before != after) {
+				changeInfos.push(this.div_search.edt_data00);
+			} else if (col.name == "WRS_C_DSC" && before != after) {
+				changeInfos.push(this.div_search.edt_data01);
+			} else if (col.name == "WRS_C_DSC_NM" && before != after) {
+				changeInfos.push(this.div_search.edt_data02);
+			} else if (col.name == "NA_WRS_LCLC" && before != after) {
+				changeInfos.push(this.div_search.edt_data06);
+			} else if (col.name == "NA_WRS_MCLC" && before != after) {
+				changeInfos.push(this.div_search.edt_data07);
+			} else if (col.name == "NA_WRS_SCLC" && before != after) {
+				changeInfos.push(this.div_search.edt_data08);
+			} else if (col.name == "NA_WRS_DTCF_C" && before != after) {
+				changeInfos.push(this.div_search.edt_data09);
+			} else if (col.name == "WRS_DSC" && before != after) {
+				changeInfos.push(this.div_search.rdo_store_code07);
+			} else if (col.name == "WRSNM" && before != after) {
+				changeInfos.push(this.div_search.edt_data03);
+			} else if (col.name == "WRS_ABR_NM") {
+				changeInfos.push(this.div_search.edt_data04);
+			} else if (col.name == "WRS_ENM") {
+				changeInfos.push(this.div_search.edt_data05);
+			} else if (col.name == "WRS_DTL_EXPL") {
+				changeInfos.push(this.div_search.txa_contents00);
+			} else if (col.name == "TXT_DSC") {
+				changeInfos.push(this.div_search.rdo_store_code05);
+			} else if (col.name == "MFT_NA_TRPL_C") {
+				changeInfos.push(this.div_search.edt_data15);
+			} else if (col.name == "MFT_NA_TRPL_NM") {
+				changeInfos.push(this.div_search.edt_data16);
+			} else if (col.name == "WRS_STDNM") {
+				changeInfos.push(this.div_search.edt_data12);
+			} else if (col.name == "SMA_APL_TPC_NM") {
+				changeInfos.push(this.div_search.edt_data11);
+			} else if (col.name == "COMM_WRS_YN") {
+				changeInfos.push(this.div_search.rdo_store_code06);
+			} else if (col.name == "GAP_ATTC_YN") {
+				changeInfos.push(this.div_search.rdo_store_code08);
+			} else if (col.name == "LWCRBN_ATTC_YN") {
+				changeInfos.push(this.div_search.rdo_store_code09);
+			} else if (col.name == "NA_WRS_CSTD_METC_NM") {
+				changeInfos.push(this.div_search.edt_data13);
+			} else if (col.name == "NA_WRS_UZC") {
+				changeInfos.push(this.div_search.edt_data14);
+			} else if (col.name == "NA_WRS_PROENV_DSC_NM") {
+				changeInfos.push(this.div_search.edt_data17);
+			} else if (col.name == "LIQ_UZ_DSC_NM") {
+				changeInfos.push(this.div_search.edt_data18);
+			} else if (col.name == "NA_WRS_QLT_GRDC_NM") {
+				changeInfos.push(this.div_search.edt_data19);
+			} else if (col.name == "NA_WRS_DSTR_STSC_NM") {
+				changeInfos.push(this.div_search.edt_data21);
+			} else if (col.name == "NA_WRS_SZE_SEX_C_NM") {
+				changeInfos.push(this.div_search.edt_data22);
+			} else if (col.name == "VLD_PRD_DSC_NM") {
+				changeInfos.push(this.div_search.edt_day00);
+			} else if (col.name == "BSC_UNT_DSC_NM") {
+				changeInfos.push(this.div_search.edt_day01);
+			} else if (col.name == "NA_WRS_UNT_NM") {
+				changeInfos.push(this.div_search.edt_div_data06);
+			} else if (col.name == "NA_WRS_PAK_NM") {
+				changeInfos.push(this.div_search.edt_div_data07);
+			} else if (col.name == "DSTR_TER_MRK_DSC_NM") {
+				changeInfos.push(this.div_search.edt_data24);
+			} else if (col.name == "RQ_NA_WRS_C") {
+				changeInfos.push(this.div_search.edt_data25);
+			} else if (col.name == "PR_MRK_WHT") {
+				changeInfos.push(this.div_search.edt_div_data00);
+			} else if (col.name == "PR_MRK_STD_BAS_WHT") {
+				changeInfos.push(this.div_search.edt_div_data05);
+			} else if (col.name == "PR_MRK_BAS_UNIT_NM") {
+				changeInfos.push(this.div_search.edt_div_data12);
+			}
+		} else {
+			this.ds_detail.setColumn(0, col.name, before);
+		}
+	}
+	
+	for (var i in changeInfos) {
+		changeInfos[i].style.set_color("#0000ffff");
+	}
+	} catch(e) { trace(e); }
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0360" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="업체별 미입고 현황 조회" oninit="form_init" onload="form_onload" onkeydown="VAN_DS_SC_0360_onkeydown">
+    <Layouts>
+      <Layout>
+        <Div id="div_auth" taborder="42" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="116" width="431" height="21"/>
+        <Div id="div_search" taborder="0" left="0" top="29" height="95" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="검색 사업장" left="15" top="10" width="91" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static02" taborder="2" text="입고예정일" left="439" top="10" width="91" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static03" taborder="3" text="검색범위" left="15" top="62" width="79" height="21" cssclass="sta_WFSA_Label"/>
+              <Radio id="rdo_search_area" taborder="4" left="105" top="62" width="210" height="21" index="0" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="0" onitemchanged="div_search_rdo_search_area_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">상품</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">공급처</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Calendar id="cal_from" taborder="27" dateformat="yyyy-MM-dd" left="530" top="10" width="100" height="21"/>
+              <Static id="Static131" taborder="28" text="~" left="630" top="10" width="10" height="21"/>
+              <Calendar id="cal_to" taborder="29" dateformat="yyyy-MM-dd" left="640" top="10" width="100" height="21"/>
+              <Combo id="cbo_nacode" taborder="32" text="-전체-" innerdataset="ds_NABizPlace" codecolumn="NA_BZPLC" datacolumn="SHRT_BZPLNM" index="0" displayrowcount="-1" left="106" top="10" width="303" height="21"/>
+              <Edit id="edt_code" taborder="34" cssclass="WF_Essential" left="315" top="62" width="116" height="21" visible="false" maxlength="25" inputtype="number" onkeydown="div_search_edt_code_onkeydown"/>
+              <Edit id="edt_name" taborder="35" cssclass="WF_Essential" left="434" top="62" width="282" height="21" visible="false" onkeydown="div_search_edt_name_onkeydown"/>
+              <Button id="btn_WRS" taborder="36" cssclass="btn_WF_Searchbtn" left="719" top="62" width="21" height="21" onclick="div_search_btn_WRS_onclick" visible="false"/>
+              <Static id="Static04" taborder="37" text="물류기능" cssclass="sta_WFSA_Label" left="15" top="36" width="103" height="21"/>
+              <Combo id="cbo_phd_fclt_c" taborder="38" innerdataset="@ds_phd_fclt_c" codecolumn="SIMP_C" datacolumn="SIMP_CNM" onitemchanged="div_search_cbo_PHD_DLR_DSC_onitemchanged" left="106" top="36" width="91" height="21"/>
+              <Static id="Static01" taborder="39" text="부과율" cssclass="sta_WFSA_Label" left="247" top="36" width="67" height="21"/>
+              <Edit id="edt_impsrt" taborder="40" left="315" top="36" width="95" height="19"/>
+              <Static id="Static05" taborder="41" text="%" left="415" top="36" width="22" height="18"/>
+              <Button id="btn_SPYPL" taborder="42" cssclass="btn_WF_Searchbtn" left="719" top="62" width="21" height="21" onclick="div_search_btn_SPYPL_onclick" visible="false"/>
+              <Static id="Static06" taborder="43" text="미입고사유" cssclass="sta_WFSA_Label" left="439" top="36" width="103" height="21"/>
+              <Combo id="cbo_un_str_rsnc" taborder="44" innerdataset="@ds_un_str_rsnc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" onitemchanged="div_search_cbo_PHD_DLR_DSC_onitemchanged" left="530" top="36" width="210" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="36" text="Div02" left="0" top="123" right="15" scrollbars="none" bottom="0" onsize="div_list_onsize">
+          <Layouts>
+            <Layout>
+              <Button id="btn_divResize" taborder="0" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" onclick="div_list_btn_divResize_onclick" width="62"/>
+              <Grid id="grd" taborder="12" binddataset="ds_centerUnStr" useinputpanel="false" left="0" top="51" right="0" bottom="39" oncellclick="div_list_grd_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="87"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="250"/>
+                      <Column size="64"/>
+                      <Column size="97"/>
+                      <Column size="74"/>
+                      <Column size="74"/>
+                      <Column size="75"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="110"/>
+                      <Column size="85"/>
+                      <Column size="86"/>
+                      <Column size="88"/>
+                      <Column size="183"/>
+                      <Column size="89"/>
+                      <Column size="90"/>
+                      <Column size="180"/>
+                      <Column size="100"/>
+                      <Column size="300"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="순번"/>
+                      <Cell col="1" rowspan="2" text="입고예정일"/>
+                      <Cell col="2" rowspan="2" text="공급처코드"/>
+                      <Cell col="3" rowspan="2" text="공급처명"/>
+                      <Cell col="4" rowspan="2" text="상품코드"/>
+                      <Cell col="5" rowspan="2" text="상품명"/>
+                      <Cell col="6" rowspan="2" text="확인구분"/>
+                      <Cell col="7" rowspan="2" displaytype="normal" text="미납확인일시"/>
+                      <Cell col="8" rowspan="2" text="물류기능"/>
+                      <Cell col="9" rowspan="2" text="입수"/>
+                      <Cell col="10" rowspan="2" text="단가"/>
+                      <Cell col="11" colspan="3" text="발주수량"/>
+                      <Cell col="14" colspan="3" text="입고수량"/>
+                      <Cell col="17" colspan="3" text="미입고수량"/>
+                      <Cell col="20" rowspan="2" text="부과대상금액"/>
+                      <Cell col="21" rowspan="2" text="부과율(%)"/>
+                      <Cell col="22" rowspan="2" text="입고상태"/>
+                      <Cell col="23" rowspan="2" text="취급상품정보 발주금지사유"/>
+                      <Cell col="24" rowspan="2" text="미입고사유"/>
+                      <Cell col="25" rowspan="2" text="공급가능일"/>
+                      <Cell col="26" rowspan="2" text="바이어명"/>
+                      <Cell col="27" rowspan="2" text="진행상태"/>
+                      <Cell col="28" rowspan="2" text="결과수신"/>
+                      <Cell row="1" col="11" text="낱개"/>
+                      <Cell row="1" col="12" text="발주수량(표시)"/>
+                      <Cell row="1" col="13" text="발주금액"/>
+                      <Cell row="1" col="14" text="낱개"/>
+                      <Cell row="1" col="15" text="입고수량(표시)"/>
+                      <Cell row="1" col="16" text="입고금액"/>
+                      <Cell row="1" col="17" text="낱개"/>
+                      <Cell row="1" col="18" text="미입고수량(표시)"/>
+                      <Cell row="1" col="19" text="미입고금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:RN"/>
+                      <Cell col="1" displaytype="date" text="bind:STR_PLA_DT" mask="yyyy-MM-dd"/>
+                      <Cell col="2" text="bind:NA_TRPL_C"/>
+                      <Cell col="3" style="align:left;" text="bind:CLNTNM"/>
+                      <Cell col="4" text="bind:NA_WRS_C"/>
+                      <Cell col="5" style="align:left;" text="bind:WRSNM"/>
+                      <Cell col="6" displaytype="button" edittype="button" text="expr:CNF_YN == 'Y' ? '확인' : '미확인'"/>
+                      <Cell col="7" displaytype="date" text="bind:CNF_DTM" mask="yyyy-MM-dd HH" calendardisplaynulltype="none"/>
+                      <Cell col="8" text="bind:PHD_FCLT_C"/>
+                      <Cell col="9" text="bind:INPD_QT"/>
+                      <Cell col="10" displaytype="number" style="align:right;" text="bind:BYNG_UPR" mask="#,###.00"/>
+                      <Cell col="11" style="align:right;" text="bind:ODR_QT"/>
+                      <Cell col="12" style="align:right;" text="bind:ODR_UNT_QT"/>
+                      <Cell col="13" style="align:right;" text="bind:ODR_SELPR"/>
+                      <Cell col="14" style="align:right;" text="bind:STR_CPL_QT"/>
+                      <Cell col="15" style="align:right;" text="bind:STR_UNT_QT"/>
+                      <Cell col="16" style="align:right;" text="bind:SELPR"/>
+                      <Cell col="17" style="align:right;" text="bind:NSTR_QT"/>
+                      <Cell col="18" style="align:right;" text="bind:NSTR_UNT_QT"/>
+                      <Cell col="19" style="align:right;" text="bind:NSTR_PR"/>
+                      <Cell col="20" style="align:right;" text="bind:IMPS_AM"/>
+                      <Cell col="21" displaytype="number" style="align:right;" text="bind:IMPSRT" mask="#,###.#0"/>
+                      <Cell col="22" text="bind:STR_STSC"/>
+                      <Cell col="23" style="align:left;" text="bind:ODR_FBID_RSNC"/>
+                      <Cell col="24" style="align:left;" text="bind:UN_STR_RSNC"/>
+                      <Cell col="25" text="bind:ROTS_SPY_PSB_DT"/>
+                      <Cell col="26" text="bind:BUYER_NM"/>
+                      <Cell col="27" text="expr:PRC_YN == 'Y' ? '성공' : PRC_YN == 'E' ? '에러' : '진행전'"/>
+                      <Cell col="28" text="bind:RSP_C_CNTN"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1"/>
+                      <Cell col="2"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5" style="align:center;" text="총합"/>
+                      <Cell col="6"/>
+                      <Cell col="7"/>
+                      <Cell col="8"/>
+                      <Cell col="9"/>
+                      <Cell col="10"/>
+                      <Cell col="11" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_ODR_QT')" mask="###,###"/>
+                      <Cell col="12" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_ODR_UNT_QT')" mask="###,###"/>
+                      <Cell col="13" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_ODR_SELPR')" mask="###,###"/>
+                      <Cell col="14" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_STR_CPL_QT')" mask="###,###"/>
+                      <Cell col="15" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_STR_UNT_QT')" mask="###,###"/>
+                      <Cell col="16" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_SELPR')" mask="###,###"/>
+                      <Cell col="17" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_NSTR_QT')" mask="###,###"/>
+                      <Cell col="18" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_NSTR_UNT_QT')" mask="###,###"/>
+                      <Cell col="19" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_NSTR_PR')" mask="###,###"/>
+                      <Cell col="20" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TOTAL_IMPS_AM')" mask="###,###"/>
+                      <Cell col="21"/>
+                      <Cell col="22"/>
+                      <Cell col="23"/>
+                      <Cell col="24"/>
+                      <Cell col="25"/>
+                      <Cell col="26"/>
+                      <Cell col="27"/>
+                      <Cell col="28"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static01" taborder="13" text="미입고 현황" cssclass="sta_WF_Subtitle" left="0%" top="15" right="76.69%" height="21"/>
+              <Div id="div_page" taborder="14" url="common::pagingBTN.xfdl" left="28.55%" bottom="5" width="338" height="44" style="align:center;" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_excel" taborder="9" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="75" onclick="btn_excel_onclick" onmousemove="btn_excel_onmousemove"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick" onmousemove="btn_search_onmousemove"/>
+        <Static id="Static03" taborder="21" text="8" visible="false" left="733" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="22" text="15" visible="false" left="788" top="0" width="15" height="491" style="background:#00ffffb5;"/>
+        <Static id="Static13" taborder="31" text="10" visible="false" left="122" top="30" width="103" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static14" taborder="32" text="5" visible="false" left="122" top="61" width="103" height="5" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="41" url="common::location.xfdl" text="Div01" left="0" top="0" right="408" height="36"/>
+        <WebBrowser id="web_downExcel" left="214" top="8" width="25" height="14" taborder="43" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_phd_fclt_c" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_NABizPlace" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="SHRT_BZPLNM" type="string" size="32"/>
+          <Column id="BZPL_TPC" type="string" size="32"/>
+          <Column id="BZPL_DTI_TPC" type="string" size="32"/>
+          <Column id="BZPL_TPNM" type="string" size="32"/>
+          <Column id="BZPL_DTI_TPNM" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_centerUnStr" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RN" type="bigdecimal" size="8"/>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="SLPNO" type="string" size="32"/>
+          <Column id="STR_PLA_DT" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="CLNTNM" type="string" size="32"/>
+          <Column id="NA_WRS_C" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="PHD_FCLT_C" type="string" size="32"/>
+          <Column id="INPD_QT" type="bigdecimal" size="8"/>
+          <Column id="BYNG_UPR" type="float" size="8"/>
+          <Column id="ODR_QT" type="float" size="8"/>
+          <Column id="ODR_UNT_QT" type="float" size="8"/>
+          <Column id="ODR_SELPR" type="bigdecimal" size="8"/>
+          <Column id="STR_CPL_QT" type="float" size="8"/>
+          <Column id="STR_UNT_QT" type="float" size="8"/>
+          <Column id="SELPR" type="bigdecimal" size="8"/>
+          <Column id="NSTR_QT" type="float" size="8"/>
+          <Column id="NSTR_UNT_QT" type="float" size="8"/>
+          <Column id="NSTR_PR" type="bigdecimal" size="8"/>
+          <Column id="IMPS_AM" type="bigdecimal" size="8"/>
+          <Column id="IMPSRT" type="float" size="8"/>
+          <Column id="STR_STSC" type="string" size="32"/>
+          <Column id="ODR_FBID_RSNC" type="string" size="32"/>
+          <Column id="UN_STR_RSNC" type="string" size="32"/>
+          <Column id="ROTS_SPY_PSB_DT" type="string" size="32"/>
+          <Column id="BUYER_NM" type="string" size="32"/>
+          <Column id="CNF_YN" type="string" size="32"/>
+          <Column id="CNF_DTM" type="datetime" size="17"/>
+          <Column id="NA_TEAM_C" type="string" size="32"/>
+          <Column id="PRC_YN" type="string" size="32"/>
+          <Column id="RSP_C_CNTN" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_un_str_rsnc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sum" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TOTAL_ODR_QT" type="string" size="32"/>
+          <Column id="TOTAL_ODR_UNT_QT" type="string" size="32"/>
+          <Column id="TOTAL_ODR_SELPR" type="string" size="32"/>
+          <Column id="TOTAL_STR_CPL_QT" type="string" size="32"/>
+          <Column id="TOTAL_STR_UNT_QT" type="string" size="32"/>
+          <Column id="TOTAL_SELPR" type="string" size="32"/>
+          <Column id="TOTAL_NSTR_QT" type="string" size="32"/>
+          <Column id="TOTAL_NSTR_UNT_QT" type="string" size="32"/>
+          <Column id="TOTAL_NSTR_PR" type="string" size="32"/>
+          <Column id="TOTAL_IMPS_AM" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.InitEventInfo)
+{	
+	this.gfn_setInitForm(obj,e);
+		
+	var param = [  
+ 		{code:"PHD_FCLT_C",   dsName:"ds_phd_fclt_c",   selecttype:"A"},
+ 		{code:"UN_STR_RSNC",   dsName:"ds_un_str_rsnc",   selecttype:"A"}
+ 		
+    ];
+
+	this.gfn_setCommonCode(param);
+	
+	//권한사업장 콤보박스 변경시 농협사업장 조회
+	this.div_auth.setFunctionName("fn_afterCall");	
+}
+
+/* Form Init*/
+this.form_init = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	
+}
+
+//권한사업장 콤보박스 변경시 농협사업장 조회
+this.fn_afterCall = function(sVal)
+{
+	this.fn_getNABizPlace(sVal);
+}
+
+//공통코드 데이터셋 onload후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	
+	this.div_search.cbo_phd_fclt_c.set_index(0);
+	this.div_search.cbo_un_str_rsnc.set_index(0);
+
+}
+
+/* 페이지 로딩후 실행부분 */
+this.fn_afterFormOnload = function()
+{	
+	//그리드 nodata
+	this.div_list.grd.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	
+	this.div_search.cal_from.set_value(this.gfn_today("yyyyMMdd"));	
+	this.div_search.cal_to.set_value(this.gfn_today("yyyyMMdd"));
+
+	this.fn_getNABizPlace(application.gv_glnCode);
+	
+}
+
+/*농협사업장 조회*/
+this.fn_getNABizPlace = function(v_nacode){
+	
+	var nacode = v_nacode;
+	var search_type = "added";
+	
+	var param = "search_type="+search_type+
+				" splr_na_trpl_c="+nacode;
+	
+	trace("##### fn_getNABizPlace PARAM ################"+param);
+	
+	var sSvcID        = "getNABizPlace";//통신아이디
+	var sURL          = "svc::rest/common/getNABizPlace";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_NABizPlace=data";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+
+	if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) < 0){
+	
+		//조회 시작일과 종료일을 다시 확인해 주세요
+		this.gfn_getMessage("alert", "validation.message.fromDate.toDate.reConfirm");
+		return false;
+	}else{
+		if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) > 31){
+
+		//기간을 31일 이내로 선택해 주세요
+		this.gfn_getMessage("alert", "validation.message.selectDateIn31Day");
+		return false;
+		}
+	}
+			
+	if(this.div_search.rdo_search_area.value == 2){		
+		//상품코드를 입력해주세요
+		if(this.gfn_isEmpty(this.div_search.edt_code.value)==""){			
+			this.gfn_getMessage("alert", "validation.message.needs.action",this.gfn_getTextMessage("wrs.code"),this.gfn_getTextMessage("input.name"));
+			this.div_search.edt_code.setFocus(true);	
+			return false;
+		}
+	}
+	if(this.div_search.rdo_search_area.value == 1){		
+		//공급처코드를 입력해주세요
+		if(this.gfn_isEmpty(this.div_search.edt_code.value)==""){			
+			this.gfn_getMessage("alert", "validation.message.needs.action",this.gfn_getTextMessage("spypl.code"),this.gfn_getTextMessage("input.name"));
+			this.div_search.edt_code.setFocus(true);
+			return false;
+		}
+	}	
+	
+	
+	if(this.gfn_isNull(this.div_search.cbo_nacode.value)){
+		this.alert('검색사업장을 선택 하세요');
+		return false;
+	}
+		
+	return true;
+}
+
+/* search */
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.		
+}
+
+this.fn_search = function(){
+	this.ds_centerUnStr.clearData();
+		
+	if(this.fn_validationCheck()){
+	
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	
+	var na_bzplc = this.gfn_nullToEmpty(this.div_search.cbo_nacode.value); //검색사업장	
+	var from_date = this.gfn_nullToEmpty(this.div_search.cal_from.value); //조회시작일
+	var to_date = this.gfn_nullToEmpty(this.div_search.cal_to.value); //조회종료일	
+	var search_area = this.gfn_nullToEmpty(this.div_search.rdo_search_area.value); //검색범위
+	var code = this.gfn_nullToEmpty(this.div_search.edt_code.value); //코드(수요처 or 상품)
+	var phd_fclt_c = this.gfn_nullToEmpty(this.div_search.cbo_phd_fclt_c.value); //물류기능
+	var impsrt = this.gfn_nullToEmpty(this.div_search.edt_impsrt.value); //부과율	
+	var un_str_rsnc = this.gfn_nullToEmpty(this.div_search.cbo_un_str_rsnc.value); //미입고사유
+	
+	var param = " na_bzplc="+na_bzplc+
+				" from_date="+from_date+
+				" to_date="+to_date+				
+				" search_area="+search_area+
+				" code="+code+
+				" phd_fclt_c="+phd_fclt_c+
+				" impsrt="+impsrt+
+				" un_str_rsnc="+un_str_rsnc+
+				" TRPL_C=" + trplC;
+				
+	trace("##MASTER##PARAM##->"+param);
+	
+	var sSvcID        = "retrieveCenterUnStrList";//통신아이디
+	var sURL          = "svc::rest/delivery/retrieveCenterUnStrList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+	var sOutDatasets  = "ds_centerUnStr=ds_centerUnStr ds_pageVO=ds_pageVO ds_sum=DS_SUM";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+	}
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "retrieveCenterUnStrList"){		
+
+			if(this.ds_centerUnStr.rowcount > 0){
+			
+				this.ds_centerUnStr.set_rowposition(1);
+				this.ds_centerUnStr.set_rowposition(0);
+				
+				// 페이지 셋팅
+				var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+				
+				trace("sTotal : " + sTotal);
+				trace("sPagesize : " + sPagesize);				
+
+				this.div_list.div_page.fn_pageSet(sTotal, sPagesize,"grd,div_page",lsNowPage);
+			}else{	
+				this.div_list.div_page.fn_pageSet(0, 0,"grd,div_page",lsNowPage);//페이징 설정
+			}
+		}else if(svcID == "getNABizPlace") {
+			
+			if(this.ds_NABizPlace.rowcount != 0){
+			
+			for (var i=0; i < this.ds_NABizPlace.rowcount ;i++)			
+			{					
+				this.ds_NABizPlace.setColumn(i,"SHRT_BZPLNM","["+this.ds_NABizPlace.getColumn(i,0)+"] "+this.ds_NABizPlace.getColumn(i,1));
+			}	
+			
+			if (this.ds_NABizPlace.insertRow(0) != -1){
+				this.ds_NABizPlace.setColumn(0,"NA_BZPLC","");
+				this.ds_NABizPlace.setColumn(0,"SHRT_BZPLNM","- 선택 -");
+				//this.ds_NABizPlace.setColumn(0,"SHRT_BZPLNM","- 전체 -");
+				};
+			this.div_search.cbo_nacode.set_index(0);
+			}
+		}
+	}
+}
+
+this.div_search_rdo_search_area_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.div_search.rdo_search_area.value == 0){
+		//전체
+		this.div_search.edt_code.set_visible(false);
+		this.div_search.edt_name.set_visible(false);
+		this.div_search.btn_WRS.set_visible(false);
+		this.div_search.btn_SPYPL.set_visible(false);
+		
+		this.div_search.edt_code.set_value("");
+		this.div_search.edt_name.set_value("");
+	}else if(this.div_search.rdo_search_area.value == 2){
+		//상품
+		this.div_search.edt_code.set_visible(true);
+		this.div_search.edt_name.set_visible(true);
+		this.div_search.btn_WRS.set_visible(true);
+		this.div_search.btn_SPYPL.set_visible(false);
+		
+		this.div_search.edt_code.set_value("");
+		this.div_search.edt_name.set_value("");
+	}else if(this.div_search.rdo_search_area.value == 1){
+		//공급처
+		this.div_search.edt_code.set_visible(true);
+		this.div_search.edt_name.set_visible(true);
+		this.div_search.btn_WRS.set_visible(false);
+		this.div_search.btn_SPYPL.set_visible(true);
+		
+		this.div_search.edt_code.set_value("");
+		this.div_search.edt_name.set_value("");
+	}	
+}
+
+this.div_list_grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	//구분 컬럼의 버튼 눌렀을경우	
+	if(e.col == 6 ){
+		
+		var cnf_yn = this.gfn_nullToEmpty(this.ds_centerUnStr.getColumn(this.ds_centerUnStr.rowposition,"CNF_YN"));	//공급업체확인여부
+		
+		trace("공급업체확인여부 cnf_yn : ---->"+cnf_yn);
+		
+		if(cnf_yn == 'N' || this.gfn_isNull(cnf_yn)){
+			var NA_BZPLC = this.gfn_nullToEmpty(this.ds_centerUnStr.getColumn(this.ds_centerUnStr.rowposition,"NA_BZPLC"));
+			var STR_PLA_DT = this.gfn_nullToEmpty(this.ds_centerUnStr.getColumn(this.ds_centerUnStr.rowposition,"STR_PLA_DT"));
+			var SLPNO = this.gfn_nullToEmpty(this.ds_centerUnStr.getColumn(this.ds_centerUnStr.rowposition,"SLPNO"));
+			
+			var NA_TRPL_C = this.gfn_nullToEmpty(this.ds_centerUnStr.getColumn(this.ds_centerUnStr.rowposition,"NA_TRPL_C"));
+			var NA_WRS_C = this.gfn_nullToEmpty(this.ds_centerUnStr.getColumn(this.ds_centerUnStr.rowposition,"NA_WRS_C"));
+			var NA_TEAM_C = this.gfn_nullToEmpty(this.ds_centerUnStr.getColumn(this.ds_centerUnStr.rowposition,"NA_TEAM_C"));	
+								
+			var oArg = {NA_BZPLC_GRID:NA_BZPLC, STR_PLA_DT_GRID:STR_PLA_DT, SLPNO_GRID:SLPNO, NA_TRPL_C_GRID:NA_TRPL_C, NA_WRS_C_GRID:NA_WRS_C, NA_TEAM_C_GRID:NA_TEAM_C};
+			var sOption = "autosize=true,title=false";
+			var sPopupCallBack = "fn_popupAfter";    
+			this.gfn_openPopup("popId","SCM.DELIVERY::VAN_DS_SC_0360_P00.xfdl",oArg,sOption,sPopupCallBack);
+		}else if (cnf_yn == 'Y'){
+			//alert("확인이 완료된 건입니다.");
+		}
+		
+	}
+}
+
+this.div_list_btn_divResize_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+//공급처일경우 돋보기
+this.div_search_btn_SPYPL_onclick = function(params)
+{
+	var param = {
+				autoType:params,
+				searchCode:this.div_search.edt_code.value,
+				searchText:this.div_search.edt_name.value
+	};
+	
+	trace("=================");
+	trace("팝업의 파라미터");
+	trace("오토타입  --> " + params);	
+	trace("=================");	
+	
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+	
+	//수요처
+	var oArg = {autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("POPUP_SRC_RVOPL_TRPL","POPUP::POPUP_SRC_RVOPL_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+//상품일경우 돋보기
+this.div_search_btn_WRS_onclick = function(params)
+{
+	var param = {
+				autoType:params,
+				searchCode:this.div_search.edt_code.value,
+				searchText:this.div_search.edt_name.value
+	};
+	if(typeof params == "boolean"){
+		if(!this.searPopValue(param)){return};
+	}
+	
+	var oArg = {autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("POPUP_SRC_WRS","POPUP::POPUP_SRC_WRS.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{	
+	trace(" strId : " + strId + " strVal : " + strVal);
+		
+	
+	if(strId == 'POPUP_SRC_RVOPL_TRPL' && strVal != null){
+		//공급처
+		var strValNo = strVal.split(',');
+		this.div_search.edt_code.set_value(strValNo[0]); //공급처코드
+		this.div_search.edt_name.set_value(strValNo[1]); //공급처명
+	}else if(strId == 'POPUP_SRC_WRS' && strVal != null){
+		//상품
+		var strValNo = strVal.split(',');
+		this.div_search.edt_code.set_value(strValNo[0]); //상품코드
+		this.div_search.edt_name.set_value(strValNo[1]); //상품명
+	}	
+}
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if(!this.fn_validationCheck()) return;
+	
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	
+	var title = this.parent.sNm;
+	title = title.replace(/ /gi, '');
+	var fileName = title + "_" + this.getDate() + ".xls";
+	
+	var na_bzplc = this.gfn_nullToEmpty(this.div_search.cbo_nacode.value); //검색사업장	
+	var from_date = this.gfn_nullToEmpty(this.div_search.cal_from.value); //조회시작일
+	var to_date = this.gfn_nullToEmpty(this.div_search.cal_to.value); //조회종료일	
+	var search_area = this.gfn_nullToEmpty(this.div_search.rdo_search_area.value); //검색범위
+	var code = this.gfn_nullToEmpty(this.div_search.edt_code.value); //코드(수요처 or 상품)
+	var phd_fclt_c = this.gfn_nullToEmpty(this.div_search.cbo_phd_fclt_c.value); //물류기능
+	var impsrt = this.gfn_nullToEmpty(this.div_search.edt_impsrt.value); //부과율	
+	var un_str_rsnc = this.gfn_nullToEmpty(this.div_search.cbo_un_str_rsnc.value); //미입고사유
+	
+	var params = "na_bzplc="+na_bzplc+
+				"&from_date="+from_date+
+				"&to_date="+to_date+				
+				"&search_area="+search_area+
+				"&code="+code+
+				"&phd_fclt_c="+phd_fclt_c+
+				"&impsrt="+impsrt+
+				"&un_str_rsnc="+un_str_rsnc+
+				"&TRPL_C=" + trplC+
+				"&fileName=" + fileName;	
+					
+	trace(">>>>>>> excel params : " +  params);
+	
+	params = encodeURI(encodeURI(params));
+	
+	//this.web_downExcel.set_url(application.gv_server_url+"rest/excel/downloadExcelUnStrList?"+params);
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelUnStrList?"+params, this);
+}
+
+/*-----------------------------------------------------------------------------------------*/
+// 페이징처리
+/*-----------------------------------------------------------------------------------------*/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_centerUnStr.clearData();     //Grid에 Binding된 Dataset명	
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = 10; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 1; 	//전체건수. 화면조회후 리턴받아 사용
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	lsNowPage = vPageNum;//현재페이지 설정 
+	
+	this.fn_search();
+ 
+}
+
+
+
+this.div_list_onsize = function(obj:Div, e:nexacro.SizeEventInfo)
+{
+	/* 페이지 숫자 위치 설정*/
+	
+	trace("div_list_onsize");
+	var nLeft = (e.cx/2)-(this.div_list.div_page.width/2);
+	this.div_list.div_page.set_left(nLeft);
+	
+}
+this.div_search_edt_code_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(this.div_search.rdo_search_area.value == 0){
+		//전체
+	}else if(this.div_search.rdo_search_area.value == 2){
+		//상품
+		if(e.keycode == 13){
+			this.div_search_btn_WRS_onclick(true);
+		}
+	}else if(this.div_search.rdo_search_area.value == 1){
+		//공급처
+		if(e.keycode == 13){
+			this.div_search_btn_SPYPL_onclick(true);
+		}
+	}	
+}
+
+this.div_search_edt_name_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(this.div_search.rdo_search_area.value == 0){
+		//전체
+	}else if(this.div_search.rdo_search_area.value == 2){
+		//상품
+		if(e.keycode == 13){
+			this.div_search_btn_WRS_onclick(true);
+		}
+	}else if(this.div_search.rdo_search_area.value == 1){
+		//공급처
+		if(e.keycode == 13){
+			this.div_search_btn_SPYPL_onclick(true);
+		}
+	}
+}
+
+this.VAN_DS_SC_0360_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	var key = this.gfn_onkeydown(e);
+	
+	if(key=="F")
+	{
+		this.btn_search_onclick();
+	}
+	
+	if(key=="E")
+	{
+		this.btn_excel_onclick();
+	}
+}
+
+this.btn_search_onmousemove = function(obj:Button, e:nexacro.MouseEventInfo)
+{
+	this.gfn_onmousemove(obj, "F");
+}
+
+this.btn_excel_onmousemove = function(obj:Button, e:nexacro.MouseEventInfo)
+{
+	this.gfn_onmousemove(obj, "E");
+}
+]]></Script>
+  </Form>
+</FDL>

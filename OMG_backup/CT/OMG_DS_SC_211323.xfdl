@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211323" classname="pattern_01" left="0" top="0" width="788" height="576" titletext="납품업체종업원파견 약정서" scrollbars="none" onload="form_onload" visible="false">
+    <Layouts>
+      <Layout>
+        <Static id="Static86" taborder="32" text="납품업체종업원파견 약정서" cssclass="sta_WF_Subtitle" left="0" top="0" width="467" height="21"/>
+        <Button id="Button10" taborder="33" text="계약서보기" left="710" top="0" width="78" height="21" visible="false"/>
+        <Static id="Static38" taborder="34" text="20" visible="false" left="15" top="1812" width="803" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static46" taborder="35" text="20" visible="false" left="15" top="2695" width="803" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static12" taborder="36" text="27" visible="false" left="200" top="84" width="414" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static08" taborder="37" cssclass="sta_WF_Labelbg" left="108" top="27" height="29" right="0"/>
+        <Static id="Static107" taborder="38" text="파견근거" cssclass="sta_WF_Label" left="0" top="27" height="29" width="110"/>
+        <Edit id="edt_dspcBass" taborder="0" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="112" top="31" height="21" maxlength="1" width="40" lengthunit="ascii"/>
+        <Static id="Static04" taborder="40" text="비고" cssclass="sta_WF_Label_c" left="641" top="119" right="0" height="29"/>
+        <Static id="Static05" taborder="41" text="직접비" cssclass="sta_WF_Label_c" left="101" top="147" height="57" width="134"/>
+        <Static id="Static07" taborder="42" text="간접비" cssclass="sta_WF_Label_c" left="101" top="203" height="85" width="134"/>
+        <Static id="Static00" taborder="43" text="(단워 : 천원)" cssclass="sta_WF_GridCount" top="98" right="0" width="78" height="21"/>
+        <Static id="Static09" taborder="44" cssclass="sta_WF_Labelbg_R" left="234" top="147" height="29" width="205"/>
+        <Static id="Static10" taborder="45" cssclass="sta_WF_Labelbg_R" left="234" top="175" height="29" width="205"/>
+        <Static id="Static02" taborder="39" text="월 소요액" cssclass="sta_WF_Label_c" left="437" top="119" height="29" width="205"/>
+        <Static id="Static11" taborder="46" cssclass="sta_WF_Labelbg_R" left="234" top="203" height="29" width="205"/>
+        <Static id="Static16" taborder="47" text="1. 계약담당자가 협력사원의 인건비 등 제반 비용" left="0" top="95" width="430" height="21"/>
+        <Static id="Static18" taborder="48" text="기타 제경비 등" cssclass="sta_WF_Label_c" left="0" top="370" height="29" width="235"/>
+        <Static id="Static21" taborder="49" text="인건비" cssclass="sta_WF_Label_c" left="0" top="147" height="141" width="102"/>
+        <Static id="Static01" taborder="50" text="구  분" cssclass="sta_WF_Label_c" left="0" top="119" width="235" height="29"/>
+        <Static id="Static17" taborder="51" text="세부내역" cssclass="sta_WF_Label_c" left="234" top="119" height="29" width="204"/>
+        <Edit id="edt_LbrcsDrtcsCntn1" taborder="3" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="151" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Edit id="edt_LbrcsDrtcsCntn2" taborder="6" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="179" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Edit id="edt_LbrcsOhcsCntn1" taborder="9" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="206" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Static id="Static13" taborder="52" cssclass="sta_WF_Labelbg_R" left="437" top="147" height="29" width="206"/>
+        <Static id="Static14" taborder="53" cssclass="sta_WF_Labelbg_R" left="437" top="175" height="29" width="206"/>
+        <Static id="Static15" taborder="54" cssclass="sta_WF_Labelbg_R" left="437" top="203" height="29" width="206"/>
+        <MaskEdit id="mae_LbrcsDrtcsAm1" taborder="4" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="151" height="21" width="200"/>
+        <MaskEdit id="mae_LbrcsDrtcsAm2" taborder="7" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="179" height="21" width="200"/>
+        <Static id="Static19" taborder="55" cssclass="sta_WF_Labelbg_R" left="641" top="147" right="0%" height="29"/>
+        <Static id="Static20" taborder="56" cssclass="sta_WF_Labelbg_R" left="641" top="175" right="0%" height="29"/>
+        <Static id="Static22" taborder="57" cssclass="sta_WF_Labelbg_R" left="641" top="203" right="0%" height="29"/>
+        <Edit id="edt_LbrcsDrtcsRmk1" taborder="5" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="151" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <Edit id="edt_LbrcsDrtcsRmk2" taborder="8" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="179" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <Edit id="edt_LbrcsOhcsRmk1" taborder="11" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="206" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <MaskEdit id="mae_LbrcsOhcsAm1" taborder="10" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="206" height="21" width="200"/>
+        <Static id="Static23" taborder="58" cssclass="sta_WF_Labelbg_R" left="234" top="231" height="29" width="205"/>
+        <Edit id="edt_LbrcsOhcsCntn2" taborder="12" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="234" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Static id="Static24" taborder="59" cssclass="sta_WF_Labelbg_R" left="437" top="231" height="29" width="206"/>
+        <Static id="Static25" taborder="60" cssclass="sta_WF_Labelbg_R" left="641" top="231" right="0%" height="29"/>
+        <Edit id="edt_LbrcsOhcsRmk2" taborder="14" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="234" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <MaskEdit id="mae_LbrcsOhcsAm2" taborder="13" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="234" height="21" width="200"/>
+        <Static id="Static27" taborder="61" cssclass="sta_WF_Labelbg_R" left="234" top="259" height="29" width="205"/>
+        <Edit id="edt_LbrcsOhcsCntn3" taborder="15" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="262" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Static id="Static28" taborder="62" cssclass="sta_WF_Labelbg_R" left="437" top="259" height="29" width="206"/>
+        <Static id="Static29" taborder="63" cssclass="sta_WF_Labelbg_R" left="641" top="259" right="0%" height="29"/>
+        <Edit id="edt_LbrcsOhcsRmk3" taborder="17" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="262" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <MaskEdit id="mae_LbrcsOhcsAm3" taborder="16" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="262" height="21" width="200"/>
+        <Static id="Static31" taborder="64" cssclass="sta_WF_Labelbg_R" left="234" top="287" height="29" width="205"/>
+        <Edit id="edt_FiBnfCntn1" taborder="18" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="290" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Static id="Static32" taborder="65" cssclass="sta_WF_Labelbg_R" left="437" top="287" height="29" width="206"/>
+        <Static id="Static33" taborder="66" cssclass="sta_WF_Labelbg_R" left="641" top="287" right="0%" height="29"/>
+        <Edit id="edt_FiBnfRmk1" taborder="20" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="290" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <MaskEdit id="mae_FiBnfAm1" taborder="19" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="290" height="21" width="200"/>
+        <Static id="Static34" taborder="67" cssclass="sta_WF_Labelbg_R" left="234" top="315" height="29" width="205"/>
+        <Edit id="edt_FiBnfCntn2" taborder="21" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="318" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Static id="Static35" taborder="68" cssclass="sta_WF_Labelbg_R" left="437" top="315" height="29" width="206"/>
+        <Static id="Static36" taborder="69" cssclass="sta_WF_Labelbg_R" left="641" top="315" right="0%" height="29"/>
+        <Edit id="edt_FiBnfRmk2" taborder="23" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="318" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <MaskEdit id="mae_FiBnfAm2" taborder="22" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="318" height="21" width="200"/>
+        <Static id="Static37" taborder="70" text="복리후생비 등" cssclass="sta_WF_Label_c" left="1" top="287" height="84" width="234"/>
+        <Static id="Static39" taborder="71" cssclass="sta_WF_Labelbg_R" left="234" top="342" height="29" width="205"/>
+        <Edit id="edt_FiBnfCntn3" taborder="24" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="345" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Static id="Static40" taborder="72" cssclass="sta_WF_Labelbg_R" left="437" top="342" height="29" width="206"/>
+        <Static id="Static41" taborder="73" cssclass="sta_WF_Labelbg_R" left="641" top="342" right="0%" height="29"/>
+        <Edit id="edt_FiBnfRmk3" taborder="26" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="345" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <MaskEdit id="mae_FiBnfAm3" taborder="25" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="345" height="21" width="200"/>
+        <Static id="Static06" taborder="74" cssclass="sta_WF_Labelbg_R" left="234" top="370" height="29" width="205"/>
+        <Edit id="edt_EtcTxpnCntn" taborder="27" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="240" top="373" height="21" width="192" lengthunit="ascii" maxlength="120"/>
+        <Static id="Static26" taborder="75" cssclass="sta_WF_Labelbg_R" left="437" top="370" height="29" width="206"/>
+        <Static id="Static30" taborder="76" cssclass="sta_WF_Labelbg_R" left="641" top="370" right="0%" height="29"/>
+        <Edit id="edt_EtcTxpnRmk" taborder="29" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="645" top="373" height="21" right="0.76%" lengthunit="ascii" maxlength="250"/>
+        <MaskEdit id="mae_EtcTxpnAm" taborder="28" mask="###,###,###,###" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="440" top="373" height="21" width="200"/>
+        <Grid id="grd_dspcPerWrkPrd" taborder="77" binddataset="ds_dspcPerWrkPrdPmiw" autoenter="select" useinputpanel="false" autofittype="col" onheadclick="ds_dspcPerWrkPrdPmiw_onheadclick" left="0" top="437" right="0" height="139">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="200"/>
+                <Column size="80"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" text="매장명"/>
+                <Cell col="2" text="파견인원"/>
+                <Cell col="3" colspan="2" text="근무기간"/>
+                <Cell col="5" colspan="2" text="근무시간"/>
+                <Cell col="7" colspan="2" text="휴계시간"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM" editlimit="64" editlengthunit="ascii"/>
+                <Cell col="2" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DSPC_PER" mask="####"/>
+                <Cell col="3" displaytype="date" edittype="date" cssclass="Cellgrd_WF_AlignRight" text="bind:WRK_ST_DT"/>
+                <Cell col="4" displaytype="date" edittype="date" text="bind:WRK_ED_DT"/>
+                <Cell col="5" displaytype="normal" edittype="mask" text="bind:WRK_ST_HR" mask="@@:@@"/>
+                <Cell col="6" displaytype="normal" edittype="mask" text="bind:WRK_ED_HR" mask="@@:@@"/>
+                <Cell col="7" displaytype="normal" edittype="mask" text="bind:RCS_ST_HR" mask="@@:@@"/>
+                <Cell col="8" displaytype="normal" edittype="mask" cssclass="Cellgrd_WF_AlignLeft" text="bind:RCS_ED_HR" mask="@@:@@"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_dspcPerWrkPrdPmiw_add" taborder="30" text="행추가" onclick="btn_dspcPerWrkPrdPmiw_addRow_onclick" top="411" right="55" width="53" height="21"/>
+        <Button id="btn_dspcPerWrkPrdPmiw_del" taborder="31" text="행삭제" onclick="btn_dspcPerWrkPrdPmiw_delRow_onclick" top="411" right="0%" width="53" height="21"/>
+        <Static id="Static170" taborder="78" text="2. 파견인원 및 근무기간, 근무시간, 휴게시간" left="0" top="413" width="386" height="21"/>
+        <Static id="Static89" taborder="79" text="항" left="160" top="31" height="21" width="56"/>
+        <Static id="Static42" taborder="81" cssclass="sta_WF_Labelbg" left="108" top="55" right="0" height="29"/>
+        <Static id="Static03" taborder="80" text="계약담당자비율" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="0" top="55" height="29" width="110"/>
+        <Static id="Static60" taborder="82" text="%" left="214" top="58" height="21" width="14"/>
+        <Static id="Static43" taborder="83" text="계약상대자비율" cssclass="sta_WF_Label" left="385" top="55" height="29" width="111"/>
+        <MaskEdit id="mae_ctrChrrRto" taborder="1" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="112" top="59" height="21" mask="###" width="90"/>
+        <MaskEdit id="mae_ctrPatnRto" taborder="2" limitbymask="both" ontextchanged="OMG_DS_SC_211323_ontextchanged" left="498" top="59" height="21" mask="###" width="90"/>
+        <Static id="Static44" taborder="84" text="%" left="592" top="58" height="21" width="15"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pmiwDtl04" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="PMIW_KDC" type="STRING" size="256" sumtext="약정서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="BUY_AM" type="STRING" size="256" sumtext="구매금액"/>
+          <Column id="EVT_TINM" type="STRING" size="256" sumtext="행사제목"/>
+          <Column id="EVT_PRD_ST_DT" type="STRING" size="256" sumtext="행사기간 시작일자"/>
+          <Column id="EVT_PRD_ED_DT" type="STRING" size="256" sumtext="행사기간 종료일자"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dlvgCompEmpDspcPmiw" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="PMIW_KDC" type="STRING" size="256" sumtext="약정서종류"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="DSPC_BASS" type="STRING" size="256" sumtext="파견근거"/>
+          <Column id="LBRCS_DRTCS_CNTN1" type="STRING" size="256" sumtext="인건비직정비내용1"/>
+          <Column id="LBRCS_DRTCS_CNTN2" type="STRING" size="256" sumtext="인건비직정비내용2"/>
+          <Column id="LBRCS_DRTCS_AM1" type="STRING" size="256" sumtext="인건비직정비소요액1"/>
+          <Column id="LBRCS_DRTCS_AM2" type="STRING" size="256" sumtext="인건비직정비소요액2"/>
+          <Column id="LBRCS_DRTCS_RMK1" type="STRING" size="256" sumtext="인건비직정비비고1"/>
+          <Column id="LBRCS_DRTCS_RMK2" type="STRING" size="256" sumtext="인건비직정비비고2"/>
+          <Column id="LBRCS_OHCS_CNTN1" type="STRING" size="256" sumtext="인건비간접비내용1"/>
+          <Column id="LBRCS_OHCS_CNTN2" type="STRING" size="256" sumtext="인건비간접비내용2"/>
+          <Column id="LBRCS_OHCS_CNTN3" type="STRING" size="256" sumtext="인건비간접비내용3"/>
+          <Column id="LBRCS_OHCS_AM1" type="STRING" size="256" sumtext="인건비간접비소용액1"/>
+          <Column id="LBRCS_OHCS_AM2" type="STRING" size="256" sumtext="인건비간접비소용액2"/>
+          <Column id="LBRCS_OHCS_AM3" type="STRING" size="256" sumtext="인건비간접비소용액3"/>
+          <Column id="LBRCS_OHCS_RMK1" type="STRING" size="256" sumtext="인건비간접비비고1"/>
+          <Column id="LBRCS_OHCS_RMK2" type="STRING" size="256" sumtext="인건비간접비비고2"/>
+          <Column id="LBRCS_OHCS_RMK3" type="STRING" size="256" sumtext="인건비간접비비고3"/>
+          <Column id="FI_BNF_CNTN1" type="STRING" size="256" sumtext="복리후생비내용1"/>
+          <Column id="FI_BNF_CNTN2" type="STRING" size="256" sumtext="복리후생비내용2"/>
+          <Column id="FI_BNF_CNTN3" type="STRING" size="256" sumtext="복리후생비내용3"/>
+          <Column id="FI_BNF_AM1" type="STRING" size="256" sumtext="복리후생비소용액1"/>
+          <Column id="FI_BNF_AM2" type="STRING" size="256" sumtext="복리후생비소용액2"/>
+          <Column id="FI_BNF_AM3" type="STRING" size="256" sumtext="복리후생비소용액3"/>
+          <Column id="FI_BNF_RMK1" type="STRING" size="256" sumtext="복리후생비비고1"/>
+          <Column id="FI_BNF_RMK2" type="STRING" size="256" sumtext="복리후생비비고2"/>
+          <Column id="FI_BNF_RMK3" type="STRING" size="256" sumtext="복리후생비비고3"/>
+          <Column id="ETC_TXPN_CNTN" type="STRING" size="256" sumtext="기타제경비내용"/>
+          <Column id="ETC_TXPN_AM" type="STRING" size="256" sumtext="기타제경비소용액"/>
+          <Column id="CTR_CHRR_RTO" type="STRING" size="256" sumtext="계약담당자비율"/>
+          <Column id="CTR_PATN_RTO" type="STRING" size="256" sumtext="계약상대자비율"/>
+          <Column id="ETC_TXPN_RMK" type="STRING" size="256" sumtext="기타제경비비고"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm304" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256" sumtext="계약서양식일련번호"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dspcPerWrkPrdPmiw" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_dspcPerWrkPrdPmiw_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="PMIW_KDC" type="STRING" size="256" sumtext="약정서종류"/>
+          <Column id="CHG_SQNO" type="STRING" size="256" sumtext="변경일련번호"/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="일련번호"/>
+          <Column id="STORNM" type="STRING" size="256" sumtext="매장명"/>
+          <Column id="DSPC_PER" type="STRING" size="256" sumtext="파견인원"/>
+          <Column id="WRK_ST_DT" type="STRING" size="256" sumtext="근무기간시작일자"/>
+          <Column id="WRK_ED_DT" type="STRING" size="256" sumtext="근무기간종료일자"/>
+          <Column id="WRK_ST_HR" type="STRING" size="256" sumtext="근무시작시간"/>
+          <Column id="WRK_ED_HR" type="STRING" size="256" sumtext="근무종료시간"/>
+          <Column id="RCS_ST_HR" type="STRING" size="256" sumtext="휴게시작시간"/>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="RCS_ED_HR" type="STRING" size="256" sumtext="휴게종료시간"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item20" compid="edt_dspcBass" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="DSPC_BASS"/>
+      <BindItem id="item0" compid="edt_LbrcsDrtcsCntn1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_DRTCS_CNTN1"/>
+      <BindItem id="item2" compid="edt_LbrcsDrtcsCntn2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_DRTCS_CNTN2"/>
+      <BindItem id="item4" compid="edt_LbrcsOhcsCntn1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_CNTN1"/>
+      <BindItem id="item25" compid="mae_LbrcsDrtcsAm1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_DRTCS_AM1"/>
+      <BindItem id="item26" compid="mae_LbrcsDrtcsAm2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_DRTCS_AM2"/>
+      <BindItem id="item5" compid="edt_LbrcsDrtcsRmk1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_DRTCS_RMK1"/>
+      <BindItem id="item3" compid="edt_LbrcsDrtcsRmk2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_DRTCS_RMK2"/>
+      <BindItem id="item1" compid="edt_LbrcsOhcsRmk1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_RMK1"/>
+      <BindItem id="item6" compid="mae_LbrcsOhcsAm1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_AM1"/>
+      <BindItem id="item7" compid="edt_LbrcsOhcsCntn2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_CNTN2"/>
+      <BindItem id="item8" compid="edt_LbrcsOhcsRmk2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_RMK2"/>
+      <BindItem id="item10" compid="mae_LbrcsOhcsAm2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_AM2"/>
+      <BindItem id="item11" compid="edt_LbrcsOhcsCntn3" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_CNTN3"/>
+      <BindItem id="item12" compid="edt_LbrcsOhcsRmk3" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_RMK3"/>
+      <BindItem id="item13" compid="mae_LbrcsOhcsAm3" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="LBRCS_OHCS_AM3"/>
+      <BindItem id="item14" compid="edt_FiBnfCntn1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_CNTN1"/>
+      <BindItem id="item15" compid="edt_FiBnfRmk1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_RMK1"/>
+      <BindItem id="item16" compid="mae_FiBnfAm1" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_AM1"/>
+      <BindItem id="item17" compid="edt_FiBnfCntn2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_CNTN2"/>
+      <BindItem id="item18" compid="edt_FiBnfRmk2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_RMK2"/>
+      <BindItem id="item19" compid="mae_FiBnfAm2" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_AM2"/>
+      <BindItem id="item21" compid="edt_FiBnfCntn3" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_CNTN3"/>
+      <BindItem id="item22" compid="edt_FiBnfRmk3" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_RMK3"/>
+      <BindItem id="item23" compid="mae_FiBnfAm3" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="FI_BNF_AM3"/>
+      <BindItem id="item9" compid="edt_EtcTxpnCntn" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="ETC_TXPN_CNTN"/>
+      <BindItem id="item24" compid="edt_EtcTxpnRmk" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="ETC_TXPN_RMK"/>
+      <BindItem id="item27" compid="mae_EtcTxpnAm" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="ETC_TXPN_AM"/>
+      <BindItem id="item30" compid="mae_ctrChrrRto" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="CTR_CHRR_RTO"/>
+      <BindItem id="item28" compid="mae_ctrPatnRto" propid="value" datasetid="ds_dlvgCompEmpDspcPmiw" columnid="CTR_PATN_RTO"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "304") {
+			this.ds_etcEltStylAmm304.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	if (this.parent.ds_dlvgCompEmpDspcPmiw.rowcount > 0) {
+		this.ds_dlvgCompEmpDspcPmiw.copyData(this.parent.ds_dlvgCompEmpDspcPmiw);
+	} else {
+		this.ds_dlvgCompEmpDspcPmiw.addRow();
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "PMIW_KDC", "304");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_CNTN1", "기본급(000시간 기준)");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_CNTN2", "시간의수당(00시간분)");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_CNTN1", "연차휴가비");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_CNTN2", "4대보험료");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_CNTN3", "퇴직급여충당금");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_CNTN1", "식비");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_CNTN2", "교통비");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_CNTN3", "기타실비");
+		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "ETC_TXPN_CNTN", "관련업무수행 부수비용");
+// 		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "CTR_CHRR_RTO", "50");
+// 		this.ds_dlvgCompEmpDspcPmiw.setColumn(0, "CTR_PATN_RTO", "60");
+
+		if (application.gv_serverType  ==  "LOCAL") {//개발
+			this.edt_dspcBass.set_value("1");
+			this.mae_LbrcsDrtcsAm1.set_value("11");
+			this.mae_LbrcsDrtcsAm2.set_value("22");
+
+			this.edt_LbrcsDrtcsRmk1.set_value("11_1");
+			this.edt_LbrcsDrtcsRmk2.set_value("22_2");
+
+			this.mae_LbrcsOhcsAm1.set_value("111");
+			this.mae_LbrcsOhcsAm2.set_value("222");
+			this.mae_LbrcsOhcsAm3.set_value("333");
+
+			this.edt_LbrcsOhcsRmk1.set_value("111_1");
+			this.edt_LbrcsOhcsRmk2.set_value("222_2");
+			this.edt_LbrcsOhcsRmk3.set_value("333_3");
+
+			this.mae_FiBnfAm1.set_value("1111");
+			this.mae_FiBnfAm2.set_value("2222");
+			this.mae_FiBnfAm3.set_value("3333");
+
+			this.edt_FiBnfRmk1.set_value("1111_1");
+			this.edt_FiBnfRmk2.set_value("2222_2");
+			this.edt_FiBnfRmk3.set_value("3333_3");
+
+			this.mae_EtcTxpnAm.set_value("11111");
+			this.edt_EtcTxpnRmk.set_value("11111_1");
+		}
+
+		this.parent.ds_dlvgCompEmpDspcPmiw.addRow();
+		this.parent.ds_dlvgCompEmpDspcPmiw.copyData(this.ds_dlvgCompEmpDspcPmiw);
+	}
+
+	if (this.parent.ds_dspcPerWrkPrdPmiw.rowcount  > 0) {
+		this.ds_dspcPerWrkPrdPmiw.addRow();
+		this.ds_dspcPerWrkPrdPmiw.copyData(this.parent.ds_dspcPerWrkPrdPmiw);
+	} else {
+		this.ds_dspcPerWrkPrdPmiw.addRow();
+		this.ds_dspcPerWrkPrdPmiw.setColumn(0, "PMIW_KDC", "304");
+		this.ds_dspcPerWrkPrdPmiw.setColumn(0, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+
+		var toDay = this.gfn_today("yyyyMMdd");
+		this.chkDay = this.gfn_minusMonth(toDay, -1);
+
+		this.ds_dspcPerWrkPrdPmiw.setColumn(0, "WRK_ST_DT", toDay);
+		this.ds_dspcPerWrkPrdPmiw.setColumn(0, "WRK_ED_DT", this.chkDay);
+
+		if (application.gv_serverType  ==  "LOCAL") {//개발
+			this.ds_dspcPerWrkPrdPmiw.setColumn(0, "STORNM", "매장명");
+			this.ds_dspcPerWrkPrdPmiw.setColumn(0, "DSPC_PER", "25");
+			this.ds_dspcPerWrkPrdPmiw.setColumn(0, "WRK_ST_HR", "1212");
+			this.ds_dspcPerWrkPrdPmiw.setColumn(0, "WRK_ED_HR", "1414");
+			this.ds_dspcPerWrkPrdPmiw.setColumn(0, "RCS_ST_HR", "1212");
+			this.ds_dspcPerWrkPrdPmiw.setColumn(0, "RCS_ED_HR", "1414");
+		}
+	}
+
+	for (var i = 0; i < this.parent.ds_pmiwDtl.rowcount; i++) {
+		if (this.parent.ds_pmiwDtl.getColumn(i, "PMIW_KDC") == "304") {
+			fv_position = i;
+			fv_chk = 1;
+			this.ds_pmiwDtl04.addRow();
+			this.ds_pmiwDtl04.copyRow(0, this.parent.ds_pmiwDtl, fv_position);
+		}
+	}
+
+	if (fv_chk == 0) {
+		var toDay = this.gfn_today("yyyyMMdd");
+		chkDay = this.gfn_addMonth(toDay, 1);
+
+		var nRow = this.parent.ds_pmiwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "PMIW_KDC", "304");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm304.getColumn(0, "CTRW_STY_VER"));
+
+		this.ds_pmiwDtl04.addRow();
+		this.ds_pmiwDtl04.copyRow(0, this.parent.ds_pmiwDtl , fv_position);
+	}
+}
+
+this.ds_dlvgCompEmpDspcPmiw_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	this.parent.ds_lgqtTrFeePmiw.copyData(this.ds_lgqtTrFeePmiw);
+
+	for (var i = 0; i < this.ds_lgqtTrFeePmiw.rowcount; i++) {
+		this.parent.ds_dlvgCompEmpDspcPmiw.set_updatecontrol(false);
+		this.parent.ds_dlvgCompEmpDspcPmiw.setRowType(i, this.ds_dlvgCompEmpDspcPmiw.getRowType(i));
+		this.parent.ds_dlvgCompEmpDspcPmiw.set_updatecontrol(true);
+	}
+}
+
+this.fn_ds_pmiwDtl_update = function()
+{
+	for (var i = 0; i < this.ds_pmiwDtl04.rowcount; i++) {
+		this.parent.ds_pmiwDtl.set_updatecontrol(false);
+		this.parent.ds_pmiwDtl.setRowType(fv_position, this.ds_pmiwDtl04.getRowType(i));
+		this.parent.ds_pmiwDtl.set_updatecontrol(true);
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	var strTitletext = "납품업체 종업원 파견 약정서";
+
+	if (this.gfn_isNull(this.edt_dspcBass.value)) {
+		this.edt_dspcBass.setFocus();
+ 		this.alert(strTitletext + " 파견 그거() 항을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_ctrChrrRto.value)) {
+		this.mae_ctrChrrRto.setFocus();
+ 		this.alert(strTitletext + " 계약 담당자 비율 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_ctrPatnRto.value)) {
+		this.mae_ctrPatnRto.setFocus();
+ 		this.alert(strTitletext + " 계약 상대자 비율을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_LbrcsDrtcsCntn1.value)) {
+		this.edt_LbrcsDrtcsCntn1.setFocus();
+ 		this.alert(strTitletext + "직정비 세부 내역1 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_LbrcsDrtcsAm1.value)) {
+		this.mae_LbrcsDrtcsAm1.setFocus();
+ 		this.alert(strTitletext + "직정비 월 소요액1 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_LbrcsDrtcsCntn2.value)) {
+		this.edt_LbrcsDrtcsCntn2.setFocus();
+ 		this.alert(strTitletext + "직정비 세부 내역2 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_LbrcsDrtcsAm2.value)) {
+		this.mae_LbrcsDrtcsAm2.setFocus();
+ 		this.alert(strTitletext + "직정비 월 소요액2 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_LbrcsOhcsCntn1.value)) {
+		this.edt_LbrcsOhcsCntn1.setFocus();
+ 		this.alert(strTitletext + "간접비 세부 내역1 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_LbrcsOhcsAm1.value)) {
+		this.mae_LbrcsOhcsAm1.setFocus();
+ 		this.alert(strTitletext + "간접비 월 소요액1 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_LbrcsOhcsCntn2.value)) {
+		this.edt_LbrcsOhcsCntn2.setFocus();
+ 		this.alert(strTitletext + "간접비 세부 내역2 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_LbrcsOhcsAm2.value)) {
+		this.mae_LbrcsOhcsAm2.setFocus();
+ 		this.alert(strTitletext + "간접비 월 소요액2 을 입력하세요. ");
+ 		return false;
+ 	}
+ 	if (this.gfn_isNull(this.edt_LbrcsOhcsCntn3.value)) {
+		this.edt_LbrcsOhcsCntn3.setFocus();
+ 		this.alert(strTitletext + "간접비 세부 내역3 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_LbrcsOhcsAm3.value)) {
+		this.mae_LbrcsOhcsAm3.setFocus();
+ 		this.alert(strTitletext + "간접비 월 소요액3 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_FiBnfCntn1.value)) {
+		this.edt_FiBnfCntn1.setFocus();
+ 		this.alert(strTitletext + "복리 후생비 세부 내역1 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_FiBnfAm1.value)) {
+		this.mae_FiBnfAm1.setFocus();
+ 		this.alert(strTitletext + "복리 후생비 월 소요액1 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_FiBnfCntn2.value)) {
+		this.edt_FiBnfCntn2.setFocus();
+ 		this.alert(strTitletext + "복리 후생비 세부 내역2 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_FiBnfAm2.value)) {
+		this.mae_FiBnfAm2.setFocus();
+ 		this.alert(strTitletext + "복리 후생비 월 소요액2 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_FiBnfCntn3.value)) {
+		this.edt_FiBnfCntn3.setFocus();
+ 		this.alert(strTitletext + "복리 후생비 세부 내역3 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_FiBnfAm3.value)) {
+		this.mae_FiBnfAm3.setFocus();
+ 		this.alert(strTitletext + "복리 후생비 월 소요액3 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.edt_EtcTxpnCntn.value)) {
+		this.edt_EtcTxpnCntn.setFocus();
+ 		this.alert(strTitletext + "기타 제경비 세부 내역 을 입력하세요. ");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.mae_EtcTxpnAm.value)) {
+		this.mae_EtcTxpnAm.setFocus();
+ 		this.alert(strTitletext + "기타 제경비 월 소요액 을 입력하세요. ");
+ 		return false;
+ 	}
+
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+	return true;
+}
+
+this.btn_dspcPerWrkPrdPmiw_addRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_dspcPerWrkPrdPmiw.addRow();
+	var nRow = this.ds_dspcPerWrkPrdPmiw.rowcount -1;
+	this.ds_dspcPerWrkPrdPmiw.setColumn(nRow, "PMIW_KDC", "304");
+	this.ds_dspcPerWrkPrdPmiw.setColumn(nRow, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+
+	var toDay = this.gfn_today("yyyyMMdd");
+	this.chkDay = this.gfn_minusMonth(toDay, -1);
+
+	this.ds_dspcPerWrkPrdPmiw.setColumn(nRow, "WRK_ST_DT", toDay);
+	this.ds_dspcPerWrkPrdPmiw.setColumn(nRow, "WRK_ED_DT", this.chkDay);
+
+	this.parent.ds_dspcPerWrkPrdPmiw.copyData(this.ds_dspcPerWrkPrdPmiw);
+	this.fn_ds_dspcPerWrkPrdPmiw_update();
+}
+
+this.btn_dspcPerWrkPrdPmiw_delRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	for (var i = this.ds_dspcPerWrkPrdPmiw.rowcount; i > -1; i--) {
+		var nCheck = this.ds_dspcPerWrkPrdPmiw.getColumn(i, "ISCHECKED");
+
+		if (nCheck == 1) {
+			this.parent.ds_dspcPerWrkPrdPmiw.deleteRow(i);
+			this.ds_dspcPerWrkPrdPmiw.deleteRow(i);
+		}
+	}
+}
+
+this.ds_dspcPerWrkPrdPmiw_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_setGridCheckAll(obj, e);
+	}
+}
+
+this.fn_ds_dspcPerWrkPrdPmiw_update = function()
+{
+	for (var i = 0; i < this.ds_dspcPerWrkPrdPmiw.rowcount; i++) {
+		this.parent.ds_dspcPerWrkPrdPmiw.set_updatecontrol(false);
+		this.parent.ds_dspcPerWrkPrdPmiw.setRowType(i, this.ds_dspcPerWrkPrdPmiw.getRowType(i));
+		this.parent.ds_dspcPerWrkPrdPmiw.set_updatecontrol(true);
+	}
+
+	if (this.ds_dspcPerWrkPrdPmiw.rowcount == 0) {
+		for (var i = 0; i < this.parent.ds_dspcPerWrkPrdPmiw.rowcount; i++) {
+			this.parent.ds_dspcPerWrkPrdPmiw.set_updatecontrol(false);
+			this.parent.ds_dspcPerWrkPrdPmiw.setRowType(i, Dataset.ROWTYPE_DELETE);
+			this.parent.ds_dspcPerWrkPrdPmiw.set_updatecontrol(true);
+		}
+	}
+}
+
+this.OMG_DS_SC_211323_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "DSPC_BASS", this.edt_dspcBass.value); //파견 근무 항
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_CNTN1", this.edt_LbrcsDrtcsCntn1.value); //직접비 세부내역1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_CNTN2", this.edt_LbrcsDrtcsCntn2.value); //직접비 세부내역2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_AM1", this.mae_LbrcsDrtcsAm1.value); //직접비 월소요액1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_AM2", this.mae_LbrcsDrtcsAm2.value); //직접비 월소요액2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_RMK1", this.edt_LbrcsDrtcsRmk1.value); //직접비 비고1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_DRTCS_RMK2", this.edt_LbrcsDrtcsRmk2.value); //직접비 비고1
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_CNTN1", this.edt_LbrcsOhcsCntn1.value); //간접비 세부내역1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_CNTN2", this.edt_LbrcsOhcsCntn2.value); //간접비 세부내역2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_CNTN3", this.edt_LbrcsOhcsCntn3.value); //간접비 세부내역3
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_AM1", this.mae_LbrcsOhcsAm1.value); //간접비 월소용액1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_AM2", this.mae_LbrcsOhcsAm2.value); //간접비 월소용액2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_AM3", this.mae_LbrcsOhcsAm3.value); //간접비 월소용액3
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_RMK1", this.edt_LbrcsOhcsRmk1.value); //간접비 비고1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_RMK2", this.edt_LbrcsOhcsRmk2.value); //간접비 비고2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "LBRCS_OHCS_RMK3", this.edt_LbrcsOhcsRmk3.value); //간접비 비고3
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_CNTN1", this.edt_FiBnfCntn1.value); //복리후생비 세부내역1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_CNTN2", this.edt_FiBnfCntn2.value); //복리후생비 세부내역2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_CNTN3", this.edt_FiBnfCntn3.value); //복리후생비 세부내역3
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_AM1", this.mae_FiBnfAm1.value); //복리후생비 월소용액1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_AM2", this.mae_FiBnfAm2.value); //복리후생비 월소용액2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_AM3", this.mae_FiBnfAm3.value); //복리후생비 월소용액3
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_RMK1", this.edt_FiBnfRmk1.value); //복리후생비 비고1
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_RMK2", this.edt_FiBnfRmk2.value); //복리후생비 비고2
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "FI_BNF_RMK3", this.edt_FiBnfRmk3.value); //복리후생비 비고3
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "ETC_TXPN_CNTN", this.edt_EtcTxpnCntn.value); //기타 제경비 등 세부내역
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "ETC_TXPN_AM", this.mae_EtcTxpnAm.value); //기타 제경비 등 월 소용액
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "ETC_TXPN_RMK", this.edt_EtcTxpnRmk.value); //기타 제경비 등 비고
+
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "CTR_CHRR_RTO", this.mae_ctrChrrRto.value); //계약담당자 비율
+	this.parent.ds_dlvgCompEmpDspcPmiw.setColumn(0, "CTR_PATN_RTO", this.mae_ctrPatnRto.value); //계약 상대자 비율
+
+	this.fn_ds_dlvgCompEmpDspcPmiw_update();
+}
+
+this.fn_ds_dlvgCompEmpDspcPmiw_update = function()
+{
+	this.parent.ds_dlvgCompEmpDspcPmiw.set_updatecontrol(false);
+	this.parent.ds_dlvgCompEmpDspcPmiw.setRowType(0, this.ds_dlvgCompEmpDspcPmiw.getRowType(0));
+	this.parent.ds_dlvgCompEmpDspcPmiw.set_updatecontrol(true);
+}
+
+this.fn_checkImportant = function(obj:Grid, arrParam)
+{
+	var objGrid = obj;
+	var arrList = arrParam.split(",");
+
+	if (arrList.length == 0) return false;
+
+	var dsBind = this.gfn_getDataset(objGrid.binddataset);
+	if (dsBind != undefined) {
+		for (var iRow=0; iRow<dsBind.rowcount; iRow++) {
+			var iRowType = dsBind.getRowType(iRow);
+			if (iRowType == 8) continue;
+
+			for (var i=0; i<arrList.length; i++) {
+				var sColNm = arrList[i];
+				var iCellIdx = this.gfn_getCellIdx(objGrid, sColNm);
+				var sColVal = String(dsBind.getColumn(iRow, sColNm)).trim();
+				if (this.gfn_isNull(sColVal)) {
+					var bSucc = objGrid.setCellPos(iCellIdx);
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
+
+this.ds_dspcPerWrkPrdPmiw_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if (e.columnid == "WRK_ST_HR") {
+		var WRK_ST_HR = this.ds_dspcPerWrkPrdPmiw.getColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "WRK_ST_HR");
+
+		if (WRK_ST_HR != "") {
+			WRK_ST_HR =    this.fn_Time(WRK_ST_HR , "근무 시간 시작 ");
+			if (WRK_ST_HR  == false) {
+				this.alert("근무 시간 시작 시간을 정확하게  입력하세요.");
+				return false;
+			} else {
+				this.ds_dspcPerWrkPrdPmiw.setColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "WRK_ST_HR", WRK_ST_HR);
+			}
+		}
+	}
+
+	if (e.columnid == "WRK_ED_HR") {
+		var WRK_ED_HR = this.ds_dspcPerWrkPrdPmiw.getColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "WRK_ED_HR");
+
+		if (WRK_ED_HR != "") {
+			WRK_ED_HR = this.fn_Time(WRK_ED_HR, "근무 시간 종료 ");
+			if (WRK_ED_HR == false) {
+				this.alert("근무 시간 종료 시간을 정확하게  입력하세요.");
+				return false;
+			} else {
+				this.ds_dspcPerWrkPrdPmiw.setColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "WRK_ED_HR", WRK_ED_HR);
+			}
+		}
+	}
+
+	if (e.columnid == "RCS_ST_HR") {
+		var RCS_ST_HR = this.ds_dspcPerWrkPrdPmiw.getColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "RCS_ST_HR");
+
+		if (RCS_ST_HR != "") {
+			RCS_ST_HR =    this.fn_Time(RCS_ST_HR , "휴계 시간 시작 ");
+			if (RCS_ST_HR  == false) {
+				this.alert("휴계 시간 시작 시간을 정확하게  입력하세요.");
+				return false;
+			} else {
+				this.ds_dspcPerWrkPrdPmiw.setColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "RCS_ST_HR", RCS_ST_HR);
+			}
+		}
+	}
+	 if (e.columnid == "RCS_ED_HR") {
+		var RCS_ED_HR = this.ds_dspcPerWrkPrdPmiw.getColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "RCS_ED_HR");
+
+		if (RCS_ED_HR != "") {
+			RCS_ED_HR =    this.fn_Time(RCS_ED_HR , "휴계 시간 종료 ");
+			if (RCS_ED_HR  == false) {
+				this.alert("휴계 시간 종료 시간을 정확하게  입력하세요.");
+				return false;
+			} else {
+				this.ds_dspcPerWrkPrdPmiw.setColumn(this.ds_dspcPerWrkPrdPmiw.rowposition, "RCS_ED_HR", RCS_ED_HR);
+			}
+		}
+	}
+
+	this.parent.ds_dspcPerWrkPrdPmiw.copyData(this.ds_dspcPerWrkPrdPmiw);
+	this.fn_ds_dspcPerWrkPrdPmiw_update();
+}
+
+this.fn_Time = function(varTime , strTitletext)
+{
+ 	var wrkStHr1 = "0";
+	var wrkStHr2 = "0";
+	var wrkStHr3 = "0";
+	var wrkStHr4 = "0";
+
+	if (varTime.substr(0, 1) != " ") {
+		wrkStHr1 = varTime.substr(0, 1);
+	}
+
+	if (varTime.substr(1, 1) != " ") {
+		wrkStHr2 = varTime.substr(1, 1);
+		var wrkStHr=  nexacro.toNumber( wrkStHr1+wrkStHr2);
+		if (wrkStHr < 1 ||  wrkStHr > 24) {
+			this.alert(strTitletext + "시간을 정확하게  입력하세요.");
+			return false;
+		}
+	}
+
+	if (varTime.substr(2, 1) != " ") {
+		wrkStHr3 = varTime.substr(2, 1);
+	}
+
+	if (varTime.substr(3, 1) != " ") {
+		wrkStHr4 = varTime.substr(3, 1);
+		var wrkStHr=  nexacro.toNumber( wrkStHr3+wrkStHr4);
+
+		if (wrkStHr < 0 ||  wrkStHr > 59) {
+			this.alert(strTitletext + "시간을 정확하게  입력하세요.");
+			return false;
+		}
+	}
+	return wrkStHr1+wrkStHr2+wrkStHr3+wrkStHr4;
+}]]></Script>
+  </Form>
+</FDL>

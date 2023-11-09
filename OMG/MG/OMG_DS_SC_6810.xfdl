@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6810" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="로그인 이력 조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_result" taborder="4" text="Div02" left="0" top="120" right="15" bottom="0">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_mbApvrqrList00" taborder="12" binddataset="ds_excel" useinputpanel="false" autofittype="col" nodatatext="조회된 건수가 없습니다." oncellclick="div_result_grd_mbApvrqrList_oncellclick" left="1.4%" top="56" right="-0.38%" bottom="30" visible="false">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="128"/>
+                      <Column size="150"/>
+                      <Column size="185"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="회원ID"/>
+                      <Cell col="1" text="로그인 날짜"/>
+                      <Cell col="2" text="로그인 IP"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:center middle;" text="bind:MB_ID"/>
+                      <Cell col="1" style="align:center middle;" text="bind:LGIN_DTM" mask="####-##-##  ##:##:####"/>
+                      <Cell col="2" style="align:center middle;" text="bind:LGIN_IPADR"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_mbApvrqrList" taborder="9" binddataset="ds_result" useinputpanel="false" left="0.25%" top="40" right="0.51%" bottom="46" autosizingtype="none" autofittype="col" oncellclick="div_result_grd_mbApvrqrList_oncellclick" nodatatext="조회된 건수가 없습니다.">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="128"/>
+                      <Column size="163"/>
+                      <Column size="185"/>
+                      <Column size="146"/>
+                      <Column size="122"/>
+                      <Column size="124"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="회원ID"/>
+                      <Cell col="1" text="로그인 날짜"/>
+                      <Cell col="2" text="로그인 IP"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:center middle;" text="bind:MB_ID"/>
+                      <Cell col="1" style="align:center middle;" text="bind:LGIN_DTM" mask="####-##-##  ##:##:####"/>
+                      <Cell col="2" style="align:center middle;" text="bind:LGIN_IPADR"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button75" taborder="11" cssclass="btn_WFSA_SearchClose" left="36.8%" top="0" right="36.68%" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="0" text="15" visible="false" left="91.91%" top="120" right="2.49%" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static07" taborder="6" text="15" visible="false" left="98.38%" top="0" right="0.12%" height="490" style="background:#00ffffb5;"/>
+        <Div id="Div01" taborder="7" url="common::location.xfdl" text="Div01" left="0%" top="0" right="56.13%" height="21"/>
+        <Button id="btn_search" taborder="9" cssclass="btn_WFSA_Searchbtn" top="0" right="15" height="21" onclick="btn_search_onclick" width="47"/>
+        <Div id="div_search" taborder="11" left="0%" top="29" right="1.87%" height="91" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="12" text="회원ID" cssclass="sta_WFSA_Label" left="15" top="20" right="679" height="21"/>
+              <Edit id="edt_MB_ID" taborder="18" left="106" top="20" height="21" width="120"/>
+              <Static id="Static02" taborder="27" text="회사명" cssclass="sta_WFSA_Label" left="15" top="46" right="679" height="21"/>
+              <Static id="Static04" taborder="32" text="거래처코드" cssclass="sta_WFSA_Label" left="256" top="46" right="438" height="21"/>
+              <Edit id="edt_CLNTNM" taborder="41" left="106" top="46" width="120" height="21"/>
+              <Edit id="edt_NA_TRPL_C" taborder="42" left="347" top="46" width="120" height="21" inputtype="number"/>
+              <Static id="Static03" taborder="43" text="기준 월" cssclass="sta_WFSA_Label" left="256" top="20" right="438" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="cal_ym" taborder="13" url="common::calendarMonth.xfdl" left="348" top="49" width="119" height="21" dragscrolltype="both"/>
+        <Button id="btn_excel" taborder="14" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" height="21" width="41" right="68"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="LGIN_DTM" type="STRING" size="256"/>
+          <Column id="LGIN_IPADR" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="ENT_PRG_STSC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_excel">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="LGIN_DTM" type="STRING" size="256"/>
+          <Column id="LGIN_IPADR" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{  
+   /*조회 호출*/
+/*   this.btn_search.click();*/
+ 
+}
+ 
+ 
+ /*조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	
+
+	if(this.gfn_isNull(this.div_search.edt_NA_TRPL_C.value)){
+		alert("거래처 코드를 입력하세요.");			
+		return false;
+	}
+
+	this.fn_search();// 처음조회시 1페이지를 조회한다.	
+
+}
+
+
+this.fn_search = function(vPageNum)
+{ 	  
+	var calcal_ym = this.gfn_nullToEmpty(this.cal_ym._getValue()) ;
+
+	var sParam 		  =  "mb_id="			+this.gfn_nullToEmpty(this.div_search.edt_MB_ID.value) 
+						+ " cal_ym="		+calcal_ym
+						+ " clntnm="		+this.gfn_nullToEmpty(this.div_search.edt_CLNTNM.value) 
+						+ " na_trpl_c="		+this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value)
+						;
+					
+	var sSvcID        = "loginlist";
+	var sURL          = "svc::rest/mg/login/loginrecordList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_result=ds_result";	
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+/*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{	
+	this.btn_search.click();  
+}
+
+/*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{	
+		if(svcID == "loginlist"){	
+
+			if(this.ds_result.rowcount == 0){ 
+
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");				
+			}else if(this.ds_result.rowcount > 0){
+				
+			}
+		}if(svcID == "excelloginlist"){
+		
+			if(this.ds_excel.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");	
+			}
+			else if(this.ds_excel.rowcount > 0){
+				var today = this.gfn_today("yyyyMMdd");
+				
+				this.exportObj = new ExcelExportObject("Export00", this);
+				this.exportObj.addEventHandler("onsuccess" , this.fn_excelDownload_onsuccess , this);
+				this.exportObj.addEventHandler("onerror", this.fn_excelDownload_onerror, this);
+				
+				this.exportObj.set_exportfilename("LoginrecordList_" + today);
+				this.exportObj.set_exporturl(application.gv_server_url + "XExportImport");
+				this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.div_result.grd_mbApvrqrList00, "Sheet1!A1");
+				this.exportObj.exportData();
+			}
+			
+		}
+	}
+}
+ 
+
+/*엑셀 출력*/
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_isNull(this.div_search.edt_NA_TRPL_C.value)){
+		alert("거래처 코드를 입력하세요.");			
+	}
+
+	var calcal_ym = this.gfn_nullToEmpty(this.cal_ym._getValue()) ;
+
+	var sParam 		  =  "mb_id="			+this.gfn_nullToEmpty(this.div_search.edt_MB_ID.value) 
+						+ " cal_ym="		+calcal_ym
+						+ " clntnm="		+this.gfn_nullToEmpty(this.div_search.edt_CLNTNM.value) 
+						+ " na_trpl_c="		+this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value)
+						;
+					
+	var sSvcID        = "excelloginlist";
+	var sURL          = "svc::rest/mg/login/ExcelloginrecordList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_excel=ds_excel";	
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 엑셀 다운로드 성공
+this.fn_excelDownload_onsuccess = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
+{
+	trace("excel download : success");
+}
+// 엑셀 다운로드 실패
+this.fn_excelDownload_onerror = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
+{
+	trace("excel download : error");
+}
+]]></Script>
+  </Form>
+</FDL>

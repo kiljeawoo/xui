@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0350" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="배송예정 결과 조회" oninit="form_init" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_auth" taborder="42" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="265" width="431" height="21"/>
+        <Div id="div_search" taborder="0" left="0" top="29" height="94" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="발주처" left="15" top="10" width="91" height="21" cssclass="sta_WFSA_Label"/>
+              <Calendar id="cal_dvy_pla_dt_fr" taborder="27" dateformat="yyyy-MM-dd" left="571" top="62" width="100" height="21"/>
+              <Static id="Static131" taborder="28" text="~" left="672" top="62" width="10" height="21"/>
+              <Calendar id="cal_dvy_pla_dt_to" taborder="29" dateformat="yyyy-MM-dd" left="683" top="62" width="100" height="21"/>
+              <Static id="Static03" taborder="44" text="배송요청일" cssclass="sta_WFSA_Label" left="462" top="62" width="92" height="21"/>
+              <Edit id="edt_orpl_na_trpl_c" taborder="46" cssclass="WF_Essential" left="94" top="10" width="120" height="21" maxlength="13" inputtype="number" onkeydown="div_search_edt_orpl_na_trpl_c_onkeydown"/>
+              <Edit id="edt_orpl_na_trpl_n" taborder="47" cssclass="WF_Essential" left="217" top="10" width="200" height="21" readonly="false" maxlength="50" enable="false" style=":disabled {background:#ffffffff;}" onkeydown="div_search_edt_orpl_na_trpl_n_onkeydown"/>
+              <Button id="btn_popup05" taborder="48" onclick="btn_popup05_onclick" cssclass="btn_WF_Searchbtn" left="420" top="10" width="21" height="21"/>
+              <Static id="Static02" taborder="49" text="배송구분" cssclass="sta_WFSA_Label" left="15" top="62" width="91" height="21"/>
+              <Static id="Static13" taborder="51" text="10" visible="false" left="122" top="83" width="103" height="10" style="background:#dc143c5b;"/>
+              <Radio id="rdo_ddly_yn" taborder="50" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" visible="true" left="94" top="62" width="180" height="21" style="font:9 Gulim;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">일반</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">직송</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static01" taborder="52" text="결과상태" cssclass="sta_WFSA_Label" left="15" top="36" width="79" height="21"/>
+              <Combo id="cbo_res_code" taborder="53" displaynulltext="전체" codecolumn="codecolumn" datacolumn="datacolumn" value="" left="94" top="36" width="98" height="21" onitemchanged="div_search_cbo_res_code_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">에러</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">인수거절</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">정상</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">4</Col>
+                      <Col id="datacolumn">전송중</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static04" taborder="54" text="배송예정서번호" cssclass="sta_WFSA_Label" left="462" top="36" width="118" height="21"/>
+              <Edit id="edt_na_dvy_plash_slpno" taborder="55" maxlength="16" cssclass="WF_Essential" left="571" top="36" width="120" height="21" onkeydown="fn_search_onclick"/>
+              <Static id="Static05" taborder="56" text="발주번호" cssclass="sta_WFSA_Label" left="462" top="10" width="102" height="21"/>
+              <Edit id="edt_odr_slpno" taborder="57" inputtype="number" maxlength="13" cssclass="WF_Essential" left="571" top="10" width="120" height="21" onkeydown="fn_search_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="36" text="Div02" left="0" top="122" right="15" scrollbars="none" bottom="1" onsize="div_list_onsize">
+          <Layouts>
+            <Layout>
+              <Button id="btn_divResize" taborder="0" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" onclick="div_list_btn_divResize_onclick" width="62"/>
+              <Grid id="grd" taborder="12" binddataset="ds_dataM" useinputpanel="false" left="0" top="21" right="0" bottom="32" autosizingtype="none" extendsizetype="row" cellsizebandtype="body" cellsizingtype="both" oncellclick="div_list_grd_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="80"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="100"/>
+                      <Column size="97"/>
+                      <Column size="120"/>
+                      <Column size="100"/>
+                      <Column size="74"/>
+                      <Column size="400"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="35"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="재전송"/>
+                      <Cell col="2" text="발주처"/>
+                      <Cell col="3" text="발주처명"/>
+                      <Cell col="4" text="공급처코드"/>
+                      <Cell col="5" text="공급처명"/>
+                      <Cell col="6" text="배송예정서번호"/>
+                      <Cell col="7" text="XML EDI전문번호"/>
+                      <Cell col="8" text="배송요청일"/>
+                      <Cell col="9" text="배송금액"/>
+                      <Cell col="10" text="배송부가세"/>
+                      <Cell col="11" text="발주번호"/>
+                      <Cell col="12" text="발주일자"/>
+                      <Cell col="13" text="최종변경일"/>
+                      <Cell col="14" text="최종변경자"/>
+                      <Cell col="15" text="배송구분"/>
+                      <Cell col="16" text="배송예정서상태"/>
+                      <Cell col="17" text="응답결과"/>
+                      <Cell col="18" text=" 응답내용"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:RN" autosizerow="limitmin" autosizecol="none"/>
+                      <Cell col="1" displaytype="expr:ISRESEND == 'Y' ? 'button':'none'" edittype="expr:ISRESEND == 'Y' ? 'button':'none'" style="color:EXPR(PRC_YN=='R'?' black':'red');color2:EXPR(PRC_YN=='R'?' black':'red');selectcolor:EXPR(PRC_YN=='R'?' black':'red');" expr="expr:ISRESEND == 'Y' ? '재전송':''"/>
+                      <Cell col="2" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:ODRPL_NA_TRPL_C"/>
+                      <Cell col="3" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" cssclass="Cellgrd_WF_AlignLeft" text="bind:ODRPL_NA_TRPL_N"/>
+                      <Cell col="4" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:SPYPL_NA_TRPL_C"/>
+                      <Cell col="5" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" cssclass="Cellgrd_WF_AlignLeft" text="bind:SPYPL_NA_TRPL_N"/>
+                      <Cell col="6" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:NA_DVY_PLASH_SLPNO"/>
+                      <Cell col="7" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:NA_DVY_PLASH_SLPNO"/>
+                      <Cell col="8" displaytype="date" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:DVY_PLA_DT" mask="yyyy-MM-dd" calendardisplaynulltype="none"/>
+                      <Cell col="9" displaytype="number" edittype="none" style="align:right;color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:DVY_AM" mask="#,##0"/>
+                      <Cell col="10" displaytype="number" edittype="none" style="align:right;color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:DVY_VAT" mask="#,##0"/>
+                      <Cell col="11" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:ODR_SLPNO"/>
+                      <Cell col="12" displaytype="date" style="color:EXPR(PRC_YN=='E'?'red':black');color2:EXPR(PRC_YN=='E'?'red':black');selectcolor:EXPR(PRC_YN=='E'?'red':black');" text="bind:ODR_DT" mask="yyyy-MM-dd" calendardisplaynulltype="none"/>
+                      <Cell col="13" displaytype="normal" text="bind:LSCHG_DTM"/>
+                      <Cell col="14" text="bind:LS_CMENO"/>
+                      <Cell col="15" style="selectcolor: ;" text="bind:DDLY_YN" expr="expr:DDLY_YN == '1' ? '직송' : '일반'"/>
+                      <Cell col="16" style="color:EXPR(PRC_YN=='R'?' black':'red');color2:EXPR(PRC_YN=='R'?' black':'red');selectcolor:EXPR(PRC_YN=='R'?' black':'red');" text="bind:DVY_PLASH_STSNM"/>
+                      <Cell col="17" style="color:EXPR(PRC_YN=='R'?' black':'red');color2:EXPR(PRC_YN=='R'?' black':'red');selectcolor:EXPR(PRC_YN=='R'?' black':'red');" text="bind:RES_CODE"/>
+                      <Cell col="18" style="color:EXPR(PRC_YN=='R'?' black':'red');color2:EXPR(PRC_YN=='R'?' black':'red');selectcolor:EXPR(PRC_YN=='R'?' black':'red');" cssclass="Cellgrd_WF_AlignLeft" text="bind:RES_DESC" tooltiptext="bind:RES_DESC" autosizerow="default"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_page" taborder="14" url="common::pagingBTN.xfdl" style="align:center;" visible="false" left="29.57%" width="338" bottom="0" height="32"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Static id="Static03" taborder="21" text="8" visible="false" left="733" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="22" text="15" visible="false" left="788" top="0" width="15" height="491" style="background:#00ffffb5;"/>
+        <Static id="Static13" taborder="31" text="10" visible="false" left="122" top="30" width="103" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static14" taborder="32" text="5" visible="false" left="122" top="61" width="103" height="5" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="41" url="common::location.xfdl" text="Div01" left="0" top="0" right="408" height="36"/>
+        <Static id="Static00" taborder="43" text="5" visible="false" left="122" top="87" width="103" height="5" style="background:#dc143c5b;"/>
+        <Button id="btn_excel00" taborder="44" text="엑셀" onclick="btn_excel00_onclick" cssclass="btn_WF_CRUD" top="0" right="141" width="41" height="21"/>
+        <Button id="btn_excel01" taborder="45" text="엑셀 상세" onclick="btn_excel10_onclick" cssclass="btn_WF_CRUD" top="0" right="77" width="61" height="21"/>
+        <Button id="all_send" taborder="46" text="일괄재전송" top="0" height="21" onclick="all_send_onclick" width="64" right="184"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RN" type="STRING" size="256"/>
+          <Column id="DVY_PLASH_STSC" type="STRING" size="256"/>
+          <Column id="DVY_PLASH_STSNM" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="NA_DVY_PLASH_SLPNO" type="STRING" size="256"/>
+          <Column id="DVY_PLA_DT" type="STRING" size="256"/>
+          <Column id="DVY_AM" type="STRING" size="256"/>
+          <Column id="DVY_VAT" type="STRING" size="256"/>
+          <Column id="ODR_SLPNO" type="STRING" size="256"/>
+          <Column id="ODR_DT" type="STRING" size="256"/>
+          <Column id="DDLY_YN" type="STRING" size="256"/>
+          <Column id="CSER_CTR_TPC" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="R_CODE" type="STRING" size="256"/>
+          <Column id="RES_CODE" type="STRING" size="256"/>
+          <Column id="RES_DESC" type="STRING" size="256"/>
+          <Column id="ISRESEND" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+
+	 var searchParam =
+	{
+		form: this,
+		param:[
+
+		{
+			edit: this.div_search.cal_dvy_pla_dt_fr,
+			fnc: 'btn_search_onclick'
+		},
+		{
+			edit: this.div_search.cal_dvy_pla_dt_to,
+			fnc: 'btn_search_onclick'
+		}
+		]
+	};
+	this.addEventEnterSearch(searchParam);
+}
+
+/* Form Init*/
+this.form_init = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+}
+
+//공통코드 데이터셋 onload후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	// trace("fn_commonAfterOnload");
+}
+
+/* 페이지 로딩후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+	//그리드 nodata
+	this.div_list.grd.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+
+	var today = this.gfn_today('yyyyMMdd');
+
+	this.div_search.cal_dvy_pla_dt_fr.set_value(this.gfn_addDate(today, -1));
+	this.div_search.cal_dvy_pla_dt_to.set_value(this.gfn_addDate(today, +7));
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	if(this.gfn_isNull(this.div_search.cal_dvy_pla_dt_fr.value)){
+		alert("조회기간(부터)를 확인하세요.");
+		return false;
+    }
+
+    if(this.gfn_isNull(this.div_search.cal_dvy_pla_dt_to.value)){
+		alert("조회기간(까지)를 확인하세요.");
+		return false;
+    }
+
+	if(this.gfn_getDiffDay(this.div_search.cal_dvy_pla_dt_fr.value,this.div_search.cal_dvy_pla_dt_to.value) < 0){
+		//조회 시작일과 종료일을 다시 확인해 주세요
+		this.gfn_getMessage("alert", "validation.message.fromDate.toDate.reConfirm");
+		return false;
+	}else{
+		if(this.gfn_getDiffDay(this.div_search.cal_dvy_pla_dt_fr.value,this.div_search.cal_dvy_pla_dt_to.value) > 31){
+			//기간을 31일 이내로 선택해 주세요
+			this.gfn_getMessage("alert", "validation.message.selectDateIn31Day");
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/* search */
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_dataM.clearData();
+	if(this.fn_validationCheck())
+		this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+this.fn_search = function()
+{
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+
+	var dvy_pla_dt_fr = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_fr.value); //조회시작일
+	var dvy_pla_dt_to = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_to.value); //조회종료일
+	var odrpl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_orpl_na_trpl_c.value); //발주처
+	var res_code = this.gfn_nullToEmpty(this.div_search.cbo_res_code.value);//상태
+	var ddly_yn = this.gfn_nullToEmpty(this.div_search.rdo_ddly_yn.value);//배송상태
+	var na_dvy_plash_slpno = this.gfn_nullToEmpty(this.div_search.edt_na_dvy_plash_slpno.value);//배송예정서번호
+	var odr_slpno = this.gfn_nullToEmpty(this.div_search.edt_odr_slpno.value);//발주번호
+
+	var param = " dvy_pla_dt_fr="+dvy_pla_dt_fr+
+				" dvy_pla_dt_to="+dvy_pla_dt_to+
+				" odrpl_na_trpl_c="+odrpl_na_trpl_c+
+				" res_code="+res_code+
+				" ddly_yn="+ddly_yn+
+				" TRPL_C="+trplC+
+				" na_dvy_plash_slpno="+na_dvy_plash_slpno+
+				" odr_slpno="+odr_slpno;
+
+	// trace("##MASTER##PARAM##->"+param);
+
+	var sSvcID        = "retrieveDeliveryResult";//통신아이디
+	var sURL          = "svc::rest/scm/delivery/retrieveDeliveryResult";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+	var sOutDatasets  = "ds_dataM=ds_dataM ds_pageVO=ds_pageVO";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	} else {
+		if(svcID == "retrieveDeliveryResult"){
+			if(this.ds_dataM.rowcount > 0){
+				// 페이지 셋팅
+				var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+
+// 				trace("sTotal : " + sTotal);
+// 				trace("sPagesize : " + sPagesize);
+
+				this.div_list.div_page.fn_pageSet(sTotal, sPagesize,"grd,div_page",lsNowPage);
+			}else{
+				this.div_list.div_page.fn_pageSet(0, 0,"grd,div_page",lsNowPage);//페이징 설정
+			}
+		}
+
+		if(svcID == "reSendDeliveryNoticeOrder"){
+			this.fn_search();
+		}
+
+		if(svcID == "reSendAllDeliveryNoticeOrder"){
+			if(ErrorMsg == '0'){
+				alert("재전송 처리 할 건이 없습니다.");
+			}else{
+				alert(ErrorMsg + "건을 재전송 처리하였습니다.");
+			}
+		}
+	}
+}
+
+
+this.div_list_btn_divResize_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	// trace(" strId : " + strId + " strVal : " + strVal);
+	if(strId == "POPUP_TRNREL_ODRPL"){
+		var valueArr = strVal.split(",");
+		this.div_search.edt_orpl_na_trpl_c.set_value(valueArr[0]);
+		this.div_search.edt_orpl_na_trpl_n.set_value(valueArr[1]);
+	}
+}
+
+
+/*-----------------------------------------------------------------------------------------*/
+// 페이징처리
+/*-----------------------------------------------------------------------------------------*/
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_dataM.clearData();     //Grid에 Binding된 Dataset명
+
+	this.ds_pageVO.addRow();
+
+	var vPageSize   = 30; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 1; 	//전체건수. 화면조회후 리턴받아 사용
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+
+	var argumentObj = "";
+
+	lsNowPage = vPageNum;//현재페이지 설정
+	this.fn_search();
+}
+
+this.div_list_onsize = function(obj:Div, e:nexacro.SizeEventInfo)
+{
+	/* 페이지 숫자 위치 설정*/
+
+	//trace("div_list_onsize");
+	var nLeft = (e.cx/2)-(this.div_list.div_page.width/2);
+	this.div_list.div_page.set_left(nLeft);
+}
+
+this.btn_popup05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {form_id:"VAN_DS_SC_0300"};
+	var sOption = "autosize=true,title=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("POPUP_TRNREL_ODRPL","POPUP::POPUP_TRNREL_ODRPL.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.div_list_grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(this.ds_dataM.getColumn(e.row, "ISRESEND") == "Y" && e.cell == 1) {
+
+		var SPYPL_NA_TRPL_C = this.ds_dataM.getColumn(e.row,"SPYPL_NA_TRPL_C");
+		var DVYAA_NA_TRPL_C = this.ds_dataM.getColumn(e.row,"DVYAA_NA_TRPL_C");
+		var NA_DVY_PLASH_SLPNO = this.ds_dataM.getColumn(e.row,"NA_DVY_PLASH_SLPNO");
+		var DVY_PLA_DT = this.ds_dataM.getColumn(e.row,"DVY_PLA_DT");
+
+		var param = " SPYPL_NA_TRPL_C="+SPYPL_NA_TRPL_C+
+					" DVYAA_NA_TRPL_C="+DVYAA_NA_TRPL_C+
+					" NA_DVY_PLASH_SLPNO="+NA_DVY_PLASH_SLPNO+
+					" DVY_PLA_DT="+DVY_PLA_DT;
+
+		// trace("##MASTER##PARAM##->"+param);
+
+		var sSvcID        = "reSendDeliveryNoticeOrder";//통신아이디
+		var sURL          = "svc::rest/scm/delivery/reSendDeliveryNoticeOrder";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+		return;
+	}
+	var spypl_na_trpl_c = this.ds_dataM.getColumn(e.row,"SPYPL_NA_TRPL_C");
+	var dvyaa_na_trpl_c = this.ds_dataM.getColumn(e.row,"DVYAA_NA_TRPL_C");
+	var na_dvy_plash_slpno = this.ds_dataM.getColumn(e.row,"NA_DVY_PLASH_SLPNO");
+	var dvy_pla_dt = this.ds_dataM.getColumn(e.row,"DVY_PLA_DT");
+	var ddly_yn = this.ds_dataM.getColumn(e.row,"DDLY_YN");
+	var cser_ctr_tpc = this.ds_dataM.getColumn(e.row,"CSER_CTR_TPC");
+
+	var oArg = {
+		Pspypl_na_trpl_c:spypl_na_trpl_c,
+		Pdvyaa_na_trpl_c:dvyaa_na_trpl_c,
+		Pna_dvy_plash_slpno:na_dvy_plash_slpno,
+		Pdvy_pla_dt:dvy_pla_dt,
+		Pddly_yn:ddly_yn,
+		Pcser_ctr_tpc:cser_ctr_tpc
+		};
+	// trace(oArg);
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","SCM.DELIVERY::VAN_DS_SC_0350_P01.xfdl",oArg,sOption,sPopupCallBack);
+
+}
+
+this.div_search_edt_orpl_na_trpl_c_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13'){
+		var trplO = this.gfn_nullToEmpty(this.div_search.edt_orpl_na_trpl_c.value);
+		if(this.gfn_length(trplO) < 6){
+			alert("발주처 코드["+trplO+"] 6자리 이상 입력해 주세요");
+			return false;
+		}
+
+		if(trplO.length == 6){
+			trplO = '8808983' + trplO;
+		}
+
+		var idx = "0";
+		var trplO = this.div_search.edt_orpl_na_trpl_c.value;
+		var trplC = this.getTrplCode();//권한사업장
+		var oArg = {form_id:"VAN_DS_SC_0350", trplC:trplC, idx:idx, auto:"1", trplO:trplO};
+		var sOption = "autosize=true,title=false";
+		var sPopupCallBack = "fn_popupAfter";
+		this.gfn_openPopup("POPUP_TRNREL_ODRPL","POPUP::POPUP_TRNREL_ODRPL.xfdl",oArg,sOption,sPopupCallBack);
+	}
+}
+
+this.div_search_edt_orpl_na_trpl_n_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == "13"){
+		var trplON = this.div_search.edt_orpl_na_trpl_n.value;
+		if(this.gfn_length(trplON) < 4){
+			alert("발주처명["+trplON+"] 3자리 이상 입력해 주세요");
+			return false;
+		}
+
+		var idx = "1";
+		var trplON = this.div_search.edt_orpl_na_trpl_n.value;
+		var trplC = this.getTrplCode();//권한사업장
+		var oArg = {form_id:"VAN_DS_SC_0350", trplC:trplC, idx:idx, auto:"1", trplON:trplON};
+		var sOption = "autosize=true,title=false";
+		var sPopupCallBack = "fn_popupAfter";
+		this.gfn_openPopup("POPUP_TRNREL_ODRPL","POPUP::POPUP_TRNREL_ODRPL.xfdl",oArg,sOption,sPopupCallBack);
+	}
+}
+
+this.btn_excel00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+
+	var dvy_pla_dt_fr = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_fr.value); //조회시작일
+	var dvy_pla_dt_to = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_to.value); //조회종료일
+	var odrpl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_orpl_na_trpl_c.value); //발주처
+	var res_code = this.gfn_nullToEmpty(this.div_search.cbo_res_code.value);//상태
+	var ddly_yn = this.gfn_nullToEmpty(this.div_search.rdo_ddly_yn.value);//배송상태
+
+	var param = "dvy_pla_dt_fr="+dvy_pla_dt_fr+
+					"&dvy_pla_dt_to="+dvy_pla_dt_to+
+					"&odrpl_na_trpl_c="+odrpl_na_trpl_c+
+					"&res_code="+res_code+
+					"&ddly_yn="+ddly_yn+
+					"&TRPL_C=" + trplC;
+
+	// trace("##MASTER##PARAM##->"+param);
+
+		//var strDownUrl = application.gv_server_url+"/rest/excel/scm/delivery/downloadExcelDeliveryResult?"+param;
+		excelDownHandler(application.gv_server_url+"rest/excel/scm/delivery/downloadExcelDeliveryResult?"+param, this);
+		//var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+	//	wbs_dw.set_url(strDownUrl);
+}
+
+this.btn_excel10_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+
+	var dvy_pla_dt_fr = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_fr.value); //조회시작일
+	var dvy_pla_dt_to = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_to.value); //조회종료일
+	var odrpl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_orpl_na_trpl_c.value); //발주처
+	var res_code = this.gfn_nullToEmpty(this.div_search.cbo_res_code.value);//상태
+	var ddly_yn = this.gfn_nullToEmpty(this.div_search.rdo_ddly_yn.value);//배송상태
+
+	var param = "dvy_pla_dt_fr="+dvy_pla_dt_fr+
+					"&dvy_pla_dt_to="+dvy_pla_dt_to+
+					"&odrpl_na_trpl_c="+odrpl_na_trpl_c+
+					"&res_code="+res_code+
+					"&ddly_yn="+ddly_yn+
+					"&TRPL_C=" + trplC;
+
+	// trace("##MASTER##PARAM##->"+param);
+
+		//var strDownUrl = application.gv_server_url+"/rest/excel/scm/delivery/downloadExcelDeliveryResult?"+param;
+		excelDownHandler(application.gv_server_url+"rest/excel/scm/delivery/downloadExcelDeliveryDetailResult?"+param, this);
+		//var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+	//	wbs_dw.set_url(strDownUrl);
+}
+
+this.fn_search_onclick = function (obj:Edit,e:nexacro.ClickEventInfo)
+{
+	if(e.keycode == "13"){
+		this.ds_dataM.clearData();
+		this.fn_search();
+	}
+}
+
+this.all_send_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var trplC = this.getTrplCode();
+	var dvy_pla_dt_fr = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_fr.value); //조회시작일
+	var dvy_pla_dt_to = this.gfn_nullToEmpty(this.div_search.cal_dvy_pla_dt_to.value); //조회종료일
+
+	var param = "dvy_pla_dt_fr="+dvy_pla_dt_fr+
+				" dvy_pla_dt_to="+dvy_pla_dt_to+
+				" TRPL_C=" + trplC;
+
+	var sSvcID        = "reSendAllDeliveryNoticeOrder";//통신아이디
+	var sURL          = "svc::rest/scm/delivery/reSendAllDeliveryNoticeOrder";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_van_ds_sc_0821" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="기간별 사업장별/상품별 - 상세" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="114" left="15" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="0" text="사업장코드/사업장명" cssclass="sta_WFSA_Label" left="15" top="10" width="167" height="21"/>
+              <Static id="sic_trplCN" taborder="1" left="154" top="10" width="444" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static09" taborder="102" text="15" visible="false" left="1" top="22" width="15" height="141" style="background:#dc143c5b;"/>
+        <Static id="Static13" taborder="100" text="10" visible="false" left="97" top="30" width="103" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="58" text="15" visible="false" left="788" top="0" height="699" style="background:#00ffffb5;" width="15"/>
+        <Static id="Static00" taborder="104" text="8" visible="false" left="733" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="106" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_excel" taborder="110" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21" onclick="btn_excel_onclick" visible="false"/>
+        <Static id="Static12" taborder="112" text="10" visible="false" left="135" top="62" width="103" height="10" style="background:#dc143c5b;"/>
+        <Div id="div_list" taborder="111" left="0" top="71" bottom="0" width="788" visible="true">
+          <Layouts>
+            <Layout width="978" height="503">
+              <Grid id="grd_master" taborder="38" binddataset="ds_dataM" useinputpanel="false" autofittype="col" oncellclick="fn_grid01_search" left="15" top="41" right="0" bottom="43" onheadclick="div_list_grd_master_onheadclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="117"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="187"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="상품코드"/>
+                      <Cell col="1" text="상품명"/>
+                      <Cell col="2" text="수량"/>
+                      <Cell col="3" text="점유율(%)"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:NA_WRS_C"/>
+                      <Cell col="1" style="align:left;" text="bind:WRSNM"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="bind:SL_QT" mask="###,##0"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:SHARE_SLAM"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell colspan="2" style="align:center;" text="합   계"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="expr:comp.parent.parent.ds_dataTotal.getColumn(0,'TOTAL_SL_QT')" mask="###,##0"/>
+                      <Cell col="3" displaytype="number" style="align:right;" mask="###,##0"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static06" taborder="39" text="40" visible="false" left="733" top="1" width="55" height="40" style="background:#dc143c5b;"/>
+              <Static id="Static00" taborder="40" text="30" visible="false" left="732" top="407" width="55" height="30" style="background:#dc143c5b;"/>
+              <Static id="Static02" taborder="58" text="17" visible="false" left="697" top="489" width="91" height="17" style="background:#dc143c5b;"/>
+              <Static id="Static03" taborder="59" text="10" visible="false" left="697" top="450" width="91" height="10" style="background:#dc143c5b;"/>
+              <Button id="btn_divResize" taborder="60" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" onclick="div_list_btn_divResize_onclick" width="62"/>
+              <Div id="div_page" taborder="62" url="common::pagingBTN.xfdl" bottom="0" width="338" style="align:center;background:#ffffffff;color:black;" visible="false" height="44" left="28.81%"/>
+              <Div id="div_dateInfo" taborder="63" top="20" right="5" width="200" height="20" style="align:right middle;" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <WebBrowser id="web_downExcel" left="608" top="11" width="59" height="18" taborder="115" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_dataM_onrowposchanged">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="SL_QT" type="string" size="32"/>
+          <Column id="TOT_SLAM" type="string" size="32"/>
+          <Column id="SHARE_SLAM" type="float" size="8"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dataTotal" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TOTAL_SL_QT" type="string" size="8"/>
+          <Column id="TOTAL_TOT_SLAM" type="string" size="8"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/*##################################################################################
+ 화면명	: 기간별 점포별/상품별 정보조회 - 상세 (판매정보)
+ 화면ID  	: VAN_DS_SC_0821
+ 작성자 	: hroh
+####################################################################################*/
+include "lib::comLib.xjs";
+
+
+var BZPL;
+var BZPLCN;
+var SRH_BY_DT_FR;
+var SRH_BY_DT_TO;
+var SRH_TRPL_C;
+/* Form Load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+	
+	//그리드 노데이터 표시
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+this.fn_afterFormload = function(){
+
+}
+
+/* Form Init*/
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{	
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.		
+}
+
+/*-----------------------------------------------------------------------------------------*/
+// 페이징처리
+/*-----------------------------------------------------------------------------------------*/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_dataM.clearData();     //Grid에 Binding된 Dataset명	
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = 10; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 1; 	//전체건수. 화면조회후 리턴받아 사용
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	lsNowPage = vPageNum;//현재페이지 설정 
+	
+	this.fn_search();
+ 
+}
+
+this.fn_search = function(){
+	///페이지 로딩후 실행부분
+	BZPLC = this.getOwnerFrame().BZPLC;//점포코드
+	BZPLCNM = this.getOwnerFrame().BZPLCNM;//점포명
+	SRH_BY_DT_FR = this.getOwnerFrame().SRH_BY_DT_FR;//검색시작일
+	SRH_BY_DT_TO = this.getOwnerFrame().SRH_BY_DT_TO;//검색종료일
+	SRH_TRPL_C = this.getOwnerFrame().SRH_TRPL_C;//거래처코드	
+		
+	this.div_search.sic_trplCN.set_text(BZPLC + " / " + BZPLCNM);
+
+	var params =  "BZPLC=" + BZPLC 
+				+ " BY_DT_FR=" + SRH_BY_DT_FR
+				+ " BY_DT_TO=" + SRH_BY_DT_TO
+				+ " TRPL_C=" + SRH_TRPL_C;
+			
+	trace(">>>>>>> params : " +  params);
+			
+	var sSvcID        = "retrieveSalesPeriodStoreSumDetailPgList";//통신아이디
+	var sURL          = "svc::/rest/pds/retrieveSalesPeriodStoreSumDetailPgList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+	var sOutDatasets  = "ds_dataM=ds_dataM ds_pageVO=ds_pageVO ds_dataTotal=ds_dataTotal";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}	
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+
+}
+
+/* Print */
+
+/* Excel */
+
+/* Event */
+
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveSalesPeriodStoreSumDetailPgList"){
+			var p_sum = 0;
+			if(this.ds_dataM.rowcount > 0){
+				var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");			
+
+				this.div_list.div_page.fn_pageSet(sTotal, sPagesize,"grd_master,div_page",lsNowPage);
+				
+				p_sum = 100;				
+				//합계대비의 합계  100으로 설정
+				this.div_list.grd_master.setCellProperty("Summ",2,"text",p_sum);
+				
+				//현재페이지							
+				var sCurrentPage = this.ds_pageVO.getColumn(0, "CURRENT_PAGE")
+				
+				//검색결과와 페이지
+				/*
+				this.div_list.sta_process.set_visible(true);
+				this.div_list.sta_process.set_text("검색결과 : " +sTotal+"건 페이지 : "+sCurrentPage+"/"+nexacro.round(sTotal/sPagesize));
+				*/
+				
+			}else{
+				
+				this.div_list.div_page.fn_pageSet(0, 0,"grd_master,div_page",lsNowPage);//페이징 설정				
+				
+				this.div_list.grd_master.setCellProperty("Summ",1,"text",0);
+				this.div_list.grd_master.setCellProperty("Summ",2,"text",0);
+				//this.div_list.grd_master.setCellProperty("Summ",3,"text",0);
+			}
+		}
+		var param = {
+			form: this,
+			table: 'TB_SA_TD_WRS_SPYPL',
+			div: this.div_list.div_dateInfo
+		};
+		this.getInfoTableDt(param);
+		
+		if(svcID == "downloadExcelSalesList"){
+			trace("===============downloadExcelSalesList");
+		}
+	}
+}
+
+
+this.div_list_btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/* 페이지 숫자 위치 설정*/
+this.div_list_onsize = function(obj:Div, e:nexacro.SizeEventInfo)
+{	
+	trace("div_list_onsize");
+	var nLeft = (e.cx/2)-(this.div_list.div_page.width/2);
+	this.div_list.div_page.set_left(nLeft);
+}
+
+
+this.div_list_btn_divResize_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	/*
+	this.gfn_exportExcel(this.div_list.grd_master,"SalesExcel");
+	*/
+	
+	BZPLC = this.getOwnerFrame().BZPLC;//점포코드
+	BZPLCNM = this.getOwnerFrame().BZPLCNM;//점포명
+	SRH_BY_DT_FR = this.getOwnerFrame().SRH_BY_DT_FR;//검색시작일
+	SRH_BY_DT_TO = this.getOwnerFrame().SRH_BY_DT_TO;//검색종료일
+	SRH_TRPL_C = this.getOwnerFrame().SRH_TRPL_C;//거래처코드
+		
+	//var title = '판매정보_'+this.titletext;
+	var title = '판매정보_사업장/상품별_상세';
+	title = title.replace(/ /gi, '');
+	var fileName = title + "_" + this.getDate() + ".xls";
+		
+	this.div_search.sic_trplCN.set_text(BZPLC + " / " + BZPLCNM);
+
+	var params =  "BZPLC=" + BZPLC 
+				+ "&BY_DT_FR=" + SRH_BY_DT_FR
+				+ "&BY_DT_TO=" + SRH_BY_DT_TO
+				+ "&TRPL_C=" + SRH_TRPL_C
+				+ "&fileName=" + fileName;
+			
+	trace(">>>>>>> params : " +  params);
+	
+	params = encodeURI(encodeURI(params));
+	
+	//this.web_downExcel.set_url(application.gv_server_url+"rest/excel/downloadExcelSalesPeriodStoreSumDetailPgList?"+params);
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelSalesPeriodStoreSumDetailPgList?"+params, this);
+
+}
+
+this.div_list_grd_master_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell != 3){ //정렬기능 적용할 컬럼 지정
+		this.gfn_gridSort(obj,e);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

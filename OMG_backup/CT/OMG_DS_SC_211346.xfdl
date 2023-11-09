@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211346" classname="pattern_01" left="0" top="0" width="788" height="538" titletext="특약서(마진율) 축산" scrollbars="none" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static164" taborder="704" text="특약서(마진율)" cssclass="sta_WF_Subtitle" left="0" top="0" width="467" height="21"/>
+        <Button id="Button09" taborder="705" text="계약서보기" left="711" top="0" width="77" height="21" onclick="Button09_onclick" visible="false"/>
+        <Static id="Static167" taborder="708" text="계약기간" cssclass="sta_WF_Label" left="0" top="27" height="29" right="86%"/>
+        <Static id="Static168" taborder="709" cssclass="sta_WF_Labelbg" left="14%" top="27" height="29" right="0"/>
+        <Static id="Static169" taborder="710" text="~" left="27.16%" top="31" height="21" right="71.57%"/>
+        <Calendar id="cal_vldPrdStDt" taborder="0" dateformat="yyyy-MM-dd" left="14.34%" top="31" height="21" onchanged="Cal_onchanged" right="72.97%"/>
+        <Calendar id="cal_vldPrdEdDt" taborder="1" dateformat="yyyy-MM-dd" top="31" height="21" onchanged="Cal_onchanged" left="28.43%" right="58.88%"/>
+        <Grid id="grd_sctrwNmlMrgnRt" taborder="3" binddataset="ds_sctrwNmlMrgnRt" useinputpanel="false" left="0" top="97" height="139" onheadclick="grd_nmlMrgnRt_onheadclick" autoenter="select" autofittype="col" right="0">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="132"/>
+                <Column size="135"/>
+                <Column size="135"/>
+                <Column size="135"/>
+                <Column size="135"/>
+                <Column size="130"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell>
+                  <Cell displaytype="checkbox" edittype="checkbox"/>
+                </Cell>
+                <Cell col="1">
+                  <Cell text="점포명"/>
+                </Cell>
+                <Cell col="2" text="정상마진율(%) 도매"/>
+                <Cell col="3" text="정상마진율(%) 소매"/>
+                <Cell col="4" text="행사마진율(%) 도매"/>
+                <Cell col="5" text="행사마진율(%) 소매"/>
+                <Cell col="6" text="비고"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM1"/>
+                <Cell col="2" displaytype="number" edittype="mask" text="bind:NML_MRGN_RT" mask="##"/>
+                <Cell col="3" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:NML_MRGN_RTM" mask="##"/>
+                <Cell col="4" displaytype="number" edittype="mask" text="bind:EVT_MRGN_RT" mask="##"/>
+                <Cell col="5" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:EVT_MRGN_RTM" mask="##"/>
+                <Cell col="6" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:RMK"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_nmlMrgnRt_add" taborder="2" text="행추가" top="71" width="53" height="21" onclick="btn_nmlMrgnRt_addRow_onclick" right="55"/>
+        <Button id="btn_nmlMrgnRt_del" taborder="715" text="행삭제" top="71" width="53" height="21" onclick="btn_nmlMrgnRt_delRow_onclick" right="0%"/>
+        <Static id="Static170" taborder="716" text="1. 정상마진율 및  행사마진율" left="0" top="73" width="218" height="21"/>
+        <Grid id="grd_sctrwCtrMrgnRt" taborder="5" binddataset="ds_sctrwCtrMrgnRt" useinputpanel="false" left="0" top="277" height="176" onheadclick="grd_ctrMrgnRt_onheadclick" autofittype="col" right="0" autoenter="select">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="169"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="34" band="head"/>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" rowspan="2" text="점포명"/>
+                <Cell col="2" colspan="5" text="할인판매 마진율"/>
+                <Cell col="7" rowspan="2" text="비고"/>
+                <Cell row="1" col="2" text="10% 할인"/>
+                <Cell row="1" col="3" text="20% 할인"/>
+                <Cell row="1" col="4" text="30% 할인"/>
+                <Cell row="1" col="5" text="40% 할인"/>
+                <Cell row="1" col="6" text="50% 할인"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" cssclass="Cellgrd_WF_AlignLeft" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM1"/>
+                <Cell col="2" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT10" mask="##"/>
+                <Cell col="3" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT20" mask="##"/>
+                <Cell col="4" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT30" mask="##"/>
+                <Cell col="5" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT40" mask="##"/>
+                <Cell col="6" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT50" mask="##"/>
+                <Cell col="7" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:RMK"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_ctrMrgnRt_add" taborder="4" text="행추가" top="251" width="53" height="21" onclick="btn_ctrMrgnRt_addRow_onclick" right="55"/>
+        <Button id="btn_ctrMrgnRt_del" taborder="719" text="행삭제" top="251" width="53" height="21" onclick="btn_ctrMrgnRt_delRow_onclick" right="0%"/>
+        <Static id="Static171" taborder="720" text="2. 계약담당자와 계약상대자 간 협의에 의하여 시행하는할인판매 행사 시 마진율" left="0" top="253" width="571" height="21"/>
+        <Static id="Static12" taborder="721" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <Static id="Static94" taborder="722" cssclass="sta_WF_Labelbg" left="13.83%" top="452" right="0%" height="80"/>
+        <Static id="Static93" taborder="723" text="특약사항" cssclass="sta_WF_Label" left="0" top="452" right="86.04%" height="80"/>
+        <TextArea id="txa_sctrSjt" taborder="724" wordwrap="char" ontextchanged="txatext_changed" left="14.34%" top="456" right="0.38%" height="72"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sctrwNmlMrgnRt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_sctrwNmlMrgnRt_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256" sumtext="특약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="일련번호"/>
+          <Column id="STORNM1" type="STRING" size="256" sumtext="점포명"/>
+          <Column id="NML_MRGN_RT" type="STRING" size="256" sumtext="정상마진율"/>
+          <Column id="EVT_MRGN_RT" type="STRING" size="256" sumtext="행사마진율"/>
+          <Column id="RMK" type="STRING" size="256" sumtext="비고"/>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="NML_MRGN_RTM" type="STRING" size="256"/>
+          <Column id="EVT_MRGN_RTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sctrwCtrMrgnRt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_sctrwCtrMrgnRt_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="일련번호"/>
+          <Column id="STORNM1" type="STRING" size="256" sumtext="점포명"/>
+          <Column id="DC_SEL_MRGN_RT10" type="STRING" size="256" sumtext="할인판매마진율 10"/>
+          <Column id="DC_SEL_MRGN_RT20" type="STRING" size="256" sumtext="할인판매마진율 20"/>
+          <Column id="DC_SEL_MRGN_RT30" type="STRING" size="256" sumtext="할인판매마진율 30"/>
+          <Column id="DC_SEL_MRGN_RT40" type="STRING" size="256" sumtext="할인판매마진율 40"/>
+          <Column id="DC_SEL_MRGN_RT50" type="STRING" size="256" sumtext="할인판매마진율 50"/>
+          <Column id="RMK" type="STRING" size="256" sumtext="비고"/>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm412" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sctrwDtl12" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256" sumtext="특약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="VLD_PRD_ST_DT" type="STRING" size="256" sumtext="유효기간 시작일자"/>
+          <Column id="VLD_PRD_ED_DT" type="STRING" size="256" sumtext="유효기간 종료일자"/>
+          <Column id="DSPC_PRD_ST_DT" type="STRING" size="256" sumtext="파견기간 시작일자"/>
+          <Column id="DSPC_PRD_ED_DT" type="STRING" size="256" sumtext="파견기간 종료일자"/>
+          <Column id="WRK_ST_HR" type="STRING" size="256" sumtext="근무시간 시작시간"/>
+          <Column id="WRK_ED_HR" type="STRING" size="256" sumtext="근무시간 종료시간"/>
+          <Column id="EVT_PRD_ST_DT" type="STRING" size="256" sumtext="행사기간 시작일자"/>
+          <Column id="EVT_PRD_ED_DT" type="STRING" size="256" sumtext="행사기간 종료일자"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="PY_NT" type="STRING" size="256"/>
+          <Column id="SEL_SSDY_RTO" type="STRING" size="256"/>
+          <Column id="WRS_SPYAM" type="STRING" size="256"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="SCTR_SJT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="cal_vldPrdStDt" propid="value" datasetid="ds_sctrwDtl01" columnid="VLD_PRD_ST_DT"/>
+      <BindItem id="item1" compid="cal_vldPrdEdDt" propid="value" datasetid="ds_sctrwDtl01" columnid="VLD_PRD_ED_DT"/>
+      <BindItem id="item4" compid="txa_sctrSjt" propid="value" datasetid="ds_sctrwDtl12" columnid="SCTR_SJT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+
+var fv_position = 0; //위치값
+var fv_chk = 0 ;  //데이터 체크 
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+  
+}
+// SCTRW_KD_C
+// 1.특약서(마진율) 
+// 2.특약서(판촉사원의 파견
+// 3.특약서(매장위치 및 면적
+// 4.특약서(매장의 철수 등)
+// 5.특약서(원산지 등)
+
+
+
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+   for(var i = 0 ; i < this.parent.ds_etcEltStylAmm.rowcount; i++){		
+
+		if(this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "412"){
+
+			this.ds_etcEltStylAmm412.copyRow(0, this.parent.ds_etcEltStylAmm ,i);   	
+		}
+	}		
+
+	for(var i = 0 ; i < this.parent.ds_sctrwDtl.rowcount; i++){		
+
+		if(this.parent.ds_sctrwDtl.getColumn(i, "SCTRW_KDC") =="412"){
+		
+			fv_position = i;
+			fv_chk = 1 ;
+			this.ds_sctrwDtl12.addRow();
+			this.ds_sctrwDtl12.copyRow(0, this.parent.ds_sctrwDtl ,fv_position);   	
+			
+		}
+	}
+
+
+	if (fv_chk == 0 ){
+	
+		var toDay = this.gfn_today("yyyyMMdd");
+		chkDay = this.gfn_addMonth(toDay, 1);
+
+		var nRow = this.parent.ds_sctrwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTRW_KDC" , "412") ;		
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "CHG_SQNO" ,this.parent.ds_register.getColumn(0 ,"CHG_SQNO" ) ) ;	
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "CTRW_STY_VER" , this.ds_etcEltStylAmm412.getColumn(0,"CTRW_STY_VER") ) ;		
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "VLD_PRD_ST_DT" , toDay) ;		
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "VLD_PRD_ED_DT" , chkDay ) ;		
+		this.ds_sctrwDtl12.addRow();
+		this.ds_sctrwDtl12.copyRow(0, this.parent.ds_sctrwDtl ,fv_position);   	
+			
+
+			
+	}
+	
+
+
+		if(this.parent.ds_sctrwNmlMrgnRt.rowcount  > 0){
+ 			this.ds_sctrwNmlMrgnRt.addRow();
+// 			this.parent.ds_sctrwNmlMrgnRt.setColumn(fv_position, "SCTRW_KDC" , "412") ;
+			this.ds_sctrwNmlMrgnRt.copyData(this.parent.ds_sctrwNmlMrgnRt);   
+
+		}else{
+			this.ds_sctrwNmlMrgnRt.addRow();
+			this.ds_sctrwNmlMrgnRt.setColumn(0, "SCTRW_KDC" , "412") ;
+			this.ds_sctrwNmlMrgnRt.setColumn(0, "CHG_SQNO" ,this.parent.ds_register.getColumn(0 ,"CHG_SQNO" ) ) ;	
+		}
+
+
+		if(this.parent.ds_sctrwCtrMrgnRt.rowcount  > 0){
+ 			this.ds_sctrwCtrMrgnRt.addRow();
+// 			this.parent.ds_sctrwCtrMrgnRt.setColumn(fv_position, "SCTRW_KDC" , "412") ;
+			this.ds_sctrwCtrMrgnRt.copyData(this.parent.ds_sctrwCtrMrgnRt);   
+		}else{
+			this.ds_sctrwCtrMrgnRt.addRow();
+			this.ds_sctrwCtrMrgnRt.setColumn(0, "SCTRW_KDC" , "412") ;
+			this.ds_sctrwCtrMrgnRt.setColumn(0, "CHG_SQNO" ,this.parent.ds_register.getColumn(0 ,"CHG_SQNO" ) ) ;	
+		}	
+		
+
+		
+
+}
+
+// 정상마진율 및  행사마진율 행추가
+this.btn_nmlMrgnRt_addRow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+// 
+// 	this.ds_sctrwCtrMrgnRt.addRow();
+// 	var nRow = this.ds_sctrwCtrMrgnRt.rowcount -1 ;
+// 	this.ds_sctrwCtrMrgnRt.setColumn(nRow, "SCTRW_KDC" , "412") ;
+// 	this.parent.ds_sctrwCtrMrgnRt.copyData(this.ds_sctrwCtrMrgnRt);   	
+// 	this.fn_sctrwCtrMrgnRt_update();
+
+
+	var nRow = 	this.ds_sctrwNmlMrgnRt.addRow();
+	this.ds_sctrwNmlMrgnRt.setColumn(nRow, "SCTRW_KDC" , "412") ;
+	this.ds_sctrwNmlMrgnRt.setColumn(nRow, "CHG_SQNO" , this.parent.ds_register.getColumn(0 ,"CHG_SQNO" ) ) ;	
+	this.parent.ds_sctrwNmlMrgnRt.copyData(this.ds_sctrwNmlMrgnRt);   	
+	this.fn_sctrwNmlMrgnRt_update();
+
+	
+	
+}
+// 정상마진율 및  행사마진율 행삭제
+this.btn_nmlMrgnRt_delRow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	for(var i = this.ds_sctrwNmlMrgnRt.rowcount ; i > -1; i--)
+	{
+		var nCheck = this.ds_sctrwNmlMrgnRt.getColumn(i, "ISCHECKED");
+		if (nCheck == 1) 
+		{
+			this.parent.ds_sctrwNmlMrgnRt.deleteRow(i);
+			this.ds_sctrwNmlMrgnRt.deleteRow(i);
+		}
+	}
+	
+}
+// 정상마진율 및  행사마진율 전체 세팅
+this.grd_nmlMrgnRt_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+
+
+
+this.ds_sctrwNmlMrgnRt_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	
+	
+	//obj.updateToDataset();
+	this.parent.ds_sctrwNmlMrgnRt.copyData(this.ds_sctrwNmlMrgnRt);
+	
+	this.fn_sctrwNmlMrgnRt_update();
+
+
+}
+
+
+
+
+// 2. 계약담당자와 계약상대자 간 협의에 의하여 시행하는할인판매 행사 시 마진율 행추가
+this.btn_ctrMrgnRt_addRow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var nRow = this.ds_sctrwCtrMrgnRt.addRow();
+	this.ds_sctrwCtrMrgnRt.setColumn(nRow, "SCTRW_KDC" , "412") ;
+	this.ds_sctrwCtrMrgnRt.setColumn(nRow, "CHG_SQNO" , this.parent.ds_register.getColumn(0 ,"CHG_SQNO" ) ) ;	
+	this.parent.ds_sctrwCtrMrgnRt.copyData(this.ds_sctrwCtrMrgnRt);   	
+	this.fn_sctrwCtrMrgnRt_update();
+	
+	
+}
+// 2. 계약담당자와 계약상대자 간 협의에 의하여 시행하는할인판매 행사 시 마진율 행삭제
+this.btn_ctrMrgnRt_delRow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	for(var i = this.parent.ds_sctrwCtrMrgnRt.rowcount ; i > -1; i--)
+	{
+		var nCheck = this.parent.ds_sctrwCtrMrgnRt.getColumn(i, "ISCHECKED");
+		if (nCheck == 1) 
+		{
+			this.parent.ds_sctrwCtrMrgnRt.deleteRow(i);
+			this.ds_sctrwCtrMrgnRt.deleteRow(i);
+		}
+	}
+	
+}
+// 2. 계약담당자와 계약상대자 간 협의에 의하여 시행하는할인판매 행사 시 마진율 전체 세팅
+this.grd_ctrMrgnRt_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+
+this.ds_sctrwCtrMrgnRt_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	//obj.updateToDataset();
+	this.parent.ds_sctrwCtrMrgnRt.copyData(this.ds_sctrwCtrMrgnRt);
+
+	this.fn_sctrwCtrMrgnRt_update();
+
+}
+
+
+
+
+
+this.Cal_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{	
+
+	obj.updateToDataset();
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "VLD_PRD_ED_DT" , this.gfn_isEmpty(this.cal_vldPrdEdDt.value)) ;
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "VLD_PRD_ST_DT" , this.gfn_isEmpty(this.cal_vldPrdStDt.value)) ;
+	
+}
+
+
+
+this.ds_sctrwNmlMrgnRt_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	this.parent.ds_sctrwNmlMrgnRt.copyData(this.ds_sctrwNmlMrgnRt);   	
+
+	this.fn_sctrwNmlMrgnRt_update();
+	
+}
+
+this.ds_sctrwCtrMrgnRt_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	this.parent.ds_sctrwCtrMrgnRt.copyData(this.ds_sctrwCtrMrgnRt);   	
+	
+	this.fn_sctrwCtrMrgnRt_update();
+}
+
+this.fn_sctrwNmlMrgnRt_update = function(){
+
+	for(var i = 0 ; i < this.ds_sctrwNmlMrgnRt.rowcount; i++){	
+			this.parent.ds_sctrwNmlMrgnRt.set_updatecontrol(false);
+			this.parent.ds_sctrwNmlMrgnRt.setRowType(i, this.ds_sctrwNmlMrgnRt.getRowType(i));
+			this.parent.ds_sctrwNmlMrgnRt.set_updatecontrol(true);
+		}
+	
+	if(this.ds_sctrwNmlMrgnRt.rowcount == 0){
+		for(var i = 0 ; i < this.parent.ds_sctrwNmlMrgnRt.rowcount; i++){	
+			this.parent.ds_sctrwNmlMrgnRt.set_updatecontrol(false);
+			this.parent.ds_sctrwNmlMrgnRt.setRowType(i, Dataset.ROWTYPE_DELETE);
+			this.parent.ds_sctrwNmlMrgnRt.set_updatecontrol(true);
+
+		}
+	}
+			
+}
+
+this.fn_sctrwCtrMrgnRt_update = function(){
+
+	for(var i = 0 ; i < this.ds_sctrwCtrMrgnRt.rowcount; i++){	
+		this.parent.ds_sctrwCtrMrgnRt.set_updatecontrol(false);
+		this.parent.ds_sctrwCtrMrgnRt.setRowType(i, this.ds_sctrwCtrMrgnRt.getRowType(i));
+		this.parent.ds_sctrwCtrMrgnRt.set_updatecontrol(true);
+	}	
+	
+	if(this.ds_sctrwCtrMrgnRt.rowcount == 0){
+		for(var i = 0 ; i < this.parent.ds_sctrwCtrMrgnRt.rowcount; i++){	
+			this.parent.ds_sctrwCtrMrgnRt.set_updatecontrol(false);
+			this.parent.ds_sctrwCtrMrgnRt.setRowType(i, Dataset.ROWTYPE_DELETE);
+			this.parent.ds_sctrwCtrMrgnRt.set_updatecontrol(true);
+
+		}
+	}
+}
+
+
+
+this.fn_validationCheck = function(){
+
+
+var strTitletext = "특약서(마진율)";
+
+
+	if(this.gfn_isNull(this.cal_vldPrdStDt.value)){
+		this.cal_vldPrdStDt.setFocus();
+		this.alert(strTitletext + " 파견기간 시작일자을 입력하세요.");
+		return false;
+	}
+
+
+ 	if(this.gfn_isNull(this.cal_vldPrdEdDt.value) ){
+		this.cal_vldPrdEdDt.setFocus();
+ 		this.alert(strTitletext + " 파견기간 종료일자를 입력하세요. ");
+ 		return false;
+ 	}else{
+
+		var nStart = this.cal_vldPrdStDt.value ;
+		var nEnd   = this.cal_vldPrdEdDt.value ;
+		
+		if(this.gfn_getDiffDay(nStart ,nEnd) < 0) {
+			this.alert(strTitletext + "파견기간 종료일자를 다시 입력하세요. ");
+			return false;
+	
+		}
+ 	
+ 	}
+
+	
+// 	var strChk = this.gfn_checkImportant(this.grd_sctrwNmlMrgnRt,"STORNM1,NML_MRGN_RT,EVT_MRGN_RT");
+// 	if( strChk == true){
+// 
+// 		var strChk1 = 	this.gfn_checkImportant(this.grd_sctrwCtrMrgnRt,"STORNM1,DC_SEL_MRGN_RT10,DC_SEL_MRGN_RT20,DC_SEL_MRGN_RT30,DC_SEL_MRGN_RT40,DC_SEL_MRGN_RT50");
+// 	
+// 		if( strChk1 ==  false){
+// 			return false;
+// 		}
+// 
+// 	}else{
+// 		return false;
+// 	}
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT" , this.txa_sctrSjt.value) ;         //특약사항
+	return true;
+}
+
+
+
+this.Button09_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_validationCheck();
+}
+
+this.txatext_changed = function(obj:TextArea, e:nexacro.TextChangedEventInfo)
+{
+	var text = this.txa_sctrSjt.value;
+	if(!this.gfn_isNull(text) ){
+		var lc = text.indexOf("^");
+		if(lc != -1 ){
+			alert('^는 사용하실 수 없습니다.');
+			text = nexacro.replaceAll(text,"^"," ");
+			this.txa_sctrSjt.set_value(text);
+		}
+ 	}
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT" , this.txa_sctrSjt.value) ;         //특약사항
+}
+
+]]></Script>
+  </Form>
+</FDL>

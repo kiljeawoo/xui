@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1512" classname="VAN_DS_SC_1550" left="0" top="0" width="803" height="490" titletext="상품정보통합관리 등록" onload="form_onload" name="VAN_DS_SC_1512">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="1" url="common::location.xfdl" text="Div01" left="0" top="0" height="21" width="323"/>
+        <Button id="btn_clear00" taborder="2" text="초기화" cssclass="btn_WF_CRUD" top="0" right="123" width="53" height="21" onclick="btn_clear00_onclick"/>
+        <Button id="btn_save00" taborder="3" text="저장" cssclass="btn_WF_CRUD" top="0" right="78" width="41" height="21" onclick="btn_save00_onclick" enable="false"/>
+        <Div id="div_search" taborder="7" left="0" top="29" right="15" height="117" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title00" taborder="110" text="File 명" cssclass="sta_WFSA_Label" left="15" top="10" width="67" height="21"/>
+              <Static id="sta_title03" taborder="116" text="처리결과내용" cssclass="sta_WFSA_Label" left="15" top="36" width="101" height="21"/>
+              <Edit id="edt_data00" taborder="131" left="127" top="11" width="233" height="21"/>
+              <TextArea id="txa_excel00" taborder="133" left="127" top="37" height="69" width="644" readonly="true" value="양식 다운로드 후 사용하시기 바랍니다."/>
+              <Static id="Static01" taborder="134" text="15" visible="false" left="771" top="-1" height="145" style="background:#dc143c5b;" width="15"/>
+              <FileUpload id="FileUpload00" taborder="135" multiselect="true" timeout="0" retry="0" async="true" index="0" onsuccess="FileUpload00_onsuccess" onerror="FileUpload00_onerror" onitemchanged="FileUpload00_onitemchanged" left="363" top="11" height="21" onload="FileUpload00_onload" width="72"/>
+              <Static id="Static12" taborder="136" text="10" visible="false" left="32.95%" top="106" right="53.94%" height="10" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_down01" taborder="8" text="양식 다운로드" cssclass="btn_WF_CRUD" top="0" right="259" width="89" height="21" onclick="btn_down01_onclick"/>
+        <Button id="btn_find_file00" taborder="9" onclick="div_search_btn_find_file00_onclick" cssclass="btn_WF_CRUD" top="0" height="21" text="업로드" width="77" right="179"/>
+        <Div id="div_list" taborder="10" text="Div00" left="0" top="145" right="15" bottom="30">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="0" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" right="45.94%" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_main00" taborder="1" useinputpanel="false" left="0" top="23" right="0" bottom="213" binddataset="ds_excel_bind" visible="false" titletext="신규상품요청 일괄등록">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="매입처코드"/>
+                      <Cell col="2" text="매입처명칭"/>
+                      <Cell col="3" text="판매상품코드"/>
+                      <Cell col="4" text="낱개(sku)상품코드"/>
+                      <Cell col="5" text="박스상품코드"/>
+                      <Cell col="6" text="물류상품코드"/>
+                      <Cell col="7" text="상품명"/>
+                      <Cell col="8" text="규격및모델"/>
+                      <Cell col="9" text="내품수량"/>
+                      <Cell col="10" text="박스당입수"/>
+                      <Cell col="11" text="단위"/>
+                      <Cell col="12" text="최소발주단위"/>
+                      <Cell col="13" text="과세여부"/>
+                      <Cell col="14" text="보관방식"/>
+                      <Cell col="15" text="유통기한(일)"/>
+                      <Cell col="16" text="완제품수입여부"/>
+                      <Cell col="17" text="배송구분"/>
+                      <Cell col="18" text="권장판매가"/>
+                      <Cell col="19" text="단위당단가(낱개기준) - 내용량" expandsize="13"/>
+                      <Cell col="20" text="단위당단가(낱개기준) - 표시기준단량"/>
+                      <Cell col="21" text="단위당단가(낱개기준) - 기준단위"/>
+                      <Cell col="22" text="담당MD명"/>
+                      <Cell col="23" text="업태구분"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:SPYPL_NA_TRPL_C"/>
+                      <Cell col="2" text="bind:SPYPL_NA_TRPL_NM"/>
+                      <Cell col="3" text="bind:NA_WRS_C"/>
+                      <Cell col="4" text="bind:STPL_NA_WRS_C"/>
+                      <Cell col="5" text="bind:BOX_WRS_C"/>
+                      <Cell col="6" text="bind:PHD_WRS_C"/>
+                      <Cell col="7" text="bind:WRSNM"/>
+                      <Cell col="8" text="bind:WRS_STDNM"/>
+                      <Cell col="9" text="bind:INPD_QT"/>
+                      <Cell col="10" text="bind:BOXPE_AQZ"/>
+                      <Cell col="11" text="bind:NA_WRS_UNT_C"/>
+                      <Cell col="12" text="bind:MIN_ODR_UNT_C"/>
+                      <Cell col="13" text="bind:TXT_DSC"/>
+                      <Cell col="14" text="bind:NA_WRS_CSTD_METC"/>
+                      <Cell col="15" text="bind:VLD_PRD_CN"/>
+                      <Cell col="16" text="bind:NA_WRS_IPO_DSC"/>
+                      <Cell col="17" text="bind:DVY_DSC"/>
+                      <Cell col="18" text="bind:SL_UPR"/>
+                      <Cell col="19" text="bind:UPR_01"/>
+                      <Cell col="20" text="bind:UPR_02"/>
+                      <Cell col="21" text="bind:UPR_03"/>
+                      <Cell col="22" text="bind:MD_NM"/>
+                      <Cell col="23" text="bind:BZTPNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="sta_boolChk00" taborder="2" text="0" left="8" top="16" height="21" width="42" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search00" taborder="11" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Grid id="grd_main00" taborder="12" binddataset="ds_trtwrs" useinputpanel="false" left="-1" top="187" right="1" bottom="30" visible="true">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="45"/>
+                <Column size="120"/>
+                <Column size="140"/>
+                <Column size="140"/>
+                <Column size="160"/>
+                <Column size="140"/>
+                <Column size="140"/>
+                <Column size="200"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="160"/>
+                <Column size="240"/>
+                <Column size="120"/>
+                <Column size="160"/>
+                <Column size="240"/>
+                <Column size="160"/>
+                <Column size="240"/>
+                <Column size="240"/>
+                <Column size="240"/>
+                <Column size="120"/>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="매입처코드(필수)"/>
+                <Cell col="2" text="매입처명칭(필수)"/>
+                <Cell col="3" text="판매상품코드(필수)"/>
+                <Cell col="4" text="낱개(sku)상품코드(필수)"/>
+                <Cell col="5" text="박스상품코드"/>
+                <Cell col="6" text="물류상품코드(14자리)"/>
+                <Cell col="7" text="판매상품명"/>
+                <Cell col="8" text="규격 및 모델"/>
+                <Cell col="9" text="내품수량"/>
+                <Cell col="10" text="박스당입수"/>
+                <Cell col="11" text="단위"/>
+                <Cell col="12" text="최소발주단위"/>
+                <Cell col="13" text="과세여부(면세/과세)"/>
+                <Cell col="14" text="보관방식(냉동/냉장/상온/실온)"/>
+                <Cell col="15" text="유통기한(일)"/>
+                <Cell col="16" text="완제품수입여부(여/부)"/>
+                <Cell col="17" text="배송구분(R1/R2/R1R2)"/>
+                <Cell col="18" text="권장판매가"/>
+                <Cell col="19" text="단위당단가(낱개기준) - 내용량"/>
+                <Cell col="20" text="단위당단가(낱개기준) - 표시기준단량"/>
+                <Cell col="21" text="단위당단가(낱개기준) - 기준단위"/>
+                <Cell col="22" text="담당MD명(필수)"/>
+                <Cell col="23" text="업태구분(소매/식자재)"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow + 1"/>
+                <Cell col="1" text="bind:SPYPL_NA_TRPL_C"/>
+                <Cell col="2" style="align:left;" text="bind:SPYPL_NA_TRPL_NM"/>
+                <Cell col="3" text="bind:NA_WRS_C"/>
+                <Cell col="4" text="bind:STPL_NA_WRS_C"/>
+                <Cell col="5" text="bind:BOX_WRS_C"/>
+                <Cell col="6" style="align: ;" text="bind:PHD_WRS_C"/>
+                <Cell col="7" style="align:left;" text="bind:WRSNM"/>
+                <Cell col="8" displaytype="normal" style="align: ;" text="bind:WRS_STDNM"/>
+                <Cell col="9" style="align:right;" text="bind:INPD_QT"/>
+                <Cell col="10" style="align:right;" text="bind:BOXPE_AQZ"/>
+                <Cell col="11" style="align: ;" text="bind:NA_WRS_UNT_C"/>
+                <Cell col="12" style="align: ;" text="bind:MIN_ODR_UNT_C"/>
+                <Cell col="13" text="bind:TXT_DSC"/>
+                <Cell col="14" style="align: ;" text="bind:NA_WRS_CSTD_METC"/>
+                <Cell col="15" style="align:right;" text="bind:VLD_PRD_CN"/>
+                <Cell col="16" text="bind:NA_WRS_IPO_DSC"/>
+                <Cell col="17" text="bind:DVY_DSC"/>
+                <Cell col="18" style="align:right;" text="bind:SL_UPR"/>
+                <Cell col="19" style="align:right;" text="bind:UPR_01"/>
+                <Cell col="20" style="align:right;" text="bind:UPR_02"/>
+                <Cell col="21" text="bind:UPR_03"/>
+                <Cell col="22" text="bind:MD_NM"/>
+                <Cell col="23" text="bind:BZTPNM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_sample" taborder="13" text="SAMPLE" onclick="btn_sample_onclick" cssclass="btn_WF_CRUD" top="0" right="351" width="65" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_file_inform" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BUYER_ENO" type="STRING" size="256"/>
+          <Column id="CTCPL_TELNO" type="STRING" size="256"/>
+          <Column id="RQ_CNTN" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_excel_bind" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ROW_SEQ" type="String" size="256"/>
+          <Column id="SPYPL_NA_TRPL_C" type="String" size="256"/>
+          <Column id="SPYPL_NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="STPL_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="BOX_WRS_C" type="STRING" size="256"/>
+          <Column id="PHD_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="INPD_QT" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+          <Column id="NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="MIN_ODR_UNT_C" type="STRING" size="256"/>
+          <Column id="TXT_DSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_CSTD_METC" type="STRING" size="256"/>
+          <Column id="VLD_PRD_CN" type="STRING" size="256"/>
+          <Column id="NA_WRS_IPO_DSC" type="STRING" size="256"/>
+          <Column id="DVY_DSC" type="STRING" size="256"/>
+          <Column id="SL_UPR" type="STRING" size="256"/>
+          <Column id="UPR_01" type="STRING" size="256"/>
+          <Column id="UPR_02" type="STRING" size="256"/>
+          <Column id="UPR_03" type="STRING" size="256"/>
+          <Column id="MD_NM" type="STRING" size="256"/>
+          <Column id="BZTPNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_excel_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ROW_NUMBER" type="STRING" size="256"/>
+          <Column id="COLUMN_NUMBER" type="STRING" size="256"/>
+          <Column id="MSG" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_trtwrs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SPYPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="STPL_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="BOX_WRS_C" type="STRING" size="256"/>
+          <Column id="PHD_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="INPD_QT" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+          <Column id="NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="MIN_ODR_UNT_C" type="STRING" size="256"/>
+          <Column id="TXT_DSC" type="STRING" size="256"/>
+          <Column id="NA_WRS_CSTD_METC" type="STRING" size="256"/>
+          <Column id="VLD_PRD_CN" type="STRING" size="256"/>
+          <Column id="NA_WRS_IPO_DSC" type="STRING" size="256"/>
+          <Column id="DVY_DSC" type="STRING" size="256"/>
+          <Column id="SL_UPR" type="STRING" size="256"/>
+          <Column id="UPR_01" type="STRING" size="256"/>
+          <Column id="UPR_02" type="STRING" size="256"/>
+          <Column id="UPR_03" type="STRING" size="256"/>
+          <Column id="MD_NM" type="STRING" size="256"/>
+          <Column id="BZTPNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_search.edt_data00" propid="value" datasetid="ds_uploadresult" columnid="ORGFNAME"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.btnDisable([this.btn_find_file00,this.btn_save00]);
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	var fileParam = {
+		form:this,		
+		param:[{//필요없는 프로퍼티는 주석처리
+				fileObj: this.div_search.FileUpload00,
+				maxSize:10,											//허용할 파일 사이즈(MB)
+				maxLength:1,										//허용할 파일갯수
+				ext:['xls','xlsx'],									//허용할 확장자명
+				cancel_after:function(obj){							//파일선택후, 취소버튼 눌렀을때 실행할 함수명 또는 함수
+					this.form.div_search.txa_excel00.set_value(""); //this대신 this.form으로 접근		
+				},
+				valid_after_fail: 'FileUpload00_onerror',  			//파일검사 실패후 호출할 함수명 또는 함수
+				upload_after_succ: 'FileUpload00_onsuccess',    	//파일 업로드 성공후 호출할 함수명 또는 함수
+				upload_after_fail: 'FileUpload00_onerror'  	    	//파일 업로드 실패후 호출할 함수명 또는 함수
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);
+	//this.div_auth.set_visible(false);
+	this.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+//UPLOAD
+this.FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+
+	if( e.datasets == null )
+	{
+		trace("업로드 실패");
+		this.div_search.txa_excel00.set_value("업로드 실패");
+	} else {
+		trace("업로드 성공");
+		this.div_search.txa_excel00.set_value("업로드 성공");
+		
+		this.ds_uploadresult.clear();
+		this.ds_uploadresult.copyData(e.datasets[0]);		
+		//this.ds_uploadresult.addColumn("CHK", "string"); //멀티건 인경우 'CHK'컬럼추가
+	}	
+}
+
+this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+
+this.div_search_btn_popup00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"U", dsArg:this.Dataset00};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","template::createAccount.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+//SINGLE DOWNLOAD
+this.btn_down01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelTempOdTrtwrsInfo", this);	
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+this.btn_clear00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//this.ds_uploadresult.clearData();
+	//this.ds_excel_bind.clearData();
+	//this.div_list.grd_main00.set_visible(false);
+	//this.div_search.txa_excel00.set_value("");
+	this.reload();
+}
+
+this.div_search_btn_find_file00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if (this.gfn_isEmpty(this.div_search.edt_data00.value) == ""){
+		this.alert("파일을 선택해 주세요");
+		return false;
+	}
+	var fileName	  = "dsName=ds_excel_bind"
+					  +" systemFileName="+this.ds_uploadresult.getColumn(0,"SYSTEMFILENAME");
+	var sSvcID        = "p_upload";//통신아이디
+	
+	var sURL          = "svc::rest/pds/pricat/uploadTempOdTrtwrsInfoFile";// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_excel_bind:A";//보내는데이터셋
+	var sOutDatasets  = "ds_excel_bind=ds_excel_bind";
+	var sArgument     = fileName;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.btn_save00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	//var params = " tempSeq=" + tempSeq;
+	var sSvcID        = "p_save";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/saveTempOdTrtwrsInfoFile";// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_excel_bind:A";//보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = ""// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);	
+}
+
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.search();
+}
+
+this.search = function()
+{
+
+	this.ds_trtwrs.clearData();     //Grid에 Binding된 Dataset명
+
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/selectTempOdTrtwrs";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_trtwrs=ds_tempOdTrtwrs";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출 
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+var tempSeq;
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	if(ErrorCode < 0)
+	{
+		//if(svcID=="p_upload" && ErrorMsg=="OVERROWCOUNT"){
+		//	this.alert("100건 이상 연계자료는 System부하관계로 처리할수 없으니 화일을 분리하여 회차단위로 연계처리하시기 바랍니다");
+		//	this.reload();
+		//}else{
+			if(ErrorCode == "-999"){
+				this.alert(ErrorMsg);
+			}else{
+				this.alert(ErrorMsg);
+				//this.gfn_getMessage("alert", ErrorMsg);
+			}
+			
+			return;
+		//}
+	}else{
+		if(svcID=="p_upload" && ErrorMsg=="SUCCESS"){
+			//this.div_list.grd_main00.set_visible(true);
+			var msg = "=========================결   과===================================" + String.fromCharCode(13) + String.fromCharCode(10);
+			/*
+			if(this.ds_excel_bind.rowcount > 0){
+				msg = msg + "[ 오류 건수 ] : " + this.ds_excel_result.rowcount  + " 건 삭제완료 저장버튼을 클릭하여 최종완료을 해주세요"+ String.fromCharCode(13) + String.fromCharCode(10);
+				this.btn_save00.set_enable(true);
+				this.btn_find_file00.set_enable(false);
+				//tempSeq = this.ds_temp_seq.getColumn(0, "TEMP_SEQ");
+			}else{
+				msg = msg + "[ 오류 건수 ] : " + this.ds_excel_result.rowcount  + " 건 삭제완료 "+ String.fromCharCode(13) + String.fromCharCode(10);
+			}
+			*/
+			
+			if(this.ds_excel_result.rowcount > 0){
+				for(var i = 0; i < this.ds_excel_result.rowcount; i++){
+					if(this.gfn_indexOf(this.ds_excel_result.getColumn(i, "MSG"), "enter") == -1){
+						msg = msg + this.ds_excel_result.getColumn(i, "MSG") + String.fromCharCode(13) + String.fromCharCode(10);
+					}else{					
+						var arrVal = String(this.ds_excel_result.getColumn(i, "MSG")).split("enter");
+						if (arrVal.length > 0){
+							msgContents = this._gfn_AddNewLine(arrVal);
+						}
+						msg = msg + msgContents  + String.fromCharCode(13) + String.fromCharCode(10);
+					}
+				}
+			}else{
+				this.btn_save00.set_enable(true);
+				msg = msg + " [ 총 건수 ] : " + this.ds_excel_bind.rowcount + " 건 저장버튼을 클릭하여 최종완료를 해주세요" + String.fromCharCode(13) + String.fromCharCode(10);
+				
+			}
+			msg = msg + "=================================================================" ;
+			this.div_search.txa_excel00.set_value(msg);
+		}
+		
+		
+		if(svcID=="p_save"){
+			this.alert(this.ds_excel_bind.rowcount + "건 정상적으로 업로드되었습니다.");
+			//this.reload();
+			this.search();
+		}
+		
+		if(svcID=="p_search"){
+			if(this.grd_main00.rowcount == 0){
+				this.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+		
+	}
+}
+
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.btn_sample_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var systemFileName ="trtwrs_sample.xlsx";
+	var fileName = "trtwrs_sample.xlsx"; //다운로드 할 파일 이름
+	
+	var strDownUrl = application.gv_server_url+"rest/common/fileDownload?systemFileName="+systemFileName+"&fileName="+fileName+"&isSampleFile=Y";
+	var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+	
+	wbs_dw.set_url(strDownUrl);
+}
+]]></Script>
+  </Form>
+</FDL>

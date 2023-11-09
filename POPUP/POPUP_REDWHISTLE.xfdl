@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="POPUP_REDWHISTLE" classname="OMG_DS_SC_3212" left="0" top="0" width="737" height="800" onload="OMG_DS_SC_9090_onload" titletext="부패방지신고센터" scrollbars="none">
+    <Layouts>
+      <Layout>
+        <Div id="div_wrap" taborder="47" left="0" top="0" right="0" height="750" scrollbars="autovert">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="ImageViewer00" taborder="0" stretch="fixaspectratio" left="0" top="0" width="737" height="1042" style="background:#ffffffff URL('theme://images/new/redwhistle.jpg') stretch;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_link" taborder="48" text="부패행위신고센터로 이동하기" cssclass="btn_INTRO_confirm" left="268" top="761" width="200" height="34" style="cursor:hand;" onclick="btn_link_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+this.OMG_DS_SC_9090_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.btn_link_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	window.open("https://www.redwhistle.org/report/reportNew.asp?organ=7862&RType=1");
+}
+]]></Script>
+  </Form>
+</FDL>

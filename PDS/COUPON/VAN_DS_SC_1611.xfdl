@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="803" height="558" titletext="할인쿠폰 상세 조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static51" taborder="11" text="쿠폰마스터 정보" cssclass="sta_WF_Subtitle" left="17" top="51" width="135" height="21"/>
+        <Static id="Static04" taborder="12" text="쿠폰종류" cssclass="sta_WF_Label" left="17" top="76" width="110" height="29"/>
+        <Static id="Static07" taborder="13" text="할인기간시작일" cssclass="sta_WF_Label" left="17" top="104" width="110" height="29"/>
+        <Static id="Static08" taborder="14" cssclass="sta_WF_Labelbg" left="126" top="76" right="17" height="29"/>
+        <Static id="Static11" taborder="15" cssclass="sta_WF_Labelbg" left="126" top="104" right="17" height="29"/>
+        <Static id="Static12" taborder="16" text="쿠폰명" cssclass="sta_WF_Label" left="17" top="132" width="110" height="29"/>
+        <Static id="Static24" taborder="17" text="주관업체" cssclass="sta_WF_Label" left="17" top="160" width="110" height="29"/>
+        <Static id="Static38" taborder="18" cssclass="sta_WF_Labelbg" left="126" top="132" right="17" height="29"/>
+        <Static id="Static40" taborder="19" cssclass="sta_WF_Labelbg" left="126" top="160" right="17" height="29"/>
+        <Static id="Static45" taborder="20" text="쿠폰매체" cssclass="sta_WF_Label" left="17" top="188" width="110" height="29"/>
+        <Static id="Static46" taborder="21" text="쿠폰적용매수" cssclass="sta_WF_Label" left="17" top="216" width="110" height="29"/>
+        <Static id="Static53" taborder="22" cssclass="sta_WF_Labelbg" left="126" top="188" right="17" height="29"/>
+        <Static id="Static54" taborder="23" cssclass="sta_WF_Labelbg" left="126" top="216" right="17" height="29"/>
+        <Static id="Static55" taborder="24" text="쿠폰할인유형" cssclass="sta_WF_Label" left="17" top="244" width="110" height="29"/>
+        <Static id="Static57" taborder="26" cssclass="sta_WF_Labelbg" left="126" top="244" right="17" height="29"/>
+        <Static id="Static59" taborder="36" text="쿠폰바코드" cssclass="sta_WF_Label" left="400" top="76" width="110" height="29"/>
+        <Static id="Static60" taborder="37" text="할인기간종료일" cssclass="sta_WF_Label" left="400" top="104" width="110" height="29"/>
+        <Static id="Static61" taborder="38" text="쿠폰회차" cssclass="sta_WF_Label" left="400" top="132" width="110" height="29"/>
+        <Static id="Static62" taborder="39" text="주관사업장" cssclass="sta_WF_Label" left="400" top="160" width="110" height="29"/>
+        <Static id="Static63" taborder="40" text="행사번호" cssclass="sta_WF_Label" left="400" top="188" width="110" height="29"/>
+        <Static id="Static64" taborder="41" text="쿠폰시행주체" cssclass="sta_WF_Label" left="400" top="216" width="110" height="29"/>
+        <Edit id="NA_CPN_C" taborder="51" left="513" top="80" width="264" height="21" readonly="true"/>
+        <Static id="Static00" taborder="70" text="17" visible="false" left="785" top="76" height="67" style="background:#dc143c5b;" width="17"/>
+        <Static id="Static03" taborder="71" text="15" visible="false" left="673" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="72" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="73" text="8" visible="false" left="710" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="74" text="할인쿠폰 상세조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="btn_close" taborder="75" cssclass="btn_WF_PopupClose" top="0" height="32" width="37" right="0" onclick="btn_close_onclick"/>
+        <Static id="Static10" taborder="76" text="할인 정보" cssclass="sta_WF_Subtitle" left="17" top="279" width="135" height="21"/>
+        <Static id="Static13" taborder="77" text="할인기준수량" cssclass="sta_WF_Label" left="17" top="304" width="110" height="29"/>
+        <Static id="Static14" taborder="78" text="할인액" cssclass="sta_WF_Label" left="17" top="332" width="110" height="29"/>
+        <Static id="Static15" taborder="79" cssclass="sta_WF_Labelbg" left="126" top="304" right="17" height="29"/>
+        <Static id="Static16" taborder="80" cssclass="sta_WF_Labelbg" left="126" top="332" right="17" height="29"/>
+        <Static id="Static28" taborder="98" text="할인기준금액" cssclass="sta_WF_Label" left="400" top="304" width="110" height="29"/>
+        <Static id="Static29" taborder="99" text="취급수수료" cssclass="sta_WF_Label" left="400" top="332" width="110" height="29"/>
+        <Grid id="grd_main00" taborder="112" binddataset="ds_coupon" useinputpanel="false" nodatatext="조회된 데이터가 없습니다." left="2" top="391" right="3" bottom="18" scrollbars="autoboth" oncellclick="grd_main00_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="45"/>
+                <Column size="130"/>
+                <Column size="200"/>
+                <Column size="150"/>
+                <Column size="65"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="상품코드"/>
+                <Cell col="2" text="상품명"/>
+                <Cell col="3" text="제조업체명"/>
+                <Cell col="4" text="등록경로"/>
+                <Cell col="5" text="등록일"/>
+                <Cell col="6" text="수정일"/>
+                <Cell col="7" text="최종수정 사업장"/>
+                <Cell col="8" text="최종 사용자"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:DC_NA_WRS_C"/>
+                <Cell col="2" text="bind:WRSNM"/>
+                <Cell col="3" text="bind:CLNTNM"/>
+                <Cell col="4" text="1"/>
+                <Cell col="5" text="bind:FSRG_DTM"/>
+                <Cell col="6" text="bind:LSCHG_DTM"/>
+                <Cell col="7" text="bind:LSCGMN_NA_BZPLC"/>
+                <Cell col="8" text="bind:LS_CMENO"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static17" taborder="113" text="쿠폰할인상품" cssclass="sta_WF_Subtitle" left="17" top="367" width="135" height="21"/>
+        <Edit id="DC_VLD_PRD_ST_DT" taborder="124" readonly="true" left="130" top="108" width="264" height="21"/>
+        <Edit id="CPN_WRSNM" taborder="125" readonly="true" left="130" top="136" width="264" height="21"/>
+        <Edit id="MNGT_NA_TRPL_C" taborder="126" readonly="true" left="130" top="164" width="110" height="21"/>
+        <Edit id="CPN_APL_PUC" taborder="128" readonly="true" left="130" top="220" width="264" height="21"/>
+        <Edit id="DC_VLD_PRD_ED_DT" taborder="130" readonly="true" left="513" top="108" width="264" height="21"/>
+        <Edit id="CPN_SC_NO" taborder="131" readonly="true" left="513" top="136" width="264" height="21"/>
+        <Edit id="Edit11" taborder="133" readonly="true" left="513" top="192" width="264" height="21"/>
+        <Edit id="DC_BAS_BUY_AM" taborder="136" readonly="true" left="513" top="308" width="264" height="21"/>
+        <Edit id="DC_BAS_QT" taborder="137" readonly="true" left="130" top="308" width="264" height="21"/>
+        <Edit id="DC_AM" taborder="138" readonly="true" left="130" top="337" width="264" height="21"/>
+        <Edit id="TRT_FEE" taborder="139" readonly="true" left="513" top="337" width="264" height="21"/>
+        <Edit id="CLNTNM" taborder="140" readonly="true" left="242" top="164" width="152" height="21"/>
+        <Edit id="MNGT_NA_BZPLC" taborder="141" readonly="true" left="513" top="164" width="111" height="21"/>
+        <Edit id="BZPLC_NM" taborder="142" readonly="true" left="626" top="164" width="150" height="21"/>
+        <Combo id="CPN_KDC" taborder="143" innerdataset="@ds_CPN_KDC" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="130" top="80" width="264" height="21" readonly="true"/>
+        <Combo id="CPN_MED_C" taborder="144" innerdataset="@ds_CPN_MED_C" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="130" top="192" width="262" height="21" readonly="true"/>
+        <Combo id="CPN_DC_TPC" taborder="145" readonly="true" innerdataset="@ds_CPN_DC_TPC" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="130" top="248" width="264" height="21"/>
+        <Combo id="CPN_EFOC_MBDC" taborder="146" readonly="true" innerdataset="@ds_CPN_EFOC_MBDC" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="513" top="220" width="264" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_coupon" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_coupon_onrowposchanged">
+        <ColumnInfo>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="NA_CPN_C" type="STRING" size="256"/>
+          <Column id="CPN_WRSNM" type="STRING" size="256"/>
+          <Column id="DC_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="CPN_SC_NO" type="STRING" size="256"/>
+          <Column id="CPN_KDC" type="STRING" size="256"/>
+          <Column id="CPN_MED_C" type="STRING" size="256"/>
+          <Column id="DC_VLD_PRD_ST_DT" type="STRING" size="256"/>
+          <Column id="DC_VLD_PRD_ED_DT" type="STRING" size="256"/>
+          <Column id="MNGT_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MNGT_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="CPN_EFOC_MBDC" type="STRING" size="256"/>
+          <Column id="CPN_DC_TPC" type="STRING" size="256"/>
+          <Column id="DC_BAS_QT" type="STRING" size="256"/>
+          <Column id="DC_BAS_BUY_AM" type="STRING" size="256"/>
+          <Column id="DC_AM" type="STRING" size="256"/>
+          <Column id="TRT_FEE" type="STRING" size="256"/>
+          <Column id="MFT_CONM" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LSCGMN_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CPN_KDC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CPN_MED_C" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CPN_EFOC_MBDC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CPN_DC_TPC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.grd_main00.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+	trace("P_MNGT_NA_TRPL_C : "+this.parent.P_MNGT_NA_TRPL_C);
+	trace("P_CPN_KDC : "+this.parent.P_CPN_KDC);
+	trace("P_NA_CPN_C : "+this.parent.P_NA_CPN_C);
+	var MNGT_NA_TRPL_C = this.parent.P_MNGT_NA_TRPL_C;
+	var CPN_KDC = this.parent.P_CPN_KDC;
+	var NA_CPN_C = this.parent.P_NA_CPN_C;
+	this.fn_getCouponDetailList(MNGT_NA_TRPL_C, CPN_KDC, NA_CPN_C);
+	
+	var param = [  
+		{code:"CPN_KDC", dsName:"ds_CPN_KDC", selecttype:"S"},
+		{code:"CPN_MED_C", dsName:"ds_CPN_MED_C", selecttype:"S"},
+		{code:"CPN_EFOC_MBDC", dsName:"ds_CPN_EFOC_MBDC", selecttype:""},
+		{code:"CPN_DC_TPC", dsName:"ds_CPN_DC_TPC", selecttype:""}
+		
+	];
+	this.gfn_setCommonCode(param);
+}
+
+this.fn_commonAfterOnload= function()
+{
+	this.div_search.CPN_KDC.set_index(0);
+	this.div_search.CPN_MED_C.set_index(0);
+}
+
+this.fn_getCouponDetailList = function(MNGT_NA_TRPL_C, CPN_KDC, NA_CPN_C){
+	this.ds_coupon.clearData();
+	var param = "MNGT_NA_TRPL_C="+MNGT_NA_TRPL_C
+				+" CPN_KDC="+CPN_KDC
+				+" NA_CPN_C="+NA_CPN_C;
+	var sSvcID        = "getCouponDetailList";//통신아이디
+	var sURL          = "svc::rest/pds/coupon/getCouponDetailList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_coupon=DATASET";
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0)
+	{
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		if(svcID == "getCouponDetailList"){										
+			if(this.ds_coupon.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}else{
+				var nRow = this.ds_coupon.findRowExpr("DC_NA_WRS_C == '"+this.parent.P_DC_NA_WRS_C+"' && CPN_SC_NO == '"+this.parent.P_CPN_SC_NO+"'");
+				this.fn_getCoupon(nRow);
+				this.ds_coupon.set_rowposition(nRow);
+			}			
+		}	
+	}	
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.fn_getCoupon = function(row){
+	this.CPN_KDC.set_value(this.ds_coupon.getColumn(row,"CPN_KDC"));
+	this.CPN_MED_C.set_value(this.ds_coupon.getColumn(row,"CPN_MED_C"));
+	this.DC_VLD_PRD_ST_DT.set_value(this.ds_coupon.getColumn(row,"DC_VLD_PRD_ST_DT"));
+	this.DC_VLD_PRD_ED_DT.set_value(this.ds_coupon.getColumn(row,"DC_VLD_PRD_ED_DT"));
+	this.CLNTNM.set_value(this.ds_coupon.getColumn(row,"CLNTNM"));
+	this.CPN_APL_PUC.set_value(this.ds_coupon.getColumn(row,"CPN_APL_PUC"));
+	
+	this.CPN_DC_TPC.set_value(this.ds_coupon.getColumn(row,"CPN_DC_TPC"));
+	this.CPN_EFOC_MBDC.set_value(this.ds_coupon.getColumn(row,"CPN_EFOC_MBDC"));
+	
+	this.CPN_SC_NO.set_value(this.ds_coupon.getColumn(row,"CPN_SC_NO"));
+	this.CPN_WRSNM.set_value(this.ds_coupon.getColumn(row,"CPN_WRSNM"));
+	this.DC_AM.set_value(this.ds_coupon.getColumn(row,"DC_AM"));
+	this.DC_BAS_BUY_AM.set_value(this.ds_coupon.getColumn(row,"DC_BAS_BUY_AM"));
+	this.DC_BAS_QT.set_value(this.ds_coupon.getColumn(row,"DC_BAS_QT"));
+	this.MNGT_NA_TRPL_C.set_value(this.ds_coupon.getColumn(row,"MNGT_NA_TRPL_C"));
+	this.NA_CPN_C.set_value(this.ds_coupon.getColumn(row,"NA_CPN_C"));
+	this.TRT_FEE.set_value(this.ds_coupon.getColumn(row,"TRT_FEE"));
+}
+
+this.grd_main00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.fn_getCoupon(e.row);
+}
+]]></Script>
+  </Form>
+</FDL>

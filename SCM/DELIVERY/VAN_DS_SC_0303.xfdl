@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="FRM_VAN_DS_SC_0303" classname="VAN_DS_SC_0180" left="0" top="0" width="803" height="490" titletext="배송예정서직인등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="397" height="21"/>
+        <Div id="div_list" taborder="6" text="Div02" left="0" top="71" right="15" scrollbars="none" bottom="0">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_main00" taborder="11" binddataset="ds_cif" useinputpanel="false" left="0" top="74" right="0" bottom="10" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="140"/>
+                      <Column size="240"/>
+                      <Column size="110"/>
+                      <Column size="127"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="본/지사 코드"/>
+                      <Cell col="2" text="본/지사 명"/>
+                      <Cell col="3" text="본/지사구분"/>
+                      <Cell col="4" text="직인파일등록여부"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:NA_TRPL_C"/>
+                      <Cell col="2" style="align:left;" text="bind:CLNTNM"/>
+                      <Cell col="3" text="bind:NA_MBCO_DSC" expr="expr:NA_MBCO_DSC=='1'?'본사(소)':'지사(소)'"/>
+                      <Cell col="4" text="bind:NA_TRPL_SEAL_FLNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="sta_title03" taborder="13" text="업체코드" cssclass="sta_WF_Label" left="0" top="9" width="112" height="29" style="font:9 Gulim;"/>
+              <Static id="sta_back_bar11" taborder="14" cssclass="sta_WF_Labelbg" left="109" top="9" right="0" height="29"/>
+              <FileUpload id="FileUpload00" taborder="12" multiselect="true" timeout="0" retry="0" async="true" index="0" left="368" top="13" width="328" height="21" onload="FileUpload00_onload"/>
+              <Static id="sta_title00" taborder="15" text="직인파일업로드" cssclass="sta_WF_Label" left="252" top="9" width="112" height="29" style="font:9 Gulim;"/>
+              <Edit id="edt_trpl_c" taborder="16" cssclass="WF_Essential" left="116" top="13" width="132" height="21" readonly="true"/>
+              <Button id="btn_f_cancel" taborder="17" text="취소" left="700" top="13" width="50" height="21" onclick="div_list_btn_f_cancel_onclick"/>
+              <Static id="Static00" taborder="18" text="본/지사 코드를 리스트에서 선택 후 업로드 저장 및 삭제 바랍니다." left="0" top="50" width="442" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_auth" taborder="7" url="common::AuthorityWorkplace.xfdl" top="0" right="153" height="21" width="431"/>
+        <Button id="btn_save" taborder="8" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Button id="btn_search00" taborder="9" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Button id="btn_delete" taborder="10" text="삭제" cssclass="btn_WF_CRUD" top="0" right="118" width="41" height="21" onclick="btn_delete_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_cif" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NUMBER" type="INT" size="7"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="NA_MBCO_DSC" type="INT" size="7"/>
+          <Column id="DEL_YN" type="STRING" size="1"/>
+          <Column id="TR_STOP_YN" type="STRING" size="1"/>
+          <Column id="TR_STOP_RSNC" type="STRING" size="2"/>
+          <Column id="TR_STOP_NM" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="50"/>
+          <Column id="NA_TRPL_SEAL_FLNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cif_mbco" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+
+	//그리드클릭 이벤트 등록
+	this.div_list.grd_main00.addEventHandler("oncellclick", this.grd_afterFnc, this);
+};
+
+//UPLOAD
+this.FileUpload00_onsuccess = function(obj:FileUpload, e:nexacro.FileUploadEventInfo)
+{
+	this.ds_uploadresult.clear();
+	this.ds_uploadresult.copyData(e.datasets[0]);
+	this.ds_uploadresult.addColumn("CHK", "string"); //멀티건 인경우 'CHK'컬럼추가
+	//trace("SystemFileName="+this.ds_uploadresult.getColumn(0, "SYSTEMFILENAME"));
+	var fileObj = this.div_list.FileUpload00;
+	fileObj.clearEventHandler("onitemchanged");
+	fileObj.clearEventHandler("onsuccess");
+	fileObj.clearEventHandler("onerror");
+	this.div_list.FileUpload00.deleteItem(0);
+	this.div_list.FileUpload00.appendItem();
+	this.div_list.edt_trpl_c.set_value('');
+	this.btn_search00_onclick();
+
+	//alert(fileObj._unique_id);
+	//$('#'+fileObj._unique_id).find('input').val('1');
+	//this.reload();
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 파일업로드 설정
+	var fileParam = {
+		form:this, 
+		param:[{
+				fileObj: this.div_list.FileUpload00, 
+				maxSize:3, 						//허용할 파일 사이즈(MB)
+				maxLength:1, 					//허용할 파일갯수
+				ext:['jpg', 'jpeg', 'png'], 		//허용할 확장자명
+				upload_after_succ: 'FileUpload_onsuccess'    	//파일 업로드 성공후 호출할 함수이름
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);
+
+	this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.div_auth.chk_all.set_visible(true);
+	this.btn_search00_onclick();
+}
+
+this.grd_afterFnc = function(obj, e)
+{
+	this.div_list.edt_trpl_c.set_value(this.ds_cif.getColumn(this.ds_cif.rowposition, "NA_TRPL_C"));
+}
+
+this.btn_search00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_cif.clearData();
+	var json = this.getParamJson(this.components);
+	json.TRPL_C = this.getTrplCode();
+	var params = this.getParamJsonToString(json);
+
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/company/Company/CompanyTypes";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_cif=ds_cif";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "p_search") {
+			if (application.gv_mbcoType != "1") {
+				this.ds_cif.filter("NA_TRPL_C == '" + application.gv_glnCode + "'");
+			}
+		} else if (svcID == "deleteImg") {
+			alert("정상적으로 삭제되었습니다.");
+			this.btn_search00_onclick();
+			return false;
+		}
+	}
+}
+
+this.btn_print00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.div_list.grd_main00.rowcount < 1) {
+		this.gfn_getMessage('alert', 'result.message.search.no.exist.data');
+		return;
+	}
+	var trpl_text = this.getTrplCodePrint();
+	var ozParam = {
+		sId: 'VAN_DS_SC_1420', 
+		sUrl: '/rest/oz/pds/company/Company/CompanyTypes', 
+		paramType: 'param', 
+		sParam: {
+			TRPL_C:this.getTrplCode(), 
+			TRPL_C_TEXT:trpl_text
+		}
+	};
+	this.ozViewer(ozParam);
+}
+
+this.btn_save_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.gfn_isNull(this.div_list.edt_trpl_c.value)) {
+		alert("업체를 선택해 주세요");
+		return false;
+	}
+	if (this.gfn_isNull(this.div_list.FileUpload00.value)) {
+		alert('직인파일을 선택해 주세요');
+		return false;
+	}
+
+	var fileParam = {
+		form:this, 													//*필수 - 폼
+		param:[{//필요없는 프로퍼티는 주석처리
+				doc_type : 'notice', 
+				na_trpl_c : this.div_list.edt_trpl_c.value, 
+				fileObj: this.div_list.FileUpload00, 							//*필수 - 파일컴포넌트
+				dataset: this.ds_uploadresult, 						//파일정보 데이터셋
+				maxSize:2, 											//허용할 파일 사이즈(MB)
+				maxLength:1, 										//허용할 파일갯수
+				ext:['jpg', 'jpeg', 'png', 'gif'], 						//허용할 확장자명
+				cancelBtn: this.div_list.btn_f_cancel, 						//취소버튼 컴포넌트
+				cancel_after:function() {							//취소버튼 눌렀을때 실행
+
+				}, 
+				//valid_after_fail: 'FileUpload00_onerror', 		//파일검사 실패후 호출할 함수명 또는 함수(업로드전)
+				upload_after_succ: 'FileUpload00_onsuccess'	      	//파일 업로드 성공후 호출할 함수명 또는 함수(업로드후)
+				//upload_after_fail: 'FileUpload00_onerror'  	   	//파일 업로드 실패후 호출할 함수명 또는 함수(업로드후)
+			}]
+	};
+
+	this.gfn_addEventFileUpload(fileParam);							//이벤트 등록
+	this.fileUploadExec(this.div_list.FileUpload00);
+}
+
+this.div_list_btn_f_cancel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var fileObj = this.div_list.FileUpload00;
+	fileObj.clearEventHandler("onitemchanged");
+	fileObj.clearEventHandler("onsuccess");
+	fileObj.clearEventHandler("onerror");
+	this.div_list.FileUpload00.deleteItem(0);
+	this.div_list.FileUpload00.appendItem();
+}
+
+this.btn_delete_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.gfn_isNull(this.div_list.edt_trpl_c.value)) {
+		alert("업체를 선택해 주세요");
+		return false;
+	}
+
+	if (this.ds_cif.getColumn(this.ds_cif.rowposition, "NA_TRPL_SEAL_FLNM") == "N") {
+		alert("직인파일이 등록되지 않았습니다.");
+		return false;
+	}
+
+	var chk = application.confirm("정말 삭제하겠습니까?");
+	if (chk) {
+		var params = "na_trpl_c=" + this.div_list.edt_trpl_c.value;
+		var sSvcID        = "deleteImg";//통신아이디
+		var sURL          = "svc::rest/common/deleteImg";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callback";//콜백
+		var tranType = "U"; // U:저장/삭제, S:조회
+
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}]]></Script>
+  </Form>
+</FDL>

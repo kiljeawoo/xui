@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_MG_TX_1061" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="매출합계표(정발행)" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="0" top="29" height="69" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Div id="div_month" taborder="42" left="118" top="36" width="221" height="21" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Div id="cal_monS" taborder="0" url="common::calendarMonth.xfdl" left="0" top="0" right="143" height="21" scrollbars="none"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div_quarter" taborder="41" left="118" top="36" width="221" height="21" style="align:left middle;background:#f6f6f6ff;" text="             년">
+                <Layouts>
+                  <Layout width="221" height="21">
+                    <Combo id="cbo_year" taborder="0" text="2011" left="0" top="0" width="71" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="2011" onitemchanged="Combo_onitemchanged">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">2011</Col>
+                            <Col id="datacolumn">2011 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2012</Col>
+                            <Col id="datacolumn">2012 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2013</Col>
+                            <Col id="datacolumn">2013 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2014</Col>
+                            <Col id="datacolumn">2014 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2015</Col>
+                            <Col id="datacolumn">2015 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2016</Col>
+                            <Col id="datacolumn">2016 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2017</Col>
+                            <Col id="datacolumn">2017 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2018</Col>
+                            <Col id="datacolumn">2018 년</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2019</Col>
+                            <Col id="datacolumn">2019 년</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                    <Combo id="cbo_quarter" taborder="1" text="1분기" left="73" top="0" width="67" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="1" onitemchanged="Combo_onitemchanged">
+                      <Dataset id="innerdataset">
+                        <ColumnInfo>
+                          <Column id="codecolumn" size="256"/>
+                          <Column id="datacolumn" size="256"/>
+                        </ColumnInfo>
+                        <Rows>
+                          <Row>
+                            <Col id="codecolumn">1</Col>
+                            <Col id="datacolumn">1분기</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">2</Col>
+                            <Col id="datacolumn">2분기</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">3</Col>
+                            <Col id="datacolumn">3분기</Col>
+                          </Row>
+                          <Row>
+                            <Col id="codecolumn">4</Col>
+                            <Col id="datacolumn">4분기</Col>
+                          </Row>
+                        </Rows>
+                      </Dataset>
+                    </Combo>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div_date" taborder="43" left="118" top="36" width="221" height="21" style="background:#f6f6f6ff;">
+                <Layouts>
+                  <Layout>
+                    <Calendar id="cal_start" taborder="0" value="20150504" dateformat="yyyy-MM-dd" onchanged="Calendar_onchanged" left="0" top="0" width="100" height="21"/>
+                    <Static id="st_char" taborder="1" text="~" left="104" top="0" width="12" height="21"/>
+                    <Calendar id="cal_end" taborder="2" value="20150716" dateformat="yyyy-MM-dd" onchanged="Calendar_onchanged" left="119" top="0" width="100" height="21"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="Static00" taborder="0" text="구분" left="15" top="10" width="91" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static06" taborder="15" text="거래기간" cssclass="sta_WFSA_Label" left="394" top="36" width="115" height="21"/>
+              <Static id="Static04" taborder="22" text="관리업체" cssclass="sta_WFSA_Label" left="394" top="10" width="115" height="21" visible="false"/>
+              <Static id="st_date" taborder="28" text="작성일(일자별)" cssclass="sta_WFSA_Label" left="15" top="36" width="103" height="21"/>
+              <Radio id="rdo_sort" taborder="36" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="118" top="10" width="227" height="21" onitemchanged="div_search_rdo_sort_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">일자별</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">월별</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">분기별</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="st_period" taborder="37" text="2015-05-04 ~ 2015-05-31" left="487" top="36" width="232" height="21"/>
+              <Edit id="edt_company" taborder="44" left="487" top="10" width="287" height="21" readonly="true" enable="false" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="47" text="Div01" left="0" top="0" height="21" right="563" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static05" taborder="58" text="15" visible="false" left="788" top="5" height="490" style="background:#00ffffb5;" width="15"/>
+        <Button id="btn_search" taborder="69" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="common_onclick"/>
+        <Div id="div_table" taborder="64" text="Div02" left="0" top="97" right="15" bottom="0">
+          <Layouts>
+            <Layout width="788" height="450">
+              <Grid id="Grid01" taborder="3" binddataset="ds_sum2" useinputpanel="false" autofittype="col" left="0" top="142" right="0" height="107">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="구분"/>
+                      <Cell col="1" text="매출처수"/>
+                      <Cell col="2" text="건수"/>
+                      <Cell col="3" text="공급가액"/>
+                      <Cell col="4" text="세액"/>
+                      <Cell col="5" text="합계금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="사업자등록증발행분"/>
+                      <Cell col="1" displaytype="number" style="align:right;" text="bind:COUNT_BUY_BZNO"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="bind:SUM_BUY_BZNO"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:SPRTT"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="bind:TXA_TT"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:TOT_AM"/>
+                      <Cell row="1" text="주민등록증발행분"/>
+                      <Cell row="1" col="1" displaytype="number" style="align:right;" text="bind:COUNT_BUY_BZNO2"/>
+                      <Cell row="1" col="2" displaytype="number" style="align:right;" text="bind:SUM_BUY_BZNO2"/>
+                      <Cell row="1" col="3" displaytype="number" style="align:right;" text="bind:SPRTT2"/>
+                      <Cell row="1" col="4" displaytype="number" style="align:right;" text="bind:TXA_TT2"/>
+                      <Cell row="1" col="5" displaytype="number" style="align:right;" text="bind:TOT_AM2"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="align:center;" text="소계"/>
+                      <Cell col="1" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(COUNT_BUY_BZNO)+nexacro.toNumber(COUNT_BUY_BZNO2)&quot;)"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(SUM_BUY_BZNO)+nexacro.toNumber(SUM_BUY_BZNO2)&quot;)"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(SPRTT)+nexacro.toNumber(SPRTT2)&quot;)"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(TXA_TT)+nexacro.toNumber(TXA_TT2)&quot;)"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(TOT_AM)+nexacro.toNumber(TOT_AM2)&quot;)"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="Grid02" taborder="4" binddataset="ds_sum" useinputpanel="false" left="0" top="42" height="59" autosizingtype="none" autofittype="col" right="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="구분"/>
+                      <Cell col="1" text="매출처수"/>
+                      <Cell col="2" text="건수"/>
+                      <Cell col="3" text="공급가액"/>
+                      <Cell col="4" text="세액"/>
+                      <Cell col="5" text="합계금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="합계"/>
+                      <Cell col="1" displaytype="number" style="align:right;" text="bind:COUNT_BUY_BZNO"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="bind:SUM_BUY_BZNO"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:SPRTT"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="bind:TXA_TT"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:TOT_AM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static47" taborder="10" text="매출세금계산서 총합계" cssclass="sta_WF_Subtitle" left="0" top="17" width="196" height="21"/>
+              <Static id="Static00" taborder="13" text="국세청 신고된 전자(세금)계산서 현황" cssclass="sta_WF_Subtitle" left="0" top="117" width="275" height="21"/>
+              <Static id="st_info" taborder="14" text="* 2015년 06월 26일까지 집계된 자료 입니다." cssclass="sta_WF_DescriptionE02" left="0" top="250" width="447" height="21" visible="true"/>
+              <Static id="Static02" taborder="15" text="( * 오늘 발행분과 국세청 신고문서는 다음날 합계표에 반영됩니다.)" cssclass="sta_WF_DescriptionE02" top="250" width="447" height="21" style="align:right middle;" right="0"/>
+              <Static id="Static03" taborder="16" text="국세청 미신고된 전자(세금)계산서 현황" cssclass="sta_WF_Subtitle" left="0" top="282" width="275" height="21"/>
+              <Button id="Button75" taborder="9" cssclass="btn_WFSA_SearchClose" left="361" top="0" height="12" right="361" onclick="div_table_btn_onclick"/>
+              <Grid id="Grid00" taborder="18" binddataset="ds_sum3" useinputpanel="false" autofittype="col" left="0" top="307" right="0" height="107">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="구분"/>
+                      <Cell col="1" text="매출처수"/>
+                      <Cell col="2" text="건수"/>
+                      <Cell col="3" text="공급가액"/>
+                      <Cell col="4" text="세액"/>
+                      <Cell col="5" text="합계금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="사업자등록증발행분"/>
+                      <Cell col="1" displaytype="number" style="align:right;" text="bind:COUNT_BUY_BZNO"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="bind:SUM_BUY_BZNO"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:SPRTT"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="bind:TXA_TT"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:TOT_AM"/>
+                      <Cell row="1" text="주민등록증발행분"/>
+                      <Cell row="1" col="1" displaytype="number" style="align:right;" text="bind:COUNT_BUY_BZNO2"/>
+                      <Cell row="1" col="2" displaytype="number" style="align:right;" text="bind:SUM_BUY_BZNO2"/>
+                      <Cell row="1" col="3" displaytype="number" style="align:right;" text="bind:SPRTT2"/>
+                      <Cell row="1" col="4" displaytype="number" style="align:right;" text="bind:TXA_TT2"/>
+                      <Cell row="1" col="5" displaytype="number" style="align:right;" text="bind:TOT_AM2"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="align:center;" text="소계"/>
+                      <Cell col="1" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(COUNT_BUY_BZNO)+nexacro.toNumber(COUNT_BUY_BZNO2)&quot;)"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(SUM_BUY_BZNO)+nexacro.toNumber(SUM_BUY_BZNO2)&quot;)"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(SPRTT)+nexacro.toNumber(SPRTT2)&quot;)"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(TXA_TT)+nexacro.toNumber(TXA_TT2)&quot;)"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="expr:dataset.getSum(&quot;nexacro.toNumber(TOT_AM)+nexacro.toNumber(TOT_AM2)&quot;)"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sum" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="COUNT_BUY_BZNO" type="string" size="32" prop=""/>
+          <Column id="SUM_BUY_BZNO" type="string" size="32" prop=""/>
+          <Column id="SPRTT" type="string" size="32" prop=""/>
+          <Column id="TXA_TT" type="string" size="32" prop=""/>
+          <Column id="TOT_AM" type="string" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sum2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sum3" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_condition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="START" type="STRING" size="256"/>
+          <Column id="END" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="RPBC_DSC" type="STRING" size="256"/>
+          <Column id="SPLR_BZNO" type="STRING" size="256"/>
+          <Column id="BUY_BZNO" type="STRING" size="256"/>
+          <Column id="OCU_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+	this.div_search.div_date.cal_start.set_value(this.gfn_firstDate(this.gfn_today("yyyyMMdd")));
+    this.div_search.div_date.cal_end.set_value(this.gfn_today("yyyyMMdd"));
+    this.div_search.div_month.cal_monS._setValue(this.gfn_today("yyyyMMdd").substr(0,6));
+    this.div_search.div_month.cal_monS.setFunctionName("fn_monthChanged");
+    this.fn_dayChanged();
+    this.div_search.div_quarter.cbo_year.set_value(this.gfn_today("yyyyMMdd").substr(0,4));
+    // this.ds_condition.setColumn(0,"SPLR_BZNO", "1148164826"); // 공급자사업자번호
+    this.ds_condition.setColumn(0,"RPBC_DSC", "1"); // 1:정발행, 2:역발행
+    this.ds_condition.setColumn(0,"OCU_DSC", "01"); // 01:경제통합, 02:하나로eSCM
+    this.div_search.edt_company.set_value(application.gv_companyName);
+	var today = this.gfn_today("yyyyMMdd");
+    this.div_table.st_info.set_text("* " + today.substr(0,4) + "년 " +  today.substr(4,2) + "월 " +  today.substr(6,2) + "일까지 집계된 자료입니다.");
+   
+    switch(this.gfn_today("yyyyMMdd").substr(4,2))
+    {
+		case "01": case "02": case "03":
+			this.div_search.div_quarter.cbo_quarter.set_value('1');
+			break;
+		case "04": case "05": case "06":
+			this.div_search.div_quarter.cbo_quarter.set_value('2');
+			break;
+		case "07": case "08": case "09":
+			this.div_search.div_quarter.cbo_quarter.set_value('3');
+			break;
+		case "10": case "11": case "12":
+			this.div_search.div_quarter.cbo_quarter.set_value('4');
+			break;
+    }
+    this.fn_retrieveByngsltttblAdmin();
+}
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload = function()
+{
+	trace("fn_commonAfterOnload");
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+this.fn_retrieveByngsltttblAdmin = function()
+{
+	var sSvcID        = "retrieveByngsltttbl";
+	var sURL          = "svc::rest/tx/retrieveByngsltttbl";
+	var sInDatasets   = "ds_condition=ds_condition";
+	var sOutDatasets  = "ds_sum=ds_sum ds_sum2=ds_sum2 ds_sum3=ds_sum3";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "retrieveByngsltttbl":
+				break;
+
+		}
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_search":
+			this.fn_retrieveByngsltttblAdmin();
+			break;
+	}
+}
+
+
+this.div_table_btn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_table);
+}
+
+this.div_search_rdo_sort_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{	
+	switch(e.postvalue)
+	{
+		case "1":
+			this.fn_dayChanged();
+			this.div_search.st_date.set_text("작성일(일자별)");
+			this.div_search.div_date.bringToFront();
+			break;
+		case "2":
+			this.fn_monthChanged();
+			this.div_search.st_date.set_text("작성일(월별)");
+			this.div_search.div_month.bringToFront();
+			break;
+		case "3":
+			this.fn_quarterChanged();
+			this.div_search.st_date.set_text("작성일(분기별)");
+			this.div_search.div_quarter.bringToFront();
+			break;
+	}
+}
+
+
+this.Calendar_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	this.fn_dayChanged();
+}
+
+this.Combo_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.fn_quarterChanged();
+}
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_monthChanged = function()
+{
+	var period = "";
+	var sDate = this.gfn_firstDate(this.div_search.div_month.cal_monS._getValue()+ "15");
+	var eDate = this.gfn_lastDate(this.div_search.div_month.cal_monS._getValue() + "15");
+	
+	period += sDate.substr(0,4) + "-" + sDate.substr(4,2) + "-" +  sDate.substr(6,2);
+	period += " ~ ";
+	period += eDate.substr(0,4) + "-" + eDate.substr(4,2) + "-" +  eDate.substr(6,2);
+	this.div_search.st_period.set_text(period);
+	
+	this.ds_condition.setColumn(0, "START", sDate);
+	this.ds_condition.setColumn(0, "END", eDate);
+}
+
+this.fn_dayChanged = function()
+{
+	var period = "";
+	var sDate = String(this.div_search.div_date.cal_start.value);
+	var eDate = String(this.div_search.div_date.cal_end.value);
+
+	period += sDate.substr(0,4) + "-" + sDate.substr(4,2) + "-" +  sDate.substr(6,2);
+	period += " ~ ";
+	period += eDate.substr(0,4) + "-" + eDate.substr(4,2) + "-" +  eDate.substr(6,2);
+	this.div_search.st_period.set_text(period);
+	
+	this.ds_condition.setColumn(0, "START", sDate);
+	this.ds_condition.setColumn(0, "END", eDate);
+}
+
+this.fn_quarterChanged = function()
+{
+	var period = this.div_search.div_quarter.cbo_year.value + "-";
+	var sDate = this.div_search.div_quarter.cbo_year.value;
+	var eDate = this.div_search.div_quarter.cbo_year.value;
+	
+	switch(this.div_search.div_quarter.cbo_quarter.value)
+	{
+		case "1":
+			period += "01-01 ~ " + this.div_search.div_quarter.cbo_year.value + "-03-31";
+			sDate += "0101";
+			eDate += "0331"
+			break;
+		case "2":
+			period += "04-01 ~ " + this.div_search.div_quarter.cbo_year.value + "-06-30";
+			sDate += "0401";
+			eDate += "0630"
+			break;
+		case "3":
+			period += "07-01 ~ " + this.div_search.div_quarter.cbo_year.value + "-09-31";
+			sDate += "0701";
+			eDate += "0931"
+			break;
+		case "4":
+			period += "10-01 ~ " + this.div_search.div_quarter.cbo_year.value + "-12-31";
+			sDate += "1001";
+			eDate += "1231"
+			break;
+	}
+	this.div_search.st_period.set_text(period);
+	
+	this.ds_condition.setColumn(0, "START", sDate);
+	this.ds_condition.setColumn(0, "END", eDate);
+}
+
+]]></Script>
+  </Form>
+</FDL>

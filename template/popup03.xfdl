@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="767" height="357" titletext="업무처리팝업" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Button id="Button65" taborder="6" text="확인" cssclass="btn_WF_Popup" left="640" top="311" width="54" height="29"/>
+        <Button id="Button00" taborder="7" text="취소" cssclass="btn_WF_Popup" left="696" top="311" width="54" height="29"/>
+        <Button id="Button07" taborder="8" text="초기화" cssclass="btn_WF_CRUD" top="47" right="99" width="53" height="21"/>
+        <Button id="Button06" taborder="9" text="엑셀" cssclass="btn_WF_CRUD" top="47" right="56" width="41" height="21"/>
+        <Button id="Button08" taborder="10" text="저장" cssclass="btn_WF_CRUD" top="47" right="13" width="41" height="21"/>
+        <Static id="Static51" taborder="11" text="추가정보" cssclass="sta_WF_Subtitle" left="17" top="51" width="135" height="21"/>
+        <Static id="Static04" taborder="12" text="공급처은행" cssclass="sta_WF_Label" left="17" top="76" width="110" height="29"/>
+        <Static id="Static07" taborder="13" text="계약유형" cssclass="sta_WF_Label" left="17" top="104" width="110" height="29"/>
+        <Static id="Static08" taborder="14" cssclass="sta_WF_Labelbg" left="126" top="76" right="17" height="29"/>
+        <Static id="Static11" taborder="15" cssclass="sta_WF_Labelbg" left="126" top="104" right="17" height="29"/>
+        <Static id="Static12" taborder="16" text="공급유형" cssclass="sta_WF_Label" left="17" top="132" width="110" height="29"/>
+        <Static id="Static24" taborder="17" text="결제기일기준" cssclass="sta_WF_Label" left="17" top="160" width="110" height="29"/>
+        <Static id="Static38" taborder="18" cssclass="sta_WF_Labelbg" left="126" top="132" right="17" height="29"/>
+        <Static id="Static40" taborder="19" cssclass="sta_WF_Labelbg" left="126" top="160" right="17" height="29"/>
+        <Static id="Static45" taborder="20" text="장려금률기준" cssclass="sta_WF_Label" left="17" top="188" width="110" height="29"/>
+        <Static id="Static46" taborder="21" text="발주금지사유" cssclass="sta_WF_Label" left="17" top="216" width="110" height="29"/>
+        <Static id="Static53" taborder="22" cssclass="sta_WF_Labelbg" left="126" top="188" right="17" height="29"/>
+        <Static id="Static54" taborder="23" cssclass="sta_WF_Labelbg" left="126" top="216" right="17" height="29"/>
+        <Static id="Static55" taborder="24" text="수주금지사유" cssclass="sta_WF_Label" left="17" top="244" width="110" height="29"/>
+        <Static id="Static56" taborder="25" text="최초등록일" cssclass="sta_WF_Label" left="17" top="272" width="110" height="29"/>
+        <Static id="Static57" taborder="26" cssclass="sta_WF_Labelbg" left="126" top="244" right="17" height="29"/>
+        <Static id="Static58" taborder="27" cssclass="sta_WF_Labelbg" left="126" top="272" right="17" height="29"/>
+        <Combo id="Combo03" taborder="28" text="[00] 미입력" enable="false" left="130" top="80" width="128" height="21"/>
+        <Combo id="Combo06" taborder="29" text="[4] 자체계약" enable="false" left="130" top="108" width="128" height="21"/>
+        <Combo id="Combo11" taborder="30" text="[01] 매취" left="130" top="136" width="128" height="21"/>
+        <Combo id="Combo12" taborder="31" text="[1] 율" enable="false" left="130" top="192" width="128" height="21"/>
+        <Combo id="Combo13" taborder="32" text="[1] 공급받는 자" enable="false" left="130" top="164" width="128" height="21"/>
+        <Combo id="Combo14" taborder="33" text="[00] 해당없음" enable="false" left="130" top="248" width="128" height="21"/>
+        <Combo id="Combo15" taborder="34" text="[00] 해당없음" enable="false" left="130" top="220" width="128" height="21"/>
+        <Calendar id="Calendar00" taborder="35" enable="false" left="130" top="276" width="128" height="21"/>
+        <Static id="Static59" taborder="36" text="계좌번호" cssclass="sta_WF_Label" left="261" top="76" width="110" height="29"/>
+        <Static id="Static60" taborder="37" text="계통탄력가격" cssclass="sta_WF_Label" left="261" top="104" width="110" height="29"/>
+        <Static id="Static61" taborder="38" text="리드타임" cssclass="sta_WF_Label" left="261" top="132" width="110" height="29"/>
+        <Static id="Static62" taborder="39" text="약정과목구분" cssclass="sta_WF_Label" left="261" top="160" width="110" height="29"/>
+        <Static id="Static63" taborder="40" text="장려금율(%)" cssclass="sta_WF_Label" left="261" top="188" width="110" height="29"/>
+        <Static id="Static64" taborder="41" text="발주금지일" cssclass="sta_WF_Label" left="261" top="216" width="110" height="29"/>
+        <Static id="Static65" taborder="42" text="수주금지일" cssclass="sta_WF_Label" left="261" top="244" width="110" height="29"/>
+        <Static id="Static66" taborder="43" text="최종변경일" cssclass="sta_WF_Label" left="261" top="272" width="110" height="29"/>
+        <Calendar id="Calendar01" taborder="44" enable="false" left="374" top="276" width="128" height="21"/>
+        <Calendar id="Calendar03" taborder="45" left="374" top="248" width="128" height="21"/>
+        <Calendar id="Calendar04" taborder="46" left="374" top="220" width="128" height="21"/>
+        <MaskEdit id="MaskEdit00" taborder="47" left="374" top="192" width="128" height="21"/>
+        <Combo id="Combo16" taborder="48" text="[930] 유통" enable="false" left="374" top="164" width="128" height="21"/>
+        <MaskEdit id="MaskEdit01" taborder="49" left="374" top="136" width="128" height="21"/>
+        <Combo id="Combo17" taborder="50" text="[] 미적용" left="374" top="108" width="128" height="21"/>
+        <Edit id="Edit00" taborder="51" left="374" top="80" width="128" height="21"/>
+        <Static id="Static67" taborder="52" text="예금주" cssclass="sta_WF_Label" left="505" top="76" width="110" height="29"/>
+        <Static id="Static68" taborder="53" text="매입단가수정" cssclass="sta_WF_Label" left="505" top="104" width="110" height="29"/>
+        <Static id="Static69" taborder="54" text="계약시작일" cssclass="sta_WF_Label" left="505" top="132" width="110" height="29"/>
+        <Static id="Static70" taborder="55" text="장려금지급시점" cssclass="sta_WF_Label" left="505" top="160" width="110" height="29"/>
+        <Static id="Static71" taborder="56" text="장려금기준금액" cssclass="sta_WF_Label" left="505" top="188" width="110" height="29"/>
+        <Static id="Static72" taborder="57" text="거래중지사유" cssclass="sta_WF_Label" left="505" top="216" width="110" height="29"/>
+        <Static id="Static73" taborder="58" text="계약해지사유" cssclass="sta_WF_Label" left="505" top="244" width="110" height="29"/>
+        <Static id="Static74" taborder="59" text="삭제일" cssclass="sta_WF_Label" left="505" top="272" width="110" height="29"/>
+        <Calendar id="Calendar05" taborder="60" enable="false" left="618" top="276" width="128" height="21"/>
+        <Combo id="Combo18" taborder="61" text="[00] 해당없음" enable="false" left="618" top="248" width="128" height="21"/>
+        <Combo id="Combo19" taborder="62" text="[00] 해당없음" enable="false" left="618" top="220" width="128" height="21"/>
+        <MaskEdit id="MaskEdit02" taborder="63" left="618" top="192" width="128" height="21"/>
+        <Combo id="Combo20" taborder="64" text="[00] 해당없음" left="618" top="164" width="128" height="21"/>
+        <Calendar id="Calendar06" taborder="65" cssclass="WF_Essential" left="618" top="136" width="128" height="21"/>
+        <Combo id="Combo22" taborder="66" text="[0] 미적용" left="618" top="108" width="128" height="21"/>
+        <Edit id="Edit09" taborder="67" enable="false" left="618" top="80" width="128" height="21"/>
+        <Static id="Static01" taborder="68" text="17" visible="false" left="674" top="340" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="69" text="10" visible="false" left="674" top="301" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="70" text="17" visible="false" left="750" top="76" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="71" text="15" visible="false" left="673" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="72" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="73" text="8" visible="false" left="674" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="74" text="팝업타이틀" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="Button01" taborder="75" cssclass="btn_WF_PopupClose" left="729" top="0" width="37" height="32"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="grd01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4642" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="공동인증서발급신청" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="12" onclick="Static01_onclick" cssclass="sta_WF_Menulist" left="11" top="54" height="1" width="777"/>
+        <Static id="Static07" taborder="13" text="공동인증서 발급신청" left="11" top="23" height="26" style="font:12 맑은 고딕;" width="777"/>
+        <Static id="Static09" taborder="14" text="발급안내" cssclass="sta_WF_Subtitle" left="11" top="72" height="21" style="bordertype:normal 0 0 ;" width="777"/>
+        <Static id="TextArea02" taborder="15" text="저희 농협하나로유통에서는 공인인증기관과 협력하여 고객사 여러분께 전자거래에 사용하실 수 있는 인증서를 발급해 드리고 있습니다. 아래 공동인증서 발급업체 배너를 클릭하여 안내된 절차에 따라 공동인증서를 발급받으시길 바랍니다." wordwrap="char" left="11" top="98" height="36" style="border:1 none #bfbfbfff ;font:9 굴림;" readonly="true" width="777"/>
+        <ImageViewer id="ImageViewer00" taborder="22" stretch="fixaspectratio" left="213" top="248" height="50" style="background:#ffffffff;border:1 solid #bfbfbfff ;padding:10 10 10 20;" onclick="ImageViewer00_onclick" imagealign="center middle" image="URL('theme://images\cert_link1.png')" onmouseenter="ImageViewer00_onmouseenter" width="360"/>
+        <Static id="Static11" taborder="31" text="기관명" wordwrap="char" cssclass="sta_WF_Label" left="33" top="171" height="29" style="align:center middle;font:bold 9 arial;" width="181"/>
+        <Static id="Static12" taborder="32" text="KOSCOM" wordwrap="char" cssclass="sta_WF_Labelbg" left="33" top="248" height="50" style="align:center middle;" width="181"/>
+        <Static id="Static13" taborder="33" text="사이트 연결 (아래 배너 클릭)" wordwrap="char" cssclass="sta_WF_Label" left="213" top="171" height="29" style="align:center middle;font:bold 9 arial;" width="360"/>
+        <Static id="Static15" taborder="35" text="한국정보인증" wordwrap="char" cssclass="sta_WF_Labelbg" left="33" top="199" height="50" style="align:center middle;" width="181"/>
+        <Static id="Static17" taborder="37" text="한국전자인증" wordwrap="char" cssclass="sta_WF_Labelbg" left="33" top="297" height="50" style="align:center middle;" width="181"/>
+        <ImageViewer id="ImageViewer01" taborder="39" stretch="fixaspectratio" onclick="ImageViewer01_onclick" left="213" top="199" height="50" style="background:#ffffffff;border:1 solid #bfbfbfff ;padding:5 70 10 90;" image="URL('theme://images\cert_link2.png')" onmouseenter="ImageViewer01_onmouseenter" width="360" imagealign="center middle"/>
+        <ImageViewer id="ImageViewer02" taborder="40" stretch="fixaspectratio" onclick="ImageViewer02_onclick" left="213" top="297" height="50" style="background:#ffffffff;border:1 solid #bfbfbfff ;" image="URL('theme://images\cert_link3.png')" onmouseenter="ImageViewer02_onmouseenter" width="360"/>
+        <Static id="Static33" taborder="41" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static19" taborder="42" text="고객센터" wordwrap="char" cssclass="sta_WF_Label" left="572" top="171" width="181" height="29" style="align:center middle;font:bold 9 arial;"/>
+        <Static id="Static20" taborder="43" text="1577-7337" wordwrap="char" cssclass="sta_WF_Labelbg" left="572" top="248" width="181" height="50" style="align:center middle;"/>
+        <Static id="Static21" taborder="44" text="1577-8787" wordwrap="char" cssclass="sta_WF_Labelbg" left="572" top="199" width="181" height="50" style="align:center middle;"/>
+        <Static id="Static22" taborder="45" text="1566-0566" wordwrap="char" cssclass="sta_WF_Labelbg" left="572" top="297" width="181" height="50" style="align:center middle;"/>
+        <Static id="TextArea09" taborder="46" text="※ 범용공동인증서 발급처" wordwrap="char" left="11" top="144" height="18" style="border:1 none #bfbfbfff ;color:red;align:left middle;font:bold 9 Gulim;" readonly="true" width="777"/>
+        <Static id="TextArea00" taborder="47" text="※ 특수목적용(농협용)공동인증서 발급처 =&gt; 사이트 연결 후 사업자용도제한용 배너 클릭" wordwrap="char" left="11" top="365" height="18" style="border:1 none #bfbfbfff ;color:red;align:left middle;font:bold 9 Gulim;" readonly="true" width="777"/>
+        <Static id="Static00" taborder="48" text="기관명" wordwrap="char" cssclass="sta_WF_Label" left="33" top="394" height="29" style="align:center middle;font:bold 9 arial;" width="181"/>
+        <Static id="Static01" taborder="49" text="사이트 연결 (아래 배너 클릭)" wordwrap="char" cssclass="sta_WF_Label" left="213" top="394" height="29" style="align:center middle;font:bold 9 arial;" width="360"/>
+        <Static id="Static02" taborder="50" text="고객센터" wordwrap="char" cssclass="sta_WF_Label" left="571" top="394" height="29" style="align:center middle;font:bold 9 arial;" width="181"/>
+        <Static id="Static03" taborder="51" text="한국정보인증" wordwrap="char" cssclass="sta_WF_Labelbg" left="33" top="422" height="50" style="align:center middle;" width="181"/>
+        <ImageViewer id="ImageViewer03" taborder="52" image="URL('theme://images\cert_link2.png')" stretch="fixaspectratio" onclick="ImageViewer03_onclick" left="213" top="422" height="50" style="background:#ffffffff;border:1 solid #bfbfbfff ;padding:5 70 10 90;" onmouseenter="ImageViewer03_onmouseenter" width="360"/>
+        <Static id="Static04" taborder="53" text="1577-8787" wordwrap="char" cssclass="sta_WF_Labelbg" left="571" top="422" height="50" style="align:center middle;" width="181"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.ImageViewer00_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://www.signkorea.com/service/eSCM.htm");
+}
+this.ImageViewer00_onmouseenter = function(obj:ImageViewer, e:nexacro.MouseEventInfo)
+{
+	this.ImageViewer00.style.set_cursor("hand");
+}
+
+this.ImageViewer01_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://hanaroescm.signra.com");
+}
+this.ImageViewer01_onmouseenter = function(obj:ImageViewer, e:nexacro.MouseEventInfo)
+{
+	this.ImageViewer01.style.set_cursor("hand");
+}
+
+this.ImageViewer02_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("https://raadmin.crosscert.com/customer/nhescm/index.html");
+}
+this.ImageViewer02_onmouseenter = function(obj:ImageViewer, e:nexacro.MouseEventInfo)
+{
+	this.ImageViewer02.style.set_cursor("hand");
+}
+
+this.ImageViewer03_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://hanaroescm.signra.com");
+}
+this.ImageViewer03_onmouseenter = function(obj:ImageViewer, e:nexacro.MouseEventInfo)
+{
+	this.ImageViewer03.style.set_cursor("hand");
+}
+
+
+this.Static18_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://www.crosscert.com/glca/01_4_01.jsp")
+}
+
+this.Static16_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("https://www.signgate.com/paperspresentninstt/formPapersPresentnInstt.sg")
+	
+}
+
+this.Static16_onmouseenter = function(obj:Static, e:nexacro.MouseEventInfo)
+{
+	this.Static16.style.set_color("blue");
+	this.Static16.style.set_cursor("hand");
+}
+
+this.Static16_onmouseleave = function(obj:Static, e:nexacro.MouseEventInfo)
+{
+	this.Static16.style.set_color("black");
+}
+
+this.Static18_onmouseenter = function(obj:Static, e:nexacro.MouseEventInfo)
+{
+	this.Static18.style.set_color("blue");
+	this.Static18.style.set_cursor("hand");
+}
+
+this.Static18_onmouseleave = function(obj:Static, e:nexacro.MouseEventInfo)
+{
+	this.Static18.style.set_color("black");
+}
+this.Static01_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

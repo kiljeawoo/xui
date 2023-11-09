@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="test" classname="test" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" left="60.55%" top="56" right="33.2%" height="21" onclick="Button00_onclick" text="Export"/>
+        <Grid id="Grid00" taborder="1" useinputpanel="false" left="4.2%" top="90" right="10.94%" height="215" binddataset="Dataset00" autofittype="col" autoenter="select">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="홍길동"/>
+                <Cell col="2" text="정우성"/>
+                <Cell col="3" text="장동건"/>
+                <Cell col="4" text="수지"/>
+                <Cell col="5" text="초아"/>
+                <Cell col="6" text="Column6"/>
+                <Cell col="7" text="Column7"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:Column0"/>
+                <Cell col="1" edittype="normal" text="bind:Column1"/>
+                <Cell col="2" edittype="normal" text="bind:Column2"/>
+                <Cell col="3" edittype="normal" text="bind:Column3"/>
+                <Cell col="4" edittype="normal" text="bind:Column4"/>
+                <Cell col="5" edittype="normal" text="bind:Column5"/>
+                <Cell col="6" text="bind:Column6"/>
+                <Cell col="7" text="bind:Column7"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="2" text="Import" onclick="Button01_onclick" left="82.62%" top="352" right="11.13%" height="21"/>
+        <Grid id="Grid01" taborder="3" useinputpanel="false" left="4.2%" top="390" right="11.04%" height="180" binddataset="Dataset01">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+                <Cell col="4" text="Column4"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+                <Cell col="4" text="bind:Column4"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="4" text="Export(동일Sheet)" onclick="Button02_onclick" left="67.38%" top="56" right="21.39%" height="21"/>
+        <Button id="Button03" taborder="5" text="Export(sheet별)" onclick="Button03_onclick" left="79.2%" top="56" right="10.94%" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1"/>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4"/>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">3</Col>
+            <Col id="Column3">4</Col>
+            <Col id="Column4">5</Col>
+            <Col id="Column5">6</Col>
+            <Col id="Column6">7</Col>
+            <Col id="Column7">8</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+//단일Grid
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//gfn_exportExcel(Export할 Grid, 생성될 Excel파일명)
+	//파일명은 뒤에 "_년월일분초" 추가됨 (런쳐실행시만)
+	this.gfn_exportExcel(this.Grid00,"TEST");
+}
+
+/*
+Export(동일Sheet): 두개의 Grid  동일Sheet에 export. 
+단, Grid 둘중 하나는 row가 하나여야 한다.
+그 하나의 Row용도는 조회조건이나 Form의 정보를 같이 export하고 싶을때 사용.
+*/
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//gfn_exportExcel(Export할 Grid, 생성될 Excel파일명, 정보표시용 Grid(한줄짜리))
+	//파일명은 뒤에 "_년월일분초" 추가됨 (런쳐실행시만)
+	this.gfn_exportExcel(this.Grid00, "test", this.Grid01 ); 
+}
+
+//Export(sheet별): Grid 여러개를 Sheet별로 export
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//gfn_exportExcel(Export할 Grid들, 생성될 Excel파일명)
+	//파일명은 뒤에 "_년월일분초" 추가됨 (런쳐실행시만)
+	var arrGrid = [this.Grid00, this.Grid01];
+	this.gfn_exportExcel(arrGrid, "test" ); 
+}
+
+//Import
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_importExcel(this.Grid01);
+}
+
+
+
+]]></Script>
+  </Form>
+</FDL>

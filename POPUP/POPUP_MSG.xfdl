@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="POPUP_MSG" classname="popup01" left="0" top="0" width="450" height="200" titletext="하나로 eSCM" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_cancel" taborder="10" text="아니오" onclick="btn_close_onclick" cssclass="btn_WF_Popup" width="80" height="29" bottom="40" right="140"/>
+        <Button id="btn_ok" taborder="11" text="예" cssclass="btn_WF_Popup" left="140" width="80" height="29" onclick="btn_ok_onclick" bottom="40"/>
+        <CheckBox id="chk" taborder="12" text="다시 보지 않기" value="0" truevalue="1" falsevalue="0" onchanged="div_chk_onchanged" right="10" bottom="10" width="105" height="17"/>
+        <Static id="sta_popup_content" taborder="13" left="20" right="20" wordwrap="char" bottom="80" top="15" style="background:#fefefeff;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NAAC_DSC_N" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="BZPL_TPC" type="STRING" size="256"/>
+          <Column id="BZPL_DTI_TPC_N" type="STRING" size="256"/>
+          <Column id="BZPL_TPNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="NA_RGN_C" type="STRING" size="256"/>
+          <Column id="RGN_CNM" type="STRING" size="256"/>
+          <Column id="TEL" type="STRING" size="256"/>
+          <Column id="NA_BZ_TPC" type="STRING" size="256"/>
+          <Column id="NA_BZ_TPNM" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+/*##################################################################################
+ 화면명	: 팝업 메시지
+ 화면ID  	: POPUP_MSG
+ 작성자 	: khyoon
+  작성일자 : 2018.09.12
+####################################################################################*/
+var popupId; // 팝업ID, 다시 보지 않기 관리용(동일한 팝업 ID는 피해서 사용)
+var popupMsg; // 팝업 메시지
+var popupType; // 확인 버튼 눌렀을 때 처리방식
+var popupAction; // URL, MENU이동시 사용
+var popupTitle; // 팝업창 제목변경시 사용
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{	
+	this.gfn_setInitForm(obj, e); //공통
+	
+	popupId = this.parent.pId;
+	popupType = this.parent.pType;
+	popupMsg = this.parent.pMsg;
+	popupAction = this.parent.pAction;
+	popupTitle = this.parent.pTitle; // Optional, Default "하나로 eSCM"
+	var chk = this.parent.pChk;
+	
+	if (!this.gfn_isNull(popupTitle)) {
+		this.set_titletext(popupTitle);
+	}
+	
+	if (this.gfn_nvl(chk, "Y") == "N") {
+		this.chk.set_visible(false);
+	}
+	
+	if (this.gfn_isNull(popupType) || (popupType != "TEXT" && popupType != "LINK" && popupType != "MENU")) {
+		popupType = "TEXT";
+	}
+	
+// 	popupType = "MENU";
+// 	popupAction = "01003001";
+	
+	if (popupType == "TEXT") {
+		this.btn_ok.set_left(185);
+		this.btn_ok.set_text("확인");
+		this.btn_cancel.set_visible(false);
+	}
+	this.sta_popup_content.set_text(popupMsg);
+	
+}
+
+this.fn_afterFormOnload = function()
+{
+}
+
+this.btn_ok_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (popupType == "LINK") {
+		if (!this.gfn_isNull(popupAction) && (popupAction.indexOf("https:") == 0 || popupAction.indexOf("http:") == 0)) {
+			window.open(popupAction);
+		} else {
+			trace("올바르지 않은 URL입니다.");
+		}
+	} else if (popupType == "MENU") {
+		if (!this.gfn_isNull(popupAction)) {
+			this.gfn_moveMenuId(popupAction);
+		} else {
+			trace("메뉴ID가 입력되지 않았습니다.");
+		}
+	}
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.div_chk_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(obj.value == 1)	{
+		application.setPrivateProfile("pp_"+popupId, "Y");
+		this.close();
+	}
+}]]></Script>
+  </Form>
+</FDL>

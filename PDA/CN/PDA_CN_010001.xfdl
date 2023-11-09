@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_010001" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="검수실적 조회" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="89" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static02" taborder="35" text="직영계열" cssclass="sta_WFSA_Label" left="29.13%" top="10" right="62%" height="21"/>
+              <Radio id="rdo_flag" taborder="36" index="0" codecolumn="CODE" datacolumn="DATA" value="1" direction="vertical" left="38.42%" top="10" right="40.08%" height="21" style="font:9 Gulim;" innerdataset="@ds_kpiFlag" onitemchanged="rdo_flag_onitemchanged"/>
+              <Static id="Static01" taborder="37" text="배송예정월" cssclass="sta_WFSA_Label" left="15" top="10" width="96" height="21"/>
+              <Div id="cal_by_dt" taborder="38" url="common::calendarMonth.xfdl" left="13.49%" top="10" right="73.79%" height="21"/>
+              <Static id="Static11" taborder="39" text="구분" cssclass="sta_WFSA_Label" left="63.23%" top="10" width="79" height="21"/>
+              <Combo id="cb_grpCd" taborder="40" value="1" text="가공생필" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="70.74%" top="10" right="18.07%" height="21" style="align:left middle;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">가공생필</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">농산</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">축산</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">4</Col>
+                      <Col id="datacolumn">수산</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="71" right="15" bottom="1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Button id="Button75" taborder="3" onclick="Div_Button75_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+              <Grid id="Grd01" taborder="2" binddataset="ds_kpiMst" useinputpanel="false" left="0" top="42" right="0" bottom="66" cellsizingtype="col" autofittype="col" summarytype="top" treeusebutton="use" treeusecheckbox="false" treeuseexpandkey="true" treeuseimage="false" treeuseline="true">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="0"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="140"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No" autosizerow="default" autosizecol="limitmin"/>
+                      <Cell col="1" text="배송예정월"/>
+                      <Cell col="2" text="레벨"/>
+                      <Cell col="3" text="그룹명"/>
+                      <Cell col="4" text="구분"/>
+                      <Cell col="5" text="사업장명"/>
+                      <Cell col="6" text="배송예정서"/>
+                      <Cell col="7" text="검수/매입"/>
+                      <Cell col="8" text="확정률"/>
+                      <Cell col="9" text="배점"/>
+                      <Cell col="10" text="마감"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="text" edittype="text" text="bind:SORT_NUM" tooltiptext="bind:SORT_NUM"/>
+                      <Cell col="1" text="bind:DVY_PLA_YM" mask="@@@@-@@" tooltiptext="bind:DVY_PLA_YM"/>
+                      <Cell col="2" displaytype="number" text="bind:LEV" tooltiptext="bind:LEV"/>
+                      <Cell col="3" displaytype="combo" text="bind:PD_KPI_GROUP_C" combodataset="ds_groupNm" combocodecol="SIMP_C" combodatacol="SIMP_CNM" tooltiptext="bind:PD_KPI_GROUP_C"/>
+                      <Cell col="4" displaytype="combo" text="bind:PD_KPI_FLAG" combodataset="ds_kpiFlag" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:PD_KPI_FLAG"/>
+                      <Cell col="5" style="align:left;" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="6" displaytype="number" style="align:right;" text="bind:DVY_CNT" tooltiptext="bind:DVY_CNT"/>
+                      <Cell col="7" displaytype="number" style="align:right;" text="bind:BY_CNT" tooltiptext="bind:BY_CNT"/>
+                      <Cell col="8" displaytype="number" style="align:right;" text="bind:BY_PERCENT" tooltiptext="bind:BY_PERCENT"/>
+                      <Cell col="9" displaytype="number" edittype="expr:(CLOSE_YN=='0')?'normal':'none'" style="align:right;" text="bind:RATING" tooltiptext="bind:RATING"/>
+                      <Cell col="10" displaytype="combo" text="bind:CLOSE_YN" combodataset="ds_closeYn" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:CLOSE_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_execl" taborder="11" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="79" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="90" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" visible="false" top="0" right="128" width="41" height="21"/>
+        <Button id="btn_close" taborder="91" text="마감" onclick="btn_close_onclick" cssclass="btn_WF_CRUD" visible="false" top="0" right="176" width="41" height="21"/>
+        <Button id="btn_sort" taborder="92" text="정렬" onclick="btn_sort_onclick" cssclass="btn_WF_CRUD" visible="false" top="0" right="224" width="41" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_kpiMst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DVY_PLA_YM" type="STRING" size="6"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="32"/>
+          <Column id="CLNTNM" type="STRING" size="200"/>
+          <Column id="PD_KPI_FLAG" type="STRING" size="1"/>
+          <Column id="PD_KPI_GROUP_C" type="STRING" size="2"/>
+          <Column id="DVY_CNT" type="INT"/>
+          <Column id="BY_CNT" type="INT"/>
+          <Column id="BY_PERCENT" type="FLOAT"/>
+          <Column id="RATING" type="INT"/>
+          <Column id="CLOSE_YN" type="STRING" size="1"/>
+          <Column id="SORT_NUM" type="INT" size="3"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_closeYn" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="32" prop=""/>
+          <Column id="DATA" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">0</Col>
+            <Col id="DATA">미마감</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="DATA">마감</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_kpiFlag" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="32" prop=""/>
+          <Column id="DATA" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="DATA">직영점</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="DATA">계열사</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">3</Col>
+            <Col id="DATA">전체</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_groupNm" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_kpiMstChg" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DVY_PLA_YM" type="STRING" size="6"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="32"/>
+          <Column id="CLNTNM" type="STRING" size="200"/>
+          <Column id="PD_KPI_FLAG" type="STRING" size="1"/>
+          <Column id="PD_KPI_GROUP_C" type="STRING" size="2"/>
+          <Column id="DVY_CNT" type="INT"/>
+          <Column id="BY_CNT" type="INT"/>
+          <Column id="BY_PERCENT" type="FLOAT"/>
+          <Column id="RATING" type="INT"/>
+          <Column id="SORT_NUM" type="INT" size="3"/>
+          <Column id="CLOSE_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item2" compid="div_search.rdo_flag" propid="value" datasetid="ds_dataM" columnid="DVY_VHC_DSC"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var byDt = "";
+var authFlag = '0';
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+// Form Init: 페이지 호출 후 실행
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	// 페이지 로딩후 실행부분
+	var toDay = this.gfn_today("yyyyMMdd");	
+	this.div_search.cal_by_dt._setValue(this.gfn_firstDate(toDay).substr(0, 6));
+}
+
+// Form Onload: DataSet 로딩 후 실행
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+
+	//	로그인한 ID의 마감, 저장버튼 활성화 권한을 확인한다	
+	this.fn_getAuth();
+
+    var param = [
+		{code:"PDA_KPI_GROUP"	, dsName:"ds_groupNm"		, selecttype:""}
+    ];
+    this.gfn_setPortalCommonCode(param); 
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+
+}
+
+// gfn_setCommonCode, gfn_setPortalCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	var byDt = (this.div_search.cal_by_dt._getValue() + "").substr(0, 6);
+
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+	}
+	else
+	{
+		if(svcID == "retrieveSmtPdaKpiMstList")
+		{
+		//	trace("ds_kpiMst:" + this.ds_kpiMst.saveXML());
+			if(this.ds_kpiMst.rowcount == 0)
+			{
+				this.Div02.Grd01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+		else if(svcID == "getAuthSmtPdaKpiGroupChg")
+		{
+		//	trace("getAuthSmtPdaKpiGroupChg ErrorCode:" + ErrorCode);
+			if(ErrorCode == 1)
+			{
+				authFlag = '1';
+				this.btn_close.set_visible(true);
+				this.btn_save.set_visible(true);
+				this.btn_sort.set_visible(true);
+			}
+		}
+		else if(svcID == "closeSmtPdaKpiMst")
+		{
+			alert(byDt.substr(0, 4) + "년 " + byDt.substr(4, 2) + "월" + " 검수실적 마감을 완료하였습니다.");
+		}
+		
+		else if(svcID == "updateSmtPdaKpiMst")
+		{
+			alert(this.ds_kpiMstChg.getRowCount() + " 건을 저장했습니다.");
+		}
+		
+		else if(svcID == "sortSmtPdaKpiMst")
+		{
+			alert("순번이 저장 되었습니다.");
+			this.fn_search();
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+// 조회조건 영역 펼치기, 접기
+this.Div_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_kpiMstChg.clearData();
+	for(var i = 0, length = this.ds_kpiMst.getRowCount(); i < length; i++)
+	{
+	//	if(this.ds_kpiMst.getRowType(i) == "2" || this.ds_kpiMst.getRowType(i) == "4")	// INSERT OR UPDATE
+	//	{
+			var nRow	= this.ds_kpiMstChg.addRow();
+			var bSucc	= this.ds_kpiMstChg.copyRow(nRow, this.ds_kpiMst, i);
+			this.ds_kpiMstChg.setColumn(nRow, "ROW_TYPE", this.ds_kpiMst.getRowType(i));
+	//	}
+	}
+
+	if(this.ds_kpiMstChg.getRowCount() > 0)
+	{
+		var ret = application.confirm(this.ds_kpiMstChg.getRowCount() + "건에 대해 저장하시겠습니까?", "저장확인", "QUESTION");
+		if (ret == false)
+		{
+			return;
+		}
+	}
+	else if(this.ds_kpiMstChg.getRowCount() == 0)
+	{
+		alert("저장할 내역이 없습니다");
+		return;
+	}
+
+	trace("ds_kpiMstChg:" + this.ds_kpiMstChg.saveXML());
+	var params	      = "";
+	var sSvcID        = "updateSmtPdaKpiMst"; 					// 통신아이디
+	var sURL          = "svc::rest/pda/updateSmtPdaKpiMst";		// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_kpiMstChg:A";					// 보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = ""										// 파라미터
+	var sCallbackFunc = "fn_callBack";							// 콜백
+	var tranType 	  = "U";									// U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+// 엑셀 다운로드
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var byDt = (this.div_search.cal_by_dt._getValue() + "").substr(0, 6);
+	var flag_cd	= this.div_search.rdo_flag.value;
+	var grp_dsc	= this.gfn_nullToEmpty(this.div_search.cb_grpCd.value);
+	if(flag_cd == '3')	flag_cd = "";
+
+	var param	=  "BY_DT=" 	+ byDt
+				+ "&FLAG_CD="	+ flag_cd
+				+ "&GRP_DSC="	+ grp_dsc
+				;
+
+	this.fn_excel(param);
+}
+
+this.fn_excel = function(param)
+{
+	trace("엑셀 다운로드 params >>> " + param);
+	excelDownHandler(application.gv_server_url + "rest/excel/pda/downloadExcelSmtPdaKpiMstList?" + param, this);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+// 검수실적 그룹관리 목록조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+}
+
+this.fn_search = function()
+{
+	var byDt = (this.div_search.cal_by_dt._getValue() + "").substr(0, 6);
+	var flag_cd	= this.div_search.rdo_flag.value;
+	var grp_dsc	= this.gfn_nullToEmpty(this.div_search.cb_grpCd.value);
+	if(flag_cd == '3')	flag_cd = "";
+
+	var param	=  "BY_DT="		+ byDt
+				+ " FLAG_CD="	+ flag_cd
+				+ " GRP_DSC="	+ grp_dsc
+				;
+
+	var sSvcID			= "retrieveSmtPdaKpiMstList";
+	var sURL			= "svc::rest/pda/retrieveSmtPdaKpiMstList";
+	var sInDatasets		= "";						// 보내는데이터셋
+	var sOutDatasets	= "ds_kpiMst=ds_kpiMst";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";						// U:저장/삭제, S:조회
+
+//	trace("param:" + param);
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_getAuth = function()
+{
+	var param			=  "USR_ID="	+ application.gv_userId;
+
+	var sSvcID			= "getAuthSmtPdaKpiGroupChg";
+	var sURL			= "svc::rest/pda/getAuthSmtPdaKpiGroupChg";
+	var sInDatasets		= "";				// 보내는데이터셋
+	var sOutDatasets	= "";				// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";				// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var byDt = (this.div_search.cal_by_dt._getValue() + "").substr(0, 6);
+	
+	if(this.ds_kpiMst.findRow("CLOSE_YN", '1') != -1)
+	{
+		alert(byDt.substr(0, 4) + "년 " + byDt.substr(4, 2) + "월" + " 검수실적은 이미 마감되었습니다.");
+		return;
+	}
+
+	var ret = application.confirm(byDt.substr(0, 4) + "년 " + byDt.substr(4, 2) + "월" + " 검수실적에 대해 마감하시겠습니까? 마감 진행 후에는 취소하실 수 없습니다!", "마감확인", "QUESTION");
+	if (ret == false)
+	{
+		return;
+	}
+
+	var param			= "BY_DT=" + byDt
+						+ " USER_ID=" + application.gv_userId
+						;
+	var sSvcID			= "closeSmtPdaKpiMst";
+	var sURL			= "svc::rest/pda/closeSmtPdaKpiMst";
+	var sInDatasets		= "in_ds=ds_kpiMst:A";
+	var sOutDatasets	= "";
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_sort_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var param			= "";
+	var sSvcID			= "sortSmtPdaKpiMst";
+	var sURL			= "svc::rest/pda/sortSmtPdaKpiMst";
+	var sInDatasets		= "in_ds=ds_kpiMst:A";
+	var sOutDatasets	= "";
+	var sArgument		= "";
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "U"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+}
+this.rdo_flag_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(authFlag == '1')
+	{
+		if(this.div_search.rdo_flag.value == '3')
+		{
+			this.btn_close.set_visible(false);
+			this.btn_save.set_visible(false);
+			this.btn_sort.set_visible(false);
+		}
+		else
+		{
+			this.btn_close.set_visible(true);
+			this.btn_save.set_visible(true);
+			this.btn_sort.set_visible(true);
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

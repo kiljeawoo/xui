@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6410" classname="pattern_01" left="0" top="0" width="920" height="490" titletext="서비스회원승인조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="3" url="common::location.xfdl" left="0%" top="0" right="56.13%" height="21"/>
+        <Button id="btn_search" taborder="0" cssclass="btn_WFSA_Searchbtn" top="0" right="15" height="21" onclick="btn_search_onclick" width="60"/>
+        <Div id="div_search" taborder="1" left="0" top="29" right="15" height="92" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="12" text="회원ID" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="90"/>
+              <Edit id="edt_MB_ID" taborder="0" left="106" top="10" height="21" width="100" onkeydown="common_keydown"/>
+              <Static id="Static05" taborder="24" text="사용자명" cssclass="sta_WFSA_Label" left="231" top="10" height="21" width="90"/>
+              <Edit id="edt_USR_NM" taborder="1" left="312" top="10" height="21" width="100" onkeydown="common_keydown"/>
+              <Static id="Static02" taborder="27" text="회사명" cssclass="sta_WFSA_Label" left="15" top="36" height="21" width="90"/>
+              <Static id="Static03" taborder="29" text="회원가입진행상태" cssclass="sta_WFSA_Label" left="666" top="10" height="21" width="140"/>
+              <Combo id="cbo_ENT_PRG_STSC" taborder="3" text="전체" left="786" top="10" height="21" onitemchanged="Div00_Combo00_onitemchanged" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="A" style="align:left middle;" width="100">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">A</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">진행중</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">완료</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">가입신청거절</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">수정요청중</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">4</Col>
+                      <Col id="datacolumn">수정요청거절</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">5</Col>
+                      <Col id="datacolumn">해지</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static04" taborder="32" text="거래처코드" cssclass="sta_WFSA_Label" left="231" top="36" height="21" width="90"/>
+              <Static id="Static01" taborder="33" text="페이지당 게시물수" cssclass="sta_WFSA_Label" left="666" top="36" height="21" style="padding:0 20 0 11;" width="140"/>
+              <Combo id="cbo_pageNum" taborder="7" value="20" text="20" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="786" top="36" height="21" style="align:left middle;" width="100">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">20</Col>
+                      <Col id="datacolumn">20</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">50</Col>
+                      <Col id="datacolumn">50</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">100</Col>
+                      <Col id="datacolumn">100</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Calendar id="cal_from" taborder="9" dateformat="yyyy-MM-dd" left="210" top="62" width="90" height="21"/>
+              <Static id="Static07" taborder="37" text="~" left="307" top="62" height="21" width="11"/>
+              <Calendar id="cal_to" taborder="10" dateformat="yyyy-MM-dd" left="322" top="62" width="90" height="21"/>
+              <Edit id="edt_CLNTNM" taborder="4" left="106" top="36" width="100" height="21" onkeydown="common_keydown"/>
+              <Edit id="edt_NA_TRPL_C" taborder="5" left="312" top="36" width="100" height="21" inputtype="number" onkeydown="common_keydown"/>
+              <Combo id="cbo_cal" taborder="8" value="S" text="신청일자" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="Div00_cbo_cal_onitemchanged" left="106" top="62" width="100" height="21" style="align:left middle;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">S</Col>
+                      <Col id="datacolumn">신청일자</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">L</Col>
+                      <Col id="datacolumn">최종변경</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <CheckBox id="chk_DT_YN" taborder="11" text="신청일자포함" left="417" top="62" width="126" height="21" truevalue="Y" falsevalue="N"/>
+              <Static id="Static06" taborder="45" text="휴대전화번호" cssclass="sta_WFSA_Label" left="441" top="10" height="21" width="140"/>
+              <Edit id="edt_USR_MPNO" taborder="2" inputtype="number" displaynulltext="'-' 포함" left="536" top="10" width="100" height="21" maxlength="13" onkeydown="common_keydown"/>
+              <MaskEdit id="edt_BZNO" taborder="6" onkeydown="common_keydown" left="536" top="36" width="100" height="21" mask="@@@-@@-@@@@@" type="string" style="align:center middle;"/>
+              <Static id="Static08" taborder="47" text="사업자번호" cssclass="sta_WFSA_Label" left="441" top="36" width="90" height="21"/>
+              <Static id="Static09" taborder="48" text="조회기간" cssclass="sta_WFSA_Label" left="15" top="62" width="90" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_result" taborder="2" left="0" top="120" right="15" bottom="0">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_mbApvrqrList" taborder="9" binddataset="ds_result" useinputpanel="false" left="0" top="40" right="0" bottom="46" autofittype="col" oncellclick="div_result_grd_mbApvrqrList_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="110"/>
+                      <Column size="120"/>
+                      <Column size="112"/>
+                      <Column size="96"/>
+                      <Column size="158"/>
+                      <Column size="115"/>
+                      <Column size="80"/>
+                      <Column size="89"/>
+                      <Column size="89"/>
+                      <Column size="154"/>
+                      <Column size="96"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="번호"/>
+                      <Cell col="1" text="회원ID"/>
+                      <Cell col="2" text="사용자명"/>
+                      <Cell col="3" text="가입진행상태"/>
+                      <Cell col="4" text="사업자번호"/>
+                      <Cell col="5" text="회사명"/>
+                      <Cell col="6" text="거래처코드"/>
+                      <Cell col="7" text="회원유형"/>
+                      <Cell col="8" text="가입일자"/>
+                      <Cell col="9" text="신청일자"/>
+                      <Cell col="10" text="최종변경일자"/>
+                      <Cell col="11" displaytype="normal" text="변경이력"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:RN"/>
+                      <Cell col="1" style="align:left middle;" text="bind:MB_ID"/>
+                      <Cell col="2" style="align:left middle;" text="bind:USR_NM"/>
+                      <Cell col="3" style="align:center middle;" text="bind:ENT_PRG_STSC_NM"/>
+                      <Cell col="4" style="align:center middle;" text="bind:BZNO" mask="###-##-#####"/>
+                      <Cell col="5" style="align:left middle;" text="bind:CLNTNM"/>
+                      <Cell col="6" style="align:center middle;" text="bind:NA_TRPL_C"/>
+                      <Cell col="7" displaytype="combo" text="bind:USR_TPC" combodataset="ds_usrTpc" combocodecol="code" combodatacol="name"/>
+                      <Cell col="8" text="bind:FSRG_DTM" mask="####-##-##"/>
+                      <Cell col="9" style="align:center middle;" text="bind:REQ_DT" mask="####-##-##"/>
+                      <Cell col="10" text="bind:LSCHG_DTM"/>
+                      <Cell col="11" displaytype="button" text="변경이력"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button75" taborder="11" cssclass="btn_WFSA_SearchClose" left="36.74%" top="0" right="36.64%" height="12"/>
+              <Div id="div_paging" taborder="12" url="common::pagingBTN.xfdl" left="230" bottom="1" width="43.91%" height="37" style="align:center middle;" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="6" text="15" visible="false" left="98.37%" top="0" right="0.11%" height="490" style="background:#00ffffb5;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_param" firenextcount="0">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="ENT_PRG_STSC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_result" firenextcount="0">
+        <ColumnInfo>
+          <Column id="RN" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="ENT_PRG_STSC_NM" type="STRING" size="256"/>
+          <Column id="BZNO" type="STRING" size="256"/>
+          <Column id="REQ_DT" type="STRING" size="256"/>
+          <Column id="APV_DT" type="STRING" size="256"/>
+          <Column id="USR_TPC" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firenextcount="0">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_usrTpc" firenextcount="0">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="name">협력업체</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="name">본부</Col>
+          </Row>
+          <Row>
+            <Col id="code">03</Col>
+            <Col id="name">사업장</Col>
+          </Row>
+          <Row>
+            <Col id="code">04</Col>
+            <Col id="name">세금계산서전용</Col>
+          </Row>
+          <Row>
+            <Col id="code">05</Col>
+            <Col id="name">전자계약전용</Col>
+          </Row>
+          <Row>
+            <Col id="code">81</Col>
+            <Col id="name">농협몰</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   /*조회 호출*/
+   this.div_search.cbo_ENT_PRG_STSC.set_value("A");
+   this.div_search.cal_from.set_value(this.gfn_addDate(application.gv_today, -365));
+   this.div_search.cal_to.set_value(application.gv_today);
+   //this.btn_search.click();
+}
+
+ /*조회*/
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1); // 처음조회시 1페이지를 조회한다.
+}
+
+/*Paging 처리*/
+this.fn_paging = function(vPageNum)
+{
+ 	if (this.fn_validation()) {
+		this.ds_result.clearData(); //Grid에 Binding된 Dataset명
+		this.ds_pageVO.clearData();
+		this.ds_pageVO.addRow();
+
+		var vPageSize = this.div_search.cbo_pageNum.value;
+		var vTotalCount = 0;	//전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+
+		this.ds_pageVO.setColumn(0, "CURRENT_PAGE", vPageNum); //현재 페이지
+		this.ds_pageVO.setColumn(0, "PAGE_SIZE", vPageSize);
+		this.ds_pageVO.setColumn(0, "TOTAL_ROW_COUNT", vTotalCount);
+ 	
+		var sParam =  "mb_id=" +this.gfn_nullToEmpty(this.div_search.edt_MB_ID.value)
+					+ " usr_nm=" +this.gfn_nullToEmpty(this.div_search.edt_USR_NM.value)
+					+ " ent_prg_stsc=" +this.gfn_nullToEmpty(this.div_search.cbo_ENT_PRG_STSC.value)
+					+ " clntnm=" +this.gfn_nullToEmpty(this.div_search.edt_CLNTNM.value)
+					+ " na_trpl_c=" +this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value)
+					+ " bz_no=" +this.gfn_nullToEmpty(this.div_search.edt_BZNO.value)
+					+ " from=" +this.gfn_nullToEmpty(this.div_search.cal_from.value)
+					+ " tel=" +this.gfn_nullToEmpty(this.div_search.edt_USR_MPNO.value)
+					+ " to=" +this.gfn_nullToEmpty(this.div_search.cal_to.value);
+
+		if (this.div_search.cbo_cal.value == "L") {
+			sParam += " yn=L";
+		} else {
+			sParam += " yn=" +this.gfn_nullToEmpty(this.div_search.chk_DT_YN.value);
+		}
+
+		var sSvcID        = "retrieveMbApvrqrList";
+		var sURL          = "svc::rest/mg/usrinf/retrieveMbApvrqrList";
+		var sInDatasets   = "ds_pageVO=ds_pageVO";
+		var sOutDatasets  = "ds_pageVO=ds_pageVO ds_result=ds_result";
+		var sArgument     = sParam;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+ 	}
+}
+
+/* 조회 조건 검증 */
+this.fn_validation = function()
+{
+	var mb_id = this.gfn_nullToEmpty(this.div_search.edt_MB_ID.value);
+	var usr_nm = this.gfn_nullToEmpty(this.div_search.edt_USR_NM.value);
+	var ent_prg_stsc = this.gfn_nullToEmpty(this.div_search.cbo_ENT_PRG_STSC.value);
+	var clntnm = this.gfn_nullToEmpty(this.div_search.edt_CLNTNM.value);
+	var na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value);
+	var bz_no = this.gfn_nullToEmpty(this.div_search.edt_BZNO.value);
+	var tel = this.gfn_nullToEmpty(this.div_search.edt_USR_MPNO.value);
+
+	/* 회원상태 전체일 때 입력조건 미설정 시 날짜조건 강제(속도이슈) */	
+	if (ent_prg_stsc == "A" && this.div_search.cbo_cal.value == "S" && this.div_search.chk_DT_YN.value == "N") {
+		var param = this.strTrim(mb_id + usr_nm + clntnm + na_trpl_c + bz_no + tel);
+		if (this.gfn_isNull(param)) {
+			this.div_search.chk_DT_YN.set_value("Y");
+			//this.alert("가입진행상태 전체일 때 조회조건 미입력 시 조회기간 조건이 자동설정 됩니다.");
+		}
+	}
+	
+	/* 조회일시 */
+	var from = this.gfn_nullToEmpty(this.div_search.cal_from.value);
+	var to = this.gfn_nullToEmpty(this.div_search.cal_to.value);
+	
+	if (this.div_search.cbo_cal.value == "L" || this.div_search.chk_DT_YN.value == "Y") {
+		if (this.gfn_isNull(from)) {
+			alert("조회 시작일을 입력하시기 바랍니다.");
+			return false;
+		}
+		if (this.gfn_isNull(to)) {
+			alert("조회 종료일을 입력하시기 바랍니다.");
+			return false;
+		}
+	}
+	return true;
+}
+
+/*그리드 클릭 상세화면조회*/
+this.div_result_grd_mbApvrqrList_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var rowPos = e.row;
+	var cellPos = e.cell;
+
+	this.ds_param.clearData();
+	this.ds_param.addRow();
+	this.ds_param.copyRow(0, this.ds_result, e.row);
+	
+	var oArg = {paramMode:"S", dsArg:this.ds_param};
+	var sOption = "autosize=true, title=true";
+	
+	if (obj.getCellValue(rowPos, cellPos) == "변경이력") { //변경이력 버튼 클릭했을때 이벤트
+		var sPopupCallBack = "fn_hstpopupAfter";
+
+		this.gfn_openPopup("popId", "OMG.MG::OMG_DS_SC_6413.xfdl", oArg, sOption, sPopupCallBack);
+	} else {
+		var usrTpc = this.ds_result.getColumn(e.row, "USR_TPC");
+		var sPopupCallBack = "fn_popupAfter";
+
+		if ("04" == usrTpc) { // 세금계산서 전용
+			this.gfn_openPopup("popId", "OMG.MG::OMG_DS_SC_6412.xfdl", oArg, sOption, sPopupCallBack);
+		} else if ("05" == usrTpc) { // 전자세금계산서 전용
+			this.gfn_openPopup("popId", "OMG.MG::OMG_DS_SC_6415.xfdl", oArg, sOption, sPopupCallBack);
+		} else if ("81" == usrTpc) { // 농협a마켓 전용
+			this.gfn_openPopup("popId", "OMG.MG::OMG_DS_SC_6414.xfdl", oArg, sOption, sPopupCallBack);
+		} else { // 그 외의 경우
+			this.gfn_openPopup("popId", "OMG.MG::OMG_DS_SC_6411.xfdl", oArg, sOption, sPopupCallBack);
+		}
+	}
+}
+
+/*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{
+	this.btn_search.click();
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "retrieveMbApvrqrList") {
+			var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+			var page_size = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+			var sTotal = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+			
+			if (this.ds_result.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+				this.div_result.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+			} else if (this.ds_result.rowcount > 0) {
+				this.div_result.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+			}
+		}
+	}
+}
+
+this.Div00_cbo_cal_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.div_search.chk_DT_YN.set_value("N");
+	if (this.div_search.cbo_cal.value == "L") {
+		this.div_search.chk_DT_YN.set_visible(false);
+	} else {
+		this.div_search.chk_DT_YN.set_visible(true);
+	}
+}
+
+this.common_keydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		this.btn_search_onclick();
+	}
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample012_" classname="Sample012_" left="0" top="0" width="1024" height="768" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="1" text="_getValue" left="384" top="54" width="120" height="21" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="2" text="_setValue" left="384" top="94" width="120" height="21" onclick="Button01_onclick"/>
+        <Button id="Button02" taborder="3" text="_clearValue" left="384" top="134" width="120" height="21" onclick="Button02_onclick"/>
+        <Button id="Button03" taborder="4" text="_enable" left="384" top="174" width="120" height="21" onclick="Button03_onclick"/>
+        <Button id="Button04" taborder="5" text="_setFocus" left="384" top="214" width="120" height="21" onclick="Button04_onclick"/>
+        <Button id="Button05" taborder="6" text="_setRequired" left="384" top="254" width="120" height="21" onclick="Button05_onclick"/>
+        <Button id="Button06" taborder="7" text="_setReadonly" left="384" top="294" width="120" height="21" onclick="Button06_onclick"/>
+        <Div id="Div00" taborder="8" url="common::calendarMonth.xfdl" left="11.72%" top="111" right="74.61%" height="21"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.Div00.setFunctionName("fn_afterCall");
+}
+
+this.fn_afterCall = function (sVal)
+{
+	trace("sVal11 >> "+sVal);
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert(this.Div00._getValue());
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._setValue("201502");
+}
+
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._clearValue();
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._enable(false); // true / false
+}
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._setFocus();
+}
+
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._setRequired();
+}
+
+this.Button06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div00._setReadonly(true); // true/false
+}
+]]></Script>
+  </Form>
+</FDL>

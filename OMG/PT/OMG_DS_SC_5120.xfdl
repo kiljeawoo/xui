@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_search" classname="popup01" left="0" top="0" width="405" height="331" titletext="ID/PW찾기" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="30" text="17" visible="false" left="8" top="75" height="73" style="background:#dc143c5b;" width="17"/>
+        <Static id="Static00" taborder="31" text="17" visible="false" top="32" right="0" height="111" style="background:#dc143c5b;" width="17"/>
+        <Static id="Static03" taborder="35" text="15" visible="false" left="284" bottom="0" height="15" style="background:#dc143c5b;" width="100"/>
+        <Tab id="tab_search" taborder="38" left="17" top="15" right="17" bottom="15" onchanged="tab_search_onchanged" tabindex="0" scrollbars="autoboth" style="showextrabutton:false;">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="아이디찾기" onclick="tab_search_tabpage1_onclick">
+              <Layouts>
+                <Layout>
+                  <Div id="div_search" taborder="0" left="0" top="0" right="0" bottom="0" scrollbars="none">
+                    <Layouts>
+                      <Layout width="286" height="124">
+                        <Static id="Static01" taborder="2" text="거래처코드" left="50" top="72" width="100" height="25" style="font:10 Gulim;"/>
+                        <Static id="Static00" taborder="3" text="사용자명" left="50" top="23" width="100" height="25"/>
+                        <Edit id="edt_USR_NM" taborder="0" left="170" top="23" width="140" height="25" imemode="hangul" lengthunit="ascii" maxlength="50"/>
+                        <Button id="btn_MB_ID" taborder="4" text="아이디찾기" onclick="btn_MB_ID_onclick" cssclass="btn_WF_CRUD" left="135" top="170" width="101" height="31" style="color:ghostwhite;font:bold 10 arial;" tabstop="false"/>
+                        <Edit id="edt_NA_TRPL_C" taborder="1" inputtype="digit" left="170" top="72" height="25" width="140" maxlength="13" lengthunit="ascii"/>
+                        <Static id="Static02" taborder="5" text="아이디" left="50" top="121" height="25" style="font:10 Gulim;" width="100"/>
+                        <Combo id="cbo_MB_ID" taborder="6" innerdataset="@ds_user" codecolumn="MB_ID" datacolumn="MB_ID" left="170" top="121" width="140" height="25" tabstop="false"/>
+                      </Layout>
+                    </Layouts>
+                  </Div>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="비밀번호찾기" onclick="tab_search_tabpage2_onclick">
+              <Layouts>
+                <Layout>
+                  <Div id="div_search" taborder="0" left="0" top="0" right="0" bottom="0" scrollbars="none">
+                    <Layouts>
+                      <Layout width="286" height="124">
+                        <Button id="btn_MB_PW" taborder="2" text="비밀번호초기화" onclick="btn_MB_PW_onclick" cssclass="btn_WF_CRUD" left="116" top="219" width="139" height="31" style="font:bold 10 arial;" tabstop="false"/>
+                        <Static id="Static01" taborder="6" text="거래처코드" left="50" top="56" height="25" style="font:10 Gulim;" width="100"/>
+                        <Static id="Static00" taborder="7" text="회원ID" left="50" top="16" height="25" width="100"/>
+                        <Edit id="edt_MB_ID" taborder="0" left="170" top="16" height="25" width="140" imemode="alpha" inputfilter="space" maxlength="9" lengthunit="ascii"/>
+                        <Edit id="edt_NA_TRPL_C" taborder="1" inputtype="digit" left="170" top="56" height="25" width="140" maxlength="13" lengthunit="ascii"/>
+                        <Static id="Static03" taborder="10" text="휴대전화번호" left="50" top="136" height="25" style="font:10 Gulim;" width="100"/>
+                        <Combo id="cbo_USR_MPNO_1" taborder="3" innerdataset="ds_hp" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="170" top="136" height="25" index="-1" width="51"/>
+                        <Static id="Static04" taborder="9" text="-" left="221" top="136" height="25" width="10"/>
+                        <Edit id="edt_USR_MPNO_2" taborder="4" left="230" top="136" height="25" maxlength="4" inputtype="digit" width="48" lengthunit="ascii"/>
+                        <Static id="Static05" taborder="11" text="-" left="279" top="136" height="25" width="9"/>
+                        <Edit id="edt_USR_MPNO_3" taborder="5" left="287" top="136" height="25" maxlength="4" inputtype="digit" width="48" lengthunit="ascii"/>
+                        <Static id="Static06" taborder="12" text="인증번호" left="50" top="176" height="25" style="font:10 Gulim;" width="100"/>
+                        <Edit id="edt_CERT_NUM" taborder="13" left="170" top="176" height="25" maxlength="6" width="72" inputtype="digit" lengthunit="ascii"/>
+                        <Button id="btn_sendSms_pw" taborder="14" text="인증번호전송" onclick="btn_sendSms_pw_onclick" left="246" top="176" width="89" height="25" tabstop="false"/>
+                        <Static id="Static02" taborder="15" text="생년월일" left="50" top="96" width="100" height="25" style="font:10 Gulim;"/>
+                        <Edit id="edt_BIRTH" taborder="16" inputtype="digit" lengthunit="ascii" maxlength="8" left="170" top="96" width="80" height="25"/>
+                        <Static id="Static07" taborder="17" text="ex) 20160101" left="258" top="96" width="94" height="25" style="font:10 Gulim;"/>
+                      </Layout>
+                    </Layouts>
+                  </Div>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_user" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="32"/>
+          <Column id="MB_PW" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_hp"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.edt_glnCode" propid="value" datasetid="ds_bbs" columnid="BBRD_TI"/>
+      <BindItem id="item2" compid="Div00.Static13" propid="text" datasetid="ds_bbs" columnid="TITLE"/>
+      <BindItem id="item1" compid="Div00.edt_email" propid="value" datasetid="ds_bbs" columnid="BBRD_TI"/>
+      <BindItem id="item3" compid="Div00.Static02" propid="text" datasetid="ds_bbs" columnid="TITLE"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+ 
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); // 공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 공통코드 가져오기
+	var param = [
+		{ code: "HP", dsName: "ds_hp" } // 휴대전화번호
+	];
+	this.gfn_setPortalCommonCode(param);
+}
+
+// 공통코드 가져오기 - 콜백
+this.fn_commonAfterOnload = function()
+{
+	this.tab_search.tabpage2.div_search.cbo_USR_MPNO_1.set_index(this.ds_hp.findRow("SIMP_C", "010")); // 휴대전화번호 (기본값: 010)
+}
+
+/* 아이디찾기 */
+this.btn_MB_ID_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var Tap01 = this.tab_search.tabpage1.div_search;
+	
+	if (!Tap01.edt_USR_NM.value) {
+		alert("사용자명을 입력해 주세요.");
+		Tap01.edt_USR_NM.setFocus();
+		return;
+	} else if (!Tap01.edt_NA_TRPL_C.value) {
+		alert("거래처코드를 입력해 주세요.");
+		Tap01.edt_NA_TRPL_C.setFocus();
+		return;
+	}
+	
+	var param = "USR_NM=" + encodeURI(Tap01.edt_USR_NM.value)
+			+ " NA_TRPL_C=" + Tap01.edt_NA_TRPL_C.value;
+	
+	var sSvcID        = "getMbId";
+	var sURL          = "svc::rest/pt/usrinf/getMbId";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_user=ds_user";
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 비밀번호찾기 > 인증번호전송 */
+this.btn_sendSms_pw_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var Tap02 = this.tab_search.tabpage2.div_search;
+	
+	if (!Tap02.edt_MB_ID.value) {
+		alert("회원ID를 입력해 주세요.");
+		Tap02.edt_MB_ID.setFocus();
+		return;
+	} else if (!Tap02.edt_NA_TRPL_C.value) {
+		alert("거래처코드를 입력해 주세요.");
+		Tap02.edt_NA_TRPL_C.setFocus();
+		return;
+	} else if (!Tap02.edt_BIRTH.value) {
+		alert("생년월일을 입력해 주세요.");
+		Tap02.edt_BIRTH.setFocus();
+		return;
+	} else if (!Tap02.edt_USR_MPNO_2.value) {
+		alert("휴대전화번호를 입력해 주세요.");
+		Tap02.edt_USR_MPNO_2.setFocus();
+		return;
+	} else if (!Tap02.edt_USR_MPNO_3.value) {
+		alert("휴대전화번호를 입력해 주세요.");
+		Tap02.edt_USR_MPNO_3.setFocus();
+		return;
+	} else {
+		var USR_MPNO = Tap02.cbo_USR_MPNO_1.value + "-" + Tap02.edt_USR_MPNO_2.value + "-" + Tap02.edt_USR_MPNO_3.value;
+		if (!/^(02|[0-9]{3}|0505)-[0-9]{3,4}-[0-9]{4}$/.test(USR_MPNO)) { // 전화번호 정규식 ("-" 포함)
+			alert("휴대전화번호 형식이 잘못되었습니다.");
+			Tap02.edt_USR_MPNO_3.setFocus();
+			return;
+		}
+	}
+	
+	var param = "MB_ID=" + Tap02.edt_MB_ID.value
+			+ " NA_TRPL_C=" + Tap02.edt_NA_TRPL_C.value
+			+ " BIRTH=" + Tap02.edt_BIRTH.value
+			+ " USR_MPNO=" + Tap02.cbo_USR_MPNO_1.value + Tap02.edt_USR_MPNO_2.value + Tap02.edt_USR_MPNO_3.value;
+	
+	var sSvcID        = "sendSmsPw";
+	var sURL          = "svc::rest/pt/sendSmsCertNumPw";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";
+	var sArgument     =  param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 비밀번호찾기 > 비밀번호초기화 */
+this.btn_MB_PW_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var Tap02 = this.tab_search.tabpage2.div_search;
+	
+	if (!Tap02.edt_MB_ID.value) {
+		alert("회원ID를 입력해 주세요.");
+		Tap02.edt_MB_ID.setFocus();
+		return;
+	} else if (!Tap02.edt_NA_TRPL_C.value) {
+		alert("거래처코드를 입력해 주세요.");
+		Tap02.edt_NA_TRPL_C.setFocus();
+		return;
+	} else if (!Tap02.edt_CERT_NUM.value || Tap02.edt_CERT_NUM.value.length != 6) {
+		alert("인증번호 6자리를 입력해 주세요.");
+		Tap02.edt_CERT_NUM.setFocus();
+		return;
+	}
+	
+	var param = "MB_ID=" + Tap02.edt_MB_ID.value
+			+ " NA_TRPL_C=" + Tap02.edt_NA_TRPL_C.value
+			+ " CERT_NUM=" + Tap02.edt_CERT_NUM.value;
+	
+	Tap02.edt_CERT_NUM.set_value(""); // 인증번호 삭제
+	
+	var sSvcID        = "sendMbPw";
+	var sURL          = "svc::rest/pt/usrinf/sendMbPw";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_user=ds_user";
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		switch (ErrorCode) {
+			case -2: alert(ErrorMsg); break;
+			default: this.gfn_getMessage("alert", ErrorMsg);
+		}
+		return;
+	}
+	
+	if (svcID == "getMbId") {
+		if (this.ds_user.rowcount == 0) {
+			this.gfn_getMessage("alert", "error.message.noUser");
+			return;
+		}
+		this.tab_search.tabpage1.div_search.cbo_MB_ID.set_index(0);
+		alert("조회된 고객님의 아이디는 [" + this.ds_user.rowcount + "]개 입니다.");
+	} else if (svcID == "sendMbPw") {
+		alert("고객님의 비밀번호가 [" + this.ds_user.getColumn(0, "MB_PW") + "]으로 초기화 되었습니다.");
+	} else if (svcID == "sendSmsPw") {
+		this.tab_search.tabpage2.div_search.edt_CERT_NUM.set_value(""); // 인증번호 삭제
+		this.tab_search.tabpage2.div_search.edt_CERT_NUM.setFocus();
+		alert("고객님의 휴대전화번호로 인증번호가 전송되었습니다.");
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

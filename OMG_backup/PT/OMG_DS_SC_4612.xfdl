@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4612" classname="pattern_01" left="0" top="0" width="810" height="1490" titletext="판매상세정보 서비스" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="ImageViewer00" taborder="0" left="15" top="15" width="780" height="185" style="background:URL('theme://images/new/con_img01.png') left middle;border:0 solid #bfbfbfff ;"/>
+        <Static id="Static00" taborder="1" text="판매상세정보 안내" left="15" top="230" width="780" height="25" cssclass="sta_INFO_title"/>
+        <Static id="Static01" taborder="2" text="판매상세정보 이용요금" cssclass="sta_INFO_title" left="15" top="415" width="780" height="25"/>
+        <Static id="Static02" taborder="3" text="판매상세정보 이용요금 예시" cssclass="sta_INFO_title" left="15" top="650" width="780" height="25"/>
+        <Static id="Static03" taborder="4" text="판매상세정보 엑셀 다운로드 예시(월별/주별 동일)" cssclass="sta_INFO_title" left="15" top="835" width="780" height="25"/>
+        <Static id="Static04" taborder="5" text="서비스 명 : 판매상세정보" cssclass="sta_INFO_txt1list" left="15" top="260" width="780" height="25"/>
+        <Static id="Static05" taborder="6" text="서비스 개요 : 사업장별 POS 판매정보(자사 판매정보 제공 동의시, 비동의시 판매수량만 제공)를 SKU단위로 제공합니다." cssclass="sta_INFO_txt1list" left="15" top="285" width="780" height="25"/>
+        <Static id="Static06" taborder="7" text="이용방법 (매뉴얼 참조 : 커뮤니티-&gt; 자료실)" cssclass="sta_INFO_txt1list" left="15" top="335" width="780" height="25"/>
+        <Static id="Static07" taborder="8" text="자사 및 타사상품의 농협 POS 판매현황을 제공함(현재시점에서 6개월 전까지의 데이터 조회 가능)" cssclass="sta_INFO_txt1list" left="15" top="360" width="780" height="25"/>
+        <Static id="Static08" taborder="9" text="타사의 판매정보를 사업장별 수량, 판매액(원) 등을 상세하게 확인할 수 있습니다." cssclass="sta_INFO_txt1" left="15" top="310" width="780" height="25"/>
+        <Static id="Static09" taborder="10" text="[내정보] – “자사판매정보 제공동의＂를 체크해야만 서비스를 이용할 수 있습니다.(동의시에는 과금 부과 없음)" cssclass="sta_INFO_txt1list" left="15" top="445" width="780" height="25"/>
+        <Static id="Static10" taborder="11" text="주별/월별 카테고리 판매정보에서 엑셀 다운로드 서비스 이용료가 발생합니다." cssclass="sta_INFO_txt1" left="15" top="470" width="780" height="25"/>
+        <Static id="Static11" taborder="12" text="최초자료 다운로드로 부터 30일간은 동일 SKU에 대해 중복으로 과금이 청구되지 않으며, 이 후 부터는 동일한 요금체계로" cssclass="sta_INFO_txt1list" left="15" top="495" width="780" height="25"/>
+        <Static id="Static12" taborder="13" text="청구됩니다." cssclass="sta_INFO_txt1" left="15" top="520" width="780" height="25"/>
+        <Static id="Static13" taborder="14" text="빌링 권한을 갖는 ID만 관심상품(SKU)등록이 가능하며, 일반 ID는 조회 및 다운로드만 가능합니다." cssclass="sta_INFO_txt1list" left="15" top="545" width="780" height="25"/>
+        <Static id="Static14" taborder="15" text="비동의 업체의 관심 상품은 판매수량 정보만 제공되고 있습니다." cssclass="sta_INFO_txt1" left="15" top="570" width="780" height="25"/>
+        <Static id="Static15" taborder="16" text="비 동의 업체의 경우 본 서비스를 이용하실 수 없습니다." cssclass="sta_INFO_txt1list" left="15" top="595" width="780" height="25"/>
+        <Static id="Static16" taborder="17" text="최초 다운로드 후 동일정보 다운로드 시 D+29까지는 중복 과금 안됨.)" cssclass="sta_INFO_txt1list" left="15" top="730" width="780" height="25"/>
+        <Static id="Static17" taborder="18" text="40건 * 1,500원 + 30건 * 1,500원 = 105,000원(VAT 별도)" cssclass="sta_INFO_txt1" left="15" top="755" width="780" height="25"/>
+        <Static id="Static18" taborder="19" text="관심상품등록 : 총 SKU 50건(빌링권한 ID만 가능)" cssclass="sta_INFO_txt1list" left="15" top="680" width="780" height="25"/>
+        <Static id="Static19" taborder="20" text="다운로드 SKU : 12월분(40건), 11월분(30건)" cssclass="sta_INFO_txt1list" left="15" top="705" width="780" height="25"/>
+        <Static id="Static20" taborder="21" text="최대 550만원(VAT포함)만 과금하는 상한요금제를 적용함." cssclass="sta_INFO_txt1list" left="15" top="780" width="780" height="25"/>
+        <ImageViewer id="ImageViewer01" taborder="22" left="34" top="875" width="724" height="593" style="background:URL('theme://images/new/sales_sample.JPG') left middle;border:0 solid #bfbfbfff ;"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+
+ 
+this.Static02_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Static47_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

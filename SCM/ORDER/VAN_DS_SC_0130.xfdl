@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0130" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="사업장별R1 수주조회" oninit="form_init" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="323" height="21"/>
+        <Div id="div_auth" taborder="1" url="common::AuthorityWorkplace.xfdl" top="0" right="116" width="379" height="21"/>
+        <Div id="div_search" taborder="2" left="0" top="29" right="15" height="75" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static04" taborder="59" text="조회기간" cssclass="sta_WFSA_Label" left="15" top="10" width="103" height="21"/>
+              <Static id="Static06" taborder="60" text="20" visible="false" left="756" top="-2" right="201" height="69" style="background:#dc143c5b;"/>
+              <Radio id="rdo_search_period" taborder="71" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="120" top="10" width="227" height="21" style="font:9 Gulim;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">수주일</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">배송요청일</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Calendar id="cal_from" taborder="72" dateformat="yyyy-MM-dd" left="326" top="10" width="100" height="21"/>
+              <Static id="Static08" taborder="73" text="~" left="428" top="10" width="10" height="21"/>
+              <Calendar id="cal_to" taborder="74" dateformat="yyyy-MM-dd" left="438" top="10" width="100" height="21"/>
+              <Static id="Static07" taborder="84" text="지역코드" cssclass="sta_WFSA_Label" left="15" top="37" width="79" height="21"/>
+              <Combo id="cbo_wmc_loc_rgn_dsc" taborder="85" codecolumn="SIMP_C" datacolumn="SIMP_CNM" index="0" left="118" top="37" width="81" height="21" innerdataset="@ds_rgn_c00" onitemchanged="div_search_cbo_wmc_loc_rgn_dsc_onitemchanged"/>
+              <Combo id="cbo_ht_lov_rgn_c" taborder="86" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="201" top="37" width="85" height="21" innerdataset="@ds_rgn_c01" readonly="false" onitemchanged="div_search_cbo_ht_lov_rgn_c_onitemchanged"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static09" taborder="6" text="15" visible="false" left="1" top="30" right="977" height="69" style="background:#dc143c5b;"/>
+        <Static id="Static13" taborder="8" text="10" visible="false" left="123" top="30" right="790" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static12" taborder="9" text="10" visible="false" left="123" top="113" right="790" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static15" taborder="10" text="5" visible="false" left="338" top="61" right="575" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="11" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static03" taborder="12" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="24" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Button id="btn_excel00" taborder="26" text="엑셀" onclick="btn_excel00_onclick" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Div id="Div01" taborder="25" url="common::location.xfdl" text="Div01" left="0" top="0" right="408" height="36"/>
+        <Div id="div_list" taborder="14" text="Div02" left="0" top="103" right="15" scrollbars="none" bottom="20">
+          <Layouts>
+            <Layout>
+              <Button id="btn_divResize" taborder="25" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" onclick="div_list_btn_divResize_onclick" width="62"/>
+              <Grid id="grd_master" taborder="70" binddataset="ds_dataM" useinputpanel="false" nodatatext="조회된 데이터가 없습니다." left="0" top="21" right="0" height="179" oncellclick="div_list_grd_master_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="39"/>
+                      <Column size="80"/>
+                      <Column size="170"/>
+                      <Column size="80"/>
+                      <Column size="170"/>
+                      <Column size="90"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="105"/>
+                      <Column size="110"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="수주처"/>
+                      <Cell col="2" text="수주처명"/>
+                      <Cell col="3" text="공급처"/>
+                      <Cell col="4" text="공급처명"/>
+                      <Cell col="5" text="수주상품건수"/>
+                      <Cell col="6" text="수주수량"/>
+                      <Cell col="7" text="BOX수량"/>
+                      <Cell col="8" text="공병금액"/>
+                      <Cell col="9" text="수주금액"/>
+                      <Cell col="10"/>
+                      <Cell col="11"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:RVOPL_NA_TRPL_C"/>
+                      <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:RVOPL_NA_TRPL_N"/>
+                      <Cell col="3" text="bind:SPYPL_NA_TRPL_C"/>
+                      <Cell col="4" cssclass="Cellgrd_WF_AlignLeft" text="bind:SPYPL_NA_TRPL_N"/>
+                      <Cell col="5" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:ODR_WRS_CNT"/>
+                      <Cell col="6" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:ODR_QT"/>
+                      <Cell col="7" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:BOXPE_AQZ"/>
+                      <Cell col="8" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:VCBT_AM"/>
+                      <Cell col="9" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:ODR_AM"/>
+                      <Cell col="10"/>
+                      <Cell col="11"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1" style="align:center;" text="합계"/>
+                      <Cell col="2"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5" displaytype="number" text="expr:dataset.getSum('ODR_WRS_CNT')" mask="9,999.99" editlimitbymask="both"/>
+                      <Cell col="6" displaytype="number" text="expr:dataset.getSum('ODR_QT')" mask="9,999.99" editlimitbymask="both"/>
+                      <Cell col="7" displaytype="number" text="expr:dataset.getSum('BOXPE_AQZ')" mask="9,999.99" editlimitbymask="both"/>
+                      <Cell col="8" displaytype="number" text="expr:dataset.getSum('VCBT_AM')"/>
+                      <Cell col="9" displaytype="number" text="expr:dataset.getSum('ODR_AM')"/>
+                      <Cell col="10"/>
+                      <Cell col="11"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_detail" taborder="71" binddataset="ds_dataD" useinputpanel="false" left="0" top="227" right="0" bottom="1" oncellclick="div_list_grd_detail_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="39"/>
+                      <Column size="66"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="90"/>
+                      <Column size="200"/>
+                      <Column size="90"/>
+                      <Column size="80"/>
+                      <Column size="90"/>
+                      <Column size="90"/>
+                      <Column size="100"/>
+                      <Column size="110"/>
+                      <Column size="100"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="41" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="대량발주"/>
+                      <Cell col="2" text="수주일자"/>
+                      <Cell col="3" text="발주번호"/>
+                      <Cell col="4" text="발주처"/>
+                      <Cell col="5" text="발주처명"/>
+                      <Cell col="6" text="발주처팀"/>
+                      <Cell col="7" text="배송요청일"/>
+                      <Cell col="8" text="수주상품수량"/>
+                      <Cell col="9" text="수주수량"/>
+                      <Cell col="10" text="공병금액"/>
+                      <Cell col="11" text="수주금액"/>
+                      <Cell col="12" text="직송여부"/>
+                      <Cell col="13" text="지역명"/>
+                      <Cell col="14" text="배송처"/>
+                      <Cell col="15" text="배송처명"/>
+                      <Cell col="16" text="수발주정보생성&#13;&#10;구분코드"/>
+                      <Cell col="17"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:LGQT_TR_NM"/>
+                      <Cell col="2" displaytype="date" text="bind:ODR_DT" mask="yyyy-MM-dd" calendardisplaynulltype="none"/>
+                      <Cell col="3" text="bind:ODR_SLPNO"/>
+                      <Cell col="4" text="bind:ODRPL_NA_TRPL_C"/>
+                      <Cell col="5" cssclass="Cellgrd_WF_AlignLeft" text="bind:ODRPL_NA_TRPL_N"/>
+                      <Cell col="6" style="align:left;" text="bind:ODRPL_NA_TEAM_N"/>
+                      <Cell col="7" displaytype="date" text="bind:DVY_RQR_DT" mask="yyyy-MM-dd" calendardisplaynulltype="none"/>
+                      <Cell col="8" displaytype="number" style="align:right;" text="bind:ODR_WRS_CNT"/>
+                      <Cell col="9" displaytype="number" style="align:right;" text="bind:ODR_QT"/>
+                      <Cell col="10" displaytype="number" style="align:right;" text="bind:VCBT_AM"/>
+                      <Cell col="11" displaytype="number" text="bind:ODR_AM"/>
+                      <Cell col="12" text="bind:DDLY_YN"/>
+                      <Cell col="13" cssclass="Cellgrd_WF_AlignLeft" text="bind:NA_RGN_N"/>
+                      <Cell col="14" text="bind:DVYAA_NA_TRPL_C"/>
+                      <Cell col="15" cssclass="Cellgrd_WF_AlignLeft" text="bind:DVYAA_NA_TRPL_N"/>
+                      <Cell col="16" cssclass="Cellgrd_WF_AlignLeft" text="bind:ROGO_INF_CRT_DSC"/>
+                      <Cell col="17"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1"/>
+                      <Cell col="2" style="align:center;" text="합계"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                      <Cell col="6"/>
+                      <Cell col="7"/>
+                      <Cell col="8" displaytype="number" style="align:right;" text="expr:dataset.getSum('ODR_WRS_CNT')" mask="9,999.99" editlimitbymask="both"/>
+                      <Cell col="9" displaytype="number" style="align:right;" text="expr:dataset.getSum('ODR_QT')" mask="9,999.99" editlimitbymask="both"/>
+                      <Cell col="10" displaytype="number" style="align:right;" text="expr:dataset.getSum('VCBT_AM')" mask="9,999.99" editlimitbymask="both"/>
+                      <Cell col="11" displaytype="number" text="expr:dataset.getSum('ODR_AM')" mask="9,999.99"/>
+                      <Cell col="12"/>
+                      <Cell col="13"/>
+                      <Cell col="14"/>
+                      <Cell col="15"/>
+                      <Cell col="16"/>
+                      <Cell col="17"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RVOPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="RVOPL_NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="ODR_WRS_CNT" type="STRING" size="256"/>
+          <Column id="ODR_QT" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+          <Column id="ODR_AM" type="STRING" size="256"/>
+          <Column id="ODR_VAT" type="STRING" size="256"/>
+          <Column id="VCBT_AM" type="STRING" size="256"/>
+          <Column id="ODR_CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rgn_c00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rgn_c01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dataD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ODR_DT" type="STRING" size="256"/>
+          <Column id="ODR_SLPNO" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TEAM_N" type="STRING" size="256"/>
+          <Column id="DVY_RQR_DT" type="STRING" size="256"/>
+          <Column id="ODR_WRS_CNT" type="STRING" size="256"/>
+          <Column id="ODR_QT" type="STRING" size="256"/>
+          <Column id="ODR_AM" type="STRING" size="256"/>
+          <Column id="VCBT_AM" type="STRING" size="256"/>
+          <Column id="DDLY_YN" type="STRING" size="256"/>
+          <Column id="NA_RGN_N" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TEAM_N" type="STRING" size="256"/>
+          <Column id="ROGO_INF_CRT_DSC" type="STRING" size="256"/>
+          <Column id="LGQT_TR_YN" type="STRING" size="256"/>
+          <Column id="LGQT_TR_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var spyplNaTrplC ='';
+
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e);//공통
+	
+	this.div_search_cbo_wmc_loc_rgn_dsc();
+}
+
+
+//공통코드 데이터셋 onload후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	this.div_search.cbo_wmc_loc_rgn_dsc.set_index(0);
+	
+	trace("fn_commonAfterOnload");
+
+}
+
+
+
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{	
+
+}
+
+
+/* 페이지 로딩후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+	//날짜 SET
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+
+	this.div_search.cal_from.set_value(this.gfn_today("yyyyMMdd"));	
+	this.div_search.cal_to.set_value(this.gfn_today("yyyyMMdd"));
+	
+	//this.div_search.cal_from.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"),3));	
+	//this.div_search.cal_to.set_value(this.gfn_today("yyyyMMdd"));
+
+	
+}
+
+//지역코드
+this.div_search_cbo_wmc_loc_rgn_dsc = function(){
+	var sSvcID        = "retrieveRgnCM";//통신아이디
+	var sURL          = "svc::/rest/common/getRgnCode";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_rgn_c00=ds_rgn_c00";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+//상세지역코드
+this.div_search_cbo_wmc_loc_rgn_dsc_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+
+	var wmc_loc_rgn_dsc = this.div_search.cbo_wmc_loc_rgn_dsc.value;
+	
+	var params = " simpC="+wmc_loc_rgn_dsc;
+	
+	var sSvcID        = "retrieveRgnC";//통신아이디
+	var sURL          = "svc::/rest/common/getRgnCodeD";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_rgn_c01=ds_rgn_c01";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	this.div_search.cbo_ht_lov_rgn_c.set_enable(true);
+}
+
+this.fn_validationCheck = function(){
+	var cal_from  	= this.gfn_nullToEmpty(this.div_search.cal_from.value);
+	var cal_to  	= this.gfn_nullToEmpty(this.div_search.cal_to.value);
+	
+	if(cal_from == "" || cal_to == ""){
+		alert("조회기간을 선택해 주세요");
+		return false;
+	}
+	
+	if((cal_to - cal_from) <= -1){
+		alert("조회기간을 확인해 주세요");
+		return false;
+	}
+	
+	return true;
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	//trace("------------------------");
+	//this.ds_dataM.clearData();
+	//this.ds_sum.clearData();
+	if(this.fn_validationCheck()) {
+		//권한사업장 코드
+		
+		var searchPeriod = this.gfn_nullToEmpty(this.div_search.rdo_search_period.value);
+		var calFrom = this.gfn_nullToEmpty(this.div_search.cal_from.value);
+		var calTo = this.gfn_nullToEmpty(this.div_search.cal_to.value);
+		var wmcLocRgnDsc = this.gfn_nullToEmpty(this.div_search.cbo_wmc_loc_rgn_dsc.value);
+		
+		if(wmcLocRgnDsc == 'all') {
+			wmcLocRgnDsc = '';
+		}
+		
+		var htLovRgnC = this.gfn_nullToEmpty(this.div_search.cbo_ht_lov_rgn_c.value);
+		
+		if(htLovRgnC == 'all') {
+			htLovRgnC = '';
+		}
+		
+		var trplC = this.gfn_nullToEmpty(this.getTrplCode());
+		var param = "searchPeriod="+searchPeriod
+					+" calFrom="+calFrom
+					+" calTo="+calTo
+					+" wmcLocRgnDsc="+wmcLocRgnDsc
+					+" htLovRgnC="+htLovRgnC
+					+" TRPL_C="+trplC;
+		var sSvcID        = "getOrderRSVMaster";
+		var sURL          = "svc::rest/scm/order/getOrderRSVMaster";
+		var sInDatasets   = "";
+		var sOutDatasets  = "ds_dataM=DATASET";
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callback";//콜백
+		var tranType 	  = "U"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}
+
+this.div_list_grd_master_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	//this.ds_detail.clearData();
+	if(this.fn_validationCheck()) {
+		var rvoplNaTrplC = this.ds_dataM.getColumn(e.row,"RVOPL_NA_TRPL_C");
+		spyplNaTrplC = this.ds_dataM.getColumn(e.row,"SPYPL_NA_TRPL_C");
+		var searchPeriod = this.gfn_nullToEmpty(this.div_search.rdo_search_period.value);
+		var calFrom = this.gfn_nullToEmpty(this.div_search.cal_from.value);
+		var calTo = this.gfn_nullToEmpty(this.div_search.cal_to.value);
+		var wmcLocRgnDsc = this.gfn_nullToEmpty(this.div_search.cbo_wmc_loc_rgn_dsc.value);
+		
+		if(wmcLocRgnDsc == 'all') {
+			wmcLocRgnDsc = '';
+		}
+		
+		var htLovRgnC = this.gfn_nullToEmpty(this.div_search.cbo_ht_lov_rgn_c.value);
+		
+		if(htLovRgnC == 'all') {
+			htLovRgnC = '';
+		}
+
+		
+		var param = "searchPeriod="+searchPeriod
+					+" calFrom="+calFrom
+					+" calTo="+calTo
+					+" rvoplNaTrplC="+rvoplNaTrplC
+					+" spyplNaTrplC="+spyplNaTrplC
+					+" wmcLocRgnDsc="+wmcLocRgnDsc
+					+" htLovRgnC="+htLovRgnC;
+		
+		var sSvcID        = "getOrderRSVDetail";//통신아이디
+		var sURL          = "svc::rest/scm/order/getOrderRSVDetail";
+		var sInDatasets   = "";
+		var sOutDatasets  = "ds_dataD=DATASET";
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callback";//콜백
+		var tranType 	  = "U"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}
+
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+this.div_list_grd_detail_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	
+	var ODR_DT = this.ds_dataD.getColumn(e.row,"ODR_DT");
+	var ODR_SLPNO = this.ds_dataD.getColumn(e.row,"ODR_SLPNO");
+	var ODRPL_NA_TRPL_C = this.ds_dataD.getColumn(e.row,"ODRPL_NA_TRPL_C");
+	var ODRPL_NA_TEAM_C = this.ds_dataD.getColumn(e.row,"ODRPL_NA_TEAM_C");
+		
+	var oArg = {PODR_DT:ODR_DT, PODR_SLPNO:ODR_SLPNO, PODRPL_NA_TRPL_C:ODRPL_NA_TRPL_C, PODRPL_NA_TEAM_C:ODRPL_NA_TEAM_C
+	, PSPYPL_NA_TRPL_C:spyplNaTrplC};
+	trace(oArg);
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","SCM.ORDER::VAN_DS_SC_0130_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_excel00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		if(this.fn_validationCheck()) {
+		
+		var searchPeriod = this.gfn_nullToEmpty(this.div_search.rdo_search_period.value);
+		var calFrom = this.gfn_nullToEmpty(this.div_search.cal_from.value);
+		var calTo = this.gfn_nullToEmpty(this.div_search.cal_to.value);
+		var wmcLocRgnDsc = this.gfn_nullToEmpty(this.div_search.cbo_wmc_loc_rgn_dsc.value);
+		var htLovRgnC = this.gfn_nullToEmpty(this.div_search.cbo_ht_lov_rgn_c.value);
+		
+		if(wmcLocRgnDsc == 'all') {
+			wmcLocRgnDsc = '';
+		}
+		
+		var htLovRgnC = this.gfn_nullToEmpty(this.div_search.cbo_ht_lov_rgn_c.value);
+		
+		if(htLovRgnC == 'all') {
+			htLovRgnC = '';
+		}
+		
+		var trplC = this.getTrplCode();
+		var param = "searchPeriod="+searchPeriod
+					+"&calFrom="+calFrom
+					+"&calTo="+calTo
+					+"&wmcLocRgnDsc="+wmcLocRgnDsc
+					+"&htLovRgnC="+htLovRgnC
+					+"&TRPL_C="+trplC;
+		var strDownUrl = application.gv_server_url+"rest/excel/scm/order/downloadExcel?"+param;
+		excelDownHandler(strDownUrl, this);	
+		//var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+		//wbs_dw.set_url(strDownUrl);
+	}
+}
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+	
+		if(svcID == "retrieveRgnCM"){
+			if (this.ds_rgn_c00.insertRow(0) != -1){
+				this.ds_rgn_c00.setColumn(0,"SIMP_C","");
+				this.ds_rgn_c00.setColumn(0,"SIMP_CNM","- 전체 -");
+
+			};
+			this.div_search.cbo_wmc_loc_rgn_dsc.set_index(0);
+		}
+		
+		if(svcID == "retrieveRgnC"){
+			if (this.ds_rgn_c01.insertRow(0) != -1){
+				this.ds_rgn_c01.setColumn(0,"SIMP_C","");
+				this.ds_rgn_c01.setColumn(0,"SIMP_CNM","- 전체 -");
+
+			};
+			this.div_search.cbo_ht_lov_rgn_c.set_index(0);
+		}
+		
+		if(svcID == "getOrderRSVMaster"){
+			this.div_list.grd_detail.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			this.ds_dataM.set_rowposition(1);
+			this.ds_dataM.set_rowposition(0);
+			if(this.ds_dataM.rowcount == 0){				
+				this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			}	
+		}
+		if(svcID == "getOrderRSVDetail"){
+			this.ds_dataD.set_rowposition(1);
+			this.ds_dataD.set_rowposition(0);
+			if(this.ds_dataD.rowcount == 0){				
+				this.div_list.grd_detail.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			}	
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

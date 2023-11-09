@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="pattern_01" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="대납업체관리" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="6" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static03" taborder="4" text="8" visible="false" left="733" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="5" text="15" visible="false" left="788" top="5" width="15" height="491" style="background:#00ffffb5;"/>
+        <Static id="Static00" taborder="7" text="5" visible="false" left="743" top="315" right="15" height="5" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Static id="Static02" taborder="14" text="8" visible="false" left="91.16%" top="21" right="1.87%" height="8" style="background:#dc143c5b;"/>
+        <Div id="Div00" taborder="15" left="0%" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit_comnum" taborder="8" left="11.45%" top="10" right="69.34%" height="21"/>
+              <Edit id="Edit_comname" taborder="9" left="31.04%" top="10" right="48.85%" height="21"/>
+              <Button id="btn_comname" taborder="10" cssclass="btn_WF_Searchbtn" left="51.53%" top="10" right="45.8%" height="21" onclick="Div00_btn_comname_onclick"/>
+              <Static id="Static00" taborder="11" text="업체조회" cssclass="sta_WFSA_Label" left="1.91%" top="10" right="88.55%" height="21"/>
+              <Static id="Static01" taborder="12" text="사용유무" cssclass="sta_WFSA_Label" left="58.02%" top="10" right="32.44%" height="21"/>
+              <Static id="Static02" taborder="13" text="30" visible="false" left="54.2%" top="1" right="41.98%" height="43" style="background:#dc143c5b;"/>
+              <Combo id="combo_use" taborder="14" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" left="67.56%" top="10" right="20.74%" height="21" style="align:left middle;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">사용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">미사용</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static05" taborder="17" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_add1" taborder="18" text="추가" onclick="btn_add_onclick" cssclass="btn_WF_CRUD" top="0" right="118" height="21" width="41"/>
+        <Button id="btn_del" taborder="19" text="삭제" onclick="btn_del_onclick" cssclass="btn_WF_CRUD" top="0" right="75" height="21" width="41"/>
+        <Static id="Static01" taborder="20" text="15" visible="false" left="91.16%" top="72" right="1.87%" height="41" style="background:#dc143c5b;"/>
+        <Div id="Div02" taborder="8" text="Div02" left="0" top="71" right="15" height="475">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid01" taborder="1" useinputpanel="false" left="0" top="248" right="0" autofittype="col" height="170" binddataset="ds_pay" onheadclick="Div02_Grid01_onheadclick" cellsizingtype="col" selectscrollmode="default" scrollbars="autoboth" selecttype="row" oncellclick="Div02_Grid01_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="51"/>
+                      <Column size="151"/>
+                      <Column size="145"/>
+                      <Column size="148"/>
+                      <Column size="175"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="checkbox" edittype="checkbox"/>
+                      <Cell col="1" text="순번"/>
+                      <Cell col="2" text="협력업체 코드"/>
+                      <Cell col="3" text="협력업체명"/>
+                      <Cell col="4" text="사업자번호"/>
+                      <Cell col="5" text="처리일자"/>
+                      <Cell col="6" text="처리시간"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:check"/>
+                      <Cell col="1" text="expr:currow+1"/>
+                      <Cell col="2" text="bind:NA_TRPL_C" tooltiptext="bind:NA_TRPL_C"/>
+                      <Cell col="3" text="bind:PAY_COMP_NM" tooltiptext="bind:PAY_COMP_NM"/>
+                      <Cell col="4" text="bind:BZNO" tooltiptext="bind:BZNO"/>
+                      <Cell col="5" text="bind:LSCHG_DAY" editautoselect="false" tooltiptext="bind:LSCHG_DAY"/>
+                      <Cell col="6" text="bind:LSCHG_TIME" tooltiptext="bind:LSCHG_TIME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="Grid00" taborder="2" useinputpanel="false" left="0" top="41" right="0" height="170" autofittype="col" binddataset="ds_pay_p" oncellclick="Div02_Grid00_oncellclick" useselcolor="false" onheadclick="Div02_Grid00_onheadclick" cellsizingtype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="51"/>
+                      <Column size="145"/>
+                      <Column size="148"/>
+                      <Column size="175"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="checkbox" edittype="checkbox"/>
+                      <Cell col="1" text="협력업체 코드"/>
+                      <Cell col="2" text="협력업체명"/>
+                      <Cell col="3" text="사업자번호"/>
+                      <Cell col="4" text="처리일자"/>
+                      <Cell col="5" text="처리시간"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:check"/>
+                      <Cell col="1" text="bind:NA_TRPL_C" tooltiptext="bind:NA_TRPL_C"/>
+                      <Cell col="2" text="bind:PAY_COMP_NM" tooltiptext="bind:PAY_COMP_NM"/>
+                      <Cell col="3" text="bind:BZNO" tooltiptext="bind:BZNO"/>
+                      <Cell col="4" text="bind:LSCHG_DAY" tooltiptext="bind:LSCHG_DAY"/>
+                      <Cell col="5" text="bind:LSCHG_TIME" tooltiptext="bind:LSCHG_TIME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static_edi" taborder="47" text="대납업체리스트 (실제 요금 청구/납부 업체)" cssclass="sta_WF_Subtitle" left="0%" top="21" right="62.15%" height="21"/>
+              <Button id="btn_add2" taborder="7" text="추가" top="222" right="0" width="53" height="21" enable="false" onclick="Div02_btn_add2_onclick"/>
+              <Button id="btn_del2" taborder="8" text="삭제" top="222" right="55" width="53" height="21" onclick="Div02_btn_del2_onclick"/>
+              <Static id="Static_edi00" taborder="48" text="대납 대상업체 리스트 (타 사업자로 요금청구되는 업체)" cssclass="sta_WF_Subtitle" left="0%" top="226" right="53.81%" height="21"/>
+              <Static id="Static00" taborder="51" text="15" visible="false" left="33.12%" top="211" right="59.9%" height="15" style="background:#dc143c5b;"/>
+              <Button id="Button00" taborder="52" onclick="Div02_Button75_onclick" cssclass="btn_WFSA_SearchClose" left="363" top="0" right="362" height="12"/>
+              <Button id="btn_excel" taborder="53" text="엑셀" top="222" right="110" width="53" height="21" onclick="Div02_btn_excel_onclick"/>
+              <Static id="Static_edi01" taborder="54" top="225" right="370" height="21" left="346" style="border:10 none #808080ff ;font:bold 9 Gulim;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pay_p" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="ds_pay_p_canrowposchange" onrowposchanged="ds_pay_p_onrowposchanged">
+        <ColumnInfo>
+          <Column id="check" type="INT" size="3"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="PAY_COMP_NM" type="STRING" size="50"/>
+          <Column id="BZNO" type="STRING" size="10"/>
+          <Column id="LSCHG_DAY" type="STRING" size="10"/>
+          <Column id="LSCHG_TIME" type="STRING" size="10"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pay" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="check" type="INT" size="3"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="PAY_COMP_NM" type="STRING" size="50"/>
+          <Column id="BZNO" type="STRING" size="10"/>
+          <Column id="LSCHG_DAY" type="STRING" size="10"/>
+          <Column id="LSCHG_TIME" type="STRING" size="10"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_delete" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.Div00.combo_use.set_index(0);
+}
+
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*콜백 함수*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrievePrxpCompList"){
+			if(this.ds_pay_p.rowcount==0)
+			{
+				this.alert("데이터가 없습니다.");
+			}
+			else{
+				this.ds_pay_p.addColumn("check", "INT");
+				for(var i = 0; i<this.ds_pay_p.rowcount; i++)
+				{
+					this.ds_pay_p.setColumn(i,"check",0);
+				}
+				return;
+			}
+		}
+		else if(svcID == "retrievePrxpCompSonList"){
+			this.ds_pay.addColumn("check", "INT");
+			for(var i = 0; i<this.ds_pay.rowcount; i++)
+			{
+				this.ds_pay.setColumn(i,"check",0);
+			}
+			this.Div02.Static_edi01.set_text(this.ds_pay.rowcount + " 건");
+			return;
+		}
+		else if(svcID == "deletePrxpComp"){
+			this.alert("정상적으로 삭제되었습니다.");
+			this.btn_search_onclick();
+			return;		
+		}
+		else if(svcID == "deletePrxpCompSon"){
+			this.gfn_getMessage("alert", "정상적으로 삭제되었습니다.");
+			
+			var sParams = "TRPL_C="+this.gfn_nullToEmpty(this.ds_pay_p.getColumn(this.Div02.Grid00.currentrow,"NA_TRPL_C"));
+			var sSvcID        = "retrievePrxpCompSonList";
+			var sURL          = "svc::rest/bl/retrievePrxpCompList";	
+			var sInDatasets   = "";
+			var sOutDatasets  = "ds_pay=ds_pay";	
+			var sArgument     = sParams;
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "S"; // U:저장/삭제, S:조회  
+
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+			
+			return;		
+		}
+	}	
+}
+
+/*대납업체 팝업콜백 함수*/
+this.fn_popupAfter = function(strId, strVal)
+{
+	var sParams = "COMPNAME="+this.gfn_nullToEmpty(this.Div00.Edit_comname.value)
+				+ " COMPGLN="+this.gfn_nullToEmpty(this.Div00.Edit_comnum.value)
+				+ " COMPUSE="+this.gfn_nullToEmpty(this.Div00.combo_use.value)
+				;
+	var sSvcID        = "retrievePrxpCompList";
+	var sURL          = "svc::rest/bl/retrievePrxpCompList";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_pay_p=ds_pay_p";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회  
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+	this.ds_pay.clearData();
+	this.Div02.btn_add2.set_enable(false);
+	this.ds_pay_p.set_rowposition(-1);
+}
+
+/*대납대상업체 팝업콜백 함수*/
+this.fn_popupAfter2 = function(strId, strVal)
+{
+	var sParams = "TRPL_C="+this.gfn_nullToEmpty(this.ds_pay_p.getColumn(this.Div02.Grid00.currentrow,"NA_TRPL_C"));
+	var sSvcID        = "retrievePrxpCompSonList";
+	var sURL          = "svc::rest/bl/retrievePrxpCompList";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_pay=ds_pay";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회  
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+
+/*대납업체조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams = "COMPNAME="+this.gfn_nullToEmpty(this.Div00.Edit_comname.value)
+				+ " COMPGLN="+this.gfn_nullToEmpty(this.Div00.Edit_comnum.value)
+				+ " COMPUSE="+this.gfn_nullToEmpty(this.Div00.combo_use.value)
+				;
+	var sSvcID        = "retrievePrxpCompList";
+	var sURL          = "svc::rest/bl/retrievePrxpCompList";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_pay_p=ds_pay_p";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회  
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	this.ds_pay.clearData();
+	this.Div02.btn_add2.set_enable(false);
+	this.ds_pay_p.set_rowposition(-1);
+}
+
+/*대납업체삭제*/
+this.btn_del_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt = 0;
+	this.ds_delete.clearData();
+	for(var i=0; i<this.ds_pay_p.rowcount; i++)
+	{
+		if(this.ds_pay_p.getColumn(i,"check")==1)
+		{
+			this.ds_delete.insertRow(checkCnt);
+			this.ds_delete.copyRow(checkCnt++, this.ds_pay_p, i);
+		}
+	}
+	if (checkCnt > 0)
+	{
+		var sParams = "";
+		var sSvcID        = "deletePrxpComp";
+		var sURL          = "svc::rest/bl/deletePrxpComp";	
+		var sInDatasets   = "ds_delete=ds_delete";
+		var sOutDatasets  = "";	
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회  
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		this.ds_pay.clearData();
+	}
+	else
+	{
+		alert("체크된 값이 없습니다.");
+	}
+	
+}
+
+/*대납 대상업체삭제*/
+this.Div02_btn_del2_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt = 0;
+	this.ds_delete.clearData();
+	for(var i=0; i<this.ds_pay.rowcount; i++)
+	{
+		if(this.ds_pay.getColumn(i,"check")==1)
+		{
+			this.ds_delete.insertRow(checkCnt);
+			this.ds_delete.copyRow(checkCnt++, this.ds_pay, i);		
+		}
+	}
+	if (checkCnt > 0)
+	{
+		var sParams = "";
+		var sSvcID        = "deletePrxpCompSon";
+		var sURL          = "svc::rest/bl/deletePrxpComp";	
+		var sInDatasets   = "ds_delete=ds_delete";
+		var sOutDatasets  = "";	
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회  
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+	else
+	{
+		alert("체크된 값이 없습니다.");
+	}
+}
+
+/*대납 대상업체조회*/
+this.Div02_Grid00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	obj.set_useselcolor(true);
+	this.Div02.btn_add2.set_enable(true);
+	if(e.col!=0){
+		this.ds_pay_p.set_enableevent(false);
+		this.ds_pay_p.set_rowposition(e.row);
+		
+		var sParams = "TRPL_C="+this.gfn_nullToEmpty(this.ds_pay_p.getColumn(e.row,"NA_TRPL_C"));
+		var sSvcID        = "retrievePrxpCompSonList";
+		var sURL          = "svc::rest/bl/retrievePrxpCompList";	
+		var sInDatasets   = "";
+		var sOutDatasets  = "ds_pay=ds_pay";	
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회  
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+	this.ds_pay_p.set_enableevent(true);
+}
+
+this.ds_pay_p_canrowposchange = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	return false;
+}
+
+/*대납업체 추가 클릭*/
+this.btn_add_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"I", dsArg:this.ds_pay_p};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","OMG.BL::OMG_DS_SC_7121.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/*대납 대상업체 추가 클릭*/
+this.Div02_btn_add2_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"I", dsArg:this.ds_pay, gln:this.ds_pay_p.getColumn(this.Div02.Grid00.currentrow,"NA_TRPL_C")
+				, compname:this.ds_pay_p.getColumn(this.Div02.Grid00.currentrow,"PAY_COMP_NM")};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter2";
+	this.gfn_openPopup("popId","OMG.BL::OMG_DS_SC_7122.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.Div02_Grid00_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+this.Div02_Grid01_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+this.Div02_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.Div00, this.Div02);
+}
+
+this.Div00_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = "";
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_compopupAfter";    
+	this.gfn_openPopup("trplSearchPopup","OMG.BL::OMG_DS_SC_7230_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/*업체조회 팝업콜백 함수*/
+this.fn_compopupAfter = function(strId, strVal)
+{
+	if(strVal != ''){
+		var paramsArr = strVal.split(",");
+	
+		if(strId == "trplSearchPopup"){
+			this.Div00.Edit_comnum.set_value(paramsArr[0]);
+			this.Div00.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+
+this.Div02_btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		//gfn_exportExcel(Export할 Grid, 생성될 Excel파일명)
+	//파일명은 뒤에 "_년월일분초" 추가됨 (런쳐실행시만)
+	this.gfn_exportExcel(this.Div02.Grid01,"data");
+}
+]]></Script>
+  </Form>
+</FDL>

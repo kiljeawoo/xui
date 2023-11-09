@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_2217_P01" classname="popup01" left="0" top="0" width="800" height="350" titletext="전자계약파견약정서관리상세화면" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="text_title" taborder="1" cssclass="sta_WF_Subtitle" left="17" top="51" width="560" height="21" text="선택 사업장 :"/>
+        <Static id="Static06" taborder="9" text="사업장별 등록현황" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32" onclick="Static06_onclick"/>
+        <Button id="brn_cls" taborder="10" cssclass="btn_WF_PopupClose" top="0" width="37" height="32" onclick="btn_close_onclick" right="5"/>
+        <Grid id="Grid00" taborder="11" left="15" top="84" right="15" bottom="30" binddataset="ds_list" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="50"/>
+                <Column size="80"/>
+                <Column size="200"/>
+                <Column size="150"/>
+                <Column size="97"/>
+                <Column size="75"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="거래구분"/>
+                <Cell col="2" text="계약업체명"/>
+                <Cell col="3" text="계약기간"/>
+                <Cell col="4" text="파일 등록여부"/>
+                <Cell col="5" text="비고"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:CTR_DSC"/>
+                <Cell col="2" text="bind:CLNTNM"/>
+                <Cell col="3" text="bind:CTR_DT"/>
+                <Cell col="4" text="expr:ORGFNAME != null ? '@' : ''"/>
+                <Cell col="5"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_type00" taborder="13" text="등록연도 :" cssclass="sta_WFSA_Label" top="51" right="116" width="80" height="21"/>
+        <Combo id="cbo_year" taborder="12" top="51" width="65" height="21" codecolumn="YEAR" datacolumn="YEAR" right="60" innerdataset="@ds_year"/>
+        <Button id="btn_search" taborder="14" text="조회" cssclass="btn_WF_CRUD" top="51" right="15" width="41" height="21" onclick="btn_search_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>&gt;
+<Column id="CTR_DT" type="STRING" size="30"/><Column id="CTR_DSC" type="STRING" size="30"/><Column id="CLNTNM" type="STRING" size="30"/><Column id="ORGFNAME" type="STRING" size="30"/><Column id="SYSTEMFILENAME" type="STRING" size="30"/><Column id="SEAL" type="STRING" size="256"/><Column id="BBRD_RGM_NM" type="STRING" size="30"/><Column id="FS_RGM" type="STRING" size="30"/></ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_year">
+        <ColumnInfo>
+          <Column id="YEAR" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+this.BZNO;
+this.GLN;
+this.CLNTNM;
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+	// 등록연도 생성(2021년부터)
+	var start = 2021;
+	var maxYear = Number(this.gfn_today("yyyy"));
+	var row = -1;
+	
+	for (var i = start; i <= maxYear; i++) {
+		row = this.ds_year.addRow();
+		this.ds_year.setColumn(row, "YEAR", i);
+	}
+	this.cbo_year.set_index(row);
+	
+	this.gfn_setInitForm(obj, e);
+}
+
+this.fn_afterFormOnload = function() //페이지 로딩후 실행부분
+{
+	this.BZNO = this.gfn_nullToEmpty(this.parent.bzno);
+	this.GLN = this.gfn_nullToEmpty(this.parent.gln);
+	this.CLNTNM = this.gfn_nullToEmpty(this.parent.clntnm);
+	
+	if (this.gfn_isNull(this.GLN)) {
+		this.text_title.set_text("선택 사업장 : " + this.BZNO + " / " + this.CLNTNM);
+	} else {
+		this.text_title.set_text("선택 사업장 : " + this.GLN + " / " + this.CLNTNM);
+	}
+	this.search();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+/*창닫기 버튼 이벤트*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+//사업자번호로 거래처 정보조회하기
+this.search = function()
+{	
+	this.ds_list.clearData();
+	
+	var param = "bzno="+this.BZNO
+				 +" gln="+this.GLN
+				 +" year="+this.cbo_year.value
+				 ;
+	var sSvcID        = "retrieveEltPmiwDetailList";
+	var sURL          = "svc::rest/ct/eltctrw/retrieveEltPmiwDetailList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_list=ds_list";
+	var sArgument     =  param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회	
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID =="retrieveEltPmiwDetailList") {
+			
+		}
+	}
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.search();
+}]]></Script>
+  </Form>
+</FDL>

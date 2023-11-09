@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Intro" classname="Intro" left="0" top="0" width="1008" height="552" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static08" taborder="27" left="0" height="330" cssclass="sta_ADMIN_Image" top="0" right="0"/>
+        <Static id="Static00" taborder="2" left="1149" top="25" width="21" height="40" style="background:#dc143c66;" visible="false"/>
+        <Div id="Div03" taborder="29" text="Div03" left="0" top="486" height="66" url="frame::main_bottom.xfdl" right="0"/>
+        <Div id="Div00" taborder="30" text="Div00" left="335" top="330" width="337" height="156" cssclass="div_INTRO_ContentsBg02" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static04" taborder="0" cssclass="sta_PORTAL_ContentsTitle01" left="20" top="13" width="109" height="23"/>
+              <Button id="btn_NHmore" taborder="2" cssclass="btn_INTRO_Plus" left="303" top="14" width="18" height="18" onclick="button_onclick" style="cursor:hand;"/>
+              <Grid id="grd_notice" cssclass="grd_INTRO_Notice" taborder="3" binddataset="ds_notice" scrollbars="none" useinputpanel="false" oncellclick="grd_oncellclick" left="20" top="44" width="301" height="102">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="15"/>
+                      <Column size="200"/>
+                      <Column size="9"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="25"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="image" style="padding: ;" text="URL('theme://images/grdIco_INTRO_Notice.png')"/>
+                      <Cell col="1" style="padding:0 0 0 0;" cssclass="Cellgrd_WF_AlignLeft" text="bind:OFANC_TINM"/>
+                      <Cell col="2"/>
+                      <Cell col="3" displaytype="date" style="align: ;color:#8f8f8fff;color2:#8f8f8fff;selectcolor:#8f8f8fff;selectfont:9 Gulim;" text="bind:BLTN_ST_DTM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="14" text="Div02" left="0" width="336" height="156" cssclass="div_INTRO_ContentsBg01" top="330">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="15" cssclass="sta_INTRO_ContentsLine" left="335" top="0" width="1" height="156"/>
+              <Static id="Static08" taborder="16" text="[평일] 09:00 ~ 18:00&#13;&#10;[점심] 12:00 ~ 13:00" cssclass="sta_INTRO_CSTime" left="27.08%" top="75" right="36.61%" height="33"/>
+              <Static id="Static06" taborder="17" cssclass="sta_INTRO_CSImage" left="7.14%" top="47" right="77.08%" height="53"/>
+              <Static id="Static07" taborder="18" text="1522 - 1211" cssclass="sta_INTRO_CSNum" left="27.08%" top="40" right="7.74%" height="35"/>
+              <Button id="btn_remote" taborder="19" onclick="button_onclick" cssclass="btn_INTRO_Remote" left="61.31%" top="81" right="7.14%" height="25" style="cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="13" text="Div01" left="671" top="330" height="156" cssclass="div_INTRO_ContentsBg02" right="0">
+          <Layouts>
+            <Layout>
+              <Button id="btn_more" taborder="0" cssclass="btn_INTRO_Plus" top="14" width="18" height="18" left="303" onclick="button_onclick" style="cursor:hand;"/>
+              <Static id="Static02" taborder="1" cssclass="sta_PORTAL_ContentsTitle02" left="20" top="13" width="109" height="23"/>
+              <Static id="Static05" taborder="3" cssclass="sta_INTRO_ContentsLine" left="0" top="0" width="1" height="154"/>
+              <Grid id="grd_bbs" cssclass="grd_INTRO_Notice" taborder="4" binddataset="ds_bbs" scrollbars="none" useinputpanel="false" oncellclick="grd_oncellclick" left="20" top="44" width="301" height="102">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="15"/>
+                      <Column size="200"/>
+                      <Column size="9"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="25"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="image" style="padding: ;" text="URL('theme://images/grdIco_INTRO_Notice.png')"/>
+                      <Cell col="1" style="padding:0 0 0 0;" cssclass="Cellgrd_WF_AlignLeft" text="bind:BBRD_TI"/>
+                      <Cell col="2"/>
+                      <Cell col="3" style="color:#8f8f8fff;color2:#8f8f8fff;selectcolor:#8f8f8fff;selectfont:9 Gulim;" text="bind:FSRG_DTM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="26" visible="false" left="1111" top="25" width="8" height="40" style="background:#dc143c66;"/>
+        <Div id="div_change" taborder="33" left="0" top="220" width="336" height="110" cssclass="div_ADMIN_Switch">
+          <Layouts>
+            <Layout>
+              <Button id="btn_change" taborder="0" left="261" top="57" width="48" height="25" cssclass="btn_ADMIN_Switch" onclick="button_onclick" style="cursor:hand;"/>
+              <Edit id="edt_change" taborder="1" cssclass="edt_ADMIN_Switch" left="25" top="57" width="231" height="25" onkeydown="div_change_edt_change_onkeydown"/>
+              <Static id="Static00" taborder="2" left="30" top="10" width="101" height="16" cssclass="sta_ADMIN_SwitchTitle"/>
+              <Button id="btn_searchP" taborder="3" left="225" top="57" width="30" height="25" cssclass="btn_ADMIN_SwitchSearch" onclick="button_onclick" style="cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static01" taborder="34" cssclass="sta_ADMIN_ImageBg" left="1007" top="0" right="0" height="330"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bbs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BOARD_ID" type="STRING" size="256"/>
+          <Column id="SKIN" type="string" size="32"/>
+          <Column id="MOBILE_SKIN" type="string" size="32"/>
+          <Column id="BOARD_TITLE" type="string" size="32"/>
+          <Column id="BOARD_DESCRIPTION" type="string" size="32"/>
+          <Column id="BOARD_AUTH" type="string" size="32"/>
+          <Column id="FILES_YN" type="string" size="32"/>
+          <Column id="CATEGORY_YN" type="string" size="32"/>
+          <Column id="TYPE_CODE" type="string" size="32"/>
+          <Column id="IF_INIT_REG_DT" type="string" size="32"/>
+          <Column id="IF_INIT_REG_USER" type="string" size="32"/>
+          <Column id="FIR_OFFICE_CODE" type="string" size="32"/>
+          <Column id="INIT_REG_DT" type="string" size="32"/>
+          <Column id="INIT_REG_USER" type="string" size="32"/>
+          <Column id="LAST_CHG_DT" type="string" size="32"/>
+          <Column id="LAST_CHG_USER" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_notice" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="LAST_CHG_DT" type="string" size="32"/>
+          <Column id="LAST_CHG_USER" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_change">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="MB_PW" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_mbInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="MB_PW" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_change.edt_change" propid="value" datasetid="ds_change" columnid="MB_ID"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   ///페이지 로딩후 실행부분
+   this.fn_retrieveBlbdOfancMainList();
+   this.fn_retrieveNacfOfancMainList();
+}
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveBlbdOfancMainList = function()
+{
+	var sSvcID        = "retrieveBlbdOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveBlbdOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bbs=ds_bbs";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:���옣/�궘�젣, S:議고쉶
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+this.fn_retrieveNacfOfancMainList = function()
+{
+	var sSvcID        = "retrieveNacfOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveNacfOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_notice=ds_notice";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:���옣/�궘�젣, S:議고쉶
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	application.set_usewaitcursor(true);
+ 	
+ 	if(ErrorCode > -1)
+ 	{
+		switch(svcID)
+		{
+			case "retrieveBlbdOfancMainList":
+			case "retrieveNacfOfancMainList":
+				break;
+			case "search":
+				if(this.ds_mbInfo.rowcount > 0)
+				{
+					if(this.ds_mbInfo.getColumn(0, "MB_ID") == this.div_change.edt_change.value)
+					{
+						application.setPrivateProfile("userid", this.ds_mbInfo.getColumn(0, "MB_ID"));
+						application.setPrivateProfile("userpw",this.ds_mbInfo.getColumn(0, "MB_PW"));
+						nexacro._setCookie('userid',this.ds_mbInfo.getColumn(0, "MB_ID"),7);
+						nexacro._setCookie('userpw',this.ds_mbInfo.getColumn(0, "MB_PW"),7);
+						this.gfn_callAdminSite(this.ds_mbInfo.getColumn(0, "MB_ID"),this.ds_mbInfo.getColumn(0, "MB_PW"));
+					}
+					else
+					{
+						this.div_change.btn_searchP.click();
+					}
+				}
+				else
+				{
+					this.div_change.btn_searchP.click();
+				}
+				break;
+				
+		}
+ 	}
+}
+// this.gfn_callAdminSite = function(pId, pPW)
+// {
+// 	var adlUrl = application.xadl;	
+// 
+// 	if(adlUrl.indexOf('localhost') > 0 || adlUrl.indexOf('121.0.0.1') > 0)
+// 	{//로컬
+// 		system.execBrowser("http://localhost:8080/nhvan/escm/index.html");
+// 	}
+// 	else if(adlUrl.indexOf('121.156.58.242') != -1)
+// 	{ 
+// 		system.execBrowser("http://121.156.58.242/escm/index.html");
+// 	}
+// 	else if(adlUrl.indexOf("https://www.nhescm.co.kr") != -1)
+// 	{ 
+// 		system.execBrowser("https://www.nhescm.co.kr/escm/index.html");
+// 	}
+// 	system.exit();
+// }
+
+this.fn_popupAfter = function(strId, strVal)
+{   
+	if(strId == "OMG_DS_SC_9040")
+	{
+		var val = strVal.split(",");
+		application.setPrivateProfile("userid", val[0]);
+		application.setPrivateProfile("userpw",val[1]);
+		nexacro._setCookie('userid',val[0],7);
+		nexacro._setCookie('userpw',val[1],7);
+		
+		this.div_change.edt_change.set_value(val[0]);
+		
+		this.gfn_callAdminSite(val[0], val[1]);
+	}
+}
+
+this.button_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_searchP":
+			var oArg = {paramMode:"U", dsArg:this.ds_change};
+		    var sOption = "autosize=true,title=true";
+		    var sPopupCallBack = "fn_popupAfter";     
+		    this.gfn_openPopup("OMG_DS_SC_9040","OMG.MG::OMG_DS_SC_9040.xfdl",oArg,sOption,sPopupCallBack);       
+			break;
+			
+		case "btn_more":
+			this.fn_openMenu("26004003");
+			break;
+		case "btn_NHmore":	
+			this.fn_openMenu("26004001");
+			break;
+		case "btn_change":
+			if(this.gfn_isNull(this.div_change.edt_change.value))
+			{
+				this.div_change.btn_searchP.click();
+			}		
+			else if( this.gfn_length(this.div_change.edt_change.value)<2)
+			{
+				alert("두 글자 이상 입력해 주세요.");
+				return;
+			}
+			else
+			{
+				this.fn_searchMb();
+			}
+			break;
+			
+		case "btn_remote":
+			window.open("http://939.co.kr/nhescm/");
+			break;
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "grd_notice":
+			this.fn_openNhNotice(e.row);
+			break;
+		case "grd_bbs":
+			this.fn_openBbsNotice(e.row);
+			break;
+	}
+}
+
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_searchMb = function()
+{
+	var sParam = "searchType=1"
+				+" searchText="+this.gfn_nullToEmpty(this.div_change.edt_change.value);
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveUsrInfList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_mbInfo=ds_mbInfo";	
+	var sArgument     = sParam
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);	
+}
+this.fn_openNhNotice = function(nRow)
+{
+	var oArg = {noticeSeq:this.ds_notice.getColumn(nRow, "BBRD_SQNO")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4511","OMG.PT::OMG_DS_SC_4511.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_openBbsNotice = function(nRow)
+{
+	var oArg = {blbdId:this.ds_bbs.getColumn(nRow, "BLBD_ID"), bbrdId:this.ds_bbs.getColumn(nRow, "BBRD_ID")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4111","OMG.PT::OMG_DS_SC_4111.xfdl",oArg,sOption,sPopupCallBack);	
+}
+this.div_change_edt_change_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13')
+	{
+		obj.updateToDataset();
+		this.div_change.btn_change.click();
+	}
+}
+
+this.fn_openMenu = function(menuId) //26004003
+{
+	var sMenuId = menuId.substr(0,2);//26
+	application.afrm_HFrameSet0.set_separatesize("190,*,0");
+	application.afrm_VFrameSet1.set_separatesize("32,*");
+	application.afrm_LeftFrame.form.ds_menu.filter("MENU_LEVEL >= 1 && MENU_ID.substr(0,2)=='"+sMenuId+"' && DISPLAY_YN!='N'");
+	
+	var nRow    = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId);
+	var objGrid = application.afrm_LeftFrame.form.div_menu.grd_menu;
+	
+	var nTopRow      = application.gds_menu.findRow("MENU_ID", sMenuId+"000000");
+	
+	var sLFTitleText = application.gds_menu.getColumn(nTopRow,"MENU_NAME");
+	
+	application.afrm_LeftFrame.form.btn_menuList.set_text(sLFTitleText);
+	
+	//중메뉴의 첫번째 소메뉴 선택
+	var nRow2   = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId.substr(0,5) + '000');
+	objGrid.setTreeStatus(objGrid.getTreeRow(nRow2),true);//26004000
+	application.afrm_LeftFrame.form.ds_menu.set_rowposition(nRow);
+	
+	var sMId =application.afrm_LeftFrame.form.ds_menu.getColumn(nRow,"MENU_ID");
+	
+	//해당Grid visible처리
+	application.afrm_LeftFrame.form.div_menu.grd_menu.set_visible(true);
+	application.afrm_LeftFrame.form.div_menu.grd_myInfo.set_visible(false);
+	
+	this.gfn_OpenMenuId(sMId);
+}]]></Script>
+  </Form>
+</FDL>

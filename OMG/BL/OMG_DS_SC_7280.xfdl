@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7280" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="환불 관리" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_rf_search_onclick"/>
+        <Button id="btn_excelListDown" taborder="37" text="엑셀" cssclass="btn_WF_CRUD" top="0" width="41" height="21" right="78" onclick="btn_rf_excelListDown_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="102" right="15" bottom="-1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Grid id="Grid01" taborder="2" useinputpanel="false" left="0" top="17" right="0" bottom="8" cellsizingtype="col" autofittype="col" onheadclick="Div02_Grid01_onheadclick" summarytype="top" binddataset="ds_rfInq">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No"/>
+                      <Cell col="1" text="접수일"/>
+                      <Cell col="2" text="거래처코드"/>
+                      <Cell col="3" text="업체명"/>
+                      <Cell col="4" text="환불금액"/>
+                      <Cell col="5" text="진행상태"/>
+                      <Cell col="6" text="환불사유"/>
+                      <Cell col="7" text="환불은행"/>
+                      <Cell col="8" text="계좌번호"/>
+                      <Cell col="9" text="예금주명"/>
+                      <Cell col="10" text="환불일"/>
+                      <Cell col="11" text="사업자번호"/>
+                      <Cell col="12" text="비고"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="text" style="align: ;" expr="currow+1"/>
+                      <Cell col="1" displaytype="date" edittype="date" text="bind:REQ_DT" tooltiptext="bind:REQ_DT"/>
+                      <Cell col="2" edittype="normal" editfilter="integer" text="bind:NA_TRPL_C" tooltiptext="bind:NA_TRPL_C"/>
+                      <Cell col="3" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="4" displaytype="number" edittype="normal" editfilter="integer" text="bind:RF_AM" tooltiptext="bind:RF_AM"/>
+                      <Cell col="5" displaytype="combo" edittype="combo" editfilter="none" text="bind:PRC_ST" combodataset="ds_prcStat" combocodecol="SIMP_C" combodatacol="SIMP_CNM" tooltiptext="bind:PRC_ST"/>
+                      <Cell col="6" displaytype="combo" edittype="combo" text="bind:RF_CD" combodataset="ds_rfRsn" combocodecol="SIMP_C" combodatacol="SIMP_CNM" tooltiptext="bind:RF_CD"/>
+                      <Cell col="7" displaytype="combo" edittype="combo" text="bind:BNK_C" combodataset="ds_bnkC" combocodecol="SIMP_C" combodatacol="SIMP_CNM" combodisplay="edit" tooltiptext="bind:BNK_C"/>
+                      <Cell col="8" displaytype="normal" edittype="normal" editfilter="integer" text="bind:ACNO" combodisplay="edit" tooltiptext="bind:ACNO"/>
+                      <Cell col="9" edittype="normal" text="bind:ACNM" tooltiptext="bind:ACNM"/>
+                      <Cell col="10" displaytype="date" edittype="date" text="bind:RF_DT" tooltiptext="bind:RF_DT"/>
+                      <Cell col="11" displaytype="normal" edittype="normal" editfilter="integer" text="bind:BZNO" tooltiptext="bind:BZNO"/>
+                      <Cell col="12" edittype="normal" text="bind:REMARK" tooltiptext="bind:REMARK"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell colspan="2" style="align:center middle;" text="합계"/>
+                      <Cell col="2" expr="dataset.getCountNF()"/>
+                      <Cell col="3"/>
+                      <Cell col="4" displaytype="number" expr="dataset.getSum(&quot;RF_AM&quot;)" tooltiptext="expr:dataset.getSum(&quot;RF_AM&quot;)"/>
+                      <Cell col="5" displaytype="number"/>
+                      <Cell col="6" displaytype="number"/>
+                      <Cell col="7" displaytype="number" style="align:center;"/>
+                      <Cell col="8"/>
+                      <Cell col="9"/>
+                      <Cell col="10"/>
+                      <Cell col="11"/>
+                      <Cell col="12"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button75" taborder="1" cssclass="btn_WFSA_SearchClose" top="1" height="12" left="363" right="362" onclick="Div02_Button75_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="103" left="0" top="29" right="15" height="75" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="12" text="접수일" cssclass="sta_WFSA_Label" left="15" top="10" width="72" height="21" onclick="div_search_Static05_onclick"/>
+              <Calendar id="cal_from" taborder="13" dateformat="yyyy-MM-dd" left="10.81%" top="10" right="76.84%" height="21" oneditclick="div_search_cal_from_oneditclick"/>
+              <Static id="Static08" taborder="14" text="~" left="23.41%" top="10" right="75.32%" height="21"/>
+              <Calendar id="cal_to" taborder="15" dateformat="yyyy-MM-dd" left="24.68%" top="10" right="62.85%" height="21"/>
+              <Static id="Static00" taborder="16" text="업체조회" cssclass="sta_WFSA_Label" left="39.82%" top="10" right="50.64%" height="21"/>
+              <Edit id="Edit_comnum" taborder="17" left="48.35%" top="10" right="42.75%" height="21"/>
+              <Edit id="Edit_comname" taborder="18" left="57.51%" top="10" right="33.08%" height="21"/>
+              <Button id="btn_comname" taborder="19" cssclass="btn_WF_Searchbtn" left="67.18%" top="10" right="30.15%" height="21" onclick="div_search_btn_comname_onclick"/>
+              <Combo id="cb_prcStat" taborder="20" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" left="80.66%" top="10" right="7.63%" height="21" style="align:left middle;" onitemchanged="div_search_cb_prcStat_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">접수</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">완료</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">삭제</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static01" taborder="21" text="진행상태" onclick="div_search_Static05_onclick" cssclass="sta_WFSA_Label" left="71.63%" top="10" width="72" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_rf_insert" taborder="105" text="추가" onclick="btn_rf_insert_onclick" cssclass="btn_WF_CRUD" top="0" right="222" width="41" height="21"/>
+        <Button id="btn_na_delete" taborder="106" text="삭제" onclick="btn_rf_delete_onclick" cssclass="btn_WF_CRUD" top="0" right="174" width="41" height="21"/>
+        <Button id="btn_na_save" taborder="107" text="저장" onclick="btn_rf_save_onclick" cssclass="btn_WF_CRUD" top="0" right="126" width="41" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_prcStat" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SIMP_C">0</Col>
+            <Col id="SIMP_CNM">접수</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">1</Col>
+            <Col id="SIMP_CNM">완료</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">2</Col>
+            <Col id="SIMP_CNM">삭제</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rfInq" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="REQ_DT" type="STRING" size="8"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="RF_AM" type="INT" size="256"/>
+          <Column id="PRC_ST" type="STRING" size="10"/>
+          <Column id="RF_CD" type="STRING" size="20"/>
+          <Column id="BNK_C" type="STRING" size="3"/>
+          <Column id="ACNO" type="STRING" size="16"/>
+          <Column id="ACNM" type="STRING" size="50"/>
+          <Column id="RF_DT" type="STRING" size="8"/>
+          <Column id="BZNO" type="STRING" size="12"/>
+          <Column id="REMARK" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="REQ_DT">20170203</Col>
+            <Col id="NA_TRPL_C">2910000114691</Col>
+            <Col id="CLNTNM">해태제과식품(주)포항</Col>
+            <Col id="RF_AM">1100</Col>
+            <Col id="PRC_ST">1</Col>
+            <Col id="RF_CD">01</Col>
+            <Col id="BNK_C">011</Col>
+            <Col id="ACNO">1002955446852</Col>
+            <Col id="ACNM">김청정</Col>
+            <Col id="RF_DT">20170204</Col>
+            <Col id="BZNO">5068512919</Col>
+            <Col id="REMARK">정보분석 2개월 환불</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_bnkC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SIMP_C">011</Col>
+            <Col id="SIMP_CNM">농협</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rfRsn" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SIMP_C">01</Col>
+            <Col id="SIMP_CNM">과납환불</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">02</Col>
+            <Col id="SIMP_CNM">본사대납</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">03</Col>
+            <Col id="SIMP_CNM">이중납부</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">04</Col>
+            <Col id="SIMP_CNM">폐업</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">05</Col>
+            <Col id="SIMP_CNM">기타</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rfAdd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="REQ_DT" type="STRING" size="8"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="RF_AM" type="INT" size="256"/>
+          <Column id="PRC_ST" type="STRING" size="10"/>
+          <Column id="RF_CD" type="STRING" size="20"/>
+          <Column id="BNK_C" type="STRING" size="3"/>
+          <Column id="ACNO" type="STRING" size="16"/>
+          <Column id="ACNM" type="STRING" size="50"/>
+          <Column id="RF_DT" type="STRING" size="8"/>
+          <Column id="BZNO" type="STRING" size="12"/>
+          <Column id="REMARK" type="STRING" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rfUpd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="REQ_DT" type="STRING" size="8"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="RF_AM" type="INT" size="256"/>
+          <Column id="PRC_ST" type="STRING" size="10"/>
+          <Column id="RF_CD" type="STRING" size="20"/>
+          <Column id="BNK_C" type="STRING" size="3"/>
+          <Column id="ACNO" type="STRING" size="16"/>
+          <Column id="ACNM" type="STRING" size="50"/>
+          <Column id="RF_DT" type="STRING" size="8"/>
+          <Column id="BZNO" type="STRING" size="12"/>
+          <Column id="REMARK" type="STRING" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rfDel" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="REQ_DT" type="STRING" size="8"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="RF_AM" type="INT" size="256"/>
+          <Column id="PRC_ST" type="STRING" size="10"/>
+          <Column id="RF_CD" type="STRING" size="20"/>
+          <Column id="BNK_C" type="STRING" size="3"/>
+          <Column id="ACNO" type="STRING" size="16"/>
+          <Column id="ACNM" type="STRING" size="50"/>
+          <Column id="RF_DT" type="STRING" size="8"/>
+          <Column id="BZNO" type="STRING" size="12"/>
+          <Column id="REMARK" type="STRING" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+/* Form Init: 페이지 호출 후 실행 */
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	var toDay = this.gfn_today("yyyyMMdd");
+	this.div_search.cal_from.set_value(this.gfn_firstDate(toDay));
+	this.div_search.cal_to.set_value(this.gfn_lastDate(toDay));
+}
+
+/* Form Onload: DataSet 로딩 후 실행 */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	// 페이지 로딩후 실행부분
+	this.gfn_setInitForm(obj, e); //공통
+
+    var param = [
+		{code:"BNK_RF"		, dsName:"ds_bnkC"		, selecttype:""}
+    ];
+
+	this.gfn_setPortalCommonCode(param); 
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+
+}
+
+// gfn_setCommonCode, gfn_setPortalCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	this.div_search.cb_prcStat.set_index(3);
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* 콜백 함수 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/* 조회조건 영역 펼치기, 접기 */
+this.Div02_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+this.btn_rf_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rownum;
+	rownum = this.ds_rfInq.addRow();
+	// 행 추가시 초기값 설정
+	this.ds_rfInq.setColumn(rownum, "REQ_DT",	this.gfn_today("yyyyMMdd"));
+	this.ds_rfInq.setColumn(rownum, "PRC_ST",	'0');
+	this.ds_rfInq.setColumn(rownum, "RF_CD",	'01');
+	this.ds_rfInq.setColumn(rownum, "BNK_C",	'011');
+}
+
+this.btn_rf_delete_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if( this.ds_rfInq.getRowType(this.ds_rfInq.rowposition) != Dataset.ROWTYPE_INSERT )
+	{
+		alert("추가한 행만 삭제가 가능합니다.");
+		return;
+	}
+	else
+	{
+		this.ds_rfInq.deleteRow(this.ds_rfInq.rowposition);
+	}
+}
+
+this.btn_rf_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var fromDt			= this.div_search.cal_from.value;
+	var toDt			= this.div_search.cal_to.value;
+	var trplC			= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var clntNm			= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var prcStat			= this.gfn_nullToEmpty(this.div_search.cb_prcStat.value);
+
+	var sParams			= "FROM_DT=" + fromDt
+						+ " TO_DT="  + toDt
+						+ " TRPL_C=" + trplC
+						+ " CLNTNM=" + clntNm
+						+ " PRC_ST=" + prcStat
+						;
+	trace("sParams:" + sParams);
+	this.fn_search(sParams);
+}
+
+this.fn_search = function(sParams)
+{
+	var sSvcID			= "retrieveRfInqList";
+	var sURL			= "svc::rest/bl/retrieveRfInqList";
+	var sInDatasets		= "";
+	var sOutDatasets	= "ds_rfInq=ds_rfInq";
+	var sArgument		= sParams;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 업체 조회
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = "";
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("trplSearchPopup","OMG.BL::OMG_DS_SC_7230_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+// 팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+	// trace(" strId : " + strId + " strVal : " + strVal);
+	if(strVal != ''){
+		var paramsArr = strVal.split(",");
+	
+		if(strId == "trplSearchPopup"){
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

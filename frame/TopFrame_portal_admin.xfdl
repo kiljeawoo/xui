@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="TopArea" classname="TopArea" left="0" top="0" width="1008" height="65" onload="form_onload" scrollbars="none" ontimer="TopArea_ontimer">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" left="0" top="0" height="65" cssclass="sta_TF_Bg" right="0"/>
+        <Static id="sta_logo" taborder="1" left="0" top="0" width="383" height="65" onclick="sta_logo_onclick" style="cursor:hand;" cssclass="sta_TF_Logo"/>
+        <Button id="btn_help" taborder="2" top="28" width="28" height="28" cssclass="btn_TF_Help" right="13" onclick="btn_help_onclick" visible="false"/>
+        <Static id="sta_userName" taborder="3" top="1" width="330" height="21" cssclass="sta_TF_User" text="&lt;b v='true'&gt;김도현&lt;/b&gt;님 접속!" usedecorate="true" right="82" style="align:right middle;"/>
+        <Static id="Static03" taborder="4" top="8" width="5" height="8" style="background:URL('theme://images/sta_TF_UtilLine.png');" right="69" visible="false"/>
+        <Button id="btn_userInfo" taborder="6" text="내정보" top="1" width="48" height="21" cssclass="btn_TF_UtilMenu" right="-61" onclick="btn_userInfo_onclick" visible="false"/>
+        <Button id="btn_logout" taborder="7" text="로그아웃" top="1" width="60" height="21" cssclass="btn_TF_UtilMenu" right="9" onclick="btn_logout_onclick"/>
+        <Static id="Static05" taborder="9" top="8" width="5" height="8" style="background:URL('theme://images/sta_TF_UtilLine.png');" right="69"/>
+        <Menu id="mnb_topMenu" taborder="11" innerdataset="@ds_topMenu" idcolumn="MENU_ID" captioncolumn="MENU_NAME" levelcolumn="MENU_LEVEL" enablecolumn="DISPLAY_YN" left="192" top="18" height="46" right="51" onmenuclick="mnb_topMenu_onmenuclick" userdatacolumn="MENU_LEVEL" style="itembackground:transparent;background:transparent;cursor:hand;"/>
+        <PopupMenu id="PopupMenu00" innerdataset="@ds_menuLength" idcolumn="CODE" captioncolumn="NAME" levelcolumn="LEV" left="40.97%" top="133" right="37.2%" height="100" style="itempadding:0 0 0 0;font:bold 11 Gulim;"/>
+        <Static id="Static01" taborder="13" text="sta_ADMIN_Logo" left="2.18%" top="156" right="85.91%" height="21" tooltiptype="default" visible="false"/>
+        <Static id="Static02" taborder="14" top="41" right="229" width="5" height="8" style="background:URL('theme://images/sta_TF_UtilLine.png');" visible="false"/>
+        <Button id="btn_connect" taborder="15" text="MCA : 연결    SFTP : 끊김" onclick="btn_connect_onclick" cssclass="btn_TF_UtilMenu" top="34" right="59" width="168" height="21" style="align:left middle;" visible="false"/>
+        <Static id="Static06" taborder="16" top="41" right="152" width="5" height="8" style="background:URL('theme://images/sta_TF_UtilLine.png');" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="true">
+        <ColumnInfo>
+          <Column id="idx" type="STRING" size="256"/>
+          <Column id="lev" type="STRING" size="256"/>
+          <Column id="userdata" type="STRING" size="256"/>
+          <Column id="caption" type="STRING" size="256"/>
+          <Column id="enable" type="STRING" size="256"/>
+          <Column id="hotkey" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="idx">1000</Col>
+            <Col id="lev">0</Col>
+            <Col id="userdata">기준정보</Col>
+            <Col id="caption">기준정보</Col>
+            <Col id="enable">1</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1001</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴01</Col>
+            <Col id="caption">서브메뉴01</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1002</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴02</Col>
+            <Col id="caption">서브메뉴02</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1003</Col>
+            <Col id="lev">0</Col>
+            <Col id="userdata">상품정보</Col>
+            <Col id="caption">상품정보</Col>
+            <Col id="enable">1</Col>
+            <Col id="hotkey">Alt+K</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1004</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴01</Col>
+            <Col id="caption">서브메뉴01</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1005</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴02</Col>
+            <Col id="caption">서브메뉴02</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1006</Col>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴03</Col>
+            <Col id="caption">서브메뉴03</Col>
+          </Row>
+          <Row>
+            <Col id="idx">1007</Col>
+            <Col id="lev">0</Col>
+            <Col id="userdata">수주업무</Col>
+            <Col id="caption">수주업무</Col>
+            <Col id="enable">1</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴01</Col>
+            <Col id="caption">서브메뉴01</Col>
+            <Col id="idx">1008</Col>
+          </Row>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="userdata">배송/반품</Col>
+            <Col id="caption">배송/반품</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1009</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴01</Col>
+            <Col id="caption">서브메뉴01</Col>
+            <Col id="idx">1010</Col>
+          </Row>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="userdata">실적정보</Col>
+            <Col id="caption">실적정보</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1011</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴01</Col>
+            <Col id="caption">서브메뉴01</Col>
+            <Col id="idx">1012</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴02</Col>
+            <Col id="caption">서브메뉴02</Col>
+            <Col id="idx">1013</Col>
+          </Row>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="userdata">입찰정보</Col>
+            <Col id="caption">입찰정보</Col>
+            <Col id="enable">1</Col>
+            <Col id="idx">1014</Col>
+            <Col id="hotkey">Alt+O</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="enable">1</Col>
+            <Col id="userdata">서브메뉴01</Col>
+            <Col id="caption">서브메뉴01</Col>
+            <Col id="idx">1015</Col>
+          </Row>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="userdata">커뮤니티</Col>
+            <Col id="enable">1</Col>
+            <Col id="caption">커뮤니티</Col>
+            <Col id="idx">1016</Col>
+          </Row>
+          <Row>
+            <Col id="enable">0</Col>
+            <Col id="userdata">서브메뉴01</Col>
+            <Col id="caption">서브메뉴01</Col>
+            <Col id="idx">1017</Col>
+            <Col id="lev">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_topMenu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_topMenu_onrowposchanged">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="STRING" size="256"/>
+          <Column id="MENU_LEVEL" type="STRING" size="256"/>
+          <Column id="MENU_NAME" type="STRING" size="256"/>
+          <Column id="SVC_GROUP" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_TYPE" type="STRING" size="256"/>
+          <Column id="FILT_PATH" type="STRING" size="256"/>
+          <Column id="DISPLAY_YN" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_menuLength" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="LEV" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">a</Col>
+            <Col id="LEV">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_naMnt">
+        <ColumnInfo>
+          <Column id="COM_ID" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+          <Column id="UP_TIME" type="STRING" size="256"/>
+          <Column id="NOWTIME" type="STRING" size="256"/>
+          <Column id="TERM" type="STRING" size="256"/>
+          <Column id="RESULT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.ds_topMenu.copyData(application.gds_menu);
+	//this._gfn_menuLength();
+	this._gfn_setUserNm();
+	this.fn_getNaMntConn();
+	this.setTimer(1, 600000);
+}
+
+this.btn_logout_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_logout();
+}
+
+this.sta_logo_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	application.afrm_HFrameSet0.set_separatesize("0, 0, *");
+}
+
+this.ds_topMenu_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.ds_topMenu.filter("MENU_LEVEL <= 1 && DISPLAY_YN!='N'");
+}
+
+this.mnb_topMenu_onmenuclick = function(obj:Menu, e:nexacro.MenuClickEventInfo)
+{
+	if (e.userdata != 1) return;
+
+	var sMenuId = e.id.substr(0, 2);
+	application.afrm_HFrameSet0.set_separatesize("190, *, 0");
+	application.afrm_LeftFrame.form.ds_menu.filter("MENU_LEVEL >= 1 && MENU_ID.substr(0, 2)=='"+sMenuId+"' && DISPLAY_YN!='N'");
+
+	var nRow    = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID", e.id);
+	var objGrid = application.afrm_LeftFrame.form.div_menu.grd_menu;
+
+	var nTopRow      = application.gds_menu.findRow("MENU_ID", sMenuId+"000000");
+
+	var sLFTitleText = application.gds_menu.getColumn(nTopRow, "MENU_NAME");
+
+	application.afrm_LeftFrame.form.btn_menuList.set_text(sLFTitleText);
+
+	//중메뉴의 첫번째 소메뉴 선택
+	objGrid.setTreeStatus(objGrid.getTreeRow(nRow), true);
+	application.afrm_LeftFrame.form.ds_menu.set_rowposition(nRow+1);
+
+	var sMId = application.afrm_LeftFrame.form.ds_menu.getColumn(nRow+1, "MENU_ID");
+
+	//해당Grid visible처리
+	application.afrm_LeftFrame.form.div_menu.grd_menu.set_visible(true);
+	application.afrm_LeftFrame.form.div_menu.grd_myInfo.set_visible(false);
+
+	this.gfn_OpenMenuId(sMId);
+}
+
+this.btn_userInfo_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	application.afrm_HFrameSet0.set_separatesize("190, *, 0");
+
+	//해당Grid visible처리
+	application.afrm_LeftFrame.form.div_menu.grd_menu.set_visible(false);
+	application.afrm_LeftFrame.form.div_menu.grd_myInfo.set_visible(true);
+
+	var nRow = application.gds_userInfoMenu.findRow("MENU_ID", "21001002");
+	var sLFTitleText = application.gds_userInfoMenu.getColumn(0, "MENU_NAME");
+
+	application.afrm_LeftFrame.form.btn_menuList.set_text(sLFTitleText);
+
+	if (nRow != -1) {
+		application.afrm_LeftFrame.form.ds_userInfoMenu.set_rowposition(nRow-1);
+	} else {
+		application.afrm_LeftFrame.form.ds_userInfoMenu.set_rowposition(0);
+	}
+
+	this.gfn_OpenMenuId("21001002", "", "INFO");
+}
+
+this.mnb_topMenu_onmouseenter = function(obj:Menu, e:nexacro.MenuMouseEventInfo)
+{
+	if (e.fromreferenceobject=="[object MenuItem]") {
+		var bStates = obj.isPopup();
+
+		if ( !bStates) {
+			obj.trackPopup(e.index, 0, 0);
+		}
+	}
+}
+
+this._gfn_menuLength = function()
+{
+	var nLev;
+	var sVal="";
+	var nCnt =0;
+
+	for (var i=0;i<this.ds_topMenu.rowcount;i++) {
+		nLev = this.ds_topMenu.getColumn(i, "MENU_LEVEL");
+		if (nLev == 0) {
+			nCnt = nCnt+34;
+			sVal += this.ds_topMenu.getColumn(i, "MENU_NAME");
+		}
+	}
+
+	this.ds_menuLength.setColumn(0, "NAME", sVal);
+
+	this.PopupMenu00.trackPopupByComponent(this.btn_help, 1000, 0, 'center middle');
+
+	this.mnb_topMenu.set_width(nexacro.toNumber(this.PopupMenu00.width+nCnt-22));
+	this.PopupMenu00.closePopup();
+
+}
+
+//사용자명 설정
+this._gfn_setUserNm = function()
+{
+	this.sta_userName.set_text("<b v='true'>"+application.gv_userName+"</b> 님 접속!");
+}
+
+this.btn_help_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (application.gds_openMenu.rowcount == 0) return;
+
+	var sMenuID = application.afrm_FrameSet.getActiveFrame().name;
+
+	if (this.gfn_isNull(sMenuID)) return;
+
+	var sVal = "도움말 준비중입니다.";
+
+	var oArg = {param00:sMenuID, param01:sVal};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_HelpPopupAfter";
+	this.gfn_openPopup("HelpPop", "common::helpPopup.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.TopArea_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	if (e.timerid == 1) {
+		this.fn_getNaMntConn();
+	}
+}
+
+this.fn_getNaMntConn = function()
+{
+	var sSvcID        = "getNaMntConn";
+	var sURL          = "svc::rest/common/getNaMntConn";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_naMnt=ds_naMnt";
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S";
+
+	application.set_usewaitcursor(false);
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets , sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+ 	if (ErrorCode < 0) {
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ", ErrorCode :: " + ErrorCode + ", ErrorMsg :: " + ErrorMsg);
+		this.btn_connect.set_text("MCA : 에러    SFTP : 에러");
+ 	} else {
+		switch(svcID) {
+			case "getNaMntConn":
+				application.set_usewaitcursor(true);
+				var txt = "MCA : 연결    SFTP : 끊김";
+				    txt = "MCA : " + this.ds_naMnt.getColumn(this.ds_naMnt.findRow("COM_ID", "MCA"), "RESULT")+ "    SFTP : " +  this.ds_naMnt.getColumn(this.ds_naMnt.findRow("COM_ID", "SFTP"), "RESULT");
+				this.btn_connect.set_text(txt);
+				break;
+		}
+ 	}
+}]]></Script>
+  </Form>
+</FDL>

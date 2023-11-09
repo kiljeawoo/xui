@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8312" classname="pattern_01" left="0" top="0" width="802" height="490" titletext="설문조사 결과" onload="form_onload" name="OMG_DS_SC_8312">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="0" top="20" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="18" onclick="fn_search_onclick"/>
+        <Div id="Div01" taborder="1" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="2" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="3" text="8" visible="false" left="732" top="12" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="4" left="0" top="48" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Edit id="ed_title" taborder="11" maxlength="30" oneditclick="div_search_edt_menuId_oneditclick" left="67" top="10" height="21" width="637" readonly="true" style="background:beige;"/>
+              <Static id="Static05" taborder="12" text="설문 :" cssclass="sta_WFSA_Label" left="15" top="10" height="21" style="padding:0 20 0 11;" width="103" onclick="div_search_Static05_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_cho" taborder="5" text="선택" cssclass="btn_WF_CRUD" top="59" right="27" width="41" height="21" onclick="btn_cho_onclick"/>
+        <Edit id="Edit00" taborder="6" left="514" top="15" width="73" height="23" visible="false"/>
+        <Edit id="Edit01" taborder="7" visible="false" left="430" top="12" width="73" height="23"/>
+        <Edit id="Edit02" taborder="8" visible="false" left="320" top="15" width="73" height="23"/>
+        <Grid id="grd_comncList" cssclass="subgrd" taborder="10" binddataset="ds_survey_r1" autoenter="select" useinputpanel="false" cellsizingtype="col" autofittype="col" oncellclick="grd_comncList_oncellclick" left="-1" top="128" right="19" bottom="29" autosizingtype="row" extendsizetype="row">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="40"/>
+                <Column size="200"/>
+                <Column size="110"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="질문번호"/>
+                <Cell col="1" text="질문유형"/>
+                <Cell col="2" text="질문"/>
+                <Cell col="3" text="답변"/>
+                <Cell col="4" text="답변횟수"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SRV_Q_NUM"/>
+                <Cell col="1" text="bind:A_TYPE"/>
+                <Cell col="2" text="bind:QUESTION" wordwrap="char"/>
+                <Cell col="3" text="bind:ANSWER" wordwrap="char"/>
+                <Cell col="4" text="bind:CNT"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_execl" taborder="11" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="20" right="82" width="41" height="21"/>
+        <WebBrowser id="web_downExcel" left="78.05%" top="25" right="16.46%" height="14" taborder="12" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_survey">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="SUBTITLE" type="STRING" size="256"/>
+          <Column id="CONTENT" type="STRING" size="256"/>
+          <Column id="APL_ST_DT" type="STRING" size="256"/>
+          <Column id="APL_ED_DT" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SRV_ST_DT" type="STRING" size="256"/>
+          <Column id="SRV_ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_survey_r1">
+        <ColumnInfo>
+          <Column id="SRV_Q_NUM" type="STRING" size="256"/>
+          <Column id="QUESTION" type="STRING" size="256"/>
+          <Column id="A_TYPE" type="STRING" size="256"/>
+          <Column id="SRV_A_NUM" type="STRING" size="256"/>
+          <Column id="ANSWER" type="STRING" size="256"/>
+          <Column id="CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	/*this.ds_survey.addRow();*/
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	//this.fn_search_onclick();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.fn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	this.fn_SurveyResult();
+}
+
+// 엑셀 다운로드
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var srv_seq	= this.gfn_nullToEmpty(this.Edit00.value);
+	
+	var sParam	= "SRV_SEQ="	+ srv_seq;
+
+	this.fn_excel(sParam);
+}
+
+this.fn_excel = function(sParam)
+{
+		trace("엑셀 다운로드 param >>> " + sParam);
+		this.web_downExcel.set_url(application.gv_serverAdmin_url + "rest/excel/mg/downloadExcelSurveyR?" + sParam);
+}
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+ 
+/* 설문조사 답변 받아오기 */
+this.fn_SurveyResult = function()
+{		
+	this.ds_survey_r1.clearData();
+
+	var SRV_SEQ		= this.gfn_nullToEmpty(this.Edit00.value);			// 제목		//SRV_SEQ : 설문순번
+	var sParams = "BSN_DSC="  + "ESCM"
+			    + " SRV_SEQ=" + this.gfn_nullToEmpty(this.Edit00.value) ;
+ 
+	var sSvcID        = "SurveyResult";		
+	var sURL          = "svc::rest/mg/survey/SurveyResult";		
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_survey_r1=ds_survey_r1";		
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "SurveyResult") {
+			if (ErrorCode == 0) {
+				
+			}
+		}
+	}
+	
+}
+
+/* 팝업호출확인하기 */
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+	switch(strId)
+	{
+		case "OMG_DS_SC_8321":
+
+			var strValNo = strVal.split('|');
+			this.div_search.ed_title.set_value(strValNo[0]);
+			this.Edit00.set_value(strValNo[1]);
+			this.Edit01.set_value(strValNo[2]);
+			this.Edit02.set_value(strValNo[3]);
+			
+			this.fn_search_onclick();
+	
+	}
+	
+}
+
+
+//설문조사 선택 (팝업창으로 설문 선택)
+this.btn_cho_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("OMG_DS_SC_8321", "OMG.MG::OMG_DS_SC_8321.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+
+
+
+
+]]></Script>
+  </Form>
+</FDL>

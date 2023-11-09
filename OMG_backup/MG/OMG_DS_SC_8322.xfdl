@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8322" classname="pattern_01" left="0" top="0" width="803" height="562" titletext="설문조사 답변등록 " onload="form_onload" name="OMG_DS_SC_8322">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="2" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="3" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="4" text="8" visible="false" left="732" top="12" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="5" left="0" top="48" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Edit id="ed_title" taborder="11" maxlength="30" oneditclick="div_search_edt_menuId_oneditclick" left="67" top="10" height="21" width="642" readonly="true" style="background:beige;font:9 Gulim,HY견고딕;"/>
+              <Static id="Static05" taborder="12" text="설문 :" cssclass="sta_WFSA_Label" left="15" top="10" height="21" style="padding:0 20 0 11;" width="103" onclick="div_search_Static05_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="1" text="Div02" left="10" top="43" right="5" bottom="252">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Combo id="cbo_pageNum" taborder="8" value="20" text="20" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="701" top="-38" width="60" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">20</Col>
+                      <Col id="datacolumn">20</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">50</Col>
+                      <Col id="datacolumn">50</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">100</Col>
+                      <Col id="datacolumn">100</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static01" taborder="9" text="페이지당 게시물수" onclick="div_search_Static01_onclick" cssclass="sta_WFSA_Label" left="562" top="-38" width="139" height="21" style="padding:0 20 0 11;"/>
+              <Button id="btn_flag" taborder="7" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="346" top="-25" right="364" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_cho" taborder="6" text="선택" cssclass="btn_WF_CRUD" top="59" right="27" width="41" height="21" onclick="btn_cho_onclick"/>
+        <Edit id="Edit00" taborder="10" left="145" top="17" width="73" height="23" visible="false"/>
+        <Edit id="Edit01" taborder="11" visible="false" left="229" top="15" width="73" height="23"/>
+        <Edit id="Edit02" taborder="12" visible="false" left="307" top="14" width="73" height="23"/>
+        <Edit id="Edit03" taborder="15" visible="false" left="457" top="12" width="73" height="23"/>
+        <Button id="btn_insert" taborder="13" text="저장" cssclass="btn_WF_CRUD" top="322" right="79" width="44" height="22" onclick="btn_insert_onclick"/>
+        <Edit id="ed_que" taborder="14" left="64" top="321" width="501" height="22" readonly="true" style="background:beige;font:9 Gulim,HY견고딕;"/>
+        <Grid id="grd_comncList00" cssclass="subgrd" taborder="0" binddataset="ds_survey_a" autoenter="select" useinputpanel="false" cellsizingtype="col" autofittype="col" left="0" top="347" right="18" bottom="17" oncellclick="grd_comncList00_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40" band="left"/>
+                <Column size="40" band="left"/>
+                <Column size="45" band="left"/>
+                <Column size="40" band="left"/>
+                <Column size="40" band="left"/>
+                <Column size="130" band="left"/>
+                <Column size="450"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="none"/>
+                <Cell col="1"/>
+                <Cell col="2" text="번호"/>
+                <Cell col="3" text="행수"/>
+                <Cell col="4" text="열수"/>
+                <Cell col="5" text="답변 형식"/>
+                <Cell col="6" text="답변"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="button" edittype="none" text="삭제" editdisplay="edit"/>
+                <Cell col="1" displaytype="button" text="수정"/>
+                <Cell col="2" text="bind:SRV_A_NUM"/>
+                <Cell col="3" edittype="text" editfilter="number" text="bind:TXT_COL_CNT" editdisplay="display" combodisplay="edit"/>
+                <Cell col="4" edittype="text" editfilter="number" text="bind:TXT_ROW_CNT" editdisplay="display" combodisplay="edit"/>
+                <Cell col="5" displaytype="combo" edittype="combo" text="bind:INPUT_TYPE" combodataset="ds_ans" combocodecol="code" combodatacol="value" combodisplay="display" tooltiptext="bind:INPUT_TYPE"/>
+                <Cell col="6" displaytype="normal" edittype="text" style="controlbackground:#edf4faff;" cssclass="bodyEssential" text="bind:ANSWER" editdisplay="display"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="9" text="질문 :" onclick="div_search_Static05_onclick" cssclass="sta_WFSA_Label" left="5" top="322" width="103" height="21" style="padding:0 20 0 11;"/>
+        <Button id="btn_quplus" taborder="7" text="행추가" cssclass="btn_WF_CRUD" top="322" right="22" width="51" height="22" onclick="btn_quplus_onclick"/>
+        <Button id="btn_select" taborder="16" text="조회" cssclass="btn_WF_CRUD" top="322" right="129" width="44" height="22" onclick="btn_select_onclick"/>
+        <Button id="btn_update" taborder="17" text="수정" cssclass="btn_WF_CRUD" top="324" right="181" width="44" height="22" onclick="btn_update_onclick" visible="false"/>
+        <Button id="btn_view" taborder="18" text="미리보기" cssclass="btn_WF_CRUD" visible="false" top="19" right="16" width="57" height="22" onclick="btn_view_onclick"/>
+        <Edit id="Edit04" taborder="19" visible="false" left="549" top="12" width="73" height="23"/>
+        <Edit id="Edit05" taborder="20" visible="false" left="634" top="15" width="73" height="23"/>
+        <Div id="Div00" taborder="21" text="Div00" left="-7" top="43" width="795" height="259">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_comncList" taborder="0" binddataset="ds_survey_q" autoenter="select" useinputpanel="false" cellsizingtype="col" autofittype="col" oncellclick="grd_comncList_oncellclick" left="11" top="66" right="13" bottom="47">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="63" band="left"/>
+                      <Column size="130" band="left"/>
+                      <Column size="515"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="26"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="번호"/>
+                      <Cell col="1" text="답변 형식"/>
+                      <Cell col="2" text="질문"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:SRV_Q_SEQ"/>
+                      <Cell col="1" displaytype="combo" edittype="combo" text="bind:A_TYPE" combodataset="ds_que" combocodecol="code" combodatacol="value" combodisplay="edit" tooltiptext="bind:A_TYPE"/>
+                      <Cell col="2" displaytype="normal" edittype="none" style="controlbackground:#edf4faff;" cssclass="bodyEssential" text="bind:QUESTION" editdisplay="edit"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SRV_A_NUM" type="STRING" size="256"/>
+          <Column id="ANSWER" type="STRING" size="256"/>
+          <Column id="INPUT_TYPE" type="STRING" size="256"/>
+          <Column id="TXT_COL_CNT" type="STRING" size="256"/>
+          <Column id="TXT_ROW_CNT" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_SEQ" type="STRING" size="256"/>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_survey">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="SUBTITLE" type="STRING" size="256"/>
+          <Column id="CONTENT" type="STRING" size="256"/>
+          <Column id="APL_ST_DT" type="STRING" size="256"/>
+          <Column id="APL_ED_DT" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SRV_ST_DT" type="STRING" size="256"/>
+          <Column id="SRV_ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_que">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">S</Col>
+            <Col id="value">단답형</Col>
+          </Row>
+          <Row>
+            <Col id="code">M</Col>
+            <Col id="value">복수형</Col>
+          </Row>
+          <Row>
+            <Col id="code">T</Col>
+            <Col id="value">주관식</Col>
+          </Row>
+          <Row>
+            <Col id="code">A</Col>
+            <Col id="value">기타</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_survey_q">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_NUM" type="STRING" size="256"/>
+          <Column id="QUESTION" type="STRING" size="256"/>
+          <Column id="A_TYPE" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="ST_DT" type="STRING" size="256"/>
+          <Column id="ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_survey_a">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_A_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_A_NUM" type="STRING" size="256"/>
+          <Column id="ANSWER" type="STRING" size="256"/>
+          <Column id="INPUT_TYPE" type="STRING" size="256"/>
+          <Column id="TXT_COL_CNT" type="STRING" size="256"/>
+          <Column id="TXT_ROW_CNT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ans">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">C</Col>
+            <Col id="value">선택형</Col>
+          </Row>
+          <Row>
+            <Col id="code">T</Col>
+            <Col id="value">텍스트</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	this.ds_survey.addRow();
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+//	this.fn_search_onclick();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.fn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	this.fn_retrieveSurveyList();// 처음조회시 1페이지를 조회한다.
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/*질문 조회*/ 
+this.fn_retrieveSurveyList = function()
+{		
+	this.ds_survey_q.clearData();
+	
+	var SRV_SEQ		= this.gfn_nullToEmpty(this.Edit00.value);			// 제목
+
+	var sParam        = "SRV_SEQ=" + SRV_SEQ;
+	var sSvcID        = "retrieveSurveyqueList";
+	var sURL          = "svc::rest/mg/survey/retrieveSurveyqueList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_survey_q=ds_survey_q";
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "insertSurveyans") {
+			if (ErrorCode == 0) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.fn_answerList();
+			}
+		}else if(svcID == "deleteSurveyans") {
+			if (ErrorCode == 0) {
+				alert("삭제가 완료되었습니다.");
+				this.fn_answerList();
+			}
+		}else if(svcID == "updateSurveyans"){
+			if (ErrorCode == 0) {
+				alert("수정이 완료되었습니다.");
+				this.fn_answerList();
+			}
+		}
+
+	}
+	
+}
+
+
+
+
+/* 팝업호출확인하기 */
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+	switch(strId)
+	{
+		case "OMG_DS_SC_8321":
+			var strValNo = strVal.split('|');
+			this.div_search.ed_title.set_value(strValNo[0]);
+			this.Edit00.set_value(strValNo[1]);
+			this.Edit01.set_value(strValNo[2]);
+			this.Edit02.set_value(strValNo[3]);
+			this.Edit04.set_value(strValNo[4]);
+			this.Edit05.set_value(strValNo[5]);
+		this.fn_retrieveSurveyList();
+	
+	}
+	
+}
+
+
+//설문조사 선택 (팝업창으로 설문 선택)
+this.btn_cho_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("OMG_DS_SC_8321", "OMG.MG::OMG_DS_SC_8321.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+//질문 행 추가
+this.btn_quplus_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_survey_a.addRow();
+}
+
+/*답변 등록*/
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		var sParams = "BSN_DSC="  + "ESCM"
+			    + " SRV_SEQ=" + this.gfn_nullToEmpty(this.Edit00.value)  //설문순번
+				+ " SRV_Q_SEQ="+ this.gfn_nullToEmpty(this.Edit03.value) //질문순번
+				 ; 
+		var dsParams = "ds_survey_a=ds_survey_a:U";
+		
+		var sSvcID        = "insertSurveyans";
+		var sURL          = "svc::rest/mg/survey/insertSurveyans";
+		var sInDatasets   = dsParams;
+		var sOutDatasets  = "";
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+		
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+/*질문 선택*/
+this.grd_comncList_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 2){
+		var quetitle = this.ds_survey_q.getColumn(e.row,"QUESTION");
+		var SRV_Q_SEQ = this.ds_survey_q.getColumn(e.row,"SRV_Q_SEQ");
+		this.ed_que.set_value(quetitle);
+		this.Edit03.set_value(SRV_Q_SEQ);
+		this.fn_answerList();
+	}
+}
+
+/*답변 조회*/
+this.fn_answerList = function()
+{
+	this.ds_survey_a.clearData();
+	
+	var SRV_SEQ		= this.gfn_nullToEmpty(this.Edit00.value);	
+	var SRV_Q_SEQ	= this.gfn_nullToEmpty(this.Edit03.value);	// 제목
+
+	var sParam        = "SRV_SEQ=" + SRV_SEQ
+					 +  " SRV_Q_SEQ=" + SRV_Q_SEQ;
+	var sSvcID        = "retrieveSurveyansList";
+	var sURL          = "svc::rest/mg/survey/retrieveSurveyansList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_survey_a=ds_survey_a";
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+
+}
+//삭제 클릭
+this.grd_comncList00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 0){
+		if(confirm("답변을 삭제하시겠습니까?")){
+			var SRV_A_NUM = this.ds_survey_a.getColumn(e.row,"SRV_A_NUM");
+			var ANSWER = this.ds_survey_a.getColumn(e.row ,"ANSWER");
+			var SRV_SEQ = this.gfn_nullToEmpty(this.Edit00.value);
+			var SRV_Q_SEQ = this.gfn_nullToEmpty(this.Edit03.value);
+			var BSN_DSC = "ESCM";
+			
+			this.ds_param.clearData();
+			this.ds_param.addRow();	
+			this.ds_param.setColumn(0,"SRV_A_NUM",SRV_A_NUM);
+			this.ds_param.setColumn(0,"ANSWER",ANSWER);
+			this.ds_param.setColumn(0,"SRV_SEQ",SRV_SEQ);
+			this.ds_param.setColumn(0,"SRV_Q_SEQ",SRV_Q_SEQ);
+			this.ds_param.setColumn(0,"BSN_DSC",BSN_DSC);
+			
+			var dsParams = "ds_param=ds_param:U";
+			var sSvcID        = "deleteSurveyans";
+			var sURL          = "svc::rest/mg/survey/deleteSurveyans";
+			var sInDatasets   = dsParams;
+			var sOutDatasets  = "";
+			var sArgument     = "";
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+					
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		}
+	}else if(e.cell == 1){
+		if(confirm("답변을 수정하시겠습니까?")){
+			var SRV_A_NUM = this.ds_survey_a.getColumn(e.row,"SRV_A_NUM");
+			var INPUT_TYPE = this.ds_survey_a.getColumn(e.row,"INPUT_TYPE");
+			var ANSWER = this.ds_survey_a.getColumn(e.row,"ANSWER");
+			var TXT_COL_CNT = this.ds_survey_a.getColumn(e.row,"TXT_COL_CNT");
+			var TXT_ROW_CNT = this.ds_survey_a.getColumn(e.row,"TXT_ROW_CNT");
+			var SRV_SEQ = this.gfn_nullToEmpty(this.Edit00.value);
+			var SRV_Q_SEQ = this.gfn_nullToEmpty(this.Edit03.value);
+			var BSN_DSC = "ESCM";
+					
+			this.ds_param.clearData();
+			this.ds_param.addRow();	
+			this.ds_param.setColumn(0,"SRV_A_NUM",SRV_A_NUM);
+			this.ds_param.setColumn(0,"INPUT_TYPE",INPUT_TYPE);
+			this.ds_param.setColumn(0,"ANSWER",ANSWER);
+			this.ds_param.setColumn(0,"TXT_COL_CNT",TXT_COL_CNT);
+			this.ds_param.setColumn(0,"TXT_ROW_CNT",TXT_ROW_CNT);
+			this.ds_param.setColumn(0,"SRV_SEQ",SRV_SEQ);
+			this.ds_param.setColumn(0,"SRV_Q_SEQ",SRV_Q_SEQ);
+			this.ds_param.setColumn(0,"BSN_DSC",BSN_DSC);
+					
+			var dsParams 	  = "ds_param=ds_param:U";
+			var sSvcID        = "updateSurveyans";
+			var sURL          = "svc::rest/mg/survey/updateSurveyans";
+			var sInDatasets   = dsParams;
+			var sOutDatasets  = "";
+			var sArgument     = "";
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		}
+	}
+}
+/*답변 조회*/
+this.btn_select_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_answerList();
+}
+/*답변 수정*/
+this.btn_update_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	for(var i = 0 , length = this.ds_survey_a.getRowCount(); i < length; i++){
+		if(this.ds_survey_a.getColumn(i,"INPUT_TYPE") != this.ds_survey_a.getOrgColumn(i,"INPUT_TYPE") 
+		|| this.ds_survey_a.getColumn(i,"ANSWER") != this.ds_survey_a.getOrgColumn(i,"ANSWER")
+		|| this.ds_survey_a.getColumn(i,"TXT_COL_CNT") != this.ds_survey_a.getOrgColumn(i,"TXT_COL_CNT")
+		|| this.ds_survey_a.getColumn(i,"TXT_ROW_CNT") != this.ds_survey_a.getOrgColumn(i,"TXT_ROW_CNT")) //기존 데이터랑 다르면 update
+		{	
+
+				var SRV_A_NUM = this.ds_survey_a.getColumn(i,"SRV_A_NUM");
+				var INPUT_TYPE = this.ds_survey_a.getColumn(i,"INPUT_TYPE");
+				var ANSWER = this.ds_survey_a.getColumn(i,"ANSWER");
+				var TXT_COL_CNT = this.ds_survey_a.getColumn(i,"TXT_COL_CNT");
+				var TXT_ROW_CNT = this.ds_survey_a.getColumn(i,"TXT_ROW_CNT");
+				var SRV_SEQ = this.gfn_nullToEmpty(this.Edit00.value);
+				var SRV_Q_SEQ = this.gfn_nullToEmpty(this.Edit03.value);
+				var BSN_DSC = "ESCM";
+				
+				this.ds_param.clearData();
+				this.ds_param.addRow();	
+				this.ds_param.setColumn(0,"SRV_A_NUM",SRV_A_NUM);
+				this.ds_param.setColumn(0,"INPUT_TYPE",INPUT_TYPE);
+				this.ds_param.setColumn(0,"ANSWER",ANSWER);
+				this.ds_param.setColumn(0,"TXT_COL_CNT",TXT_COL_CNT);
+				this.ds_param.setColumn(0,"TXT_ROW_CNT",TXT_ROW_CNT);
+				this.ds_param.setColumn(0,"SRV_SEQ",SRV_SEQ);
+				this.ds_param.setColumn(0,"SRV_Q_SEQ",SRV_Q_SEQ);
+				this.ds_param.setColumn(0,"BSN_DSC",BSN_DSC);
+				
+				var dsParams = "ds_param=ds_param:U";
+				var sSvcID        = "updateSurveyans";
+				var sURL          = "svc::rest/mg/survey/updateSurveyans";
+				var sInDatasets   = dsParams;
+				var sOutDatasets  = "";
+				var sArgument     = "";
+				var sCallbackFunc = "fn_callBack";
+				var sTranType     = "U"; // U:저장/삭제, S:조회
+				this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		}
+	}
+}
+/*미리보기*/
+this.btn_view_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.url="";
+	this.popup_W= 0 ;
+	this.popup_H= 0;
+	this.BlbdId="";
+	this.framename = "popu0p"; 
+	 
+	var TITLE = this.div_search.ed_title.value;
+	var SUBTITLE = this.Edit05.value;
+	var INTRO = this.Edit04.value;
+	var SRV_SEQ = this.Edit00.value;
+	application.open(this.framename, "OMG.MG::OMG_DS_SC_8331.xfdl", this,{URL:this.url,TITLE:this.TITLE,SUBTITLE:this.SUBTITLE,INTRO:this.INTRO,SRV_SEQ:this.SRV_SEQ}, "showtitlebar=false showstatusbar=true autosize=false resizable=true", this.popup_W, this.popup_H ,700, 740);
+	this.popup_W = this.popup_W  + 40 ;
+	this.popup_H= this.popup_H + 40;	
+ 
+	
+}
+]]></Script>
+  </Form>
+</FDL>

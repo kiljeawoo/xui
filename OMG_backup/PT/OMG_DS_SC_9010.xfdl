@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_9010" classname="OMG_DS_SC_3212" left="0" top="0" width="600" height="500" titletext="주소조회" onload="OMG_DS_SC_9010_onload" style="border:2 solid #067394ff ;" visible="true" onkeydown="OMG_DS_SC_9010_onkeydown">
+    <Layouts>
+      <Layout>
+        <Button id="btn_zipSearch" taborder="17" onclick="btn_zipSearch_onclick" cssclass="btn_WFSA_Searchbtn" top="7" right="17" width="58" height="21"/>
+        <Div id="div_search" taborder="18" left="17" top="35" right="17" height="153" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="edt_search" taborder="5" left="104" top="71" width="168" height="21"/>
+              <Static id="Static03" taborder="0" text="10" visible="false" left="0" top="-4" width="15" height="800" style="background:#dc143c5b;"/>
+              <Combo id="cbo_provnm" taborder="3" codecolumn="SIMP_C" datacolumn="SIMP_CNM" index="-1" left="104" top="40" width="168" height="21" innerdataset="@ds_provnm"/>
+              <Static id="Static01" taborder="2" text="시도" cssclass="sta_WFSA_Label" left="22" top="40" width="74" height="21"/>
+              <Static id="st_cond1" taborder="4" text="도로명" left="22" top="71" width="74" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="st_cond2" taborder="6" text="건물번호" top="71" width="74" height="21" cssclass="sta_WFSA_Label" right="194"/>
+              <Edit id="edt_search2" taborder="7" top="71" width="70" height="21" inputtype="number" style="align:center;" right="118"/>
+              <Radio id="rdo_comp" taborder="1" left="22" top="10" width="196" height="21" codecolumn="codecolumn" datacolumn="datacolumn" rowcount="1" onitemchanged="div_search_rdo_comp_onitemchanged" value="2">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">도로명주소</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">지번주소</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_search3" taborder="8" top="71" width="70" height="21" inputtype="number" style="align:center;" right="22"/>
+              <Static id="Static00" taborder="9" text="-" top="71" width="10" height="21" style="align:center;" right="100"/>
+              <Static id="st_hint" taborder="10" left="22" top="101" height="43" usedecorate="true" wordwrap="char" style="background:#fbfbfbff;border:1 solid #d2d2d2ff ;color:#555555ff;padding:3px 3px 3px 3px;" text="검색 예시) ㈜농협하나로유통 본사 주소 : 서울특별시 마포구 신촌로 66&#13;&#10;시도 : &lt;b v='true'&gt;&lt;fc v='blue'&gt;서울특별시&lt;/fc&gt;&lt;/b&gt; / 도로명 : &lt;b v='true'&gt;&lt;fc v='blue'&gt;신촌로&lt;/fc&gt;&lt;/b&gt; / 건물번호 : &lt;b v='true'&gt;&lt;fc v='blue'&gt;66&lt;/fc&gt;&lt;/b&gt;(본번)" right="22"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_zip" taborder="19" binddataset="ds_zip" useinputpanel="false" left="17" right="17" oncelldblclick="grd_zip_oncelldblclick" bottom="76" top="200">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="31" band="left"/>
+                <Column size="70"/>
+                <Column size="77"/>
+                <Column size="74"/>
+                <Column size="108"/>
+                <Column size="95"/>
+                <Column size="50"/>
+                <Column size="50"/>
+                <Column size="153"/>
+                <Column size="90"/>
+                <Column size="60"/>
+                <Column size="60"/>
+                <Column size="83"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="normal"/>
+                <Cell col="1" text="우편번호"/>
+                <Cell col="2" text="시도명"/>
+                <Cell col="3" text="시군구명"/>
+                <Cell col="4" text="읍면동명"/>
+                <Cell col="5" text="도로명"/>
+                <Cell col="6" text="본번"/>
+                <Cell col="7" text="부번"/>
+                <Cell col="8" text="시군구용건물명"/>
+                <Cell col="9" text="법정동명"/>
+                <Cell col="10" text="지번본번"/>
+                <Cell col="11" text="지번부번"/>
+                <Cell col="12" text="리명"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" text="bind:DTCT_NO"/>
+                <Cell col="2" text="bind:PROVNM"/>
+                <Cell col="3" text="bind:CCWNM"/>
+                <Cell col="4" text="bind:TTVNM"/>
+                <Cell col="5" text="bind:RODNM"/>
+                <Cell col="6" text="bind:BLD_NO_MHZNO"/>
+                <Cell col="7" text="bind:BLD_NO_SHZNO"/>
+                <Cell col="8" text="bind:CCWN_BLDNM"/>
+                <Cell col="9" text="bind:LWDGNM"/>
+                <Cell col="10" text="bind:LTNO_MHZNO"/>
+                <Cell col="11" text="bind:LTNO_SHZNO"/>
+                <Cell col="12" text="bind:RINM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_confirm" taborder="20" text="확인" cssclass="btn_WF_Popup" width="54" height="29" onclick="btn_confirm_onclick" right="75" bottom="8"/>
+        <Button id="btn_cancel" taborder="21" text="취소" onclick="btn_cancel_onclick" cssclass="btn_WF_Popup" width="54" height="29" right="17" bottom="8"/>
+        <Div id="div_paging" taborder="22" url="common::pagingBTN.xfdl" text="Div03" left="59" height="29" visible="false" right="63" bottom="46"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_zip" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="DTCT_NO" type="STRING" size="256"/>
+          <Column id="PROVNM" type="STRING" size="256"/>
+          <Column id="CCWNM" type="STRING" size="256"/>
+          <Column id="TTVNM" type="STRING" size="256"/>
+          <Column id="RODNM_C" type="STRING" size="256"/>
+          <Column id="RODNM" type="STRING" size="256"/>
+          <Column id="BLD_NO_MHZNO" type="STRING" size="256"/>
+          <Column id="BLD_NO_SHZNO" type="STRING" size="256"/>
+          <Column id="CCWN_BLDNM" type="STRING" size="256"/>
+          <Column id="LWDG_C" type="STRING" size="256"/>
+          <Column id="LWDGNM" type="STRING" size="256"/>
+          <Column id="LTNO_MHZNO" type="STRING" size="256"/>
+          <Column id="LTNO_SHZNO" type="STRING" size="256"/>
+          <Column id="RINM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TOTAL_ROW_COUNT">13</Col>
+            <Col id="PAGE_SIZE">10</Col>
+            <Col id="CURRENT_PAGE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_provnm" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+//this.new_elt = "";
+
+this.OMG_DS_SC_9010_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	this.gfn_setInitForm(obj, e); //공통
+	var param = [
+       {code:"ADDR_PROVNM"    ,     dsName:"ds_provnm", selecttype:""}
+    ];
+
+    this.gfn_setPortalCommonCode(param);
+//    this.new_elt = this.getOwnerFrame().new_elt ;
+    this.grd_zip.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	var cnt = this.ds_provnm.insertRow();
+	this.ds_provnm.setColumn(cnt , "CTRW_KDC" ,"" )
+	this.ds_provnm.setColumn(cnt , "SIMP_CNM" , "선택")
+	this.div_search.cbo_provnm.set_index(0);
+}
+
+this.btn_zipSearch_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+this.fn_zipSearch =  function()
+{
+
+	if(this.fn_validationCheck()){
+		var cbo_comp = this.div_search.rdo_comp.value;  //1 지번 주소  , 2 도로명 주소
+		var provnm = this.gfn_nullToEmpty(this.div_search.cbo_provnm.value);  //시도 선택
+		
+		// 도로명에는 공백이 존재하지 않으므로
+		if (cbo_comp == "2" && this.div_search.edt_search.value.indexOf(" ") != -1) {
+			this.div_search.edt_search.set_value(this.allTrim(this.div_search.edt_search.value));
+		}
+		
+		var edtSearch = this.gfn_nullToEmpty(this.div_search.edt_search.value); // 도로명, 동/읍/면
+		var edtSearch2 = this.gfn_nullToEmpty(this.div_search.edt_search2.value);
+		var edtSearch3 = this.gfn_nullToEmpty(this.div_search.edt_search3.value);
+		var param = " cbo_comp="+cbo_comp+" provnm="+provnm + " edt_zip="+edtSearch + " edt_zip2="+edtSearch2 + " edt_zip3="+edtSearch3;
+
+		var sSvcID        = "search";//통신아이디
+		var sURL          = "svc::rest/pt/comn/retrieveAdrInq";// 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+		var sOutDatasets  = "ds_zip=ds_zip ds_pageVO=ds_pageVO";		//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		//API 호출
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	//trace( "시도 [" + this.gfn_nullToEmpty(this.div_search.cbo_provnm.value) +"]") ;
+	if(this.gfn_nullToEmpty(this.div_search.cbo_provnm.value) == ""){
+		this.div_search.edt_search.setFocus();
+		this.alert('시도를 선택하세요. ');
+		return false;
+	}
+
+	if(this.gfn_isNull(this.div_search.edt_search.value)){
+		this.div_search.edt_search.setFocus();
+		this.alert(this.div_search.rdo_comp.value == 1 ? '조회할 동/읍/면을 입력 하세요.' : '조회할 도로명을 입력 하세요.');
+		return false;
+	}
+
+	if(this.gfn_isNull(this.div_search.edt_search2.value) && !this.gfn_isNull(this.div_search.edt_search3.value)){
+		this.div_search.edt_search2.setFocus();
+		this.alert((this.div_search.rdo_comp.value == 1 ? '지번' : '건물번호') + '본번도 함께 입력해주시기 바랍니다.');
+		return false;
+	}
+
+	return true;
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "search"){
+			if(this.ds_zip.rowcount > 0)
+			{
+				var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+				this.div_paging.fn_pageSet(sTotal, sPagesize,"div_paging",lsNowPage);
+
+			}else if(this.ds_zip.rowcount == 0){
+
+				this.div_paging.fn_pageSet(0, 10,"div_paging",lsNowPage);
+				return false;
+			}
+		}
+	}
+
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+//	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+this.fn_afterFormOnload = function()
+{
+//	trace("fn_afterFormOnload");
+}
+
+this.btn_newClose_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//if(this.new_elt  ==  true){
+		this.close("");
+// 	}else{
+// 		this.parent.div_addr.set_visible(false);
+// 	}
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//if(this.new_elt  ==  true){
+		this.close("");
+// 	}else{
+// 		this.parent.div_addr.set_visible(false);
+// 	}
+}
+
+this.grd_zip_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell==0){
+		this.gfn_singleChk(obj,e);
+	}
+}
+
+this.btn_confirm_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var zipCode;
+	if (this.ds_zip.rowcount > 0) {
+		for(var i = 0; i < this.ds_zip.rowcount; i++) {
+			if(this.ds_zip.getColumn(i, "ISCHECKED") == 1) {
+				zipCode = this.returnAddrStr(i);
+			}
+		}
+		if(this.gfn_isNull(zipCode)){
+			alert("입력할 주소를 체크 하세요");
+			return false;
+		}
+	} else {
+		alert("주소를 조회 하세요");
+		return false;
+	}
+	this.close(zipCode);
+}
+
+
+
+/************************************************************************************************
+ * 페이징처리
+************************************************************************************************/
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_zip.clearData();     //Grid에 Binding된 Dataset명
+
+	this.ds_pageVO.addRow();
+
+	var vPageSize   = 50; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 0; 	//전체건수. 화면조회후 리턴받아 사용
+
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+
+	var argumentObj = "";
+
+	lsNowPage = vPageNum;//현재페이지 설정
+
+	this.fn_zipSearch();
+
+}
+
+this.grd_zip_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var i  =   this.ds_zip.rowposition  ;
+	var zipCode = this.returnAddrStr(i);
+	
+ 	this.close(zipCode);
+}
+
+/************************************************************************************************
+ * 선택주소 데이터 조합
+************************************************************************************************/
+this.returnAddrStr = function(row)
+{
+	var strZip = this.ds_zip.getColumn(row,"DTCT_NO");
+	var addr1 = this.ds_zip.getColumn(row,"PROVNM");
+	var addr2 = this.ds_zip.getColumn(row,"CCWNM");
+	var addr3 = this.ds_zip.getColumn(row,"LWDGNM");
+	var addr4 = this.ds_zip.getColumn(row,"RODNM");
+	var addr5 = this.ds_zip.getColumn(row,"BLD_NO_MHZNO");
+	var addr6 = this.ds_zip.getColumn(row,"BLD_NO_SHZNO");
+	var addr7 = this.ds_zip.getColumn(row,"BLD_AMNNO");	
+	var addr8 = this.ds_zip.getColumn(row,"LTNO_MHZNO");
+	var addr9 = this.ds_zip.getColumn(row,"LTNO_SHZNO");
+	var addr10 = this.ds_zip.getColumn(row,"TTVNM");
+	var addr11 = this.ds_zip.getColumn(row,"RINM");
+
+	/**
+	 *  FZIP : 우편번호 앞 3자리
+	 *  RZIP : 우편번호 뒤 2자리
+	 *  DONGUP : 기본주소
+	 *  DONGBW : 상세주소
+	 *  GBN : 도로명주소여부
+	 *  BLD_AMNNO : 건물관리번호
+	 */
+	var zipCode  = "FZIP#" + strZip.substr(0,3);
+	zipCode += ",RZIP#" + strZip.substr(3,2);
+	
+	if (this.div_search.rdo_comp.value == 1) {
+		// 지번
+		zipCode += ",DONGUP#" + addr1 + " " + addr2;
+		if (this.gfn_nullToEmpty(addr3) != "") {
+			zipCode += " " + addr3; // 동
+		}
+		if (this.gfn_nullToEmpty(addr10) != "") {
+			zipCode += " " + addr10; // 면
+			if (this.gfn_nullToEmpty(addr11) != "") {
+				zipCode += " " + addr11; // 리
+			}
+		}
+		zipCode += " " + addr8;
+		if (!this.gfn_isNull(addr9) && addr9 != "0") {
+			zipCode += "-"+addr9; // 부번이 있을 경우 추가
+		}
+	} else {
+		// 도로명
+		zipCode += ",DONGUP#" + addr1 + " " + addr2;
+		if (this.gfn_nullToEmpty(addr10) != "") {
+			zipCode += " " + addr10;
+		}
+		zipCode += " " + addr4 + " " + addr5;
+		if (!this.gfn_isNull(addr6) && addr6 != "0") {
+			zipCode += "-"+addr6; // 부번이 있을 경우 추가
+		}
+		if (!this.gfn_isNull(addr3)) {
+			zipCode += " (" + addr3 + ")"; // 법정동명 추가
+		}
+	}
+	zipCode += ",DONGBW#";
+	zipCode += ",GBN#" + this.div_search.rdo_comp.value; // 주소구분(1지번,2도로명)
+	zipCode += ",BLD_AMNNO#" + addr7; // 건물관리번호
+
+	return zipCode;
+}
+
+this.OMG_DS_SC_9010_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	// 13 ==  enter
+ 	if (e.keycode==13  ){
+ 		this.btn_zipSearch.click() ;
+ 	}
+}
+
+this.div_search_rdo_comp_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	this.div_search.edt_search.set_value("");
+	this.div_search.edt_search2.set_value("");
+	this.div_search.edt_search3.set_value("");
+
+	if (obj.value==1) {
+		this.div_search.st_cond1.set_text("동/읍/면");
+		this.div_search.st_cond2.set_text("지번");
+		this.div_search.st_hint.set_text("검색 예시) ㈜농협하나로유통 본사 주소 : 서울 마포구 노고산동 49-31<br>시도 : <b v='true'><fc v='blue'>서울특별시</fc></b> / 동.읍.면 : <b v='true'><fc v='blue'>노고산동</fc></b> / 지번 : <b v='true'><fc v='blue'>49</fc></b>(본번), <b v='true'><fc v='blue'>31</fc></b>(부번)");
+	} else {
+		this.div_search.st_cond1.set_text("도로명");
+		this.div_search.st_cond2.set_text("건물번호");
+		this.div_search.st_hint.set_text("검색 예시) ㈜농협하나로유통 본사 주소 : 서울 마포구 신촌로 66<br>시도 : <b v='true'><fc v='blue'>서울특별시</fc></b> / 도로명 : <b v='true'><fc v='blue'>신촌로</fc></b> / 건물번호 : <b v='true'><fc v='blue'>66</fc></b>(본번)");
+	}
+}]]></Script>
+  </Form>
+</FDL>

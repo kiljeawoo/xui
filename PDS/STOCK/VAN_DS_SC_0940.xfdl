@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_van_ds_sc_0940" classname="pattern_01" left="0" top="0" width="803" height="490" oninit="form_init" onload="form_onload" titletext="자료수신">
+    <Layouts>
+      <Layout>
+        <Static id="Static21" taborder="0" text="조회기간" cssclass="sta_WF_Label" left="0" top="85" width="110" height="29"/>
+        <Static id="Static29" taborder="1" cssclass="sta_WF_Labelbg" left="109" top="85" height="29" right="15"/>
+        <Static id="Static00" taborder="2" left="788" top="0" width="15" height="181" visible="false" style="background:#00ffff66;"/>
+        <Static id="Static12" taborder="4" text="40" visible="false" left="0" top="21" width="871" height="40" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="5" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Div id="div_auth" taborder="6" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="56" width="431" height="21"/>
+        <Calendar id="cal_by_dt_fr" taborder="7" dateformat="yyyy-MM-dd" left="118" top="89" width="100" height="21"/>
+        <Calendar id="cal_by_dt_to" taborder="8" dateformat="yyyy-MM-dd" left="228" top="89" width="100" height="21" visible="false"/>
+        <Static id="Static04" taborder="9" text="~" left="218" top="89" width="10" height="21" visible="false"/>
+        <Static id="Static03" taborder="11" text="5" visible="false" left="-1" top="81" width="871" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static24" taborder="27" text="일일자료" cssclass="sta_WF_Subtitle" left="5" top="61" width="301" height="21"/>
+        <CheckBox id="chk_part01" taborder="33" value="false" cssclass="chk_WF_Essential" left="82" top="61" width="120" height="21" onclick="chk_onclick" visible="false"/>
+        <WebBrowser id="web_downExcel" left="569" top="164" width="64" height="35" taborder="34" visible="false"/>
+        <Button id="btn_excel" taborder="35" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[/*##################################################################################
+ 화면명	: 자료수신
+ 화면ID  	: VAN_DS_SC_0940
+ 작성자 	: hroh
+####################################################################################*/
+include "lib::comLib.xjs";
+
+var fromDate;
+var toDate;
+/* Form Load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+}
+
+
+/* Form Init*/
+this.fn_afterFormOnload = function() //onload
+{	
+	
+	///페이지 로딩후 실행부분
+	
+	var toDay = this.gfn_today("yyyyMMdd");
+	this.cal_by_dt_fr.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"),1));
+	//this.cal_by_dt_to.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"),1));
+	
+	
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+	/*	
+	if(this.chk_part01.isChecked() == false){
+		this.alert("일일자료를 선택해 주세요");
+		return false;
+	}
+	*/
+	
+	if(this.gfn_nullToEmpty(this.cal_by_dt_fr.value) == ''){
+		this.gfn_getMessage("alert", "validation.message.fromDate.no.data");
+		return false;
+	}
+
+	/*
+	if(this.gfn_nullToEmpty(this.cal_by_dt_to.value) == ''){
+		this.gfn_getMessage("alert", "validation.message.toDate.no.data");
+		return false;
+	}
+	
+	if(this.gfn_getDiffDay(this.cal_by_dt_fr.value,this.cal_by_dt_to.value) < 0){
+		this.gfn_getMessage("alert", "validation.message.fromDate.toDate.reConfirm");
+		return false;
+	}	
+	
+	if(this.gfn_getDiffDay(this.cal_by_dt_fr.value,this.cal_by_dt_to.value) > 1){
+
+		//기간을 31일 이내로 선택해 주세요
+		//this.gfn_getMessage("alert", "validation.message.selectDateIn31Day");
+		this.alert("조회 기간을 1일 이내로 선택해주세요.");
+		return false;
+	}
+	*/
+	
+	return true;
+}
+
+
+/* Search */
+
+/* Print */ 
+
+/* Excel */
+this.fn_exceldown = function(){	
+	
+	//권한사업장
+	var trplC = this.getTrplCode();
+	
+	//var fileName = "자료수신_엑셀.xls";//엑셀 파일 이름
+	
+	var title = '재고정보_'+this.parent.sNm;
+	title = title.replace(/ /gi, '');
+	var fileName = title + "_" + this.getDate() + ".xls";
+	
+	fromDate = this.gfn_nullToEmpty(this.cal_by_dt_fr.value); //조회시작일
+	//toDate = this.gfn_nullToEmpty(this.cal_by_dt_to.value);	 //조회종료일
+	toDate = this.gfn_nullToEmpty(this.cal_by_dt_fr.value);
+	
+	var params =  "TRPL_C=" + trplC
+				+ "&FROM_DATE=" + fromDate
+				+ "&TO_DATE=" + toDate
+				+ "&fileName=" + fileName;
+					
+	trace(">>>>>>> params : " +  params);
+	
+	params = encodeURI(encodeURI(params));
+	
+	//this.web_downExcel.set_url(application.gv_server_url+"rest/excel/downloadExcelStock?"+params);
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelStock?"+params, this);
+}
+
+/* Event */
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.fn_validationCheck()){
+		this.fn_exceldown();
+	}
+}
+
+this.chk_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	/*
+	if(obj.name == 'chk_part01'){
+		this.chk_part02.set_value(false);
+		this.chk_part03.set_value(false);
+	}
+	
+	if(obj.name == 'chk_part02'){
+		this.chk_part01.set_value(false);
+		this.chk_part03.set_value(false);
+	}
+	
+	if(obj.name == 'chk_part03'){
+		this.chk_part01.set_value(false);
+		this.chk_part02.set_value(false);
+	}
+	*/
+}
+
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "downloadStoreSumCSV"){
+			if(this.ds_dataM.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

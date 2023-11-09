@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1050" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="납품자료수신" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static21" taborder="0" text="조회기간" cssclass="sta_WF_Label" left="0" top="85" width="110" height="29"/>
+        <Static id="Static29" taborder="1" cssclass="sta_WF_Labelbg" left="109" top="85" height="29" right="15"/>
+        <Static id="Static00" taborder="2" left="788" top="0" width="15" height="181" visible="false" style="background:#00ffff66;"/>
+        <Static id="Static01" taborder="3" text="기간집계" cssclass="sta_WF_Subtitle" left="6" top="61" width="301" height="21"/>
+        <Static id="Static12" taborder="4" text="40" visible="false" left="0" top="21" width="871" height="40" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="5" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Div id="div_auth" taborder="6" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="52" width="379" height="21"/>
+        <Calendar id="cal_fr00" taborder="7" dateformat="yyyy-MM-dd" left="114" top="89" width="100" height="21"/>
+        <Calendar id="cal_to00" taborder="8" dateformat="yyyy-MM-dd" left="224" top="89" width="100" height="21"/>
+        <Static id="Static04" taborder="9" text="~" left="215" top="89" width="10" height="21"/>
+        <Radio id="rdo_chk00" taborder="20" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="461" top="90" width="319" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">사업장별/상품별</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">상품별/사업장별</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static03" taborder="11" text="5" visible="false" left="-1" top="81" width="871" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="12" text="선      택" onclick="Static20_onclick" cssclass="sta_WF_Label" left="344" top="85" width="110" height="29"/>
+        <Static id="Static06" taborder="13" text="40" visible="false" left="-1" top="112" width="871" height="40" style="background:#dc143c5b;"/>
+        <Static id="Static07" taborder="14" text="조회기간" cssclass="sta_WF_Label" left="0" top="176" width="110" height="29"/>
+        <Static id="Static08" taborder="15" cssclass="sta_WF_Labelbg" left="109" top="176" right="15" height="29"/>
+        <Static id="Static10" taborder="16" text="일별집계" cssclass="sta_WF_Subtitle" left="6" top="151" width="301" height="21"/>
+        <Calendar id="cal_fr01" taborder="17" dateformat="yyyy-MM-dd" left="114" top="180" width="100" height="21"/>
+        <Calendar id="cal_to01" taborder="18" dateformat="yyyy-MM-dd" left="224" top="180" width="100" height="21"/>
+        <Static id="Static11" taborder="19" text="~" left="215" top="180" width="10" height="21"/>
+        <Radio id="rdo_chk01" taborder="21" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="461" top="181" width="308" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">사업장별/상품별</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">상품별/사업장별</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static13" taborder="22" text="5" visible="false" left="-1" top="172" width="871" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static14" taborder="23" text="선      택" onclick="Static20_onclick" cssclass="sta_WF_Label" left="345" top="176" width="110" height="29"/>
+        <Static id="Static15" taborder="24" text="40" visible="false" left="-1" top="203" width="871" height="40" style="background:#dc143c5b;"/>
+        <Static id="Static19" taborder="25" text="조회기간" cssclass="sta_WF_Label" left="0" top="264" width="110" height="29" visible="false"/>
+        <Static id="Static20" taborder="26" cssclass="sta_WF_Labelbg" left="109" top="264" right="15" height="29" visible="false"/>
+        <Static id="Static24" taborder="27" text="일일자료" cssclass="sta_WF_Subtitle" left="6" top="242" width="301" height="21" visible="false"/>
+        <Calendar id="cal_fr02" taborder="28" dateformat="yyyy-MM-dd" left="114" top="268" width="100" height="21" visible="false"/>
+        <Calendar id="cal_to02" taborder="29" dateformat="yyyy-MM-dd" left="224" top="268" width="100" height="21" visible="false"/>
+        <Static id="Static26" taborder="30" text="~" left="215" top="268" width="10" height="21" visible="false"/>
+        <Static id="Static27" taborder="31" text="5" visible="false" left="0" top="260" width="871" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static30" taborder="32" text="40" visible="false" left="0" top="291" width="871" height="40" style="background:#dc143c5b;"/>
+        <CheckBox id="chk_part01" taborder="33" value="false" cssclass="chk_WF_Essential" left="82" top="62" width="120" height="21" onclick="chk_onclick"/>
+        <CheckBox id="chk_part02" taborder="34" cssclass="chk_WF_Essential" left="81" top="151" width="120" height="21" onclick="chk_onclick"/>
+        <CheckBox id="chk_part03" taborder="35" cssclass="chk_WF_Essential" left="82" top="241" width="120" height="21" onclick="chk_onclick" visible="false"/>
+        <WebBrowser id="web_downExcel" left="6" top="344" width="100" height="40" taborder="36" visible="false"/>
+        <Button id="btn_excel" taborder="37" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21" onclick="btn_excel_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[/*##################################################################################
+ 화면명	: 자료수신
+ 화면ID  	: VAN_DS_SC_1050
+ 작성자 	: swha
+####################################################################################*/
+include "lib::comLib.xjs";
+
+var fromDate;
+var toDate;
+/* Form Load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+}
+
+
+/* Form Init*/
+this.fn_afterFormOnload = function()
+{	
+	
+	///페이지 로딩후 실행부분
+	/*
+	var toDay = this.gfn_today("yyyyMMdd");
+	this.div_search.cal_by_dt_fr.set_value(this.gfn_firstDate(toDay));
+	this.div_search.cal_by_dt_to.set_value(this.gfn_lastDate(toDay));
+	*/
+	var toDay = this.gfn_today("yyyyMMdd");
+	this.cal_fr00.set_value(this.gfn_firstDate(toDay));
+	this.cal_to00.set_value(this.gfn_lastDate(toDay));
+	
+	this.cal_fr01.set_value(toDay);
+	this.cal_to01.set_value(toDay);
+	
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+		
+	if(this.chk_part01.isChecked() == false && this.chk_part02.isChecked() == false && this.chk_part03.isChecked() == false){
+		this.alert("기간집계, 일별집계, 일일자료 중 하나를 선택해 주세요");
+		return false;
+	}
+	
+	if(this.chk_part01.isChecked()){
+		fromDate = this.gfn_nullToEmpty(this.cal_fr00.value);
+		toDate = this.gfn_nullToEmpty(this.cal_to00.value);
+		
+	}else if(this.chk_part02.isChecked()){
+		fromDate = this.gfn_nullToEmpty(this.cal_fr01.value);
+		toDate = this.gfn_nullToEmpty(this.cal_to01.value);
+	}else{
+		fromDate = this.gfn_nullToEmpty(this.cal_fr02.value);
+		toDate = this.gfn_nullToEmpty(this.cal_to02.value);
+	}
+	
+	if(fromDate == ''){
+		this.gfn_getMessage("alert", "validation.message.fromDate.no.data");
+		return false;
+	}
+
+	if(toDate == ''){
+		this.gfn_getMessage("alert", "validation.message.toDate.no.data");
+		return false;
+	}
+	
+	if(this.gfn_getDiffDay(fromDate,toDate) < 0){
+		this.gfn_getMessage("alert", "validation.message.fromData.toDate.confirm");
+		return false;
+	}
+	
+	if(this.gfn_getDiffDay(fromDate,toDate) > 62){
+		alert("기간을 62일 이내로 설정해주세요.");
+		return false;
+	}
+	
+	return true;
+}
+
+
+/* Search */
+
+/* Print */ 
+
+/* Excel */
+this.fn_exceldown = function(){
+	
+	var chkPart = "";//집계구분 00 : 월별집계, 01 : 일일자료
+	var chkSelect = ""; //선택 1 : 사업장별 2: 상품별
+	var excelName = "";
+	
+		
+	var chkPart = "";//집계구분 01 : 기간집계, 02 : 일별집계, 03 : 일일자료
+	var chkSelect = ""; //선택 1 : 점포별/상품별, 2 : 상품별/점포별
+	var excelName = "";
+	if(this.chk_part01.isChecked()){
+		chkPart = "01";
+		chkSelect = this.rdo_chk00.value;
+		if(chkSelect == "1"){
+			excelName = "기간집계_사업장별_상품별";
+		}else{
+			excelName = "기간집계_상품별_사업장별";
+		}
+		
+	}else if(this.chk_part02.isChecked()){
+		chkPart = "02";
+		chkSelect = this.rdo_chk01.value;
+		if(chkSelect == "1"){
+			excelName = "일별집계_사업장별_상품별";
+		}else{
+			excelName = "일별집계_상품별_사업장별";
+		}
+	}else{
+		chkPart = "03";
+	}
+	
+	var title = '납품정보_'+this.parent.sNm+excelName;
+	title = title.replace(/ /gi, '');
+	var fileName = this.getExcelFileName(title);
+	var trplC = this.getTrplCode();
+	
+	var params =  "CHK_PART=" + chkPart 
+				+ "&CHK_SELECT=" + chkSelect
+				+ "&FROM_DATE=" + fromDate
+				+ "&TO_DATE=" + toDate
+				+ "&FILE_NM=" + fileName
+				+ "&TRPL_C=" + trplC;
+					
+	//trace(">>>>>>> params : " +  params);
+	
+	
+               
+   //trace(">>>>>>> params : " +  params);
+      
+   //this.web_downExcel.set_url(application.gv_server_url+"rest/excel/pds/downloadStoreSumCSV?"+params);
+  	excelDownHandler(application.gv_server_url+"rest/excel/pds/downloadStoreSumCSV?"+params, this);	
+
+}
+
+/* Event */
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.fn_validationCheck()){
+		this.fn_exceldown();
+	}
+}
+
+this.chk_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	if(obj.name == 'chk_part01'){
+		this.chk_part02.set_value(false);
+		this.chk_part03.set_value(false);
+	}
+	
+	if(obj.name == 'chk_part02'){
+		this.chk_part01.set_value(false);
+		this.chk_part03.set_value(false);
+	}
+	
+	if(obj.name == 'chk_part03'){
+		this.chk_part01.set_value(false);
+		this.chk_part02.set_value(false);
+	}	
+}
+
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "downloadStoreSumCSV"){
+			
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+this.cal_fr00_oneditclick = function(obj:Calendar,  e:nexacro.EditClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

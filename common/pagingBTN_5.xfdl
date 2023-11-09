@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="pagingBTN" classname="pagingBTN" left="0" top="0" width="338" height="29" onsize="pagingBTN_onsize" style="background:#ffffffff;">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="0" text="10" visible="false" left="294" top="10" width="12" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static11" taborder="2" text="10" visible="false" left="0" top="0" width="228" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_next" taborder="13" onclick="btn_next_onclick" cssclass="btn_WF_PageNext" left="306" top="8" width="14" height="14"/>
+        <Button id="btn_previous" taborder="14" onclick="btn_previous_onclick" cssclass="btn_WF_PagePrevious" left="18" top="8" width="14" height="14"/>
+        <Button id="btn_end" taborder="15" onclick="btn_end_onclick" cssclass="btn_WF_PageNextP" left="324" top="8" width="14" height="14"/>
+        <Button id="btn_first" taborder="16" onclick="btn_first_onclick" cssclass="btn_WF_PagePreviousP" left="0" top="8" width="14" height="14"/>
+        <Static id="Static16" taborder="17" text="5" visible="false" left="0" top="24" width="228" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="18" text="10" visible="false" left="9.47%" top="9" right="86.98%" height="15" style="background:#dc143c5b;"/>
+        <Static id="sta_page4" taborder="19" text="5" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="254" top="0" height="29" width="43" style="align:center middle;"/>
+        <Static id="sta_page3" taborder="20" text="4" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="200" top="0" height="29" width="43" style="align:center middle;"/>
+        <Static id="sta_page2" taborder="26" text="3" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="146" top="0" height="29" width="43" style="align:center middle;"/>
+        <Static id="sta_page1" taborder="27" text="2" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="92" top="0" height="29" width="43" style="align:center middle;"/>
+        <Static id="sta_page0" taborder="28" text="1" onclick="btn_page_onclick" cssclass="sta_WF_PageS" left="38" top="0" height="29" width="43" style="align:center middle;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var iStartPageNo    = 0;   // 전체 페이지 순서
+var iUnitSelRowNo   = 0;  // 한번 Server호출시 가져올 row갯수
+var iStartSelRowNo  = 1;   // Server호출시 시작할 row no
+var iMaxPageNum     = 5;  // 화면에 보여줄 최대 Page번호 갯수
+//var iServerRowCount = 30;   // 서버에서 넘어온 Row갯수(100건이 안될 수 있음)
+var iTotCnt = 0;
+var lsDivPage = "";//페이지 컴포넌트 경로
+var lsDivPageNum = "";//총건수 컴포넌트 경로
+var lsTotCntDst = "";//총건수 사용여부
+var lsFuncNm = "";//화면호출변수명
+var objDivNm =""; //부모디비전명
+
+this.btn_page_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	var iNo = new Number(obj.text);
+	var iPageNo = iNo % 5;
+
+	objDivNm = obj.parent.name;
+	
+	if (iPageNo == 0)
+	{
+		iPageNo = 5;
+	}
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		//eval(lsFuncNm + "(" +  iNo + ")");
+		this.lookupFunc(lsFuncNm + "(" +  iNo + ")").call();
+	} else	{
+		this.lookupFunc("fn_paging").call(iNo,objDivNm);
+	}
+	
+	this.fn_btnColorSet(iPageNo-1);
+   
+}
+
+//-------------------------------------------------------------------------------------------------
+// Page번호 Setting
+//-------------------------------------------------------------------------------------------------
+this.fn_SetPageNo = function(iVStartPageNo){
+
+	var sPage   = iVStartPageNo*iMaxPageNum;
+	var iPageNo = 0;	//페이지번호
+
+	// 이전버튼 처리
+	if(iVStartPageNo < 1){
+		this.btn_first.set_visible(false);
+		this.btn_previous.set_visible(false);
+	} else {
+		this.btn_first.set_visible(true);
+		this.btn_previous.set_visible(true);
+	}
+
+	// 마지막 버튼 처리
+	if(iTotCnt <= ((sPage + 5 )*iUnitSelRowNo)){
+		this.btn_next.set_visible(false);
+		this.btn_end.set_visible(false);		
+	}else{
+		this.btn_next.set_visible(true);
+		this.btn_end.set_visible(true);	
+	}
+
+	var nCnt = "";
+	// 인덱스 번호 처리
+	for(var i=0; i<iMaxPageNum; i++){
+		iPageNo = sPage+i+1;
+		this.all["sta_page"+i].set_visible(true);
+		this.all["sta_page"+i].set_text(iPageNo);
+		this.all["sta_page"+i].set_tooltiptext(iPageNo);
+		
+		if (iTotCnt > ((iPageNo - 1 )*iUnitSelRowNo))
+		{
+			this.all["sta_page"+i].set_visible(true);
+			nCnt = i;			
+		}else
+		{
+			this.all["sta_page"+i].set_visible(false);
+		}
+	}
+	
+	this.fn_setButtonOrder(nCnt+1);
+}
+
+this.btn_next_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo=iStartPageNo+1;
+	
+	this.fn_SetPageNo(iStartPageNo);
+	this.fn_btnColorSet(0);//버튼색상설정	
+	objDivNm   = obj.parent.name;
+	var iValue = (iStartPageNo*iMaxPageNum) + 1;
+	
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  iValue + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(iValue, objDivNm);
+	}
+}
+
+this.btn_previous_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo=iStartPageNo-1;
+	this.fn_SetPageNo(iStartPageNo);	
+	this.fn_btnColorSet(9);//버튼색상설정
+	objDivNm = obj.parent.name;
+	var iValue = ((iStartPageNo + 1)*iMaxPageNum);
+	
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  iValue + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(iValue, objDivNm);
+	}	
+}
+
+this.btn_first_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo=0;
+	this.fn_SetPageNo(iStartPageNo);	
+	this.fn_btnColorSet(0);//버튼색상설정
+	objDivNm = obj.parent.name;
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  1 + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(1, objDivNm);
+	}		
+
+}
+
+this.btn_end_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo = parseInt(iTotCnt / (iUnitSelRowNo * 5));
+	
+    var iNam = iTotCnt % iUnitSelRowNo;//나머지
+
+	var iValue = parseInt((iTotCnt/iUnitSelRowNo)) % 5;
+
+	var jValue = parseInt((iTotCnt / iUnitSelRowNo)) + 1;	
+	var jTValue = parseInt(jValue % 5);//페이지 끝번호
+	
+	
+	
+	objDivNm = obj.parent.name;
+
+	if (iNam == 0)
+	{
+		iValue = iValue - 1;
+		jValue = jValue - 1;
+		//iStartPageNo = iStartPageNo -1;
+	}
+	
+	if (iValue == -1)
+	{
+		iValue = 9;
+	}
+
+	if (iNam == 0)
+	{
+		jTValue = parseInt(jValue % 5);//페이지 끝번호
+		
+		if (jTValue == 0)
+		{
+			iStartPageNo = iStartPageNo-1;
+			this.fn_SetPageNo(iStartPageNo);			
+		} else
+		{
+			this.fn_SetPageNo(iStartPageNo);			
+		}
+	} else
+	{
+		this.fn_SetPageNo(iStartPageNo);	
+	}
+	
+	this.fn_btnColorSet(iValue);//버튼색상설정
+
+
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  jValue + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(jValue,objDivNm);
+	}	
+}
+
+//업무화면에서 호출
+this.fn_pageSet = function(sTotalRowCnt, sPageSize, sdivPage, sNowPage, sCalFuncNm, sTotCntDst, sDivPageNum)
+{
+	iTotCnt = sTotalRowCnt;
+	
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(sCalFuncNm))
+	{
+		lsFuncNm = sCalFuncNm;
+	}
+		
+	if (iTotCnt > 0)
+	{
+		//this.all[sdivPage].visible = true; //2015
+		this.set_visible(true);
+		 
+	} else
+	{
+
+		if (this.gfn_isNull(sTotalRowCnt))
+		{	
+			
+		}	
+		//this.all[sdivPage].visible = false; //2015
+		this.set_visible(false);
+	}
+	
+	iUnitSelRowNo = sPageSize;
+	
+	//현재페이지가 첫 페이지 일경우
+	if (sNowPage == 1)
+	{
+		iStartPageNo=0;	
+	}
+	
+	this.fn_SetPageNo(iStartPageNo);	
+		
+	//현재페이지가 첫 페이지 일경우
+	if (sNowPage == 1)
+	{
+		this.fn_btnColorSet(0);
+	}		
+}
+
+//버튼색상설정
+this.fn_btnColorSet = function(sNo)
+{	
+    
+	for (var iLoop=0;iLoop < 5; iLoop++)
+	{
+		if (iLoop == sNo)
+		{
+			this.all["sta_page"+iLoop].set_cssclass("sta_WF_PageS");
+		} else
+		{
+			this.all["sta_page"+iLoop].set_cssclass("sta_WF_Page");		
+		}
+	}
+	
+	this.fn_setButtonPos();//버튼위치조정	
+}
+
+/***********************************************************************************************
+ * 함수명     : this.fn_setButtonPos()
+ * 설명       : 버튼위치 세팅
+ * parameter   : void
+ * return      : void
+***********************************************************************************************/ 
+this.fn_setButtonPos = function() {
+	
+	var iPos = 5;
+	
+	for (var iLoop=0;iLoop < 5; iLoop++)
+	{
+		if (this.all["sta_page"+iLoop].visible == false)
+		{
+			iPos = iLoop;
+			break;
+		} 
+	}
+	
+	this.fn_setButtonOrder(iPos);
+}
+
+/***********************************************************************************************
+ * 함수명     : fn_setButtonOrder()
+ * 설명       : 버튼위치 정렬
+ * parameter   : iPos - 안보이는 버튼 시작위치
+ * return      : void
+***********************************************************************************************/ 
+this.fn_setButtonOrder = function(iPos) 
+{
+	if (iPos == 5)
+	{
+		this.btn_first.set_left(0);
+		this.btn_previous.set_left(18);
+		this.btn_next.set_left(306);
+		this.btn_end.set_left(324);
+		
+		this.sta_page0.set_left(38);
+		this.sta_page1.set_left(92);
+		this.sta_page2.set_left(146);
+		this.sta_page3.set_left(200);
+		this.sta_page4.set_left(254);		
+		
+	} else if (iPos == 1)
+	{
+		this.btn_first.set_left(102);//18
+		this.btn_previous.set_left(120);//26
+		
+		this.sta_page0.set_left(146);
+		
+	} else if (iPos == 2)
+	{
+		this.btn_first.set_left(75);
+		this.btn_previous.set_left(93);
+		
+		this.sta_page0.set_left(119);
+		this.sta_page1.set_left(173);
+		
+	} else if (iPos == 3)
+	{
+		this.btn_first.set_left(48);
+		this.btn_previous.set_left(66);
+		
+		this.sta_page0.set_left(92);
+		this.sta_page1.set_left(146);
+		this.sta_page2.set_left(200);
+					
+	} else if (iPos == 4)
+	{
+		this.btn_first.set_left(21);
+		this.btn_previous.set_left(39);
+		
+		this.sta_page0.set_left(65);
+		this.sta_page1.set_left(119);
+		this.sta_page2.set_left(173);
+		this.sta_page3.set_left(227);
+	}		
+	
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1610" classname="VAN_DS_SC_1610" left="0" top="0" width="803" height="490" titletext="할인쿠폰 조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="323" height="21"/>
+        <Div id="div_auth" taborder="1" url="common::AuthorityWorkplace.xfdl" top="0" right="184" width="379" height="21"/>
+        <Button id="btn_print" taborder="7" text="출력" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_print_onclick"/>
+        <Button id="btn_search" taborder="2" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Div id="div_search" taborder="6" left="0" top="29" right="15" height="107" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="12" text="쿠폰바코드" cssclass="sta_WFSA_Label" left="13" top="42" width="106" height="21"/>
+              <Static id="Static01" taborder="13" text="주관업체" cssclass="sta_WFSA_Label" left="13" top="13" width="106" height="21" onclick="div_search_Static01_onclick"/>
+              <Static id="Static02" taborder="14" text="할인시작일" cssclass="sta_WFSA_Label" left="255" top="66" width="117" height="21" onclick="div_search_Static02_onclick"/>
+              <Edit id="NA_CPN_C" taborder="18" left="102" top="39" width="134" height="21" value=""/>
+              <Edit id="CLNTNM" taborder="19" enable="false" left="244" top="13" width="254" height="21" value=""/>
+              <Calendar id="DC_VLD_PRD_ST_DT" taborder="21" dateformat="yyyyMMdd" left="355" top="66" width="142" height="21" oneditclick="div_search_cal_fsrg00_oneditclick" value=""/>
+              <Calendar id="DC_VLD_PRD_ED_DT" taborder="22" dateformat="yyyyMMdd" left="623" top="66" width="150" height="21" value=""/>
+              <Edit id="MNGT_NA_TRPL_C" taborder="24" enable="false" left="102" top="13" width="134" height="21" value=""/>
+              <Combo id="CPN_KDC" taborder="25" left="623" top="13" width="150" height="21" innerdataset="@ds_CPN_KDC" codecolumn="SIMP_C" datacolumn="SIMP_CNM"/>
+              <Static id="Static03" taborder="26" text="쿠폰종류" cssclass="sta_WFSA_Label" left="519" top="13" width="91" height="21"/>
+              <Static id="Static05" taborder="27" text="쿠폰명" cssclass="sta_WFSA_Label" left="255" top="40" width="80" height="21"/>
+              <Edit id="CPN_WRSNM" taborder="28" left="355" top="40" width="143" height="21" value=""/>
+              <Static id="Static06" taborder="29" text="쿠폰회차" cssclass="sta_WFSA_Label" left="519" top="39" width="93" height="21"/>
+              <Edit id="CPN_SC_NO" taborder="30" left="623" top="39" width="150" height="21" value=""/>
+              <Static id="Static07" taborder="31" text="쿠폰매체" cssclass="sta_WFSA_Label" left="13" top="66" width="98" height="21"/>
+              <Static id="Static04" taborder="33" text="할인종료일" cssclass="sta_WFSA_Label" left="519" top="66" width="111" height="21"/>
+              <Combo id="CPN_MED_C" taborder="34" left="100" top="66" width="136" height="21" innerdataset="@ds_CPN_MED_C" codecolumn="SIMP_C" datacolumn="SIMP_CNM"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="5" text="Div00" left="0" top="135" right="15" bottom="2">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="3" cssclass="btn_WFSA_SearchClose" left="368" top="0" right="357" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_main00" taborder="4" useinputpanel="false" visible="true" left="0" top="42" right="0" bottom="21" binddataset="ds_coupon" nodatatext="조회된 데이터가 없습니다." oncellclick="div_list_grd_main00_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="120"/>
+                      <Column size="100"/>
+                      <Column size="150"/>
+                      <Column size="80"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="250"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="주관업체"/>
+                      <Cell col="2" text="쿠폰바코드"/>
+                      <Cell col="3" text="쿠폰명"/>
+                      <Cell col="4" text="회차"/>
+                      <Cell col="5" text="쿠폰종류"/>
+                      <Cell col="6" text="쿠폰매체"/>
+                      <Cell col="7" text="할인시작일"/>
+                      <Cell col="8" text="할일종료일"/>
+                      <Cell col="9" text="진행상태"/>
+                      <Cell col="10" text="진행내용"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:CLNTNM"/>
+                      <Cell col="2" text="bind:NA_CPN_C"/>
+                      <Cell col="3" text="bind:CPN_WRSNM"/>
+                      <Cell col="4" text="bind:CPN_SC_NO"/>
+                      <Cell col="5" text="bind:CPN_KDC"/>
+                      <Cell col="6" text="bind:CPN_MED_C"/>
+                      <Cell col="7" text="bind:DC_VLD_PRD_ST_DT"/>
+                      <Cell col="8" text="bind:DC_VLD_PRD_ED_DT"/>
+                      <Cell col="9" text="bind:PRC_TEXT"/>
+                      <Cell col="10" text="bind:RSP_C_CNTN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_resend" taborder="8" text="쿠폰재전송" cssclass="btn_WF_CRUD" top="0" right="118" width="77" height="21" onclick="btn_resend_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_coupon" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="DC_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="NA_CPN_C" type="STRING" size="256"/>
+          <Column id="CPN_WRSNM" type="STRING" size="256"/>
+          <Column id="CPN_SC_NO" type="STRING" size="256"/>
+          <Column id="CPN_KDC" type="STRING" size="256"/>
+          <Column id="CPN_MED_C" type="STRING" size="256"/>
+          <Column id="DC_VLD_PRD_ST_DT" type="STRING" size="256"/>
+          <Column id="DC_VLD_PRD_ED_DT" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="PRC_TEXT" type="STRING" size="256"/>
+          <Column id="RSP_C_CNTN" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="CLNTNM">파일내 Data</Col>
+            <Col id="NA_CPN_C">9999</Col>
+            <Col id="CPN_WRSNM">파일ㅇㅇㅇ</Col>
+            <Col id="CPN_SC_NO">9999</Col>
+            <Col id="CPN_KDC">9999</Col>
+            <Col id="CPN_MED_C">9999</Col>
+            <Col id="DC_VLD_PRD_ST_DT">20110101</Col>
+            <Col id="DC_VLD_PRD_ED_DT">20190121</Col>
+          </Row>
+          <Row>
+            <Col id="CLNTNM">파일내 Data</Col>
+            <Col id="NA_CPN_C">9999</Col>
+            <Col id="CPN_WRSNM">파일ㅇㅇㅇ</Col>
+            <Col id="CPN_SC_NO">9999</Col>
+            <Col id="CPN_KDC">9999</Col>
+            <Col id="CPN_MED_C">9999</Col>
+            <Col id="DC_VLD_PRD_ST_DT">20110101</Col>
+            <Col id="DC_VLD_PRD_ED_DT">20190121</Col>
+          </Row>
+          <Row>
+            <Col id="CLNTNM">파일내 Data</Col>
+            <Col id="NA_CPN_C">9999</Col>
+            <Col id="CPN_WRSNM">파일ㅇㅇㅇ</Col>
+            <Col id="CPN_SC_NO">9999</Col>
+            <Col id="CPN_KDC">9999</Col>
+            <Col id="CPN_MED_C">9999</Col>
+            <Col id="DC_VLD_PRD_ST_DT">20110101</Col>
+            <Col id="DC_VLD_PRD_ED_DT">20190121</Col>
+          </Row>
+        </Rows>
+        -->
+      </Dataset>
+      <Dataset id="ds_CPN_KDC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CPN_MED_C" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="13"/>
+          <Column id="SIMP_CNM" type="string" size="13"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	this.div_search.MNGT_NA_TRPL_C.set_value(application.gv_glnCode);
+	this.div_search.CLNTNM.set_value(application.gv_companyName);
+	var todays = this.gfn_today('yyyyMMdd');
+	this.div_search.DC_VLD_PRD_ST_DT.set_value(todays);
+	this.div_search.DC_VLD_PRD_ED_DT.set_value(todays);
+	
+	var param = [  
+		{code:"CPN_KDC", dsName:"ds_CPN_KDC", selecttype:"S"},
+		{code:"CPN_MED_C", dsName:"ds_CPN_MED_C", selecttype:"S"}
+	];
+	this.gfn_setCommonCode(param);
+	
+}
+
+this.fn_commonAfterOnload= function()
+{
+	this.div_search.CPN_KDC.set_index(0);
+	this.div_search.CPN_MED_C.set_index(0);
+}
+
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	this.ds_coupon.clearData();
+	if(this.fn_validationCheck()) {
+		var param = "MNGT_NA_TRPL_C="+application.gv_glnCode
+					+" CPN_KDC="+this.div_search.CPN_KDC.value
+					+" NA_CPN_C="+this.div_search.NA_CPN_C.value			 // 물류센터코드 선택값
+					+" CPN_WRSNM="+this.div_search.CPN_WRSNM.value						 // 적용일자 시작
+					+" CPN_SC_NO="+this.div_search.CPN_SC_NO.value
+					+" CPN_MED_C="+this.div_search.CPN_MED_C.value
+					+" DC_VLD_PRD_ST_DT="+this.div_search.DC_VLD_PRD_ST_DT.value
+					+" DC_VLD_PRD_ED_DT="+this.div_search.DC_VLD_PRD_ED_DT.value;
+		var sSvcID        = "getCouponList";//통신아이디
+		var sURL          = "svc::rest/pds/coupon/getCouponList";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_coupon=DATASET";
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callback";//콜백
+		var tranType 	  = "U"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0)
+	{
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		if(svcID == "getCouponList"){										
+			if(this.ds_coupon.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}else{
+				for(var i=0; i<this.ds_coupon.rowcount;i++){
+					if(this.ds_coupon.getColumn(i,"PRC_YN") == "E"){
+						this.ds_coupon.setColumn(i,"PRC_TEXT","오류");
+					}
+					if(this.ds_coupon.getColumn(i,"PRC_YN") == "P"){
+						this.ds_coupon.setColumn(i,"PRC_TEXT","무응답");
+					}
+					if(this.ds_coupon.getColumn(i,"PRC_YN") == "R" || this.ds_coupon.getColumn(i,"PRC_YN") == "Y"){
+						this.ds_coupon.setColumn(i,"PRC_TEXT","완료");
+					}
+				}
+			}			
+		}
+		if(svcID == "updateCouponList" && nCD == 1){
+			this.alert('정상적으로 저장되었습니다.');
+		}else if(svcID=="updateCouponList" && nCD == -999){
+			this.alert(sMSG);
+		}
+	}
+	
+}
+
+this.fn_validationCheck = function(){
+	var date1 = this.div_search.DC_VLD_PRD_ST_DT.value;
+	var date2 = this.div_search.DC_VLD_PRD_ED_DT.value;
+	
+	if(date1 != "" && date2 != ""){
+		if(this.gfn_getDiffDay(date1,date2) < 0){
+			this.alert('조회기간을 확인하십시요.');
+			return false;
+		}
+	}else if(date1 != "" && date2 == ""){
+		this.alert('할인가간을 확인하십시요. ['+date1+' - '+date2+']');
+		return false;
+	}else if(date1 == "" && date2 != ""){
+		this.alert('할인기간을 확인하십시요. ['+date1+' - '+date2+']');
+		return false;
+	}
+	
+	if(this.div_search.CPN_KDC.index == 0){
+		this.alert('조회할 쿠폰종류를 선택 하세요.');	
+		return false;
+	}
+	if(this.div_search.CPN_MED_C.index == 0){
+		this.alert('조회할 쿠폰매체를 선택 하세요.');	
+		return false;
+	}
+	return true;
+}
+
+//조회 조건 숨김 여부 이벤트
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+this.div_list_grd_main00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var MNGT_NA_TRPL_C = application.gv_glnCode;
+	var CPN_KDC = this.ds_coupon.getColumn(e.row,"CPN_KDC");
+	var NA_CPN_C = this.ds_coupon.getColumn(e.row,"NA_CPN_C");
+	var DC_NA_WRS_C = this.ds_coupon.getColumn(e.row,"DC_NA_WRS_C");
+	var CPN_SC_NO = this.ds_coupon.getColumn(e.row,"CPN_SC_NO");
+	trace(MNGT_NA_TRPL_C+","+CPN_KDC+","+NA_CPN_C);
+	
+	var oArg = {P_MNGT_NA_TRPL_C:MNGT_NA_TRPL_C, P_CPN_KDC:CPN_KDC, P_NA_CPN_C:NA_CPN_C, P_DC_NA_WRS_C:DC_NA_WRS_C, P_CPN_SC_NO:CPN_SC_NO};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","PDS.COUPON::VAN_DS_SC_1611.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_print_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.fn_validationCheck()) {
+		return;
+	}
+
+	var searchText = "[조작일] "+this.div_search.DC_VLD_PRD_ST_DT.value+"~"+this.div_search.DC_VLD_PRD_ED_DT.value;
+
+	trace(searchText);
+	
+	var ozParam = {
+		sId: 'VAN_DS_SC_1610',
+		sUrl: '/rest/oz/pds/coupon/getCouponList',
+		paramType: 'param',
+		sParam:{
+			TRPL_C_TEXT:searchText,
+			MNGT_NA_TRPL_C:application.gv_glnCode,
+			CPN_KDC:this.div_search.CPN_KDC.value,
+			NA_CPN_C:this.div_search.NA_CPN_C.value,
+			CPN_WRSNM:this.div_search.CPN_WRSNM.value,
+			CPN_SC_NO:this.div_search.CPN_SC_NO.value,
+			CPN_MED_C:this.div_search.CPN_MED_C.value,
+			DC_VLD_PRD_ST_DT:this.div_search.DC_VLD_PRD_ST_DT.value,
+			DC_VLD_PRD_ED_DT:this.div_search.DC_VLD_PRD_ED_DT.value
+		}
+	};
+	this.ozViewer(ozParam);
+	
+}
+
+this.btn_resend_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	bok = application.confirm('응답대기 중인 쿠폰을 재전송하시겠습니까?');
+	if(bok == true){
+		if(this.fn_validationCheck()) {
+			var param = "MNGT_NA_TRPL_C="+application.gv_glnCode
+						+" CPN_KDC="+this.div_search.CPN_KDC.value
+						+" NA_CPN_C="+this.div_search.NA_CPN_C.value			 // 물류센터코드 선택값
+						+" CPN_WRSNM="+this.div_search.CPN_WRSNM.value						 // 적용일자 시작
+						+" CPN_SC_NO="+this.div_search.CPN_SC_NO.value
+						+" CPN_MED_C="+this.div_search.CPN_MED_C.value
+						+" DC_VLD_PRD_ST_DT="+this.div_search.DC_VLD_PRD_ST_DT.value
+						+" DC_VLD_PRD_ED_DT="+this.div_search.DC_VLD_PRD_ED_DT.value;
+			var sSvcID        = "updateCouponList";//통신아이디
+			var sURL          = "svc::rest/pds/coupon/updateCouponListOz";// 호출할 서버 페이지 주소
+			var sInDatasets   = "ds_coupon=ds_coupon:A";//보내는데이터셋
+			var sOutDatasets  = "";
+			var sArgument     = param;// 파라미터
+			var sCallbackFunc = "fn_callback";//콜백
+			var tranType 	  = "U"; // U:저장/삭제, S:조회
+			
+			//API 호출
+			this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

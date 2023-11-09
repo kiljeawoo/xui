@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_search" classname="popup01" left="0" top="0" width="911" height="703" titletext="내메뉴" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="9" text="17" visible="false" left="439" top="32" width="17" height="111" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="363" top="265" width="91" height="17" style="background:#dc143c5b;" onclick="Static01_onclick"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="119" width="76" height="15" style="background:#dc143c5b;"/>
+        <Button id="Button01" taborder="15" left="419" top="0" width="37" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="16" text="내메뉴조회" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+        <Static id="Static03" taborder="18" text="8" visible="false" left="363" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static08" taborder="23" text="17" onclick="Static01_onclick" visible="false" left="348" top="209" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static11" taborder="26" text="10" visible="false" left="363" top="226" width="91" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="27" text="MyMenu" left="16" top="36" width="172" height="56" onclick="btn_search_onclick"/>
+        <Grid id="Grid00" taborder="28" useinputpanel="false" left="55" top="143" width="349" height="112" binddataset="ds_myMenu">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="161"/>
+                <Column size="148"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="MENU_ID"/>
+                <Cell col="1" text="MENU_NM"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:MENU_ID"/>
+                <Cell col="1" text="bind:MENU_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_insert" taborder="29" text="add" left="200" top="36" width="53" height="56" onclick="btn_insert_onclick"/>
+        <Button id="btn_delete" taborder="30" text="delete" left="267" top="37" width="53" height="56" onclick="btn_delete_onclick"/>
+        <Button id="Button00" taborder="31" text="로그인메뉴정보" left="42" top="265" width="120" height="21" onclick="Button00_onclick"/>
+        <Grid id="Grid01" taborder="32" useinputpanel="false" left="40" top="310" width="847" height="190" binddataset="ds_menu">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="MENU_ID"/>
+                <Cell col="1" text="MENU_LEVEL"/>
+                <Cell col="2" text="MENU_NAME"/>
+                <Cell col="3" text="SVC_GROUP"/>
+                <Cell col="4" text="FILE_NAME"/>
+                <Cell col="5" text="FILE_TYPE"/>
+                <Cell col="6" text="MENU_PATH"/>
+                <Cell col="7" text="DISPLAY_YN"/>
+                <Cell col="8" text="USE_YN"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:MENU_ID"/>
+                <Cell col="1" text="bind:MENU_LEVEL"/>
+                <Cell col="2" text="bind:MENU_NAME"/>
+                <Cell col="3" text="bind:SVC_GROUP"/>
+                <Cell col="4" text="bind:FILE_NAME"/>
+                <Cell col="5" text="bind:FILE_TYPE"/>
+                <Cell col="6" text="bind:MENU_PATH"/>
+                <Cell col="7" text="bind:DISPLAY_YN"/>
+                <Cell col="8" text="bind:USE_YN"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid02" taborder="33" useinputpanel="false" left="32" top="549" width="850" height="147" binddataset="ds_my_menu">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="MENU_ID"/>
+                <Cell col="1" text="MENU_LEVEL"/>
+                <Cell col="2" text="MENU_NAME"/>
+                <Cell col="3" text="SVC_GROUP"/>
+                <Cell col="4" text="FILE_NAME"/>
+                <Cell col="5" text="FILE_TYPE"/>
+                <Cell col="6" text="MENU_PATH"/>
+                <Cell col="7" text="DISPLAY_YN"/>
+                <Cell col="8" text="USE_YN"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:MENU_ID"/>
+                <Cell col="1" text="bind:MENU_LEVEL"/>
+                <Cell col="2" text="bind:MENU_NAME"/>
+                <Cell col="3" text="bind:SVC_GROUP"/>
+                <Cell col="4" text="bind:FILE_NAME"/>
+                <Cell col="5" text="bind:FILE_TYPE"/>
+                <Cell col="6" text="bind:MENU_PATH"/>
+                <Cell col="7" text="bind:DISPLAY_YN"/>
+                <Cell col="8" text="bind:USE_YN"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_myMenu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="STRING" size="32"/>
+          <Column id="MENU_NM" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="STRING" size="256"/>
+          <Column id="MENU_LEVEL" type="STRING" size="256"/>
+          <Column id="MENU_NAME" type="STRING" size="256"/>
+          <Column id="SVC_GROUP" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_TYPE" type="STRING" size="256"/>
+          <Column id="MENU_PATH" type="STRING" size="256"/>
+          <Column id="DISPLAY_YN" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_my_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="STRING" size="256"/>
+          <Column id="MENU_LEVEL" type="STRING" size="256"/>
+          <Column id="MENU_NAME" type="STRING" size="256"/>
+          <Column id="SVC_GROUP" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_TYPE" type="STRING" size="256"/>
+          <Column id="MENU_PATH" type="STRING" size="256"/>
+          <Column id="DISPLAY_YN" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.edt_glnCode" propid="value" datasetid="ds_bbs" columnid="BBRD_TI"/>
+      <BindItem id="item2" compid="Div00.Static13" propid="text" datasetid="ds_bbs" columnid="TITLE"/>
+      <BindItem id="item1" compid="Div00.edt_email" propid="value" datasetid="ds_bbs" columnid="BBRD_TI"/>
+      <BindItem id="item3" compid="Div00.Static02" propid="text" datasetid="ds_bbs" columnid="TITLE"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{   
+	/*결과값 초기화*/
+
+}
+ 
+/*창닫기*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/*조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	var sSvcID        = "retrieveMyMenuList";		
+	var sURL          = "svc::rest/pt/retrieveMyMenuList?userKey="+application.gv_userKey;
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_myMenu=ds_myMenu";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회			
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+/*추가*/
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSvcID        = "insertMyMenu";		
+	var sURL          = "svc::rest/pt/insertMyMenu?userKey="+application.gv_userKey;
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_myMenu=ds_myMenu";	
+	var sArgument     = "menuId=01000000";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회			
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*삭제*/
+this.btn_delete_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSvcID        = "deleteMyMenu";		
+	var sURL          = "svc::rest/pt/deleteMyMenu?userKey="+application.gv_userKey;
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_myMenu=ds_myMenu";	
+	var sArgument     = "menuId=01000000";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회			
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+/*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+alert("ErrorCode::"+ErrorCode);
+	alert(this.ds_myMenu.saveXML());
+	if(ErrorCode < 0){	
+		/*NoData 일경우*/		
+		this.gfn_getMessage("alert", "error.message.server.exception");		
+		
+		return;			
+	}else{	 
+		
+	}	
+}
+ 
+ 
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSvcID        = "test";		
+	var sURL          = "svc::rest/mg/retrieveMenuList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_menu=ds_menu ds_my_menu=ds_my_menu";	
+	var sArgument     = "menuId=01000000";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회			
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+]]></Script>
+  </Form>
+</FDL>

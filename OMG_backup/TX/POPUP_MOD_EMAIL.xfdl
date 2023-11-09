@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="POPUP_MOD_EMAIL" classname="popup01" left="0" top="0" width="361" height="118" onload="form_onload" titletext="이메일 주소변경">
+    <Layouts>
+      <Layout>
+        <Static id="Static36" taborder="19" cssclass="sta_WF_Labelbg" left="126" top="40" right="17" height="29"/>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" width="54" height="29" onclick="btn_ok_onclick" right="74" bottom="17"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" width="54" height="29" onclick="btn_cancel_onclick" right="17" bottom="17"/>
+        <Static id="Static37" taborder="17" text="변경할 eMail" cssclass="sta_WF_Label" left="17" top="40" width="110" height="29"/>
+        <Edit id="edt_email" taborder="18" left="130" top="44" width="210" height="21" onkeydown="edt_email_onkeydown"/>
+        <Static id="Static21" taborder="20" text="이메일 주소 변경" cssclass="sta_WF_Subtitle" left="17" top="15" width="255" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_TRPL" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_DSC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_TRPL_C">1</Col>
+            <Col id="CLNTNM">가나다라마바</Col>
+            <Col id="NA_TEAM_C">ABC123456789</Col>
+            <Col id="TEAMNM">ABC123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_searchType" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="s_code" type="string" size="13"/>
+          <Column id="s_name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="s_code">1</Col>
+            <Col id="s_name">거래처명</Col>
+          </Row>
+          <Row>
+            <Col id="s_code">2</Col>
+            <Col id="s_name">사업자번호</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_modC">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.pbc_sqno  = "";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.pbc_sqno = this.getOwnerFrame().pbcSqno;
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function(){
+
+	trace("fn_afterFormOnload");
+	
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var regEmail = new RegExp(/^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/);
+	var eMail = this.edt_email.value;
+	
+	if(!this.gfn_isNull(eMail))
+	{
+		if(eMail.match(regEmail) == null)
+		{
+			alert("이메일주소를 올바르게 입력하여 주십시오");
+			return false;
+		}
+	}
+	else
+	{
+		return; 
+	}
+	
+	this.fn_updateEmailAddr();
+}
+
+this.fn_updateEmailAddr = function()
+{
+	var sSvcID        = "updateEmailAddr";//통신아이디
+	var sURL          = "svc::rest/tx/updateEmailAddr";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "email=" + this.edt_email.value 
+						+ " PBC_SQNO=" + this.pbc_sqno ;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);	
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "updateEmailAddr")
+		{		
+			this.close("SUCC");	
+		}	
+	}
+}
+
+this.edt_email_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13)
+	{
+		this.btn_ok.click();
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

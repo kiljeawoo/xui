@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211306" classname="pattern_01" left="0" top="0" width="788" height="139" titletext="직매입 거래계약서(수산)" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="712" text="상품대금 지급 " cssclass="sta_WF_Label" left="0" top="27" height="29" right="86%"/>
+        <Static id="Static08" taborder="714" cssclass="sta_WF_Labelbg" left="13.83%" top="27" height="29" right="0%"/>
+        <Static id="Static86" taborder="718" text="직매입 거래계약서(수산)" cssclass="sta_WF_Subtitle" left="0" top="2" width="57.99%" height="21"/>
+        <Static id="Static91" taborder="729" text="일" left="27.54%" top="31" height="21" right="69.54%"/>
+        <Button id="Button10" taborder="735" text="계약서보기" left="697" top="0" width="9.77%" height="21" onclick="Button00_onclick" visible="false"/>
+        <Edit id="edt_wrsPrmPy" taborder="736" left="14.21%" top="30" right="73.1%" height="21" ontextchanged="OMG_DS_SC_211306_ontextchanged"/>
+        <Static id="Static94" taborder="737" cssclass="sta_WF_Labelbg" left="13.83%" top="55" right="0%" height="80"/>
+        <Static id="Static93" taborder="738" text="특약사항" cssclass="sta_WF_Label" left="0" top="55" right="86.04%" height="80"/>
+        <TextArea id="txa_sctrSjt" taborder="739" wordwrap="char" ontextchanged="txatext_changed" left="14.34%" top="59" right="0.38%" height="72" lengthunit="ascii" maxlength="1000"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_etcEltStylAmm106" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_eltCtrwDtl06" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="MN_CTRW_KDC" type="STRING" size="256" sumtext="메인계약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="CNR_DT" type="STRING" size="256" sumtext="검수일"/>
+          <Column id="PSG_MM" type="STRING" size="256" sumtext="경과분/월"/>
+          <Column id="PSG_DD" type="STRING" size="256" sumtext="경과분/일"/>
+          <Column id="ETR_FEE" type="STRING" size="256" sumtext="수탁수수료"/>
+          <Column id="PHD_FEERT" type="STRING" size="256" sumtext="물류수수료율"/>
+          <Column id="LIG_PLTPE" type="STRING" size="256" sumtext="주류파렛트당"/>
+          <Column id="MEXP_DD" type="STRING" size="256" sumtext="관리비일"/>
+          <Column id="RT" type="STRING" size="256" sumtext="마진율"/>
+          <Column id="BLM_GRMY" type="STRING" size="256" sumtext="하자보증금"/>
+          <Column id="WRS_PRM_PY" type="STRING" size="256" sumtext="상품대금 지금"/>
+          <Column id="GRMY" type="STRING" size="256" sumtext="보증금"/>
+          <Column id="WRS_SPYAM" type="STRING" size="256" sumtext="상품공급액"/>
+          <Column id="CTR_CLO" type="STRING" size="256" sumtext="계약해지"/>
+          <Column id="SCTR_SJT" type="STRING" size="256" sumtext="특약사항"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_TINM" type="STRING" size="256" sumtext="제목"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item41" compid="edt_wrsPrmPy" propid="value" datasetid="ds_eltCtrwDtl06" columnid="WRS_PRM_PY"/>
+      <BindItem id="item4" compid="txa_sctrSjt" propid="value" datasetid="ds_eltCtrwDtl01" columnid="SCTR_SJT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0 ;  //데이터 체크 
+
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+  
+}
+
+this.fn_afterFormOnload = function()
+{
+ 		
+	// 폼양식
+   for(var i = 0 ; i < this.parent.ds_etcEltStylAmm.rowcount; i++){		
+
+		if(this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "106"){
+
+			this.ds_etcEltStylAmm106.copyRow(0, this.parent.ds_etcEltStylAmm ,i);   	
+		}
+	}	
+
+
+   for(var i = 0 ; i < this.parent.ds_eltCtrwDtl.rowcount; i++){		
+
+		if(this.parent.ds_eltCtrwDtl.getColumn(i, "MN_CTRW_KDC") == "106"){
+		
+			fv_position = i;
+			fv_chk = 1 ;
+
+			this.parent.ds_eltCtrwDtl.setColumn(i, "PHD_FEERT" , " ") ;       //물류수수료율
+			
+			this.parent.ds_eltCtrwDtl.setColumn(i, "CNR_DT" , " ") ;           //검수일
+			this.parent.ds_eltCtrwDtl.setColumn(i, "PSG_MM" , " ") ;             //경과분/월
+			this.parent.ds_eltCtrwDtl.setColumn(i, "PSG_DD" , " ") ;             //경과분/일
+			this.parent.ds_eltCtrwDtl.setColumn(i, "ETR_FEE" , " ") ;           //수탁수수료
+	//		this.parent.ds_eltCtrwDtl.setColumn(i, "SCTR_SJT" , " ") ;         //특약사항
+			this.parent.ds_eltCtrwDtl.setColumn(i, "CTRW_TINM" , " ") ;  //계약서 제목
+			
+			
+			this.parent.ds_eltCtrwDtl.setColumn(i, "BLM_GRMY" , " ") ;         //하자보증금
+			this.parent.ds_eltCtrwDtl.setColumn(i, "RT" , " ") ;  //마진율
+			//this.parent.ds_eltCtrwDtl.setColumn(i, "WRS_PRM_PY" , " ") ;         //상품대금 지금 
+			this.parent.ds_eltCtrwDtl.setColumn(i, "GRMY" , " ") ;  //보증금
+			this.parent.ds_eltCtrwDtl.setColumn(i, "WRS_SPYAM" , " ") ;         //상품공급액
+			this.parent.ds_eltCtrwDtl.setColumn(i, "CTR_CLO" , " ") ;  //계약해지  
+
+			
+			if(this.parent.ds_eltCtrwDtl.getColumn(i, "CTRW_STY_VER") == "" ){
+				this.parent.ds_eltCtrwDtl.setColumn(fv_position, "CTRW_STY_VER" , this.ds_etcEltStylAmm106.getColumn(0,"CTRW_STY_VER") ) ;		
+
+			}
+
+			this.ds_eltCtrwDtl06.addRow();
+			this.ds_eltCtrwDtl06.copyRow(0, this.parent.ds_eltCtrwDtl ,fv_position);   	
+
+		
+		}
+	}
+	
+	if (fv_chk == 0 ){
+	
+		this.parent.ds_eltCtrwDtl.deleteAll();
+		var nRow = this.parent.ds_eltCtrwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_eltCtrwDtl.setColumn(fv_position, "MN_CTRW_KDC" , "106") ;		
+		this.parent.ds_eltCtrwDtl.setColumn(fv_position, "CHG_SQNO" , this.parent.ds_register.getColumn(0 ,"CHG_SQNO" ) ) ;		
+		this.parent.ds_eltCtrwDtl.setColumn(fv_position, "CTRW_STY_VER" , this.ds_etcEltStylAmm106.getColumn(0,"CTRW_STY_VER") ) ;		
+		
+		
+		this.ds_eltCtrwDtl06.addRow();
+		this.ds_eltCtrwDtl06.copyRow(0, this.parent.ds_eltCtrwDtl ,fv_position);   	
+		
+		
+		this.parent.position_chk();	
+	}
+	
+// 		trace("**********************OMG_DS_SC_211304_ontextchanged***************************");
+// 		trace(this.parent.ds_eltCtrwDtl.saveXML());	
+// 		trace("*************************************************");
+ 		
+}
+
+this.OMG_DS_SC_211306_ontextchanged = function(obj:Edit,  e:nexacro.TextChangedEventInfo)
+{
+	this.parent.ds_eltCtrwDtl.setColumn(fv_position, "WRS_PRM_PY" , this.edt_wrsPrmPy.value) ;           //수탁수수료
+
+}
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+
+	if(this.gfn_isNull(this.edt_wrsPrmPy.value)){
+		this.edt_wrsPrmPy.setFocus();
+		this.alert("직매입 거래계약서(수산) 상품대금 지급일  입력하세요.");
+		return false;
+	}		
+	this.parent.ds_eltCtrwDtl.setColumn(fv_position, "SCTR_SJT" , this.txa_sctrSjt.value) ;         //특약사항
+	return true;
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_validationCheck();
+	trace(this.ds_eltCtrwDtl06.saveXML()) ;
+	trace(this.parent.ds_eltCtrwDtl.saveXML()) ;
+}
+
+
+this.txatext_changed = function(obj:TextArea, e:nexacro.TextChangedEventInfo)
+{
+	var text = this.txa_sctrSjt.value;
+	if(!this.gfn_isNull(text) ){
+		var lc = text.indexOf("^");
+		if(lc != -1 ){
+			alert('^는 사용하실 수 없습니다.');
+			text = nexacro.replaceAll(text,"^"," ");
+			this.txa_sctrSjt.set_value(text);
+		}
+ 	}
+	this.parent.ds_eltCtrwDtl.setColumn(fv_position, "SCTR_SJT" , this.txa_sctrSjt.value) ;         //특약사항
+}
+
+]]></Script>
+  </Form>
+</FDL>

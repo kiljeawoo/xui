@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5161" classname="popup01" left="0" top="0" width="767" height="260" titletext="하나로유통사무소추가" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static14" taborder="63" cssclass="sta_WF_Labelbg" left="126" top="200" right="17" height="29"/>
+        <Static id="Static13" taborder="11" cssclass="sta_WF_Labelbg" left="126" top="132" right="17" height="29"/>
+        <Static id="Static08" taborder="12" cssclass="sta_WF_Labelbg" left="126" top="76" right="17" height="29"/>
+        <Static id="Static12" taborder="21" cssclass="sta_WF_Labelbg" left="126" top="104" right="17" height="29"/>
+        <Button id="btn_close" taborder="8" text="닫기" cssclass="btn_WF_CRUD" top="47" right="13" width="41" height="21" onclick="btn_close_onclick"/>
+        <Static id="text_title" taborder="9" cssclass="sta_WF_Subtitle" left="17" top="51" width="198" height="21" text="사무소 정보(필수)"/>
+        <Static id="Static07" taborder="10" text="대표사업장코드" cssclass="sta_WF_Label" left="375" top="132" height="29" width="160" onclick="Static07_onclick"/>
+        <Static id="Static00" taborder="13" text="17" visible="false" left="750" top="76" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="14" text="15" visible="false" left="673" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="15" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="16" text="8" visible="false" left="674" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="17" text="하나로유통 사무소 관리" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32" onclick="Static06_onclick"/>
+        <Button id="brn_cls" taborder="18" cssclass="btn_WF_PopupClose" left="729" top="0" width="37" height="32" onclick="btn_close_onclick"/>
+        <Button id="btn_save" taborder="7" text="저장" cssclass="btn_WF_CRUD" top="47" right="55" width="43" height="21" onclick="btn_save_onclick"/>
+        <Static id="Static04" taborder="19" text="사무소코드" cssclass="sta_WF_Label" left="17" top="76" height="29" width="160"/>
+        <Static id="Static01" taborder="20" text="사무소명" onclick="Static07_onclick" cssclass="sta_WF_Label" left="17" top="104" width="160" height="29"/>
+        <Button id="btn_search" taborder="1" text="중복검사" left="283" top="80" width="69" height="21" onclick="btn_search_onclick"/>
+        <Edit id="edt_DEPT_NAME" taborder="2" maxlength="64" left="181" top="108" width="148" height="21" lengthunit="ascii"/>
+        <Edit id="edt_NA_BZPLC" taborder="4" maxlength="13" left="539" top="136" width="148" height="21" lengthunit="ascii"/>
+        <Edit id="edt_DEPT_ID" taborder="0" lengthunit="ascii" maxlength="20" left="181" top="80" width="100" height="21" onkillfocus="edt_DEPT_ID_onkillfocus"/>
+        <Static id="Static02" taborder="58" text="사무소유형" onclick="Static07_onclick" cssclass="sta_WF_Label" left="375" top="104" width="160" height="29"/>
+        <MaskEdit id="edt_BIZ_NUMBER" taborder="5" left="181" top="136" width="148" height="21" mask="###-##-#####" limitbymask="both" type="string"/>
+        <Static id="Static10" taborder="60" text="사업자번호" onclick="Static07_onclick" cssclass="sta_WF_Label" left="17" top="132" width="160" height="29"/>
+        <Static id="Static11" taborder="61" text="점장사번" onclick="Static07_onclick" cssclass="sta_WF_Label" left="17" top="200" width="160" height="29"/>
+        <Edit id="edt_CHIEF_ENO" taborder="6" lengthunit="ascii" maxlength="9" left="181" top="204" width="148" height="21"/>
+        <Edit id="edt_DEPT_HIGH" taborder="64" lengthunit="ascii" maxlength="20" left="539" top="80" width="100" height="21"/>
+        <Static id="Static15" taborder="65" text="상위사무소코드" onclick="Static07_onclick" cssclass="sta_WF_Label" left="375" top="76" width="160" height="29"/>
+        <Combo id="cbo_DEPT_DSC" taborder="66" left="539" top="107" width="148" height="23" innerdataset="@ds_cbodsc" datacolumn="NAME" codecolumn="CODE" value="01" text="본부"/>
+        <Button id="btn_search_high" taborder="67" cssclass="btn_WF_Searchbtn" left="641" top="80" width="21" height="21" onclick="btn_search_high_onclick"/>
+        <Edit id="edt_BLG_NA_BZPLC" taborder="68" lengthunit="ascii" maxlength="1000" left="539" top="204" width="201" height="21" onkillfocus="edt_BLG_NA_BZPLC_onkillfocus" inputtype="number"/>
+        <Static id="Static16" taborder="69" text="소속사업장코드" onclick="Static07_onclick" cssclass="sta_WF_Label" left="375" top="200" width="160" height="29"/>
+        <Static id="text_title00" taborder="70" text="추가정보(선택)" cssclass="sta_WF_Subtitle" left="17" top="175" width="198" height="21"/>
+        <Static id="Static17" taborder="71" text="※ 소속사업장코드가 다수 일 경우 띄어쓰기 없이 콤마(,)로 구분하여 입력" top="232" width="453" height="21" style="align:right middle;" right="20"/>
+        <CheckBox id="chk_none" taborder="72" text="없음" left="675" top="80" width="63" height="21" onchanged="chk_none_onchanged"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_cbodsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="NAME">본부</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="NAME">직영점</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_dept_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_DSC" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_NAME" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_DSC" type="STRING" size="256"/>
+          <Column id="ORG_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="ORG_BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="ORG_CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="STATE" type="STRING" size="256"/>
+          <Column id="BLG_NA_BZPLC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_DEPT_NAME" propid="value" datasetid="ds_dept" columnid="DEPT_NAME"/>
+      <BindItem id="item2" compid="edt_NA_BZPLC" propid="value" datasetid="ds_dept" columnid="NA_BZPLC"/>
+      <BindItem id="item1" compid="edt_DEPT_ID" propid="value" datasetid="ds_dept" columnid="DEPT_ID"/>
+      <BindItem id="item4" compid="edt_BIZ_NUMBER" propid="value" datasetid="ds_dept" columnid="BIZ_NUMBER"/>
+      <BindItem id="item5" compid="edt_CHIEF_ENO" propid="value" datasetid="ds_dept" columnid="CHIEF_ENO"/>
+      <BindItem id="item6" compid="edt_DEPT_HIGH" propid="value" datasetid="ds_dept" columnid="DEPT_HIGH"/>
+      <BindItem id="item3" compid="cbo_DEPT_DSC" propid="value" datasetid="ds_dept" columnid="DEPT_DSC"/>
+      <BindItem id="item7" compid="edt_BLG_NA_BZPLC" propid="value" datasetid="ds_dept" columnid="BLG_NA_BZPLC"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.DUP_CHECK; // 등록가능하면 ID 기록
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+   this.gfn_setInitForm(obj, e);
+}
+
+this.fn_afterFormOnload = function()
+{
+	this.ds_dept.clearData();
+	this.ds_dept.addRow();
+	this.ds_dept.setColumn(0, "DEPT_DSC", "01");
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+/*저장 버튼 이벤트*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		this.ds_dept.setColumn(0, "STATE", "NEW");
+		this.ds_dept.setColumn(0, "USE_YN", "Y");
+		this.insert();
+	} else {
+		this.ds_dept.setColumn(0, "STATE", "NONE");
+	}
+}
+
+/*창닫기 버튼 이벤트*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+//사업자번호로 거래처 정보조회하기
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{	
+	if (this.gfn_isNull(this.edt_DEPT_ID.value)) {
+		alert("사무소코드를 입력해주세요.");
+		this.edt_DEPT_ID.setFocus();
+		return;
+	}
+	
+	var param = "t=D id="+this.edt_DEPT_ID.value;
+	
+	var sSvcID        = "checkHanaroDataExist";
+	var sURL          = "svc::rest/mg/nh/checkHanaroDataExist";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";
+	var sArgument     =  param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회	
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 등록시 사용되는 Validation Check */
+this.fn_validationCheck = function()
+{
+	if (this.gfn_isNull(this.DUP_CHECK)) {
+		this.alert("사무소코드 중복검사를 먼저 진행해주세요.");
+		return false;
+	} else if (this.DUP_CHECK != this.edt_DEPT_ID.value) {
+		this.alert("입력한 사무소코드가 변경되어 다시 중복검사를 진행해주세요.");
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_DEPT_ID.value)) {
+		alert("사무소코드를 입력해주세요.");	
+		this.edt_DEPT_ID.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_DEPT_NAME.value)) {
+		alert("사무소명을 입력해주세요.");	
+		this.edt_DEPT_NAME.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_NA_BZPLC.value)) {
+		alert("대표사업장코드를 입력해주세요.");	
+		this.edt_NA_BZPLC.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_BIZ_NUMBER.value)) {
+		alert("사업자번호를 입력해주세요.");	
+		this.edt_BIZ_NUMBER.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_DEPT_HIGH.value)) {
+		this.edt_DEPT_HIGH.set_value("0"); // 기본값
+	}
+    return true;
+}
+
+/* 추가등록 */
+this.insert = function()
+{
+	var sSvcID        = "p_save";
+	var sURL          = "svc::rest/mg/nh/insertHanaroDeptData";
+	var sInDatasets   = "ds_hanaro=ds_dept";
+	var sOutDatasets  = "";
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		if (svcID =="checkHanaroDataExist" && ErrorCode == -2) {
+			this.alert("이미 등록된 사무소코드입니다.");
+			this.edt_DEPT_ID.set_value("");
+			this.edt_DEPT_ID.setFocus();
+			this.DUP_CHECK = "";
+		} else {
+			this.gfn_getMessage("alert", "error.message.server.exception");
+		}
+	} else {
+		if (svcID =="p_save") {
+			if (ErrorCode == 0) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.close("I");
+			}
+		} else if (svcID =="checkHanaroDataExist") {
+			this.alert("등록 가능한 사무소코드입니다.");
+			this.DUP_CHECK = this.edt_DEPT_ID.value;
+			this.edt_DEPT_HIGH.setFocus();
+		}
+	}
+}
+
+this.btn_search_high_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popDeptHigh","OMG.MG::OMG_DS_SC_6716_P02.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (!this.gfn_isNull(strVal)) {
+		this.edt_DEPT_HIGH.set_value(strVal.split("#")[0]);
+	}
+}
+
+this.edt_BLG_NA_BZPLC_onkillfocus = function(obj:Edit, e:nexacro.KillFocusEventInfo)
+{
+	var data = obj.value;
+	data = data.replace(/([^0-9\,])|(,+$)|(^,+)/g, ""); // 숫자와 콤마만 남기기
+	data = data.replace(/(?:,)+/g, ","); // 연속된 콤마 하나로 합치기
+	data = data.replace(/(,+$)|(^,+)/g, ""); // 앞뒤 콤마 제거
+	obj.set_value(data);
+}
+
+this.chk_none_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if (obj.value) {
+		this.edt_DEPT_HIGH.set_value("0");
+	} else {
+		this.edt_DEPT_HIGH.set_value("");
+	}
+	this.edt_DEPT_HIGH.set_enable(!obj.value);
+	this.btn_search_high.set_enable(!obj.value);
+}
+
+this.edt_DEPT_ID_onkillfocus = function(obj:Edit, e:nexacro.KillFocusEventInfo)
+{
+	if (obj.value == "99999") {
+		this.alert("단위사업자(99999)는 사용할 수 없습니다.");
+		obj.set_value("");
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

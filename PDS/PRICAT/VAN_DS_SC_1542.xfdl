@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1542" classname="VAN_DS_SC_1542" left="0" top="0" width="456" height="333" titletext="거래처조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_main00" taborder="0" useinputpanel="false" left="17" top="144" right="17" bottom="56" binddataset="ds_cif" oncellclick="grd_main00_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="45"/>
+                <Column size="120"/>
+                <Column size="200"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="거래처코드"/>
+                <Cell col="2" text="거래처명"/>
+                <Cell col="3" text="거래처구분"/>
+                <Cell col="4" text="중조구분"/>
+                <Cell col="5" text="본지사구분"/>
+                <Cell col="6" text="중지여부"/>
+                <Cell col="7" text="삭제여부"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:currow+1"/>
+                <Cell col="1" text="bind:NA_TRPL_C"/>
+                <Cell col="2" text="bind:CLNTNM"/>
+                <Cell col="3" text="bind:NA_TRPL_DSC"/>
+                <Cell col="4" text="bind:NAAC_DSC_NM"/>
+                <Cell col="5" text="bind:NA_MBCO_DSC" expr="expr:NA_MBCO_DSC=='1'?'본사(소)':'지사(소)'"/>
+                <Cell col="6" text="bind:TR_STOP_YN" expr="expr:TR_STOP_YN=='1'?'여':'부'"/>
+                <Cell col="7" text="bind:DEL_YN" expr="expr:DEL_YN=='1'?'여':'부'"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static04" taborder="1" text="15" visible="false" left="347" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="2" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="47" right="17" width="58" height="21"/>
+        <Static id="Static03" taborder="3" text="8" visible="false" left="347" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="4" left="17" top="76" right="17" height="53" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="edt_trpl_code" taborder="8" left="148" top="15" width="256" height="21"/>
+              <Combo id="cbo_trpl_combo" taborder="9" codecolumn="codecolumn" datacolumn="datacolumn" left="15" top="15" width="130" height="21" index="-1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">거래처코드</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">거래처명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static05" taborder="5" text="15" visible="false" left="362" top="129" width="76" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="6" text="거래처조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Static id="Static02" taborder="7" text="10" visible="false" top="277" right="17" width="91" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_ok" taborder="8" text="확인" onclick="btn_ok_onclick" cssclass="btn_WF_Popup" top="287" width="54" height="29" right="73"/>
+        <Button id="btn_cancle" taborder="9" text="취소" onclick="btn_close_onclick" cssclass="btn_WF_Popup" top="287" right="17" width="54" height="29"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" right="17" bottom="0" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="11" text="15" visible="false" left="422" top="96" height="15" style="background:#dc143c5b;" right="17"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_cif">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_DSC" type="STRING" size="256"/>
+          <Column id="NAAC_DSC" type="STRING" size="256"/>
+          <Column id="NAAC_DSC_NM" type="STRING" size="256"/>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+          <Column id="DEL_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var TRPL_C = application.gv_glnCode; // 로그인 사업장코드
+var TRPL_NM = application.gv_companyName; //로그인 사업장명
+this.objRtnArr = new Array(2);
+
+var autoPop = this.parent.autoPop;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	var searchParam =
+	{
+				form: this,							//고정
+				param:[{
+						edit: this.div_search.edt_trpl_code,		//타겟 컴포넌트
+						fnc: 'btn_search_onclick'		//엔터키 눌렀을시 실행할 함수 이름
+				}]
+	};
+	this.addEventEnterSearch(searchParam);
+	
+	this.div_search.cbo_trpl_combo.set_index(0);
+	
+	if(autoPop.autoType){
+		if(autoPop.searchCode && autoPop.searchText){
+			this.div_search.cbo_trpl_combo.set_value("1");
+			this.div_search.edt_trpl_code.set_value(autoPop.searchCode);
+		}
+		if(autoPop.searchCode && !autoPop.searchText){
+			this.div_search.cbo_trpl_combo.set_value("1");
+			this.div_search.edt_trpl_code.set_value(autoPop.searchCode);
+		}
+		if(!autoPop.searchCode && autoPop.searchText){
+			this.div_search.cbo_trpl_combo.set_value("2");
+			this.div_search.edt_trpl_code.set_value(autoPop.searchText);
+		}
+		if(!autoPop.searchCode && !autoPop.searchText){
+			return;
+		}
+		this.btn_search_onclick();
+	}
+	
+	this.div_search.edt_trpl_code.set_value(this.parent.spTrpl);
+	this.div_search.edt_trpl_code.setFocus(true);
+	
+}
+
+//조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var combo_trpl = this.div_search.cbo_trpl_combo.value;
+	var edt_trpl = this.div_search.edt_trpl_code.value;
+	
+	var params = "combo_trpl="+combo_trpl		// 거래처구분콤보박스
+				+" edt_trpl="+edt_trpl;			// 거래처 명,코드
+	
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/pricat/Product/retrieveNewGoodsTrplPopUp";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_cif=ds_cif";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0){
+		this.getMessage('alert',sMSG);
+		return;
+	}else{
+		if(svcID == "p_search"){
+			if(this.ds_cif.rowcount == 0){
+				this.gfn_getMessage('alert','result.message.search.no.exist.data');
+			}else if(this.ds_cif.rowcount == 1){
+				if(autoPop.autoType){
+					this.grd_main00.selectRow(0);
+					this.btn_ok_onclick();
+				}
+			}else{
+				this.grd_main00.selectRow(0);
+				this.ds_cif.setFocus();
+			}
+		}
+	}
+}
+
+//확인키
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.objRtnArr[0] = this.ds_cif.getColumn(this.ds_cif.rowposition,"NA_TRPL_C");
+	this.objRtnArr[1] = this.ds_cif.getColumn(this.ds_cif.rowposition,"CLNTNM");
+	trace(this.objRtnArr);
+	this.close(this.objRtnArr.toString());
+}
+
+//닫기
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.grd_main00_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.btn_ok_onclick();
+}
+]]></Script>
+  </Form>
+</FDL>

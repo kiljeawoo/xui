@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211324" classname="pattern_01" left="0" top="0" width="788" height="80" titletext="혁신점포 기준율 약정서" scrollbars="none" onload="form_onload" visible="false">
+    <Layouts>
+      <Layout>
+        <Static id="Static86" taborder="716" text="혁신점포 기준율 약정서" cssclass="sta_WF_Subtitle" left="0" top="0" width="467" height="21"/>
+        <Button id="Button10" taborder="717" text="계약서보기" left="710" top="0" width="78" height="21" visible="false"/>
+        <Static id="Static38" taborder="725" text="20" visible="false" left="15" top="1812" width="803" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static46" taborder="727" text="20" visible="false" left="15" top="2695" width="803" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static12" taborder="728" text="27" visible="false" left="200" top="22" width="414" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="750" text="혁신점포 기준율" cssclass="sta_WF_Label" left="0" top="45" height="31" right="76.27%" style="align:center;"/>
+        <MaskEdit id="basic_rate" taborder="8" mask="!999.00" limitbymask="both" left="23.6%" right="60.91%" top="45" height="31" ontextchanged="OMG_DS_SC_211324_ontextchanged"/>
+        <Div id="Div00" taborder="754" text="%" left="38.96%" top="45" right="57.11%" height="31" style="background:white;border:1 solid #bfbfbfff ;color:black;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_lgqtTrFeePmiw" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_lgqtTrFeePmiw_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="PMIW_KDC" type="STRING" size="256" sumtext="약정서종류"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="FEERT_HMW_UNDR" type="STRING" size="256" sumtext="수수료율 1억미만"/>
+          <Column id="FEERT_HMW1_HMW2" type="STRING" size="256" sumtext="수수료율 1/2억"/>
+          <Column id="FEERT_HMW2_HMW3" type="STRING" size="256" sumtext="수수료율 2/3억"/>
+          <Column id="FEERT_HMW3_HMW5" type="STRING" size="256" sumtext="수수료율 3/5억"/>
+          <Column id="FEERT_HMW5_HMW10" type="STRING" size="256" sumtext="수수료율 5/10억"/>
+          <Column id="FEERT_HMW10_OVR" type="STRING" size="256" sumtext="수수료율 10억이상"/>
+          <Column id="FEERT_HMW_UNDR_TINM" type="STRING" size="256"/>
+          <Column id="FEERT_HMW1_HMW2_TINM" type="STRING" size="256"/>
+          <Column id="FEERT_HMW2_HMW3_TINM" type="STRING" size="256"/>
+          <Column id="FEERT_HMW3_HMW5_TINM" type="STRING" size="256"/>
+          <Column id="FEERT_HMW5_HMW10_TINM" type="STRING" size="256"/>
+          <Column id="FEERT_HMW10_OVR_TINM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm305" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256" sumtext="계약서양식일련번호"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_pmiwDtl05" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="PMIW_KDC" type="STRING" size="256" sumtext="약정서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="BUY_AM" type="STRING" size="256" sumtext="구매금액"/>
+          <Column id="EVT_TINM" type="STRING" size="256" sumtext="행사제목"/>
+          <Column id="EVT_PRD_ST_DT" type="STRING" size="256" sumtext="행사기간 시작일자"/>
+          <Column id="EVT_PRD_ED_DT" type="STRING" size="256" sumtext="행사기간 종료일자"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="ETC1" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC2" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC3" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC4" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC5" type="STRING" size="256" sumtext=""/>
+          <Column id="SCTR_SJT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item13" compid="basic_rate" propid="value" datasetid="ds_pmiwDtl05" columnid="ETC1"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "305") {
+			this.ds_etcEltStylAmm305.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	for (var i = 0; i < this.parent.ds_pmiwDtl.rowcount; i++) {
+		if (this.parent.ds_pmiwDtl.getColumn(i, "PMIW_KDC") == "305") {
+			fv_position = i;
+			fv_chk = 1;
+			this.ds_pmiwDtl05.addRow();
+			this.ds_pmiwDtl05.copyRow(0, this.parent.ds_pmiwDtl, fv_position);
+		}
+	}
+
+	if (fv_chk == 0) {
+		var nRow = this.parent.ds_pmiwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "PMIW_KDC", "305");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm305.getColumn(0, "CTRW_STY_VER"));
+
+		this.ds_pmiwDtl05.addRow();
+		this.ds_pmiwDtl05.copyRow(0, this.parent.ds_pmiwDtl, fv_position);
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	var strTitletext = "혁신점포 기준율 약정서";
+
+	if (this.gfn_isNull(this.basic_rate.value)) {
+		this.basic_rate.setFocus();
+ 		this.alert(strTitletext + " 기준율을 입력하세요. ");
+ 		return false;
+ 	}
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC1", this.basic_rate.value); //기준율을 ds에 저장
+	return true;
+}
+
+this.OMG_DS_SC_211324_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC1", this.basic_rate.value); //기준율 변경시 값 저장
+}]]></Script>
+  </Form>
+</FDL>

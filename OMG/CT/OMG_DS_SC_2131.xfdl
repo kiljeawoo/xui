@@ -1,0 +1,1217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_2121" classname="pattern_01" left="0" top="0" width="803" height="850" titletext="전자계약서신청상세 협력업체" style="background:#ffffffff;color:#999999ff;" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_save" taborder="132" text="등록" cssclass="btn_WF_CRUD" top="0" width="41" height="21" right="-121" onclick="btn_save_onclick" visible="false" enable="false"/>
+        <Static id="Static20" taborder="146" text="메인계약서" cssclass="sta_WF_Label" left="0" top="41" height="29" right="85.93%"/>
+        <Static id="Static21" taborder="147" text="전송상태" cssclass="sta_WF_Label" left="0" top="69" height="29" right="85.93%"/>
+        <Static id="Static28" taborder="152" cssclass="sta_WF_Labelbg" left="14.07%" top="41" height="29" right="15"/>
+        <Static id="Static29" taborder="153" cssclass="sta_WF_Labelbg" left="14.07%" top="69" height="29" right="15"/>
+        <Radio id="rdo_tmsSts" taborder="160" index="-1" codecolumn="SIMP_C" datacolumn="SIMP_CNM" direction="vertical" left="15.19%" top="73" height="21" cssclass="rdo_WF_Essential" innerdataset="@ds_eltSts" onitemchanged="rdo_tmsSts_onitemchanged" width="386"/>
+        <Edit id="edt_tmpSts" taborder="188" left="61.52%" top="46" style="background:#e4e4e4ff;color:#999999ff;" enable="false" height="21" right="18"/>
+        <Static id="Static00" taborder="194" left="-15" top="0" width="23" height="558" visible="false" style="background:#00ffff66;"/>
+        <Static id="Static12" taborder="198" text="20" visible="false" left="0" top="21" width="871" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static35" taborder="156" text="진행상태" cssclass="sta_WF_Label" left="47.45%" top="41" height="29" right="38.85%"/>
+        <Static id="Static02" taborder="246" text="20" visible="false" left="-8" top="97" width="871" height="20" style="background:#dc143c5b;"/>
+        <Edit id="edt_eltCtrw" taborder="252" left="14.57%" top="46" height="21" enable="false" right="53.05%" oneditclick="edt_eltCtrw_oneditclick"/>
+        <Static id="Static11" taborder="254" visible="false" left="88" top="8" width="29" height="553" style="background:#00ffff66;"/>
+        <Plugin id="Plugin00" left="401" top="-2" right="363" height="0" classid="{55D9860A-AB9C-44A1-BB74-75AF7F805333}" taborder="259"/>
+        <Static id="Static01" taborder="261" text="전자 계약 상세" cssclass="sta_WF_Subtitle" left="0" top="20" width="301" height="21"/>
+        <Edit id="edt_eltCtrwNo" taborder="263" left="874" top="144" width="140" height="21" visible="false"/>
+        <Edit id="edt_chgSqNo" taborder="264" left="874" top="168" width="140" height="21" visible="false"/>
+        <Button id="btn_popup" taborder="265" text="계약서내역" onclick="btn_popup_onclick" top="0" right="15" width="80" height="21" visible="false"/>
+        <Div id="div_seal" taborder="266" left="0" top="116" height="50" style="background:transparent;" visible="false" right="0">
+          <Layouts>
+            <Layout>
+              <Static id="Static124" taborder="32" cssclass="sta_WF_Labelbg" left="108" top="21" right="15" height="29"/>
+              <Static id="Static121" taborder="33" text="인감 정보" cssclass="sta_WF_Subtitle" left="1" top="0" width="89" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+              <Static id="Static123" taborder="34" text="인감이미지" cssclass="sta_WF_Label" left="0" top="21" height="29" right="85.93%"/>
+              <FileUpload id="FileUpload" taborder="35" retry="0" index="0" onsuccess="div_seal_FileUpload_onsuccess" onerror="div_seal_FileUpload_onerror" onitemchanged="div_seal_FileUpload_onitemchanged" left="14.57%" top="25" height="24" right="18" scrollbars="none"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="267" text="20" visible="false" left="-8" top="166" width="871" height="20" style="background:#dc143c5b;"/>
+        <Div id="div_ntc" taborder="268" text="Div00" left="0" top="186" style="background:transparent;" right="0" scrollbars="none" bottom="10">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="0" text="통보내역" cssclass="sta_WF_Subtitle" left="0" top="265" width="301" height="21"/>
+              <Static id="Static16" taborder="1" text="제목" cssclass="sta_WF_Label" left="0" top="290" right="85.93%" height="29"/>
+              <Static id="Static17" taborder="2" text="내용" cssclass="sta_WF_Label" left="0" top="318" right="85.93%" height="122"/>
+              <Static id="Static18" taborder="3" cssclass="sta_WF_Labelbg" left="14.07%" top="290" right="15" height="29"/>
+              <Static id="Static22" taborder="4" cssclass="sta_WF_Labelbg" left="14.07%" top="318" right="15" height="122"/>
+              <Edit id="edt_tinm" taborder="5" left="14.57%" top="294" right="18" height="21"/>
+              <TextArea id="txa_cntn01" taborder="6" wordwrap="char" left="14.57%" top="322" right="18" height="114"/>
+              <Static id="Static23" taborder="7" text="실시간통지" cssclass="sta_WF_Label" left="0" top="439" right="85.93%" height="29"/>
+              <Static id="Static25" taborder="8" cssclass="sta_WF_Labelbg" left="14.07%" top="439" right="15" height="29"/>
+              <Static id="Static31" taborder="9" text="담당계약담당자" cssclass="sta_WF_Label" left="0" top="467" right="85.93%" height="29"/>
+              <Static id="Static32" taborder="10" cssclass="sta_WF_Labelbg" left="14.07%" top="467" right="15" height="29"/>
+              <Static id="Static33" taborder="11" text="연락처" cssclass="sta_WF_Label" left="48.94%" top="467" right="37.36%" height="29"/>
+              <Static id="Static09" taborder="12" text="-" left="77.46%" top="471" right="21.42%" height="21"/>
+              <Static id="Static40" taborder="13" text="-" left="70.11%" top="471" right="28.64%" height="21"/>
+              <Edit id="edt_buyerNm" taborder="14" cssclass="edt_WF_Readonly" left="14.57%" top="471" right="51.93%" height="21"/>
+              <CheckBox id="chk_rltmNtcSms" taborder="15" text="SMS" value="0" truevalue="1" falsevalue="0" onclick="CheckBox00_onclick" left="14.57%" top="443" right="78.7%" height="21"/>
+              <CheckBox id="chk_rltmNtcEmail" taborder="16" text="E-Mail" value="0" truevalue="1" falsevalue="0" left="48.94%" top="443" right="42.84%" height="21"/>
+              <Edit id="edt_chrrEmail" taborder="17" enable="false" left="57.04%" top="443" right="18" height="21" style="background:#e4e4e4ff;color:#999999ff;"/>
+              <MaskEdit id="mae_chrwMpsqno" taborder="18" enable="false" left="39.1%" top="443" right="54.92%" height="21" style="background:#e4e4e4ff;color:#999999ff;"/>
+              <MaskEdit id="mae_chrwMphno" taborder="19" enable="false" left="31.63%" top="443" right="62.39%" height="21" style="background:#e4e4e4ff;color:#999999ff;"/>
+              <Combo id="cbo_chrwMpsvno" taborder="20" innerdataset="@ds_hp" codecolumn="SIMP_C" datacolumn="SIMP_CNM" onitemchanged="Combo00_onitemchanged" enable="false" left="23.91%" top="443" right="69.61%" height="21" style="background:#e4e4e4ff;color:#999999ff;"/>
+              <Static id="Static03" taborder="21" text="-" left="30.51%" top="444" right="68.37%" height="21"/>
+              <Static id="Static04" taborder="22" text="-" left="37.98%" top="444" right="60.9%" height="21"/>
+              <Edit id="etd_buyerHtel" taborder="23" inputtype="number" readonly="true" maxlength="4" cssclass="edt_WF_Readonly" left="71.36%" top="471" right="22.79%" height="21"/>
+              <Edit id="etd_buyerStel" taborder="24" inputtype="number" readonly="true" maxlength="4" cssclass="edt_WF_Readonly" left="78.58%" top="471" right="15.44%" height="21"/>
+              <Grid id="grd_file" taborder="25" binddataset="ds_fyn" useinputpanel="false" autofittype="col" oncellclick="grd_file_oncellclick" left="0" top="31" right="15" height="220">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40" band="left"/>
+                      <Column size="40" band="left"/>
+                      <Column size="50" band="left"/>
+                      <Column size="225"/>
+                      <Column size="350"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none"/>
+                      <Cell col="1" text="순서"/>
+                      <Cell col="2" text="구분"/>
+                      <Cell col="3" text="구비서류명"/>
+                      <Cell col="4" text="UPLOAD 파일"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="none" text="bind:ISCHECKED"/>
+                      <Cell col="1" text="expr:currow+1"/>
+                      <Cell col="2" style="color:EXPR(ESS_YN_NM == &quot;필수&quot; ? &quot;#FF0000FF&quot; : &quot;&quot;);color2:EXPR(ESS_YN_NM == &quot;필수&quot; ? &quot;#FF0000FF&quot; : &quot;&quot;);selectcolor:EXPR(ESS_YN_NM == &quot;필수&quot; ? &quot;#FF0000FF&quot; : &quot;&quot;);" text="bind:ESS_YN_NM"/>
+                      <Cell col="3" text="bind:DCM_NM"/>
+                      <Cell col="4" text="bind:ORGFNAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_fileDel" taborder="26" text="파일삭제" onclick="btn_fileDel_onclick" top="5" right="15" width="72" height="21" visible="false" enable="false"/>
+              <FileUpload id="FileUpload01" taborder="27" retry="0" index="0" onlbuttondown="FileUpload01_onlbuttondown" onsuccess="FileUpload01_onsuccess" onerror="div_seal_FileUpload_onerror" onitemchanged="FileUpload01_onitemchanged" top="5" right="89" width="72" height="21" visible="false" enable="false"/>
+              <Combo id="cbo_buyerAtel" taborder="28" readonly="true" innerdataset="@ds_tel" codecolumn="SIMP_C" datacolumn="SIMP_CNM" onitemchanged="Combo08_onitemchanged" cssclass="cmb_WF_Readonly" left="63.64%" top="471" right="30.14%" height="21"/>
+              <Button id="btn_down" taborder="29" text="파일다운" onclick="btn_down_onclick" top="5" right="160" width="72" height="21" visible="false"/>
+              <Static id="Static06" taborder="30" text="첨부 파일" cssclass="sta_WF_Subtitle" left="0" top="8" width="94" height="21"/>
+              <Button id="btn_paperNotice" taborder="31" text="서류양식다운로드" visible="true" top="5" right="233" width="112" height="21" onclick="div_ntc_btn_paperNotice_onclick"/>
+              <Static id="Static86" taborder="32" text="관련계약서" cssclass="sta_WF_Subtitle" left="0" top="514" width="190" height="21"/>
+              <Grid id="grd_related" taborder="33" binddataset="ds_related" autoenter="select" useinputpanel="false" autofittype="col" oncellclick="grd_related_oncellclick" left="0" top="541" right="15" height="113">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="47"/>
+                      <Column size="138"/>
+                      <Column size="223"/>
+                      <Column size="201"/>
+                      <Column size="123"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none"/>
+                      <Cell col="1" text="순번"/>
+                      <Cell col="2" displaytype="number" edittype="mask" text="계약서번호" mask="######"/>
+                      <Cell col="3" text="계약서종류"/>
+                      <Cell col="4" displaytype="number" edittype="mask" text="계약기간" mask="######"/>
+                      <Cell col="5" text="계약서상태"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" style="padding:0 5 0 5;" text="bind:ISCHECKED"/>
+                      <Cell col="1" edittype="none" style="align:center middle;padding:0 5 0 5;" cssclass="Cellgrd_WF_AlignLeft" text="expr:currow+1"/>
+                      <Cell col="2" edittype="none" style="align:center middle;padding:0 5 0 5;" cssclass="Cellgrd_WF_AlignRight" text="bind:ELT_CTRW_NO"/>
+                      <Cell col="3" edittype="none" style="align:center middle;padding:0 5 0 5;" cssclass="Cellgrd_WF_AlignLeft" text="bind:MN_CTRW_KD_NM"/>
+                      <Cell col="4" edittype="none" style="align:center middle;padding:0 5 0 5;" cssclass="Cellgrd_WF_AlignRight" text="bind:CTR_DT"/>
+                      <Cell col="5" edittype="none" style="align:center middle;padding:0 5 0 5;" text="bind:STS_NM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_origin" taborder="34" text="계약서 보기" onclick="btn_origin_onclick" enable="false" top="514" right="15" width="107" height="21"/>
+              <Static id="sta_ess" taborder="35" text="(필수 구비서류 0/0)" visible="false" left="81" top="8" width="160" height="21" usedecorate="true" style="padding:0 0 0 0;"/>
+              <Button id="btn_save_atch" taborder="36" text="첨부파일 저장" cssclass="btn_WF_CRUD" visible="false" top="5" width="100" height="21" onclick="div_ntc_btn_save_atch_onclick" right="347" enable="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Plugin id="Plugin01" left="101.62%" top="44" right="-21.17%" height="24" classid="{55D9860A-AB9C-44A1-BB74-75AF7F805333}" taborder="269" visible="false"/>
+        <Edit id="edt_stsNm" taborder="270" visible="false" left="874" top="193" width="140" height="21"/>
+        <Edit id="edt_bfCtrSqNo" taborder="271" visible="false" left="874" top="245" width="140" height="21"/>
+        <Edit id="edt_bfCtrNo" taborder="272" visible="false" left="874" top="221" width="140" height="21"/>
+        <Static id="sta_sign" taborder="273" text="* 전자서명법 제3조 1항, 2항에 따라 직인이미지 생략" top="98" height="21" left="14.45%" width="517" visible="false"/>
+        <Edit id="edt_stsExp" taborder="274" visible="false" left="874" top="269" width="140" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_receive" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_receive_onrowposchanged">
+        <ColumnInfo>
+          <Column id="STS" type="string" size="32"/>
+          <Column id="TINM" type="string" size="32"/>
+          <Column id="ST_DT" type="string" size="32"/>
+          <Column id="CHRG_BUYER_NM" type="string" size="32"/>
+          <Column id="RLTM_NTC_CHK" type="string" size="32"/>
+          <Column id="CNTN" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_in" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서 번호"/>
+          <Column id="CEO" type="STRING" size="256" sumtext="협력업체 사장"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="TELNO" type="STRING" size="256" sumtext="협력업체 전화"/>
+          <Column id="HP" type="STRING" size="256" sumtext="협력업체 전화"/>
+          <Column id="EMAIL" type="STRING" size="256" sumtext="협력업체 이메일"/>
+          <Column id="BUYER_NM" type="STRING" size="256" sumtext="계약담당자 이름"/>
+          <Column id="BUYER_TELNO" type="STRING" size="256" sumtext="협력업체 전화"/>
+          <Column id="BUYER_MPNO" type="STRING" size="256" sumtext="협력업체 전화"/>
+          <Column id="BUYER_EMAIL" type="STRING" size="256" sumtext="협력업체 이메일"/>
+          <Column id="CTRW_KD_NM" type="STRING" size="256" sumtext="계약서"/>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="TMP_STS" type="STRING" size="256"/>
+          <Column id="TMP_STS_NM" type="STRING" size="256" sumtext="계약서상태"/>
+          <Column id="STS" type="STRING" size="256" sumtext="계약서변경상태"/>
+          <Column id="TINM" type="STRING" size="256" sumtext="제목"/>
+          <Column id="CNTN" type="STRING" size="256" sumtext="내용"/>
+          <Column id="BUYER_APV_STS" type="STRING" size="256"/>
+          <Column id="RLTM_NTC_SMS" type="STRING" size="256" sumtext="실시간통지_문자"/>
+          <Column id="SEAL_OMIT_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_kd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_NM" type="STRING" size="256"/>
+          <Column id="CTRW_KD_NM" type="STRING" size="256"/>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_eltSts" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ntc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_ntc_onrowposchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서 번호"/>
+          <Column id="MPNO" type="STRING" size="256" sumtext="협력업체 핸드폰"/>
+          <Column id="EMAIL" type="STRING" size="256" sumtext="협력업체 이메일"/>
+          <Column id="BUYER_MPNO" type="STRING" size="256" sumtext="계약담당자 핸드폰"/>
+          <Column id="BUYER_EMAIL" type="STRING" size="256" sumtext="계약담당자이메일"/>
+          <Column id="CTRW_KD_NM" type="STRING" size="256" sumtext="계약서종류"/>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="STS_NM" type="STRING" size="256" sumtext="계약서상태"/>
+          <Column id="TINM" type="STRING" size="256" sumtext="제목"/>
+          <Column id="CNTN" type="STRING" size="256" sumtext="내용"/>
+          <Column id="RLTM_NTC_CHK" type="STRING" size="256" sumtext="실시간통지방법"/>
+          <Column id="USR_TP" type="STRING" size="256" sumtext="사용자유형"/>
+          <Column id="RLTM_NTC_SMS" type="STRING" size="256" sumtext="SMS 사용여부"/>
+          <Column id="RLTM_NTC_EMAIL" type="STRING" size="256" sumtext="EMAIL사용여부"/>
+          <Column id="SMS_NATV_NO" type="STRING" size="256" sumtext="SMS고유번호"/>
+          <Column id="EMAIL_NATV_NO" type="STRING" size="256" sumtext="EMAIL고유번호"/>
+          <Column id="USR_NM" type="STRING" size="256" sumtext="등록자"/>
+          <Column id="FSRG_DTM" type="STRING" size="0" sumtext="등록날짜"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_fyn" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_fyn_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서 번호"/>
+          <Column id="MN_CTRW_KDC" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="BUYER_ENO" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="DCM_NM" type="STRING" size="256"/>
+          <Column id="ESS_YN" type="STRING" size="256"/>
+          <Column id="ESS_YN_NM" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="256"/>
+          <Column id="FILETYPE" type="STRING" size="256"/>
+          <Column id="FILESIZE" type="STRING" size="256"/>
+          <Column id="ORGFNAME" type="STRING" size="256"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="SEAL" type="STRING" size="256"/>
+          <Column id="FILE_DEL" type="STRING" size="256"/>
+          <Column id="APDFL_STS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_hp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_tel" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_related" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="1"/>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256"/>
+          <Column id="MN_CTRW_KD_NM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MTALNM" type="STRING" size="256"/>
+          <Column id="CTR_DT" type="STRING" size="256"/>
+          <Column id="BUYER_NM" type="STRING" size="256"/>
+          <Column id="BUYER_NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="STS_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item13" compid="rdo_tmsSts" propid="value" datasetid="ds_in" columnid="STS"/>
+      <BindItem id="item14" compid="edt_tmpSts" propid="value" datasetid="ds_in" columnid="TMP_STS_NM"/>
+      <BindItem id="item10" compid="edt_eltCtrw" propid="value" datasetid="ds_in" columnid="CTRW_KD_NM"/>
+      <BindItem id="item3" compid="Div00.edt_tinm" propid="value" datasetid="ds_in" columnid="TINM"/>
+      <BindItem id="item4" compid="Div00.txa_cntn01" propid="value" datasetid="ds_in" columnid="CNTN"/>
+      <BindItem id="item5" compid="Div00.edt_buyerNm" propid="value" datasetid="ds_in" columnid="BUYER_NM"/>
+      <BindItem id="item9" compid="Div00.chk_rltmNtcSms" propid="value" datasetid="ds_in" columnid="RLTM_NTC_SMS"/>
+      <BindItem id="item11" compid="Div00.chk_rltmNtcEmail" propid="value" datasetid="ds_in" columnid="RLTM_NTC_EMAIL"/>
+      <BindItem id="item12" compid="Div00.edt_chrrEmail" propid="value" datasetid="ds_in" columnid="EMAIL"/>
+      <BindItem id="item17" compid="Div00.etd_buyerHtel" propid="value" datasetid="ds_in" columnid="BUYER_HTEL"/>
+      <BindItem id="item18" compid="Div00.etd_buyerStel" propid="value" datasetid="ds_in" columnid="BUYER_STEL"/>
+      <BindItem id="item0" compid="div_ntc.edt_buyerNm" propid="value" datasetid="ds_in" columnid="BUYER_NM"/>
+      <BindItem id="item1" compid="div_ntc.edt_tinm" propid="value" datasetid="ds_in" columnid="TINM"/>
+      <BindItem id="item2" compid="div_ntc.txa_cntn01" propid="value" datasetid="ds_in" columnid="CNTN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+include "lib::comTSToolKit.xjs";
+
+this.fn_colbCompSgnt = "";
+this.fn_tmpSts = "";
+this.fn_BuyerApvSts = "";
+this.SEAL_OMIT_YN = "";
+this.ESS_CNT = 0;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	var param = [
+       {code:"TEL", dsName:"ds_tel", selecttype:""},
+       {code:"ELT_STS", dsName:"ds_eltSts", selecttype:""}
+	];
+
+	this.gfn_setPortalCommonCode(param);
+	this.div_ntc.set_top(116);
+	this.fn_Chrr_disable(); // 협력 업체 담당자 정보 숨김
+}
+
+// 협력 업체 담당자 정보 숨김
+this.fn_Chrr_disable = function()
+{
+	this.div_ntc.Static23.set_visible(false);
+	this.div_ntc.chk_rltmNtcSms.set_visible(false);
+	this.div_ntc.cbo_chrwMpsvno.set_visible(false);
+	this.div_ntc.Static03.set_visible(false);
+	this.div_ntc.mae_chrwMphno.set_visible(false);
+	this.div_ntc.Static04.set_visible(false);
+
+	this.div_ntc.mae_chrwMpsqno.set_visible(false);
+	this.div_ntc.chk_rltmNtcEmail.set_visible(false);
+	this.div_ntc.edt_chrrEmail.set_visible(false);
+	this.div_ntc.Static25.set_visible(false);
+
+	this.div_ntc.Static31.set_top(this.div_ntc.Static31.top - 29);
+	this.div_ntc.edt_buyerNm.set_top(this.div_ntc.edt_buyerNm.top - 29);
+	this.div_ntc.Static33.set_top(this.div_ntc.Static33.top - 29);
+	this.div_ntc.cbo_buyerAtel.set_top(this.div_ntc.cbo_buyerAtel.top - 29);
+	this.div_ntc.Static40.set_top(this.div_ntc.Static40.top - 29);
+
+	this.div_ntc.etd_buyerHtel.set_top(this.div_ntc.etd_buyerHtel.top - 29);
+	this.div_ntc.Static09.set_top(this.div_ntc.Static09.top - 29);
+	this.div_ntc.etd_buyerStel.set_top(this.div_ntc.etd_buyerStel.top - 29);
+	this.div_ntc.Static32.set_top(this.div_ntc.Static32.top - 29);
+	
+	this.resetScroll();
+}
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	//콤보에 최상단Row보이도록 설정
+	this.div_ntc.cbo_buyerAtel.set_index(0);
+	this.div_ntc.cbo_chrwMpsvno.set_index(0);
+
+	for (var i = this.ds_eltSts.rowcount-1; 0 <= i; i--) {
+		var sts = this.ds_eltSts.getColumn(i, "SIMP_C");
+		if (sts == "1") { this.ds_eltSts.deleteRow(i); }
+		// if (sts == "2") { this.ds_eltSts.deleteRow(i); }
+		if (sts == "4") { this.ds_eltSts.deleteRow(i); }
+		if (sts == "5") { this.ds_eltSts.deleteRow(i); }
+		if (sts == "6") { this.ds_eltSts.deleteRow(i); }
+		if (sts == "7") { this.ds_eltSts.deleteRow(i); }
+		if (sts == "9") { this.ds_eltSts.deleteRow(i); }
+		if (sts == "10") { this.ds_eltSts.deleteRow(i); }
+		if (sts == "A") { this.ds_eltSts.deleteRow(i); }
+	}
+	this.div_ntc.grd_related.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 파일업로드 설정
+	var fileParam = {
+		form:this,
+		param:[{
+				fileObj: this.div_seal.FileUpload,
+				maxSize:3,						//허용할 파일 사이즈(MB)
+				maxLength:1,					//허용할 파일갯수
+				ext:['jpg','jpeg','png'],		//허용할 확장자명
+				upload_after_succ: 'div_seal_FileUpload_onsuccess'    	//파일 업로드 성공후 호출할 함수이름
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);
+}
+
+/*조회*/
+this.search = function()
+{
+	this.fn_setVisibleSeal(false);
+	var eltCtrwNo =  this.edt_eltCtrwNo.value;
+	var chgSqno =  this.edt_chgSqNo.value;
+
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/ct/eltctrw/retrieveEltCtrw";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_in=ds_in ds_kd=ds_kd ds_ntc=ds_ntc ds_fyn=ds_fyn";
+
+	var sArgument     = "colbComp=Y eltCtrwNo="+ eltCtrwNo +" chgSqno="+ chgSqno;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID =="insert") {
+			this.gfn_getMessage("alert", "result.message.save.success");
+			this.parent.btn_search.click();
+			this.reload();
+			return;
+		} else if (svcID == "search") {
+			if (this.ds_in.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+			if (this.ds_in.getColumn(0,"BUYER_TELNO") != undefined) {
+				var buyer_telno = this.ds_in.getColumn(0, "BUYER_TELNO");
+ 				this.fn_telNo(buyer_telno, this.div_ntc.cbo_buyerAtel, this.div_ntc.etd_buyerHtel, this.div_ntc.etd_buyerStel);
+ 				this.btn_popup.set_visible(true);
+			}
+			this.SEAL_OMIT_YN = this.gfn_nullToEmpty(this.ds_in.getColumn(0, "SEAL_OMIT_YN"));
+			this.ESS_CNT = this.ds_fyn.getCaseCount("ESS_YN == 'Y'");
+			this.fn_setEssCnt();
+			this.div_ntc.btn_save_atch.set_visible(false);
+			this.div_ntc.btn_save_atch.set_enable(false);
+		} else if (svcID == "relatedEltList") {
+			if (this.ds_related.rowcount > 0) {
+				this.div_ntc.btn_origin.set_enable(true);
+				this.ds_related.filter("ELT_CTRW_NO != '" + this.gfn_nullToEmpty(this.edt_eltCtrwNo.value) + "'");
+			}
+			return;
+		} else if (svcID == "saveAtch") {
+			this.alert("첨부파일을 저장하였습니다.");
+			this.ESS_CNT = this.ds_fyn.getCaseCount("ESS_YN == 'Y'");
+			this.fn_setEssCnt();
+			this.div_ntc.btn_save_atch.set_enable(false);
+		} else {
+			if (this.ds_in.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+			return;
+		}
+	}
+
+	this.fn_tmpSts = this.ds_in.getColumn(0, "TMP_STS");
+	if (this.edt_stsNm.value == "계약종료") {
+		this.fn_tmpSts = 10;
+	}
+
+	// 5 계약기간 변경, 6 문구변경, 7 개별 변경
+	if (this.fn_tmpSts == 5 || this.fn_tmpSts == 6 || this.fn_tmpSts == 7) {
+		this.disable1();
+	} else if (this.fn_tmpSts != 1 && this.fn_tmpSts != 4) {
+		this.disable();
+	} else {
+		this.btn_save.set_visible(true);
+	}
+
+	if (this.fn_tmpSts == 1 || this.fn_tmpSts == 4 || this.fn_tmpSts == 5 || this.fn_tmpSts == 6 || this.fn_tmpSts == 7) {
+		this.btn_save.set_visible(true);
+		this.btn_save.set_right(15);
+		this.btn_popup.set_right(63);
+	} else {
+		this.btn_save.set_visible(false);
+		this.btn_popup.set_right(15);
+	}
+
+	this.fn_BuyerApvSts = this.ds_in.getColumn(0, "BUYER_APV_STS");
+
+	if (this.fn_tmpSts == 1) {
+		if (this.fn_BuyerApvSts  == "Y") {
+			this.div_ntc.btn_down.set_visible(true);
+		} else {
+			this.div_ntc.btn_down.set_visible(false);
+		}
+		this.div_ntc.FileUpload01.set_visible(true);
+		this.div_ntc.btn_save_atch.set_visible(true);
+		this.div_ntc.btn_fileDel.set_visible(true);
+		this.div_ntc.FileUpload01.set_right(89);
+		this.div_ntc.btn_fileDel.set_right(15);
+		this.enable();
+	} else if (this.fn_tmpSts == 4) {
+		this.div_ntc.btn_down.set_visible(true);
+		this.div_ntc.FileUpload01.set_visible(true);
+		this.div_ntc.btn_save_atch.set_visible(true);
+		this.div_ntc.btn_fileDel.set_visible(true);
+		this.div_ntc.btn_down.set_right(160);
+		this.div_ntc.FileUpload01.set_right(89);
+		this.div_ntc.btn_fileDel.set_right(15);
+		this.enable();
+	}
+
+	if (this.edt_stsExp.value == "Y") {
+		alert("계약서 작성 중 계약기간일이 도래되어 업무가 중단되었습니다.\n업체 재협의 후 다시 작성하시기 바랍니다.\n본 계약서는 7 영업일 후 자동 삭제될 예정입니다.");
+		this.expDisable();
+	} else if (this.SEAL_OMIT_YN != "Y" && (this.fn_tmpSts == 1 || this.fn_tmpSts == 3 || this.fn_tmpSts == 4)) {
+		// 직인 비활성화 (2020.07.01 이전)
+		// this.alert("인감이미지 등록 부분은 2020. 07. 01.(수)부터 비활성화 예정입니다. 계약서 작성일이 2020년 이전인 계약의 체결이 필요하신 경우, 2020. 06. 30.(화)까지 체결완료하시기 바랍니다.");
+		
+		// 직인 비활성화 (2020.07.01 이후)
+		this.alert("2020년 이전에 작성된 계약서는 인감이미지 등록이 비활성화됨에 따라 2020. 07. 01.(수)부터 진행하실 수 없습니다. 담당 바이어를 통해 새로운 계약서로 진행하시기 바랍니다.");
+		this.disable();
+	}
+}
+
+/* 입력저장 */
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.insert();
+}
+
+/*등록*/
+this.insert = function()
+{
+	if (this.fn_validationCheck()) {
+		var buyer_telno = this.gfn_nullToEmpty(this.div_ntc.cbo_buyerAtel.value)
+							+this.gfn_nullToEmpty(this.div_ntc.etd_buyerHtel.value)
+							+this.gfn_nullToEmpty(this.div_ntc.etd_buyerStel.value);
+
+		var chrr_mpNo = this.gfn_nullToEmpty(this.div_ntc.cbo_chrwMpsvno.value)
+				            +this.gfn_nullToEmpty(this.div_ntc.mae_chrwMphno.value)
+							+this.gfn_nullToEmpty(this.div_ntc.mae_chrwMpsqno.value);
+
+		var sId   = application.gv_userId;
+		var sParams =	"COLB_COMP_SGNT=" + this.fn_colbCompSgnt;
+
+		var sSvcID        = "insert";
+		var sURL          = "svc::rest/ct/eltctrw/saveEltCtrw";// 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_in=ds_in ds_fyn=ds_fyn:A";
+		var sOutDatasets  = "";
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+
+		// trace("ds_in"  +this.ds_in.saveXML());
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+ /*닫기*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.disable = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 상태가 거절, 완료 일 때  모두 비활성화
+	this.rdo_tmsSts.set_enable(false);
+	this.div_ntc.edt_tinm.set_enable(false);
+	this.div_ntc.txa_cntn01.set_enable(false);
+	this.div_ntc.chk_rltmNtcSms.set_enable(false);
+	this.div_ntc.chk_rltmNtcEmail.set_enable(false);
+	this.div_ntc.edt_buyerNm.set_enable(false);
+	this.div_ntc.cbo_buyerAtel.set_enable(false);
+	this.div_ntc.etd_buyerHtel.set_enable(false);
+	this.div_ntc.etd_buyerStel.set_enable(false);
+	this.btn_save.set_enable(false);
+
+	if (this.fn_tmpSts != 4) {
+		this.div_ntc.btn_down.set_visible(true);
+		this.div_ntc.btn_down.set_right(this.div_ntc.btn_fileDel.right);
+		this.div_ntc.FileUpload01.set_visible(false);
+		this.div_ntc.btn_fileDel.set_visible(false);
+	}
+}
+
+this.expDisable = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//지연계약서일때 비활성화
+	this.rdo_tmsSts.set_enable(false);
+	this.div_ntc.edt_tinm.set_enable(false);
+	this.div_ntc.txa_cntn01.set_enable(false);
+	this.div_ntc.chk_rltmNtcSms.set_enable(false);
+	this.div_ntc.chk_rltmNtcEmail.set_enable(false);
+	this.div_ntc.edt_buyerNm.set_enable(false);
+	this.div_ntc.cbo_buyerAtel.set_enable(false);
+	this.div_ntc.etd_buyerHtel.set_enable(false);
+	this.div_ntc.etd_buyerStel.set_enable(false);
+	this.btn_save.set_enable(false);
+	this.div_ntc.FileUpload01.set_visible(false);
+	this.div_ntc.btn_fileDel.set_visible(false);
+}
+
+
+this.enable = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 상태가 거절, 완료 일 때  모두 비활성화
+	this.rdo_tmsSts.set_enable(true);
+	this.div_ntc.edt_tinm.set_enable(true);
+	this.div_ntc.txa_cntn01.set_enable(true);
+	this.div_ntc.chk_rltmNtcSms.set_enable(true);
+	this.div_ntc.chk_rltmNtcEmail.set_enable(true);
+	this.div_ntc.edt_buyerNm.set_enable(true);
+	this.div_ntc.cbo_buyerAtel.set_enable(true);
+	this.div_ntc.etd_buyerHtel.set_enable(true);
+	this.div_ntc.etd_buyerStel.set_enable(true);
+	//this.btn_save.set_enable(true);
+}
+
+this.disable1 = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// 상태가 거절, 완료 일 때  모두 비활성화
+	// this.rdo_tmsSts.set_enable(false);
+	// this.chk_rltmNtcSms.set_enable(false);
+	// this.chk_rltmNtcEmail.set_enable(false);
+	this.div_ntc.edt_buyerNm.set_enable(false);
+	this.div_ntc.cbo_buyerAtel.set_enable(false);
+	this.div_ntc.etd_buyerHtel.set_enable(false);
+	this.div_ntc.etd_buyerStel.set_enable(false);
+	this.btn_save.set_enable(false);
+
+	if (this.fn_tmpSts == 5 || this.fn_tmpSts == 6) {
+		this.div_ntc.btn_down.set_right(this.div_ntc.btn_fileDel.right);
+		this.div_ntc.FileUpload01.set_visible(false);
+		this.div_ntc.btn_fileDel.set_visible(false);
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	if (this.gfn_isNull(this.rdo_tmsSts.value)) {
+		this.rdo_tmsSts.set_index(0);
+
+		if (this.rdo_tmsSts.value == "2") {
+			this.rdo_tmsSts.set_index(1);
+		}
+
+		alert('전송 상태를 선택 하세요.');
+		return false;
+	}
+
+	if (this.rdo_tmsSts.value == 2 && this.fn_colbCompSgnt == "") {
+		alert('협력업체 서명을 다시 하세요.');
+		return false;
+	}
+
+	if (!(this.ds_in.getColumn(0, "STS") == "8" || this.ds_in.getColumn(0, "STS") == "3")) {
+		for (var i = 0; i < this.ds_fyn.rowcount; i++) {
+			if (this.ds_fyn.getColumn(i, "ESS_YN") == "Y") {
+				if (this.gfn_isNull(this.ds_fyn.getColumn(i, "ORGFNAME"))) {
+					alert('필수 구비서류를 첨부 하세요.');
+					return false;
+				}
+			}
+		}
+	}
+
+	// (191211) 전자서명법 제3조 1항, 2항에 따라 신규계약 건부터 직인이미지 생략
+	/*
+	if (this.SEAL_OMIT_YN != "Y" && this.gfn_nullToEmpty(this.ds_in.getColumn(0,"COLB_COMP_SEAL_SYS_FLNM")) == "" && this.ds_in.getColumn(0,"STS")  == "2") {
+		this.div_ntc.edt_tinm.setFocus();
+		alert('인감도장을 입력 하세요.');
+		return false;
+	}
+	*/
+
+	if (this.gfn_isNull(this.div_ntc.edt_tinm.value)) {
+		this.div_ntc.edt_tinm.setFocus();
+		alert('통보내역 제목을 입력 하세요.');
+		return false;
+	}
+
+	if (this.gfn_isNull(this.div_ntc.txa_cntn01.value)) {
+		this.div_ntc.txa_cntn01.setFocus();
+		alert('통보내역 내용을 입력 하세요.');
+		return false;
+	}
+
+	return true;
+}
+
+this.btn_popup_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var mnCtrwKd = this.ds_in.getColumn(0, "MN_CTRW_KD");
+	var eltCtrwNo = this.ds_in.getColumn(0,"ELT_CTRW_NO");
+	var chgSqNo = this.ds_in.getColumn(0,"CHG_SQNO");
+
+	// comEsum.xjs
+	this.eltOzViewer(mnCtrwKd, eltCtrwNo, chgSqNo); // type, eltCtrwNo, chgSqNo
+}
+
+this.FileUpload01_onlbuttondown = function(obj:FileUpload, e:nexacro.FileUploadMouseEventInfo)
+{
+	if (this.ds_fyn.getColumn(this.ds_fyn.rowposition, "ISCHECKED") == 0) {
+		alert("파일을 추가할 서류를 선택 하세요.");
+	} else {
+		for (var i = this.ds_fyn.getRowCount()-1; i >= 0; i--) {
+			if (this.ds_fyn.getColumn(i, "ISCHECKED") == 1) {
+				if (this.ds_fyn.getColumn(i, "ISCHECKED") !="SYSTEM" && this.ds_in.getColumn(0, "TMP_STS") != "1" && this.ds_in.getColumn(0, "TMP_STS") != "4" && this.ds_fyn.getColumn(i, "ORGFNAME") != undefined) {
+					alert("파일을 변경 할 수 없습니다.");
+					return false;
+				 } else {
+					this.ds_fyn.setColumn(i, "FILE_DEL", 0)
+					return true;
+				}
+			}
+		}
+	}
+}
+
+/*회사소개 파일첨부*/
+this.FileUpload01_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.FileUpload01_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if (e.datasets == null) {
+		// trace("업로드 실패");
+		this.alert(e.errormsg);
+	} else {
+		// trace("업로드 성공");
+		if (e.datasets[0].id == "ds_fileValid") {
+			this.ds_uploadresult00.clear();
+			this.alert("첨부파일 용량이 너무 큽니다.\n(하나로eSCM 첨부파일 업로드 제한 크기 20MB)");
+			return;
+		}
+		
+		this.ds_uploadresult00.clear();
+		this.ds_uploadresult00.copyData(e.datasets[0]);
+		
+		var eltCtrwNo =  this.ds_in.getColumn(0,"ELT_CTRW_NO");
+		var chgSqNo =  this.ds_in.getColumn(0,"CHG_SQNO");
+
+		var fName = this.ds_uploadresult00.getColumn(0,"FILENAME");
+		var fType = this.ds_uploadresult00.getColumn(0,"FILETYPE");
+		var fSize = this.ds_uploadresult00.getColumn(0,"FILESIZE");
+		var orgName = this.ds_uploadresult00.getColumn(0,"ORGFNAME");
+		var sysName = this.ds_uploadresult00.getColumn(0,"SYSTEMFILENAME");
+		
+		var bytes = this.gfn_lengthByte(orgName);
+		if (bytes > 64) {
+			this.ds_uploadresult00.clear();
+			this.div_ntc.FileUpload01.deleteItem(0);
+			this.div_ntc.FileUpload01.appendItem();
+			this.alert("첨부파일명의 길이는 확장자 포함 64바이트 이하로 등록해주시기 바랍니다.\n(한글 최대32자, 영·숫자 최대64자)\n등록한 파일의 바이트 수 : " + bytes);
+			return;
+		}
+		
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition, "ELT_CTRW_NO", eltCtrwNo);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition, "CHG_SQNO", chgSqNo);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition, "FILENAME", fName);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition, "FILETYPE", fType);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition, "FILESIZE", fSize);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition, "ORGFNAME", orgName);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition, "SYSTEMFILENAME", sysName);
+		
+		// 업로드 성공 시 포커스 자동 이동
+		this.ds_uploadresult00.clear();
+		this.div_ntc.FileUpload01.deleteItem(0);
+		this.div_ntc.FileUpload01.appendItem();
+		var row = this.ds_fyn.findRowExpr("ORGFNAME == null && ESS_YN == 'Y'", null);
+		if (row != -1) {
+			//this.div_ntc.grd_file.selectRow(row);
+			this.ds_fyn.setColumn(this.ds_fyn.rowposition, "ISCHECKED", "0");
+			this.ds_fyn.set_rowposition(row);
+			this.ds_fyn.setColumn(row, "ISCHECKED", "1");
+		}
+		
+		// 첨부파일 저장 활성화 (작성, 보완 상태일 때)
+		this.fn_enableSaveAtchBtn();
+	}
+}
+
+this.FileUpload01_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	// trace("FileUpload01_onerror");
+	// trace("e.errorcode: "+e.errorcode);
+	// trace("e.errormsg: "+e.errormsg);
+	this.alert(e.errormsg);
+}
+
+/*파일 삭제*/
+this.btn_fileDel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.ds_fyn.getColumn(this.ds_fyn.rowposition, "ISCHECKED") == 0) {
+		alert("파일을 삭제할 서류를 선택 하세요.");
+	} else {
+		for (var i = this.ds_fyn.getRowCount()-1; i >= 0; i--) {
+			if  (this.ds_fyn.getColumn(i, "ISCHECKED") == 1) {
+				 if (this.ds_fyn.getColumn(i, "ISCHECKED") != "SYSTEM" && this.ds_in.getColumn(0, "TMP_STS") != "1" && this.ds_in.getColumn(0, "TMP_STS") != "4") {
+					alert("파일을 삭제 할 수 없습니다. ");
+					return false;
+				 } else {
+					// this.ds_fyn.deleteRow(i);
+					this.ds_fyn.setColumn(i, "FILENAME", "");
+					this.ds_fyn.setColumn(i, "FILETYPE", "");
+					this.ds_fyn.setColumn(i, "FILESIZE", "");
+					this.ds_fyn.setColumn(i, "ORGFNAME", "");
+					this.ds_fyn.setColumn(i, "FILE_DEL", 1);
+					// this.ds_fyn.setColumn(i,"SYSTEMFILENAME","");
+					
+					this.fn_enableSaveAtchBtn();
+					return true;
+				}
+			}
+		}
+	}
+}
+
+/* 필수서류 업로드 표시 */
+this.fn_setEssCnt = function()
+{
+	var essUp = this.ds_fyn.getCaseCount("ORGFNAME != null && ORGFNAME != '' && ESS_YN == 'Y'");
+	if (this.ESS_CNT > 0) {
+		var color = this.ESS_CNT == essUp ? "#0000FFFF" : "#FF0000FF";
+		var str = "(필수 구비서류 <fc v='"+color+"'>"+essUp+"</fc>/"+this.ESS_CNT+")";
+		this.div_ntc.sta_ess.set_text(str);
+		this.div_ntc.sta_ess.set_visible(true);
+	} else {
+		this.div_ntc.sta_ess.set_visible(false);
+	}
+}
+
+//전화 번호 타입 변경
+this.fn_telNo = function(strTelNo, strVal1, strVal2, strVal3)
+{
+	 if (strTelNo.length > 8) {
+		var RegPhonNum = "";
+
+		//문자열 길이에 따른 값 처리
+		if (strTelNo.length == 9) {
+			RegPhonNum = /([0-9]{2})([0-9]{3})([0-9]+)/;
+		} else if (strTelNo.length == 10) {
+			if (strTelNo.substring(0,2)=="02") {
+				RegPhonNum = /([0-9]{2})([0-9]{4})([0-9]+)/;
+			} else {
+				RegPhonNum = /([0-9]{3})([0-9]{3})([0-9]+)/;
+			}
+		} else if (strTelNo.length > 10) {
+			RegPhonNum = /([0-9]{3})([0-9]{4})([0-9]+)/;
+		}
+
+		strTelNo = strTelNo.replace(RegPhonNum, "$1-$2-$3");
+
+		var naTrplCVal = strTelNo.split("-");
+		strVal1.set_value(naTrplCVal[0]);
+		strVal2.set_value(naTrplCVal[1]);
+		strVal3.set_value(naTrplCVal[2]);
+	}
+}
+
+this.grd_file_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var row = this.ds_fyn.findRow("ISCHECKED", "1");
+	if (row != -1) {
+		this.ds_fyn.setColumn(this.ds_fyn.findRow("ISCHECKED", "1"), "ISCHECKED", "0");
+	}
+	this.ds_fyn.setColumn(e.row, "ISCHECKED", e.row != row ? "1" : "0");
+}
+
+this.btn_down_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (!this.fn_checkDownload()) {
+		this.div_ntc.btn_down.set_enable(false);
+		//this.btn_down_zip.set_enable(false);
+		return;
+	}
+	this.fn_eltFileDownload(this, this.ds_fyn, false);
+}
+
+/**
+ * 전자계약 첨부파일 다운로드 상태 (계약상대자)
+ */
+this.fn_checkDownload =  function()
+{
+	var sts = this.ds_in.getColumn(0, "TMP_STS"); // 계약서상태
+	var cancel = this.ds_in.getColumn(0, "CANCEL"); // 해지여부
+	var end = this.ds_in.getColumn(0, "STS_END"); // 계약종료여부
+	
+	if (sts == "10" || sts == "8" || cancel == "Y" || end == "Y") {
+		// 거절,종료,해지 - 차단
+		this.alert("전자계약서가 거절, 종료, 해지 상태일 경우 첨부파일을 다운로드 하실 수 없습니다.");
+		return false;
+	}
+	return true;
+}
+
+this.rdo_tmsSts_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if (this.rdo_tmsSts.value  == "2") {
+		this.btn_save.set_enable(false);
+		var plainText = this.ds_in.getColumn(0, "ELT_CTRW_NO");
+		// this.gfn_signTradeSign(this.Plugin00,plainText,"","fn_signCallback" , "screenId");
+		var bzno = "";
+
+		/*
+		 * escm/lib/comTSToolKit.xjs.js
+		 * bzno 를 공백으로 던지면 자동으로 구함
+		 * application.gv_serverType 기본값은 LOCAL 임
+		 */
+		if (application.gv_serverType != "ADMIN") {
+			bzno ="1234567890";
+		}
+
+		var Elsg  = "test";
+
+		this.gfn_signTradeSign(this.Plugin00, Elsg, bzno, "fn_signCallback", "screenId");
+	} else {
+		this.fn_setVisibleSeal(false);
+		this.btn_save.set_enable(true);
+	}
+}
+
+/*
+ * 인감이미지 등록 보이기/숨기기
+ */
+this.fn_setVisibleSeal = function(isVisible)
+{
+	if (isVisible) {
+		if (this.SEAL_OMIT_YN == "Y") {
+			this.sta_sign.set_visible(true);
+		} else {
+			this.div_seal.set_visible(true);
+			this.div_seal.set_top(116);
+			this.div_ntc.set_top(186);
+			//this.parent.div_dtl.set_height(560);
+		}
+		this.btn_save.set_enable(true);
+	} else {
+		this.sta_sign.set_visible(false);
+		this.div_seal.set_visible(false);
+		this.div_ntc.set_top(116);
+		this.div_ntc.edt_tinm.set_value("");
+		this.div_ntc.txa_cntn01.set_value("");
+	}
+	this.resetScroll();
+	this.parent.resetScroll();
+}
+
+this.fn_signCallback = function(rtnValue , signId)
+{
+	if (rtnValue == "ERROR") {
+	//	alert("전자서명시 오류가 있습니다.");
+		this.fn_colbCompSgnt = "";
+		this.fn_setVisibleSeal(false);
+		this.ds_in.setColumn(0, "STS", "");
+	} else {
+		switch(signId) {
+			case "screenId":
+//				alert("성공하였습니다.");
+				this.fn_colbCompSgnt = rtnValue;
+				this.fn_setVisibleSeal(true);
+// 				if (this.SEAL_OMIT_YN == "Y") {
+// 					this.sta_sign.set_visible(true);
+// 				} else {
+// 					this.div_seal.set_visible(true);
+// 					this.div_seal.set_top(116);
+// 					this.div_ntc.set_top(186);
+// 					this.parent.div_dtl.set_height(560);
+// 				}
+				this.div_ntc.edt_tinm.set_value("협력업체 서명");
+				this.div_ntc.txa_cntn01.set_value("협력업체 서명");
+				break;
+		}
+	}
+// 	this.resetScroll();
+// 	this.parent.resetScroll();
+}
+
+this.div_seal_FileUpload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	// trace("FileUpload_onerror");
+	// trace("e.errorcode: "+e.errorcode);
+	// trace("e.errormsg: "+e.errormsg);
+}
+
+this.div_seal_FileUpload_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.div_seal_FileUpload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if (e.datasets == null) {
+		trace("업로드 실패");
+	} else {
+		this.ds_uploadresult01.copyData(e.datasets[0]);
+		this.ds_in.setColumn(0, "COLB_COMP_SEAL_SYS_FLNM", this.ds_uploadresult01.getColumn(0,"SYSTEMFILENAME"));
+		this.ds_in.setColumn(0, "COLB_COMP_SEAL_APDFLNM", this.ds_uploadresult01.getColumn(0,"ORGFNAME"));
+	}
+}
+
+/*
+ * 제출서류안내 자료실 링크
+ * 운영 자료실 직접링크: 개발서버에서 테스트 안됨
+ */
+this.div_ntc_btn_paperNotice_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (e.cell == 0) {
+		return;
+	}
+
+	var objDs = this.objects[obj.binddataset];
+	this.fn_openBbrd(e.row); // 조회
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_openBbrd = function(nRow)
+{
+	var arg = '';
+	var oArg = {arg:arg};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_compopupAfter";
+	this.gfn_openPopup("blbdPopup", "OMG.PT::OMG_DS_SC_4116.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+/*  팝업콜백 함수*/
+this.fn_compopupAfter = function(strId, strVal)
+{
+	if (strVal != '') {
+		var paramsArr = strVal.split(",");
+
+		if (strId == "blbdPopup") {
+		}
+	}
+}
+
+/*
+ * 관련 계약서 로드
+ */
+this.fn_loadRelatedElt = function()
+{
+	this.ds_related.clearData();
+
+	var relno = this.gfn_nullToEmpty(this.edt_bfCtrNo.value);
+	var relseq = this.gfn_nullToEmpty(this.edt_bfCtrSqNo.value);
+
+	if (relno == "") {
+		relno =  this.gfn_nullToEmpty(this.edt_eltCtrwNo.value);
+		relseq   =  this.gfn_nullToEmpty(this.edt_chgSqNo.value);
+	}
+
+	var param = "relno=" + relno
+		+ " relseq=" + relseq
+	;
+
+	var sSvcID        = "relatedEltList";//통신아이디
+	var sURL          = "svc::rest/ct/eltctrw/retrieveRelatedEltCtrw";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_related=ds_elt";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 계약서 보기
+this.btn_origin_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var rowposition = -1;
+	for (var i = 0; i < this.ds_related.rowcount; i++) {
+		if (this.ds_related.getColumn(i, "ISCHECKED") == "1") {
+			rowposition = i;
+			break;
+		}
+	}
+
+	if (rowposition == -1) {
+		this.alert("계약서를 먼저 선택해주시기 바랍니다.");
+		return;
+	}
+
+	var mnCtrwKd = this.gfn_nullToEmpty(this.ds_related.getColumn(rowposition, "MN_CTRW_KD"));
+	var eltCtrwNo = this.gfn_nullToEmpty(this.ds_related.getColumn(rowposition, "ELT_CTRW_NO"));
+	var chgSqNo = this.gfn_nullToEmpty(this.ds_related.getColumn(rowposition, "CHG_SQNO"));
+
+	// comEsum.xjs
+	this.eltOzViewer(mnCtrwKd, eltCtrwNo, chgSqNo); // type, eltCtrwNo, chgSqNo
+}
+
+this.grd_related_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell==0) {
+		this.gfn_singleChk(obj,e);
+	}
+}
+this.ds_fyn_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if (this.ESS_CNT > 0) {
+		this.fn_setEssCnt();
+	}
+	this.div_ntc.FileUpload01.set_enable(this.ds_fyn.findRow("ISCHECKED", "1") != -1);
+	this.div_ntc.btn_fileDel.set_enable(this.ds_fyn.findRow("ISCHECKED", "1") != -1);
+}
+
+/*
+ * 전자계약 파일다운로드(BLOB형)
+ * @param _form(호출 화면 폼)
+ * @param _ds(첨부파일 데이터 셋)
+ * @param _isZip(일괄다운로드 여부)
+ */
+this.fn_eltFileDownload = function(_form, _ds, _isZip)
+{	
+	var existFile = false;
+	var apdflSts = "";
+	if (_isZip) {
+		for (var i=0; i<_ds.getRowCount(); i++) {
+			var sysflnm = _ds.getColumn(i, "SYSTEMFILENAME");
+			var apdflnm = _ds.getColumn(i, "ORGFNAME");
+			var sts = _ds.getColumn(i, "APDFL_STS");
+			if (!this.gfn_isNull(sysflnm) && !this.gfn_isNull(apdflnm)) {
+				existFile = true; // 다운로드 할 파일이 있음
+			}
+			if (!this.gfn_isNull(sts)) {
+				apdflSts = sts; // 저장된 테이블 위치 값 획득
+			}
+			if (existFile && !this.gfn_isNull(apdflSts)) {
+				// 필요한 값이 모두 구해지면 break
+				break;
+			}
+		}
+	} else if (_ds.getColumn(_ds.rowposition, "ISCHECKED") != 0) {
+		existFile = true;
+	}
+	
+	if (!existFile) {
+		if (_isZip) {
+			alert("등록된 구비서류가 없습니다.");
+		} else {
+			alert("파일을 다운할 서류를 선택 하세요.");
+		}
+		return;
+	} else {
+		var eltCtrwNo = _ds.getColumn(_ds.rowposition, "ELT_CTRW_NO");
+		var chgSqno   = _ds.getColumn(_ds.rowposition, "CHG_SQNO");
+		var strDownUrl = application.gv_server_url+"rest/ct/eltctrw/downloadFile";
+		var params = "eltCtrwNo="+eltCtrwNo + "&chgSqno=" + chgSqno;
+		
+		if (_isZip) {
+			params += "&zipYn=Y&sts=" + apdflSts;
+		} else {
+			var apdflnm = _ds.getColumn(_ds.rowposition, "ORGFNAME");
+			if (!this.gfn_isNull(apdflnm)) {			
+				var sqno = _ds.getColumn(_ds.rowposition, "SQNO");
+				var sts = this.gfn_nullToEmpty(_ds.getColumn(_ds.rowposition, "APDFL_STS"));
+				params += "&sqno=" + sqno + "&sts=" + sts;
+			} else {
+				alert("등록된 구비서류가 없습니다.");
+				return;
+			}
+		}
+		
+		// 물리파일 다운로드 강제 옵션(DB다운로드 오류 대비 비상용, 추후 제거)
+		//params += "&force=Y";
+		
+		_form.setWaitCursor();
+		try {
+			$.fileDownload(strDownUrl, {
+				httpMethod: "POST",
+				data: params,
+				successCallback: function (url) {
+					_form.setWaitCursor(false);
+				},
+				failCallback: function (responseHtml) {
+					_form.setWaitCursor(false);
+					_form.alert("첨부파일 다운로드 할 수 없습니다.");
+				}
+			});
+		} catch(e) {
+			_form.setWaitCursor(false);
+			alert("첨부파일 다운로드 모듈에 오류가 발생했습니다.\n새로고침 후 진행하시기 바랍니다.");
+		}
+	}
+}
+
+/* 첨부파일저장버튼 활성화(작성, 보완 Only) */
+this.fn_enableSaveAtchBtn = function()
+{
+	if (this.fn_tmpSts == 1 || this.fn_tmpSts == 4) {
+		var atchCnt = this.ds_fyn.getCaseCount("(ORGFNAME != null && ORGFNAME != '') || FILE_DEL == 1");
+		this.div_ntc.btn_save_atch.set_enable(atchCnt > 0);
+	}
+}
+
+this.div_ntc_btn_save_atch_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.confirm("첨부파일을 저장하시겠습니까?\n(전자계약 진행 상태는 변하지 않습니다.)")) {
+		var sSvcID        = "saveAtch";
+		var sURL          = "svc::rest/ct/eltctrw/saveEltCtrwAtch";// 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_in=ds_in ds_fyn=ds_fyn:A";
+		var sOutDatasets  = "ds_fyn=ds_fyn";
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	}
+}]]></Script>
+  </Form>
+</FDL>

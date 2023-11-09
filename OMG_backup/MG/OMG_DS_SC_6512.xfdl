@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6512" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="응대내역등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static10" taborder="48" cssclass="sta_WF_Labelbg" left="1.49%" top="206" right="1.87%" height="29"/>
+        <Static id="Static09" taborder="47" text="등록일자" cssclass="sta_WF_Label" left="1.25%" top="206" height="29" style="align:center middle;" onclick="Static09_onclick" right="91.55%"/>
+        <Static id="Static101" taborder="36" cssclass="sta_WF_Labelbg" left="1.49%" top="58" right="1.87%" height="29"/>
+        <Static id="Static01" taborder="20" cssclass="sta_WF_Labelbg" left="1.49%" top="86" right="1.87%" height="58"/>
+        <Static id="Static08" taborder="17" cssclass="sta_WF_Labelbg" left="1.49%" top="30" right="1.87%" height="29"/>
+        <Static id="Static87" taborder="1" text="17" visible="false" left="98.13%" top="1" height="1195" style="background:#dc143c5b;" width="15"/>
+        <Button id="btn_close" taborder="5" text="조회" onclick="btn_search_onclick" cssclass="btn_WF_CRUD" left="92.78%" top="5" right="1.87%" height="21"/>
+        <Static id="Static29" taborder="8" text="20" visible="false" left="0.25%" top="184" right="1.87%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static40" taborder="9" text="20" visible="false" left="3.11%" top="517" right="-29.64%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static41" taborder="10" text="20" visible="false" left="2.86%" top="697" right="-24.53%" height="20" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="11" text="저장" cssclass="btn_WF_CRUD" left="80.57%" top="5" right="14.07%" height="21" onclick="btn_save_onclick"/>
+        <Static id="Static89" taborder="13" text="응대기록" cssclass="sta_WF_Subtitle" left="1.49%" top="9" right="84.81%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static14" taborder="14" text="거래처코드" cssclass="sta_WF_Label" left="1.37%" top="30" height="29" right="84.81%"/>
+        <Edit id="edt_NA_TRPL_C" taborder="15" lengthunit="utf8" maxlength="200" left="16.31%" top="34" height="21" right="55.67%" cssclass="edt_WF_Readonly" readonly="true"/>
+        <Static id="Static00" taborder="18" text="문의내용" cssclass="sta_WF_Label" left="1.37%" top="86" height="58" right="84.81%"/>
+        <Static id="Static03" taborder="22" cssclass="sta_WF_Labelbg" left="1.49%" top="143" right="1.87%" height="42"/>
+        <Static id="Static04" taborder="23" text="조치분류" cssclass="sta_WF_Label" left="1.37%" top="143" height="42" right="84.81%"/>
+        <Static id="Static94" taborder="34" text="문의자" cssclass="sta_WF_Label" left="1.37%" top="58" height="29" right="84.81%"/>
+        <Edit id="edt_USR_NM" taborder="35" readonly="false" left="16.31%" top="62" height="21" right="55.67%"/>
+        <Static id="Static05" taborder="37" text="문의자연락처" cssclass="sta_WF_Label" left="50.19%" top="58" height="29" right="35.99%"/>
+        <Static id="Static125" taborder="40" text="-" left="72.48%" top="62" height="21" width="10"/>
+        <Static id="Static126" taborder="41" text="-" left="80.7%" top="62" height="21" width="9"/>
+        <Edit id="edt_HP02" taborder="42" inputtype="number" maxlength="4" left="81.57%" top="62" height="21" readonly="false" right="11.46%"/>
+        <Combo id="cbo_HP" taborder="38" readonly="false" innerdataset="ds_hpNo" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="65.13%" top="62" height="21" right="27.65%"/>
+        <Edit id="edt_HP01" taborder="39" inputtype="number" maxlength="4" left="73.6%" top="62" height="21" readonly="false" right="19.43%"/>
+        <Calendar id="cal_from" taborder="44" dateformat="yyyy-MM-dd" left="8.97%" top="210" height="21" right="78.58%"/>
+        <Static id="Static07" taborder="45" text="~" left="21.54%" top="210" height="21" width="10"/>
+        <Calendar id="cal_to" taborder="46" dateformat="yyyy-MM-dd" left="22.67%" top="210" height="21" right="64.88%"/>
+        <Combo id="cbo_spy_tpc01" taborder="62" codecolumn="codecolumn" datacolumn="datacolumn" left="72.6%" top="210" height="21" index="0" value="0" text="전체" right="18.68%">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">00</Col>
+                <Col id="datacolumn">전체</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">02</Col>
+                <Col id="datacolumn">처리중</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">01</Col>
+                <Col id="datacolumn">처리완료</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Combo id="cbo_spy_tpc02" taborder="64" codecolumn="MB_ID" datacolumn="USR_NM" left="89.17%" top="210" right="2.37%" height="21" displaynulltext="    --선택--" innerdataset="@ds_adminInfo"/>
+        <Grid id="grd_result" taborder="65" binddataset="ds_qstLst" useinputpanel="false" autofittype="col" left="1.49%" top="242" right="1.87%" bottom="8" oncellclick="grd_result_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="46"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="처리상태"/>
+                <Cell col="2" text="등록일자"/>
+                <Cell col="3" text="업체명"/>
+                <Cell col="4" text="문의자"/>
+                <Cell col="5" text="연락처"/>
+                <Cell col="6" text="문의내용"/>
+                <Cell col="7" text="조치내용"/>
+                <Cell col="8" text="응대등록"/>
+                <Cell col="9" text="응대완료"/>
+                <Cell col="10" text="완료일자"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="number" expr="currow+1"/>
+                <Cell col="1" displaytype="combo" cssclass="Cellgrd_WF_AlignRight" text="bind:PRC_STSC" combodataset="ds_status" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:PRC_STSC"/>
+                <Cell col="2" displaytype="normal" cssclass="Cellgrd_WF_AlignRight" text="bind:FSRG_DTM" mask="@@@@-@@-@@ @@:@@" maskchar=" " tooltiptext="bind:FSRG_DTM"/>
+                <Cell col="3" cssclass="Cellgrd_WF_AlignRight" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                <Cell col="4" cssclass="Cellgrd_WF_AlignRight" text="bind:QSTRNM" tooltiptext="bind:QSTRNM"/>
+                <Cell col="5" cssclass="Cellgrd_WF_AlignRight" expr="bind:QSTR_TELNO" tooltiptext="bind:QSTR_TELNO"/>
+                <Cell col="6" cssclass="Cellgrd_WF_AlignRight" text="bind:QST_CNTN" tooltiptext="bind:QST_CNTN"/>
+                <Cell col="7" cssclass="Cellgrd_WF_AlignRight" text="bind:ACT_CNTN" tooltiptext="bind:ACT_CNTN"/>
+                <Cell col="8" cssclass="Cellgrd_WF_AlignRight" text="bind:FS_RGM" tooltiptext="bind:FS_RGM"/>
+                <Cell col="9" cssclass="Cellgrd_WF_AlignRight" text="bind:LS_CHGM" tooltiptext="bind:LS_CHGM"/>
+                <Cell col="10" text="bind:LSCHG_DTM" mask="@@@@-@@-@@ @@:@@" tooltiptext="bind:LSCHG_DTM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static06" taborder="66" text="17" visible="false" left="0%" top="1" right="98.51%" height="1195" style="background:#dc143c5b;"/>
+        <Static id="Static11" taborder="67" text="회사명" cssclass="sta_WF_Label" left="50.19%" top="30" height="29" right="35.99%"/>
+        <Edit id="edt_CLNTNM" taborder="68" maxlength="200" left="65.13%" top="34" height="21" right="6.85%" cssclass="edt_WF_Readonly" readonly="true"/>
+        <TextArea id="ta_QST_CNTN" taborder="69" left="16.31%" top="90" height="50" right="55.67%"/>
+        <Static id="Static12" taborder="70" text="조치내용" cssclass="sta_WF_Label" left="50.19%" top="86" height="58" onclick="Static12_onclick" right="35.99%"/>
+        <TextArea id="ta_ACT_CNTN" taborder="71" left="65.13%" top="90" height="50" right="6.85%"/>
+        <Static id="sta_title00" taborder="72" text="처리상태" cssclass="sta_WF_Label" left="50.19%" top="5" height="21" style="align:center middle;font:9 Gulim;" right="35.99%"/>
+        <Combo id="cbo_spy_tpc_s" taborder="73" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="65.13%" top="5" height="21" right="21.3%" value="02" text="처리중">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">02</Col>
+                <Col id="datacolumn">처리중</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">01</Col>
+                <Col id="datacolumn">처리완료</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Edit id="Edit_comnum" taborder="75" left="43.21%" top="211" right="47.82%" height="21"/>
+        <Edit id="Edit_comname" taborder="76" left="52.43%" top="211" right="38.11%" height="21"/>
+        <Button id="btn_comname" taborder="77" onclick="div_search_btn_comname_onclick" cssclass="btn_WF_Searchbtn" left="62.14%" top="211" right="35.24%" height="21"/>
+        <Static id="Static13" taborder="79" text="응대내역" cssclass="sta_WF_Subtitle" left="1.49%" top="186" right="84.81%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Button id="btn_excel" taborder="80" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" left="86.67%" top="5" right="7.97%" height="21"/>
+        <Static id="Static02" taborder="81" text="업체조회" onclick="Static09_onclick" cssclass="sta_WF_Label" left="35.62%" top="206" right="57.16%" height="29" style="align:center middle;"/>
+        <Static id="Static15" taborder="82" text="처리상태" onclick="Static09_onclick" cssclass="sta_WF_Label" left="65.13%" top="206" right="27.65%" height="29" style="align:center middle;"/>
+        <Static id="Static16" taborder="83" text="응대자" onclick="Static09_onclick" cssclass="sta_WF_Label" left="81.69%" top="206" right="11.08%" height="29" style="align:center middle;"/>
+        <WebBrowser id="web_downExcel" left="86.05%" top="21" right="8.47%" height="14" taborder="84" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_hpNo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="30" value=""/>
+          <Column id="SIMP_CNM" type="STRING" size="30" value=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_adminInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_qstClc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="30" value=""/>
+          <Column id="SIMP_CNM" type="STRING" size="30" value=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_qstIns" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RC_SQNO" type="STRING" size="18"/>
+          <Column id="PRC_STSC" type="STRING" size="2"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="MB_ID" type="STRING" size="9"/>
+          <Column id="QSTRNM" type="STRING" size="50"/>
+          <Column id="HP" type="STRING" size="3"/>
+          <Column id="HP01" type="STRING" size="4"/>
+          <Column id="HP02" type="STRING" size="4"/>
+          <Column id="HP02" type="STRING" size="4"/>
+          <Column id="QST_CNTN" type="STRING" size="2000"/>
+          <Column id="ACT_CNTN" type="STRING" size="2000"/>
+          <Column id="QST_CLC" type="STRING" size="50"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_qstLst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RC_SQNO" type="STRING" size="18"/>
+          <Column id="PRC_STSC" type="STRING" size="2"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="MB_ID" type="STRING" size="9"/>
+          <Column id="QSTRNM" type="STRING" size="50"/>
+          <Column id="HP" type="STRING" size="3"/>
+          <Column id="HP01" type="STRING" size="4"/>
+          <Column id="HP02" type="STRING" size="4"/>
+          <Column id="QSTR_TELNO" type="STRING" size="14"/>
+          <Column id="QST_CNTN" type="STRING" size="2000"/>
+          <Column id="ACT_CNTN" type="STRING" size="2000"/>
+          <Column id="QST_CLC" type="STRING" size="50"/>
+          <Column id="FS_RGM" type="STRING" size="9"/>
+          <Column id="LS_CHGM" type="STRING" size="9"/>
+          <Column id="FSRG_DTM" type="STRING" size="20"/>
+          <Column id="LSCHG_DTM" type="STRING" size="20"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_status" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="DATA">처리중</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="DATA">완료</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+      <BindItem id="item13" compid="cbo_spy_tpc01" propid="value" datasetid="ds_dataM" columnid="SPY_TPC"/>
+      <BindItem id="item15" compid="cbo_spy_tpc02" propid="value" datasetid="ds_dataM" columnid="SPY_TPC"/>
+      <BindItem id="item8" compid="cbo_spy_tpc_s" propid="value" datasetid="ds_qstIns" columnid="PRC_STSC"/>
+      <BindItem id="item9" compid="edt_NA_TRPL_C" propid="value" datasetid="ds_qstIns" columnid="NA_TRPL_C"/>
+      <BindItem id="item10" compid="edt_CLNTNM" propid="value" datasetid="ds_qstIns" columnid="CLNTNM"/>
+      <BindItem id="item11" compid="edt_USR_NM" propid="value" datasetid="ds_qstIns" columnid="QSTRNM"/>
+      <BindItem id="item12" compid="cbo_HP" propid="value" datasetid="ds_qstIns" columnid="HP"/>
+      <BindItem id="item14" compid="edt_HP01" propid="value" datasetid="ds_qstIns" columnid="HP01"/>
+      <BindItem id="item16" compid="edt_HP02" propid="value" datasetid="ds_qstIns" columnid="HP02"/>
+      <BindItem id="item17" compid="ta_QST_CNTN" propid="value" datasetid="ds_qstIns" columnid="QST_CNTN"/>
+      <BindItem id="item18" compid="ta_ACT_CNTN" propid="value" datasetid="ds_qstIns" columnid="ACT_CNTN"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 페이지 로딩후 실행부분   
+	/*초기값세팅*/
+	var param = [   		
+ 		{code:"HP"	,     dsName:"ds_hpNo", selecttype:"N"},
+ 		{code:"QST_CLC"	, dsName:"ds_qstClc", selecttype:"N"}
+    ];
+
+    this.gfn_setPortalCommonCode(param);
+	this.cbo_spy_tpc_s.set_index(0);
+	this.cbo_spy_tpc01.set_index(0);
+
+	var toDay = this.gfn_today("yyyyMMdd");
+	var fromDay = this.gfn_minusDate(toDay, 7);
+	this.cal_from.set_value(fromDay);
+	this.cal_to.set_value(toDay);
+
+	this.fn_retrieveAdminInfList();
+	this.grd_result.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+// gfn_setCommonCode, gfn_setPortalCommonCode처리 후 호출(CallBack)할 함수
+this.fn_commonAfterOnload = function()
+{
+//	조치분류에 대해 공통코드에 등록된 내역에 대해 동적 체크박스 생성
+//	trace("ds_qstClc:" + this.ds_qstClc.saveXML());
+	var	chkBoxId = "";
+	var	chkBoxName = "";
+	var	chkTrueVal = "";
+	var nLeft = 20;
+	var nTop = 0;
+	var objCheckBox;
+	var chkProp;
+
+	for(var i = 1; i < this.ds_qstClc.getRowCount(); i++)
+	{
+ 		chkBoxId = "chk_" + this.gfn_lpad(i, 2, '0');
+	//	trace("chkBoxId set:" + chkBoxId);
+ 		chkTrueVal = this.ds_qstClc.getColumn(i, "SIMP_C");
+ 		chkBoxName = this.ds_qstClc.getColumn(i, "SIMP_CNM");
+ 		     if (i%2 == 1) nTop = 145;
+ 		else if (i%2 == 0) nTop = 165;
+ 		objCheckBox = new CheckBox(chkBoxId, "absolute", nLeft + '%', nTop, 200, 20, null, null);
+ 		this.addChild(chkBoxId, objCheckBox); 
+		// Add Object to Parent Form
+		this.addChild(chkBoxId, objCheckBox);
+		// Insert Object to Parent Form
+		this.insertChild(1, chkBoxId, objCheckBox);
+		// Show Object
+		objCheckBox.show();
+
+ 		chkProp = eval("this." + chkBoxId);
+		chkProp.set_text(chkBoxName);
+		chkProp.set_truevalue(chkTrueVal);
+
+		if (i%2 == 0) nLeft = nLeft + 15;
+	}
+}
+ 
+/*응대자 조회*/
+this.fn_retrieveAdminInfList = function (){		
+	var sSvcID        = "retrieveAdminInfList";
+	var sURL          = "svc::rest/common/retrieveAdminInfList";		 
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_adminInfo=ds_adminInfo" ;	
+	var sArgument     =  "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*응대내역 조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var fromDt			= this.cal_from.value;
+	var toDt			= this.cal_to.value;
+	var trplC			= this.gfn_nullToEmpty(this.Edit_comnum.value);
+	var clntNm			= this.gfn_nullToEmpty(this.Edit_comname.value);
+	var rslt			= "";
+	if(this.cbo_spy_tpc01.value != "00") rslt = this.cbo_spy_tpc01.value;
+	var resp			= "";
+	if(this.cbo_spy_tpc02.value != "0") resp = this.cbo_spy_tpc02.value;
+	var sParams			=  "FROM_DT="	+ fromDt
+						+ " TO_DT="		+ toDt
+						+ " TRPL_C="	+ trplC
+						+ " CLNTNM="	+ clntNm
+						+ " RSLT="		+ rslt
+						+ " RESP="		+ resp
+						;
+//	trace("sParams:" + sParams);
+	this.fn_search(sParams);
+}
+ 
+/*조회-서비스 Call*/ 
+this.fn_search = function(sParams)
+{
+	var sSvcID			= "retrieveRspBrkList";
+	var sURL			= "svc::rest/mg/mbcslt/retrieveRspBrkList";
+	var sInDatasets		= "";
+	var sOutDatasets	= "ds_qstLst=ds_qstLst";
+	var sArgument		= sParams;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 엑셀 다운로드
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var fromDt			= this.cal_from.value;
+	var toDt			= this.cal_to.value;
+	var trplC			= this.gfn_nullToEmpty(this.Edit_comnum.value);
+	var clntNm			= this.gfn_nullToEmpty(this.Edit_comname.value);
+	var rslt			= "";
+	if(this.cbo_spy_tpc01.value != "00") rslt = this.cbo_spy_tpc01.value;
+	var resp			= "";
+	if(this.cbo_spy_tpc02.value != "0") resp = this.cbo_spy_tpc02.value;
+	var sParams			=  "FROM_DT="	+ fromDt
+						+ "&TO_DT="		+ toDt
+						+ "&TRPL_C="	+ trplC
+						+ "&CLNTNM="	+ clntNm
+						+ "&RSLT="		+ rslt
+						+ "&RESP="		+ resp
+						;
+
+	this.fn_excel(sParams);
+}
+
+this.fn_excel = function(sParams)
+{
+	trace("엑셀 다운로드 params >>> " + sParams);
+	this.web_downExcel.set_url(application.gv_serverAdmin_url + "rest/excel/mg/mbcslt/downloadExcelRspBrkList?" + sParams);
+}
+
+/*저장*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	/*validation 체크*/
+	var	chkBoxId = "";
+	var chkProp;
+	var clcString = "";
+	// 조치분류 체크값에 대해 QST_CLC에 담아 서버로 보낸다
+	for(var i = 1; i < this.ds_qstClc.getRowCount(); i++)
+	{
+		chkBoxId = "chk_" + this.gfn_lpad(i, 2, '0');
+ 		chkProp = eval("this." + chkBoxId);
+	//	trace("chkBoxId save:" + chkBoxId);
+ 	//	trace("chkProp.value:" + chkProp.value);
+		if (chkProp.value != false)
+		{
+	//		trace("chkProp.truevalue:" + chkProp.truevalue);
+			clcString = clcString + "," + chkProp.truevalue;
+		}
+	}
+	if(clcString.length > 0) clcString = clcString.substr(1);
+//	trace("clcString:" + clcString);
+	this.ds_qstIns.setColumn(0, "QST_CLC", clcString);
+//	trace("ds_qstIns:" + this.ds_qstIns.saveXML());
+
+	var sParams       = "";
+	var sSvcID        = "saveRspBrkRg";
+	var sURL          = "svc::rest/mg/mbcslt/saveRspBrkRg";		 
+	var sInDatasets   = "ds_qstIns=ds_qstIns";
+	var sOutDatasets  = "";
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U";	// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.grd_result_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var strRtn = this.gfn_getMessage("confirm", "confirm.message.overwrite.rspbrkrg");
+	if (strRtn == false) return;
+/*
+	trace("cell:" + e.cell + " col:" + e.col + " row:" + e.row);
+	this.edt_NA_TRPL_C.set_value(this.ds_qstLst.getColumn(e.row, "NA_TRPL_C"));
+	this.edt_CLNTNM.set_value(this.ds_qstLst.getColumn(e.row, "CLNTNM"));
+	this.edt_USR_NM.set_value(this.ds_qstLst.getColumn(e.row, "QSTRNM"));
+	this.ta_QST_CNTN.set_value(this.ds_qstLst.getColumn(e.row, "QST_CNTN"));
+	this.ta_ACT_CNTN.set_value(this.ds_qstLst.getColumn(e.row, "ACT_CNTN"));
+*/
+	var bSucc = this.ds_qstIns.copyRow(0, this.ds_qstLst, e.row);
+//	trace("ds_qstIns:" + this.ds_qstIns.saveXML());
+
+	this.cbo_HP.set_value((this.ds_qstLst.getColumn(e.row, "QSTR_TELNO")).substr(0, 3));
+	if(this.ds_qstLst.getColumn(e.row, "QSTR_TELNO").length == 10)
+		this.edt_HP01.set_value((this.ds_qstLst.getColumn(e.row, "QSTR_TELNO")).substr(3, 3));
+	else if(this.ds_qstLst.getColumn(e.row, "QSTR_TELNO").length == 11)
+		this.edt_HP01.set_value((this.ds_qstLst.getColumn(e.row, "QSTR_TELNO")).substr(3, 4));
+	this.edt_HP02.set_value(this.ds_qstLst.getColumn(e.row, "QSTR_TELNO").substr((this.ds_qstLst.getColumn(e.row, "QSTR_TELNO")).length - 4, 4));
+
+//	조치분류에 대해 기등록된 내역을 입력창에 셋팅
+	var	chkBoxId = "";
+	var chkProp;
+	var clcArr = new Array();
+	for(var i = 1; i < this.ds_qstClc.getRowCount(); i++)
+	{
+ 		chkBoxId = "chk_" + this.gfn_lpad(i, 2, '0');
+ 		chkProp = eval("this." + chkBoxId);
+		chkProp.set_value(false);
+	}
+
+//	trace("ds_qstIns:" + this.ds_qstIns.getColumn(0, "QST_CLC"));
+	if(this.ds_qstIns.getColumn(0, "QST_CLC").length > 0)
+	{
+		clcArr = this.ds_qstIns.getColumn(0, "QST_CLC").split(",");
+		for(i in clcArr)
+		{
+//			trace("clcArr:" + clcArr[i]);
+			chkBoxId = "chk_" + clcArr[i];
+//			trace("chkBoxId get:" + chkBoxId);
+			chkProp = eval("this." + chkBoxId);
+			chkProp.set_value(true);
+		}
+	}
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{			 	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveAdminInfList"){
+		//	trace("this.ds_adminInfo:" + this.ds_adminInfo.saveXML());
+			this.cbo_spy_tpc02.set_index(0);
+			this.btn_search_onclick();
+		}
+		else if(svcID == "retrieveRspBrkList"){
+		//	trace("this.ds_qstIns:" + this.ds_qstIns.saveXML());
+		}
+		else if(svcID == "saveRspBrkRg"){
+	 		if(ErrorCode == 1)
+	 		{
+	 			this.gfn_getMessage("alert", "result.message.save.success");		
+	 			this.btn_search_onclick();
+	 		}
+		}
+	//	this.resetScroll();	
+	}	
+}
+]]></Script>
+  </Form>
+</FDL>

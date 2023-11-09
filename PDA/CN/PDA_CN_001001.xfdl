@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_002001" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="프로그램버전조회(목록)" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="9" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_onclick"/>
+        <Button id="btn_insert" taborder="21" cssclass="btn_WF_CRUD" top="0" right="83" width="41" height="21" onclick="btn_onclick" text="등록" visible="false"/>
+        <Div id="Div01" taborder="11" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Static id="Static01" taborder="12" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="13" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="14" left="0" top="29" right="15" height="67" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="788" height="99">
+              <Static id="Static03" taborder="23" text="조회구분" cssclass="sta_WFSA_Label" left="15" top="23" width="122" height="21"/>
+              <Combo id="cbo_pgm_fl_ver" taborder="74" codecolumn="cc_pgm_fl_ver" datacolumn="dc_pgm_fl_ver" displayrowcount="4" left="79" top="23" width="97" height="21" index="0" onitemchanged="div_search_cbo_cnr_sts_dsc_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="cc_pgm_fl_ver" size="256"/>
+                    <Column id="dc_pgm_fl_ver" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="cc_pgm_fl_ver">1</Col>
+                      <Col id="dc_pgm_fl_ver">최종버전</Col>
+                    </Row>
+                    <Row>
+                      <Col id="cc_pgm_fl_ver">2</Col>
+                      <Col id="dc_pgm_fl_ver">이력</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static04" taborder="24" text="프로그램ID" cssclass="sta_WFSA_Label" left="201" top="23" width="105" height="21"/>
+              <Edit id="pgm_fl_id" taborder="31" maxlength="25" cssclass="WF_Essential" visible="true" left="276" top="23" width="189" height="21" onkeydown="div_search_pgm_fl_id_onkeydown"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_pda" taborder="20" text="Div02" left="0" top="104" right="15" bottom="-8">
+          <Layouts>
+            <Layout width="788" height="419">
+              <Div id="div_paging" taborder="14" url="common::pagingBTN.xfdl" left="226" bottom="6" width="338" height="29" visible="false"/>
+              <Grid id="grd_pda" taborder="13" binddataset="ds_dataTotal" useinputpanel="false" autofittype="col" treeusecheckbox="false" treeuseimage="false" treeinitstatus="expand,all" left="0" top="11" right="0" bottom="34" style="background:#ffffffff URL('theme://images\B_btn_Titlebar_close_O.png');" oncellclick="grd_oncellclick" nodatatext="조회된 건수가 없습니다.">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="164"/>
+                      <Column size="134"/>
+                      <Column size="201"/>
+                      <Column size="135"/>
+                      <Column size="123"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="프로그램파일ID"/>
+                      <Cell col="2" text="프로그램파일버전"/>
+                      <Cell col="3" text="프로그램파일경로"/>
+                      <Cell col="4" text="비고내용"/>
+                      <Cell col="5" text="등록자ID"/>
+                      <Cell col="6" text="등록일시"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:RN"/>
+                      <Cell col="1" text="bind:PGM_FL_ID"/>
+                      <Cell col="2" text="bind:PGM_FL_VER"/>
+                      <Cell col="3" text="bind:PGM_FL_PATH"/>
+                      <Cell col="4" text="bind:RMK_CNTN"/>
+                      <Cell col="5" text="bind:REG_USR_ID"/>
+                      <Cell col="6" text="bind:REG_DTM" mask="####-##-## ##:##:##"/>
+                    </Band>
+                  </Format>
+                  <Format id="format_copy"/>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataTotal" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PGM_FL_ID" type="bigdecimal" size="8"/>
+          <Column id="PGM_FL_VER" type="bigdecimal" size="8"/>
+          <Column id="PGM_FL_PATH" type="bigdecimal" size="8"/>
+          <Column id="RMK_CNTN" type="bigdecimal" size="8"/>
+          <Column id="REG_USR_ID" type="bigdecimal" size="8"/>
+          <Column id="REG_DTM" type="bigdecimal" size="8"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_condition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CONDITION" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="div_search.cbo_pgm_fl_ver" propid="value" datasetid="ds_condition" columnid="CONDITION"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.menuId = "";
+this.blbdId = "";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+    if(application.gv_userTPC == "admin")
+    this.btn_insert.set_visible(true);
+}
+
+/* 페이지 로딩 후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+    this.div_pda.grd_pda.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	//this.div_search.fsrg_dtm.set_value(this.gfn_today("yyyyMMdd"));
+	
+	/* 조회 호출 */
+	this.btn_search.click();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* Paging 처리 */
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_dataTotal.clearData(); // Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow();
+	
+	var vPageSize = 20; // Grid에 보여줄 Row수 선택
+	var vTotalCount = 0; // 전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+	this.ds_pageVO.setColumn(0, "CURRENT_PAGE", vPageNum); // 현재 페이지
+	this.ds_pageVO.setColumn(0, "PAGE_SIZE", vPageSize);
+	this.ds_pageVO.setColumn(0, "TOTAL_ROW_COUNT", vTotalCount);
+	
+	var argumentObj = "";
+	
+	this.fn_selectMstList();
+}
+
+/* 조회-서비스 Call */
+this.fn_selectMstList = function()
+{
+//	this.ds_dataTotal.clearData();
+		
+	var pgm_fl_ver = this.gfn_nullToEmpty(this.div_search.cbo_pgm_fl_ver.value); //최종버전MAJOR
+	var pgm_fl_id = this.gfn_nullToEmpty(this.div_search.pgm_fl_id.value); //최초등록일시
+	
+	var param = "pgm_fl_ver=" + pgm_fl_ver+				
+				" pgm_fl_id="+pgm_fl_id;
+	
+	var sSvcID        = "retrieve";//통신아이디
+	var sURL          = "svc::rest/pda/ProgramList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO"; //보내는데이터셋
+	var sOutDatasets  = "ds_dataTotal=ds_dataTotal ds_pageVO=ds_pageVO";//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+	var sTotal       = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "retrieve") {
+		if (this.ds_dataTotal.rowcount > 0) {
+			this.div_pda.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+		} else {
+			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			this.div_pda.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+		}
+	} else if (svcID == "insert") {
+		if (ErrorCode == 1) {
+			this.gfn_getMessage("alert", "result.message.save.success");
+			this.btn_search.click();
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.btn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_search":	
+// 			this.ds_dataTotal.clearData();
+// 			this.fn_selectMstList();
+			this.fn_paging(1); // 처음조회시 1페이지를 조회한다.
+			break;
+			
+		case "btn_insert":
+			this.fn_openPdaInsert();
+			break;
+	}
+}
+
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.fn_openPdaDetail(e.row);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_openPdaDetail = function(nRow)
+{	
+	var oArg = {PGM_FL_ID:this.ds_dataTotal.getColumn(nRow, "PGM_FL_ID"), PGM_FL_VER:this.ds_dataTotal.getColumn(nRow, "PGM_FL_VER"), PGM_FL_PATH:this.ds_dataTotal.getColumn(nRow, "PGM_FL_PATH")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("PDA_CN_001003","PDA.CN::PDA_CN_001003.xfdl",oArg,sOption,sPopupCallBack);	  
+}
+
+this.fn_openPdaInsert = function()
+{
+	var oArg = {FNL_VER_MAJ:this.FNL_VER_MAJ, FNL_VER_MAJ:null, writeType:0};//writeType : 등록0수정1답글2
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("PDA_CN_001002","PDA.CN::PDA_CN_001002.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if(strVal == "SUCCESS") {
+		trace(" strId : " + strId + " strVal : " + strVal);
+		this.fn_selectMstList();
+	}
+}
+this.div_search_pgm_fl_id_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13')
+	{
+		this.btn_search.click();
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample013_Paging" classname="Sample013_Paging" left="0" top="0" width="803" height="490" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" text="Div00" left="10" top="13" height="467" style="background:beige;" onsize="Div00_onsize" right="9">
+          <Layouts>
+            <Layout>
+              <Div id="div_page" taborder="0" url="common::pagingBTN.xfdl" top="171" height="29" style="background:transparent;" width="338" left="28.44%"/>
+              <Grid id="Grid00" taborder="1" binddataset="ds_msg" useinputpanel="false" autofittype="col" left="17" top="52" right="20" height="120">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row band="head" size="24"/>
+                      <Row band="body" size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell col="0" disptype="normal" text="BZPLC"/>
+                      <Cell col="1" disptype="normal" text="BZPLCNM"/>
+                      <Cell col="2" disptype="normal" text="NBY_QT"/>
+                      <Cell col="3" disptype="normal" text="NBY_AM"/>
+                      <Cell col="4" disptype="normal" text="SRH_NBY_DT_FR"/>
+                      <Cell col="5" disptype="normal" text="SRH_NBY_DT_TO"/>
+                      <Cell col="6" disptype="normal" text="SRH_CHK_ALL"/>
+                      <Cell col="7" disptype="normal" text="SRH_TRPL_C"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell col="0" disptype="normal" text="bind:BZPLC"/>
+                      <Cell col="1" disptype="normal" text="bind:BZPLCNM"/>
+                      <Cell col="2" disptype="normal" text="bind:NBY_QT"/>
+                      <Cell col="3" disptype="normal" text="bind:NBY_AM"/>
+                      <Cell col="4" disptype="normal" text="bind:SRH_NBY_DT_FR"/>
+                      <Cell col="5" disptype="normal" text="bind:SRH_NBY_DT_TO"/>
+                      <Cell col="6" disptype="normal" text="bind:SRH_CHK_ALL"/>
+                      <Cell col="7" disptype="normal" text="bind:SRH_TRPL_C"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button00" taborder="2" text="Button00" onclick="Button00_onclick" top="16" right="23" width="120" height="21"/>
+              <Grid id="Grid01" taborder="3" binddataset="ds_msg2" useinputpanel="false" autofittype="col" left="2.17%" top="244" right="2.55%" height="120">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                      <Col size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row band="head" size="24"/>
+                      <Row band="body" size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell col="0" disptype="normal" text="BZPLC"/>
+                      <Cell col="1" disptype="normal" text="BZPLCNM"/>
+                      <Cell col="2" disptype="normal" text="NBY_QT"/>
+                      <Cell col="3" disptype="normal" text="NBY_AM"/>
+                      <Cell col="4" disptype="normal" text="SRH_NBY_DT_FR"/>
+                      <Cell col="5" disptype="normal" text="SRH_NBY_DT_TO"/>
+                      <Cell col="6" disptype="normal" text="SRH_CHK_ALL"/>
+                      <Cell col="7" disptype="normal" text="SRH_TRPL_C"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell col="0" disptype="normal" text="bind:BZPLC"/>
+                      <Cell col="1" disptype="normal" text="bind:BZPLCNM"/>
+                      <Cell col="2" disptype="normal" text="bind:NBY_QT"/>
+                      <Cell col="3" disptype="normal" text="bind:NBY_AM"/>
+                      <Cell col="4" disptype="normal" text="bind:SRH_NBY_DT_FR"/>
+                      <Cell col="5" disptype="normal" text="bind:SRH_NBY_DT_TO"/>
+                      <Cell col="6" disptype="normal" text="bind:SRH_CHK_ALL"/>
+                      <Cell col="7" disptype="normal" text="bind:SRH_TRPL_C"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_page00" taborder="4" url="common::pagingBTN.xfdl" left="28.44%" top="363" height="29" style="background:transparent;" width="338"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_msg" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BZPLC" type="string" size="32" prop=""/>
+          <Column id="BZPLCNM" type="string" size="32" prop=""/>
+          <Column id="NBY_QT" type="int" size="4" prop=""/>
+          <Column id="NBY_AM" type="int" size="4" prop=""/>
+          <Column id="SRH_NBY_DT_FR" type="string" size="32" prop=""/>
+          <Column id="SRH_NBY_DT_TO" type="string" size="32" prop=""/>
+          <Column id="SRH_CHK_ALL" type="string" size="32" prop=""/>
+          <Column id="SRH_TRPL_C" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO1" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TOTAL_ROW_COUNT">13</Col>
+            <Col id="PAGE_SIZE">10</Col>
+            <Col id="CURRENT_PAGE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_pageVO2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TOTAL_ROW_COUNT">13</Col>
+            <Col id="PAGE_SIZE">10</Col>
+            <Col id="CURRENT_PAGE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_msg2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BZPLC" type="string" size="32" prop=""/>
+          <Column id="BZPLCNM" type="string" size="32" prop=""/>
+          <Column id="NBY_QT" type="int" size="4" prop=""/>
+          <Column id="NBY_AM" type="int" size="4" prop=""/>
+          <Column id="SRH_NBY_DT_FR" type="string" size="32" prop=""/>
+          <Column id="SRH_NBY_DT_TO" type="string" size="32" prop=""/>
+          <Column id="SRH_CHK_ALL" type="string" size="32" prop=""/>
+          <Column id="SRH_TRPL_C" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//페이징이 하나일때
+	this.fn_paging(1);       // 처음조회시 1페이지를 조회한다.
+	
+	//페이징이 두개이상일때
+	//this.fn_paging(1,this.Div00.div_page.name);    // 처음조회시 1페이지를 조회한다.
+	//this.fn_paging(1,this.Div00.div_page00.name);  // 처음조회시 1페이지를 조회한다.
+}
+
+/*-----------------------------------------------------------------------------------------*/
+// 페이징처리
+/*-----------------------------------------------------------------------------------------*/
+this.fn_paging = function(vPageNum, objDivNm)
+{
+	var oDs, oBindDs;
+		
+	if(this.gfn_isNull(objDivNm)){
+		objDivNm = "div_page";
+	}
+	
+	if(objDivNm == "div_page"){
+		oDs     = this.ds_pageVO1;
+		oBindDs = this.ds_msg;
+	}else if(objDivNm == "div_page00"){
+		oDs     = this.ds_pageVO2;
+		oBindDs = this.ds_msg2;
+	}else{
+		
+	}
+	
+	oDs.clearData();  
+	oBindDs.clearData();     //Grid에 Binding된 Dataset명
+	
+	oDs.addRow(); 
+	
+	var vPageSize   =  oDs.getColumn(0, "PAGE_SIZE"); 	    //Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount =  oDs.getColumn(0, "TOTAL_ROW_COUNT"); 	//전체건수. 화면조회후 리턴받아 사용
+	
+ 	oDs.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	oDs.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	oDs.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);	 
+	 
+	var argumentObj = "";
+	
+ 	lsNowPage = vPageNum;//현재페이지 설정 
+
+	this.fn_search();
+	
+	
+	// 	this.Div00.all[objDivNm].fn_pageSet(vTotalCount, vPageSize,objDivNm,lsNowPage);	
+ 
+}
+
+this.fn_search = function()
+{
+	//trace(this.ds_pageVO.saveXML());
+	var param = "NBY_DT_FR=20150601 NBY_DT_TO=20150630 CHK_ALL=Y TRPL_C=8809111690016";
+
+	var sSvcID        = "retrieveNPeriodStoreSum";
+	var sURL          = "svc::rest/pds/retrieveNPeriodStoreSum";		// svc = http://localhost:8080/nhvan/
+	var sInDatasets   = "ds_pageVO=ds_pageVO1";
+	var sOutDatasets  = "ds_msg=ds_dataM ds_pageVO1=ds_pageVO";
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType, true);
+}
+
+this.fn_callBack = function (svcId,errorCode,errorMsg)
+{	
+	if (errorCode == 0) 
+	{
+		if (svcId == "retrieveNPeriodStoreSum") 
+		{ 
+			if(this.ds_msg.rowcount > 0)
+			{ 
+				var sTotal    = this.ds_pageVO1.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO1.getColumn(0, "PAGE_SIZE");
+							
+				this.Div00.div_page.fn_pageSet(sTotal, sPagesize,"div_page",lsNowPage);	
+				                  
+			}
+			else if(this.ds_msg.rowcount == 0)
+			{
+				alert("조회할 내용이 없습니다.");
+				this.Div00.div_page.fn_pageSet(0, 0,"div_page",lsNowPage);//페이징 설정			
+			}
+		}
+	}	
+}
+
+this.Div00_onsize = function(obj:Div, e:nexacro.SizeEventInfo)
+{
+	var nLeft = (e.cx/2)-(this.Div00.div_page.width/2);
+	this.Div00.div_page.set_left(nLeft);
+}
+]]></Script>
+  </Form>
+</FDL>

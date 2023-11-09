@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5214" classname="pattern_01" left="0" top="0" width="730" height="520" titletext="부가정보일별사용량" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static29" taborder="117" text="20" visible="false" left="1.51%" top="0" right="-22.47%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static40" taborder="138" text="20" visible="false" left="1.51%" top="499" right="-26.85%" style="background:#dc143c5b;" bottom="0"/>
+        <Static id="Static41" taborder="140" text="20" visible="false" left="1.49%" top="685" right="-22.42%" height="20" style="background:#dc143c5b;"/>
+        <Grid id="grd_result" taborder="148" useinputpanel="false" left="11" top="20" autofittype="col" useselcolor="false" readonly="true" binddataset="ds_result" bottom="20" width="705">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="130"/>
+                <Column size="316"/>
+                <Column size="130"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사용월"/>
+                <Cell col="1" text="사업장"/>
+                <Cell col="2" text="사용량(건)"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center middle;" text="bind:RMS_DT" mask="####-##"/>
+                <Cell col="1" style="align:left middle;" text="bind:CLNTNM"/>
+                <Cell col="2" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:BL_DLY_UGQT"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="2" text="합계"/>
+                <Cell col="2" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(BL_DLY_UGQT)&quot;)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static87" taborder="149" text="14" visible="false" left="716" top="1" width="14" height="1195" style="background:#dc143c5b;"/>
+        <Static id="Static15" taborder="150" text="17" visible="false" left="0" top="1" width="1.49%" height="1195" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_naTrplc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_naTrplc_onrowposchanged">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RMS_DT" type="STRING" size="256"/>
+          <Column id="DLY_UGQT" type="STRING" size="256"/>
+          <Column id="BL_DLY_UGQT" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+	this.gfn_setInitForm(obj, e); // 공통
+	this.grd_result.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+/***************************************************
+	부가정보사용량조회
+****************************************************/
+this.fn_retrieveAdinfDtpBrk = function(RMS_MM, RMS_TRPL_C)
+{
+	var sParam = "RMS_MM=" + RMS_MM
+			   + " RMS_TRPL_C=" + RMS_TRPL_C;
+	
+	var sSvcID        = "retrieveAdinfDtpBrkList";
+	var sURL          = "svc::rest/pt/myinf/retrieveAdinfDtpBrkList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_result=ds_result";
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+ 
+/***************************************************
+	callback메소드
+****************************************************/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "retrieveAdinfDtpBrkList") {
+		if (this.ds_result.rowcount == 0) {
+			//this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			return;
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

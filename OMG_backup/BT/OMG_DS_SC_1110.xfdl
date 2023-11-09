@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_1110" classname="pattern_01" left="0" top="0" width="993" height="490" titletext="상담신청조회" onload="OMG_DS_SC_1110_onload" onkeydown="OMG_DS_SC_1110_onkeydown">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="73" left="0" top="29" height="69" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="38" text="신청일자" cssclass="sta_WFSA_Label" left="15" top="10" width="79" height="21"/>
+              <Static id="Static01" taborder="39" text="신청회사" cssclass="sta_WFSA_Label" left="15" top="36" width="79" height="21"/>
+              <Combo id="cbo_comp" taborder="41" text="사업자번호" left="94" top="36" width="151" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">사업자번호</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">업체명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static03" taborder="46" text="진행상태" cssclass="sta_WFSA_Label" left="452" top="10" width="79" height="21"/>
+              <Edit id="edt_comp" taborder="49" left="248" top="36" width="175" height="21" inputfilter="symbol" inputtype="full,digit,alpha"/>
+              <Static id="Static131" taborder="50" text="~" left="195" top="10" width="10" height="21"/>
+              <Calendar id="cal_from" taborder="51" dateformat="yyyy-MM-dd" left="94" top="10" width="100" height="21"/>
+              <Calendar id="cal_to" taborder="52" dateformat="yyyy-MM-dd" left="205" top="10" width="100" height="21"/>
+              <Div id="div_ctrSts" taborder="53" url="common::multiCheckCombo.xfdl" left="531" top="10" width="140" height="21"/>
+              <Static id="Static02" taborder="54" onclick="Static00_onclick" visible="false" left="422" top="24" width="30" height="45" style="background:#0000ff33;"/>
+              <Static id="Static04" taborder="55" text="담당바이어" cssclass="sta_WFSA_Label" left="452" top="36" width="97" height="21"/>
+              <Edit id="edt_buyer" taborder="56" left="531" top="36" width="175" height="21"/>
+              <Static id="Static05" taborder="57" text="신청항목" cssclass="sta_WFSA_Label" left="739" top="10" width="79" height="21"/>
+              <Static id="Static06" taborder="59" onclick="Static00_onclick" visible="false" left="706" top="24" width="30" height="45" style="background:#0000ff33;"/>
+              <Div id="div_ctrDsc" taborder="61" url="common::multiCheckCombo.xfdl" left="818" top="10" width="180" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_history" taborder="11" text="이력" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="79" onclick="btn_history_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Static id="Static02" taborder="56" text="8" visible="false" left="922" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static07" taborder="57" text="15" visible="false" left="978" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Div id="div_list" taborder="69" left="0" top="97" right="15" bottom="0">
+          <Layouts>
+            <Layout>
+              <Grid id="grd" taborder="1" binddataset="ds_rclist" useinputpanel="false" autofittype="col" left="0" top="41" right="0" oncellclick="div_list_Grid01_oncellclick" bottom="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="30"/>
+                      <Column size="108"/>
+                      <Column size="108"/>
+                      <Column size="83"/>
+                      <Column size="150"/>
+                      <Column size="96"/>
+                      <Column size="77"/>
+                      <Column size="58"/>
+                      <Column size="295"/>
+                      <Column size="62"/>
+                      <Column size="57"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="checkbox"/>
+                      <Cell col="1" text="상담신청항목"/>
+                      <Cell col="2" text="상담신청번호"/>
+                      <Cell col="3" text="담당바이어"/>
+                      <Cell col="4" text="업체명"/>
+                      <Cell col="5" text="사업자등록번호"/>
+                      <Cell col="6" text="신청일자"/>
+                      <Cell col="7" text="진행상태"/>
+                      <Cell col="8" text="주력품목"/>
+                      <Cell col="9" text="거절기간"/>
+                      <Cell col="10" text="거절해제"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                      <Cell col="1" text="bind:CSLT_DSC" expr="expr:CSLT_DSC == '201' ? '[수산] 선어/활어' : CSLT_DSC == '202' ? '[수산] 건어/가공' : CSLT_DSC == '203' ? '[수산] 냉동' : '마트상품부'"/>
+                      <Cell col="2" text="bind:CSLT_RQ_NO"/>
+                      <Cell col="3" style="color:EXPR(BUYER_NM=='담당자배정중'?'red':'black');color2:EXPR(BUYER_NM=='담당자배정중'?'red':'black');selectcolor:EXPR(BUYER_NM=='담당자배정중'?'red':'black');" text="bind:BUYER_NM"/>
+                      <Cell col="4" text="bind:CONM"/>
+                      <Cell col="5" text="bind:BZNO" mask="###-##-#####"/>
+                      <Cell col="6" text="bind:RQ_DT" mask="####-##-##"/>
+                      <Cell col="7" displaytype="normal" text="bind:STS_NM" combodataset="bind:STS"/>
+                      <Cell col="8" text="bind:MAJ_LATC" tooltiptext="bind:MAJ_LATC"/>
+                      <Cell col="9" text="bind:REJECT_MONTH"/>
+                      <Cell col="10" text="bind:REJECT_ALLOW"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btu_div" taborder="13" cssclass="btn_WFSA_SearchClose" left="46.83%" top="0" height="12" onclick="btu_div_onclick" width="63"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="78" left="306" top="28" width="30" height="45" onclick="Static00_onclick" style="background:#0000ff33;" visible="false"/>
+        <Div id="Div01" taborder="79" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Button id="btn_print" taborder="80" text="출력" cssclass="btn_WF_CRUD" top="0" right="126" width="41" height="21" onclick="btn_print_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rclist" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="CSLT_RQ_NO" type="STRING" size="256"/>
+          <Column id="BUYER_CHRG_BSNNM" type="STRING" size="256"/>
+          <Column id="CONM" type="STRING" size="256"/>
+          <Column id="BZNO" type="STRING" size="256"/>
+          <Column id="RQ_DT" type="STRING" size="256"/>
+          <Column id="STS" type="STRING" size="256"/>
+          <Column id="STS_NM" type="STRING" size="256"/>
+          <Column id="BUYER_NM" type="STRING" size="256"/>
+          <Column id="MAJ_LATC" type="STRING" size="256"/>
+          <Column id="REJECT_ALLOW" type="STRING" size="256"/>
+          <Column id="REJECT_MONTH" type="STRING" size="256"/>
+          <Column id="CSLT_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ctrSts" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="string" size="13"/>
+          <Column id="name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">101.102</Col>
+            <Col id="name">마트상품부</Col>
+          </Row>
+          <Row>
+            <Col id="code">201</Col>
+            <Col id="name">[수산] 선어/활어</Col>
+          </Row>
+          <Row>
+            <Col id="code">202</Col>
+            <Col id="name">[수산] 건어/가공</Col>
+          </Row>
+          <Row>
+            <Col id="code">203</Col>
+            <Col id="name">[수산] 냉동</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_sts = "";
+var fv_dsc = "";
+
+this.OMG_DS_SC_1110_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+	
+	var toDay = this.gfn_today("yyyyMMdd");
+	var chkDay = this.gfn_minusMonth(toDay, 1);
+	this.div_search.cal_from.set_value(chkDay);
+	this.div_search.cal_to.set_value(toDay);
+	
+	// 공통코드 가져오기
+	var param = [
+		{ code: "CTR_STS", dsName: "ds_ctrSts", selecttype: "" }
+	];
+	this.gfn_setPortalCommonCode(param);
+	
+	this.div_search.div_ctrSts._binddataset(this.ds_ctrSts, "SIMP_C", "SIMP_CNM");
+	this.div_search.div_ctrSts.setFunctionName("fn_afterCall"); //후처리함수 선언
+	this.div_search.div_ctrDsc._setWidth(180);
+	this.div_search.div_ctrDsc._binddataset(this.ds_dsc, "code", "name");
+	this.div_search.div_ctrDsc.setFunctionName("fn_afterDscCall"); //후처리함수 선언
+	
+	this.div_list.grd.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	
+}
+
+// 멀티콤보 -> 상태종류
+this.fn_afterCall = function(sVal)
+{
+	fv_sts = ""; // 초기화
+	
+	for (var i = 0; i < sVal.rowcount; i++) {
+		if (fv_sts) fv_sts += ".";
+		fv_sts += sVal.getColumn(i, "SIMP_C");
+	}
+}
+
+// 신청항목 멀티콤보 -> 상태종류
+this.fn_afterDscCall = function(sVal)
+{
+	fv_dsc = ""; // 초기화
+	
+	for (var i = 0; i < sVal.rowcount; i++) {
+		if (fv_dsc) fv_dsc += ".";
+		fv_dsc += sVal.getColumn(i, "code");
+	}
+}
+
+this.div_list_Grid01_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_singleChk(obj, e);
+	} else {
+		var cslt_rq_no = this.ds_rclist.getColumn(this.ds_rclist.rowposition, "CSLT_RQ_NO");
+		
+		var oArg = { paramMode: "U", dsArg: this.ds_rsclist, CSLT_RQ_NO: cslt_rq_no };
+		var sOption = "autosize=true,title=true";
+		var sPopupCallBack = "fn_popupAfter";
+		this.gfn_openPopup("OMG_DS_SC_1112", "OMG.BT::OMG_DS_SC_1112.xfdl", oArg, sOption, sPopupCallBack);
+	}
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.search();  
+}
+
+this.search = function()
+{
+	if (!this.fn_validationCheck()) {
+		return;
+	}
+	
+	this.ds_rclist.clearData();
+	
+	var calFrom = this.gfn_nullToEmpty(this.div_search.cal_from.value);		// 조회시작일
+	var calTo = this.gfn_nullToEmpty(this.div_search.cal_to.value);			// 조회종료일
+	var cboComp = this.gfn_nullToEmpty(this.div_search.cbo_comp.value);		// 사업자번호, 업체명 선택
+	var edtComp = this.gfn_nullToEmpty(this.div_search.edt_comp.value);		// 사업자번호, 업체명 입력값
+	var edtBuyer = this.gfn_nullToEmpty(this.div_search.edt_buyer.value);	// 담당바이어
+	
+	var param = "cal_from=" + calFrom
+			+ " cal_to=" + calTo
+			+ " cbo_sts=" + fv_sts
+			+ " cbo_dsc=" + fv_dsc
+			+ " cbo_comp=" + cboComp
+			+ " edt_comp=" + encodeURIComponent(edtComp) // encode
+			+ " edt_buyer=" + encodeURIComponent(edtBuyer); // encode
+	
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/bt/rq/retrieveCsltRqList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_rclist=ds_rclist";
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "retrievePeriodSum") {
+		if (this.ds_rclist.rowcount == 0) {
+			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			return;
+		}
+	}
+}
+
+this.fn_validationCheck = function()
+{
+	var calFrom = this.div_search.cal_from.value;
+	var calTo = this.div_search.cal_to.value;
+	
+	if (this.gfn_isNull(calFrom)) {
+		this.gfn_getMessage("alert", "validation.message.fromDate.no.data");
+		return false;
+	}
+	if (this.gfn_isNull(calTo)) {
+		this.gfn_getMessage("alert", "validation.message.toDate.no.data");
+		return false;
+	}
+	if (this.gfn_getDiffDay(calFrom, calTo) < 0) {
+		this.gfn_getMessage("alert", "validation.message.fromData.toDate.confirm");
+		return false;
+	}
+	
+	return true;
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strId == "OMG_DS_SC_1112" && strVal == "SUCCESS") {
+		this.search(); // 조회
+	}
+}
+
+this.btn_history_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var cslt_rq_no = null;
+	
+	for(var i = 0; i < this.ds_rclist.rowcount; i++){
+		if (this.ds_rclist.getColumn(i, "ISCHECKED") == 1) {
+			cslt_rq_no = this.ds_rclist.getColumn(i, "CSLT_RQ_NO");
+			
+			if (!this.gfn_isNull(cslt_rq_no)) {
+				var oArg = { paramMode: "S", dsArg: this.ds_rclist, cslt_rq_no:cslt_rq_no };
+				var sOption = "autosize=true,title=true";
+				var sPopupCallBack = "fn_popupAfter";
+				this.gfn_openPopup("OMG_DS_SC_1130", "OMG.BT::OMG_DS_SC_1130.xfdl", oArg, sOption, sPopupCallBack);
+			}
+		}
+	}
+	
+	if (this.gfn_isNull(cslt_rq_no)) {
+		alert("이력을 조회할 상담신청내역을 선택하세요");
+	}
+}
+
+this.btu_div_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.OMG_DS_SC_1110_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.btn_search.click();
+	}
+}
+/*리포트 출력*/
+this.btn_print_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_search.div_ctrSts.setFunctionName("fn_afterCall"); 
+	
+	var calFrom = this.gfn_nullToEmpty(this.div_search.cal_from.value);		// 조회시작일
+	var calTo = this.gfn_nullToEmpty(this.div_search.cal_to.value);			// 조회종료일
+	var cbo_sts = fv_sts;
+	var cboComp = this.gfn_nullToEmpty(this.div_search.cbo_comp.value);		// 사업자번호, 업체명 선택
+	var edt_comp = this.gfn_nullToEmpty(this.div_search.edt_comp.value);		// 사업자번호, 업체명 입력값
+	var edt_buyer = this.gfn_nullToEmpty(this.div_search.edt_buyer.value);	// 담당바이어
+	
+	var param = {
+					CAL_FROM:calFrom,
+					CAL_TO:calTo,
+					CBO_STS:cbo_sts,
+					CBO_COMP:cboComp,
+					EDT_COMP:edt_comp,
+					EDT_BUYER:edt_buyer
+				}
+	var ozParam = {
+         sId: 'OMG_DS_SC_1110',
+         sUrl: '/rest/oz/bt/rq/retrieveCsltRqList',
+         paramType: 'param',
+         sParam: param
+      };
+      
+    this.ozViewer(ozParam ,"ozViewerPotal");
+	
+}
+
+
+/*
+ * 거절취소
+ */
+this.btn_cncl_rjct_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

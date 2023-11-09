@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6912_P01" classname="popup01" left="0" top="0" width="800" height="360" titletext="임시거래처코드 상세" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static06" taborder="15" text="임시거래처코드 관리" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32" onclick="Static06_onclick"/>
+        <Button id="brn_cls" taborder="16" cssclass="btn_WF_PopupClose" top="0" width="37" height="32" onclick="btn_close_onclick" right="0"/>
+        <Static id="Static09" taborder="17" cssclass="sta_WF_Labelbg" left="15" top="129" right="15" height="29"/>
+        <Static id="Static03" taborder="18" cssclass="sta_WF_Labelbg" left="15" top="91" right="15" height="29"/>
+        <Static id="Static00" taborder="19" cssclass="sta_WF_Labelbg" left="15" top="167" right="15" height="29"/>
+        <Static id="Static91" taborder="20" left="15" top="79" right="15" height="2" style="background:#40b3ccff;"/>
+        <Static id="Static103" taborder="21" cssclass="sta_WF_Labelbg" left="15" top="251" right="15" height="58"/>
+        <Static id="Static98" taborder="22" cssclass="sta_WF_Labelbg" left="15" top="223" right="15" height="29"/>
+        <Static id="Static95" taborder="23" cssclass="sta_WF_Labelbg" left="15" top="195" right="15" height="29"/>
+        <Static id="Static92" taborder="24" text="사업자번호" cssclass="sta_WF_Label" left="385" top="167" width="140" height="29"/>
+        <Static id="Static94" taborder="25" text="회사명" cssclass="sta_WF_Label" left="15" top="167" width="140" height="29"/>
+        <Static id="Static97" taborder="26" text="대표자명" cssclass="sta_WF_Label" left="15" top="195" width="140" height="29"/>
+        <Static id="Static100" taborder="27" text="우편번호" cssclass="sta_WF_Label" left="15" top="223" width="140" height="29"/>
+        <Static id="Static102" taborder="28" text="회사주소" cssclass="sta_WF_Label" left="15" top="251" width="140" height="58"/>
+        <Static id="Static93" taborder="29" text="거래처코드 :" left="25" top="49" width="90" height="30" style="padding:0 0 0 0;font:bold 9 맑은 고딕, Gulim;"/>
+        <Edit id="edt_REPMNM" taborder="4" lengthunit="ascii" maxlength="50" left="159" top="199" width="150" height="21" onkeyup="fn_inputEvent" onkillfocus="fn_inputEvent"/>
+        <Edit id="edt_FZIP" taborder="13" readonly="true" lengthunit="ascii" maxlength="3" left="159" top="227" width="30" height="21" style="border:1 solid #bfbfbfff,0 none transparent,1 solid #bfbfbfff,1 solid #bfbfbfff;padding:2 0 2 0;align:right middle;" enable="false"/>
+        <Edit id="edt_DONGBW" taborder="10" lengthunit="ascii" maxlength="100" left="159" top="282" width="500" height="21" onkeyup="fn_inputEvent" onkillfocus="fn_inputEvent"/>
+        <Edit id="edt_DONGUP" taborder="9" readonly="true" lengthunit="ascii" maxlength="300" left="159" top="257" width="500" height="21" enable="false"/>
+        <Static id="Static114" taborder="30" text="대표전화번호" cssclass="sta_WF_Label" left="385" top="195" width="140" height="29"/>
+        <Edit id="edt_TEL2" taborder="6" inputtype="number" lengthunit="ascii" maxlength="4" left="579" top="199" width="40" height="21" onkeyup="fn_inputEvent" onkillfocus="fn_inputEvent"/>
+        <Edit id="edt_TEL3" taborder="7" inputtype="number" lengthunit="ascii" maxlength="4" left="634" top="199" width="40" height="21" onkeyup="fn_inputEvent" onkillfocus="fn_inputEvent"/>
+        <Static id="Static01" taborder="32" text="-" left="566" top="199" width="11" height="21" style="align:center;"/>
+        <Static id="Static07" taborder="33" text="-" left="621" top="199" width="11" height="21" style="align:center;"/>
+        <Edit id="edt_CLNTNM" taborder="2" lengthunit="ascii" maxlength="200" left="159" top="171" width="212" height="21" onkeyup="fn_inputEvent" onkillfocus="fn_inputEvent"/>
+        <MaskEdit id="edt_BZNO" taborder="3" type="string" mask="@@@-@@-@@@@@" left="529" top="171" width="100" height="21" style="align:center;" maxlength="3" onkeyup="fn_inputEvent" onkillfocus="fn_inputEvent" enable="false" tooltiptext="민감한 정보이므로 본 화면에서 수정할 수 없습니다"/>
+        <Edit id="edt_TEL1" taborder="5" inputtype="number" lengthunit="ascii" maxlength="4" left="529" top="199" width="35" height="21" onkeyup="fn_inputEvent" onkillfocus="fn_inputEvent"/>
+        <Button id="btn_zip" taborder="8" onclick="div_info_btn_zip_onclick" cssclass="btn_WF_Searchbtn" left="222" top="227" width="21" height="21"/>
+        <Static id="sta_natrplc" taborder="38" text="0000000000000" wordwrap="char" left="99" top="49" width="160" height="30" style="padding:0 0 2 0;font:bold 13 맑은 고딕, Gulim;"/>
+        <Static id="sta_date" taborder="39" text="등록 : 2021-01-01 | 수정 : 2021-12-10" top="49" right="25" width="230" height="30" style="padding:0 0 0 0;align:right middle;font:9 맑은 고딕, Gulim;"/>
+        <Static id="Static02" taborder="40" text="회원가입(아이디)" cssclass="sta_WF_Label" left="15" top="91" width="140" height="29"/>
+        <Static id="Static04" taborder="41" text="전자계약" cssclass="sta_WF_Label" left="385" top="91" width="140" height="29"/>
+        <Static id="sta_user" taborder="42" text="0 개" left="164" top="91" width="150" height="29"/>
+        <Static id="sta_elt" taborder="43" text="0 건" left="534" top="91" width="150" height="29"/>
+        <Static id="Static10" taborder="44" text="작업 선택" cssclass="sta_WF_Label" left="15" top="129" width="140" height="29"/>
+        <Combo id="cbo_gln" taborder="1" value="8801045000015" text="[8801045000015] 오뚜기 테스트" innerdataset="@ds_related" codecolumn="NA_TRPL_C" datacolumn="CBO_TEXT" index="0" left="385" top="133" width="342" height="21" onitemchanged="cbo_gln_onitemchanged" enable="false" tooltiptext="동일 사업자번호를 가진 거래처코드 목록입니다"/>
+        <Button id="btn_ok" taborder="11" text="정보 수정" cssclass="btn_WF_CRUD" enable="false" width="100" height="21" right="15" onclick="btn_ok_onclick" bottom="15"/>
+        <Static id="sta_natrplc_to" taborder="47" text="→ &lt;fc v='#0000ffff'&gt;0000000000000&lt;/fc&gt;" usedecorate="true" wordwrap="char" left="238" top="49" width="170" height="30" style="padding:0 0 2 0;font:bold 13 맑은 고딕, Gulim;" visible="false"/>
+        <Radio id="rdo_type" taborder="0" left="164" top="133" width="220" height="21" codecolumn="codecolumn" datacolumn="datacolumn" rowcount="1" value="MOD" onitemchanged="rdo_type_onitemchanged" canitemchange="rdo_type_canitemchange">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">MOD</Col>
+                <Col id="datacolumn">정보 수정</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">CHG</Col>
+                <Col id="datacolumn">정식GLN 이관</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Button id="btn_cancel" taborder="12" text="취소" cssclass="btn_WF_CRUD" right="121" width="60" height="21" onclick="btn_close_onclick" bottom="15"/>
+        <Edit id="edt_RZIP" taborder="14" readonly="true" lengthunit="ascii" maxlength="3" left="189" top="227" width="30" height="21" style="border:1 solid #bfbfbfff,1 solid #bfbfbfff,1 solid #bfbfbfff,0 none transparent;padding:2 0 2 0;" enable="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_result_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+          <Column id="ATEL" type="STRING" size="256"/>
+          <Column id="HTEL" type="STRING" size="256"/>
+          <Column id="STEL" type="STRING" size="256"/>
+          <Column id="FZIP" type="STRING" size="256"/>
+          <Column id="RZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="OGLN_CNT" type="STRING" size="256"/>
+          <Column id="USR_CNT" type="STRING" size="256"/>
+          <Column id="ELT_CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_related">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+          <Column id="ATEL" type="STRING" size="256"/>
+          <Column id="HTEL" type="STRING" size="256"/>
+          <Column id="STEL" type="STRING" size="256"/>
+          <Column id="FZIP" type="STRING" size="256"/>
+          <Column id="RZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="CBO_TEXT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_related_dp">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+          <Column id="ATEL" type="STRING" size="256"/>
+          <Column id="HTEL" type="STRING" size="256"/>
+          <Column id="STEL" type="STRING" size="256"/>
+          <Column id="FZIP" type="STRING" size="256"/>
+          <Column id="RZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="CBO_TEXT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="sta_natrplc" propid="text" datasetid="ds_result" columnid="NA_TRPL_C"/>
+      <BindItem id="bindedt1" compid="edt_CLNTNM" propid="value" datasetid="ds_result" columnid="CLNTNM"/>
+      <BindItem id="bindedt2" compid="edt_BZNO" propid="value" datasetid="ds_result" columnid="BIZ_NUMBER"/>
+      <BindItem id="bindedt3" compid="edt_REPMNM" propid="value" datasetid="ds_result" columnid="REPMNM"/>
+      <BindItem id="bindedt4" compid="edt_TEL2" propid="value" datasetid="ds_result" columnid="HTEL"/>
+      <BindItem id="bindedt5" compid="edt_TEL3" propid="value" datasetid="ds_result" columnid="STEL"/>
+      <BindItem id="bindedt6" compid="edt_TEL1" propid="value" datasetid="ds_result" columnid="ATEL"/>
+      <BindItem id="bindedt7" compid="edt_RZIP" propid="value" datasetid="ds_result" columnid="RZIP"/>
+      <BindItem id="bindedt8" compid="edt_FZIP" propid="value" datasetid="ds_result" columnid="FZIP"/>
+      <BindItem id="bindedt9" compid="edt_DONGBW" propid="value" datasetid="ds_result" columnid="DONGBW"/>
+      <BindItem id="bindedt10" compid="edt_DONGUP" propid="value" datasetid="ds_result" columnid="DONGUP"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+this.availableChg = false;
+this.USER_CNT;
+this.ELT_CNT;
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+   this.gfn_setInitForm(obj, e);
+}
+
+this.fn_afterFormOnload = function() //페이지 로딩후 실행부분
+{
+	this.ds_result.addRow();
+	this.ds_result.copyRow(0, this.parent.dsInfo, 0);
+	this.ds_result.applyChange();
+	
+	this.USER_CNT = this.ds_result.getColumn(0, "USR_CNT");
+	this.ELT_CNT = this.ds_result.getColumn(0, "ELT_CNT");
+	this.sta_user.set_text(this.USER_CNT == "0" ? "없음" : this.USER_CNT + " 개");
+	this.sta_elt.set_text(this.ELT_CNT == "0" ? "없음" : this.ELT_CNT + " 건");
+	this.sta_date.set_text("등록 : " + this.ds_result.getColumn(0, "FSRG_DTM") + " | 수정 : " + this.ds_result.getColumn(0, "LSCHG_DTM"));
+	
+	this.fn_search();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+/*저장 버튼 이벤트*/
+this.btn_ok_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.rdo_type.value == "MOD") {
+		this.fn_updateTempGln();
+	} else {
+		this.fn_chg2Official();
+	}
+}
+
+/*창닫기 버튼 이벤트*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.div_info_btn_zip_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var sOption = "autosize=true, title=true";
+	var sPopupCallBack = "fn_addr";
+	//this.gfn_openPopup("zipCode", "OMG.PT::OMG_DS_SC_9010.xfdl", {}, sOption, sPopupCallBack);
+	this.gfn_openPopup("zipCode", "common::AddressDaum.xfdl", {}, sOption, sPopupCallBack); // 테스트용 다음 주소API
+}
+
+this.cbo_gln_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.ds_related_dp.clearData();
+	if (this.gfn_nullToEmpty(e.postvalue) != "") {
+		this.sta_natrplc_to.set_visible(true);
+		this.sta_natrplc_to.set_text("→ <fc v='#0000ffff'>"+e.postvalue+"</fc>");
+		this.btn_ok.set_enable(true);
+		
+		this.ds_related_dp.addRow();
+		this.ds_related_dp.copyRow(0, this.ds_related, e.postindex);
+	} else {
+		this.sta_natrplc_to.set_visible(false);
+		this.btn_ok.set_enable(false);
+	}
+}
+
+this.rdo_type_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	this.btn_ok.set_text(e.posttext);
+	this.btn_ok.set_enable(false);
+	this.sta_natrplc_to.set_visible(false);
+	this.fn_changeType(e.postvalue == "MOD");
+}
+
+this.rdo_type_canitemchange = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if (e.postvalue == "CHG") {
+		if (!this.availableChg) {
+			this.alert("변경 가능한 거래처코드가 없습니다.");
+			return false;
+		} else if (this.USER_CNT == "0" && this.ELT_CNT == "0") {
+			this.alert("이관할 회원정보 또는 전자계약이 없습니다.");
+			return false;
+		}
+	}
+}
+
+this.ds_result_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if (this.rdo_type.value == "MOD" && obj.getRowType(e.row) == Dataset.ROWTYPE_UPDATE) {
+		this.btn_ok.set_enable(true);
+	}
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+this.fn_updateTempGln = function()
+{
+	if (this.fn_validationCheck()) {
+		var sSvcID = "updateTempGln";
+		var sURL = "svc::rest/mg/usrinf/updateTempGln";
+		var sInDatasets = "ds_gln=ds_result";
+		var sOutDatasets = "";
+		var sArgument = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType = "U";
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.fn_chg2Official = function()
+{
+	var msg = "아래의 임시거래처코드 데이터를 정식거래처코드로 이관하시겠습니까?";
+	msg += "\n\n" + this.ds_result.getColumn(0, "NA_TRPL_C") + " → " + this.ds_related_dp.getColumn(0, "NA_TRPL_C");
+	if (this.USER_CNT != "0") {
+		msg += "\n- 회원ID : " + this.USER_CNT + " 개";
+	}
+	if (this.ELT_CNT != "0") {
+		msg += "\n- 전자계약 : " + this.ELT_CNT + " 건";
+	}
+	
+	if (this.confirm(msg)) {
+		var sSvcID = "changeTempGlnToOfficial";
+		var sURL = "svc::rest/mg/usrinf/changeTempGlnToOfficial";
+		var sInDatasets = "ds_to=ds_related_dp";
+		var sOutDatasets = "";
+		var sArgument = "from=" + this.ds_result.getColumn(0, "NA_TRPL_C") + " eltAll=N";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType = "U";
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.fn_validationCheck = function()
+{
+	// 정보수정일 때 검사
+	if (this.rdo_type.value == "MOD") {
+		if (!this.fn_checkComp(this.edt_BZNO, "사업자번호를")) { return false;
+		} else if (!this.fn_checkComp(this.edt_CLNTNM, "회사명을")) { return false;
+		} else if (!this.fn_checkComp(this.edt_REPMNM, "대표자명을")) { return false;
+		} else if (!this.fn_checkComp(this.edt_FZIP, "주소를")) { return false;
+		} else if (!this.fn_checkComp(this.edt_RZIP, "주소를")) { return false;
+		} else if (!this.fn_checkComp(this.edt_DONGUP, "주소를")) { return false;
+		} else if (!this.fn_checkComp(this.edt_DONGBW, "상세주소를")) { return false;
+		} else if (!this.fn_checkComp(this.edt_TEL1, "전화번호를")) { return false;
+		} else if (!this.fn_checkComp(this.edt_TEL2, "전화번호를")) { return false;
+		} else if (!this.fn_checkComp(this.edt_TEL3, "전화번호를")) { return false;
+		}
+		
+		var orgBzno = this.ds_result.getOrgColumn(0, "BIZ_NUMBER");
+		var newBzno = this.ds_result.getColumn(0, "BIZ_NUMBER");
+	}
+	
+    return this.confirm("임시거래처 정보를 변경하시겠습니까?");
+}
+
+this.fn_checkComp = function(obj, msg)
+{
+	if (this.gfn_isNull(obj.value)) {
+		this.alert(msg + ' 입력바랍니다.');
+		obj.setFocus();
+		return false;
+	}
+	return true;
+}
+
+this.fn_search = function()
+{
+	var sSvcID = "retrieveTempRelatedGlnList";
+	var sURL = "svc::rest/mg/usrinf/retrieveTempRelatedGlnList";
+	var sInDatasets = "";
+	var sOutDatasets = "ds_related=ds_related";
+	var sArgument = "bzno=" + this.ds_result.getColumn(0, "BIZ_NUMBER");
+	var sCallbackFunc = "fn_callBack";
+	var sTranType = "S";
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID =="retrieveTempRelatedGlnList") {
+			if (this.ds_related.rowcount > 0) {
+				this.ds_related.insertRow(0);
+				this.ds_related.setColumn(0, "NA_TRPL_C", "");
+				this.ds_related.setColumn(0, "CBO_TEXT", "=========선택=========");
+				this.cbo_gln.set_index(0);
+				this.availableChg = true;
+			} else {
+				this.ds_related.addRow();
+				this.ds_related.setColumn(0, "CBO_TEXT", "변경 가능한 거래처코드 없음");
+				this.cbo_gln.set_index(0);
+				this.cbo_gln.set_enable(false);
+				this.availableChg = false;
+			}
+		} else if (svcID == "updateTempGln") {
+			this.alert("거래처 정보가 수정되었습니다.");
+			this.close("Y");
+		} else if (svcID == "changeTempGlnToOfficial") {
+			this.alert("임시거래처 정보가 이관되었습니다.");
+			this.close("Y");
+		}
+	}
+}
+
+this.fn_addr = function(strId, strVal)
+{
+	if (this.gfn_isNull(strVal)) {
+		return;
+	}
+	
+	var temp = strVal.split(",");
+
+	for (var i=0; i<temp.length; i++) {
+		var addrStr = temp[i].split("#");
+
+		if (addrStr[0] == "FZIP") {
+			this.ds_result.setColumn(0, "FZIP", addrStr[1]); // 우편번호 앞자리
+		} else if (addrStr[0] == "RZIP") {
+			this.ds_result.setColumn(0, "RZIP", addrStr[1]); // 우편번호 뒷자리
+		} else if (addrStr[0] == "DONGUP") {
+			this.ds_result.setColumn(0, "DONGUP", addrStr[1]); // 기본주소
+		} else if (addrStr[0] == "DONGBW") {
+			this.ds_result.setColumn(0, "DONGBW", addrStr[1]); // 상세주소
+		}
+	}
+}
+
+this.fn_changeType = function(isMod)
+{
+	/* 컴포넌트 상태 변경 */
+	var compList = [
+		this.edt_BZNO,
+		this.edt_CLNTNM,
+		this.edt_REPMNM,
+		this.edt_FZIP,
+		this.edt_RZIP,
+		this.edt_TEL1,
+		this.edt_TEL2,
+		this.edt_TEL3,
+		this.edt_DONGUP,
+		this.edt_DONGBW
+	];
+	
+	for (var i=0; i<compList.length; i++) {
+		if (compList[i].id != "edt_FZIP" && compList[i].id != "edt_RZIP" && compList[i].id != "edt_DONGUP" && compList[i].id != "edt_BZNO") {
+			compList[i].set_readonly(!isMod);
+		}
+		compList[i].style.set_color(isMod ? "#333333ff" : "#3333ffff");
+	}
+	this.btn_zip.set_enable(isMod);
+	this.cbo_gln.set_enable(!isMod);
+	this.cbo_gln.set_index(0);
+	this.ds_related_dp.clearData();
+	
+	/* Bind 세팅 변경 */
+	var makeList = new Array();
+	for (var j=0; j<this.binds.length; j++) {
+		if (this.binds[j].name.indexOf("bindedt") != -1) {
+			makeList.push({name:this.binds[j].name, compid:this.binds[j].compid, propid:this.binds[j].propid, columnid:this.binds[j].columnid});
+		}
+	}
+	
+	for (var k=0; k<makeList.length; k++) {
+		var name;
+		var ds;
+		if (isMod) {
+			name = "bindedt_i";
+			ds = "ds_result";
+		} else {
+			name = "bindedt_r";
+			ds = "ds_related_dp";
+		}
+		
+		// 기존 Bind 제거
+		var rtnobj = this.removeChild(makeList[k].name);
+		rtnobj.destroy();
+		
+		// 신규 Bind 생성
+		var objBindItem = new BindItem();
+		objBindItem.init(name+k, makeList[k].compid, makeList[k].propid, ds, makeList[k].columnid);
+		this.addChild(name+k, objBindItem);
+		objBindItem.bind();
+	}
+}
+
+this.fn_inputEvent = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	obj.updateToDataset();
+}]]></Script>
+  </Form>
+</FDL>

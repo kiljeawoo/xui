@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_311306" classname="pattern_01" left="0" top="0" width="788" height="145" titletext="스마트유통시스템 이용신청서" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static86" taborder="10" text="스마트유통시스템 이용신청서" cssclass="sta_WF_Subtitle" left="0" top="2" width="467" height="21"/>
+        <Static id="Static94" taborder="18" cssclass="sta_WF_Labelbg" left="13.83%" top="54" right="0.13%" height="80" visible="false"/>
+        <TextArea id="txa_sctrSjt" taborder="2" wordwrap="char" ontextchanged="OMG_DS_SC_311301_ontextchanged" left="14.34%" top="57" right="0.38%" height="72" visible="false" lengthunit="ascii" maxlength="1998" onkillfocus="OMG_DS_SC_311301_ontextchanged"/>
+        <Static id="Static03" taborder="23" cssclass="sta_WF_Labelbg" left="13.83%" top="26" right="0.13%" height="29"/>
+        <Edit id="edt_ETC2" taborder="24" lengthunit="ascii" maxlength="100" onkillfocus="OMG_DS_SC_311301_ontextchanged" ontextchanged="OMG_DS_SC_311301_ontextchanged" left="14.34%" top="30" height="21" style="align:right middle;" width="130"/>
+        <Static id="Static02" taborder="22" text="환코드" cssclass="sta_WF_Label" left="0" top="26" right="86.04%" height="29"/>
+        <Static id="Static93" taborder="19" text="특약사항" cssclass="sta_WF_Label" left="0" top="54" right="86.04%" height="80" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_etcEltStylAmm113" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_eltCtrwDtl13" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="MN_CTRW_KDC" type="STRING" size="256" sumtext="메인계약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="CNR_DT" type="STRING" size="256" sumtext="검수일"/>
+          <Column id="PSG_MM" type="STRING" size="256" sumtext="경과분/월"/>
+          <Column id="PSG_DD" type="STRING" size="256" sumtext="경과분/일"/>
+          <Column id="ETR_FEE" type="STRING" size="256" sumtext="수탁수수료"/>
+          <Column id="PHD_FEERT" type="STRING" size="256" sumtext="물류수수료율"/>
+          <Column id="LIG_PLTPE" type="STRING" size="256" sumtext="주류파렛트당"/>
+          <Column id="MEXP_DD" type="STRING" size="256" sumtext="관리비일"/>
+          <Column id="RT" type="STRING" size="256" sumtext="마진율"/>
+          <Column id="BLM_GRMY" type="STRING" size="256" sumtext="하자보증금"/>
+          <Column id="WRS_PRM_PY" type="STRING" size="256" sumtext="상품대금 지금"/>
+          <Column id="GRMY" type="STRING" size="256" sumtext="보증금"/>
+          <Column id="WRS_SPYAM" type="STRING" size="256" sumtext="상품공급액"/>
+          <Column id="CTR_CLO" type="STRING" size="256" sumtext="계약해지"/>
+          <Column id="SCTR_SJT" type="STRING" size="256" sumtext="특약사항"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_TINM" type="STRING" size="256" sumtext="제목"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="BRAND_N" type="STRING" size="256" sumtext="브랜드명"/>
+          <Column id="RETURN_DATE" type="STRING" size="256" sumtext="반품기간"/>
+          <Column id="PHD_FEERT1" type="STRING" size="256"/>
+          <Column id="PHD_FEERT2" type="STRING" size="256"/>
+          <Column id="ETC1" type="STRING" size="256"/>
+          <Column id="ETC2" type="STRING" size="256"/>
+          <Column id="ETC3" type="STRING" size="256"/>
+          <Column id="ETC4" type="STRING" size="256"/>
+          <Column id="ETC5" type="STRING" size="256"/>
+          <Column id="ETC6" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item8" compid="txa_sctrSjt" propid="value" datasetid="ds_eltCtrwDtl13" columnid="SCTR_SJT"/>
+      <BindItem id="item32" compid="edt_ETC2" propid="value" datasetid="ds_eltCtrwDtl13" columnid="ETC2"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var ELT_CODE = "124"; // 메인계약서코드
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == ELT_CODE) {
+			this.ds_etcEltStylAmm113.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	this.parent.ds_eltCtrwDtl.set_enableevent(false);
+
+	for (var i = 0; i < this.parent.ds_eltCtrwDtl.rowcount; i++) {
+   		if (this.parent.ds_eltCtrwDtl.getColumn(i, "MN_CTRW_KDC") == ELT_CODE) {
+			fv_position = i;
+			fv_chk = 1;
+
+			if (this.gfn_nullToEmpty(this.parent.ds_eltCtrwDtl.getColumn(i, "CTRW_STY_VER")) == "") {
+				this.parent.ds_eltCtrwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm113.getColumn(0, "CTRW_STY_VER"));
+			}
+			if (this.gfn_nullToEmpty(this.parent.ds_eltCtrwDtl.getColumn(i, "CHG_SQNO")) == "") {
+				this.parent.ds_eltCtrwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+			}
+
+			this.ds_eltCtrwDtl13.addRow();
+			this.ds_eltCtrwDtl13.copyRow(0, this.parent.ds_eltCtrwDtl, fv_position);
+		} else {
+			fv_position = i;
+		}
+	}
+
+	if (fv_chk == 0) {
+		this.parent.ds_eltCtrwDtl.deleteAll();
+		var nRow = this.parent.ds_eltCtrwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_eltCtrwDtl.setColumn(fv_position, "MN_CTRW_KDC", ELT_CODE);
+		this.parent.ds_eltCtrwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+		this.parent.ds_eltCtrwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm113.getColumn(0, "CTRW_STY_VER"));
+
+		this.ds_eltCtrwDtl13.addRow();
+		this.ds_eltCtrwDtl13.copyRow(0, this.parent.ds_eltCtrwDtl, fv_position);
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	if (this.gfn_nullToEmpty(this.edt_ETC2.value) == "") {
+		alert("[스마트유통시스템 이용신청서] 환코드를 입력해주세요.");
+		this.edt_ETC2.setFocus();
+		return false;
+	}
+	
+	// this.parent.ds_eltCtrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+	return true;
+}
+
+this.OMG_DS_SC_311301_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+	/*
+	if (obj.id == "txa_sctrSjt") {
+		var text = this.txa_sctrSjt.value;
+		if (!this.gfn_isNull(text)) {
+			var lc = text.indexOf("^");
+			if (lc != -1 ) {
+				alert('^는 사용하실 수 없습니다.');
+				text = nexacro.replaceAll(text,"^"," ");
+				this.txa_sctrSjt.set_value(text);
+			}
+		}
+	}
+	*/
+	
+	//this.parent.ds_eltCtrwDtl.setColumn(fv_position, "ETC1" , this.rdo_etc1_target.value) ; // 대상
+	this.parent.ds_eltCtrwDtl.setColumn(fv_position, "ETC2" , this.edt_ETC2.value) ; // 환코드
+	// this.parent.ds_eltCtrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+}
+]]></Script>
+  </Form>
+</FDL>

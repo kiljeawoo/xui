@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8333" classname="OMG_DS_SC_8331" left="0" top="0" width="1128" height="1015" onload="OMG_DS_SC_8333_onload" style="border:2 solid #067394ff ;" titletext="판매속보 설문조사 팝업" onactivate="OMG_DS_SC_8333_onactivate">
+    <Layouts>
+      <Layout>
+        <Edit id="Edit01" taborder="15" visible="false" left="514" top="15" width="73" height="23"/>
+        <Edit id="Edit02" taborder="16" visible="false" left="430" top="12" width="73" height="23"/>
+        <Edit id="Edit03" taborder="17" visible="false" left="320" top="15" width="73" height="23"/>
+        <Button id="btn_save" taborder="18" text="저장" cssclass="btn_WF_CRUD" top="12" right="568" width="122" height="41" onclick="btn_save_onclick" style="font:bold 11 맑은 고딕;"/>
+        <Static id="Static00" taborder="19" left="8" top="52" height="46" style="align:center middle;font:13 HY견고딕;" right="10"/>
+        <Static id="Static01" taborder="20" left="8" top="102" height="142" style="font:10 맑은 고딕;" right="10" titletext="판매속보 설문조사 팝업"/>
+        <Static id="Static02" taborder="21" left="8" top="369" height="33" style="background:#f6f6f6ff;align:center middle;font:10 HY견고딕;" right="10" position="absolute"/>
+        <Div id="div_chk" taborder="22" text="Div00" left="0" top="21" right="0" height="29" style="background:transparent;">
+          <Layouts>
+            <Layout>
+              <CheckBox id="chk" taborder="0" text="오늘 보지 않기" value="0" truevalue="1" falsevalue="0" onchanged="div_chk_chk_onchanged" right="5.05%" bottom="10" width="105" height="17"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static04" taborder="24" text="현행" left="16" top="240" height="39" style="border:1 solid #808080ff ;align:center middle;" width="550"/>
+        <Static id="Static03" taborder="25" text="판매속보" left="565" top="240" height="39" style="border:1 solid #808080ff ;align:center middle;" width="550"/>
+        <Static id="Static05" taborder="26" text="농협 사업장의 전일까지의 POS 매출 확인" left="16" top="278" height="74" style="border:1 solid #808080ff ;align:center middle;" width="550"/>
+        <Static id="Static06" taborder="27" text="1시간 단위로 당일 POS 매출 확인&#13;&#10;※ 매출 현황 제공 시간은 변동 가능성 있음" left="565" top="278" height="74" style="border:1 solid #808080ff ;align:center middle;" onclick="Static06_onclick" width="550"/>
+        <Static id="Static07" taborder="28" text="사업장코드" left="30" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" position="absolute" width="65"/>
+        <Static id="Static11" taborder="32" left="30" top="910" height="24" style="border:1 solid #808080ff ;" position="absolute" width="65"/>
+        <Static id="Static08" taborder="33" text="사업장명" left="94" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="60"/>
+        <Static id="Static09" taborder="34" left="94" top="910" height="24" style="border:1 solid #808080ff ;" width="60"/>
+        <Static id="Static10" taborder="35" text="수량" left="153" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="30"/>
+        <Static id="Static12" taborder="36" left="153" top="910" height="24" style="border:1 solid #808080ff ;" width="30"/>
+        <Static id="Static13" taborder="37" text="금액" left="182" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="30"/>
+        <Static id="Static14" taborder="38" left="182" top="910" height="24" style="border:1 solid #808080ff ;" width="30"/>
+        <Static id="Static15" taborder="39" text="사업장코드" left="415" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="65"/>
+        <Static id="Static16" taborder="40" left="415" top="910" height="24" style="border:1 solid #808080ff ;" width="65"/>
+        <Static id="Static17" taborder="41" text="사업장명" left="479" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="60"/>
+        <Static id="Static18" taborder="42" left="479" top="910" height="24" style="border:1 solid #808080ff ;" width="60"/>
+        <Static id="Static19" taborder="43" left="538" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="37" text="08~09"/>
+        <Static id="Static20" taborder="44" left="538" top="910" height="24" style="border:1 solid #808080ff ;" width="37"/>
+        <Static id="Static21" taborder="45" text="09~10" left="574" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="37"/>
+        <Static id="Static22" taborder="46" left="574" top="910" height="24" style="border:1 solid #808080ff ;" width="37"/>
+        <Static id="Static23" taborder="47" text="10~11" left="610" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="37"/>
+        <Static id="Static24" taborder="48" text="11~12" left="646" top="887" height="24" style="border:1 solid #808080ff ;" width="37"/>
+        <Static id="Static25" taborder="49" left="610" top="910" height="24" style="border:1 solid #808080ff ;" width="37"/>
+        <Static id="Static26" taborder="50" left="646" top="910" height="24" style="border:1 solid #808080ff ;" width="37"/>
+        <Static id="Static27" taborder="51" text="합계" left="682" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="37"/>
+        <Static id="Static28" taborder="52" text="금액" left="718" top="887" height="24" style="border:1 solid #808080ff ;align:center middle;" width="37"/>
+        <Static id="Static29" taborder="53" left="682" top="910" height="24" style="border:1 solid #808080ff ;" width="37"/>
+        <Static id="Static30" taborder="54" left="718" top="910" height="24" style="border:1 solid #808080ff ;" width="37"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_survey">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="SUBTITLE" type="STRING" size="256"/>
+          <Column id="CONTENT" type="STRING" size="256"/>
+          <Column id="APL_ST_DT" type="STRING" size="256"/>
+          <Column id="APL_ED_DT" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SRV_ST_DT" type="STRING" size="256"/>
+          <Column id="SRV_ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_survey_q">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_NUM" type="STRING" size="256"/>
+          <Column id="QUESTION" type="STRING" size="256"/>
+          <Column id="A_TYPE" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="ST_DT" type="STRING" size="256"/>
+          <Column id="ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_que">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">01</Col>
+            <Col id="value">단답형</Col>
+          </Row>
+          <Row>
+            <Col id="code">02</Col>
+            <Col id="value">복수형</Col>
+          </Row>
+          <Row>
+            <Col id="code">03</Col>
+            <Col id="value">주관식</Col>
+          </Row>
+          <Row>
+            <Col id="code">04</Col>
+            <Col id="value">기타</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_survey_a">
+        <ColumnInfo>
+          <Column id="SRV_Q_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_A_SEQ" type="STRING" size="256"/>
+          <Column id="ANSWER" type="STRING" size="256"/>
+          <Column id="INPUT_TYPE" type="STRING" size="256"/>
+          <Column id="TXT_COL_CNT" type="STRING" size="256"/>
+          <Column id="TXT_ROW_CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ans_save">
+        <ColumnInfo>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_Q_SEQ" type="STRING" size="256"/>
+          <Column id="SRV_A_SEQ" type="STRING" size="256"/>
+          <Column id="INPUT_TEXT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.OMG_DS_SC_8333_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+
+	var url=this.getOwnerFrame().URL;
+	this.Edit01.set_value(this.getOwnerFrame().SRV_SEQ); 
+	this.Static00.set_text(this.getOwnerFrame().TITLE);			//설문 번호	
+	this.Static01.set_text(this.getOwnerFrame().INTRO);			//내용
+	this.Static02.set_text(this.getOwnerFrame().SUBTITLE);		//부제목
+			
+	this.btn_que_search_onclick();
+	//confirm("설문조사 기간입니다.")
+
+}
+
+this.fn_afterFormOnload = function()
+{
+ 
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "retrieveSurveyqueList") {
+			if (ErrorCode == 0) {
+				//alert("질문조회 완료");
+				this.question();
+			}
+		}else if(svcID =="insertSurveyanswerUser"){
+			if (ErrorCode == 0) {
+				alert("정상적으로 저장되었습니다.")
+				this.close();
+			}
+		}
+	
+	}
+	
+}
+/*질문화면 뿌리기*/
+this.question = function()
+{ 
+	var count = this.ds_survey_q.rowcount; 	 //질문 갯수
+	var anscount = this.ds_survey_a.rowcount; // 답변 총갯수
+	var bottom = 350;
+	
+	for(var i = 0 ; i < count; i++){
+		//조회해서 받아온 질문
+		var QUESTION= this.ds_survey_q.getColumn(i,"QUESTION");
+		var SRV_Q_SEQ = this.ds_survey_q.getColumn(i,"SRV_Q_SEQ")*1;
+		var A_TYPE = this.ds_survey_q.getColumn(i,"A_TYPE");
+		var left = 30;
+		var qseq = SRV_Q_SEQ; // 질문 번호
+		var q = i+1;
+		//질문
+		var objQue = new Static();  
+		objQue.init("survey_que"+qseq, "absolute", 15, bottom+50, 900, 30, null, null);
+		this.addChild("survey_que"+qseq, objQue); 
+		if(A_TYPE == "M"){
+			objQue.set_text(q + ". "+QUESTION + "   (중복응답 가능)");
+		}else{
+			objQue.set_text(q + ". "+QUESTION);
+		}
+		objQue.show();	
+		var quebottom = objQue.getOffsetBottom();
+		
+		//답변 위치확인용
+		var objDap = new Static();  
+		objDap.init("ed_dap"+i, "absolute", 15, quebottom+10, 50, 30, null, null);
+		this.addChild("ed_dap"+i, objDap); 
+		objDap.set_text("답변 :");
+		var px = objDap.getPixelTop();
+
+			
+		if( A_TYPE == "S") 		 //답변타입 : 단수 (라디오박스)
+		{
+			var dsResult = new Dataset; 
+			dsResult.addColumn( "value", "string" ); 
+			dsResult.addColumn( "code", "string" ); 
+			this.addChild("ds_radio"+qseq, dsResult); 
+			
+			var tmp = 0; // 답변의 갯수
+			var ttmp = 0; //조회한 답변에서 단답형의 윗번호
+			for (var k = 0; k < anscount; k++) {
+        		var seq = this.ds_survey_a.getColumn(k,"SRV_Q_SEQ")*1;
+        		var ans = this.ds_survey_a.getColumn(k,"ANSWER");
+        		if(SRV_Q_SEQ == seq){
+        			tmp++;
+        		}else if (SRV_Q_SEQ > seq){
+        			ttmp++;
+        		}else if (SRV_Q_SEQ < seq){
+        		
+        		}
+        	}
+			for(var j = ttmp ; j < ttmp+tmp; j++){
+				var ans = this.ds_survey_a.getColumn(j,"ANSWER"); // ans : 답변 내용
+				var input_type = this.ds_survey_a.getColumn(j,"INPUT_TYPE"); //라디오의 input_type
+				var col = this.ds_survey_a.getColumn(j,"TXT_COL_CNT"); //라디오의 input_type
+				var row = this.ds_survey_a.getColumn(j,"TXT_ROW_CNT"); //라디오의 input_type
+				if(input_type == "T"){
+					var objEdit = new TextArea();       
+					objEdit.init("ans_radio_text"+qseq, "absolute", 30, px , 300,30, null, null);
+					this.addChild("ans_radio_text"+qseq, objEdit); 
+					objEdit.style.set_border("1px solid #bfbfbfff");
+					objEdit.set_wordwrap("char");
+					objEdit.show();
+					bottom = objEdit.getOffsetBottom();
+				}
+ 				dsResult.addRow();
+ 				dsResult.setColumn(j-ttmp,"code",j-ttmp+1);
+  				dsResult.setColumn(j-ttmp,"value",ans);
+  				dsResult.getColumn(j-ttmp,"value");
+			}			
+			var objRadio = new Radio();  
+			objRadio.init("ans_radio"+qseq, "absolute", 30, px, 1150, 40, null,null);
+			this.addChild("ans_radio"+qseq, objRadio); 
+			objRadio.set_columncount(tmp);
+			objRadio.show(); 
+			objRadio.set_innerdataset("ds_radio"+qseq);
+			objRadio.set_codecolumn("code");
+			objRadio.set_datacolumn("value");
+			
+ 			bottom = objRadio.getOffsetBottom();
+			for(var j = ttmp ; j < ttmp+tmp; j++){ // input_type에 T(기타)형식이 있으면 텍스트창 옮김
+				var input_type = this.ds_survey_a.getColumn(j,"INPUT_TYPE");
+				if(input_type == "T"){
+					this["ans_radio_text"+qseq].move(795,bottom+10-15);
+					bottom = this["ans_radio_text"+qseq].getOffsetBottom();
+				}
+			}
+
+		}else if (A_TYPE == "M") // 답변타입 : 복수 (체크박스)
+		{
+			var moveLeft = 30;
+			for(var j = 0 ; j < anscount; j++){
+				if(SRV_Q_SEQ == this.ds_survey_a.getColumn(j,"SRV_Q_SEQ")){
+					var answer = this.ds_survey_a.getColumn(j,"ANSWER");
+					var srv_a_seq = this.ds_survey_a.getColumn(j,"SRV_A_SEQ"); //답변 번호
+					var TextLeft = 30;
+					var anslen = this.gfn_getByteLength(answer)*7;
+					
+					var objCheckBox = new CheckBox();  
+					objCheckBox.init("ans_CheckBox"+qseq+""+srv_a_seq, "absolute", left, px,anslen+30, 25, null, null);
+					this.addChild("ans_CheckBox"+qseq+""+srv_a_seq, objCheckBox); 
+					this.insertChild(1,"ans_CheckBox"+qseq+""+srv_a_seq, objCheckBox); 
+					objCheckBox.show();
+					objCheckBox.set_text(answer);
+					left = objCheckBox.getOffsetRight();
+					bottom = objCheckBox.getOffsetBottom();
+					if(objCheckBox.getOffsetRight() > 750){
+						objCheckBox.move(moveLeft,bottom+10);
+						moveLeft = objCheckBox.getOffsetRight();
+						TextLeft = objCheckBox.getOffsetRight();
+						bottom = objCheckBox.getOffsetBottom();
+
+					}
+					if(this.ds_survey_a.getColumn(j,"INPUT_TYPE") == "T"){
+						var col= this.ds_survey_a.getColumn(j,"TXT_COL_CNT");
+						var row = this.ds_survey_a.getColumn(j,"TXT_ROW_CNT");
+						this["ans_CheckBox"+qseq+""+srv_a_seq].move(30,bottom+10,anslen+30,25,null,null);
+						var etcright = this["ans_CheckBox"+qseq+""+srv_a_seq].getOffsetRight();
+						
+						var objTextArea = new Edit();      
+						objTextArea.init("ans_checkText"+qseq+""+srv_a_seq, "absolute",etcright, bottom+10 , col*100, 25*row, null, null);
+						this.addChild("ans_checkText"+qseq+""+srv_a_seq, objTextArea); 
+						objTextArea.style.set_border("1px solid #bfbfbfff");
+						objTextArea.show();
+						bottom = objTextArea.getOffsetBottom();
+					}
+					
+				}
+				
+			}
+		}else if (A_TYPE == "T") //답변타입 : 텍스트 (editText)
+		{
+			for(var j = 0 ; j < anscount; j++){
+				if(SRV_Q_SEQ == this.ds_survey_a.getColumn(j,"SRV_Q_SEQ")){
+					var col= this.ds_survey_a.getColumn(j,"TXT_COL_CNT");
+					var row = this.ds_survey_a.getColumn(j,"TXT_ROW_CNT");
+				}
+			}
+			
+			var objEdit = new TextArea();       
+			//objEdit.init("ans_edt"+qseq, "absolute", 30, px , 100*col,25*row, null, null);
+			objEdit.init("ans_edt"+qseq, "absolute", 30, px , 100*6,25*5, null, null);
+			this.addChild("ans_edt"+qseq, objEdit); 
+			objEdit.style.set_border("1px solid #bfbfbfff");
+			objEdit.set_wordwrap("char");
+			objEdit.show();
+			bottom = objEdit.getOffsetBottom();
+		}
+		
+	}
+	this.btn_save.move(30,bottom+100,null,null);
+	this.div_chk.move(0,bottom+160,null,null);
+	this.set_width(1150);
+	this.set_height(750);
+	
+	this["ans_radio1"].addEventHandler("onitemchanged", this.ans_radio1_onitemchanged, this);
+	this["ans_radio2"].addEventHandler("onitemchanged", this.ans_radio2_onitemchanged, this);
+	
+}
+/*설문조사 선택*/
+this.fn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("OMG_DS_SC_8321", "OMG.MG::OMG_DS_SC_8321.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+/* 팝업호출확인하기 */
+this.fn_popupAfter = function(strId, strVal)
+{
+
+}
+
+/*질문 조회*/
+this.btn_que_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var SRV_SEQ		= this.gfn_nullToEmpty(this.Edit01.value);			// 설문 번호
+
+	var sParam        = "SRV_SEQ=" + SRV_SEQ;
+	var sSvcID        = "retrieveSurveyqueList";
+	var sURL          = "svc::rest/pt/survey/retrieveSurveyqueList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_survey_q=ds_survey_q ds_survey_a=ds_survey_a";
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+
+
+/*설문조사 저장*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	if(this.fn_validationCheck()){
+		if(confirm("저장하시겠습니까?")){
+			var dsParams = "ds_ans_save=ds_ans_save:U";
+			
+			var sParam = "SRV_SEQ="+this.Edit01.value;
+				
+			var sSvcID        = "insertSurveyanswerUser";
+			var sURL          = "svc::rest/pt/survey/insertSurveyanswerUser";
+			var sInDatasets   = dsParams;
+			var sOutDatasets  = "";
+			var sArgument     = sParam;
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+			
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		}
+	}
+
+}
+
+this.fn_validationCheck = function() {
+
+	var ans_radio1Val = this["ans_radio1"].value;
+	var ans_radio1Text = this["ans_radio1"].text;
+	var ans_radio2Val = this["ans_radio2"].value;
+	var ans_radio2Text = this["ans_radio2"].text;
+	var ans_radio3Val = this["ans_radio3"].value;
+	var ans_radio3Text = this["ans_radio3"].text;
+	var ans_radio_text3Val = this["ans_radio_text3"].value;
+	var ans_radio_text3Text = this["ans_radio_text3"].text;
+	var ans_radio4Val = this["ans_radio4"].value;
+	var ans_radio4Text = this["ans_radio4"].text;
+	var ans_edt5Val = this["ans_edt5"].value;
+	var ans_edt5Text = this["ans_edt5"].text;
+	
+	if(ans_radio1Val == undefined || ans_radio1Val == ""){
+		this["ans_radio1"].setFocus();
+		alert("1번 문항 체크해주세요.");
+		this.ds_ans_save.clearData();
+		return false;
+	} 
+	
+	if(ans_radio1Val == "1"){
+		this.ds_ans_save.addRow();
+		this.ds_ans_save.setColumn(0,"INPUT_TEXT",ans_radio1Text);
+		this.ds_ans_save.setColumn(0,"SRV_SEQ",this.Edit01.value);
+		this.ds_ans_save.setColumn(0,"SRV_Q_SEQ","1");
+		this.ds_ans_save.setColumn(0,"SRV_A_SEQ",ans_radio1Val);
+		if(ans_radio2Val == undefined || ans_radio2Val == ""){
+			this["ans_radio2"].setFocus();
+			alert("2번 문항 체크해주세요.");
+			this.ds_ans_save.clearData();
+			return false;
+		} 
+		
+		if(ans_radio2Val == "1"){
+			this.ds_ans_save.addRow();
+			this.ds_ans_save.setColumn(1,"INPUT_TEXT",ans_radio2Text);
+			this.ds_ans_save.setColumn(1,"SRV_SEQ",this.Edit01.value);
+			this.ds_ans_save.setColumn(1,"SRV_Q_SEQ","2");
+			this.ds_ans_save.setColumn(1,"SRV_A_SEQ",ans_radio2Val);
+			if(ans_radio3Val == undefined || ans_radio3Val == ""){
+				this["ans_radio3"].setFocus();
+				alert("3번 문항 체크해주세요.");
+				this.ds_ans_save.clearData();
+				return false;
+			} 
+			
+			if(ans_radio3Val == "3"){
+				this.ds_ans_save.addRow();
+				if(ans_radio_text3Val == undefined || ans_radio_text3Val == ""){
+					this["ans_radio_text3"].setFocus();
+					alert("3번 문항 기타항목의 답을 적어주세요");
+					this.ds_ans_save.clearData();
+					return false;
+				} else {
+					this.ds_ans_save.addRow();
+					this.ds_ans_save.setColumn(2,"INPUT_TEXT",ans_radio_text3Text);
+					this.ds_ans_save.setColumn(2,"SRV_SEQ",this.Edit01.value);
+					this.ds_ans_save.setColumn(2,"SRV_Q_SEQ","3");
+					this.ds_ans_save.setColumn(2,"SRV_A_SEQ",ans_radio3Val);
+				}
+			} else {
+				this.ds_ans_save.addRow();
+				this.ds_ans_save.setColumn(2,"INPUT_TEXT",ans_radio3Text);
+				this.ds_ans_save.setColumn(2,"SRV_SEQ",this.Edit01.value);
+				this.ds_ans_save.setColumn(2,"SRV_Q_SEQ","3");
+				this.ds_ans_save.setColumn(2,"SRV_A_SEQ",ans_radio3Val);
+			}
+			
+			if(ans_radio4Val == undefined || ans_radio4Val == ""){
+				this["ans_radio4"].setFocus();
+				alert("4번 문항 체크해주세요.");
+				this.ds_ans_save.clearData();
+				return false;
+			} else {
+				this.ds_ans_save.addRow();
+				this.ds_ans_save.setColumn(3,"INPUT_TEXT",ans_radio4Text);
+				this.ds_ans_save.setColumn(3,"SRV_SEQ",this.Edit01.value);
+				this.ds_ans_save.setColumn(3,"SRV_Q_SEQ","4");
+				this.ds_ans_save.setColumn(3,"SRV_A_SEQ",ans_radio4Val);
+			}
+			
+			if(ans_edt5Val == undefined || ans_edt5Val == ""){
+				//this["ans_edt5"].setFocus();
+				//alert("5번 문항 주관식 답을 작성해주세요.");
+				//this.ds_ans_save.clearData();
+				//return false;
+			} else {
+				this.ds_ans_save.addRow();
+				this.ds_ans_save.setColumn(4,"INPUT_TEXT",ans_edt5Text);
+				this.ds_ans_save.setColumn(4,"SRV_SEQ",this.Edit01.value);
+				this.ds_ans_save.setColumn(4,"SRV_Q_SEQ","5");
+				this.ds_ans_save.setColumn(4,"SRV_A_SEQ","1");
+			}
+		} else {
+			this.ds_ans_save.addRow();
+			this.ds_ans_save.setColumn(1,"INPUT_TEXT",ans_radio2Text);
+			this.ds_ans_save.setColumn(1,"SRV_SEQ",this.Edit01.value);
+			this.ds_ans_save.setColumn(1,"SRV_Q_SEQ","2");
+			this.ds_ans_save.setColumn(1,"SRV_A_SEQ",ans_radio2Val);
+		}
+		
+	} else {
+		this.ds_ans_save.addRow();
+		this.ds_ans_save.setColumn(0,"INPUT_TEXT",ans_radio1Text);
+		this.ds_ans_save.setColumn(0,"SRV_SEQ",this.Edit01.value);
+		this.ds_ans_save.setColumn(0,"SRV_Q_SEQ","1");
+		this.ds_ans_save.setColumn(0,"SRV_A_SEQ",ans_radio1Val);
+	}
+	
+	return true;
+	
+}
+
+this.fn_validationCheck2 = function() {
+	var anscount = this.ds_survey_a.rowcount;
+	var ans_tmp = 0;
+	for(var i = 0 ; i < anscount; i++){ 	
+		if(this.ds_survey_a.getColumn(i,"A_TYPE") == "M" && this.ds_survey_a.getColumn(i,"INPUT_TYPE") == "T"  ) 	/* A_TYPE:M && INPUT_TYPE:T*/
+		{
+			var qseq = this.ds_survey_a.getColumn(i,"SRV_Q_SEQ");
+			var srv_a_seq = this.ds_survey_a.getColumn(i,"SRV_A_SEQ");
+			if(this["ans_checkText"+qseq+""+srv_a_seq].text != "" ){									/* 기타Text에 답 기재O*/
+				if(this["ans_CheckBox"+qseq+""+srv_a_seq].value){ 										/* 기타Check 체크O*/
+					this.ds_ans_save.addRow();							
+					this.ds_ans_save.setColumn(ans_tmp,"INPUT_TEXT",this["ans_checkText"+qseq+""+srv_a_seq].text);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_SEQ",this.Edit01.value);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_Q_SEQ",qseq);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_A_SEQ",srv_a_seq);
+					ans_tmp++;
+				}
+				else{																			        /* 기타Check 체크X */
+					alert("기타항목을 체크하고 작성해주세요");
+					this.ds_ans_save.clearData();
+					return false;
+				}
+			}
+		} 
+		if(this.ds_survey_a.getColumn(i,"A_TYPE") == "M"){ 					/*A_TYPE : M 복수형일때*/
+			var qseq = this.ds_survey_a.getColumn(i,"SRV_Q_SEQ");
+			var srv_a_seq = this.ds_survey_a.getColumn(i,"SRV_A_SEQ");
+			if(this["ans_CheckBox"+qseq+""+srv_a_seq].value){ 				/*체크박스에 체크되어있을때*/
+				if(this.ds_survey_a.getColumn(i,"INPUT_TYPE") == "T"){ 		/*A_TYPE : M && INPUT_TYPE : T*/
+					if(this["ans_checkText"+qseq+""+srv_a_seq].text ==""){	/*체크박스에 체크되어있고 답 기재X*/
+						alert("기타항목 답을 입력해주세요.");
+						this.ds_ans_save.clearData();
+						return false;
+					}
+				}else{ 														/*A_TYPE : M && INPUT_TYPE : C*/
+					this.ds_ans_save.addRow();
+					this.ds_ans_save.setColumn(ans_tmp,"INPUT_TEXT",this["ans_CheckBox"+qseq+""+srv_a_seq].text);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_SEQ",this.Edit01.value);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_Q_SEQ",qseq);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_A_SEQ",srv_a_seq);
+					ans_tmp++;
+				}
+			}
+		}else if(this.ds_survey_a.getColumn(i,"A_TYPE") == "T"){ 			/*A_TYPEL:T 주관식*/
+			var qseq = this.ds_survey_a.getColumn(i,"SRV_Q_SEQ");
+			var srv_a_seq = this.ds_survey_a.getColumn(i,"SRV_A_SEQ");
+				if(this["ans_edt"+qseq].text == ""){
+					alert("모든 주관식 답을 작성해주세요.");
+					this.ds_ans_save.clearData();
+					return false;
+				}else{
+					this.ds_ans_save.addRow();
+					this.ds_ans_save.setColumn(ans_tmp,"INPUT_TEXT",this["ans_edt"+qseq].text);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_SEQ",this.Edit01.value);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_Q_SEQ",qseq);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_A_SEQ",srv_a_seq);
+					ans_tmp++;
+				}
+		}else{		
+		}	
+	}	
+	var count = this.ds_survey_q.rowcount; 
+	for(var j=0;j< count;j++){
+		if(this.ds_survey_q.getColumn(j,"A_TYPE") == "S"){						/*A_TYPEL:T 단답형*/
+			var qseq = this.ds_survey_q.getColumn(j,"SRV_Q_SEQ");
+			if(this["ans_radio"+qseq].text == ""){
+				alert("모든 문항 체크해주세요.");
+				this.ds_ans_save.clearData();
+				return false;
+			}else{
+				var text = this["ans_radio"+qseq].text;
+				if(text.indexOf("기타") != -1){ //기타항목 체크했을때, 기타 텍스트 값이 저장됨
+					if(this["ans_radio_text"+qseq].text ==""){
+						alert("기타항목의 답을 적어주세요");
+						this.ds_ans_save.clearData();
+						return false;
+					}else{
+						this.ds_ans_save.addRow();
+						this.ds_ans_save.setColumn(ans_tmp,"INPUT_TEXT",this["ans_radio_text"+qseq].text);
+						this.ds_ans_save.setColumn(ans_tmp,"SRV_SEQ",this.Edit01.value);
+						this.ds_ans_save.setColumn(ans_tmp,"SRV_Q_SEQ",qseq);
+						this.ds_ans_save.setColumn(ans_tmp,"SRV_A_SEQ",this["ans_radio"+qseq].value);
+						ans_tmp++;
+					}
+				}else{
+					this.ds_ans_save.addRow();
+					this.ds_ans_save.setColumn(ans_tmp,"INPUT_TEXT",this["ans_radio"+qseq].text);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_SEQ",this.Edit01.value);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_Q_SEQ",qseq);
+					this.ds_ans_save.setColumn(ans_tmp,"SRV_A_SEQ",this["ans_radio"+qseq].value);
+					ans_tmp++;
+				}
+			}
+		}
+	}
+	var rowcount = this.ds_survey_a.rowcount;
+	var tmppp = 0;
+	/*복수형 답체크했는지 확인 루트 */
+	for(var i = 0; i< count; i++){
+		if(this.ds_survey_q.getColumn(i,"A_TYPE") == "M"){
+			var q_seq = this.ds_survey_q.getColumn(i,"SRV_Q_SEQ");
+			for(var j = 0; j < rowcount ; j++){
+				if(this.ds_survey_a.getColumn(j,"SRV_Q_SEQ") == q_seq){
+					var srv_a_seq = this.ds_survey_a.getColumn(j,"SRV_A_SEQ");
+					var qseq = this.ds_survey_a.getColumn(j,"SRV_Q_SEQ");
+					if(this["ans_CheckBox"+qseq+""+srv_a_seq].value == true){  //체크가 안되어있을때
+						tmppp++;
+					
+					}
+				}
+			}
+			if(tmppp == 0){
+				alert("모든 문항 체크해주세요.");
+				return false;
+			}
+			tmppp = 0;
+		}
+	}
+	return true;
+	
+	
+}
+
+
+
+this.OMG_DS_SC_8333_onactivate = function(obj:Form, e:nexacro.ActivateEventInfo)
+{
+/*	confirm("설문조사 기간입니다.");*/
+}
+
+
+this.div_chk_chk_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	var bSucc;
+	if(this.div_chk.chk.value == 1)	{
+		
+		//bSucc = application.setPrivateProfile(this.framename, "Y");
+		bSucc = application.setPrivateProfile(this.Edit01.value, this.gfn_getClientTime("yyyyMMdd")); // 하루 보지 않기(d+1일)
+		this.close();
+	
+	}else{
+		//bSucc = application.setPrivateProfile(this.framename, "N");
+		bSucc = application.setPrivateProfile(this.Edit01.value, "N");
+	}
+}
+
+
+this.ans_radio1_onitemchanged = function(obj:Radio,e:nexacro.ItemChangeEventInfo)
+{
+	
+	var ans_radio1Val = this["ans_radio1"].value;
+	var ans_radio2Val = this["ans_radio2"].value;
+	
+	if(ans_radio1Val == "1") {
+	
+		if(ans_radio2Val == "1") {
+			this["ans_radio2"].set_enable("true");
+			this["ans_radio3"].set_enable("true");
+			this["ans_radio_text3"].set_enable("true");
+			this["ans_radio4"].set_enable("true");
+			this["ans_edt5"].set_enable("true");
+		} else if(ans_radio2Val == "2") {
+			this["ans_radio3"].set_value("");
+			this["ans_radio3"].set_cssclass("rdo_WF_Essential");
+			this["ans_radio3"].set_enable("false");
+			this["ans_radio_text3"].set_value("");
+			this["ans_radio_text3"].set_cssclass("rdo_WF_Essential");
+			this["ans_radio_text3"].set_enable("false");
+			this["ans_radio4"].set_value("");
+			this["ans_radio4"].set_cssclass("rdo_WF_Essential");
+			this["ans_radio4"].set_enable("false");
+			this["ans_edt5"].set_value("");
+			this["ans_edt5"].set_cssclass("rdo_WF_Essential");
+			this["ans_edt5"].set_enable("false");
+		} else {
+			this["ans_radio2"].set_enable("true");
+			this["ans_radio3"].set_enable("true");
+			this["ans_radio_text3"].set_enable("true");
+			this["ans_radio4"].set_enable("true");
+			this["ans_edt5"].set_enable("true");
+		}
+		
+	} else if(ans_radio1Val == "2") {
+		this["ans_radio2"].set_value("");
+		this["ans_radio2"].set_cssclass("rdo_WF_Essential");
+		this["ans_radio2"].set_enable("false");
+		this["ans_radio3"].set_value("");
+		this["ans_radio3"].set_cssclass("rdo_WF_Essential");
+		this["ans_radio3"].set_enable("false");
+		this["ans_radio_text3"].set_value("");
+		this["ans_radio_text3"].set_cssclass("rdo_WF_Essential");
+		this["ans_radio_text3"].set_enable("false");
+		this["ans_radio4"].set_value("");
+		this["ans_radio4"].set_cssclass("rdo_WF_Essential");
+		this["ans_radio4"].set_enable("false");
+		this["ans_edt5"].set_value("");
+		this["ans_edt5"].set_cssclass("rdo_WF_Essential");
+		this["ans_edt5"].set_enable("false");
+	}
+	
+}
+
+this.ans_radio2_onitemchanged = function(obj:Radio,e:nexacro.ItemChangeEventInfo)
+{
+	
+	var ans_radio2Val = this["ans_radio2"].value;
+	
+	if(ans_radio2Val == "1") {
+		this["ans_radio3"].set_enable("true");
+		this["ans_radio_text3"].set_enable("true");
+		this["ans_radio4"].set_enable("true");
+		this["ans_edt5"].set_enable("true");
+	} else if(ans_radio2Val == "2") {
+		this["ans_radio3"].set_value("");
+		this["ans_radio3"].set_cssclass("rdo_WF_Essential");
+		this["ans_radio3"].set_enable("false");
+		this["ans_radio_text3"].set_value("");
+		this["ans_radio_text3"].set_cssclass("rdo_WF_Essential");
+		this["ans_radio_text3"].set_enable("false");
+		this["ans_radio4"].set_value("");
+		this["ans_radio4"].set_cssclass("rdo_WF_Essential");
+		this["ans_radio4"].set_enable("false");
+		this["ans_edt5"].set_value("");
+		this["ans_edt5"].set_cssclass("rdo_WF_Essential");
+		this["ans_edt5"].set_enable("false");
+	}
+	
+}
+
+]]></Script>
+  </Form>
+</FDL>

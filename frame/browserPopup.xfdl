@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="browserPopup" classname="browserPopup" left="0" top="0" width="344" height="206" titletext="브라우저 공지사항 팝업">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="4" left="0" top="0" width="344" height="206" cssclass="sta_POP_Brwsbg"/>
+        <Static id="Static00" taborder="0" text="웹브라우저 IE6, 7을 사용하는 PC는 원활한 서비스&#13;&#10;이용을 위해 &lt;b v=&quot;true&quot;&gt;구글, 크롬&lt;/b&gt; 설치 후 이용하시기 바랍니다. " left="12" top="52" width="320" height="61" cssclass="sta_POP_Brwsmsg" usedecorate="true"/>
+        <Static id="Static01" taborder="1" left="2" top="2" width="340" height="41" cssclass="sta_POP_Brwstitle"/>
+        <Static id="Static02" taborder="2" left="12" top="120" width="68" height="16" cssclass="sta_POP_Brwstxt01"/>
+        <Static id="Static03" taborder="3" left="88" top="123" width="159" height="11" cssclass="sta_POP_Brwstxt02"/>
+        <Button id="Button00" taborder="5" text="구글, 크롬 다운로드 바로가기" left="12" top="154" width="320" height="35" cssclass="btn_POP_Brwsbtn"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

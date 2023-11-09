@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1600" classname="VAN_DS_SC_1550" left="0" top="0" width="803" height="490" titletext="할인쿠폰 일괄등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_auth" taborder="0" url="common::AuthorityWorkplace.xfdl" top="0" right="204" width="379" height="21"/>
+        <Div id="div_menu" taborder="1" url="common::location.xfdl" text="Div01" left="0" top="0" height="21" width="323"/>
+        <!--다운로드 -->
+        <Button id="btn_fileDownload" taborder="8" text="다운로드" cssclass="btn_WF_CRUD" top="0" right="139" width="65" height="21" onclick="btn_down01_onclick"/>
+        <!--파일업로드 -->
+        <Button id="btn_findUpload" taborder="9" onclick="div_search_btn_findUpload_onclick" cssclass="btn_WF_CRUD" top="0" height="21" text="File Upload" width="77" right="60"/>
+        <!--저장 -->
+        <Button id="btn_save" taborder="3" text="저장" cssclass="btn_WF_CRUD" top="0" right="17" width="41" height="21" onclick="btn_save00_onclick"/>
+        <!-- 검색영역 -->
+        <Div id="div_search" taborder="7" left="0" top="29" right="15" height="49" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title_fileName" taborder="110" text="File 명" cssclass="sta_WFSA_Label" left="15" top="10" width="67" height="21"/>
+              <Static id="Static01" taborder="134" text="15" visible="false" left="771" top="-1" height="145" style="background:#dc143c5b;" width="15"/>
+              <FileUpload id="FileUpload00" taborder="135" multiselect="true" timeout="0" retry="0" async="true" index="0" onsuccess="FileUpload00_onsuccess" onerror="FileUpload00_onerror" onitemchanged="FileUpload00_onitemchanged" left="71" top="11" height="21" onload="FileUpload00_onload" width="319"/>
+              <Static id="Static12" taborder="136" text="10" visible="false" left="32.95%" top="31" right="53.94%" height="10" style="background:#dc143c5b;"/>
+              <Button id="btn_cancel" taborder="137" text="취소 " left="396" top="11" width="51" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="10" text="div_list" left="0" top="77" right="15" bottom="26" visible="false">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="0" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" right="45.94%" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_result" taborder="1" useinputpanel="false" left="0" top="46" right="0" binddataset="ds_result" titletext="업로드 결과" scrollbars="none" height="59">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="67"/>
+                      <Column size="210"/>
+                      <Column size="257"/>
+                      <Column size="254"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="항목"/>
+                      <Cell col="1" text="파일내 건수"/>
+                      <Cell col="2" text="업로드 건수"/>
+                      <Cell col="3" text="실패 건수"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="건수"/>
+                      <Cell col="1" text="bind:TOTAL_CNT"/>
+                      <Cell col="2" text="bind:SUCCESS_CNT"/>
+                      <Cell col="3" text="bind:ERROR_CNT"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_error" taborder="1" useinputpanel="false" left="0" top="145" right="0" bottom="0" binddataset="ds_error" titletext="등록실패 오류내용" scrollbars="autovert">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="162"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="등록실패사유"/>
+                      <Cell col="2" text="쿠폰종류"/>
+                      <Cell col="3" text="쿠폰바코드"/>
+                      <Cell col="4" text="상품바코드"/>
+                      <Cell col="5" text="시작일자"/>
+                      <Cell col="6" text="종료일자"/>
+                      <Cell col="7" text="쿠폰상품명"/>
+                      <Cell col="8" text="오류설명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:ERROR_TYPE"/>
+                      <Cell col="2" text="bind:CPN_KDC"/>
+                      <Cell col="3" text="bind:NA_CPN_C"/>
+                      <Cell col="4" text="bind:DC_NA_WRS_C"/>
+                      <Cell col="5" text="bind:DC_VLD_PRD_ST_DT"/>
+                      <Cell col="6" text="bind:DC_VLD_PRD_ED_DT"/>
+                      <Cell col="7" text="bind:CPN_WRSNM"/>
+                      <Cell col="8" text="bind:ERROR_DSC"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static51" taborder="2" text="업로드 실패사유" cssclass="sta_WF_Subtitle" left="17" top="123" width="135" height="21"/>
+              <Static id="Static00" taborder="3" text="업로드 결과" cssclass="sta_WF_Subtitle" left="17" top="23" width="135" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_seq" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TEMP_SEQ" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TOTAL_CNT" type="STRING" size="256"/>
+          <Column id="SUCCESS_CNT" type="STRING" size="32"/>
+          <Column id="ERROR_CNT" type="STRING" size="32"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="TOTAL_CNT">9999</Col>
+            <Col id="SUCCESS_CNT">9999</Col>
+            <Col id="ERROR_CNT">9999</Col>
+          </Row>
+        </Rows>
+        -->
+      </Dataset>
+      <Dataset id="ds_error" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ERROR_TYPE" type="STRING" size="256"/>
+          <Column id="CPN_KDC" type="STRING" size="256"/>
+          <Column id="NA_CPN_C" type="STRING" size="256"/>
+          <Column id="DC_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="CPN_SC_NO" type="STRING" size="256"/>
+          <Column id="DC_VLD_PRD_ST_DT" type="STRING" size="256"/>
+          <Column id="DC_VLD_PRD_ED_DT" type="STRING" size="256"/>
+          <Column id="CPN_WRSNM" type="STRING" size="256"/>
+          <Column id="ERROR_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.btnDisable([this.btn_findUpload,this.btn_save]);
+	
+	var fileParam = {
+		form:this,													//*필수 - 폼
+		param:[{//필요없는 프로퍼티는 주석처리
+				fileObj: this.div_search.FileUpload00,				//*필수 - 파일컴포넌트
+				dataset: this.ds_uploadresult,						//파일정보 데이터셋
+				maxSize:2,											//허용할 파일 사이즈(MB)
+				maxLength:1,										//허용할 파일갯수
+				//ext:['data','DAT'],									//허용할 확장자명
+				cancelBtn: this.div_search.btn_cancel,			//취소버튼 컴포넌트
+				cancel_after:function(){							//취소버튼 눌렀을때 실행
+					
+				},
+				valid_after_fail: 'FileUpload00_onerror',  			//파일검사 실패후 호출할 함수명 또는 함수(업로드전)
+				upload_after_succ: 'FileUpload00_onsuccess'    	//파일 업로드 성공후 호출할 함수명 또는 함수(업로드후)
+				//upload_after_fail: 'FileUpload00_onerror'  	    	//파일 업로드 실패후 호출할 함수명 또는 함수(업로드후)
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);							//이벤트 등록
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+
+}
+
+//SINGLE DOWNLOAD
+this.btn_down01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	var systemFileName ="VAN_DS_SC_1600.data";
+	var fileName = "coupon_sample.data";
+	
+	var strDownUrl = application.gv_server_url+"rest/common/fileDownload?systemFileName="+systemFileName+"&fileName="+fileName+"&isSampleFile=Y";
+	var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+	
+	wbs_dw.set_url(strDownUrl);
+}
+
+this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if( e.datasets == null )
+	{
+		trace("업로드 실패");
+		//this.div_search.txa_excel00.set_value("업로드 실패");
+	} else {
+		trace("업로드 성공");
+		//this.div_search.txa_excel00.set_value("업로드 성공");
+		
+		this.ds_uploadresult.clear();
+		this.ds_uploadresult.copyData(e.datasets[0]);		
+		this.ds_uploadresult.addColumn("CHK", "string"); //멀티건 인경우 'CHK'컬럼추가
+	}	
+}
+
+this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+
+
+
+//Validation Check
+this.fFileOpenValid = function(){
+	return true;
+}
+
+//조회 조건 숨김 여부 이벤트
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+
+this.btn_save00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	if(this.ds_seq.getColumn(0,"TEMP_SEQ") == null) {
+		alert("쿠폰파일을 먼저 업로드 하십시오.")
+		return;
+	}
+
+	if(this.ds_error.rowcount != 0) {
+		if(!application.confirm( "쿠폰파일에 에러 항목이 있습니다.\n이를 무시하고 저장하시겠습니까?" )) {
+			return;
+		}
+	}
+
+	var params	      = "TEMP_SEQ="+this.ds_seq.getColumn(0,"TEMP_SEQ");
+	var sSvcID        = "insertEventCPN";//통신아이디
+	var sURL          = "svc::rest/pds/coupon/insertEventCPN";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);	
+}
+
+this.div_search_btn_findUpload_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var params	      = "systemFileName="+this.ds_uploadresult.getColumn(0,"SYSTEMFILENAME");
+	var sSvcID        = "uploadCoupon";//통신아이디
+	var sURL          = "svc::rest/pds/coupon/uploadCoupon";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_seq=seqDS ds_result=RESULT_DS ds_error=ERROR_DS";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, ErrorCode, ErrorMsg)
+{
+	trace(svcID);
+	trace(ErrorCode);
+	trace(ErrorMsg);
+	
+	if(ErrorCode < 0)
+	{
+		//this.gfn_getMessage("alert", ErrorMsg);
+		alert(ErrorMsg);
+		return;
+	}else{
+		if(svcID == "uploadCoupon" && ErrorMsg=="SUCCESS"){
+		    if(this.ds_error.rowcount == 0) {
+				this.div_list.grd_error.set_nodatatext("첨부파일에서 발견된 오류가 없습니다.");	
+		    }
+			this.div_list.set_visible(true);			
+		} else if(svcID == "insertEventCPN" && ErrorMsg=="SUCCESS"){
+			alert("쿠폰정보가 저장되었습니다.");
+			this.reload();
+		} else if(svcID == "insertEventCPN" && ErrorMsg!="SUCCESS"){
+			alert(ErrorMsg);
+			this.reload();
+		}
+	}	
+}
+]]></Script>
+  </Form>
+</FDL>

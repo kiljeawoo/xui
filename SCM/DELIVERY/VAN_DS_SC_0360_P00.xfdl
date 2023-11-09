@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0370_popup" classname="popup01" left="0" top="0" width="456" height="184" titletext="미납확인" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_summit" taborder="6" text="예" cssclass="btn_WF_Popup" left="162" top="138" width="54" height="29" onclick="btn_summit_onclick"/>
+        <Button id="btn_cencle" taborder="7" text="아니오" cssclass="btn_WF_Popup" left="218" top="138" width="54" height="29" onclick="btn_cencle_onclick"/>
+        <Static id="Static01" taborder="8" text="17" visible="false" left="175" top="167" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="10" text="15" visible="false" left="363" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="11" text="17" visible="false" left="439" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="12" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="13" cssclass="btn_WF_PopupClose" left="419" top="0" width="37" height="32" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="14" text="미납확인" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Static id="Static03" taborder="15" text="해당 패널티 내역을 확인처리 하시겠습니까?" left="96" top="80" width="270" height="35" cssclass="sta_WF_Location"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="grd01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{		
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_cencle_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_summit_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		param = "na_bzplc="+this.getOwnerFrame().NA_BZPLC_GRID+
+				" str_pla_dt="+this.getOwnerFrame().STR_PLA_DT_GRID+
+				" slpno="+this.getOwnerFrame().SLPNO_GRID+
+				" NA_TRPL_C="+this.getOwnerFrame().NA_TRPL_C_GRID+
+				" NA_WRS_C="+this.getOwnerFrame().NA_WRS_C_GRID+
+				" NA_TEAM_C="+this.getOwnerFrame().NA_TEAM_C_GRID;				
+						
+		trace("##POPUP##PARAM##->"+param);
+		
+		var sSvcID        = "updateCnfDtm";//통신아이디
+		var sURL          = "svc::rest/delivery/updateCnfDtm";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);	
+		
+			
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "updateCnfDtm"){			
+			trace("수정성공");
+			this.opener.btn_search_onclick();
+			this.close(this.objRtnArr.toString());
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

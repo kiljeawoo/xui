@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211320" classname="pattern_01" left="0" top="0" width="788" height="330" titletext="판매장려금 약정서" scrollbars="none" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static09" taborder="22" left="13.83%" top="55" right="0%" height="29" cssclass="sta_WF_Labelbg"/>
+        <Static id="Static31" taborder="28" cssclass="sta_WF_Labelbg" left="13.83%" top="194" right="0%" height="29"/>
+        <Static id="Static32" taborder="29" cssclass="sta_WF_Labelbg" left="13.83%" top="222" right="0%" height="29"/>
+        <Static id="Static08" taborder="20" cssclass="sta_WF_Labelbg" left="13.83%" top="27" height="29" right="0%"/>
+        <Static id="Static86" taborder="16" text="판매장려금 약정서" cssclass="sta_WF_Subtitle" left="0" top="0" width="467" height="21"/>
+        <Button id="Button10" taborder="18" text="계약서보기" top="0" width="78" height="21" visible="false" right="15"/>
+        <Static id="Static12" taborder="17" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <Static id="Static107" taborder="19" text="약정기간" cssclass="sta_WF_Label" left="0" top="27" right="83.25%" height="29"/>
+        <Calendar id="cal_evtPrdStDt" taborder="0" dateformat="yyyy-MM-dd" onchanged="Cal_onchanged" ontextchanged="OMG_DS_SC_211321_ontextchanged" left="17.39%" top="31" height="21" right="69.92%"/>
+        <Static id="Static108" taborder="61" text="~" left="31.47%" top="31" height="21" right="66.5%"/>
+        <Calendar id="cal_evtPrdEdDt" taborder="1" dateformat="yyyy-MM-dd" onchanged="Cal_onchanged" ontextchanged="OMG_DS_SC_211321_ontextchanged" left="34.39%" top="31" height="21" right="52.92%"/>
+        <Static id="Static01" taborder="36" cssclass="sta_WF_Labelbg" left="116.24%" top="55" right="-102.41%" height="117" onclick="Static01_onclick" visible="false"/>
+        <Edit id="v1" taborder="40" left="136.8%" top="66" width="90" height="21" value="0~3" visible="false"/>
+        <Static id="Static02" taborder="62" text="%" left="148.73%" top="65" right="-50.51%" height="21" visible="false"/>
+        <Edit id="v2" taborder="42" left="136.8%" top="91" width="90" height="21" value="3~6" visible="false"/>
+        <Static id="Static03" taborder="63" text="%" left="148.73%" top="90" right="-50.51%" height="21" visible="false"/>
+        <Edit id="v3" taborder="44" left="136.8%" top="116" width="90" height="21" value="6~10" visible="false"/>
+        <Static id="Static05" taborder="64" text="%" left="148.73%" top="115" right="-50.51%" height="21" visible="false"/>
+        <Edit id="v4" taborder="46" left="136.8%" top="141" width="90" height="21" value="10" visible="false"/>
+        <TextArea id="TextArea00" taborder="35" left="119.8%" top="67" right="-36.04%" height="94" oneditclick="TextArea00_oneditclick" value="분기당 전년대비&#13;&#10;구매금액 신장률" style="align:center middle;" enable="true" enableevent="false" visible="false"/>
+        <TextArea id="TextArea01" taborder="37" value="분기별 구매금액&#13;&#10;수취율" oneditclick="TextArea00_oneditclick" left="154.31%" top="66" right="-70.56%" height="95" style="align:center middle;" enableevent="false" visible="false"/>
+        <Edit id="v5" taborder="41" left="171.32%" top="65" width="90" height="21" value="0.7" visible="false"/>
+        <Edit id="v6" taborder="43" left="171.32%" top="90" width="90" height="21" value="1.3" visible="false"/>
+        <Edit id="v7" taborder="45" left="171.32%" top="115" width="90" height="21" value="1.7" visible="false"/>
+        <Edit id="v8" taborder="47" left="171.32%" top="140" width="90" height="21" value="2.0" visible="false"/>
+        <Static id="Static11" taborder="68" text="%" left="183.25%" top="114" right="-85.03%" height="21" visible="false"/>
+        <Static id="Static13" taborder="67" text="%" left="183.25%" top="89" right="-85.03%" height="21" visible="false"/>
+        <Static id="Static14" taborder="66" text="%" left="183.25%" top="64" right="-85.03%" height="21" visible="false"/>
+        <Static id="Static18" taborder="33" text="신상품 구매금액율" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="46.32%" top="334" right="35.53%" height="29" style="align:center;" enable="false" visible="false"/>
+        <Edit id="v17" taborder="39" left="65.61%" top="338" width="90" height="21" enable="false" visible="false"/>
+        <Static id="Static94" taborder="32" cssclass="sta_WF_Labelbg" left="13.83%" top="250" right="0%" height="80"/>
+        <TextArea id="txa_sctrSjt" taborder="15" wordwrap="char" left="17.39%" top="254" right="0.38%" height="72" ontextchanged="txatext_changed" lengthunit="ascii" maxlength="2000"/>
+        <Static id="Static00" taborder="34" text="성과장려금&#13;&#10;결정기준" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="807" top="55" right="-19.16%" height="118" style="align:center;" visible="false"/>
+        <Static id="Static06" taborder="65" text="%" left="148.73%" top="140" right="-50.51%" height="21" visible="false"/>
+        <Static id="Static04" taborder="714" text="신상품 입점 장려금율" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="0%" top="55" height="29" right="83.25%"/>
+        <Static id="Static29" taborder="54" text="%" left="34.01%" top="60" right="64.21%" height="21"/>
+        <MaskEdit id="mae_buyAm" taborder="2" mask="!999.00" limitbymask="both" left="17.39%" top="59" height="21" value="10" right="66.62%"/>
+        <Static id="Static15" taborder="24" cssclass="sta_WF_Labelbg" left="13.83%" top="83" right="0%" height="29"/>
+        <Static id="Static16" taborder="25" cssclass="sta_WF_Labelbg" left="13.83%" top="110" right="0%" height="29"/>
+        <Static id="Static17" taborder="26" cssclass="sta_WF_Labelbg" left="13.83%" top="138" right="0%" height="29"/>
+        <Static id="Static19" taborder="27" cssclass="sta_WF_Labelbg" left="13.83%" top="166" right="0%" height="29"/>
+        <Static id="Static26" taborder="30" text="매월 구매금액의&#13;&#10;수취율" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="51.27%" top="83" right="32.11%" height="168"/>
+        <Static id="Static07" taborder="23" text="공급업체별&#13;&#10;POG 취급품목&#13;&#10;수" left="34" top="83" right="83.25%" height="168" cssclass="sta_WF_Label"/>
+        <Static id="Static93" taborder="31" text="특약사항" cssclass="sta_WF_Label" left="0" top="250" right="83.25%" height="80"/>
+        <Static id="Static20" taborder="48" text="개인 경우" left="34.01%" top="88" right="57.23%" height="17" style="align:left middle;"/>
+        <Static id="Static21" taborder="49" text="개인 경우" left="34.01%" top="117" right="57.23%" height="17" style="align:left middle;"/>
+        <Static id="Static22" taborder="50" text="개인 경우" left="34.01%" top="144" right="57.23%" height="17" style="align:left middle;"/>
+        <Static id="Static10" taborder="69" text="%" left="183.25%" top="139" right="-85.03%" height="21" visible="false"/>
+        <Static id="Static24" taborder="56" text="%" left="80.84%" top="115" right="17.39%" height="21"/>
+        <Static id="Static27" taborder="57" text="%" left="80.84%" top="143" right="17.39%" height="21"/>
+        <Static id="Static28" taborder="58" text="%" left="80.84%" top="170" right="17.64%" height="21"/>
+        <Static id="Static30" taborder="55" text="%" left="80.84%" top="87" right="17.39%" height="21"/>
+        <MaskEdit id="v13" taborder="4" left="68.91%" top="87" right="19.67%" height="21" mask="!990.00" limitbymask="both"/>
+        <MaskEdit id="v14" taborder="6" left="68.91%" top="114" right="19.67%" height="21" mask="!990.00" limitbymask="both"/>
+        <MaskEdit id="v15" taborder="8" left="68.91%" top="141" right="19.67%" height="21" mask="!990.00" limitbymask="both"/>
+        <MaskEdit id="v16" taborder="10" left="68.91%" top="170" right="19.67%" height="21" mask="!990.00" limitbymask="both"/>
+        <Edit id="v12" taborder="9" left="17.39%" top="170" right="66.62%" height="21" style="align:right middle;" onkillfocus="fn_pogDataChanged" ontextchanged="fn_pogDataChanged" lengthunit="ascii" maxlength="50"/>
+        <Edit id="v9" taborder="3" left="17.39%" top="86" height="21" right="66.62%" style="align:right middle;" onkillfocus="fn_pogDataChanged" ontextchanged="fn_pogDataChanged" lengthunit="ascii" maxlength="50"/>
+        <Edit id="v10" taborder="5" left="17.39%" top="114" height="21" right="66.62%" style="align:right middle;" onkillfocus="fn_pogDataChanged" ontextchanged="fn_pogDataChanged" lengthunit="ascii" maxlength="50"/>
+        <Edit id="v11" taborder="7" left="17.39%" top="142" height="21" right="66.62%" style="align:right middle;" onkillfocus="fn_pogDataChanged" ontextchanged="fn_pogDataChanged" lengthunit="ascii" maxlength="50"/>
+        <Static id="Static33" taborder="52" text="개인 경우" left="34.01%" top="200" right="57.23%" height="17" style="align:left middle;"/>
+        <Static id="Static34" taborder="53" text="개 이상인 경우" left="34.01%" top="228" right="54.44%" height="17" style="align:left middle;"/>
+        <Static id="Static35" taborder="59" text="%" left="80.84%" top="199" right="17.39%" height="21"/>
+        <Static id="Static36" taborder="60" text="%" left="80.84%" top="226" right="17.64%" height="21"/>
+        <MaskEdit id="v20" taborder="12" mask="!990.00" left="68.91%" top="197" right="19.67%" height="21" limitbymask="both"/>
+        <MaskEdit id="v21" taborder="14" mask="!990.00" left="68.91%" top="226" right="19.67%" height="21" limitbymask="both"/>
+        <Edit id="v19" taborder="13" left="17.39%" top="226" right="66.62%" height="21" style="align:right middle;" onkillfocus="fn_pogDataChanged" ontextchanged="fn_pogDataChanged" lengthunit="ascii" maxlength="50"/>
+        <Edit id="v18" taborder="11" left="17.39%" top="198" height="21" right="66.62%" style="align:right middle;" onkillfocus="fn_pogDataChanged" ontextchanged="fn_pogDataChanged" lengthunit="ascii" maxlength="50"/>
+        <Static id="Static23" taborder="51" text="개인 경우" left="34.01%" top="172" right="57.23%" height="17" style="align:left middle;"/>
+        <Static id="Static25" taborder="21" text="매&#13;&#10;대&#13;&#10;진&#13;&#10;열&#13;&#10;장&#13;&#10;려&#13;&#10;금&#13;&#10;률" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="0" top="83" height="168" width="35"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pmiwDtl01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="PMIW_KDC" type="STRING" size="256" sumtext="약정서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="BUY_AM" type="STRING" size="256" sumtext="구매금액"/>
+          <Column id="EVT_TINM" type="STRING" size="256" sumtext="행사제목"/>
+          <Column id="EVT_PRD_ST_DT" type="STRING" size="256" sumtext="행사기간 시작일자"/>
+          <Column id="EVT_PRD_ED_DT" type="STRING" size="256" sumtext="행사기간 종료일자"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="ETC1" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC2" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC3" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC4" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC5" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC6" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC7" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC8" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC9" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCA" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCB" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCC" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCD" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCE" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCF" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCG" type="STRING" size="256" sumtext=""/>
+          <Column id="ETCH" type="STRING" size="256" sumtext=""/>
+          <Column id="SCTR_SJT" type="STRING" size="256"/>
+          <Column id="ETCI" type="STRING" size="256"/>
+          <Column id="ETCJ" type="STRING" size="256"/>
+          <Column id="ETCK" type="STRING" size="256"/>
+          <Column id="ETCL" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm301" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="cal_evtPrdStDt" propid="value" datasetid="ds_pmiwDtl01" columnid="EVT_PRD_ST_DT"/>
+      <BindItem id="item2" compid="cal_evtPrdEdDt" propid="value" datasetid="ds_pmiwDtl01" columnid="EVT_PRD_ED_DT"/>
+      <BindItem id="item0" compid="mae_buyAm" propid="value" datasetid="ds_pmiwDtl01" columnid="BUY_AM"/>
+      <BindItem id="item3" compid="v1" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC1"/>
+      <BindItem id="item4" compid="v2" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC2"/>
+      <BindItem id="item5" compid="v3" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC3"/>
+      <BindItem id="item7" compid="v4" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC4"/>
+      <BindItem id="item8" compid="v5" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC5"/>
+      <BindItem id="item9" compid="v6" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC6"/>
+      <BindItem id="item10" compid="v7" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC7"/>
+      <BindItem id="item12" compid="v8" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC8"/>
+      <BindItem id="item14" compid="v17" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCH"/>
+      <BindItem id="item20" compid="txa_sctrSjt" propid="value" datasetid="ds_pmiwDtl01" columnid="SCTR_SJT"/>
+      <BindItem id="item15" compid="v12" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCC"/>
+      <BindItem id="item16" compid="v13" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCD"/>
+      <BindItem id="item17" compid="v14" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCE"/>
+      <BindItem id="item18" compid="v15" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCF"/>
+      <BindItem id="item19" compid="v16" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCG"/>
+      <BindItem id="item6" compid="v9" propid="value" datasetid="ds_pmiwDtl01" columnid="ETC9"/>
+      <BindItem id="item11" compid="v10" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCA"/>
+      <BindItem id="item13" compid="v11" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCB"/>
+      <BindItem id="item21" compid="v20" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCK"/>
+      <BindItem id="item22" compid="v21" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCL"/>
+      <BindItem id="item23" compid="v19" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCJ"/>
+      <BindItem id="item24" compid="v18" propid="value" datasetid="ds_pmiwDtl01" columnid="ETCI"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+// 1.판매장력금 약정서
+// 2.ㅇㅇㅇ행사 약정서
+// 3.대량거래수수료 약정서
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "301") {
+			this.ds_etcEltStylAmm301.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	for (var i = 0; i < this.parent.ds_pmiwDtl.rowcount; i++) {
+		if (this.parent.ds_pmiwDtl.getColumn(i, "PMIW_KDC") == "301") {
+			fv_position = i;
+			fv_chk = 1;
+			this.ds_pmiwDtl01.addRow();
+			this.ds_pmiwDtl01.copyRow(0, this.parent.ds_pmiwDtl, fv_position);
+		}
+	}
+
+	if (fv_chk == 0) {
+		var nRow = this.parent.ds_pmiwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "PMIW_KDC", "301");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm301.getColumn(0, "CTRW_STY_VER"));
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "EVT_PRD_ST_DT", this.parent.cal_ctrStDt.value);
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "EVT_PRD_ED_DT", this.parent.cal_ctrEdDt.value);
+
+		// 성과장려금 결정기준 (사용안함)
+		/*
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC1", "0~3");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC2", "3~6");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC3", "6~10");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC4", "10");
+
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC5", "0.7");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC6", "1.3");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC7", "1.7");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC8", "2.0");
+		*/
+
+		//신상품 입점 장려금율
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "BUY_AM", "10");
+
+		//공급업체별 pog
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC9", "1~49");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCA", "50~84");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCB", "85~124");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCC", "125~164");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCI", "165~199"); // 신규
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCJ", "200"); // 신규
+
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCD", "1.00");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCE", "1.30");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCF", "1.60");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCG", "1.90");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCK", "2.20"); // 신규
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCL", "2.50"); // 신규
+
+		this.ds_pmiwDtl01.addRow();
+		this.ds_pmiwDtl01.copyRow(0, this.parent.ds_pmiwDtl, fv_position);
+
+		//this.cal_evtPrdStDt.set_value(this.parent.cal_ctrStDt.value);
+		//this.cal_evtPrdStDt.set_value(this.parent.cal_ctrEdDt.value);
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	var strTitletext = "판매장려금 약정서";
+
+ 	if (this.gfn_isNull(this.mae_buyAm.value)) {
+		this.mae_buyAm.setFocus();
+ 		this.alert(strTitletext + " 신상품 입점 장려금율을 입력하세요.");
+ 		return false;
+ 	}
+
+	if (this.gfn_isNull(this.cal_evtPrdStDt.value)) {
+		this.cal_evtPrdStDt.setFocus();
+ 		this.alert(strTitletext + " 약정기간 시작 일자를 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.cal_evtPrdEdDt.value)) {
+		this.cal_evtPrdEdDt.setFocus();
+ 		this.alert(strTitletext + " 약정기간 종료 일자 를 입력하세요.");
+ 		return false;
+ 	} else {
+		var nStart = this.cal_evtPrdStDt.value;
+		var nEnd   = this.cal_evtPrdEdDt.value;
+
+		if (this.gfn_getDiffDay(nStart , nEnd) < 0) {
+			this.alert(strTitletext + "약정기간 종료일자를 다시 입력하세요.");
+			return false;
+		}
+ 	}
+	/*
+	if (this.gfn_isNull(this.v1.value)) {
+		this.v1.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v2.value)) {
+		this.v2.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v3.value)) {
+		this.v3.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v4.value)) {
+		this.v4.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v5.value)) {
+		this.v5.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v6.value)) {
+		this.v6.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v7.value)) {
+		this.v7.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v8.value)) {
+		this.v8.setFocus();
+ 		this.alert(strTitletext + " 결정기준을 입력하세요.");
+ 		return false;
+ 	}
+ 	*/
+
+ 	if (this.gfn_isNull(this.v9.value)) {
+		this.v9.setFocus();
+ 		this.alert(strTitletext + " 공급업체별 POG 취급품목 수를 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v10.value)) {
+		this.v10.setFocus();
+ 		this.alert(strTitletext + " 공급업체별 POG 취급품목 수를 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v11.value)) {
+		this.v11.setFocus();
+ 		this.alert(strTitletext + " 공급업체별 POG 취급품목 수를 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v12.value)) {
+		this.v12.setFocus();
+ 		this.alert(strTitletext + " 공급업체별 POG 취급품목 수를 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v18.value)) {
+		this.v18.setFocus();
+ 		this.alert(strTitletext + " 공급업체별 POG 취급품목 수를 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v19.value)) {
+		this.v19.setFocus();
+ 		this.alert(strTitletext + " 공급업체별 POG 취급품목 수를 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v13.value)) {
+		this.v13.setFocus();
+ 		this.alert(strTitletext + " 매월 구매금액의 수취율을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v14.value)) {
+		this.v14.setFocus();
+ 		this.alert(strTitletext + " 매월 구매금액의 수취율을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v15.value)) {
+		this.v15.setFocus();
+ 		this.alert(strTitletext + " 매월 구매금액의 수취율을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v16.value)) {
+		this.v16.setFocus();
+ 		this.alert(strTitletext + " 매월 구매금액의 수취율을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v20.value)) {
+		this.v20.setFocus();
+ 		this.alert(strTitletext + " 매월 구매금액의 수취율을 입력하세요.");
+ 		return false;
+ 	}
+
+ 	if (this.gfn_isNull(this.v21.value)) {
+		this.v21.setFocus();
+ 		this.alert(strTitletext + " 매월 구매금액의 수취율을 입력하세요.");
+ 		return false;
+ 	}
+
+// 	if (this.gfn_isNull(this.v17.value)) {
+// 		this.v17.setFocus();
+//  		this.alert(strTitletext + " POG정책 이행률을 입력하세요.");
+//  		return false;
+//  	}
+//
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "BUY_AM", this.mae_buyAm.value);
+	/*
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC1", this.v1.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC2", this.v2.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC3", this.v3.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC4", this.v4.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC5", this.v5.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC6", this.v6.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC7", this.v7.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC8", this.v8.value);
+	*/
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC9", this.v9.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCA", this.v10.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCB", this.v11.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCC", this.v12.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCD", this.v13.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCE", this.v14.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCF", this.v15.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCG", this.v16.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCH", this.v17.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCI", this.v18.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCJ", this.v19.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCK", this.v20.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETCL", this.v21.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+	return true;
+}
+
+this.Cal_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	obj.updateToDataset();
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "EVT_PRD_ST_DT", this.cal_evtPrdStDt.value); //행사기간 시작 일자
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "EVT_PRD_ED_DT", this.cal_evtPrdEdDt.value); //행사기간 종료 일자
+}
+
+this.txatext_changed = function(obj:TextArea, e:nexacro.TextChangedEventInfo)
+{
+	var text = this.txa_sctrSjt.value;
+	if (!this.gfn_isNull(text)) {
+		var lc = text.indexOf("^");
+		if (lc != -1) {
+			alert('^는 사용하실 수 없습니다.');
+			text = nexacro.replaceAll(text, "^", " ");
+			this.txa_sctrSjt.set_value(text);
+		}
+ 	}
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_2217" classname="OMG_DS_SC_5160" left="0" top="0" width="800" height="490" titletext="전자계약파견약정서관리" onload="form_onload" enable="true">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="5" left="0" top="28" right="15" height="42" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Static id="Static02" taborder="44" text="사업자 번호" cssclass="sta_WFSA_Label" left="16" top="10" width="118" height="21"/>
+              <MaskEdit id="edt_bzno" taborder="46" lengthunit="ascii" maxlength="50" left="141" top="10" width="211" height="21" maskchar="_" onkeydown="div_search_onkeydown"/>
+              <Static id="Static03" taborder="51" text="GLN" cssclass="sta_WFSA_Label" left="390" top="10" width="118" height="21"/>
+              <Edit id="edt_gln" taborder="52" left="483" top="10" width="211" height="21" onkeydown="div_search_onkeydown"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="7" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Div id="div_list" taborder="6" text="Div02" left="0" top="69" right="15" bottom="10">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Button id="btn_flag" taborder="11" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" height="12" right="363"/>
+              <Grid id="grd_main01" taborder="12" binddataset="ds_list" useinputpanel="false" autofittype="col" onheadclick="div_list_grd_main01_onheadclick" left="0" top="42" right="0" bottom="30" formatid="basic" oncelldblclick="div_list_grd_main01_oncellclick">
+                <Formats>
+                  <Format id="basic">
+                    <Columns>
+                      <Column size="150" band="left"/>
+                      <Column size="400"/>
+                      <Column size="150" band="right"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="사업자번호"/>
+                      <Cell col="1" text="대표 사업장명"/>
+                      <Cell col="2" text="등록건수"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="background:#ffffffff;background2:#ffffffff;selectbackground:#ffffffff;" text="bind:BIZ_NUMBER" mask="@@@-@@-@@@@@"/>
+                      <Cell col="1" text="bind:CLNTNM"/>
+                      <Cell col="2" text="expr:comp.parent.parent.fn_getCnt(BIZ_NUMBER, 'Y')"/>
+                    </Band>
+                  </Format>
+                  <Format id="detail">
+                    <Columns>
+                      <Column size="0"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="400"/>
+                      <Column size="150" band="right"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none"/>
+                      <Cell col="1" text="사업자번호"/>
+                      <Cell col="2" text="관련 사업장코드"/>
+                      <Cell col="3" text="사업장명"/>
+                      <Cell col="4" text="등록건수"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="normal" style="background:#ffffffff;background2:#ffffffff;" suppress="bind:BIZ_NUMBER" suppressalign="middle" autosizecol="none"/>
+                      <Cell col="1" style="background:#ffffffff;background2:#ffffffff;selectbackground:#ffffffff;" text="bind:BIZ_NUMBER" mask="@@@-@@-@@@@@" suppress="1" suppressalign="middle,over" autosizerow="none"/>
+                      <Cell col="2" text="bind:BZPLC" autosizerow="none"/>
+                      <Cell col="3" text="bind:BZPLNM" autosizerow="none"/>
+                      <Cell col="4" text="expr:comp.parent.parent.fn_getCnt(BIZ_NUMBER, 'N', CNT)" autosizerow="none"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_swap" taborder="13" text="모든 사업장 보기" cssclass="btn_WF_CRUD" top="16" right="0" width="112" height="21" onclick="div_list_btn_swap_onclick"/>
+              <Static id="sta_result01" taborder="14" text="항목을 더블클릭하면 상세내용을 확인하실 수 있습니다." width="350" height="21" bottom="5" left="0"/>
+              <Static id="sta_refday" taborder="15" text="2021. 6. 30. 현재" width="300" height="21" top="16" right="129" style="align:right middle;font:bold 9 Gulim;" onclick="div_list_sta_refday_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static02" taborder="11" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="4" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Button id="btn_excel" taborder="0" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_excel_onclick"/>
+        <Grid id="grd_excel" taborder="19" binddataset="ds_list_excel" formatid="basic" useinputpanel="false" autofittype="col" oncellclick="div_list_grd_main01_oncellclick" onheadclick="div_list_grd_main01_onheadclick" left="0" top="513" right="15" visible="false" height="100">
+          <Formats>
+            <Format id="basic">
+              <Columns>
+                <Column size="0"/>
+                <Column size="100"/>
+                <Column size="207"/>
+                <Column size="130"/>
+                <Column size="299"/>
+                <Column size="90"/>
+              </Columns>
+              <Rows>
+                <Row size="44" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="none"/>
+                <Cell col="1" style="font:bold 11 arial;linespace:12;" text="사업자번호"/>
+                <Cell col="2" style="font:bold 11 arial;linespace:12;" text="대표 사업장명"/>
+                <Cell col="3" style="font:bold 11 arial;linespace:12;" text="관련 사업장코드"/>
+                <Cell col="4" style="font:bold 11 arial;linespace:12;" text="사업장명"/>
+                <Cell col="5" style="font:bold 11 arial;linespace:12;" text="등록건수"/>
+              </Band>
+              <Band id="body" style="border:1 solid #d6d6d6ff ;">
+                <Cell displaytype="normal" style="background:#ffffffff;background2:#ffffffff;" suppress="bind:BIZ_NUMBER" suppressalign="middle" autosizecol="none"/>
+                <Cell col="1" style="background:#ffffffff;background2:#ffffffff;" text="bind:BIZ_NUMBER" mask="@@@-@@-@@@@@" suppress="1" suppressalign="middle"/>
+                <Cell col="2" style="background:#ffffffff;background2:#ffffffff;" text="bind:CLNTNM" suppress="2" suppressalign="middle"/>
+                <Cell col="3" text="bind:BZPLC"/>
+                <Cell col="4" text="bind:BZPLNM"/>
+                <Cell col="5" style="background:#ffffffff;background2:#ffffffff;color:expr:CHIEF_ENO == null ? &quot;#999999FF&quot; : &quot;&quot;;color2:expr:CHIEF_ENO == null ? &quot;#999999FF&quot; : &quot;&quot;;selectcolor:expr:CHIEF_ENO == null ? &quot;#999999FF&quot; : &quot;&quot;;" text="bind:CNT" suppress="3" suppressalign="middle"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BIZ_NUMBER" type="STRING" size="32"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BZPLC" type="STRING" size="200"/>
+          <Column id="BZPLNM" type="STRING" size="9"/>
+          <Column id="CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_list_excel" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BIZ_NUMBER" type="STRING" size="32"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BZPLC" type="STRING" size="200"/>
+          <Column id="BZPLNM" type="STRING" size="9"/>
+          <Column id="CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_list_org" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BIZ_NUMBER" type="STRING" size="32"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BZPLC" type="STRING" size="200"/>
+          <Column id="BZPLNM" type="STRING" size="9"/>
+          <Column id="CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+include "lib::comElt.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.gridMode = "basic";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	// 본부회원 메뉴 오픈 시 아래 if문 주석 해제
+// 	if (application.gv_userTPC != "admin") {
+// 		this.gfn_checkEltAuth(obj, "eltCallback"); // 전자계약 권한체크(comElt.xjs)
+// 	} else {
+		/*조회 호출*/
+		this.btn_search.click();
+// 	}
+}
+
+this.fn_afterFormOnload = function()
+{
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+ /*조회버튼 이벤트*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_list.clearData();
+	
+	var params = "bzno=" + this.gfn_nullToEmpty(this.div_search.edt_bzno.value)	// 사업자번호 조회값
+			+ " gln=" + this.gfn_nullToEmpty(this.div_search.edt_gln.value);	// GLN 조회값
+	
+	var sSvcID        = "retrieveEltPmiwList";
+	var sURL          = "svc::rest/ct/eltctrw/retrieveEltPmiwList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_list=ds_list";
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_registerSvcDS(sSvcID, this.ds_list, false);
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*
+ * 전자계약 권한체크
+ */
+this.eltCallback = function()
+{
+	if (!this.gfn_hasEltAuth("ELT_99")) {
+		this.alert("최고권한 보유자만 사용 가능한 메뉴 입니다.");
+		this.set_enable(false);
+	} else {
+		/*조회 호출*/
+		this.btn_search.click();
+	}
+}
+
+ /*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{
+}
+
+ /*상단 전체 선택/해제 체크박스 및 컬럼 정렬 이벤트*/
+this.div_list_grd_main01_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	/*
+	if (this.gridMode == "basic") {
+		if (e.cell == 0) {
+			this.gfn_setGridCheckAll(obj,e);
+		} else {
+			this.gfn_gridSort(obj, e);
+		}
+	}
+	*/
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	this.gfn_svcDsToggle(svcID, true);
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+	 	if (svcID == "retrieveEltPmiwList") {
+			this.fn_addList("7428500611", "하나로마트 청라점", "8808983328515", "하나로마트 청라점", "0");
+			this.fn_addList("1538500112", "하나로마트 세종청사점", "8808990666402", "하나로마트 세종청사점", "0");
+	 	
+			this.ds_list_org.copyData(this.ds_list);
+			this.fn_drawGrid();
+	 	}
+	 }
+}
+
+this.fn_addList = function(bzno, clntnm, bzplc, bzplnm, val)
+{
+	var row = this.ds_list.addRow();
+	this.ds_list.setColumn(row, "BIZ_NUMBER", bzno);
+	this.ds_list.setColumn(row, "CLNTNM", clntnm);
+	this.ds_list.setColumn(row, "BZPLC", bzplc);
+	this.ds_list.setColumn(row, "BZPLNM", bzplnm);
+	this.ds_list.setColumn(row, "CNT", val);
+}
+
+this.list_empty_check = function(isEmpty) {
+	this.btn_excel.set_enable(!isEmpty);
+	if (isEmpty) {
+		this.div_list.grd_main01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	}
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.div_list_grd_main01_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (this.ds_list.getColumn(this.ds_list.rowposition, "CNT") == "0") {
+		this.alert("등록건수가 없습니다.");
+		return;
+	}
+	var bzno = this.ds_list.getColumn(this.ds_list.rowposition, "BIZ_NUMBER");
+	var clntnm = this.ds_list.getColumn(this.ds_list.rowposition, "CLNTNM");
+	if (this.gridMode == "detail") {
+		var gln = this.ds_list.getColumn(this.ds_list.rowposition, "BZPLC");
+		clntnm = this.ds_list.getColumn(this.ds_list.rowposition, "BZPLNM");
+	}
+	
+	var oArg = {bzno:bzno, gln:gln, clntnm:clntnm};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("detailPop", "OMG.CT::OMG_DS_SC_2217_P01.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.div_list_btn_swap_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.gridMode == "basic") {
+		this.gridMode = "detail";
+	} else {
+		this.gridMode = "basic";
+	}
+	this.fn_drawGrid();
+}
+
+this.fn_drawGrid = function()
+{
+	var sExpr = ""; 
+	if (this.gridMode == "detail") {
+		this.div_list.btn_swap.set_text("대표 사업장 보기");
+	} else {
+		this.div_list.btn_swap.set_text("모든 사업장 보기");
+		sExpr = "rowidx==dataset.findRowExpr(\"BIZ_NUMBER=='\" + BIZ_NUMBER + \"'\")";
+		this.list_empty_check(this.ds_list.rowcount == 0);
+	}
+	this.div_list.grd_main01.set_formatid(this.gridMode);
+	this.ds_list.filter(sExpr); 
+}
+// expr:comp.parent.parent.fn_getTotalCnt(BIZ_NUMBER)
+// expr:dataset.getCaseSum('BIZ_NUMBER==\''+BIZ_NUMBER+'\'', 'CNT')
+
+/**
+ * 등록건수 표시(일부 사업자번호는 등록제외 표시 우선)
+ * isSum == Y : cnt 필요없음
+ * isSum != Y : cnt 필수
+ */
+this.fn_getCnt = function(bzno, isSum, cnt)
+{
+	if (bzno == "7428500611" || bzno == "1538500112") {
+		return "등록제외(0건)";
+	} else if (isSum == "Y") {
+		return this.ds_list_org.getCaseSum("BIZ_NUMBER=='" + bzno + "'", "CNT") + " 건";
+	}
+	return cnt + " 건";
+}
+
+this.btn_excel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_list_excel.copyData(this.ds_list);
+	var today = this.gfn_today("yyyyMMdd");
+
+	this.exportObj = new ExcelExportObject("Export00", this);
+	this.exportObj.addEventHandler("onsuccess" , this.fn_excelDownload_onsuccess , this);
+	this.exportObj.addEventHandler("onerror", this.fn_excelDownload_onerror, this);
+
+	this.exportObj.set_exportfilename("EltAgreement"+today);
+	this.exportObj.set_exporturl(application.gv_server_url + "XExportImport");
+	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.grd_excel, "파견약정서!A1", "", "", "merge", "", "", "", "both", "cellline");
+	this.exportObj.exportData();
+}
+
+// 엑셀 다운로드 성공
+this.fn_excelDownload_onsuccess = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
+{
+	//trace("excel download : success");
+	this.ds_list_excel.clearData();
+}
+
+// 엑셀 다운로드 실패
+this.fn_excelDownload_onerror = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
+{
+	//trace("excel download : error");
+}
+
+this.div_search_onkeydown = function(obj:MaskEdit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == '13') {
+		this.btn_search_onclick();
+	}
+}
+
+this.div_list_sta_refday_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	var result = prompt("변경할 메시지를 입력하세요.", obj.text)
+	obj.set_text(result);
+}]]></Script>
+  </Form>
+</FDL>

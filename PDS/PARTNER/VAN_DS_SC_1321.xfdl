@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1321" classname="VAN_DS_SC_1321" left="0" top="0" width="500" height="530" titletext="탄력가격업체거래관계 도움말" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <TextArea id="TextArea00" taborder="0" left="17" top="51" height="469" right="17" value="▣ 계통탄력가격적용 협력업체&#13;&#10;    거래관계의 계통탄력가격적용 여부가 '여'인 협력업체로서&#13;&#10;    하나의 농협에 대해 2개이상의 거래관계를 맺을 수 있습니다.&#13;&#10;&#13;&#10;▣ 거래관계 설정방법&#13;&#10;    1. 거래관계를 맺을(조회할) 수요처(농협)을 설정합니다.&#13;&#10;        ※ 명칭은 2 자리 이상, 코드는 8자리 이상 입력해야 합니다.&#13;&#10;    2. 조회버튼을 클릭하여 A 그리드 마트분사 - &#13;&#10;       마트 거래관계를 조회합니다.&#13;&#10;    3. A 그리드의 선택을 클릭하면 선택한 수요처와 거래관계를 맺은&#13;&#10;       공급업체가 B 그리드에 조회됩니다.&#13;&#10;    4. B 그리드 작업&#13;&#10;        ※ 새로운 거래관계를 맺을 경우 선택을 체크합니다.&#13;&#10;        ※ 기존 거래관계를 삭제할 경우 삭제를 체크합니다.&#13;&#10;    5. 설정할 거래관계가 있다면 위 4번을 반복합니다.&#13;&#10;    6. 저장버튼을 클릭하여 설정한 거래관계를 저장합니다.&#13;&#10;&#13;&#10;▣ 거래관계 주의사항&#13;&#10;    1. 거래관계는 모든 거래에 있어 중요한 기초자료입니다.&#13;&#10;    2. 당일 삭제한 거래관계는 당일자로 재 거래관계 설정할 수 없습니다.&#13;&#10;&#13;&#10;▣ 참고&#13;&#10;    [ dp2054 ] 하나로마트거래관계 화면에서&#13;&#10;    계통탄력가격적용 공급업체의 거래관계 조회는 가능합니다." oneditclick="TextArea00_oneditclick" style="border:0 solid #bfbfbfff ;" readonly="true"/>
+        <Button id="btn_close" taborder="1" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" left="463" top="0" width="37" height="32"/>
+        <Static id="Static06" taborder="2" text="탄력가격업체 거래관계" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

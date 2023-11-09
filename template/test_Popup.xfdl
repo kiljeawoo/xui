@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="popup4" classname="popup4" left="0" top="0" width="1024" height="768" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="POPUP" left="30.96%" top="117" right="53.13%" height="135" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1"/>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4"/>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"U", dsArg:this.Dataset00};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","template::createAccount.xfdl",oArg,sOption,sPopupCallBack);	    
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+this.fn_afterFormOnload = function()
+{
+	trace("fn_afterFormOnload");
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

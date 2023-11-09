@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5161" classname="popup01" left="0" top="0" width="767" height="210" titletext="하나로유통임직원추가" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static14" taborder="63" cssclass="sta_WF_Labelbg" left="126" top="160" right="17" height="29"/>
+        <Static id="Static13" taborder="11" cssclass="sta_WF_Labelbg" left="126" top="132" right="17" height="29"/>
+        <Static id="Static08" taborder="12" cssclass="sta_WF_Labelbg" left="126" top="76" right="17" height="29"/>
+        <Static id="Static12" taborder="21" cssclass="sta_WF_Labelbg" left="126" top="104" right="17" height="29"/>
+        <Button id="btn_close" taborder="8" text="닫기" cssclass="btn_WF_CRUD" top="47" right="13" width="41" height="21" onclick="btn_close_onclick"/>
+        <Static id="text_title" taborder="9" cssclass="sta_WF_Subtitle" left="17" top="51" width="198" height="21" text="임·직원 정보"/>
+        <Static id="Static07" taborder="10" text="직급" cssclass="sta_WF_Label" left="17" top="132" height="29" width="160" onclick="Static07_onclick"/>
+        <Static id="Static00" taborder="13" text="17" visible="false" left="750" top="76" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="14" text="15" visible="false" left="673" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="15" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="16" text="8" visible="false" left="674" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="17" text="하나로유통 임·직원 관리" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32" onclick="Static06_onclick"/>
+        <Button id="brn_cls" taborder="18" cssclass="btn_WF_PopupClose" left="729" top="0" width="37" height="32" onclick="btn_close_onclick"/>
+        <Button id="btn_save" taborder="7" text="저장" cssclass="btn_WF_CRUD" top="47" right="55" width="43" height="21" onclick="btn_save_onclick"/>
+        <Static id="Static04" taborder="19" text="개인번호(사원번호)" cssclass="sta_WF_Label" left="17" top="76" height="29" width="160"/>
+        <Static id="Static01" taborder="20" text="사무소코드" onclick="Static07_onclick" cssclass="sta_WF_Label" left="17" top="104" width="160" height="29"/>
+        <Button id="btn_search" taborder="1" text="중복검사" left="331" top="80" width="69" height="21" onclick="btn_search_onclick"/>
+        <Edit id="edt_DEPT_ID" taborder="2" maxlength="20" left="181" top="108" width="148" height="21" lengthunit="ascii" enable="false"/>
+        <Edit id="edt_POS" taborder="4" maxlength="64" left="181" top="136" width="148" height="21" lengthunit="ascii"/>
+        <Edit id="edt_USER_ID" taborder="0" lengthunit="ascii" maxlength="9" left="181" top="80" width="148" height="21"/>
+        <Edit id="edt_DEPT_NAME" taborder="3" lengthunit="ascii" maxlength="64" left="539" top="108" width="148" height="21" enable="false"/>
+        <Static id="Static02" taborder="58" text="사무소명" onclick="Static07_onclick" cssclass="sta_WF_Label" left="375" top="104" width="160" height="29"/>
+        <Edit id="edt_GRADE" taborder="5" lengthunit="ascii" maxlength="64" left="539" top="136" width="148" height="21"/>
+        <Static id="Static10" taborder="60" text="직명" onclick="Static07_onclick" cssclass="sta_WF_Label" left="375" top="132" width="160" height="29"/>
+        <Static id="Static11" taborder="61" text="성명" onclick="Static07_onclick" cssclass="sta_WF_Label" left="17" top="160" width="160" height="29"/>
+        <Edit id="edt_USER_NAME" taborder="6" lengthunit="ascii" maxlength="50" left="181" top="164" width="148" height="21"/>
+        <Button id="btn_search_high" taborder="64" onclick="btn_search_high_onclick" cssclass="btn_WF_Searchbtn" left="331" top="108" width="21" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_user" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_user_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="USER_ID" type="STRING" size="256"/>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="USER_NAME" type="STRING" size="256"/>
+          <Column id="POS" type="STRING" size="256"/>
+          <Column id="GRADE" type="STRING" size="256"/>
+          <Column id="ORG_USER_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_NAME" type="STRING" size="256"/>
+          <Column id="ORG_POS" type="STRING" size="256"/>
+          <Column id="ORG_GRADE" type="STRING" size="256"/>
+          <Column id="ORG_USER_NAME" type="STRING" size="256"/>
+          <Column id="STATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_DEPT_ID" propid="value" datasetid="ds_user" columnid="DEPT_ID"/>
+      <BindItem id="item2" compid="edt_POS" propid="value" datasetid="ds_user" columnid="POS"/>
+      <BindItem id="item1" compid="edt_USER_ID" propid="value" datasetid="ds_user" columnid="USER_ID"/>
+      <BindItem id="item3" compid="edt_DEPT_NAME" propid="value" datasetid="ds_user" columnid="DEPT_NAME"/>
+      <BindItem id="item4" compid="edt_GRADE" propid="value" datasetid="ds_user" columnid="GRADE"/>
+      <BindItem id="item5" compid="edt_USER_NAME" propid="value" datasetid="ds_user" columnid="USER_NAME"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.DUP_CHECK; // 등록가능하면 ID 기록
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+   this.gfn_setInitForm(obj, e);
+}
+
+this.fn_afterFormOnload = function() //페이지 로딩후 실행부분
+{
+	this.ds_user.clearData();
+	this.ds_user.addRow();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+/*저장 버튼 이벤트*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		this.ds_user.setColumn(0, "STATE", "NEW");
+		this.insert();
+	} else {
+		this.ds_user.setColumn(0, "STATE", "NONE");
+	}
+}
+
+/*창닫기 버튼 이벤트*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+//사업자번호로 거래처 정보조회하기
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{	
+	if (this.gfn_isNull(this.edt_USER_ID.value)) {
+		alert("개인번호를 입력해주세요.");
+		this.edt_USER_ID.setFocus();
+		return;
+	}
+	
+	var param = "t=U id="+this.edt_USER_ID.value;
+	
+	var sSvcID        = "checkHanaroDataExist";
+	var sURL          = "svc::rest/mg/nh/checkHanaroDataExist";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";
+	var sArgument     =  param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회	
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 등록시 사용되는 Validation Check */
+this.fn_validationCheck = function()
+{
+	if (this.gfn_isNull(this.DUP_CHECK)) {
+		this.alert("개인번호 중복검사를 먼저 진행해주세요.");
+		return false;
+	} else if (this.DUP_CHECK != this.edt_USER_ID.value) {
+		this.alert("입력한 개인번호가 변경되어 다시 중복검사를 진행해주세요.");
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_USER_ID.value)) {
+		alert("개인번호를 입력해주세요.");	
+		this.edt_USER_ID.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_DEPT_ID.value)) {
+		alert("사무소코드를 선택해주세요.");	
+		this.edt_DEPT_ID.setFocus();
+		return false;
+	}
+// 	if (this.gfn_isNull(this.edt_DEPT_NAME.value)) {
+// 		alert("사무소명을 입력해주세요.");
+// 		this.edt_DEPT_NAME.setFocus();
+// 		return false;
+// 	}
+	if (this.gfn_isNull(this.edt_POS.value)) {
+		alert("직급을 입력해주세요.");	
+		this.edt_POS.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_GRADE.value)) {
+		alert("직명을 입력해주세요.");	
+		this.edt_GRADE.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.edt_USER_NAME.value)) {
+		alert("성명을 입력해주세요.");	
+		this.edt_USER_NAME.setFocus();
+		return false;
+	}
+    return true;
+}
+
+/* 추가등록 */
+this.insert = function()
+{
+	var sSvcID        = "p_save";
+	var sURL          = "svc::rest/mg/nh/insertHanaroUserData";
+	var sInDatasets   = "ds_hanaro=ds_user";
+	var sOutDatasets  = "";
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		if (svcID =="checkHanaroDataExist" && ErrorCode == -2) {
+			this.alert("이미 등록된 개인번호입니다.");
+			this.edt_USER_ID.set_value("");
+			this.edt_USER_ID.setFocus();
+			this.DUP_CHECK = "";
+		} else {
+			this.gfn_getMessage("alert", "error.message.server.exception");
+		}
+	} else {
+		if (svcID =="p_save") {
+			if (ErrorCode == 0) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.close("I");
+			}
+		} else if (svcID =="checkHanaroDataExist") {
+			this.alert("등록 가능한 개인번호입니다.");
+			this.DUP_CHECK = this.edt_USER_ID.value;
+			this.edt_DEPT_ID.setFocus();
+		}
+	}
+}
+
+this.btn_search_high_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popDeptHigh","OMG.MG::OMG_DS_SC_6716_P02.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (!this.gfn_isNull(strVal)) {
+		this.edt_DEPT_ID.set_value(strVal.split("#")[0]);
+		this.edt_DEPT_NAME.set_value(strVal.split("#")[1]);
+	}
+}]]></Script>
+  </Form>
+</FDL>

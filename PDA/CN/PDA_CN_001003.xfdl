@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_001003" classname="popupPda" cssclass="sta_WF_PopupTitle" left="0" top="0" width="767" height="214" titletext="프로그램버전 상세" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_delete" taborder="4" text="삭제" onclick="fn_deletePdaDetail" cssclass="btn_WF_CRUD" top="15" right="78" width="55" height="21" visible="false"/>
+        <Button id="btn_init" taborder="3" text="다운로드" onclick="common_onclick" top="15" right="17" width="55" height="21" visible="true"/>
+        <Static id="Static24" taborder="12" text="프로그램파일경로" cssclass="sta_WF_Label" left="17" top="72" width="134" height="29" position="absolute"/>
+        <Static id="Static22" taborder="30" text="등록자ID" cssclass="sta_WF_Label" left="17" top="100" width="134" height="29" position="absolute"/>
+        <Static id="Static25" taborder="32" text="등록일시" cssclass="sta_WF_Label" left="383" top="100" width="134" height="29" position="absolute"/>
+        <Static id="Static23" taborder="51" text="비고내용" cssclass="sta_WF_Label" position="absolute" left="17" top="128" width="134" height="30" style="linespace:5;"/>
+        <Static id="Static00" taborder="53" text="프로그램파일ID" cssclass="sta_WF_Label" left="17" top="44" width="134" height="29"/>
+        <Static id="Static01" taborder="55" text="프로그램파일버전" cssclass="sta_WF_Label" left="383" top="44" width="134" height="29" style="linespace:5;"/>
+        <Static id="filtext" taborder="57" cssclass="sta_WF_Labelbg" left="150" top="128" width="601" height="30" style="align:left middle;"/>
+        <Static id="filuser" taborder="60" cssclass="sta_WF_Labelbg" left="150" top="100" width="234" height="29" style="align:left middle;"/>
+        <Static id="filpath" taborder="61" cssclass="sta_WF_Labelbg" left="150" top="72" width="601" height="29" style="align:left middle;"/>
+        <Static id="Static51" taborder="62" text="프로그램관리" cssclass="sta_WF_Subtitle" left="17" top="19" width="135" height="21"/>
+        <Static id="Static09" taborder="63" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="64" text="15" visible="false" left="673" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="66" cssclass="sta_WF_Labelbg" left="150" top="44" height="29" width="234"/>
+        <Edit id="flId" taborder="67" readonly="true" cssclass="edt_WF_Readonly" left="156" top="48" width="171" height="21" style="align:left middle;" enable="false"/>
+        <Static id="Static04" taborder="68" cssclass="sta_WF_Labelbg" left="516" top="44" width="235" height="29"/>
+        <Edit id="filv" taborder="69" readonly="true" cssclass="edt_WF_Readonly" left="522" top="48" width="166" height="21" style="align:left middle;" enable="false"/>
+        <Static id="Static05" taborder="70" cssclass="sta_WF_Labelbg" left="516" top="100" width="235" height="29"/>
+        <MaskEdit id="fildate" taborder="71" readonly="true" type="string" mask="####-##-## ##:##:##" left="522" top="104" width="187" height="21" style="border:0 solid #bfbfbfff ;align:left middle;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="pda_pmst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PGM_FL_ID" type="STRING" size="256"/>
+          <Column id="PGM_FL_VER" type="STRING" size="256"/>
+          <Column id="PGM_FL_PATH" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="REG_USR_ID" type="STRING" size="256"/>
+          <Column id="REG_DTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="filpath" propid="text" datasetid="pda_pmst" columnid="PGM_FL_PATH"/>
+      <BindItem id="item2" compid="filtext" propid="text" datasetid="pda_pmst" columnid="RMK_CNTN"/>
+      <BindItem id="item3" compid="filuser" propid="text" datasetid="pda_pmst" columnid="REG_USR_ID"/>
+      <BindItem id="item23" compid="flId" propid="value" datasetid="pda_pmst" columnid="PGM_FL_ID"/>
+      <BindItem id="item0" compid="filv" propid="value" datasetid="pda_pmst" columnid="PGM_FL_VER"/>
+      <BindItem id="item4" compid="fildate" propid="value" datasetid="pda_pmst" columnid="REG_DTM"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var PGM_FL_ID = "";
+var PGM_FL_VER = "";
+var PGM_FL_PATH = '';
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.PGM_FL_ID = this.parent.PGM_FL_ID;
+	this.PGM_FL_VER = this.parent.PGM_FL_VER;
+	this.PGM_FL_PATH = this.parent.PGM_FL_PATH;
+	this.fn_pdaProgramDetail();
+	if(application.gv_userTPC == "admin"){
+		this.btn_delete.set_visible(true);
+	}
+}
+
+this.fn_afterFormOnload = function()
+{
+	//페이지 로딩후 실행부분
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_deletePdaDetail = function(status)
+{       
+    var sSvcID        = "delete";
+	var sURL          = "svc::rest/pda/deletePdaDetail";
+	var sInDatasets   = "pda_pmst=pda_pmst";
+	var sOutDatasets  = "";
+	var sArgument     = "PGM_FL_ID="+ this.PGM_FL_ID +
+	                    " PGM_FL_VER=" + this.PGM_FL_VER; 
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_pdaProgramDetail = function()
+{
+	var sSvcID        = "detail";
+	var sURL          = "svc::rest/pda/ProgramDetail";
+	var sInDatasets   = "";
+	var sOutDatasets  = "pda_pmst=pda_pmst";	
+	var sArgument     = "PGM_FL_ID="+ this.PGM_FL_ID +
+	                    " PGM_FL_VER=" + this.PGM_FL_VER;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if(svcID == "detail"){
+		if(this.pda_pmst.rowcount == 0){
+			this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+			alert("데이터가 없습니다.");
+			this.close();
+			return;
+		}
+	} else if(svcID == "delete"){
+		alert("삭제되었습니다.");
+		this.close("SUCCESS");
+	} 
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSystemFileNm = this.PGM_FL_PATH;
+	var sFileName = encodeURIComponent(encodeURIComponent(this.PGM_FL_ID));
+	
+	var server_url = (application.gv_userTPC == "admin") ? application.gv_serverAdmin_url : application.gv_server_url;
+	var url = server_url + "rest/pda/fileDownload"
+			+ "?systemFileName=" + sSystemFileNm
+			+ "&fileName=" + sFileName;
+	
+	this.fileDownHandler(url, this);
+	
+	/*var _form = this;
+	
+	_form.setWaitCursor();
+    
+    $.fileDownload(_url, {
+		successCallback: function (url) {
+			_form.setWaitCursor(false);
+		},
+		failCallback: function (responseHtml) {
+			_form.setWaitCursor(false);
+			alert("파일 다운로드를 실패하였습니다.\n관리자에게 문의하세요.");
+		},
+		httpMethod: "POST",
+		data: ''
+	});*/
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+
+
+
+]]></Script>
+  </Form>
+</FDL>

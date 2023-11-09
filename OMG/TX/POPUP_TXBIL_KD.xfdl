@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="POPUP_TXBIL_KD" classname="popup01" left="0" top="0" width="297" height="321" onload="form_onload" titletext="수정세금계산서종류선택">
+    <Layouts>
+      <Layout>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" width="54" height="29" onclick="btn_ok_onclick" right="74" bottom="17"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" width="54" height="29" onclick="btn_cancel_onclick" right="17" bottom="17"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="44" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" width="91" height="17" style="background:#dc143c5b;" right="11" bottom="0"/>
+        <Radio id="rdo_modC" taborder="14" left="17" top="15" innerdataset="@ds_modC" codecolumn="SIMP_C" datacolumn="SIMP_CNM" right="17" bottom="56"/>
+        <Static id="Static02" taborder="15" text="10" visible="false" width="91" height="10" style="background:#dc143c5b;" right="51" bottom="46"/>
+        <Static id="Static04" taborder="16" text="15" visible="false" left="171" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_TRPL" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_DSC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_TRPL_C">1</Col>
+            <Col id="CLNTNM">가나다라마바</Col>
+            <Col id="NA_TEAM_C">ABC123456789</Col>
+            <Col id="TEAMNM">ABC123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_searchType" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="s_code" type="string" size="13"/>
+          <Column id="s_name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="s_code">1</Col>
+            <Col id="s_name">거래처명</Col>
+          </Row>
+          <Row>
+            <Col id="s_code">2</Col>
+            <Col id="s_name">사업자번호</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_modC">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function(){
+
+	trace("fn_afterFormOnload");
+	var param = [  
+ 		{code:"MOD_C",   dsName:"ds_modC",   selecttype:"S"}
+    ];
+    this.gfn_setPortalCommonCode(param);   
+}
+
+this.fn_commonAfterOnload= function()
+{
+	this.ds_modC.deleteRow(0);
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.rdo_modC.index < 0)
+	{
+		alert("선택해주세요.");
+		return false;
+	}
+	this.close(this.rdo_modC.value);
+}
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+
+this.div_search_searchText_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13)
+	{
+		this.btn_search.click();
+	}
+}
+
+this.grd_rvopl_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.btn_ok.click();
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="test" classname="test" left="0" top="0" width="709" height="697" titletext="New Form" onload="test_onload">
+    <Layouts>
+      <Layout>
+        <Plugin id="Plugin00" left="0.71%" top="9" right="79.69%" height="24" taborder="3" classid="{55D9860A-AB9C-44A1-BB74-75AF7F805333}"/>
+        <Button id="Button01" taborder="5" text="서명하기" left="68.41%" top="250" right="19.89%" height="21" onclick="Button01_onclick"/>
+        <Button id="Button00" taborder="9" text="검증하기" left="68.41%" top="464" right="19.89%" height="21" onclick="Button00_onclick"/>
+        <TextArea id="plainText" taborder="10" left="6.49%" top="100" right="19.89%" height="140" wordwrap="char"/>
+        <TextArea id="plainText00" taborder="11" left="6.49%" top="308" right="19.89%" height="140" wordwrap="char"/>
+        <TextArea id="plainText01" taborder="12" wordwrap="char" left="6.49%" top="500" right="19.89%" height="140"/>
+        <Button id="Button02" taborder="13" text="화면지우기" left="68.41%" top="656" right="19.89%" height="21" onclick="Button02_onclick"/>
+        <Edit id="Edit00" taborder="14" left="374" top="60" width="191" height="27" value="1234567890"/>
+        <Static id="Static00" taborder="15" text="사업자번호 : " left="260" top="56" width="92" height="28"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">0</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+include "lib::comTSToolKit.xjs";
+
+this.test_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+}
+
+var rtnSign = "";
+//서명하기
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var plainText = this.plainText.value;
+	//var sRtn = this.gfn_signTradeSign(this.Plugin00,plainText,this.Edit00.value);
+	//obj : ActiveX PlugIn
+	//sVal : 서명할 데이터
+	//sBzno : 사용자 본인 인증시 필요한 데이터 - 본인확인 필요없을시 ""
+	//callback : 서명 완료시 콜백받을 함수 
+	//id : 함수구분값 
+	//this.gfn_signTradeSign = function(obj, sVal, sBzno, callback, id)
+	this.gfn_signTradeSign(this.Plugin00,plainText,this.Edit00.value,"fn_signCallback", "screenId");
+	
+	
+}
+
+//callback함수 (서명된데이터||"ERROR", "화면구분값")
+this.fn_signCallback = function(rtnValue, id)
+{
+	if(rtnValue == "ERROR")
+	{
+		alert("전자서명시 오류가 있습니다.");
+	}
+	else
+	{
+		switch(id)
+		{
+			case "screenId":
+				alert("성공하였습니다.");
+				this.plainText00.set_value(rtnValue);
+				break;
+		}
+	}
+	
+}
+
+//검증하기
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var plainText = this.plainText00.value;
+	var sRtn = this.gfn_verifyTradeSign(this.Plugin00,plainText);
+	
+	this.plainText01.set_value(sRtn);
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+]]></Script>
+  </Form>
+</FDL>

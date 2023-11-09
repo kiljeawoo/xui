@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1120" classname="VAN_DS_SC_1110" left="0" top="0" width="803" height="490" titletext="월잔액원장조회_분사" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Plugin id="Plugin00" left="29.23%" top="4" right="65.9%" height="24" taborder="3" classid="{55D9860A-AB9C-44A1-BB74-75AF7F805333}" visible="false"/>
+        <Div id="div_menu" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="397" height="21"/>
+        <Div id="div_auth" taborder="1" url="common::AuthorityWorkplace.xfdl" top="0" right="158" width="379" height="21"/>
+        <Button id="btn_print00" taborder="2" text="출력" onclick="btn_print00_onclick" cssclass="btn_WF_CRUD" top="0" right="118" width="41" height="21"/>
+        <Button id="btn_search00" taborder="3" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Div id="div_search" taborder="5" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title00" taborder="6" text="거래월" cssclass="sta_WFSA_Label" left="15" top="10" width="91" height="21"/>
+              <Edit id="edt_data00" taborder="9" inputtype="number" cssclass="WF_Essential" left="230" top="36" width="120" height="21" readonly="false" maxlength="13" onkeydown="div_search_edt_data00_onkeydown"/>
+              <Edit id="edt_data01" taborder="10" cssclass="WF_Essential" left="352" top="36" width="200" height="21" readonly="false" onkeydown="div_search_edt_data00_onkeydown"/>
+              <Button id="btn_popup00" taborder="11" onclick="div_search_btn_popup00_onclick" cssclass="btn_WF_Searchbtn" left="554" top="36" width="21" height="21" enable="true"/>
+              <Static id="Static09" taborder="13" text="15" visible="false" left="0" top="0" width="15" height="67" style="background:#dc143c5b;"/>
+              <Static id="Static12" taborder="14" text="10" visible="false" left="105" top="57" width="103" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static14" taborder="15" text="5" visible="false" left="105" top="31" width="103" height="5" style="background:#dc143c5b;"/>
+              <Static id="Static13" taborder="16" text="10" visible="false" left="105" top="0" width="103" height="10" style="background:#dc143c5b;"/>
+              <Static id="sta_title02" taborder="18" text="계통계약구분" cssclass="sta_WFSA_Label" left="231" top="10" width="103" height="21"/>
+              <Combo id="cbo_rots" taborder="19" left="334" top="10" width="130" height="21" codecolumn="codecolumn" datacolumn="datacolumn" value="0" text="중앙본부계통계약" readonly="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">중앙본부계통계약</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="sta_title03" taborder="23" text="마감일자" cssclass="sta_WFSA_Label" left="506" top="10" width="91" height="21"/>
+              <Calendar id="cal_ddl_dt" taborder="1" left="584" top="10" width="100" height="21" dateformat="yyyy-MM-dd" value="null" oneditclick="div_search_cal_today_oneditclick" onchanged="div_search_cal_today_onchanged" readonly="true" enable="false"/>
+              <Div id="Div00" taborder="24" url="common::calendarMonth.xfdl" left="106" top="10" width="100" height="21"/>
+              <Radio id="rdo_store_chk00" taborder="8" index="1" codecolumn="codecolumn" datacolumn="datacolumn" value="2" direction="vertical" onitemchanged="div_search_rdo_store_chk00_onitemchanged" left="106" top="36" width="124" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">정산처</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="sta_title01" taborder="25" text="사업장" cssclass="sta_WFSA_Label" left="15" top="36" width="91" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="4" text="Div02" left="0" top="97" right="15" bottom="50" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="16" onclick="div_list_btn_toggle00_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" width="62" height="12"/>
+              <WebBrowser id="web_downExcelM" left="617" top="10" right="133" height="20" taborder="17" visible="false"/>
+              <Grid id="grd_main" taborder="18" binddataset="ds_master_data" useinputpanel="false" left="0" top="42" right="0" bottom="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="200"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                      <Column size="150"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="28"/>
+                      <Row size="28" band="summ"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="순번"/>
+                      <Cell col="1" text="공급업체"/>
+                      <Cell col="2" text="전월이월잔액"/>
+                      <Cell col="3" text="과세공급금액"/>
+                      <Cell col="4" text="면세공급금액"/>
+                      <Cell col="5" text="주류공급금액"/>
+                      <Cell col="6" text="공병금액"/>
+                      <Cell col="7" rowspan="2" text="저장품금액"/>
+                      <Cell col="8" rowspan="2" text="매출금액(대변)"/>
+                      <Cell col="9" text="현금금액"/>
+                      <Cell col="10" text="선지급금액"/>
+                      <Cell col="11" rowspan="2" text="공제금액"/>
+                      <Cell col="12" rowspan="2" text="지급금액"/>
+                      <Cell col="13" rowspan="2" text="지급취소금액"/>
+                      <Cell col="14" rowspan="2" text="정산금액(차변)"/>
+                      <Cell col="15" rowspan="2" text="외상매출금잔액"/>
+                      <Cell col="16" text="지체이자"/>
+                      <Cell col="17" text="합병금액"/>
+                      <Cell col="18" text="총공급금액"/>
+                      <Cell col="19" text="차변정정금액"/>
+                      <Cell col="20" rowspan="2" text="관리수수료(R1)"/>
+                      <Cell col="21" text="관리수수료(R2)"/>
+                      <Cell col="22" text="물류수수료"/>
+                      <Cell col="23" text="매입장려금"/>
+                      <Cell col="24" rowspan="2" text="상품권금액"/>
+                      <Cell col="25" rowspan="2" text="판매장려금"/>
+                      <Cell col="26" rowspan="2" text="수탁수수료"/>
+                      <Cell col="27" rowspan="2" text="지체상금"/>
+                      <Cell col="28" rowspan="2" text="지급기타금액"/>
+                      <Cell col="29" text="공병반환금액"/>
+                      <Cell col="30" text="공상자반환금액"/>
+                      <Cell col="31" text="반환수수료"/>
+                      <Cell row="1" col="1" text="정산처"/>
+                      <Cell row="1" col="2" text="전월이월자체이자"/>
+                      <Cell row="1" col="3" text="부가세"/>
+                      <Cell row="1" col="4" text="영세공급금액"/>
+                      <Cell row="1" col="5" text="주류부가세"/>
+                      <Cell row="1" col="6" text="공상자금액"/>
+                      <Cell row="1" col="9" text="선수금액"/>
+                      <Cell row="1" col="10" text="선지급할인"/>
+                      <Cell row="1" col="16" text="지체이자지급금액"/>
+                      <Cell row="1" col="17" text="합병지체이자"/>
+                      <Cell row="1" col="18" text="총부가세"/>
+                      <Cell row="1" col="19" text="대변정정금액"/>
+                      <Cell row="1" col="21" text="관리수수료부가세"/>
+                      <Cell row="1" col="22" text="물류수수료부가세"/>
+                      <Cell row="1" col="23" text="사후장려금"/>
+                      <Cell row="1" col="29"/>
+                      <Cell row="1" col="30" text="공파렛트반환금액"/>
+                      <Cell row="1" col="31" text="반환수수료부가세"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell rowspan="2" expr="expr:currow+1"/>
+                      <Cell col="1" style="align:left;" text="bind:CLIENT_NM"/>
+                      <Cell col="2" displaytype="number" text="bind:YY_CROV_AM" mask="#,##0"/>
+                      <Cell col="3" displaytype="number" text="bind:TXT_AM" mask="#,##0"/>
+                      <Cell col="4" displaytype="number" text="bind:EXTX_AM" mask="#,##0"/>
+                      <Cell col="5" displaytype="number" text="bind:LIQ_SPY_AM" mask="#,##0"/>
+                      <Cell col="6" displaytype="number" text="bind:VCBT_AM" mask="#,##0"/>
+                      <Cell col="7" rowspan="2" displaytype="number" text="bind:STOG_AM" mask="#,##0"/>
+                      <Cell col="8" rowspan="2" displaytype="number" text="bind:CBAM" mask="#,##0"/>
+                      <Cell col="9" displaytype="number" text="bind:CSH_AM" mask="#,##0"/>
+                      <Cell col="10" displaytype="number" text="bind:PPY_AM" mask="#,##0"/>
+                      <Cell col="11" rowspan="2" displaytype="number" text="bind:MAD_AM" mask="#,##0"/>
+                      <Cell col="12" rowspan="2" displaytype="number" text="bind:PY_AM" mask="#,##0"/>
+                      <Cell col="13" rowspan="2" displaytype="number" text="bind:PY_CAN_AM" mask="#,##0"/>
+                      <Cell col="14" rowspan="2" displaytype="number" text="bind:ADJ_AM" mask="#,##0"/>
+                      <Cell col="15" rowspan="2" displaytype="number" text="bind:BAC" mask="#,##0"/>
+                      <Cell col="16" displaytype="number" text="bind:DLAY_INT_OCU_AM" mask="#,##0"/>
+                      <Cell col="17" displaytype="number" text="bind:MRG_AM" mask="#,##0"/>
+                      <Cell col="18" displaytype="number" text="bind:SUPL_AM" mask="#,##0"/>
+                      <Cell col="19" displaytype="number" text="bind:DB_CRC_AM" mask="#,##0"/>
+                      <Cell col="20" rowspan="2" displaytype="number" text="bind:AMN_FEE_R1" mask="#,##0"/>
+                      <Cell col="21" displaytype="number" text="bind:AMN_FEE_R2" mask="#,##0"/>
+                      <Cell col="22" displaytype="number" text="bind:PHD_FEE" mask="#,##0"/>
+                      <Cell col="23" displaytype="number" text="bind:BYNG_SSDY" mask="#,##0"/>
+                      <Cell col="24" rowspan="2" displaytype="number" text="bind:MCDBD_AM" mask="#,##0"/>
+                      <Cell col="25" rowspan="2" displaytype="number" text="bind:SEL_SSDY" mask="#,##0"/>
+                      <Cell col="26" rowspan="2" displaytype="number" text="bind:ETR_FEE_ARG_AM" mask="#,##0"/>
+                      <Cell col="27" rowspan="2" displaytype="number" text="bind:DLAYPZ" mask="#,##0"/>
+                      <Cell col="28" rowspan="2" displaytype="number" text="bind:PY_ETC_AM" mask="#,##0"/>
+                      <Cell col="29" displaytype="number" text="bind:VCBT_RTU_AM" mask="#,##0"/>
+                      <Cell col="30" displaytype="number" text="bind:VCBX_RTU_AM" mask="#,##0"/>
+                      <Cell col="31" displaytype="number" text="bind:RTU_AM" mask="#,##0"/>
+                      <Cell row="1" col="1" style="align:left;" text="bind:BZPL_NM"/>
+                      <Cell row="1" col="2" displaytype="number" text="bind:YY_CROV_DLAY_INT" mask="#,##0"/>
+                      <Cell row="1" col="3" displaytype="number" text="bind:TXT_VAT" mask="#,##0"/>
+                      <Cell row="1" col="4" displaytype="number" text="bind:SMA_AM" mask="#,##0"/>
+                      <Cell row="1" col="5" displaytype="number" text="bind:LIQ_SPY_VAT" mask="#,##0"/>
+                      <Cell row="1" col="6" displaytype="number" text="bind:VCBX_AM" mask="#,##0"/>
+                      <Cell row="1" col="9" displaytype="number" text="bind:PPYAM" mask="#,##0"/>
+                      <Cell row="1" col="10" displaytype="number" text="bind:BYNG_DC_AM" mask="#,##0"/>
+                      <Cell row="1" col="16" displaytype="number" text="bind:DLAY_INT_PY_AM" mask="#,##0"/>
+                      <Cell row="1" col="17" displaytype="number" text="bind:MRG_DLAY_INT" mask="#,##0"/>
+                      <Cell row="1" col="18" displaytype="number" text="bind:SUPL_VAT" mask="#,##0"/>
+                      <Cell row="1" col="19" displaytype="number" text="bind:CR_CRC_AM" mask="#,##0"/>
+                      <Cell row="1" col="21" displaytype="number" text="bind:AMN_FEE_VAT" mask="#,##0"/>
+                      <Cell row="1" col="22" displaytype="number" text="bind:PHD_FEE_VAT" mask="#,##0"/>
+                      <Cell row="1" col="23" displaytype="number" text="bind:AFF_SSDY" mask="#,##0"/>
+                      <Cell row="1" col="29" displaytype="number" mask="#,##0"/>
+                      <Cell row="1" col="30" displaytype="number" text="bind:VPLTT_RTU_AM" mask="#,##0"/>
+                      <Cell row="1" col="31" displaytype="number" text="bind:RTU_FEE_VAT" mask="#,##0"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell rowspan="2" colspan="2" style="align:center;" text="합계"/>
+                      <Cell col="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'YY_CROV_AM')" mask="#,###"/>
+                      <Cell col="3" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TXT_AM')" mask="#,###"/>
+                      <Cell col="4" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'EXTX_AM')" mask="#,###"/>
+                      <Cell col="5" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'LIQ_SPY_AM')" mask="#,###"/>
+                      <Cell col="6" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'VCBT_AM')" mask="#,###"/>
+                      <Cell col="7" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'STOG_AM')" mask="#,###"/>
+                      <Cell col="8" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'CBAM')" mask="#,###"/>
+                      <Cell col="9" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'CSH_AM')" mask="#,###"/>
+                      <Cell col="10" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'PPY_AM')" mask="#,###"/>
+                      <Cell col="11" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'MAD_AM')" mask="#,###"/>
+                      <Cell col="12" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'PY_AM')" mask="#,###"/>
+                      <Cell col="13" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'PY_CAN_AM')" mask="#,###"/>
+                      <Cell col="14" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'ADJ_AM')" mask="#,###"/>
+                      <Cell col="15" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'BAC')" mask="#,###"/>
+                      <Cell col="16" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'DLAY_INT_OCU_AM')" mask="#,###"/>
+                      <Cell col="17" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'MRG_AM')" mask="#,###"/>
+                      <Cell col="18" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'SUPL_AM')" mask="#,###"/>
+                      <Cell col="19" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'DB_CRC_AM')" mask="#,###"/>
+                      <Cell col="20" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'AMN_FEE_R1')" mask="#,###"/>
+                      <Cell col="21" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'AMN_FEE_R2')" mask="#,###"/>
+                      <Cell col="22" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'PHD_FEE')" mask="#,###"/>
+                      <Cell col="23" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'BYNG_SSDY')" mask="#,###"/>
+                      <Cell col="24" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'MCDBD_AM')" mask="#,###"/>
+                      <Cell col="25" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'SEL_SSDY')" mask="#,###"/>
+                      <Cell col="26" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'ETR_FEE_ARG_AM')" mask="#,###"/>
+                      <Cell col="27" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'DLAYPZ')" mask="#,###"/>
+                      <Cell col="28" rowspan="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'PY_ETC_AM')" mask="#,###"/>
+                      <Cell col="29" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'VCBT_RTU_AM')" mask="#,###"/>
+                      <Cell col="30" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'VCBX_RTU_AM')" mask="#,###"/>
+                      <Cell col="31" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'RTU_AM')" mask="#,###"/>
+                      <Cell row="1" col="2" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'YY_CROV_DLAY_INT')" mask="#,###"/>
+                      <Cell row="1" col="3" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'TXT_VAT')" mask="#,###"/>
+                      <Cell row="1" col="4" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'SMA_AM')" mask="#,###"/>
+                      <Cell row="1" col="5" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'LIQ_SPY_VAT')" mask="#,###"/>
+                      <Cell row="1" col="6" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'VCBX_AM')" mask="#,###"/>
+                      <Cell row="1" col="9" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'PPYAM')" mask="#,###"/>
+                      <Cell row="1" col="10" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'BYNG_DC_AM')" mask="#,###"/>
+                      <Cell row="1" col="16" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'DLAY_INT_PY_AM')" mask="#,###"/>
+                      <Cell row="1" col="17" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'MRG_DLAY_INT')" mask="#,###"/>
+                      <Cell row="1" col="18" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'SUPL_VAT')" mask="#,###"/>
+                      <Cell row="1" col="19" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'CR_CRC_AM')" mask="#,###"/>
+                      <Cell row="1" col="21" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'AMN_FEE_VAT')" mask="#,###"/>
+                      <Cell row="1" col="22" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'PHD_FEE_VAT')" mask="#,###"/>
+                      <Cell row="1" col="23" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'AFF_SSDY')" mask="#,###"/>
+                      <Cell row="1" col="29" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'CR_CRC_AM')" mask="#,###"/>
+                      <Cell row="1" col="30" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'VPLTT_RTU_AM')" mask="#,###"/>
+                      <Cell row="1" col="31" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'RTU_FEE_VAT')" mask="#,###"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_excel00" taborder="6" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_excel00_onclick"/>
+        <Static id="Static00" taborder="7" text="월잔액원장조회(마트) 화면 &lt;b v='true'&gt;기능문의&lt;/b&gt;는 &lt;u v='true'&gt;하나로eSCM고객센터(02-1522-1211)&lt;/u&gt;로, &lt;b v='true'&gt;금액문의&lt;/b&gt;는 &lt;u v='true'&gt;담당 바이어&lt;/u&gt;에게로 부탁드립니다." left="0" right="15" bottom="5" height="40" wordwrap="char" usedecorate="true"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_master_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_ADJPL_C" type="STRING" size="256"/>
+          <Column id="CLIENT_NM" type="STRING" size="256"/>
+          <Column id="ADJ_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BZPL_NM" type="STRING" size="256"/>
+          <Column id="BAS_YM" type="STRING" size="256"/>
+          <Column id="YY_CROV_AM" type="STRING" size="256"/>
+          <Column id="YY_CROV_DLAY_INT" type="STRING" size="256"/>
+          <Column id="TXT_AM" type="STRING" size="256"/>
+          <Column id="TXT_VAT" type="STRING" size="256"/>
+          <Column id="EXTX_AM" type="STRING" size="256"/>
+          <Column id="SMA_AM" type="STRING" size="256"/>
+          <Column id="LIQ_SPY_AM" type="STRING" size="256"/>
+          <Column id="LIQ_SPY_VAT" type="STRING" size="256"/>
+          <Column id="VCBT_AM" type="STRING" size="256"/>
+          <Column id="VCBX_AM" type="STRING" size="256"/>
+          <Column id="STOG_AM" type="STRING" size="256"/>
+          <Column id="CBAM" type="STRING" size="256"/>
+          <Column id="CSH_AM" type="STRING" size="256"/>
+          <Column id="PPYAM" type="STRING" size="256"/>
+          <Column id="PPY_AM" type="STRING" size="256"/>
+          <Column id="BYNG_DC_AM" type="STRING" size="256"/>
+          <Column id="MAD_AM" type="STRING" size="256"/>
+          <Column id="PY_AM" type="STRING" size="256"/>
+          <Column id="PY_CAN_AM" type="STRING" size="256"/>
+          <Column id="ADJ_AM" type="STRING" size="256"/>
+          <Column id="BAC" type="STRING" size="256"/>
+          <Column id="DLAY_INT_OCU_AM" type="STRING" size="256"/>
+          <Column id="DLAY_INT_PY_AM" type="STRING" size="256"/>
+          <Column id="MRG_AM" type="STRING" size="256"/>
+          <Column id="MRG_DLAY_INT" type="STRING" size="256"/>
+          <Column id="SUPL_AM" type="STRING" size="256"/>
+          <Column id="SUPL_VAT" type="STRING" size="256"/>
+          <Column id="DB_CRC_AM" type="STRING" size="256"/>
+          <Column id="CR_CRC_AM" type="STRING" size="256"/>
+          <Column id="AMN_FEE_R1" type="STRING" size="256"/>
+          <Column id="AMN_FEE_R2" type="STRING" size="256"/>
+          <Column id="AMN_FEE_VAT" type="STRING" size="256"/>
+          <Column id="PHD_FEE" type="STRING" size="256"/>
+          <Column id="PHD_FEE_VAT" type="STRING" size="256"/>
+          <Column id="BYNG_SSDY" type="STRING" size="256"/>
+          <Column id="AFF_SSDY" type="STRING" size="256"/>
+          <Column id="MCDBD_AM" type="STRING" size="256"/>
+          <Column id="SEL_SSDY" type="STRING" size="256"/>
+          <Column id="ETR_FEE_ARG_AM" type="STRING" size="256"/>
+          <Column id="DLAYPZ" type="STRING" size="256"/>
+          <Column id="PY_ETC_AM" type="STRING" size="256"/>
+          <Column id="VCBT_RTU_AM" type="STRING" size="256"/>
+          <Column id="VCBX_RTU_AM" type="STRING" size="256"/>
+          <Column id="VPLTT_RTU_AM" type="STRING" size="256"/>
+          <Column id="RTU_AM" type="STRING" size="256"/>
+          <Column id="RTU_FEE_VAT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sum" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="YY_CROV_AM" type="STRING" size="256"/>
+          <Column id="YY_CROV_DLAY_INT" type="STRING" size="256"/>
+          <Column id="TXT_AM" type="STRING" size="256"/>
+          <Column id="TXT_VAT" type="STRING" size="256"/>
+          <Column id="EXTX_AM" type="STRING" size="256"/>
+          <Column id="SMA_AM" type="STRING" size="256"/>
+          <Column id="LIQ_SPY_AM" type="STRING" size="256"/>
+          <Column id="LIQ_SPY_VAT" type="STRING" size="256"/>
+          <Column id="VCBT_AM" type="STRING" size="256"/>
+          <Column id="VCBX_AM" type="STRING" size="256"/>
+          <Column id="STOG_AM" type="STRING" size="256"/>
+          <Column id="CBAM" type="STRING" size="256"/>
+          <Column id="CSH_AM" type="STRING" size="256"/>
+          <Column id="PPYAM" type="STRING" size="256"/>
+          <Column id="PPY_AM" type="STRING" size="256"/>
+          <Column id="BYNG_DC_AM" type="STRING" size="256"/>
+          <Column id="MAD_AM" type="STRING" size="256"/>
+          <Column id="PY_AM" type="STRING" size="256"/>
+          <Column id="PY_CAN_AM" type="STRING" size="256"/>
+          <Column id="ADJ_AM" type="STRING" size="256"/>
+          <Column id="BAC" type="STRING" size="256"/>
+          <Column id="DLAY_INT_OCU_AM" type="STRING" size="256"/>
+          <Column id="DLAY_INT_PY_AM" type="STRING" size="256"/>
+          <Column id="MRG_AM" type="STRING" size="256"/>
+          <Column id="MRG_DLAY_INT" type="STRING" size="256"/>
+          <Column id="SUPL_AM" type="STRING" size="256"/>
+          <Column id="SUPL_VAT" type="STRING" size="256"/>
+          <Column id="DB_CRC_AM" type="STRING" size="256"/>
+          <Column id="CR_CRC_AM" type="STRING" size="256"/>
+          <Column id="AMN_FEE_R1" type="STRING" size="256"/>
+          <Column id="AMN_FEE_R2" type="STRING" size="256"/>
+          <Column id="AMN_FEE_VAT" type="STRING" size="256"/>
+          <Column id="PHD_FEE" type="STRING" size="256"/>
+          <Column id="PHD_FEE_VAT" type="STRING" size="256"/>
+          <Column id="BYNG_SSDY" type="STRING" size="256"/>
+          <Column id="AFF_SSDY" type="STRING" size="256"/>
+          <Column id="MCDBD_AM" type="STRING" size="256"/>
+          <Column id="SEL_SSDY" type="STRING" size="256"/>
+          <Column id="ETR_FEE_ARG_AM" type="STRING" size="256"/>
+          <Column id="DLAYPZ" type="STRING" size="256"/>
+          <Column id="PY_ETC_AM" type="STRING" size="256"/>
+          <Column id="VCBT_RTU_AM" type="STRING" size="256"/>
+          <Column id="VCBX_RTU_AM" type="STRING" size="256"/>
+          <Column id="VPLTT_RTU_AM" type="STRING" size="256"/>
+          <Column id="RTU_AM" type="STRING" size="256"/>
+          <Column id="RTU_FEE_VAT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ddl" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DDL_DT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var sRtn = "";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	//이번달 자동 입력
+	var initdate = this.gfn_today('yyyyMM');
+	this.div_search.Div00._setValue(initdate);
+	this.div_search.edt_data00.set_value('8808983000015');
+	this.div_search.edt_data01.set_value('(주)농협하나로유통 구매본부');
+	this.div_list.grd_main.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	//그리드클릭 이벤트 등록
+	this.div_list.grd_main.addEventHandler("oncellclick", this.grd_afterFnc, this);
+}
+
+//조회 조건 숨김 여부 이벤트
+this.div_list_btn_toggle00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.div_search_edt_data00_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.div_search_btn_popup00_onclick(true)
+	}
+}
+
+//제조업체 팝업 조회(수요처)
+this.div_search_btn_popup00_onclick = function(params)
+{
+	var param = {
+				autoType:params, 
+				searchCode:this.div_search.edt_data00.value, 
+				searchText:this.div_search.edt_data01.value
+	};
+	if (typeof params == "boolean") {
+		if (!this.searPopValue(param)) {return};
+	}
+
+	var oArg = {paramMode:"U", dsArg:this.Dataset00, autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("rvopl_trpl", "POPUP::POPUP_SRC_RVOPL_TRPL.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strVal != undefined) {
+		this.div_search.edt_data00.set_value(strVal.split(",")[0]);
+		this.div_search.edt_data01.set_value(strVal.split(",")[1]);
+	}
+
+}
+
+//조회 조건 체크
+this.validation = function()
+{
+	if (this.div_search.Div00._getValue().length < 6) {
+		this.alert("기준월을 확인하십시요. [" + this.div_search.Div00._getValue() + "]");
+		return false;
+	}
+	return true;
+}
+
+this.btn_search00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_master_data.clearData();
+	this.ds_sum.clearData();
+
+	if (this.validation() != true) {return;}
+	var params = "BAS_YM="+this.div_search.Div00._getValue()
+				 +" TRPL_C="+this.getTrplCode();
+	var trpl = this.gfn_nullToEmpty(this.div_search.edt_data00.value);
+	if (this.div_search.rdo_store_chk00.value == 1) {
+		params += " ADJ_NA_BZPLC=all"
+	} else {
+		if (this.gfn_nullToEmpty(this.div_search.edt_data00.value).length < 8) {
+			this.alert("사업장코드를 입력해주세요.");
+			return;
+		}
+		params += " ADJ_NA_BZPLC="+this.gfn_nullToEmpty(this.div_search.edt_data00.value);
+	}
+
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/balance/getMonthlyBalanceList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_master_data=DATASET ds_sum=DS_SUM ds_ddl=DS_DDL";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(trId, errCode, errMsg)
+{
+	if (errCode < 0) {
+		this.gfn_getMessage("alert", errMsg);
+		return;
+	}
+
+	if (trId == "p_search") {
+		this.div_search.cal_ddl_dt.set_value(this.ds_ddl.getColumn(0, "DDL_DT"));
+		if (this.div_list.grd_main.rowcount > 0) {
+			this.ds_master_data.set_enableevent(false);
+			this.ds_master_data.set_rowposition(1);
+			this.ds_master_data.set_rowposition(0);
+			this.ds_master_data.set_enableevent(true);
+		} else {
+			this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+		}
+	}
+}
+
+//그리드의 로우를 클릭 했을 때 팝업 생성
+this.grd_afterFnc = function(obj, e)
+{
+	/*
+	if (e.reason == 51)
+	{
+		this.ds_master_data.set_enableevent(false);
+		this.ds_master_data.set_rowposition(-1);
+		this.ds_master_data.set_enableevent(true);
+		return;
+	}
+	*/
+
+	var oArg = {paramMode:"U", dsArg:this.ds_master_data, dtVal:this.div_search.Div00._getValue()};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("rvopl_trpl", "PDS.BALANCE::VAN_DS_SC_1111.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+//엑셀 다운로드 버튼
+this.btn_excel00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_exceldown();
+}
+
+//필수 값 체크
+this.fn_validationCheck = function()
+{
+	if (this.div_list.grd_main.rowcount < 1) {
+		this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+		return;
+	}
+	return true;
+}
+
+//서버 API 전달
+this.fn_exceldown = function()
+{
+	var params = "BAS_YM="+this.div_search.Div00._getValue()
+				+"&TRPL_C="+this.getTrplCode();
+	if (this.div_search.rdo_store_chk00.value == 1) {
+		params += "&ADJ_NA_BZPLC=all";
+	} else {
+		if (this.gfn_nullToEmpty(this.div_search.edt_data00.value).length < 8) {
+			this.alert("사업장코드를 입력해주세요.");
+			return;
+		}
+		params += "&ADJ_NA_BZPLC="+this.div_search.edt_data00.value;
+	}
+
+	excelDownHandler(application.gv_server_url+"rest/excel/pds/balance/getMonthlyBalanceList?"+params, this);
+
+	//this.div_list.web_downExcelM.set_url(application.gv_server_url+"rest/excel/pds/balance/getMonthlyBalanceList?"+params);
+}
+
+//출력버튼
+this.btn_print00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (!this.validation()) {
+		return;
+	}
+
+	var bzplc = "all";
+	if (this.div_search.rdo_store_chk00.value != 1) {
+		if (this.gfn_nullToEmpty(this.div_search.edt_data00.value).length < 8) {
+			this.alert("사업장코드를 입력해주세요.");
+			return;
+		}
+		bzplc=this.gfn_nullToEmpty(this.div_search.edt_data00.value);
+	}
+
+	var searchText = "[거래월]:"+this.div_search.Div00._getValue() +
+					 ", [계통계약구분]:"+this.div_search.cbo_rots.text+
+					 ", [사업장]:"+((bzplc == 'all')?'전체': this.div_search.edt_data00.value+', '+this.div_search.edt_data01.value);
+
+	trace(searchText);
+
+	var param = {
+		TRPL_C_TEXT:searchText, 
+		BAS_YM:this.gfn_nullToEmpty(this.div_search.Div00._getValue()), 
+		ADJ_NA_BZPLC:bzplc, 
+		TRPL_C:this.getTrplCode(), 
+		DS_TYPE:"VAN_DS_SC_1120"
+	};
+	var ozParam = {
+		sId: 'VAN_DS_SC_1120', 
+		sUrl: '/rest/oz/pds/balance/getMonthlyBalanceList', 
+		paramType: 'param', 
+		sParam: param
+	};
+	this.ozViewer(ozParam);
+
+}
+//농협사업장 라디오버튼
+this.div_search_rdo_store_chk00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if (this.div_search.rdo_store_chk00.value == 1) {
+		this.div_search.edt_data00.set_readonly(true);
+		this.div_search.edt_data01.set_readonly(true);
+		this.div_search.btn_popup00.set_enable(false);
+	} else {
+		this.div_search.edt_data00.set_readonly(false);
+		this.div_search.edt_data01.set_readonly(false);
+		this.div_search.btn_popup00.set_enable(true);
+	}
+
+}
+//초기화 버튼
+this.btn_clear00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}]]></Script>
+  </Form>
+</FDL>

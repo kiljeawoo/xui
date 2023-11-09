@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_1165_02" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="자료실-보기(detail)">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="105" text="Div01" left="0" top="0" height="21" right="563" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static05" taborder="107" text="15" visible="false" left="788" top="-18" height="490" style="background:#00ffffb5;" width="15"/>
+        <Static id="Static03" taborder="108" text="8" visible="false" left="92.53%" top="21" right="1.87%" height="8" style="background:#dc143c5b;"/>
+        <Button id="Button06" taborder="132" text="수정" cssclass="btn_WF_CRUD" top="0" right="101" width="41" height="21"/>
+        <Button id="Button08" taborder="133" text="삭제" cssclass="btn_WF_CRUD" top="0" right="58" width="41" height="21"/>
+        <Button id="Button00" taborder="134" text="목록" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21"/>
+        <Static id="Static00" taborder="135" cssclass="sta_WF_Labelbg" left="631" top="29" right="15" height="29" text="2015-04-23 10:11:11"/>
+        <Static id="Static24" taborder="137" cssclass="sta_WF_Labelbg" left="109" top="29" height="29" width="414"/>
+        <Static id="Static07" taborder="138" text="제목" cssclass="sta_WF_Label" left="0" top="29" width="110" height="29"/>
+        <Static id="Static11" taborder="140" text="날짜" cssclass="sta_WF_Label" left="522" top="29" width="110" height="29"/>
+        <Static id="Static01" taborder="172" cssclass="sta_WF_Labelbg" left="631" top="57" right="15" height="29"/>
+        <Static id="Static08" taborder="173" text="작성자" cssclass="sta_WF_Label" left="0" top="57" width="110" height="29"/>
+        <Static id="Static09" taborder="174" text="조회수" cssclass="sta_WF_Label" left="522" top="57" width="110" height="29"/>
+        <Static id="Static10" taborder="175" cssclass="sta_WF_Labelbg" left="109" top="57" width="414" height="29"/>
+        <Static id="Static12" taborder="176" text="첨부파일" cssclass="sta_WF_Label" left="0" top="85" width="110" height="29"/>
+        <Static id="Static13" taborder="177" cssclass="sta_WF_Labelbg" left="109" top="85" height="29" right="15"/>
+        <Static id="Static04" taborder="178" cssclass="sta_WF_Labelbg" left="0" top="113" right="15" height="377"/>
+        <TextArea id="TextArea01" taborder="179" value="가나다라마바사 가나다라마바사 가나다라마바사 가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사&#13;&#10;" readonly="true" cssclass="txt_WF_file" left="16" top="129" width="756" height="346" mask="###,###" wordwrap="char"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="387" height="474" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="사무소 조회">
+    <Layouts>
+      <Layout>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" top="427" width="54" height="29" onclick="btn_ok_onclick" right="72"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" top="427" width="54" height="29" onclick="btn_cancel_onclick" right="16"/>
+        <Button id="btn_close" taborder="15" top="0" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick" right="0" width="38"/>
+        <Static id="Static06" taborder="16" text="사무소 조회" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle" onclick="Static06_onclick"/>
+        <Grid id="Grid00" taborder="17" binddataset="ds_hanaro" useinputpanel="false" autofittype="col" treeusecheckbox="false" left="15" top="80" right="15" height="336" oncelldblclick="Grid00_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사무소코드"/>
+                <Cell col="1" text="사무소명"/>
+                <Cell col="2" text="상위사무소코드"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:ORG_DEPT_ID"/>
+                <Cell col="1" text="bind:ORG_DEPT_NAME"/>
+                <Cell col="2" text="bind:ORG_DEPT_HIGH"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Edit id="edt_deptid" taborder="18" left="15" top="40" right="257" height="29" onkeydown="edt_search_onkeydown" displaynulltext="사무소코드"/>
+        <Button id="btn_search" taborder="19" text="검색" onclick="btn_search_onclick" cssclass="btn_WF_Popup" top="40" right="15" width="60" height="29"/>
+        <Edit id="edt_deptnm" taborder="20" onkeydown="edt_search_onkeydown" left="136" top="40" right="80" height="29" displaynulltext="사무소명"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_hanaro" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_dept_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_DSC" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_NAME" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_DSC" type="STRING" size="256"/>
+          <Column id="ORG_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="ORG_BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="ORG_CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="STATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.call_dept();
+}
+
+/*조직도 불러오기*/
+this.call_dept = function()
+{
+	var di = this.gfn_nullToEmpty(this.edt_deptid.value);
+	var dn = this.gfn_nullToEmpty(this.edt_deptnm.value);
+	
+	var param = "t=D"
+		 + " di="+di
+		 + " dn="+dn;
+
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/mg/nh/retrieveOrgNhData";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_hanaro=ds_hanaro";
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	// trace(this.ds_codeData.saveXML());
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "p_search") {
+			this.ds_hanaro.filter("ORG_USE_YN == 'Y'");
+		}
+	}
+}
+
+/* 부서 검색기능 */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.call_dept();
+}
+
+this.edt_search_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.call_dept();
+	}
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.fn_sendResult = function()
+{
+	var id = this.ds_hanaro.getColumn(this.ds_hanaro.rowposition, "ORG_DEPT_ID");
+	var nm = this.ds_hanaro.getColumn(this.ds_hanaro.rowposition, "ORG_DEPT_NAME");
+
+	this.close(id+"#"+nm);
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_sendResult();
+}
+
+this.Grid00_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.fn_sendResult();
+}]]></Script>
+  </Form>
+</FDL>

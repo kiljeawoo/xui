@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5211" classname="popup01" left="0" top="0" width="767" height="598" titletext="이용료명세 탭화면" onload="form_onload" onkeydown="OMG_DS_SC_5211_onkeydown">
+    <Layouts>
+      <Layout>
+        <Static id="Static03" taborder="71" text="8" visible="false" left="52" top="21" width="700" height="8" style="background:#dc143c5b;"/>
+        <Tab id="Tab00" taborder="76" left="0" top="92" tabindex="0" scrollbars="autoboth" style="showextrabutton:false;" bottom="29" onchanged="Tab00_onchanged" right="15">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="이용료청구내역" url="OMG.BL::OMG_DS_SC_5212.xfdl">
+              <Layouts>
+                <Layout width="730" height="443"/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="EDI서비스일별내역" url="OMG.BL::OMG_DS_SC_5213.xfdl" async="false"/>
+            <Tabpage id="tabpage3" text="부가정보사용내역" url="OMG.BL::OMG_DS_SC_5214.xfdl" async="false"/>
+            <Tabpage id="tabpage4" text="정보분석조회" url="OMG.BL::OMG_DS_SC_5215.xfdl" async="false"/>
+            <Tabpage id="tabpage5" text="EDI서비스일별내역(WEB/EDI)" url="OMG.BL::OMG_DS_SC_5216.xfdl" async="false"/>
+          </Tabpages>
+        </Tab>
+        <Div id="Div01" taborder="78" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Div id="div_search" taborder="79" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="26" text="이용료월" cssclass="sta_WFSA_Label" left="17" top="10" width="102" height="21"/>
+              <Static id="Static01" taborder="28" text="대납업체거래처코드" cssclass="sta_WFSA_Label" left="227" top="10" width="139" height="21"/>
+              <Combo id="combo_naTrplc" taborder="29" codecolumn="SIMP_C" datacolumn="SIMP_CNM" index="-1" left="383" top="10" width="328" height="21" innerdataset="@ds_naTrplc" onitemchanged="div_search_combo_naTrplc_onitemchanged"/>
+              <Div id="div_rms_mm" taborder="30" url="common::calendarMonth.xfdl" left="95" top="10" width="108" height="21" onkillfocus="div_search_div_rms_mm_onkillfocus"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="80" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <WebBrowser id="web_downExcel" left="816" top="24" width="125" height="14" taborder="82" visible="false"/>
+        <Button id="btn_print" taborder="83" text="이용료청구내역 출력" onclick="btn_print_onclick" cssclass="btn_WF_CRUD" top="0" right="118" width="132" height="21"/>
+        <Button id="btn_excel" taborder="83" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Static id="Static04" taborder="85" text="15" visible="false" top="0" right="0" width="15" style="background:#00ffffb5;" bottom="0"/>
+        <Static id="Static10" taborder="86" text="20" visible="false" left="52" top="72" width="700" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static138" taborder="87" text="* 미확정된 청구월의 청구금액은 확정전까지 변경가능하니 참고용도로 활용하시기 바랍니다." onclick="Static138_onclick" cssclass="sta_WF_DescriptionE02" left="0" bottom="0" width="500" height="21" style="padding:2 0 0 3;"/>
+        <Static id="Static09" taborder="88" text="8" visible="false" left="0" top="569" width="292" height="8" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RMS_MM" type="STRING" size="256"/>
+          <Column id="LS_RQS_AM" type="STRING" size="256"/>
+          <Column id="PAY_AM" type="STRING" size="256"/>
+          <Column id="RQS_BAC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_naTrplc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_naTrplc_onrowposchanged">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) // 공통
+{
+	this.gfn_setInitForm(obj, e);
+}
+
+this.fn_afterFormOnload = function()
+{
+	if (this.div_search.div_rms_mm._getValue()) {
+		return; // 각 탭이 로딩될 때마다 fn_afterFormOnload()가 호출되기 때문.
+	}
+	
+	var toDay = this.gfn_today("yyyyMMdd");
+	var chkDay = this.gfn_minusMonth(toDay, 1);
+	
+	this.div_search.div_rms_mm._setValue(chkDay.substring(0, 6));
+	this.div_search.div_rms_mm.setFunctionName("fn_search");
+	
+	this.fn_retrieveMmRqsBrkInit();
+}
+
+/***************************************************
+	이용요금조회 메소드
+****************************************************/
+this.fn_retrieveMmRqsBrkInit = function()
+{
+	var sSvcID        = "retrieveMmRqsBrkInit";
+	var sURL          = "svc::rest/pt/myinf/retrieveMmRqsBrkInit";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_naTrplc=ds_naTrplc";
+	var sArgument     =  "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/***************************************************
+	callback메소드
+****************************************************/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "retrieveMmRqsBrkInit") {
+		if (this.ds_naTrplc.rowcount == 0) {
+			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			return;
+		}
+		
+		if (this.ds_naTrplc.rowcount > 1) {
+			this.ds_naTrplc.insertRow(0);
+			this.ds_naTrplc.setColumn(0, "SIMP_C", "A");
+			this.ds_naTrplc.setColumn(0, "SIMP_CNM", "전체");
+			this.ds_naTrplc.setColumn(0, "SIMP_C_EXPL", "A");
+			this.ds_naTrplc.setColumn(0, "PAY_COMP_NM", "");
+		}
+		
+		this.div_search.combo_naTrplc.set_index(0);
+		
+		this.fn_search();
+	}
+}
+
+/***************************************************
+	탭 내용 조회
+****************************************************/
+this.fn_search = function()
+{
+	var RMS_MM = this.div_search.div_rms_mm._getValue();
+	var RMS_TRPL_C = this.div_search.combo_naTrplc.value;
+	
+	if (this.Tab00.tabindex == 0) {
+		this.Tab00.tabpage1.fn_retrieveMmRqsBrk(RMS_MM, RMS_TRPL_C);
+	} else if (this.Tab00.tabindex == 1) {
+		this.Tab00.tabpage2.fn_retrieveEdiSvcDtpBrk(RMS_MM, RMS_TRPL_C);
+	} else if (this.Tab00.tabindex == 2) {
+		this.Tab00.tabpage3.fn_retrieveAdinfDtpBrk(RMS_MM, RMS_TRPL_C);
+	} else if (this.Tab00.tabindex == 3) {
+		this.Tab00.tabpage4.fn_retrieveInfAnss(RMS_MM, RMS_TRPL_C);
+	} else if (this.Tab00.tabindex == 4) {
+		this.Tab00.tabpage5.fn_retrieveEdiSvcDtpBrk_LOC(RMS_MM, RMS_TRPL_C);
+	}
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+}
+
+this.OMG_DS_SC_5211_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	if (this.btn_search.visible == true) {
+		if (e.keycode == 13) {
+			this.fn_search();
+		}
+	}
+}
+
+this.div_search_combo_naTrplc_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.fn_search();
+}
+
+/* 탭 변경 */
+this.Tab00_onchanged = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{
+	this.fn_search();
+}
+
+/***************************************************
+	이용료청구내역 출력
+****************************************************/
+this.btn_print_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var ozParam = {
+		sId: 'OMG_DS_SC_5212',
+		sUrl: '/rest/oz/pt/myinf/retrieveMmRqsBrk',
+		paramType: 'param',
+		sParam: {
+			RMS_MM: this.div_search.div_rms_mm._getValue(),
+			RMS_TRPL_C: this.div_search.combo_naTrplc.value
+		}
+	};
+	this.ozViewer(ozParam);
+}
+
+/***************************************************
+	탭 엑셀 다운
+****************************************************/
+this.btn_excel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var toDay = this.gfn_today("yyyyMMdd");
+	var fileName = "_" + toDay + ".xls"; // 엑셀 파일 이름
+	
+	if (this.Tab00.tabindex == 0) {
+		fileName = "이용료청구내역" + fileName;
+	} else if (this.Tab00.tabindex == 1) {
+		fileName = "EDI서비스일별내역" + fileName;
+	} else if (this.Tab00.tabindex == 2) {
+		fileName = "부가정보사용내역" + fileName;
+	} else if (this.Tab00.tabindex == 3) {
+		fileName = "정보분석조회" + fileName;
+	} else if (this.Tab00.tabindex == 4) {
+		fileName = "EDI서비스일별내역(WEB_EDI)" + fileName; // file name에 "/" 사용못함.
+	}
+	
+	var param = "RMS_MM=" + this.div_search.div_rms_mm._getValue()
+			  + "&RMS_TRPL_C=" + this.div_search.combo_naTrplc.value
+			  + "&fileName=" + fileName;
+	
+	param = encodeURI(encodeURI(param));
+	
+	if (this.Tab00.tabindex == 0) {
+		excelDownHandler(application.gv_server_url + "rest/excel/downloadExcelMmRqsBrk?" + param, this);
+	} else if (this.Tab00.tabindex == 1) {
+		excelDownHandler(application.gv_server_url + "rest/excel/downloadExcelEdiSvcDtpBrkList?" + param, this);
+	} else if (this.Tab00.tabindex == 2) {
+		excelDownHandler(application.gv_server_url + "rest/excel/downloadExcelAdinfDtpBrkList?" + param, this);
+	} else if (this.Tab00.tabindex == 3) {
+		excelDownHandler(application.gv_server_url + "rest/excel/downloadExcelInfAnssList?" + param, this);
+	} else if (this.Tab00.tabindex == 4) {
+		excelDownHandler(application.gv_server_url + "rest/excel/downloadExcelEdiSvcDtpBrkList_LOC?" + param, this);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

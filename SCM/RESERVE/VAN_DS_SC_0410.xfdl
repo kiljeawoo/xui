@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0410" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="공급처 차량관리" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="10" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="edt_searchWord" taborder="71" cssclass="WF_Essential" left="294" top="10" height="21" width="151"/>
+              <Radio id="rdo_searchType" taborder="72" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="94" top="10" height="21" width="200">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">차량번호</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">기사명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static00" taborder="73" text="조회구분" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="79"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static02" taborder="12" text="15" visible="false" left="923" top="72" right="15" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static07" taborder="13" text="5" visible="false" left="923" top="108" right="15" height="5" style="background:#dc143c5b;"/>
+        <Div id="div_list" taborder="14" text="Div02" left="0" top="71" right="15" bottom="0">
+          <Layouts>
+            <Layout>
+              <Static id="Static09" taborder="116" text="차량번호" cssclass="sta_WF_Label" left="0" top="41" height="29" width="110"/>
+              <Static id="Static20" taborder="117" text="연락처" cssclass="sta_WF_Label" left="0" top="69" height="29" width="110"/>
+              <Static id="Static26" taborder="119" cssclass="sta_WF_Labelbg" left="109" top="41" right="0" height="29"/>
+              <Static id="Static28" taborder="120" cssclass="sta_WF_Labelbg" left="109" top="69" right="0" height="29"/>
+              <Static id="Static30" taborder="122" text="기사명" cssclass="sta_WF_Label" left="300" top="41" height="29" width="110"/>
+              <Static id="Static32" taborder="123" text="사용여부" cssclass="sta_WF_Label" left="300" top="69" height="29" width="110"/>
+              <Edit id="edt_vhcno" taborder="125" cssclass="WF_Essential" left="118" top="45" height="21" width="166"/>
+              <Static id="Static06" taborder="126" text="5" visible="false" left="924" top="37" right="0" height="5" style="background:#dc143c5b;"/>
+              <Grid id="grd_master" taborder="133" binddataset="ds_car" useinputpanel="false" left="0" top="139" right="0" bottom="0" autosizingtype="none" autofittype="none">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="120"/>
+                      <Column size="121"/>
+                      <Column size="120"/>
+                      <Column size="180"/>
+                      <Column size="106"/>
+                      <Column size="82"/>
+                      <Column size="123"/>
+                      <Column size="60"/>
+                      <Column size="60"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="사업장코드"/>
+                      <Cell col="2" text="개별번호"/>
+                      <Cell col="3" text="거래처코드"/>
+                      <Cell col="4" text="거래처명"/>
+                      <Cell col="5" text="차량번호"/>
+                      <Cell col="6" text="기사명"/>
+                      <Cell col="7" text="연락처"/>
+                      <Cell col="8" text="사용여부"/>
+                      <Cell col="9" text="삭제여부"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:PHD_NA_BZPLC"/>
+                      <Cell col="2" text="bind:SPYPL_VHC_PHD_IDVD_NO"/>
+                      <Cell col="3" text="bind:NA_TRPL_C"/>
+                      <Cell col="4" text="bind:CLNTNM"/>
+                      <Cell col="5" text="bind:VHCNO"/>
+                      <Cell col="6" text="bind:PHD_DVY_CAFFNM"/>
+                      <Cell col="7" text="bind:TELNO"/>
+                      <Cell col="8" displaytype="checkbox" text="bind:UYN"/>
+                      <Cell col="9" displaytype="checkbox" text="bind:DEL_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Edit id="edt_phd_dvy_caffnm" taborder="138" cssclass="WF_Essential" left="418" top="45" height="21" width="151"/>
+              <Button id="btn_rowUpdate" taborder="139" text="행추가/수정" top="15" right="55" width="82" height="21" onclick="div_list_btn_rowUpdate_onclick"/>
+              <Button id="btn_clear" taborder="140" text="CLEAR" top="15" right="0" width="53" height="21" onclick="div_list_btn_clear_onclick"/>
+              <Combo id="cbo_num01" taborder="141" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" left="118" top="73" width="51" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">010</Col>
+                      <Col id="datacolumn">010</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">011</Col>
+                      <Col id="datacolumn">011</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">016</Col>
+                      <Col id="datacolumn">016</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">017</Col>
+                      <Col id="datacolumn">017</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">018</Col>
+                      <Col id="datacolumn">018</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">019</Col>
+                      <Col id="datacolumn">019</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">02</Col>
+                      <Col id="datacolumn">02</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">031</Col>
+                      <Col id="datacolumn">031</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">032</Col>
+                      <Col id="datacolumn">032</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">033</Col>
+                      <Col id="datacolumn">033</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">041</Col>
+                      <Col id="datacolumn">041</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">042</Col>
+                      <Col id="datacolumn">042</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">043</Col>
+                      <Col id="datacolumn">043</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">051</Col>
+                      <Col id="datacolumn">051</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">052</Col>
+                      <Col id="datacolumn">052</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">053</Col>
+                      <Col id="datacolumn">053</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">054</Col>
+                      <Col id="datacolumn">054</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">055</Col>
+                      <Col id="datacolumn">055</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">061</Col>
+                      <Col id="datacolumn">061</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">062</Col>
+                      <Col id="datacolumn">062</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">063</Col>
+                      <Col id="datacolumn">063</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">064</Col>
+                      <Col id="datacolumn">064</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static33" taborder="143" text="-" left="169" top="73" width="9" height="21"/>
+              <Static id="Static31" taborder="144" text="-" left="231" top="73" width="9" height="21"/>
+              <Static id="sta_processingNumber" taborder="147" usedecorate="true" left="397" top="16" right="137" height="21" style="align:right middle;"/>
+              <CheckBox id="chk_delYn" taborder="148" text="삭제" value="0" truevalue="1" falsevalue="0" left="687" top="74" width="46" height="19" style="font:9 Gulim;"/>
+              <CheckBox id="chk_userYn" taborder="149" text="사용" value="0" truevalue="1" falsevalue="0" left="418" top="74" width="138" height="19" style="font:9 Gulim;"/>
+              <Edit id="edt_hidden_updateYn" taborder="150" top="108" height="21" width="74" right="457" visible="false"/>
+              <Static id="Static03" taborder="151" text="41" visible="false" top="98" width="75" height="41" style="background:#dc143c5b;" right="1"/>
+              <Edit id="edt_hidden_updateYn00" taborder="152" visible="false" top="106" right="79" width="74" height="21"/>
+              <Static id="Static21" taborder="118" text="삭제여부" cssclass="sta_WF_Label" left="569" top="69" height="29" width="110"/>
+              <Button id="btn_divResize" taborder="153" onclick="div_list_btn_divResize_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" width="62" height="12"/>
+              <Edit id="mae_num02" taborder="154" inputtype="number" maxlength="4" left="178" top="73" width="53" height="21"/>
+              <Edit id="mae_num03" taborder="155" inputtype="number" maxlength="4" left="240" top="73" width="53" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="15" text="40" visible="false" left="922" top="197" right="15" height="40" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="21" text="저장" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_save_onclick"/>
+        <Button id="btn_search" taborder="22" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="23" url="common::location.xfdl" text="Div01" left="0" top="0" right="408" height="36"/>
+        <Div id="div_auth" taborder="24" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="116" width="431" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_car" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PHD_NA_BZPLC" type="string" size="32"/>
+          <Column id="SPYPL_VHC_PHD_IDVD_NO" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="CLNTNM" type="string" size="32"/>
+          <Column id="VHCNO" type="string" size="32"/>
+          <Column id="PHD_DVY_CAFFNM" type="string" size="32"/>
+          <Column id="TELNO" type="string" size="32"/>
+          <Column id="UYN" type="string" size="32"/>
+          <Column id="DEL_YN" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var dataDArr1 = new Array(
+						'PHD_NA_BZPLC'
+						, 'SPYPL_VHC_PHD_IDVD_NO'
+						, 'NA_TRPL_C'
+						, 'CLNTNM'
+						, 'VHCNO'
+						, 'PHD_DVY_CAFFNM'
+						, 'TELNO'
+						, 'UYN'
+						, 'DEL_YN'
+						);
+						
+var dataDArr = new Array(						
+						'VHCNO'
+						, 'PHD_DVY_CAFFNM'
+						, 'TELNO'
+						, 'UYN'
+						, 'DEL_YN'
+						);						
+
+var carArr = new Array(
+						'edt_vhcno'
+						, 'edt_phd_dvy_caffnm'
+						, ''			
+						, 'chk_userYn'
+						, 'chk_delYn'
+					);
+
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	this.gfn_setInitForm(obj,e);	
+}	
+	
+/* 페이지 로딩후 실행부분 */
+this.fn_afterFormOnload = function()
+{		
+	this.btnDisable(this.btn_save);
+	
+	//권한사업장 표시 여부(1:본사)	
+	if(application.gv_mbcoType != '1'){
+		this.div_auth.visible = false;
+	}
+	
+	this.div_list.cbo_num01.set_index(0);
+	//처리대상건수
+	this.div_list.sta_processingNumber.set_text(this.gfn_setRowCount(this.ds_car.rowcount));
+	//그리드
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	//그리드클릭 이벤트 등록
+	this.div_list.grd_master.addEventHandler("oncellclick", this.grd_afterFnc, this);
+	//행추가인지 수정인지 구분값
+	this.div_list.edt_hidden_updateYn.set_value("");
+	
+	//페이지 로딩시 바로 조회.
+	//this.fn_search();
+};
+
+/*Grid Init*/
+this.fn_init = function(){
+	this.ds_car.clearData();
+	this.div_list_btn_clear_onclick(); //입력정보 init
+}
+
+/* 입력정보 초기화 */
+this.div_list_btn_clear_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_list.edt_vhcno.set_value('');
+	this.div_list.edt_phd_dvy_caffnm.set_value('');
+	this.div_list.cbo_num01.set_value('010');
+	this.div_list.mae_num02.set_value('');
+	this.div_list.mae_num03.set_value('');
+	this.div_list.chk_userYn.set_value('0');
+	this.div_list.chk_delYn.set_value('0');
+	
+}
+
+/* search */
+this.fn_search = function(){
+	//행추가인지 수정인지 구분값
+	this.div_list.edt_hidden_updateYn.set_value("");	
+	
+	this.fn_init();
+	
+	var searchType = this.gfn_nullToEmpty(this.div_search.rdo_searchType.value); //조회구분(1.차량명, 2:기사명)
+	var searchWord = this.gfn_nullToEmpty(this.div_search.edt_searchWord.value); //조회단어
+	
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	
+	var param = "searchType="+searchType+
+				" searchWord="+searchWord+
+				" TRPL_C=" + trplC;
+				
+	trace("##MASTER##PARAM##->"+param);	
+		
+	var sSvcID        = "retrieveCarList";//통신아이디
+	var sURL          = "svc::rest/reserve/retrieveCarList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_car=ds_car";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+	//조회후 권한사업장 비활성화
+	//this.Div00.cbo_authorityWorkplace.set_enable(false);
+}
+
+/* 조회버튼 클릭시 */
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();	
+}
+
+/* 저장버튼 클릭시 */
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if(this.fn_save_validation()){
+		var dsParams = "ds_car=ds_car:U";
+		
+		var sSvcID        = "saveCar";//통신아이디
+		var sURL          = "svc::/rest/reserve/saveCar";// 호출할 서버 페이지 주소
+		var sInDatasets   = dsParams;//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = "";// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	
+	}	
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "retrieveCarList"){
+			
+			//trace(this.ds_Rcv_M.saveXML());
+										
+			//처리대상건수
+			this.div_list.sta_processingNumber.set_text(this.gfn_setRowCount(this.ds_car.rowcount));
+			
+			if(this.ds_car.rowcount == 0){				
+				//this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}
+		}
+		
+		if(svcID == "saveCar"){
+			this.gfn_getMessage("alert", "result.message.save.success");
+			this.fn_search();
+		}
+	}
+}
+
+this.fn_key_validation = function()
+{
+	if(this.gfn_isNull(this.div_list.edt_vhcno.value) || this.gfn_length(this.div_list.edt_vhcno.value) < 7){		
+		//정확한 정보입력 후 행추가/수정 처리하세요.	
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0410.view.save.validation.confirm");
+		if(this.div_list.edt_vhcno.enable == true)this.div_list.edt_vhcno.select();
+		return false;
+	}
+	
+	return true;	
+}
+
+this.fn_save_validation = function()
+{	
+	//alert(this.gfn_length(this.div_list.edt_vhcno.text));
+	
+	if(this.gfn_isNull(this.div_list.edt_vhcno.value) || this.gfn_length(this.div_list.edt_vhcno.value) < 7){
+		//차량번호를 7자리 이상 입력해 주세요.		
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0410.view.save.validation.vhcno");
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.div_list.edt_phd_dvy_caffnm.value)){
+		//기사명을 입력해 주세요.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0410.view.save.validation.caffnm");
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.div_list.mae_num02.value) || this.gfn_length(this.div_list.mae_num02.value) < 4){
+		//중간 연락처를 4자리 입력해 주세요.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0410.view.save.validation.tel1");
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.div_list.mae_num03.value) || this.gfn_length(this.div_list.mae_num03.value) < 4){
+		//끝자리 연락처 4자리 입력해 주세요.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0410.view.save.validation.tel2");
+		return false;
+	}
+		
+	return true;
+	
+}
+
+this.grd_afterFnc = function(obj, e)
+{
+/*
+	if(e.reason == 51)
+	{		
+		this.ds_car.set_enableevent(false);
+		this.ds_car.set_rowposition(-1);
+		this.ds_car.set_enableevent(true);
+		return;
+	}
+*/	
+	this.div_list.edt_vhcno.set_value(this.ds_car.getColumn(this.ds_car.rowposition,"VHCNO"));
+   	this.div_list.edt_phd_dvy_caffnm.set_value(this.ds_car.getColumn(this.ds_car.rowposition,"PHD_DVY_CAFFNM"));
+   	
+   	//연락처가 통으로 들어와 '-' 단위로 스플릿해서 나눠서 넣어줘야함
+   	var telno = this.ds_car.getColumn(this.ds_car.rowposition,"TELNO"); 	
+   	var lstTelNo = telno.split('-');
+
+	this.div_list.cbo_num01.set_value(lstTelNo[0]);
+	this.div_list.mae_num02.set_value(lstTelNo[1]);
+	this.div_list.mae_num03.set_value(lstTelNo[2]);
+	
+	this.div_list.chk_userYn.set_value(this.ds_car.getColumn(this.ds_car.rowposition,"UYN"));	
+	this.div_list.chk_delYn.set_value(this.ds_car.getColumn(this.ds_car.rowposition,"DEL_YN"));
+	
+	//행추가인지 수정인지 구분값
+	this.div_list.edt_hidden_updateYn.set_value("update");
+	
+}
+
+this.div_list_btn_rowUpdate_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_isUpdate();
+}
+
+this.fn_row_validation = function()
+{
+	if(this.gfn_isNull(this.div_list.edt_vhcno.value) || this.gfn_length(this.div_list.edt_vhcno.value) < 7){
+	//정확한 정보입력 후 행추가/수정 처리하세요.	
+	this.gfn_getMessage("alert", "msg.van_ds_sc_0410.view.save.validation.confirm");
+	
+	return false;
+	}
+	
+	return true;
+}    
+
+this.fn_isUpdate = function(){
+
+	if(!this.fn_row_validation()) return;
+	if(!this.fn_save_validation()) return;	
+	
+	var bok = "";
+	
+	if(this.div_list.edt_hidden_updateYn.value == 'update'){
+		//bok = application.confirm("수정하시겠습니까 ?");
+		bok = this.gfn_getMessage("alert", "msg.isUpdate");
+		this.fn_rowUpdate();
+	}else{
+		//bok = application.confirm("추가하시겠습니까 ?");
+		bok = this.gfn_getMessage("alert", "msg.isInsert");
+		this.fn_rowInsert();
+	}
+
+}
+
+this.fn_rowUpdate = function(){
+	
+	for(var i = 0; i < dataDArr.length; i++){
+		if(dataDArr[i] == 'TELNO'){			
+			var tel = this.div_list.cbo_num01.value + "-" + this.div_list.mae_num02.value + "-" + this.div_list.mae_num03.value;			
+			
+			eval("this.ds_car.setColumn(this.ds_car.rowposition, 'TELNO', '"+tel+"')");
+		}else{
+			eval("this.ds_car.setColumn(this.ds_car.rowposition, '"+dataDArr[i]+"', this.div_list."+carArr[i]+".value)");
+		}	
+	}
+}
+
+this.fn_rowInsert = function(){
+	var row = this.ds_car.addRow();
+			
+	for(var i = 0; i < dataDArr.length; i++){
+		this.getCompInfo().ds_car.setColumn(row, "PHD_NA_BZPLC", '8808983300108');
+		//this.getCompInfo().ds_car.setColumn(row, "SPYPL_VHC_PHD_IDVD_NO", this.gfn_today("YYYYMMdd")); //개별번호
+		
+		//권한사업장이 있을경우와 없을경우 설정
+		trace("application.gv_mbcoType==>" + application.gv_mbcoType);				
+		
+		if(application.gv_mbcoType == 1){
+			//본사:1 일경우
+			this.getCompInfo().ds_car.setColumn(row, "NA_TRPL_C", this.div_auth.cbo_authorityWorkplace.value);
+			//권한사업장 명
+			this.getCompInfo().ds_car.setColumn(row, "CLNTNM", (this.div_auth.cbo_authorityWorkplace.text).substr(16));
+			
+		}else{
+			//지사:2 일경우
+			this.getCompInfo().ds_car.setColumn(row, "NA_TRPL_C", application.gv_glnCode);
+			this.getCompInfo().ds_car.setColumn(row, "CLNTNM", application.gv_companyName);		
+		}
+  
+		if(dataDArr[i] == 'TELNO'){			
+			var tel = this.gfn_nullToEmpty(this.div_list.cbo_num01.value) + "-" + this.gfn_nullToEmpty(this.div_list.mae_num02.value) + "-" + this.gfn_nullToEmpty(this.div_list.mae_num03.value);						
+			
+			eval("this.ds_car.setColumn("+ row +", 'TELNO', '"+tel+"')");
+		}else{		
+			eval("this.ds_car.setColumn("+ row +", '"+dataDArr[i]+"', this.div_list."+carArr[i]+".value)");		}
+	}
+}
+
+this.getCompInfo = function(){
+	
+	var compInfo = {};
+	compInfo.ds_car = this.ds_car;
+	compInfo.rdo_searchType = this.div_search.rdo_searchType;
+	compInfo.edt_searchWord = this.div_search.edt_searchWord;
+	compInfo.edt_vhcno = this.div_list.edt_vhcno;
+	compInfo.edt_phd_dvy_caffnm = this.div_list.edt_phd_dvy_caffnm;
+	compInfo.cbo_num01 = this.div_list.cbo_num01;
+	compInfo.mae_num02 = this.div_list.mae_num02;
+	compInfo.mae_num03 = this.div_list.mae_num03;	
+	compInfo.chk_userYn = this.div_list.chk_userYn;
+	compInfo.chk_delYn = this.div_list.chk_delYn;
+	return compInfo;
+	
+};
+this.div_list_btn_divResize_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+]]></Script>
+  </Form>
+</FDL>

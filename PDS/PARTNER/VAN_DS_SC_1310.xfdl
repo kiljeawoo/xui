@@ -1,0 +1,916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1310" classname="VAN_DS_SC_1310" left="0" top="0" width="803" height="490" titletext="하나로마트 거래관계 등록(R2)" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Button id="btn_save00" taborder="2" text="저장" onclick="btn_save00_onclick" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Button id="btn_search00" taborder="3" onclick="btn_search00_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Div id="div_search" taborder="4" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg" visible="true">
+          <Layouts>
+            <Layout>
+              <Static id="sta_00" taborder="32" text="거래관계" cssclass="sta_WFSA_Label" left="15" top="10" width="79" height="21"/>
+              <Static id="sta_02" taborder="33" text="거래처" cssclass="sta_WFSA_Label" left="15" top="36" width="79" height="21"/>
+              <Static id="sta_01" taborder="34" text="지역코드" cssclass="sta_WFSA_Label" left="442" top="10" width="79" height="21"/>
+              <Static id="sta_03" taborder="35" text="수요처" cssclass="sta_WFSA_Label" left="442" top="38" width="79" height="21"/>
+              <Radio id="rdo_store_chk00" taborder="36" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="94" top="36" width="130" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">거래처</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static00" taborder="40" text="-" left="250" top="10" width="10" height="21"/>
+              <Edit id="edt_data00" taborder="41" cssclass="WF_Essential" left="94" top="10" width="150" height="21" value="마트상품부"/>
+              <Edit id="edt_data01" taborder="42" cssclass="WF_Essential" left="262" top="10" width="150" height="21"/>
+              <Button id="btn_popup00" taborder="43" cssclass="btn_WF_Searchbtn" left="765" top="38" width="21" height="21" onclick="div_search_btn_popup00_onclick"/>
+              <Edit id="edt_data02" taborder="44" inputtype="number" cssclass="WF_Essential" left="521" top="38" width="110" height="21" maxlength="25" onkeydown="div_search_edt_data02_onkeydown"/>
+              <Edit id="edt_data03" taborder="45" cssclass="WF_Essential" left="634" top="38" width="128" height="21" onkeydown="div_search_edt_data03_onkeydown"/>
+              <Combo id="cbo_local_code00" taborder="47" left="521" top="10" width="110" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="0" text="전체">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">11</Col>
+                      <Col id="datacolumn">[1100]서울</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">21</Col>
+                      <Col id="datacolumn">[2100]부산</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">22</Col>
+                      <Col id="datacolumn">[2200]인천</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">23</Col>
+                      <Col id="datacolumn">[2300]대구</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">24</Col>
+                      <Col id="datacolumn">[2400]광주</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">25</Col>
+                      <Col id="datacolumn">[2500]대전</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">26</Col>
+                      <Col id="datacolumn">[2600]울산</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">31</Col>
+                      <Col id="datacolumn">[3100]경기</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">32</Col>
+                      <Col id="datacolumn">[3200]강원</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">33</Col>
+                      <Col id="datacolumn">[3300]충북</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">34</Col>
+                      <Col id="datacolumn">[3400]충남</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">35</Col>
+                      <Col id="datacolumn">[3500]전북</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">36</Col>
+                      <Col id="datacolumn">[3600]전남</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">37</Col>
+                      <Col id="datacolumn">[3700]경북</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">38</Col>
+                      <Col id="datacolumn">[3800]경남</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">39</Col>
+                      <Col id="datacolumn">[3900]제주</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">40</Col>
+                      <Col id="datacolumn">[4000]세종</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">99</Col>
+                      <Col id="datacolumn">[9900]기타대</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="sta_search_data" taborder="49" text="0" top="10" width="21" height="21" right="43" visible="false" enable="false"/>
+              <Static id="Static01" taborder="50" text="10" visible="false" left="261" top="57" width="103" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static02" taborder="51" text="5" visible="false" left="245" top="31" width="103" height="5" style="background:#dc143c5b;"/>
+              <Combo id="cbo_RQR_NA_TRPL_C" taborder="52" left="237" top="36" height="21" width="175" innerdataset="@ds_RQR_NA_TRPL_C" datacolumn="CLNTNM" codecolumn="NA_TRPL_C"/>
+              <Static id="Static08" taborder="53" text="30" visible="false" left="412" top="0" height="67" style="background:#dc143c5b;" width="30"/>
+              <Edit id="edt_ten" taborder="54" left="80.79%" top="10" right="13.74%" height="21" value="0" visible="false" enable="false"/>
+              <Static id="sta_search_cc" taborder="55" text="0" enable="false" visible="false" top="10" right="67" width="29" height="21"/>
+              <Static id="sta_cser_team" taborder="56" enable="false" visible="false" top="10" right="11" width="29" height="21"/>
+              <Static id="sta_flex_val" taborder="57" text="0" enable="false" visible="false" top="10" right="11" width="21" height="21" onclick="div_search_sta_flex_val_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="5" left="0" top="97" bottom="0" scrollbars="none" right="15">
+          <Layouts>
+            <Layout width="788" height="317">
+              <Grid id="grd_detail00" taborder="30" binddataset="ds_excel" useinputpanel="false" oncellclick="div_list_grd_detail_oncellclick" onheadclick="div_list_grd_detail_onheadclick" left="430" top="28" right="-12" bottom="13" visible="false">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="220"/>
+                      <Column size="120"/>
+                      <Column size="80"/>
+                      <Column size="120"/>
+                      <Column size="80"/>
+                      <Column size="220"/>
+                      <Column size="92"/>
+                      <Column size="220"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="29"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="마트분사 ~ 수요처 계약"/>
+                      <Cell col="2" text="수요처코드"/>
+                      <Cell col="3" text="수요처 팀"/>
+                      <Cell col="4" text="계약유형"/>
+                      <Cell col="5" text="공급유형"/>
+                      <Cell col="6" text="수요처 ~ 공급업체 계약"/>
+                      <Cell col="7" text="변경일"/>
+                      <Cell col="8" text="변경공급처"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell expr="expr:currow+1"/>
+                      <Cell col="1" style="align:left;" text="bind:CLNTNM"/>
+                      <Cell col="2" text="bind:CSER_NA_TRPL_C"/>
+                      <Cell col="3" text="bind:CSER_NA_TEAM_N"/>
+                      <Cell col="4" text="bind:CSER_CTR_TPC_N"/>
+                      <Cell col="5" text="bind:SPY_TPC_N"/>
+                      <Cell col="6" style="align:left;" text="bind:SPLRN"/>
+                      <Cell col="7" text="bind:LSCHG_DTM" mask="####-##-##"/>
+                      <Cell col="8" text="bind:UPDATE_SPLR_NA_TRPL_C"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_main" taborder="23" binddataset="ds_RQR_NA_TRPL_C" useinputpanel="false" autofittype="none" left="0" top="41" bottom="0" width="400" oncellclick="div_list_grd_main_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="80"/>
+                      <Column size="130"/>
+                      <Column size="240"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="30"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none" text="선택"/>
+                      <Cell col="1" text="구분"/>
+                      <Cell col="2" text="거래처코드"/>
+                      <Cell col="3" text="거래처명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHECK_YN"/>
+                      <Cell col="1" text="bind:NA_MBCO_DSC"/>
+                      <Cell col="2" text="bind:NA_TRPL_C"/>
+                      <Cell col="3" style="align:left;" text="bind:CLNTNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_toggle00" taborder="24" cssclass="btn_WFSA_SearchClose" left="363" top="0" right="362" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_detail" taborder="25" useinputpanel="false" left="418" top="41" bottom="0" binddataset="ds_master_data" right="0" oncellclick="div_list_grd_detail_oncellclick" onheadclick="div_list_grd_detail_onheadclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="45"/>
+                      <Column size="220"/>
+                      <Column size="120"/>
+                      <Column size="80"/>
+                      <Column size="120"/>
+                      <Column size="80"/>
+                      <Column size="220"/>
+                      <Column size="92"/>
+                      <Column size="220"/>
+                      <Column size="45"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="29"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" displaytype="checkbox" edittype="checkbox"/>
+                      <Cell col="2" text="마트분사 ~ 수요처 계약"/>
+                      <Cell col="3" text="수요처코드"/>
+                      <Cell col="4" text="수요처 팀"/>
+                      <Cell col="5" text="계약유형"/>
+                      <Cell col="6" text="공급유형"/>
+                      <Cell col="7" text="수요처 ~ 공급업체 계약"/>
+                      <Cell col="8" text="변경일"/>
+                      <Cell col="9" text="변경공급처"/>
+                      <Cell col="10" displaytype="normal" edittype="none" text="삭제"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell expr="expr:currow+1"/>
+                      <Cell col="1" displaytype="checkbox" edittype="checkbox" text="bind:CHECK_YN"/>
+                      <Cell col="2" style="align:left;" text="bind:CLNTNM"/>
+                      <Cell col="3" text="bind:CSER_NA_TRPL_C"/>
+                      <Cell col="4" text="bind:CSER_NA_TEAM_N"/>
+                      <Cell col="5" text="bind:CSER_CTR_TPC_N"/>
+                      <Cell col="6" text="bind:SPY_TPC_N"/>
+                      <Cell col="7" style="align:left;" text="bind:SPLRN"/>
+                      <Cell col="8" text="bind:LSCHG_DTM" mask="####-##-##"/>
+                      <Cell col="9" text="bind:UPDATE_SPLR_NA_TRPL_C"/>
+                      <Cell col="10" displaytype="checkbox" edittype="none" text="bind:DELETE_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="sta_pagename00" taborder="26" text="주관사업장 [주관사업장이 마트상품부인 3자 계통 거래관계 생성]" cssclass="sta_WF_Subtitle" top="15" width="500" height="21" left="0"/>
+              <Static id="Static03" taborder="27" text="15" visible="false" left="5" top="0" width="103" height="15" style="background:#dc143c5b;"/>
+              <Static id="Static00" taborder="28" text="5" visible="false" left="5" top="36" width="103" height="5" style="background:#dc143c5b;"/>
+              <Button id="btn_excel" taborder="29" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="14" right="3" width="41" height="21"/>
+              <Static id="Static01" taborder="32" text="※ 동일 수요처로 거래관계 등록 및 삭제는 1일 1회만 가능합니다." top="15" right="50" height="21" style="color:#0000ffff;align:right middle;font:bold 9 Gulim;" width="400"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_clear00" taborder="6" text="초기화" onclick="btn_clear00_onclick" cssclass="btn_WF_CRUD" top="0" right="233" width="53" height="21"/>
+        <Button id="btn_popup01" taborder="7" onclick="btn_popup01_onclick" top="0" width="113" height="21" text="요청거래관계검색" right="118" cssclass="btn_WF_CRUD"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_RQR_NA_TRPL_C" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_master_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+          <Column id="CRQRTRPL" type="STRING" size="256"/>
+          <Column id="CRQRTEAM" type="STRING" size="256"/>
+          <Column id="CRQRMNENO" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="CSER_NA_TEAM_N" type="STRING" size="256"/>
+          <Column id="CSER_CTR_TPC" type="STRING" size="256"/>
+          <Column id="CSER_CTR_TPC_N" type="STRING" size="256"/>
+          <Column id="SPY_TPC" type="STRING" size="256"/>
+          <Column id="SPY_TPC_N" type="STRING" size="256"/>
+          <Column id="MNGT_NA_TR_TPC" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="CSER_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CSER_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="SPLR_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="SPLR_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="MNGT_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MNGT_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="SPLR" type="STRING" size="256"/>
+          <Column id="SPLRN" type="STRING" size="256"/>
+          <Column id="DELETE_YN" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="RSP_C_CNTN" type="STRING" size="256"/>
+          <Column id="EDI_IF_ID" type="STRING" size="256"/>
+          <Column id="UPDATE_SPLR_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="UPDATE_SPLR_NA_TRPL_CODE" type="STRING" size="256"/>
+          <Column id="CSER_TR_REL_AMNNO" type="STRING" size="256"/>
+          <Column id="AMNNO" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ROTS_FLEX_PR_APL_YN" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+          <Column id="ROTS_FLEX_PR_APL_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_excel">
+        <ColumnInfo>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+          <Column id="CRQRTRPL" type="STRING" size="256"/>
+          <Column id="CRQRTEAM" type="STRING" size="256"/>
+          <Column id="CRQRMNENO" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="CSER_NA_TEAM_N" type="STRING" size="256"/>
+          <Column id="CSER_CTR_TPC" type="STRING" size="256"/>
+          <Column id="CSER_CTR_TPC_N" type="STRING" size="256"/>
+          <Column id="SPY_TPC" type="STRING" size="256"/>
+          <Column id="SPY_TPC_N" type="STRING" size="256"/>
+          <Column id="MNGT_NA_TR_TPC" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="CSER_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CSER_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="SPLR_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="SPLR_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="MNGT_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MNGT_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="SPLR" type="STRING" size="256"/>
+          <Column id="SPLRN" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="RSP_C_CNTN" type="STRING" size="256"/>
+          <Column id="EDI_IF_ID" type="STRING" size="256"/>
+          <Column id="UPDATE_SPLR_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="UPDATE_SPLR_NA_TRPL_CODE" type="STRING" size="256"/>
+          <Column id="CSER_TR_REL_AMNNO" type="STRING" size="256"/>
+          <Column id="AMNNO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var TRPL_C = application.gv_glnCode; 			//로그인 사업장코드
+var TRPL_NM = application.gv_companyName; 		//로그인 사업장명
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	this.div_search.edt_data01.set_value(TRPL_NM); // 거래관계입력
+
+	//this.addEventSingleCheckbox(this.div_list.grd_main); 	// 하나의 체크박스만 체크 가능(그리드)
+	this.div_list.grd_detail.afterFnc = this.update_chk; 	// 클릭 시 이벤트
+	this.div_list.grd_detail.addEventHandler('oncellclick',this.delete_chk,this);	// 삭제(체크박스) 이벤트 등록
+
+	this.btnDisable(this.btn_save00);
+
+	//탄력업체 시 저장 버튼 사용 못함
+	this.initflex();
+	if (this.div_search.sta_flex_val.text == "0") {
+		this.btn_save00.set_enable(false);
+	}
+	////////////////////////////
+ 	if (this.div_search.edt_ten.value == "0") {
+		return;
+	}
+	this.search(); 		//권한사업장 조회
+}
+
+//계통탄력가격적용여부 조회
+this.initflex = function()
+{
+	var json = this.getParamJson(this.components);
+	json.TRPL_C = TRPL_C;
+	var params = this.getParamJsonToString(json);
+
+	var sSvcID        = "p_initflex";//통신아이디
+	var sURL          = "svc::rest/pds/partner/Trade/getFlexTrades";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_ROTS_FLEX_PR_APL_YN=ds_ROTS_FLEX_PR_APL_YN";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType, true);
+}
+
+this.div_list_grd_detail_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var chkyn = true;
+	if (this.ds_master_data.getColumn(this.ds_master_data.rowposition,"CHECK_YN")==0) {
+		chkyn = false;
+	}
+	if (e.cell == 1) {
+		this.update_chk(this,chkyn,this.ds_master_data.rowposition);
+	}
+}
+
+//오른쪽 사업장 체크박스 클릭 시 변경 사업장 입력
+this.update_chk = function(obj, result, row)
+{
+
+	var chkIndex = obj.getCheckIndex(); //왼쪽 그리드 체크 index
+
+	var na_trpl_c = obj.ds_RQR_NA_TRPL_C.getColumn(chkIndex,"NA_TRPL_C"); 	// 왼쪽 그리드에서 선택한 거래처코드
+	var clntnm = obj.ds_RQR_NA_TRPL_C.getColumn(chkIndex,"CLNTNM"); 		// 왼쪽 그리드에서 선택한 거래처명
+	var mna_trpl_c = obj.ds_master_data.getColumn(row,"SPLR");				// 오른쪽 그리드에서 선택한 거래처코드
+	var mclntnm = obj.ds_master_data.getColumn(row,"SPLRN"); 		// 오른쪽 그리드에서 선택한 거래처명
+
+	var fs_date = this.ds_master_data.getColumn(row,"FSRG_DTM");
+	var ls_date = this.ds_master_data.getColumn(row,"LSCHG_DTM");
+	// 체크가 될때
+	if (result == true) {
+		if (chkIndex == undefined) {
+			obj.alert("변경할 공급처를 먼저 선택해주세요.");
+			obj.ds_master_data.setColumn(row,"CHECK_YN","0");
+			return;
+		}
+		if (obj.ds_master_data.getColumn(row,"DELETE_YN") == "1") {
+			obj.alert("삭제 체크를 먼저 풀어주세요.");
+			obj.ds_master_data.setColumn(row,"CHECK_YN","0");
+			return;
+		}
+		if (na_trpl_c == mna_trpl_c) {
+			obj.gfn_getMessage('alert','msg.van_ds_sc_1310.view.same.value');
+			obj.ds_master_data.setColumn(row,"CHECK_YN","0");
+			return;
+		}
+		obj.ds_master_data.setColumn(row,"UPDATE_SPLR_NA_TRPL_C",clntnm);		// 변경 할 거래처명을 입력한다.
+		obj.ds_master_data.setColumn(row,"UPDATE_SPLR_NA_TRPL_CODE",na_trpl_c);	// 변경 할 거래처코드를 입력한다.
+	// 체크가 풀릴때
+	} else if (result == false) {
+		obj.ds_master_data.setColumn(row,"UPDATE_SPLR_NA_TRPL_C","");
+		obj.ds_master_data.setColumn(row,"UPDATE_SPLR_NA_TRPL_CODE","");
+	}
+}
+
+this.delete_chk = function(obj,e)
+{
+	var dsMa = this.ds_master_data;
+	if (e.cell == 10) {
+		if (dsMa.getColumn(e.row,"DELETE_YN") == "0") {
+			if (this.gfn_nullToEmpty(dsMa.getColumn(e.row,"UPDATE_SPLR_NA_TRPL_C")) != "") {
+				this.alert('변경공급처가 존재할 경우 삭제할 수 없습니다.');
+				return;
+			}
+			if (this.gfn_nullToEmpty(dsMa.getColumn(e.row,"SPLRN")) == "") {
+				this.alert('삭제할 거래관계가 없습니다. 거래관계를 확인하십시요.');
+				return;
+			}
+			dsMa.setColumn(e.row,"DELETE_YN","1");
+		} else {
+			dsMa.setColumn(e.row,"DELETE_YN","0");
+		}
+	}
+}
+//조회
+this.search = function()
+{
+	var separator = this.div_search.sta_search_data.text;
+	var up_trpl = this.ds_RQR_NA_TRPL_C.getColumn(0,"NA_TRPL_C");
+	var params 		  = "separator="+separator
+						+" glncode="+application.gv_glnCode		//로그인 사업장
+						+" userId="+application.gv_userId
+						+" mbcoType="+application.gv_mbcoType	//로그인 정보
+						+" TRPL_C="+TRPL_C;
+	var sSvcID = "";
+	var sOutDatasets = "";
+	var sInDatasets   = "";//보내는데이터셋
+	var sURL          = "svc::rest/pds/partner/Trade/retrieveHanaroTrades";// 호출할 서버 페이지 주소
+	// 화면생성 후 자동 실행
+	if (separator == "0") {
+		sSvcID  = "p_onload";
+		sOutDatasets  = "ds_RQR_NA_TRPL_C=ds_RQR_NA_TRPL_C";
+		sURL = "svc::rest/pds/partner/Trade/retrievePopData";
+	// 조회버튼 클릭시 실행
+	} else if (separator == "1") {
+		if (this.ds_RQR_NA_TRPL_C.rowcount < 1) {
+			this.alert('본사거래처에 대한 거래관계를 먼저 검색하십시오.');
+			return;
+		}
+		var local_code = this.div_search.cbo_local_code00.value;
+		params = "separator="+separator
+				+" TRPL_C="+TRPL_C
+				+" UP_TRPL_C="+up_trpl
+				+" local_code="+local_code
+				+" ser_na="+this.div_search.cbo_RQR_NA_TRPL_C.value
+				+" cser_na="+this.gfn_nullToEmpty(this.div_search.edt_data02.value)
+				+" cser_team="+this.gfn_nullToEmpty(this.div_search.sta_cser_team.text)
+				+" rdo_gubun="+this.div_search.rdo_store_chk00.value;
+		sSvcID	= "p_search";
+		sOutDatasets  = "ds_master_data=ds_master_data";
+	// 저장 버튼 클릭 후 실행
+	} else if (separator == "2") {
+		sSvcID	= "p_insert";
+		sInDatasets = "ds_master_data=ds_master_data:A"
+	}
+
+
+	var sArgument     = params
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+// 전체와 거래처를 비교하여 코드를 가져온다.
+this.getCode = function()
+{
+	var trplCode = '';
+
+	if (this.div_search.cbo_RQR_NA_TRPL_C.value != undefined) {// onload 이벤트땐 undefined
+		//전체
+		if (this.div_search.rdo_store_chk00.value == "1") {
+			var trpl_co = this.ds_RQR_NA_TRPL_C.rowcount;
+			for (var i = 0; i<trpl_co; i++) {
+				if ((i+1) < trpl_co) {
+					trplCode += this.ds_RQR_NA_TRPL_C.getColumn(i,"NA_TRPL_C")+",";
+				} else if ((i+1) == trpl_co) {
+					trplCode += this.ds_RQR_NA_TRPL_C.getColumn(i,"NA_TRPL_C");
+				}
+			}
+		//한개
+		} else {
+			trplCode = this.div_search.cbo_RQR_NA_TRPL_C.value;
+		}
+	} else {
+		// 처음 로드 시 사업장을 가져오지 못하므로 기본 로그인 사업장을 가져온다.
+		trplCode = TRPL_C;
+	}
+	return trplCode;
+}
+
+//master 그리드 체크 후 변경공급처 적용
+this.chkCbox = function()
+{
+	if (fGetObj(multiFrmD.cbxdel,currow).checked) {
+		this.alert('삭제 체크하신 거래관계입니다. 삭제 체크를 먼저 해지하십시요.');
+		obj.checked = false;
+		return;
+	}
+}
+
+//조회버튼 클릭
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_search.sta_search_data.set_text("1"); //구분코드
+	if (this.div_search.edt_data02.value == "8808983000015") {
+		this.alert("수요처는 주관사업장 및 본사거래처와 동일할 수 없습니다.\n"
+				  +" [주관-본사-수요처][8808983000015 - "+this.div_search.cbo_RQR_NA_TRPL_C.value+" - "+this.div_search.edt_data02.value+"]");
+		return;
+	}
+	this.search();
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if (nCD < 0 && nCD > -999) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	} else {
+		if (svcID == "p_initflex" && nCD > 0) {
+			//계통탄력가격적용 거래처일 경우 본 화면 이용불가 처리
+			if (this.ds_ROTS_FLEX_PR_APL_YN.getColumn(0,"ROTS_FLEX_PR_APL_YN") == '1') {
+				this.alert('계통탄력가격적용 공급업체는 하나로마트거래관계\n'+
+						   '화면을 사용하여 3자 거래관계를 등재하실 수 없습니다.\n\n'+
+						   '탄력가격업체거래관계 화면을 이용하여 주시기 바랍니다.\n\n'+
+						   '단, 농협하나로마트분사 3자 거래관계 조회 기능은 제공됩니다.');
+				this.div_search.sta_flex_val.set_text("0");
+			} else {
+				this.div_search.sta_flex_val.set_text("1");
+				this.div_search.edt_ten.set_value("1");
+			}
+		} else if (svcID == "p_initflex" && nCD == 0) {
+			this.alert('마트분사와 공급업체와의 거래관계가 없습니다.\n\n < 주의사항 >\n'+
+						'1.(중앙본부계통계약) 계약유형과 (수탁) 공급유형인 거래관계만 조회됩니다. \n'+
+						'2.외부업체일 경우 본점과의 거래관계만 조회됩니다.\n'+
+						'(필히 본점과 거래관계를 맺어야 합니다.)'
+			)
+		}
+		if (svcID=="p_onload" && sMSG=="success.init.combo") {
+
+			this.div_search.sta_search_data.set_text(1);
+			this.div_search.cbo_RQR_NA_TRPL_C.set_value(TRPL_C);
+			this.ds_RQR_NA_TRPL_C.setColumn(0,"CHECK_YN","1");
+			this.div_list.grd_main.preCheck = 0;
+
+			this.div_search.edt_data01.set_value(this.ds_RQR_NA_TRPL_C.getColumn(0,"CLNTNM"));
+		}
+
+		if (svcID=="p_search" && sMSG=="success.search.data") {
+
+			if (this.div_list.grd_detail.rowcount < 1) {
+				if (this.gfn_nullToEmpty(this.div_search.edt_data02.value).length > 0) {
+					this.alert('수요처['+this.div_search.edt_data02.value+']와 마트상품부[8808983000015]와의 거래관계가 없습니다.\n\n'+
+					'수요처로 마트상품부와의 거래관계 등록 요청 후 진행하세요.');
+				} else {
+					this.alert('해당 지역의 계통 사업장과 맺어진 거래관계가 없습니다. \n\n'+
+					'거래관계요청등록화면에서 먼저 거래관계를 등록하세요.');
+				}
+			}
+		} else {
+			this.div_list.grd_detail.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+		}
+
+		if (svcID=="p_insert" && nCD == 1) {
+			this.alert('거래관계 ['+this.div_search.sta_search_cc.text+']건이 정상 등록되었습니다.' );
+			this.div_search.sta_search_data.set_text("1");
+			this.search();
+		} else if (svcID=="p_insert" && nCD == -999) {
+			this.alert(sMSG);
+		}
+		if (svcID=="TradesExcelDownload" ) {/*엑셀출력 콜백*/
+				var today = this.gfn_today("yyyyMMdd");
+
+			this.exportObj = new ExcelExportObject("Export00", this);
+			this.exportObj.addEventHandler("onsuccess" , this.fn_excelDownload_onsuccess , this);
+			this.exportObj.addEventHandler("onerror", this.fn_excelDownload_onerror, this);
+
+			this.exportObj.set_exportfilename("TradesList_" + today);
+			this.exportObj.set_exporturl(application.gv_server_url + "XExportImport");
+			this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.div_list.grd_detail00, "Sheet1!A1");
+			this.exportObj.exportData();
+
+		}
+	}
+}
+
+// 엑셀 다운로드 성공
+this.fn_excelDownload_onsuccess = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
+{
+	trace("excel download : success");
+}
+// 엑셀 다운로드 실패
+this.fn_excelDownload_onerror = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
+{
+	trace("excel download : error");
+}
+
+//수요처 팝업 조회
+this.div_search_btn_popup00_onclick = function(params)
+{
+	if (params == true) {
+		if ((this.gfn_nullToEmpty(this.div_search.edt_data02.value).length < 7 && this.gfn_nullToEmpty(this.div_search.edt_data02.value).length > 0) || (this.gfn_nullToEmpty(this.div_search.edt_data02.value).length > 13)) {
+			this.gfn_getMessage("alert",'msg.van_ds_sc_1302.view.text.between');
+			return;
+		}
+		if (this.gfn_nullToEmpty(this.div_search.edt_data03.value).length == 1) {
+			this.gfn_getMessage("alert",'msg.van_ds_sc_1302.view.input.bzplcnm');
+			return;
+		}
+	}
+
+	var code = this.div_search.edt_data02.value;
+	var textname = this.div_search.edt_data03.value;
+	var param = {
+				autoType:params,
+				searchCode:code,
+				searchText:textname
+	};
+	if (typeof params == "boolean") {
+		if (!this.searPopValue(param)) {return};
+	}
+
+	var oArg = {paramMode:"U", sepVal:'1310', autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("cer_trpl","PDS.PARTNER::VAN_DS_SC_1302.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+//팝업 닫은 후 실행
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strVal != undefined) {
+		if (strId == "cer_trpl") {
+			this.div_search.edt_data02.set_value(strVal.split(",")[0]); //팝업 창 데이터 선택(사업장코드)
+			this.div_search.edt_data03.set_value(strVal.split(",")[3]);	//팝업 창 데이터 선택(사업장명)
+			this.div_search.sta_cser_team.set_text(strVal.split(",")[9]);
+		}
+	}
+}
+
+//왼쪽 그리드 체크 박스 index 값
+this.getCheckIndex = function()
+{
+	var ds = this.ds_RQR_NA_TRPL_C;
+	var selbox = "";
+	for (var i=0; i<ds.getRowCount();i++) {
+		selbox = ds.getColumn(i,"CHECK_YN");
+		if (selbox == "1") {
+			return i;
+		}
+	}
+}
+
+//오른쪽 삭제 체크 박스 index 값
+this.getDeleteCheckIndex = function()
+{
+	var mds = this.ds_master_data;
+	var delbox = "";
+	var delval = "";
+	for (var i=0; i<mds.getRowCount();i++) {
+		delbox = mds.getColumn(i,"DELETE_YN");
+		if (delbox == "1") {
+			delval += i+",";
+		}
+	}
+	return delval.substring(0,delval.length-1);
+}
+
+//일괄적용 버튼
+this.div_list_btn_all_chk_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.div_list.grd_detail.rowcount < 1)
+	{
+		this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1310.view.allchk.notdata'));
+	}
+}
+
+//저장버튼 클릭
+this.btn_save00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var chkcount = 0;
+	for (var i=0;i<this.ds_master_data.rowcount;i++) {
+		if (this.ds_master_data.getColumn(i,"CHECK_YN") == 1) {
+			chkcount += 1;
+		}
+		if (this.ds_master_data.getColumn(i,"DELETE_YN") == 1) {
+			chkcount += 1;
+		}
+	}
+
+	if (chkcount == 0) {
+		this.alert('저장 할 데이터가 없습니다.');
+		return;
+	}
+
+	var bOk = application.confirm('거래관계 반영시 최소 5분에서 최대 1시간 소요됩니다.\n\n'+
+					this.gfn_getTextMessage('msg.van_ds_sc_1310.view.count.msg')+chkcount+this.gfn_getTextMessage('msg.van_ds_sc_1310.view.count.msgf'));
+
+	if (bOk == true) {
+		if (this.div_list.grd_detail.rowcount < 1) {
+			this.alert('조회를 먼저 해주세요.');
+			return;
+		}
+		this.div_search.sta_search_cc.set_text(chkcount);
+		this.div_search.sta_search_data.set_text("2");
+		this.search();
+	}
+}
+
+//조회 조건 숨김 여부 이벤트
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.btn_clear00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+this.div_search_edt_data02_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.div_search_btn_popup00_onclick(true);
+	}
+}
+
+this.div_search_edt_data03_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.div_search_btn_popup00_onclick(true);
+	}
+}
+
+this.btn_popup01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var trplc = this.ds_RQR_NA_TRPL_C.getColumn(0,'NA_TRPL_C');
+	var pop_trpl = this.div_search.cbo_RQR_NA_TRPL_C.value;
+	var pop_trplnm = this.div_search.cbo_RQR_NA_TRPL_C.text;
+
+	var oArg = {paramMode:"A", dsArg:this.ds_master_data, trpl_c:trplc , splrc:pop_trpl, splrnm:pop_trplnm};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("trnpel_search","PDS.PARTNER::VAN_DS_SC_1311.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+
+
+this.div_list_grd_detail_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 1) {
+		if (e.row == -1) {
+			if (this.ds_master_data.rowcount < 1) {
+				this.alert('전체 적용할 거래관계가 없습니다. 조회하신 후 작업하시기 바랍니다.');
+				return;
+			}
+			var bOk = application.confirm('변경 공급처를 ['+this.ds_RQR_NA_TRPL_C.getColumn(this.ds_RQR_NA_TRPL_C.rowposition,"CLNTNM")+'] 거래처로 일괄적용 하시겠습니까?\n\n'+
+										  '거래관계를 잘못 설정할 경우 거래를 발생 시킬 수 없으니 주의하시기 바랍니다.\n\n'+
+										  '일괄적용 거래처와 현재공급처가 동일할 경우 일괄적용 대상에서 제외됩니다.(삭제 체크 자료 원복)'
+										);
+			if (!bOk) {
+				return;
+			}
+			for (var i=0;i<this.ds_master_data.rowcount;i++) {
+				this.allchk(this,true,i);
+			}
+		}
+	}
+}
+
+this.allchk = function(obj,result,row)
+{
+	var chkIndex = obj.getCheckIndex(); //왼쪽 그리드 체크 index
+
+	var na_trpl_c = obj.ds_RQR_NA_TRPL_C.getColumn(chkIndex,"NA_TRPL_C"); 	// 왼쪽 그리드에서 선택한 거래처코드
+	var clntnm = obj.ds_RQR_NA_TRPL_C.getColumn(chkIndex,"CLNTNM"); 		// 왼쪽 그리드에서 선택한 거래처명
+	var mclntnm = obj.ds_master_data.getColumn(row,"SPLRN"); 		// 오른쪽 그리드에서 선택한 거래처명
+
+	if (clntnm == mclntnm) {
+		obj.ds_master_data.setColumn(row,"CHECK_YN","0");
+		return;
+	}
+
+	obj.ds_master_data.setColumn(row,"UPDATE_SPLR_NA_TRPL_C",clntnm);		// 변경 할 거래처명을 입력한다.
+	obj.ds_master_data.setColumn(row,"UPDATE_SPLR_NA_TRPL_CODE",na_trpl_c);	// 변경 할 거래처코드를 입력한다.
+	obj.ds_master_data.setColumn(row,"CHECK_YN","1");
+}
+
+/*엑셀 출력*/
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var separator = this.div_search.sta_search_data.text;
+	var up_trpl = this.ds_RQR_NA_TRPL_C.getColumn(0,"NA_TRPL_C");
+	var params 		  = "separator="+separator
+						+" glncode="+application.gv_glnCode		//로그인 사업장
+						+" userId="+application.gv_userId
+						+" mbcoType="+application.gv_mbcoType	//로그인 정보
+						+" TRPL_C="+TRPL_C;
+	var sSvcID = "";
+	var sOutDatasets = "";
+	var sInDatasets   = "";//보내는데이터셋
+	var sURL          = "svc::rest/pds/partner/Trade/TradesExcelDownload";// 호출할 서버 페이지 주소
+	// 화면생성 후 자동 실행
+
+	// 조회버튼 클릭시 실행
+	if (separator == "1") {
+		if (this.ds_RQR_NA_TRPL_C.rowcount < 1) {
+			this.alert('본사거래처에 대한 거래관계를 먼저 검색하십시오.');
+			return;
+		}
+		var local_code = this.div_search.cbo_local_code00.value;
+		params = "separator="+separator
+				+" TRPL_C="+TRPL_C
+				+" UP_TRPL_C="+up_trpl
+				+" local_code="+local_code
+				+" ser_na="+this.div_search.cbo_RQR_NA_TRPL_C.value
+				+" cser_na="+this.gfn_nullToEmpty(this.div_search.edt_data02.value)
+				+" cser_team="+this.gfn_nullToEmpty(this.div_search.sta_cser_team.text)
+				+" rdo_gubun="+this.div_search.rdo_store_chk00.value;
+		sSvcID	= "TradesExcelDownload";
+		sOutDatasets  = "ds_excel=ds_excel";
+	// 저장 버튼 클릭 후 실행
+	}
+
+	var sArgument     = params
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.div_list_grd_main_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var check;
+	if (obj.preCheck == e.row) {
+		obj.preCheck = -1;
+		check = "0";
+	} else {
+		this.ds_RQR_NA_TRPL_C.setColumn(obj.preCheck, "CHECK_YN", "0");
+		obj.preCheck = e.row;
+		check = "1";
+	}
+	this.ds_RQR_NA_TRPL_C.setColumn(e.row, "CHECK_YN", check);
+}]]></Script>
+  </Form>
+</FDL>

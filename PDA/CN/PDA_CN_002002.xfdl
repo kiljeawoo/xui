@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popupM1" classname="popupPda" cssclass="sta_WF_PopupTitle" left="0" top="0" width="950" height="636" titletext="검수내역상세" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_confirm" taborder="4" text="검수확인" onclick="common_onclick" cssclass="btn_WF_CRUD" top="8" right="79" width="55" height="21" visible="false"/>
+        <Button id="btn_finish" taborder="1" text="검수완료" cssclass="btn_WF_CRUD" top="8" right="79" width="55" height="21" onclick="common_onclick" visible="false"/>
+        <Button id="btn_cancle" taborder="2" text="완료취소" top="8" right="79" width="55" height="21" onclick="common_onclick" visible="false"/>
+        <Button id="btn_init" taborder="3" text="확인취소" onclick="common_onclick" top="8" right="18" width="55" height="21" visible="false"/>
+        <Static id="st_CNR_CMPL_NA_BZPLC" taborder="46" cssclass="sta_WF_Labelbg" left="146" top="244" height="29" width="156" style="align:left middle;"/>
+        <Static id="st_NA_TEAM_C" taborder="6" cssclass="sta_WF_Labelbg" left="778" top="93" height="29" tooltiptype="inplace" style="align:left middle;" width="155"/>
+        <Static id="st_BUYPL_NA_TEAM_C" taborder="8" cssclass="sta_WF_Labelbg" left="778" top="121" height="29" width="155" style="align:left middle;"/>
+        <Static id="Static24" taborder="12" text="매입처거래처코드" cssclass="sta_WF_Label" left="17" top="121" width="130" height="29" position="absolute"/>
+        <Static id="st_BUYPL_NA_TRPL_C" taborder="13" cssclass="sta_WF_Labelbg" left="146" top="121" width="156" height="29" style="align:left middle;"/>
+        <Static id="st_NA_BZPLC" taborder="14" cssclass="sta_WF_Labelbg" left="146" top="93" height="29" width="156" style="align:left middle;"/>
+        <Static id="st_NA_SLPNO" taborder="19" cssclass="sta_WF_Labelbg" left="430" top="37" height="29" style="align:left middle;" width="220"/>
+        <Static id="st_CNR_WRS_DSC" taborder="22" cssclass="sta_WF_Labelbg" left="778" top="65" width="155" height="29" style="align:left middle;"/>
+        <Static id="st_BYNG_REF_DSC" taborder="26" cssclass="sta_WF_Labelbg" left="430" top="65" height="29" width="220" style="align:left middle;"/>
+        <Static id="st_TR_BASS_NO" taborder="29" cssclass="sta_WF_Labelbg" left="430" top="149" height="29" width="220" style="align:left middle;"/>
+        <Static id="Static22" taborder="30" text="등록일시" cssclass="sta_WF_Label" left="17" top="328" width="130" height="29" position="absolute"/>
+        <Static id="st_RMK_CNTN" taborder="33" cssclass="sta_WF_Labelbg" left="430" top="300" height="29" width="349" style="align:left middle;" tooltiptype="default" wordwrap="char"/>
+        <Static id="st_CNR_STS_DSC" taborder="36" cssclass="sta_WF_Labelbg" left="778" top="37" width="155" height="29" style="align:left middle;"/>
+        <Static id="st_CNR_FIX_NA_BZPLC" taborder="38" cssclass="sta_WF_Labelbg" left="146" top="216" height="29" width="156" style="align:left middle;" onclick="st_CNR_FIX_NA_BZPLC_onclick"/>
+        <Static id="st_CNR_FIX_USR_ID" taborder="40" cssclass="sta_WF_Labelbg" left="430" top="216" height="29" width="220" style="align:left middle;"/>
+        <Static id="st_CNR_FIX_DTM" taborder="44" cssclass="sta_WF_Labelbg" left="778" top="216" height="29" width="155" style="align:left middle;"/>
+        <Static id="Static7" taborder="45" text="검수완료사업장코드" cssclass="sta_WF_Label" position="absolute" left="17" top="244" width="130" height="29" style="linespace:5;"/>
+        <Static id="st_CNR_CMPL_USR_ID" taborder="48" cssclass="sta_WF_Labelbg" left="430" top="244" height="29" width="220" style="align:left middle;"/>
+        <Static id="st_CNR_CMPL_SIGN_FN" taborder="52" cssclass="sta_WF_Labelbg" left="430" top="272" height="29" width="349" style="align:left middle;"/>
+        <Static id="Static1" taborder="55" text="사업장코드" cssclass="sta_WF_Label" position="absolute" left="17" top="93" width="130" height="29" style="linespace:5;"/>
+        <Static id="st_CNR_CMPL_DTM" taborder="54" cssclass="sta_WF_Labelbg" left="778" top="244" height="29" width="155" style="align:left middle;"/>
+        <Static id="st_SLP_DT" taborder="17" cssclass="sta_WF_Labelbg" left="146" top="37" height="29" style="align:left middle;" width="156"/>
+        <Static id="st_ODR_DT" taborder="28" cssclass="sta_WF_Labelbg" left="146" top="149" height="29" width="156" style="align:left middle;"/>
+        <Static id="Static3" taborder="16" text="검수일자" cssclass="sta_WF_Label" left="17" top="37" width="130" height="29" position="absolute"/>
+        <Static id="Static6" taborder="27" text="근거전표일자" cssclass="sta_WF_Label" left="17" top="149" width="130" height="29" position="absolute"/>
+        <Static id="Static21" taborder="15" text="검수상품구분" cssclass="sta_WF_Label" left="649" top="65" width="130" height="29" position="absolute"/>
+        <Static id="Static18" taborder="35" text="검수상태" cssclass="sta_WF_Label" left="649" top="37" width="130" height="29" position="absolute"/>
+        <Static id="Static9" taborder="53" text="검수완료일시" cssclass="sta_WF_Label" position="absolute" left="649" top="244" width="130" height="29" style="linespace:5;"/>
+        <Static id="st_NA_TRMNO" taborder="21" cssclass="sta_WF_Labelbg" left="146" top="65" width="156" height="29" style="align:left middle;"/>
+        <Grid id="grd_pdaD" taborder="0" binddataset="pda_detail" useinputpanel="false" cellmovingtype="col" onkeydown="grd_master_onkeydown" oncellclick="grd_master_oncellclick" left="17" top="416" scrollbars="alwaysvert" bottom="17" right="17">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="75"/>
+                <Column size="75"/>
+                <Column size="85"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="90"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="검수일자"/>
+                <Cell col="1" text="검수번호"/>
+                <Cell col="2" text="상세일련번호"/>
+                <Cell col="3" text="상품코드"/>
+                <Cell col="4" text="상품명"/>
+                <Cell col="5" text="검수수량"/>
+                <Cell col="6" text="매입단가"/>
+                <Cell col="7" text="검수방법구분"/>
+                <Cell col="8" text="단말기번호"/>
+                <Cell col="9" text="검수사용자ID"/>
+                <Cell col="10" text="검수일시"/>
+                <Cell col="11" text="결품사유"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SLP_DT" mask="####-##-##"/>
+                <Cell col="1" text="bind:NA_SLPNO"/>
+                <Cell col="2" text="bind:SLP_SQNO"/>
+                <Cell col="3" text="bind:NA_WRS_C"/>
+                <Cell col="4" style="align:left;" text="bind:WRSNM"/>
+                <Cell col="5" text="bind:BYNG_QT"/>
+                <Cell col="6" style="align:right;padding:2 7 2 7;" text="bind:BYNG_UPR" mask="#,###"/>
+                <Cell col="7" text="bind:CNR_MTHD_DSC" expr="expr:(CNR_MTHD_DSC == '0')? '상품건별' : (CNR_MTHD_DSC == '1')? '상품바코드' : (CNR_MTHD_DSC == '2')? 'PLT바코드' : (CNR_MTHD_DSC == '3')? '전표일괄' : (CNR_MTHD_DSC == '4')? '확인' : ''"/>
+                <Cell col="8" text="bind:NA_TRMNO"/>
+                <Cell col="9" text="bind:CNR_USR_ID"/>
+                <Cell col="10" text="bind:CNR_DTM"/>
+                <Cell col="11" text="bind:DQPD_RSN_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static4" taborder="20" text="단말기번호" cssclass="sta_WF_Label" left="17" top="65" width="130" height="29" position="absolute"/>
+        <Static id="Static16" taborder="43" text="검수확인일시" cssclass="sta_WF_Label" position="absolute" left="649" top="216" width="130" height="29" style="linespace:5;"/>
+        <Static id="Static19" taborder="49" text="검수완료개인번호" cssclass="sta_WF_Label" position="absolute" left="17" top="272" width="130" height="29" style="linespace:5;"/>
+        <Static id="Static10" taborder="34" text="거래근거번호" cssclass="sta_WF_Label" position="absolute" left="301" top="149" width="130" height="29" style="linespace:5;"/>
+        <Static id="Static13" taborder="37" text="검수확인사업장코드" cssclass="sta_WF_Label" position="absolute" left="17" top="216" width="130" height="29" style="linespace:5;"/>
+        <Static id="Static14" taborder="39" text="검수확인사용자ID" cssclass="sta_WF_Label" position="absolute" left="301" top="216" width="130" height="29" style="linespace:5;"/>
+        <Static id="Static20" taborder="7" text="사업장팀코드" cssclass="sta_WF_Label" left="649" top="93" width="130" height="29" position="absolute"/>
+        <Static id="Static17" taborder="47" text="검수완료사용자ID" cssclass="sta_WF_Label" position="absolute" left="301" top="244" width="130" height="29" style="linespace:5;"/>
+        <Static id="Static11" taborder="25" text="매입참조구분" cssclass="sta_WF_Label" left="301" top="65" width="130" height="29" position="absolute"/>
+        <Static id="Static8" taborder="9" text="매입처팀코드" cssclass="sta_WF_Label" left="649" top="121" width="130" height="29" position="absolute"/>
+        <Static id="Static2" taborder="18" text="검수번호" cssclass="sta_WF_Label" left="301" top="37" width="130" height="29" position="absolute"/>
+        <Static id="Static25" taborder="32" text="비고내용" cssclass="sta_WF_Label" left="301" top="300" width="130" height="29" position="absolute"/>
+        <Static id="Static23" taborder="51" text="검수완료서명파일" cssclass="sta_WF_Label" position="absolute" left="301" top="272" width="130" height="29" style="linespace:5;"/>
+        <Static id="btn_status" taborder="5" top="14" right="136" height="21" visible="false" cssclass="sta_WF_Subtitle" left="631"/>
+        <Button id="btn_refresh" taborder="56" text="새로고침" onclick="fn_pdaSearch" visible="false" top="8" right="18" width="55" height="21"/>
+        <Static id="st_NH_SLP_DT" taborder="58" cssclass="sta_WF_Labelbg" left="146" top="188" width="156" height="29" style="align:left middle;"/>
+        <Static id="Static26" taborder="59" text="경제통합전표번호" cssclass="sta_WF_Label" left="301" top="188" width="130" height="29"/>
+        <Static id="st_NH_NA_SLPNO" taborder="60" cssclass="sta_WF_Labelbg" left="430" top="188" width="220" height="29" style="align:left middle;"/>
+        <Static id="Static00" taborder="57" text="경제통합전표일자" cssclass="sta_WF_Label" left="17" top="188" width="130" height="29"/>
+        <Static id="Static27" taborder="61" text="EDI인터페이스ID" cssclass="sta_WF_Label" left="17" top="300" width="130" height="29" style="linespace:5;"/>
+        <Static id="st_EDI_IF_ID" taborder="62" cssclass="sta_WF_Labelbg" left="146" top="300" width="156" height="29" style="align:left middle;"/>
+        <Static id="Static28" taborder="63" text="변경일시" cssclass="sta_WF_Label" left="301" top="328" width="130" height="29"/>
+        <Static id="st_LSCHG_DTM" taborder="64" cssclass="sta_WF_Labelbg" left="430" top="328" width="349" height="29" style="align:left middle;"/>
+        <Static id="Static12" taborder="67" text="결과수신" cssclass="sta_WF_Label" left="17" top="356" width="130" height="29" style="linespace:5;"/>
+        <Static id="st_RSP_C_CNTN" taborder="68" cssclass="sta_WF_Labelbg" left="146" top="356" width="787" height="29" style="align:left middle;" wordwrap="none"/>
+        <Static id="st_FSRG_DTM" taborder="31" cssclass="sta_WF_Labelbg" left="146" top="328" height="29" width="156" style="align:left middle;"/>
+        <Static id="st_CNR_CMPL_ENO" taborder="50" cssclass="sta_WF_Labelbg" left="146" top="272" height="29" width="156" style="align:left middle;"/>
+        <Static id="Static09" taborder="70" text="17" visible="false" left="0" top="130" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="71" text="사업장명" cssclass="sta_WF_Label" left="301" top="93" width="130" height="29" style="linespace:5;"/>
+        <Static id="st_CLNTNM" taborder="72" cssclass="sta_WF_Labelbg" left="430" top="93" width="220" height="29" style="align:left middle;"/>
+        <Static id="Static29" taborder="75" text="17" visible="false" left="933" top="123" right="0" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static30" taborder="76" text="매입처거래처명" cssclass="sta_WF_Label" left="301" top="121" width="130" height="29"/>
+        <Static id="st_BUYPL_CLNTNM" taborder="77" cssclass="sta_WF_Labelbg" left="430" top="121" width="220" height="29" style="align:left middle;"/>
+        <Static id="Static31" taborder="78" text="10" visible="false" left="7" top="178" right="4" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static32" taborder="79" text="경제통합전송상태" cssclass="sta_WF_Label" left="649" top="188" width="130" height="29"/>
+        <Static id="st_PRC_YN" taborder="80" cssclass="sta_WF_Labelbg" left="778" top="188" width="155" height="29" style="align:left middle;"/>
+        <Static id="Static02" taborder="82" text="8" visible="false" left="876" top="29" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static15" taborder="83" text="8" visible="false" left="876" top="0" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static152" taborder="84" text="상세정보" cssclass="sta_WF_Subtitle" left="15" top="394" width="301" height="21"/>
+        <Static id="Static34" taborder="85" text="경제통합정정구분" cssclass="sta_WF_Label" left="649" top="149" width="130" height="29" style="linespace:5;"/>
+        <Static id="st_NA_CRC_CAN_DSC" taborder="86" cssclass="sta_WF_Labelbg" left="778" top="149" width="155" height="29" style="align:left middle;"/>
+        <ImageViewer id="imgView" taborder="87" stretch="fixaspectratio" left="778" top="272" width="155" height="85" style="border:1 solid #ccd3d5ff ;"/>
+        <Static id="Static33" taborder="88" text="기본정보" cssclass="sta_WF_Subtitle" left="15" top="14" width="88" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="pda_mst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="TEAM_NM" type="STRING" size="256"/>
+          <Column id="SLP_DT" type="STRING" size="256"/>
+          <Column id="NA_SLPNO" type="STRING" size="256"/>
+          <Column id="WHSE_C" type="STRING" size="256"/>
+          <Column id="NA_TRMNO" type="STRING" size="256"/>
+          <Column id="CNR_WRS_DSC" type="STRING" size="256"/>
+          <Column id="BUYPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="BUYPL_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="BUYPL_TEAM_NM" type="STRING" size="256"/>
+          <Column id="BYNG_REF_DSC" type="STRING" size="256"/>
+          <Column id="BYNG_REF_NM" type="STRING" size="256"/>
+          <Column id="ODR_DT" type="STRING" size="256"/>
+          <Column id="TR_BASS_NO" type="STRING" size="256"/>
+          <Column id="NA_CRC_CAN_DSC" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="CNR_STS_DSC" type="STRING" size="256"/>
+          <Column id="CNR_FIX_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="CNR_FIX_USR_ID" type="STRING" size="256"/>
+          <Column id="CNR_FIX_DTM" type="STRING" size="256"/>
+          <Column id="CNR_CMPL_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="CNR_CMPL_USR_ID" type="STRING" size="256"/>
+          <Column id="CNR_CMPL_ENO" type="STRING" size="256"/>
+          <Column id="CNR_CMPL_SIGN_FN" type="STRING" size="256"/>
+          <Column id="CNR_CMPL_DTM" type="STRING" size="256"/>
+          <Column id="PRC_YN" type="STRING" size="256"/>
+          <Column id="RSP_C_CNTN" type="STRING" size="256"/>
+          <Column id="NH_SLP_DT" type="STRING" size="256"/>
+          <Column id="NH_NA_SLPNO" type="STRING" size="256"/>
+          <Column id="EDI_IF_ID" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="pda_detail" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="SLP_DT" type="STRING" size="256"/>
+          <Column id="NA_SLPNO" type="STRING" size="256"/>
+          <Column id="SLP_SQNO" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="BYNG_QT" type="STRING" size="256"/>
+          <Column id="BYNG_UPR" type="STRING" size="256"/>
+          <Column id="CNR_MTHD_DSC" type="STRING" size="256"/>
+          <Column id="CNR_USR_ID" type="STRING" size="256"/>
+          <Column id="CNR_DTM" type="STRING" size="256"/>
+          <Column id="NA_TRMNO" type="STRING" size="256"/>
+          <Column id="DQPD_RSNC" type="STRING" size="256"/>
+          <Column id="TEAM_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_img" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PICTURE" type="BLOB" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="st_NA_BZPLC" propid="text" datasetid="pda_mst" columnid="NA_BZPLC"/>
+      <BindItem id="item2" compid="st_NA_TEAM_C" propid="text" datasetid="pda_mst" columnid="TEAM_NM"/>
+      <!--BindItem id="item3" compid="st_SLP_DT" propid="text" datasetid="pda_mst" columnid="SLP_DT"/-->
+      <BindItem id="item4" compid="st_NA_SLPNO" propid="text" datasetid="pda_mst" columnid="NA_SLPNO"/>
+      <BindItem id="item5" compid="st_CLNTNM" propid="text" datasetid="pda_mst" columnid="NA_BZPLC"/>
+      <BindItem id="item6" compid="st_RSP_C_CNTN" propid="text" datasetid="pda_mst" columnid="RSP_C_CNTN"/>
+      <BindItem id="item7" compid="st_NA_TRMNO" propid="text" datasetid="pda_mst" columnid="NA_TRMNO"/>
+      <BindItem id="item8" compid="st_CNR_WRS_DSC" propid="text" datasetid="pda_mst" columnid="CNR_WRS_DSC"/>
+      <BindItem id="item9" compid="st_BUYPL_NA_TRPL_C" propid="text" datasetid="pda_mst" columnid="BUYPL_NA_TRPL_C"/>
+      <BindItem id="item10" compid="st_BUYPL_NA_TEAM_C" propid="text" datasetid="pda_mst" columnid="BUYPL_TEAM_NM"/>
+      <BindItem id="item11" compid="st_BYNG_REF_DSC" propid="text" datasetid="pda_mst" columnid="BYNG_REF_NM"/>
+      <!--BindItem id="item12" compid="st_ODR_DT" propid="text" datasetid="pda_mst" columnid="ODR_DT"/-->
+      <BindItem id="item13" compid="st_TR_BASS_NO" propid="text" datasetid="pda_mst" columnid="TR_BASS_NO"/>
+      <BindItem id="item14" compid="st_FSRG_DTM" propid="text" datasetid="pda_mst" columnid="FSRG_DTM"/>
+      <BindItem id="item15" compid="st_RMK_CNTN" propid="text" datasetid="pda_mst" columnid="RMK_CNTN"/>
+      <BindItem id="item16" compid="st_CNR_STS_DSC" propid="text" datasetid="pda_mst" columnid="CNR_STS_DSC"/>
+      <BindItem id="item17" compid="st_CNR_FIX_NA_BZPLC" propid="text" datasetid="pda_mst" columnid="CNR_FIX_NA_BZPLC"/>
+      <BindItem id="item18" compid="st_CNR_FIX_USR_ID" propid="text" datasetid="pda_mst" columnid="CNR_FIX_USR_ID"/>
+      <BindItem id="item19" compid="st_CNR_FIX_DTM" propid="text" datasetid="pda_mst" columnid="CNR_FIX_DTM"/>
+      <BindItem id="item20" compid="st_CNR_CMPL_NA_BZPLC" propid="text" datasetid="pda_mst" columnid="CNR_CMPL_NA_BZPLC"/>
+      <BindItem id="item21" compid="st_CNR_CMPL_USR_ID" propid="text" datasetid="pda_mst" columnid="CNR_CMPL_USR_ID"/>
+      <BindItem id="item22" compid="st_CNR_CMPL_ENO" propid="text" datasetid="pda_mst" columnid="CNR_CMPL_ENO"/>
+      <BindItem id="item23" compid="st_CNR_CMPL_SIGN_FN" propid="text" datasetid="pda_mst" columnid="CNR_CMPL_SIGN_FN"/>
+      <BindItem id="item24" compid="st_CNR_CMPL_DTM" propid="text" datasetid="pda_mst" columnid="CNR_CMPL_DTM"/>
+      <BindItem id="item25" compid="st_BUYPL_CLNTNM" propid="text" datasetid="pda_mst" columnid="BUYPL_NA_TRPL_C"/>
+      <!--BindItem id="item0" compid="st_NH_SLP_DT" propid="text" datasetid="pda_mst" columnid="NH_SLP_DT"/-->
+      <BindItem id="item26" compid="st_NH_NA_SLPNO" propid="text" datasetid="pda_mst" columnid="NH_NA_SLPNO"/>
+      <BindItem id="item27" compid="st_EDI_IF_ID" propid="text" datasetid="pda_mst" columnid="EDI_IF_ID"/>
+      <BindItem id="item28" compid="st_LSCHG_DTM" propid="text" datasetid="pda_mst" columnid="LSCHG_DTM"/>
+      <BindItem id="item29" compid="st_BUYPL_CLNTNM" propid="text" datasetid="pda_mst" columnid="BUYPL_CLNTNM"/>
+      <BindItem id="item30" compid="st_CLNTNM" propid="text" datasetid="pda_mst" columnid="CLNTNM"/>
+      <BindItem id="item31" compid="st_PRC_YN" propid="text" datasetid="pda_mst" columnid="PRC_YN"/>
+      <BindItem id="item32" compid="st_NA_CRC_CAN_DSC" propid="text" datasetid="pda_mst" columnid="NA_CRC_CAN_DSC"/>
+      <BindItem id="item33" compid="st_RSP_C_CNTN" propid="tooltiptext" datasetid="pda_mst" columnid="RSP_C_CNTN"/>
+      <BindItem id="item34" compid="imgView" propid="image" datasetid="ds_img" columnid="PICTURE"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var NA_BZPLC = "";
+var NA_TEAM_C = "";
+var SLP_DT = "";
+var NA_SLPNO = "";
+var CNR_STS_DSC = ""; //검수상태
+var CNR_WRS_DSC = ""; //검수상품구분
+var NA_CRC_CAN_DSC = ""; //경제통합매입정정코드구분
+var status = "";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.NA_BZPLC = this.parent.NA_BZPLC;
+	this.NA_TEAM_C = this.parent.NA_TEAM_C;
+	this.SLP_DT = this.parent.SLP_DT;
+	this.NA_SLPNO = this.parent.NA_SLPNO;
+	
+	this.fn_pdaSearch();
+}
+
+this.fn_afterFormOnload = function()
+{
+	//페이지 로딩후 실행부분
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* 검색 */
+this.fn_pdaSearch = function()
+{
+	var sSvcID        = "InspectionDetail";
+	var sURL          = "svc::rest/pda/InspectionDetail";
+//	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sInDatasets   = "";
+	var sOutDatasets  = "pda_mst=pda_mst pda_detail=pda_detail ds_img=ds_img";
+	var sArgument     = "NA_BZPLC="+ this.NA_BZPLC +
+	                    " NA_TEAM_C=" + this.NA_TEAM_C +
+	                    " SLP_DT=" + this.SLP_DT +
+	                    " NA_SLPNO=" + this.NA_SLPNO;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 새로고침 */
+this.fn_pdaRefresh = function()
+{
+	var sSvcID        = "InspectionRefresh";
+	var sURL          = "svc::rest/pda/InspectionDetail";
+//	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sInDatasets   = "";
+	var sOutDatasets  = "pda_mst=pda_mst pda_detail=pda_detail ds_img=ds_img";
+	var sArgument     = "NA_BZPLC="+ this.NA_BZPLC +
+	                    " NA_TEAM_C=" + this.NA_TEAM_C +
+	                    " SLP_DT=" + this.SLP_DT +
+	                    " NA_SLPNO=" + this.NA_SLPNO;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_updatePdaResult = function(status)
+{       
+    var sSvcID        = "updatePdaResult";
+	var sURL          = "svc::rest/pda/UpdateDetail";
+	var sInDatasets   = "pda_mst=pda_mst pda_detail=pda_detail";
+	var sOutDatasets  = "";
+	var sArgument     = "status=" + this.status;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_formatDate = function(dateStr)
+{
+	if (dateStr && dateStr.length == 8) {
+		dateStr = dateStr.substring(0, 4) + "-" + dateStr.substring(4, 6) + "-" + dateStr.substring(6, 8)
+	}
+	return dateStr;
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+ 	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if(svcID == "InspectionDetail"){
+ 		if(this.pda_mst.rowcount == 0){
+			this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+			alert("데이터가 없습니다.");
+			this.close();
+			return;
+		}
+		
+		//검수일자
+		this.st_SLP_DT.set_text(this.fn_formatDate(this.pda_mst.getColumn(0, "SLP_DT")));
+		
+		//근거전표일자
+		this.st_ODR_DT.set_text(this.fn_formatDate(this.pda_mst.getColumn(0, "ODR_DT")));
+		
+		//경제통합전표일자
+		this.st_NH_SLP_DT.set_text(this.fn_formatDate(this.pda_mst.getColumn(0, "NH_SLP_DT")));
+		
+		//서명이미지보이기
+		if(this.ds_img.rowcount == 0) {
+			this.imgView.set_text("서명 이미지 없음");
+		}
+		
+		CNR_STS_DSC = this.pda_mst.getColumn(0, "CNR_STS_DSC");
+		PRC_YN = this.pda_mst.getColumn(0, "PRC_YN");
+		CNR_WRS_DSC = this.pda_mst.getColumn(0, "CNR_WRS_DSC");
+		NA_CRC_CAN_DSC = this.pda_mst.getColumn(0, "NA_CRC_CAN_DSC");
+		
+		//검수상품구분코드
+		if (CNR_WRS_DSC == '1') {
+			this.st_CNR_WRS_DSC.set_text("상품");
+		} else if (CNR_WRS_DSC == '2') {
+			this.st_CNR_WRS_DSC.set_text("덤");
+		}
+		
+		//경제통합정정취소구분코드
+ 		if (NA_CRC_CAN_DSC == '0') {
+ 			this.st_NA_CRC_CAN_DSC.set_text("등록");
+ 		} else if (NA_CRC_CAN_DSC == '9') {
+ 			this.st_NA_CRC_CAN_DSC.set_text("취소");
+ 		}
+			
+		switch(CNR_STS_DSC) {
+		case "1":
+			this.btn_status.set_text("검수상태 : 진행");
+			this.btn_status.set_visible(true);
+			this.btn_confirm.set_visible(true);
+			this.btn_refresh.set_visible(false);
+			this.st_CNR_STS_DSC.set_text("진행");
+			break;
+		case "2":
+			if(PRC_YN == "N" || PRC_YN == "P" ){
+				//alert("검수완료 : 상태변경 처리중입니다.");
+				this.btn_status.set_visible(true);
+				this.btn_status.set_text("검수상태 : 완료 처리중...");
+				this.btn_status.set_visible(true);
+				this.st_CNR_STS_DSC.set_text("완료 처리중");
+				this.btn_refresh.set_visible(true);
+				break;
+			}
+			this.btn_status.set_text("검수상태 : 확인");
+			this.btn_status.set_visible(true);
+			this.btn_finish.set_visible(true);
+			this.btn_init.set_visible(true);
+			this.btn_refresh.set_visible(false);
+			this.st_CNR_STS_DSC.set_text("확인");
+			break;
+		case "3":
+			if(PRC_YN == "N" || PRC_YN == "P" ){
+				//alert("검수완료취소 : 상태변경 처리중입니다.");
+				this.btn_status.set_text("검수상태 : 완료취소 처리중...");
+				this.btn_status.set_visible(true);
+				this.st_CNR_STS_DSC.set_text("완료취소 처리중");
+				this.btn_refresh.set_visible(true);
+				break;
+			}
+			this.btn_status.set_text("검수상태 : 완료");
+			this.btn_status.set_visible(true);
+			this.btn_cancle.set_visible(true);
+			this.btn_refresh.set_visible(false);
+			this.st_CNR_STS_DSC.set_text("완료");
+			break;
+		}
+		
+		if (CNR_STS_DSC == "1") { //셀 정보 변경함.
+			this.grd_pdaD.setCellProperty("Body", 5, "displaytype", "number");
+			this.grd_pdaD.setCellProperty("Body", 5, "editdisplay", "display");
+			this.grd_pdaD.setCellProperty("Body", 5, "edittype", "text");
+		}
+		
+	} else if(svcID == "updatePdaResult"){
+		if (this.status == "3") {
+			alert("검수완료 : 상태변경 처리중입니다.");
+		} else if (this.status == "2") {
+			alert("검수완료취소 : 상태변경 처리중입니다.");
+		}
+		this.reload();
+	} else if(svcID == "InspectionRefresh"){
+		this.reload();
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+     switch (obj.id) {
+		case "btn_confirm":
+         this.status = "2";
+			break;
+		case "btn_finish":
+		 this.status = "3";
+			break;
+		case "btn_cancle":
+		 this.status = "2";
+			break;
+		case "btn_init":
+		 this.status = "1";
+			break;
+	}
+    
+    this.fn_updatePdaResult(status);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+]]></Script>
+  </Form>
+</FDL>

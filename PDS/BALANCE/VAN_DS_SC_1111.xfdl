@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1111" classname="VAN_DS_SC_1111" left="0" top="0" width="803" height="700" titletext="월잔액원장조회 상세조회" onload="form_onload" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="17" top="76" right="17" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title00" taborder="23" text="거래월" cssclass="sta_WFSA_Label" left="15" top="10" width="67" height="21"/>
+              <Static id="sta_title01" taborder="24" text="사업장" cssclass="sta_WFSA_Label" left="15" top="36" width="67" height="21"/>
+              <Edit id="edt_data03" taborder="25" inputtype="number" cssclass="WF_Essential" left="82" top="36" width="105" height="21" maxlength="13"/>
+              <Edit id="edt_data04" taborder="26" cssclass="WF_Essential" left="190" top="36" width="131" height="21"/>
+              <Static id="Static09" taborder="28" text="15" visible="false" left="0" top="0" width="15" height="67" style="background:#dc143c5b;"/>
+              <Static id="Static12" taborder="29" text="10" visible="false" left="81" top="57" width="103" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static14" taborder="30" text="5" visible="false" left="81" top="31" width="103" height="5" style="background:#dc143c5b;"/>
+              <Static id="Static13" taborder="31" text="10" visible="false" left="81" top="0" width="103" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static08" taborder="32" text="30" visible="false" left="321" top="0" width="30" height="67" style="background:#dc143c5b;"/>
+              <Static id="sta_title02" taborder="33" text="공급업체" cssclass="sta_WFSA_Label" left="351" top="10" width="79" height="21"/>
+              <Edit id="edt_data00" taborder="35" inputtype="number" cssclass="WF_Essential" left="82" top="10" width="105" height="21"/>
+              <Edit id="edt_data01" taborder="36" inputtype="number" cssclass="WF_Essential" left="430" top="10" width="105" height="21" maxlength="13"/>
+              <Edit id="edt_data02" taborder="37" cssclass="WF_Essential" left="538" top="10" width="131" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_print00" taborder="2" text="출력" cssclass="btn_WF_CRUD" top="47" right="17" width="41" height="21" onclick="btn_print00_onclick"/>
+        <Grid id="grd_detail" taborder="4" useinputpanel="false" left="17" top="160" right="17" bottom="58" binddataset="ds_detail_data" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="169"/>
+                <Column size="127"/>
+                <Column size="127"/>
+                <Column size="127"/>
+                <Column size="127"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="2" text="내역"/>
+                <Cell col="2" text="흑자"/>
+                <Cell col="3" text="적자"/>
+                <Cell col="4" text="합계"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;" text="bind:ITEM2"/>
+                <Cell col="1" style="align:left;" text="bind:ITEM3"/>
+                <Cell col="2" displaytype="number" text="bind:BLB_AM"/>
+                <Cell col="3" displaytype="number" text="bind:DFC_AM"/>
+                <Cell col="4" displaytype="number" text="bind:SAM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static03" taborder="6" text="15" visible="false" left="695" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="7" text="8" visible="false" left="696" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="8" text="월잔액장상세조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Static id="Static00" taborder="9" text="15" visible="false" left="695" top="145" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="10" text="10" visible="false" left="87.05%" top="642" right="1.87%" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_ok" taborder="11" text="채권채무발행관리 이동" onclick="btn_ok_onclick" cssclass="btn_WF_CRUD" top="652" right="91" width="150" height="29" style="font:bold 9 Gulim;"/>
+        <Button id="btn_cancel" taborder="12" text="닫기" cssclass="btn_WF_Popup" top="652" right="17" width="70" height="29" onclick="btn_cancel_onclick"/>
+        <Static id="Static01" taborder="13" text="17" visible="false" left="699" top="681" width="89" height="17" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_detail_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SEQ" type="STRING" size="256"/>
+          <Column id="ITEM1" type="STRING" size="256"/>
+          <Column id="ITEM2" type="STRING" size="256"/>
+          <Column id="ITEM3" type="STRING" size="256"/>
+          <Column id="BLB_AM" type="STRING" size="256"/>
+          <Column id="DFC_AM" type="STRING" size="256"/>
+          <Column id="SAM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	if (this.parent.dtVal == undefined) {
+		this.alert('입력 파라미터가 없습니다. 파라미터를 확인하십시요.');
+		return;
+	}
+
+	this.div_search.edt_data00.set_value(this.parent.dtVal);
+	this.div_search.edt_data01.set_value(this.parent.dsArg.getColumn(this.parent.dsArg.rowposition,"NA_ADJPL_C"));
+	this.div_search.edt_data02.set_value(this.parent.dsArg.getColumn(this.parent.dsArg.rowposition,"CLIENT_NM"));
+	this.div_search.edt_data03.set_value(this.parent.dsArg.getColumn(this.parent.dsArg.rowposition,"NA_BZPLC"));
+	this.div_search.edt_data04.set_value(this.parent.dsArg.getColumn(this.parent.dsArg.rowposition,"BZPL_NM"));
+	this.grd_detail.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.search();
+}
+
+//조회
+this.search = function()
+{
+	var bas = this.div_search.edt_data00.value;
+	var adj_bzplc = this.div_search.edt_data03.value;
+	var adjpl_c = this.div_search.edt_data01.value;
+	var params = "BAS_YM="+bas
+				 +" ADJ_NA_BZPLC="+adj_bzplc
+				 +" NA_ADJPL_C="+adjpl_c;
+
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/balance/getMonthlyBalanceDetailList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_detail_data=DATASET";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)//첫번째 인자값은 통신 ID
+{
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}
+}
+
+this.btn_print00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var searchText = "사업장:"+this.div_search.edt_data03.value+" "+this.div_search.edt_data04.value
+					 ", 거래월:"+this.div_search.edt_data00.value+
+					 ", 공급업체:"+this.div_search.edt_data01.value+" "+this.div_search.edt_data02.value;
+
+	// trace(searchText);
+
+	var ozParam = {
+		sId: 'VAN_DS_SC_1111',
+		sUrl: '/rest/oz/pds/balance/getMonthlyBalanceDetailList',
+		paramType: 'param',
+		sParam:{
+			TRPL_C_TEXT:searchText,
+			BAS_YM:this.gfn_nullToEmpty(this.div_search.edt_data00.value),
+			ADJ_NA_BZPLC:this.gfn_nullToEmpty(this.div_search.edt_data03.value),
+			NA_ADJPL_C:this.gfn_nullToEmpty(this.div_search.edt_data01.value)
+		}
+	};
+	this.ozViewer(ozParam);
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close(this.div_search.edt_data00.value + "|" + this.div_search.edt_data01.value);
+}
+
+this.btn_cancel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}]]></Script>
+  </Form>
+</FDL>

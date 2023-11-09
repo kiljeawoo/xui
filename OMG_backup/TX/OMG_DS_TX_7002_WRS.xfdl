@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_TX_7002_WRS" classname="VAN_DS_SC_1111" left="0" top="0" width="1300" height="550" titletext="마감간소화 상품내역" onload="form_onload" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Button id="btn_excel" taborder="2" text="엑셀" cssclass="btn_WF_CRUD" top="47" right="17" width="41" height="21" onclick="common_onclick"/>
+        <Grid id="grd_tax" taborder="4" useinputpanel="false" left="15" top="105" bottom="58" binddataset="ds_simplify" oncelldblclick="grd_detail_oncelldblclick" summarytype="top" autofittype="col" width="600">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="36" band="head"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="5" text="(세금)계산서"/>
+                <Cell row="1" text="매출사업장"/>
+                <Cell row="1" col="1" text="매출사업장명"/>
+                <Cell row="1" col="2" text="공급가액"/>
+                <Cell row="1" col="3" text="세액"/>
+                <Cell row="1" col="4" text="합계액"/>
+              </Band>
+              <Band id="summary">
+                <Cell style="align:center;" expr="expr:dataset.getColumn(0,'NA_TRPL_C')"/>
+                <Cell col="1" style="align:center;" expr="expr:dataset.getColumn(0,'NA_TRPLNM')"/>
+                <Cell col="2" displaytype="number" expr="expr:dataset.getColumn(0,'TAX_SPRTT')"/>
+                <Cell col="3" displaytype="number" expr="expr:dataset.getColumn(0,'TAX_TXA_TT')"/>
+                <Cell col="4" displaytype="number" expr="expr:dataset.getColumn(0,'TAX_TOT_AM')"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static06" taborder="8" text="마감간소화 상품내역" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="btn_close2" taborder="12" text="닫기" cssclass="btn_WF_Popup" right="17" width="70" height="29" onclick="common_onclick" bottom="15"/>
+        <Button id="btn_print" taborder="14" text="출력" onclick="common_onclick" cssclass="btn_WF_CRUD" top="47" right="63" width="41" height="21"/>
+        <Static id="sta_result" taborder="15" text="※ (세금)계산서 금액이 매입금액과 &lt;fc v='#ff0000ff'&gt;&lt;u v='true'&gt;일치&lt;/u&gt;&lt;/fc&gt; 합니다." usedecorate="true" left="15" top="77" width="800" height="21"/>
+        <Static id="sta_result00" taborder="16" text="(세금)계산서 승인 번호 :" usedecorate="true" left="15" top="47" width="160" height="21" cssclass="sta_WFSA_Label"/>
+        <Static id="sta_info" taborder="17" text="############ (일반/과세)" usedecorate="true" left="170" top="47" width="320" height="21"/>
+        <Button id="btn_close" taborder="18" onclick="common_onclick" cssclass="btn_WF_PopupClose" top="0" width="37" height="32" right="0"/>
+        <Grid id="grd_detail" taborder="19" binddataset="ds_detail" useinputpanel="false" oncelldblclick="grd_detail_oncelldblclick" left="613" top="105" right="15" bottom="58" summarytype="top">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="100"/>
+                <Column size="50"/>
+                <Column size="90"/>
+                <Column size="80"/>
+                <Column size="130"/>
+                <Column size="100"/>
+                <Column size="130"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="36" band="head"/>
+                <Row size="28"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="10" text="매입전표"/>
+                <Cell row="1" text="No"/>
+                <Cell row="1" col="1" text="상품코드"/>
+                <Cell row="1" col="2" text="상품명"/>
+                <Cell row="1" col="3" text="규격"/>
+                <Cell row="1" col="4" text="과세&#13;&#10;구분"/>
+                <Cell row="1" col="5" text="매입단가"/>
+                <Cell row="1" col="6" text="매입수량"/>
+                <Cell row="1" col="7" text="공급금액"/>
+                <Cell row="1" col="8" text="부가세"/>
+                <Cell row="1" col="9" text="총공급금액"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:NA_WRS_C"/>
+                <Cell col="2" text="bind:WRSNM"/>
+                <Cell col="3" text="bind:WRS_STDNM"/>
+                <Cell col="4" text="bind:TXT_DSC"/>
+                <Cell col="5" displaytype="number" style="align:right;" text="bind:BYNG_UPR"/>
+                <Cell col="6" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:BYNG_QT"/>
+                <Cell col="7" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:BYAM"/>
+                <Cell col="8" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:BYNG_VAT"/>
+                <Cell col="9" displaytype="number" style="align:right;padding:0 10 0 0;" text="bind:TOT_AM"/>
+              </Band>
+              <Band id="summary">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5" displaytype="number"/>
+                <Cell col="6" displaytype="number"/>
+                <Cell col="7" displaytype="number" expr="expr:dataset.getSum('BYAM')"/>
+                <Cell col="8" displaytype="number" expr="expr:dataset.getSum('BYNG_VAT')"/>
+                <Cell col="9" displaytype="number" expr="expr:dataset.getSum('TOT_AM')"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta_result01" taborder="20" text="항목을 더블클릭하면 상세내용을 확인하실 수 있습니다." left="618" bottom="32" width="350" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_simplify" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CRT_YM" type="STRING" size="256"/>
+          <Column id="PBC_SQNO" type="string" size="32"/>
+          <Column id="SLP_VAT" type="string" size="32"/>
+          <Column id="TAX_SPRTT" type="STRING" size="256"/>
+          <Column id="TAX_TXA_TT" type="STRING" size="256"/>
+          <Column id="TAX_TOT_AM" type="string" size="32"/>
+          <Column id="SLP_BYAM" type="string" size="32"/>
+          <Column id="NA_TOT_DSC" type="string" size="32"/>
+          <Column id="TXT_DSC" type="string" size="32"/>
+          <Column id="TXBIL_KD" type="STRING" size="256"/>
+          <Column id="TXBIL_KDNM" type="string" size="32"/>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="NA_BZPLNM" type="STRING" size="256"/>
+          <Column id="SPLR_BZNO" type="string" size="32"/>
+          <Column id="NA_TOT_DSNM" type="string" size="32"/>
+          <Column id="EQ_YN" type="string" size="32"/>
+          <Column id="RN" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPLNM" type="string" size="32"/>
+          <Column id="SLP_TOT_AM" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_detail_temp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CRT_YM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="NA_BZPLNM" type="string" size="32"/>
+          <Column id="NA_SLPNO" type="string" size="32"/>
+          <Column id="TR_DT" type="string" size="32"/>
+          <Column id="NA_WRS_C" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="WRS_STDNM" type="string" size="32"/>
+          <Column id="TXT_DSC" type="string" size="32"/>
+          <Column id="NA_CRC_CAN_DSC" type="string" size="32"/>
+          <Column id="BYNG_QT" type="string" size="32"/>
+          <Column id="BYNG_UPR" type="string" size="32"/>
+          <Column id="BYNG_VAT" type="string" size="32"/>
+          <Column id="BYAM" type="string" size="32"/>
+          <Column id="TOT_AM" type="STRING" size="256"/>
+          <Column id="NA_TR_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_detail" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CRT_YM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="NA_BZPLNM" type="string" size="32"/>
+          <Column id="NA_SLPNO" type="string" size="32"/>
+          <Column id="TR_DT" type="string" size="32"/>
+          <Column id="NA_WRS_C" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="WRS_STDNM" type="string" size="32"/>
+          <Column id="TXT_DSC" type="string" size="32"/>
+          <Column id="NA_CRC_CAN_DSC" type="string" size="32"/>
+          <Column id="BYNG_QT" type="string" size="32"/>
+          <Column id="BYNG_UPR" type="string" size="32"/>
+          <Column id="BYNG_VAT" type="string" size="32"/>
+          <Column id="BYAM" type="string" size="32"/>
+          <Column id="TOT_AM" type="STRING" size="256"/>
+          <Column id="NA_TR_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.PBC_SQNO;
+this.GLN;
+this.EQ_YN;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	var xml = this.gfn_nullToEmpty(this.parent.dsXml);
+	this.ds_simplify.set_enableevent(false);
+	this.ds_simplify.loadXML(xml);
+	this.ds_simplify.set_enableevent(true);
+
+	this.grd_detail.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	
+	if (this.ds_simplify.rowcount == 0) {
+		this.alert("잘못된 정보입니다.");
+		this.close();
+	}
+	
+	this.fn_setResultMsg();
+	this.search();
+}
+
+//조회
+this.search = function()
+{	
+	var sSvcID = "search";
+	var sURL = "svc::rest/tx/simplify/retrieveDetailList";
+	var sInDatasets = "ds_simplify=ds_simplify"; //보내는데이터셋
+	var sOutDatasets = "ds_detail=ds_detail";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument = "type=WRS";
+	var sCallbackFunc = "fn_callback";
+	var sTranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_registerSvcDS(sSvcID, this.ds_detail, false);
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+this.fn_excel = function()
+{
+	excelDownHandler(this.gfn_svcUrl()+"rest/tx/simplify/excel/retrieveDetailList?type=WRS&xml=" + this.fn_makeDsToParam(false), this);
+}
+
+this.fn_print = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var ozParam = {
+		sId: 'OMG_DS_TX_7002_WRS',
+		sUrl: '/rest/tx/simplify/oz/retrieveDetailList',
+		paramType: 'param',
+		sParam:{
+			type:"WRS",
+			xml:this.fn_makeDsToParam(true)
+		}
+	};
+	this.ozViewer(ozParam);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)//첫번째 인자값은 통신 ID
+{
+	this.gfn_svcDsToggle(svcID, true);
+	if (nCD < 0) {
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strId == "detailPop2") {
+		if (this.gfn_nullToEmpty(strVal) == "all") {
+			this.close();
+		}
+	}
+}
+
+this.common_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (obj.id == "btn_close" || obj.id == "btn_close2") {
+		this.close();
+	} else if (obj.id == "btn_excel") {
+		this.fn_excel();
+	} else if (obj.id == "btn_print") {
+		this.fn_print();
+	}
+}
+
+this.grd_detail_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.ds_detail_temp.clearData();
+	this.ds_detail_temp.addRow();
+	this.ds_detail_temp.copyRow(0, this.ds_detail, this.ds_detail.rowposition);
+	
+	var txInfo = this.sta_info.text;
+	var txtDsc = this.ds_simplify.getColumn(0, "TXT_DSC");
+
+	var oArg = {dsXml:this.ds_detail_temp.saveXML(), txInfo:txInfo, txtDsc:txtDsc};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("detailPop2", "OMG.TX::OMG_DS_TX_7003_SLP.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+/**
+ * 엑셀 조회 파라매터 생성
+ */
+this.fn_makeDsToParam = function(isPrint)
+{
+	var pbc = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "PBC_SQNO"));
+	var gln = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "NA_TRPL_C"));
+	var naBzplc = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "NA_BZPLC"));
+	var txtDsc = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "TXT_DSC"));
+	var crtYm = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "CRT_YM"));
+	
+	var param = pbc + "@" + gln + "@" + naBzplc + "@" + txtDsc + "@" + crtYm;
+	
+	if (isPrint) {
+		var glnNm = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "NA_TRPLNM"));
+		var spr = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "TAX_SPRTT"));
+		var txa = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "TAX_TXA_TT"));
+		var tot = this.gfn_nullToEmpty(this.ds_simplify.getColumn(0, "TAX_TOT_AM"));
+		
+		param += "@" + glnNm + "@" + spr + "@" + txa + "@" + tot;
+	}
+	
+	return isPrint ? param : encodeURIComponent(param);
+}
+
+this.fn_setResultMsg = function()
+{
+	var msg = "※ (세금)계산서 금액이 매입금액과 <u v='true'>";
+	
+	if (this.ds_simplify.getColumn(0, "EQ_YN") == "Y") {
+		msg += "<fc v='#0000ffff'>일치</fc></u> 합니다.";
+	} else {
+		msg += "<fc v='#ff0000ff'>불일치</fc></u> 합니다. 매입사업장으로 문의해주세요.";
+	}
+	this.sta_result.set_text(msg);
+	
+	var info = this.ds_simplify.getColumn(0, "PBC_SQNO");
+	var kd = this.ds_simplify.getColumn(0, "TXBIL_KD").substr(0, 2);
+	var txtDsc = this.ds_simplify.getColumn(0, "TXT_DSC");
+	info += " (" + (kd == "02" || kd == "04" ? "수정" : "일반");
+	info += "/" + (txtDsc == "1" ? "과세" : txtDsc == "3" ? "영세" : "면세") + ")";
+	this.sta_info.set_text(info);
+}]]></Script>
+  </Form>
+</FDL>

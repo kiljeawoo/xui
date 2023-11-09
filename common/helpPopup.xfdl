@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="helpPopup" classname="helpPopup" left="0" top="0" width="700" height="500" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="sta_title" taborder="0" text="도움말" cssclass="sta_WF_PopupTitle" left="0%" top="0" right="66.31%" height="32"/>
+        <Button id="btn_close" taborder="1" cssclass="btn_WF_PopupClose" left="96.39%" top="0" right="0%" height="32" onclick="btn_close_onclick" style="cursor:hand;"/>
+        <TextArea id="txa_help" taborder="2" left="15" top="47" right="15" bottom="15" style="padding:10 10 10 10;font:10 Gulim;" wordwrap="char" scrollbars="autoboth"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	var nRow    = application.gds_menu.findRow("MENU_ID",this.getOwnerFrame().param00);
+	var sMenuNm = application.gds_menu.getColumn(nRow,"MENU_NAME");
+	this.sta_title.set_text("도움말 - "+sMenuNm);
+	this.txa_help.set_value(this.getOwnerFrame().param01);
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

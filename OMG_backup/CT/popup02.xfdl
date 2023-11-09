@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="812" height="437" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="계약서 파일 첨부 팝업">
+    <Layouts>
+      <Layout>
+        <Static id="btn_newTop" taborder="17" cssclass="sta_WF_Menulist" left="0" top="0" width="812" height="30"/>
+        <Button id="btn_close" taborder="25" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" left="771" top="0" width="37" height="32"/>
+        <Button id="btn_save" taborder="26" text="등록" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="36" right="11" width="41" height="21"/>
+        <TextArea id="bigo" taborder="27" left="1.72%" top="65" right="1.72%" height="175" oneditclick="bigo_oneditclick" lengthunit="ascii" wordwrap="char" maxlength="500"/>
+        <Grid id="grd_file" taborder="29" binddataset="ds_fyn" useinputpanel="false" autofittype="col" oncellclick="grd_file_oncellclick" left="8" top="287" right="7" height="141">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40" band="left"/>
+                <Column size="225"/>
+                <Column size="350"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="none"/>
+                <Cell col="1" text="서류명"/>
+                <Cell col="2" text="UPLOAD 파일"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" edittype="normal" text="bind:DCM_NM"/>
+                <Cell col="2" text="bind:ORGFNAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_fileDel" taborder="30" text="파일삭제" onclick="btn_fileDel_onclick" visible="true" top="261" width="72" height="21" left="596"/>
+        <FileUpload id="FileUpload01" taborder="31" retry="0" index="0" onlbuttondown="FileUpload01_onlbuttondown" onsuccess="FileUpload01_onsuccess" onerror="div_seal_FileUpload_onerror" onitemchanged="FileUpload01_onitemchanged" visible="true" top="261" width="72" height="21" left="522"/>
+        <Button id="btn_down" taborder="32" text="파일다운" onclick="btn_down_onclick" visible="true" top="261" width="72" height="21" left="451"/>
+        <Static id="Static06" taborder="33" text="첨부 파일" cssclass="sta_WF_Subtitle" left="8" top="264" width="76" height="21"/>
+        <Static id="Static00" taborder="34" text="비고" cssclass="sta_WF_Subtitle" left="8" top="40" width="301" height="21" onclick="Static00_onclick"/>
+        <Button id="btn_add" taborder="35" text="행추가" onclick="btn_addRow_onclick" top="261" right="64" width="53" height="21"/>
+        <Button id="btn_del" taborder="36" text="행삭제" onclick="btn_delRow_onclick" top="261" right="8" width="53" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_fyn" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서 번호"/>
+          <Column id="FILENAME" type="STRING" size="256"/>
+          <Column id="FILETYPE" type="STRING" size="256"/>
+          <Column id="FILESIZE" type="STRING" size="256"/>
+          <Column id="ORGFNAME" type="STRING" size="256"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="DCM_NM" type="STRING" size="256"/>
+          <Column id="SEAL" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_in" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서 번호"/>
+          <Column id="BIGO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+	this.gfn_setInitForm(obj, e); //공통
+	this.search();
+}
+
+/*조회*/
+this.search = function()
+{	
+	var eltCtrwNo =  this.gfn_isEmpty(this.getOwnerFrame().ELT_CTRW_NO);
+	
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/ct/eltctrw/retrieveEltCtrwApd";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_in=ds_in ds_fyn=ds_fyn";
+
+	var sArgument     = "eltCtrwNo="+ eltCtrwNo;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_down_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	var row = 0;
+	for (var i = this.ds_fyn.getRowCount()-1; i >= 0; i--) {
+		var nCheck = 0;
+		
+		nCheck = this.ds_fyn.getColumn(i, "ISCHECKED");
+		if(nCheck == 1){
+			row += 1;
+		}
+	}
+	
+	if (row > 1) {
+		alert("파일 다운로드는 한 건만 할 수 있습니다.");
+		return;
+	}
+	
+	if (this.ds_fyn.getColumn(this.ds_fyn.rowposition, "ISCHECKED") && this.ds_fyn.getColumn(this.ds_fyn.rowposition, "ISCHECKED") == 0) {
+		alert("파일을 다운할 서류를 선택 하세요.");
+	} else {
+		this.gfn_callDownload(this.ds_fyn);
+	}
+}
+
+this.FileUpload01_onlbuttondown = function(obj:FileUpload, e:nexacro.FileUploadMouseEventInfo)
+{
+	var row = 0;
+	for(var i = this.ds_fyn.getRowCount()-1; i >= 0; i--) {
+		var nCheck = 0;
+		nCheck = this.ds_fyn.getColumn(i, "ISCHECKED");
+		if(nCheck == 1){
+			row += 1;
+		}
+	}
+}
+
+this.btn_fileDel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.ds_fyn.getColumn(this.ds_fyn.rowposition, "ISCHECKED") && this.ds_fyn.getColumn(this.ds_fyn.rowposition, "ISCHECKED") == 0) {
+		alert("파일을 삭제할 서류를 선택 하세요.");
+	} else {
+		for (var i = this.ds_fyn.getRowCount()-1; i >= 0; i--) {
+			var nCheck = this.ds_fyn.getColumn(i, "ISCHECKED");
+			
+			if (this.ds_fyn.getColumn(i, "ISCHECKED") == 1) {
+				 if (this.ds_fyn.getColumn(i, "ISCHECKED") !="SYSTEM"  && this.fn_BuyerApvSts  == "Y" ) {
+					alert("파일을 삭제 할 수 없습니다. ");
+					return false;
+				 } else {
+					//this.ds_fyn.deleteRow(i);
+					this.ds_fyn.setColumn(i,"FILENAME","");
+					this.ds_fyn.setColumn(i,"FILETYPE","");
+					this.ds_fyn.setColumn(i,"FILESIZE","");
+					this.ds_fyn.setColumn(i,"ORGFNAME","");
+					//this.ds_fyn.setColumn(i,"SYSTEMFILENAME","");
+					
+					return true;
+				}
+			}
+		}
+	}
+}
+
+this.FileUpload01_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_addRow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_fyn.addRow();
+}
+
+this.btn_delRow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	for (var i = this.ds_fyn.rowcount ; i > -1; i--) {
+		var nCheck = this.ds_fyn.getColumn(i, "ISCHECKED");
+
+		if (nCheck == 1)  {
+			this.ds_fyn.deleteRow(i);
+		}
+	}	
+}
+this.FileUpload01_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if (e.datasets == null) {
+		trace("업로드 실패");
+	} else {
+		trace("업로드 성공");
+		
+		var elt_ctrw_no = this.getOwnerFrame().ELT_CTRW_NO;
+		
+		this.ds_uploadresult00.clear();
+		this.ds_uploadresult00.copyData(e.datasets[0]);
+		//trace(this.ds_uploadresult00.saveXML());	
+		
+		var fName = this.ds_uploadresult00.getColumn(0,"FILENAME");
+		var fType = this.ds_uploadresult00.getColumn(0,"FILETYPE");
+		var fSize = this.ds_uploadresult00.getColumn(0,"FILESIZE");
+		var orgName = this.ds_uploadresult00.getColumn(0,"ORGFNAME");
+		var sysName = this.ds_uploadresult00.getColumn(0,"SYSTEMFILENAME");
+		
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"ELT_CTRW_NO",elt_ctrw_no);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"BIGO",this.bigo.value);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"FILENAME",fName);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"FILETYPE",fType);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"FILESIZE",fSize);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"ORGFNAME",orgName);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"SYSTEMFILENAME",sysName);
+		this.ds_fyn.setColumn(this.ds_fyn.rowposition,"SEAL","ELT");
+	}
+	//trace(this.ds_fyn.saveXML());
+}
+
+this.FileUpload01_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload01_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var elt_ctrw_no = this.getOwnerFrame().ELT_CTRW_NO;
+	
+	this.ds_in.addRow();
+	this.ds_in.setColumn(0,"ELT_CTRW_NO",elt_ctrw_no);
+	this.ds_in.setColumn(0,"BIGO",this.bigo.value);
+
+	var sSvcID        = "insert";
+	var sURL          = "svc::rest/ct/eltctrw/saveEltCtrwApd";// 호출할 서버 페이지 주소							     
+	var sInDatasets   = "ds_in=ds_in ds_fyn=ds_fyn:A";
+	var sOutDatasets  = "";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	//trace("ds_in"  +this.ds_in.saveXML()) ;
+	//trace("ds_fyn"  +this.ds_fyn.saveXML()) ;
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID =="insert") {
+			this.gfn_getMessage("alert", "result.message.save.success");		
+			this.reload();
+		}
+		
+		if (svcID == 'search') {
+			//trace(this.ds_in.getColumn("BIGO"));
+			this.bigo.set_value(this.ds_in.getColumn(0,"BIGO"));
+		}
+	}	
+}]]></Script>
+  </Form>
+</FDL>

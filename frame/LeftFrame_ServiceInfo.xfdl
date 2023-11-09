@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LeftFrame" classname="LeftFrame" left="0" top="0" width="190" height="552" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="21" left="0" top="0" width="190" style="background:transparent;" bottom="0">
+          <Layouts>
+            <Layout>
+              <Static id="sta_menu" taborder="1" cssclass="sta_LF_MenuGrdBg" left="0%" top="0" right="0%" bottom="0"/>
+              <Grid id="grd_menu" cssclass="grd_LF_Menu" taborder="0" binddataset="ds_menu" scrollbars="autovert" useinputpanel="false" treeuseline="false" treeusecheckbox="false" treeinitstatus="collapse,all" oncellclick="grd_oncellclick" left="0%" top="8" right="4.21%" bottom="12" style="cursor:hand;">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="180"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="tree" edittype="tree" style="padding: ; :focused {background:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_1dpth.png') repeat-x&quot;:&quot;&quot;);background2:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_1dpth.png') repeat-x&quot;:&quot;&quot;);color:EXPR(lev=='0'?&quot;#3a3a3a&quot;:&quot;&quot;);color2:EXPR(lev=='0'?&quot;#3a3a3a&quot;:&quot;&quot;);font:EXPR(lev=='0'?&quot;bold 9 Gulim&quot;:&quot;&quot;);selectbackground:EXPR(lev=='0'?&quot;URL('theme://images/grd_LF_Menu_S.png') stretch&quot;:&quot;&quot;);selectfont:EXPR(lev=='0'?&quot;bold 9 Gulim&quot;:&quot;&quot;);}" text="bind:MENU_NAME" treestartlevel="0" treelevel="bind:MENU_LEVEL" tooltiptext="bind:MENU_NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <PopupDiv id="pdiv_list" text="PopupDiv01" left="190" top="37" width="267" height="344" cssclass="pdiv_WF_MenuList" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="4" text="메뉴검색결과" cssclass="sta_WF_Menulist" left="0%" top="0" right="0%" height="30"/>
+              <Grid id="grd_list" cssclass="grd_WF_pdiv" taborder="5" binddataset="ds_find" useinputpanel="false" left="5.66%" top="45" right="5.66%" height="251" oncelldblclick="pdiv_list_grd_list_oncelldblclick" autofittype="col" style="cursor:hand;">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="187"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell style="line: ;" cssclass="Cellgrd_WF_AlignLeft" text="bind:MENU_NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_cancel" taborder="6" text="취소" left="50.19%" top="306" right="34.34%" height="21" onclick="pdiv_list_btn_cancel_onclick" style="cursor:hand;"/>
+              <Button id="btn_ok" taborder="7" text="확인" left="33.96%" top="306" right="50.57%" height="21" onclick="pdiv_list_btn_ok_onclick" style="cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.nCurRow = 0; 
+this.treeStatus = 0;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.ds_menu.copyData(application.gds_serviceInfo);
+    this.ds_menu.filter("DISPLAY_YN!='N'");
+//	this.ds_userInfoMenu.copyData(application.gds_userInfoMenu);
+//	this.ds_find.copyData(application.gds_serviceInfo);	
+}
+
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	//트리버튼의 영역이 눌렸을 경우는 로직을 타지 않도록 처리 함.	
+	if( e.canvasX < 26 ){ 
+		return; 
+	}
+	
+	var objDs = this[obj.binddataset];
+
+	if (this.treeStatus == 1){
+		this.treeStatus = 0;
+		return;
+	}
+
+	var childRow = obj.getTreeChildRow(objDs.rowposition, 0, true);
+
+	// 자식 노드가 존재할 경우
+	if (childRow >= 0) 
+	{
+		var gridRow = obj.getTreeRow(objDs.rowposition);
+		if (obj.isTreeCollapsedRow(childRow, true)) 
+		{
+			obj.setTreeStatus(gridRow, true);
+		}
+		else 
+		{
+			obj.setTreeStatus(gridRow, false);
+		}
+	}
+	this.treeStatus = 0;
+	
+	var nLv = objDs.getColumn(objDs.rowposition,"MENU_LEVEL");
+	
+	if(nLv == 1){
+		var psMenuId = objDs.getColumn(objDs.rowposition,"MENU_ID");
+		if(obj.name == "grd_menu"){
+			this.gfn_OpenMenuId(psMenuId,"","SERVICE");
+		}else{
+			this.gfn_OpenMenuId(psMenuId,"","INFO");
+		}		
+	}
+
+}
+
+this.ds_menu_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	
+	if(e.reason == 51) {
+      this.ds_menu.set_enableevent(false);
+      this.ds_menu.set_rowposition(-1);
+      this.ds_menu.set_enableevent(true);
+      this.ds_menu.filter("DISPLAY_YN!='N'");
+      return;
+	}   	
+   	
+	var psMenuId = obj.getColumn(e.newrow,"MENU_ID");
+	var psMenuLv = obj.getColumn(e.newrow,"MENU_LEVEL");
+		
+	if(psMenuLv == 2){
+		this.gfn_OpenMenuId(psMenuId);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

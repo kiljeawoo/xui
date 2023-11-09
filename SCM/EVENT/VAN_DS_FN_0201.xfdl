@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="740" height="402" titletext="팝업 예약구매 조회 " cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button07" taborder="0" text="초기화" cssclass="btn_WF_CRUD" top="47" right="76" width="53" height="21" onclick="Button07_onclick"/>
+        <Button id="btn_search" taborder="3" cssclass="btn_WFSA_Searchbtn" top="47" right="16" width="58" height="21" onclick="btn_search_onclick"/>
+        <Grid id="grd_master" taborder="5" binddataset="ds_dataM" useinputpanel="false" left="17" top="134" right="17" autofittype="none" oncellclick="grd_master_oncellclick" bottom="78">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="0"/>
+                <Column size="140"/>
+                <Column size="140"/>
+                <Column size="250"/>
+                <Column size="159"/>
+                <Column size="170"/>
+                <Column size="140"/>
+                <Column size="250"/>
+                <Column size="0"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="예약년도"/>
+                <Cell col="2" text="예약번호"/>
+                <Cell col="3" text="예약구매명"/>
+                <Cell col="4" text="발주예정일"/>
+                <Cell col="5" text="배송예정일"/>
+                <Cell col="6" text="적용처코드"/>
+                <Cell col="7" text="적용처명"/>
+                <Cell col="8" text="매취수탁구분"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1" text="bind:BKG_EVT_YY"/>
+                <Cell col="2" text="bind:BKG_EVT_NO"/>
+                <Cell col="3" cssclass="Cellgrd_WF_AlignLeft" text="bind:BKG_EVTNM"/>
+                <Cell col="4" text="expr:ORR_ST_DT+'~'+ORR_DDL_DT"/>
+                <Cell col="5" text="expr:DVY_ST_DT+'~'+DVY_CPL_DT"/>
+                <Cell col="6" text="bind:APL_NA_BZPLC"/>
+                <Cell col="7" cssclass="Cellgrd_WF_AlignLeft" text="bind:APL_NA_BZPLC_N"/>
+                <Cell col="8" text="bind:ODR_SLPNO"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button65" taborder="6" text="확인" cssclass="btn_WF_Popup" bottom="41" right="357" height="29" width="54"/>
+        <Button id="btn_cancle" taborder="7" text="취소" cssclass="btn_WF_Popup" onclick="btn_close_onclick" width="54" bottom="41" height="29" right="301"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="74" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="325" top="361" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="363" top="322" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="30" visible="false" left="242" top="32" width="30" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="120" width="76" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" left="699" top="0" cssclass="btn_WF_PopupClose" height="32" right="4" onclick="btn_close_onclick"/>
+        <Static id="Static14" taborder="38" text="5" visible="false" left="243" top="106" width="91" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="39" text="예약구매 조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Div id="div_search" taborder="41" left="17" top="76" right="17" height="44" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="예약구매년도" cssclass="sta_WFSA_Label" left="2" top="10" width="103" height="21"/>
+              <Edit id="edt_search_year" taborder="5" cssclass="WF_Essential" left="100" top="10" width="100" height="21" readonly="true" enable="false"/>
+              <Static id="Static05" taborder="11" text="10" visible="false" left="157" top="0" width="91" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static14" taborder="12" text="5" visible="false" left="304" top="31" width="103" height="5" style="background:#dc143c5b;"/>
+              <Static id="Static06" taborder="13" text="10" visible="false" left="165" top="31" width="91" height="10" style="background:#dc143c5b;"/>
+              <Combo id="cbo_search_type" taborder="14" codecolumn="codecolumn" datacolumn="datacolumn" left="202" top="10" width="147" height="21" value="NAME" text="[2] 예약구매명">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">NO</Col>
+                      <Col id="datacolumn">[1] 예약구매코드</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">NAME</Col>
+                      <Col id="datacolumn">[2] 예약구매명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Edit id="edt_search_txt" taborder="15" cssclass="WF_Essential" left="351" top="10" width="226" height="21" maxlength="100"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="42" text="8" visible="false" left="579" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BKG_EVT_YY" type="STRING" size="256"/>
+          <Column id="BKG_EVT_NO" type="STRING" size="256"/>
+          <Column id="BKG_EVTNM" type="STRING" size="256"/>
+          <Column id="APL_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="APL_NA_BZPLC_N" type="STRING" size="256"/>
+          <Column id="ORR_DDL_DT" type="STRING" size="256"/>
+          <Column id="NA_ODR_STS_DSC" type="STRING" size="256"/>
+          <Column id="ORR_ST_DT" type="STRING" size="256"/>
+          <Column id="DVY_ST_DT" type="STRING" size="256"/>
+          <Column id="DVY_CPL_DT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+/*##################################################################################
+ 화면ID  	: VAN_DS_FN_0201
+ 화면명	: 예약구매조회 팝업
+ 작성자 	: swha
+ 작성일자 : 2015.08.26
+####################################################################################*/
+/*
+	Option
+*/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{	
+	this.gfn_setInitForm(obj, e); //공통
+	this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	var searchParam =
+	{
+				form: this,									
+				param:[{									
+						edit: this.div_search.edt_search_txt,
+						fnc: 'btn_search_onclick'
+				}]
+	};
+	this.addEventEnterSearch(searchParam);
+	
+	
+};
+
+
+var bkg_evt_yy;
+var bkg_evt_no;
+var bkg_evtnm;
+var auto;
+this.fn_afterFormOnload = function(){
+	
+	auto = this.gfn_nullToEmpty(this.getOwnerFrame().auto);
+	bkg_evt_yy = this.gfn_nullToEmpty(this.getOwnerFrame().bkg_evt_yy);
+	bkg_evt_no = this.gfn_nullToEmpty(this.getOwnerFrame().bkg_evt_no);
+	bkg_evtnm = this.gfn_nullToEmpty(this.getOwnerFrame().bkg_evtnm);
+	this.div_search.edt_search_year.set_value(bkg_evt_yy);
+	var txt = "";
+	if(this.gfn_isNull(bkg_evt_no) == false){
+		this.div_search.cbo_search_type.set_index(0);
+		txt = bkg_evt_no;
+	}else{
+		this.div_search.cbo_search_type.set_index(1);
+		txt = bkg_evtnm;
+	}
+	this.div_search.edt_search_txt.set_value(txt);
+		
+	if(auto == "1"){
+		this.fn_search();
+	}
+	this.div_search.edt_search_txt.setFocus();
+};
+
+
+
+
+//Search
+this.fn_search = function(){
+	var search_year = this.gfn_nullToEmpty(this.div_search.edt_search_year.value);
+	var search_type = this.gfn_nullToEmpty(this.div_search.cbo_search_type.value);
+	var search_txt = "'"+this.gfn_nullToEmpty(this.div_search.edt_search_txt.value)+"'";
+	
+	
+	
+	var params =  	  " search_year=" 		+ search_year 
+					+ " search_type=" 		+ search_type
+					+ " search_txt=" 		+ search_txt;
+					
+	
+	
+	trace(">>>> params : " + params);
+				
+	var sSvcID        = "retrieveBkgEvtPopUp";//통신아이디
+	var sURL          = "svc::/rest/orders/retrieveBkgEvtPopUp";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_dataM=ds_dataM";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0){
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveBkgEvtPopUp"){
+			if(this.ds_dataM.rowcount == 0){
+				this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			}else if(this.ds_dataM.rowcount == 1){
+				if(auto == "1"){
+					this.grd_master_oncellclick();
+				}
+			}else{
+				this.grd_master.selectRow(0);
+				this.grd_master.setFocus();
+			}
+		}
+		
+	}
+}
+
+
+//Close
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+//Event
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_dataM.clearData();
+	this.fn_search();
+}
+
+
+
+this.grd_master_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	
+	this.objRtnArr = new Array(5);
+			
+		var bkgEvtYy = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "BKG_EVT_YY"); 
+		var bkgEvtNo = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "BKG_EVT_NO"); 
+		var bkgEvtNm = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "BKG_EVTNM"); 
+		var orrDdlDt = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "ORR_DDL_DT"); 
+		var naOdrStsDsc = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "NA_ODR_STS_DSC"); 
+		
+		
+		this.objRtnArr[0] = bkgEvtYy;
+		this.objRtnArr[1] = bkgEvtNo;
+		this.objRtnArr[2] = bkgEvtNm;
+		this.objRtnArr[3] = orrDdlDt;
+		this.objRtnArr[4] = naOdrStsDsc;
+		this.close(this.objRtnArr.toString());
+}
+
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="main_bottom" classname="main_bottom" left="0" top="0" width="1008" height="66">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="0" cssclass="sta_INTRO_FooterBg" left="0" top="0" height="66" right="0"/>
+        <Static id="Static02" taborder="1" cssclass="sta_INTRO_FooterLogo" left="36" top="21" width="120" height="29"/>
+        <Combo id="cmb_familySite" taborder="2" codecolumn="SITEURL" datacolumn="SITENAME" cssclass="cmb_INTRO_FamilySite" top="35" width="150" height="21" left="822" index="-1" innerdataset="@ds_relatedSites" displayrowcount="10" readonly="false" displaynulltext="관련사이트" onitemchanged="cmb_familySite_onitemchanged" oncloseup="cmb_familySite_oncloseup" style="cursor:hand;"/>
+        <Button id="btn_01" taborder="3" cssclass="btn_INTRO_Footer01" left="185" top="19" width="98" height="12" onclick="btn_01_onclick" style="cursor:hand;"/>
+        <Button id="btn_02" taborder="4" cssclass="btn_INTRO_Footer02" left="293" top="19" width="55" height="12" onclick="btn_02_onclick" style="cursor:hand;"/>
+        <Button id="btn_03" taborder="5" left="358" top="19" width="75" height="12" cssclass="btn_INTRO_Footer03" onclick="btn_03_onclick" style="cursor:hand;"/>
+        <Button id="Button03" taborder="6" left="445" top="20" width="97" height="12" visible="false" cssclass="btn_INTRO_Footer04" style="cursor:hand;"/>
+        <Static id="Static03" taborder="7" cssclass="sta_INTRO_FooterAdress" left="185" top="34" width="578" height="13" text="서울특별시 마포구 신촌로 66 5층 농협하나로유통 / 대표전화번호 : 1522-1211 / FAX : 02-318-3456"/>
+        <Static id="Static04" taborder="8" text="Copyright(C) NH Nonghyup Hanaro Club 2015. All right reserved " cssclass="sta_INTRO_FooterCopyright" left="185" top="49" width="316" height="12" style="padding:0 0 0 0;"/>
+        <Static id="Static05" taborder="9" text="이 시스템은 kt컨소시엄이 운영 관리합니다" left="503" top="49" width="244" height="12" style="padding:0 0 0 0;" cssclass="sta_INTRO_FooterAdress"/>
+        <Static id="Static00" taborder="10" text="하나로 eSCM사이트는 익스플로러 8이상을 권장 합니다. 익스플로러 7이하일 경우 구글 크롬을 설치 후 사용 하시기 바랍니다!!" cssclass="sta_INTRO_FooterAdvice" left="185" top="2" width="707" height="14" style="color:#f9ffb0ff;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_relatedSites" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SITEURL" type="STRING" size="256"/>
+          <Column id="SITENAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SITEURL">http://www.nhabgroup.com/</Col>
+            <Col id="SITENAME">농협경제지주</Col>
+          </Row>
+          <Row>
+            <Col id="SITEURL">http://www.nhfngroup.com/</Col>
+            <Col id="SITENAME">NH농협금융지주</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">남해화학</Col>
+            <Col id="SITEURL">http://www.nhchem.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농민신문사</Col>
+            <Col id="SITEURL">http://www.nongmin.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농우바이오</Col>
+            <Col id="SITEURL">http://www.nongwoobio.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협대학교</Col>
+            <Col id="SITEURL">http://www.nonghyup.ac.kr/n_main.asp</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협목우촌</Col>
+            <Col id="SITEURL">http://www.moguchon.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협물류</Col>
+            <Col id="SITEURL">http://www.nonghyuplogis.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협사료</Col>
+            <Col id="SITEURL">http://www.nonghyupsaryo.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협아그로</Col>
+            <Col id="SITEURL">http://www.nonghyupagro.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협유통</Col>
+            <Col id="SITEURL">http://www.nhhanaro.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협자산관리</Col>
+            <Col id="SITEURL">http://www.acamco.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협재단</Col>
+            <Col id="SITEURL">http://jaedan.nonghyup.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협정보시스템</Col>
+            <Col id="SITEURL">http://www.nonghyupit.com</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협케미컬</Col>
+            <Col id="SITEURL">http://www.nhchemical.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협홍삼</Col>
+            <Col id="SITEURL">http://www.hansamin.org/page/main.html</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">농협흙사랑</Col>
+            <Col id="SITEURL">http://www.nhheuksarang.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">안성팜랜드</Col>
+            <Col id="SITEURL">http://www.nhasfarmland.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">우리선물</Col>
+            <Col id="SITEURL">http://www.futures.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">협동기획</Col>
+            <Col id="SITEURL">http://www.nhman.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH개발</Col>
+            <Col id="SITEURL">http://www.nhd.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협생명</Col>
+            <Col id="SITEURL">http://www.nhlife.co.kr/main.nhl</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협선물</Col>
+            <Col id="SITEURL">http://www.nfutures.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협손해보험</Col>
+            <Col id="SITEURL">http://www.nhfire.co.kr/index.nhfire</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협은행</Col>
+            <Col id="SITEURL">https://www.nhbank.com</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH농협캐피탈</Col>
+            <Col id="SITEURL">http://www.nhcapital.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH무역</Col>
+            <Col id="SITEURL">http://www.nhtra.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH저축은행</Col>
+            <Col id="SITEURL">http://www.nhsavingsbank.co.kr/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH축산자재몰</Col>
+            <Col id="SITEURL">http://nhjajae.nonghyup.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH투자증권</Col>
+            <Col id="SITEURL">http://www.nhwm.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITENAME">NH-CA자산운용</Col>
+            <Col id="SITEURL">http://www.nh-ca.com/</Col>
+          </Row>
+          <Row>
+            <Col id="SITEURL">http://www.nonghyupmall.com</Col>
+            <Col id="SITENAME">농협몰</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+//개인정보처리방침
+this.btn_01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_openIntroMenu(20300000);
+}
+
+//이용약관
+this.btn_02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_openIntroMenu(20400000);
+}
+
+this.btn_03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	system.execBrowser("http://www.nonghyup.com/Complaint/Complaint_Tel.aspx");
+}
+
+this.cmb_familySite_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	system.execBrowser(e.postvalue);
+}
+
+this.cmb_familySite_oncloseup = function(obj:Combo, e:nexacro.ComboCloseUpEventInfo)
+{
+	this.btn_01.setFocus();
+}
+]]></Script>
+  </Form>
+</FDL>

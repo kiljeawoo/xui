@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_9091" classname="OMG_DS_SC_3212" left="0" top="0" width="600" height="600" onload="OMG_DS_SC_9091_onload" style="border:2 solid #067394ff ;" visible="true" scrollbars="none" enable="true" ontimer="OMG_DS_SC_9091_ontimer" titletext="eSCM 공지 ">
+    <Layouts>
+      <Layout>
+        <Div id="div_img" taborder="49" text="Div00" left="0" top="0" width="600" height="600" visible="false">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="imgView" taborder="0" left="0" top="0" width="600" height="600" style="border:1 solid #bfbfbfff ;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <TextArea id="txt_content" taborder="50" visible="false" left="0" top="0" width="600" height="600"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_img" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PICTURE" type="BLOB" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_img.imgView" propid="image" datasetid="ds_img" columnid="PICTURE"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+this.framename = "";
+this.BlbdId  = "";
+this.BbrdId="";
+this.systemFileName = "";
+
+this.OMG_DS_SC_9091_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+
+	var url=this.getOwnerFrame().URL;
+	this.framename = this.getOwnerFrame().FRAME_NAME;
+
+	// 등록 미리 보기
+	this.BlbdId = this.getOwnerFrame().BLBD_ID;
+	application.setPrivateProfile(this.framename, "N");
+	this.bbrd_cntn = this.getOwnerFrame().BBRD_CNTN;
+	
+	if (this.BlbdId == "201506090001") {
+		if (this.gfn_isNull(this.getOwnerFrame().BBRD_CNTN) == false) {
+			//이미지 글씨 팝업
+			this.div_img.set_visible(false);
+			this.txt_content.set_visible(true);
+			this.txt_content.set_value(this.bbrd_cntn);
+		} else {
+			if (this.gfn_isNull(this.getOwnerFrame().BBRD_ID) == false) {
+				this.BbrdId= this.getOwnerFrame().BBRD_ID;
+			}
+
+		   if (this.gfn_isNull(this.getOwnerFrame().SYSTEMFILENAME) == false) {
+				this.systemFileName = this.getOwnerFrame().SYSTEMFILENAME;
+		   }
+
+		   this.div_img.set_visible(true);
+		   this.txt_content.set_visible(false);
+		   this.fn_search();
+		}
+	}
+}
+
+this.fn_afterFormOnload = function()
+{
+}
+
+this.btn_cancel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.fn_search =  function()
+{
+	param = "BlbdId="+this.BlbdId
+			+" BbrdId="+this.BbrdId
+			+" systemFileName="+this.systemFileName	;
+
+	var sSvcID        = "search";//통신아이디
+	var sURL          = "svc::rest/pt/blbd/retrieveBlbdPopup";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_img=ds_img";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets , sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "search") {
+			if (this.ds_img.rowcount > 0) {
+				this.setTimer(0, 500) ;
+			} else if (this.ds_img.rowcount == 0) {
+				alert("조회된 건수가 없습니다");
+				return false;
+			}
+		}
+	}
+}
+
+this.btn_Close_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.OMG_DS_SC_9091_ontimer = function(obj:Form, e:nexacro.TimerEventInfo) {
+ 	if (this.div_img.imgView.imageheight > 0) {
+ 		this.killTimer(0);
+ 		var	width = (this.div_img.imgView.imagewidth);
+ 		var height = (this.div_img.imgView.imageheight);
+
+ 		this.div_img.imgView.set_width(width);
+ 		this.div_img.imgView.set_height(height);
+ 		this.div_img.resetScroll();
+ 	}
+}]]></Script>
+  </Form>
+</FDL>

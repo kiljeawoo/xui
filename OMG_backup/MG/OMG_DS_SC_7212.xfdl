@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7112" classname="pattern_01" left="0" top="0" width="803" height="788" titletext="MMS발송" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="2" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Static id="Static02" taborder="16" cssclass="sta_WF_Labelbg" left="79" top="549" width="708" height="180"/>
+        <Static id="Static01" taborder="11" cssclass="sta_WF_Labelbg" left="79" top="70" width="708" height="262"/>
+        <Static id="Static05" taborder="4" cssclass="sta_WF_Labelbg" left="79" top="331" height="219" width="708"/>
+        <ListBox id="list_receiver" taborder="7" left="87" top="167" width="503" height="157" innerdataset="@ds_mms" datacolumn="RECEIVER" scrollbars="autovert" style="itemheight:23;font:12 Gulim;"/>
+        <Button id="btn_remove" taborder="8" text="삭제" onclick="btn_remove_onclick" left="596" top="167" width="70" height="26"/>
+        <Button id="btn_removeAll" taborder="9" text="모두삭제" onclick="btn_removeAll_onclick" left="596" top="198" width="70" height="26"/>
+        <Static id="Static04" taborder="3" text="내용" cssclass="sta_WF_Label" left="0" top="331" height="219" width="80"/>
+        <Static id="Static00" taborder="10" text="수신번호" cssclass="sta_WF_Label" left="0" top="70" width="80" height="262"/>
+        <Button id="btn_add" taborder="5" text="업로드" onclick="btn_add_onclick" left="672" top="138" width="70" height="20"/>
+        <Edit id="edt_subject" taborder="6" left="87" top="105" width="503" height="26" lengthunit="ascii" maxlength="64"/>
+        <TextArea id="txt_preview" taborder="15" left="88" top="558" width="504" height="151" readonly="true" wordwrap="char" scrollbars="autovert" style="padding:8 8 8 8;background:#eeeeeeff;border:0 solid #bfbfbfff ;color:#333333ff;bordertype:round 5 5 ;font:bold 9 Gulim;" enable="true"/>
+        <Static id="Static07" taborder="17" text="미리보기" cssclass="sta_WF_Label" left="0" top="549" width="80" height="180"/>
+        <Static id="Static09" taborder="26" cssclass="sta_WF_Label" left="596" top="289" width="170" height="34"/>
+        <Static id="Static08" taborder="18" text="수신대상 :" left="610" top="274" width="66" height="56"/>
+        <Static id="sta_recv" taborder="19" left="665" top="274" width="30" height="56" style="align:right middle;font:bold 9 Gulim;" text="0"/>
+        <Static id="Static03" taborder="25" left="609" top="315" width="146" height="1" style="border:1 solid #808080ff ;"/>
+        <Static id="Static06" taborder="27" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Button id="btn_save" taborder="1" text="보내기" cssclass="btn_WF_CRUD" top="10" height="21" onclick="fn_save_onclick" width="50" left="738" enable="false"/>
+        <Edit id="edt_data00" taborder="28" left="87" top="138" width="503" height="21"/>
+        <FileUpload id="FileUpload00" taborder="29" multiselect="true" timeout="0" retry="0" async="true" index="0" onsuccess="FileUpload00_onsuccess" onitemchanged="FileUpload00_onitemchanged" left="594" top="138" width="72" height="24" onload="FileUpload00_onload" onerror="FileUpload00_onerror"/>
+        <TextArea id="txt_content" taborder="30" scrollbars="autovert" wordwrap="char" readonly="false" enable="true" left="86" top="337" width="506" height="172" style="padding:8 8 8 8;background:#eeeeeeff;border:0 solid #bfbfbfff ;color:#333333ff;bordertype:round 5 5 ;font:bold 9 Gulim; :readonly {background:#ffffffff;border:1 solid #bfbfbfff ;}" lengthunit="ascii" maxlength="4000" onkeyup="txt_content_onkeyup" onkillfocus="txt_content_onkillfocus"/>
+        <Static id="sta_byte_max" taborder="31" text="/0  byte" left="530" top="513" width="58" height="15"/>
+        <Static id="sta_byte" taborder="32" text="0" left="485" top="513" width="41" height="15" style="align:right middle;"/>
+        <Button id="btn_clear00" taborder="33" text="초기화" onclick="btn_clear00_onclick" cssclass="btn_WF_CRUD" enable="true" left="682" top="10" width="50" height="21"/>
+        <CheckBox id="chk_reserved" taborder="35" text="예약발송" left="87" top="77" width="85" height="21" truevalue="1" falsevalue="0" onchanged="chk_reserved_onchanged"/>
+        <Calendar id="dt_rsvDtm" taborder="34" dateformat="yyyy-MM-dd HH:mm" editformat="yyyy-MM-dd HH:mm" left="170" top="77" width="127" height="21" enable="false"/>
+        <Static id="Static10" taborder="36" text="콜백번호" cssclass="sta_WF_Label" left="0" top="44" width="80" height="27"/>
+        <Static id="Static11" taborder="37" cssclass="sta_WF_Labelbg" left="79" top="44" width="708" height="27"/>
+        <Edit id="edt_data01" taborder="38" left="87" top="47" width="138" height="21" value="15221211" maxlength="15" inputtype="number"/>
+        <Static id="Static12" taborder="39" text="※ 기본 eSCM 고객센터(1522-1211), 숫자만 입력" left="240" top="47" height="21" width="384"/>
+        <CheckBox id="chk_bl_yn" taborder="40" text="상품본부과금여부" value="0" truevalue="1" falsevalue="0" left="597" top="106" width="169" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_mms">
+        <ColumnInfo>
+          <Column id="RECEIVER" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="MD_NM" type="STRING" size="256"/>
+          <Column id="MMS_NO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+      <BindItem id="item8" compid="edt_data00" propid="value" datasetid="ds_uploadresult" columnid="ORGFNAME"/>
+      <BindItem id="item9" compid="dt_rsvDtm" propid="value" datasetid="ds_block" columnid="BLOCK_ST_DTM"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+var MAX_LENGTH = 4000; // MMS최대길이
+	
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function() // 페이지 로딩 후 실행 부분
+{
+	//var today = new Date();
+	//var d1 = this.gfn_today("yyyyMMdd") + String(today.getHours()).padLeft(2, "0") + String(today.getMinutes()).padLeft(2, "0");
+	//this.dt_rsvDtm.set_value(d1);
+	
+	// 수신자 수, 문자메시지 길이 수 제한 표시
+	this.sta_byte_max.set_text("/" + MAX_LENGTH + " byte");
+	this.txt_content.set_maxlength(MAX_LENGTH);
+	
+	this.edt_subject.setFocus();
+	
+	var fileParam = {
+		form:this,		
+		param:[{//필요없는 프로퍼티는 주석처리
+				fileObj: this.div_search.FileUpload00,
+				maxSize:10,											//허용할 파일 사이즈(MB)
+				maxLength:1,										//허용할 파일갯수
+				ext:['xls','xlsx'],									//허용할 확장자명
+				cancel_after:function(obj){							//파일선택후, 취소버튼 눌렀을때 실행할 함수명 또는 함수
+					this.form.div_search.txa_excel00.set_value(""); //this대신 this.form으로 접근		
+				},
+				valid_after_fail: 'FileUpload00_onerror',  			//파일검사 실패후 호출할 함수명 또는 함수
+				upload_after_succ: 'FileUpload00_onsuccess',    	//파일 업로드 성공후 호출할 함수명 또는 함수
+				upload_after_fail: 'FileUpload00_onerror'  	    	//파일 업로드 실패후 호출할 함수명 또는 함수
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);
+}
+
+//UPLOAD
+this.FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+
+	if( e.datasets == null )
+	{
+		trace("업로드 실패");
+		//this.div_search.txa_excel00.set_value("업로드 실패");
+	} else {
+		trace("업로드 성공");
+		//this.div_search.txa_excel00.set_value("업로드 성공");
+		
+		this.ds_uploadresult.clear();
+		this.ds_uploadresult.copyData(e.datasets[0]);		
+	}	
+}
+
+this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+
+this.fn_validationCheck = function()
+{
+	if (this.ds_mms.getRowCount() == 0) {
+		this.alert('수신자를 등록바랍니다');
+		this.edt_subject.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.txt_content.value)) {
+		this.alert('내용을 입력바랍니다');
+		this.txt_content.setFocus();
+		return false;
+	} else {
+		var len = this.gfn_lengthByte(this.txt_content.value);
+		if (len > MAX_LENGTH) { 
+			var errMsg = "내용을 " + MAX_LENGTH + " byte 이내로 입력바랍니다.";
+			this.alert(errMsg);
+			this.txt_content.setFocus();
+			return false;
+		}
+	}
+	
+	if (this.gfn_isNull(this.edt_subject.value)) {
+		this.alert('제목을 입력바랍니다');
+		this.edt_subject.setFocus();
+		return false;
+	}
+	
+	var mmsType = "발송";
+	var mmsTime = "";
+	if (this.chk_reserved.isChecked()) {
+		var today = new Date();
+		today.setMinutes(today.getMinutes()+5); // 예약발송시각이 현재시각보다  5분이상 차이나도록
+		var todayStr = this.gfn_today("yyyyMMdd") + String(today.getHours()).padLeft(2, "0") + String(today.getMinutes()).padLeft(2, "0") + "00000";
+		if (todayStr > this.dt_rsvDtm.value) {
+			this.alert('예약발송시각이 올바르지 않습니다.\n현재시간보다 5분이상 입력바랍니다.');
+			return false;
+		}
+		mmsType = "예약발송";
+		mmsTime = "\n발송시각 : "+this.gfn_left(this.dt_rsvDtm.value,14);
+	}
+	var mmsMsg = "MMS "+ this.ds_mms.getRowCount() + "건을 아래와 같이 " + mmsType + "합니다.";
+	mmsMsg += mmsTime;
+	mmsMsg += "\n\n\"" + this.txt_content.value + "\"";
+	
+	return application.confirm(mmsMsg);
+}
+
+this.fn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		var sVal =  "content="+nexacro.wrapQuote(this.gfn_nullToEmpty(this.txt_content.value))
+			+ " subject="  + nexacro.wrapQuote(this.gfn_nullToEmpty(this.edt_subject.value))
+			+ " reserved=" + this.chk_reserved.value
+			+ " callback=" + this.gfn_nullToEmpty(this.edt_data01.value)
+			+ " bl_yn="    + this.chk_bl_yn.value
+			+ " userId=MMS";
+		if (this.chk_reserved.isChecked()) {
+			sVal += " rsvdtm="+this.gfn_left(this.dt_rsvDtm.value,14);
+		}
+	
+		var sSvcID        = "sendMMS";
+		var sURL          = "svc::rest/mg/usrinf/saveSendMMSFile";
+		var sInDatasets   = "ds_mms=ds_mms";
+		var sOutDatasets  = "";
+		var sArgument     = sVal;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+		
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	if (ErrorCode < 0) {
+		if (ErrorCode == -1) {
+			//this.gfn_getMessage("alert", ErrorMsg);
+			this.alert(ErrorMsg);
+		} else {
+			this.alert(ErrorMsg);
+		}
+		return;
+	} else {
+		if(svcID == "sendMMS"){
+			this.ds_mms.clearData();
+			this.txt_content.set_value("");
+			this.txt_preview.set_value(null);
+			this.check_irregular_list();
+			//this.txt_content_onkeyup();
+			//this.alert(ErrorMsg + "건이 발송되었습니다.");
+			this.alert("발송되었습니다.");
+			this.reload();
+		}
+		
+		if(svcID=="p_upload"){
+			if(this.ds_mms.rowcount > 0){
+				if (ErrorCode == 1) {
+					this.alert(ErrorMsg);
+				}
+			}
+		
+			this.btn_save.set_enable(true);
+			this.check_irregular_list();
+			
+			alert('상품본부 과금 문자발송시 반드시 상품본부과금여부 체크바랍니다.');
+			
+		}
+	}
+}
+
+this.check_irregular_list = function()
+{
+	var regular = 0, irregular = 0;
+	if (this.ds_mms.getRowCount() > 0) {	
+		for (var i=0; i<this.ds_mms.rowcount; i++) {
+			var tel = this.ds_mms.getColumn(i, "MMS_NO");
+			var regex = new RegExp(/^01([0|1|6|7|8|9])(\d{7,8}$)/g);
+			if (regex.test(tel)) {
+				regular++;
+			} else {
+				//irregular++;
+			}
+		}
+	}
+	
+	if(regular > 0){
+		this.FileUpload00.set_enable(false);
+	}else{
+		this.FileUpload00.set_enable(true);
+	}
+	this.sta_recv.set_text(regular);
+	//if (regular + irregular >= MAX_SEND) { this.sta_recv.style.set_color("red"); }
+	//else { this.sta_recv.style.set_color("#333333ff"); }
+}
+
+// 전화번호 추가(버튼)
+this.btn_add_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.gfn_isEmpty(this.edt_data00.value) == "") {
+		this.alert("파일을 선택해 주세요");
+		return false;
+	}
+	
+	var fileName	  = "dsName=ds_mms"
+					  +" systemFileName="+this.ds_uploadresult.getColumn(0,"SYSTEMFILENAME");
+	var sSvcID        = "p_upload";//통신아이디
+	
+	var sURL          = "svc::rest/mg/usrinf/uploadSendMMSFile";// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_mms:A";//보내는데이터셋
+	var sOutDatasets  = "ds_mms=ds_mms";
+	var sArgument     = fileName;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);	
+}
+
+// 전화번호 삭제(선택)
+this.btn_remove_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var idx = this.list_receiver.getSelectedItems()[0];
+	if (idx >= 0 && this.ds_mms.getRowCount() > idx) {
+		this.ds_mms.deleteRow(idx);
+		this.check_irregular_list();
+	} else {
+		this.alert("선택된 대상이 없거나 목록이 비어있습니다.");
+	}
+}
+
+// 전화번호 삭제(전부)
+this.btn_removeAll_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_mms.clearData();
+	this.check_irregular_list();
+}
+
+this.txt_content_onkeyup = function(obj:TextArea, e:nexacro.KeyEventInfo)
+{
+	var len = this.gfn_lengthByte(this.txt_content.value);
+	if (len < 0) { len = 0; }
+	if (len > MAX_LENGTH) { this.sta_byte.style.set_color("red"); }
+	else { this.sta_byte.style.set_color("#333333ff"); }
+	this.sta_byte.set_text(len);
+	
+	if(!this.gfn_isNull(this.txt_content.value)){
+		this.txt_preview.set_value(this.txt_content.value);
+	} else {
+		this.txt_preview.set_value("");
+	}
+}
+
+this.txt_content_onkillfocus = function(obj:TextArea, e:nexacro.KillFocusEventInfo)
+{
+	this.txt_content.set_value(this.gfn_trim(this.txt_content.value));
+	this.txt_content_onkeyup(obj);	
+}
+
+this.btn_clear00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+this.chk_reserved_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	this.dt_rsvDtm.set_enable(obj.isChecked());
+	if (obj.isChecked()) {
+		var today = new Date();
+		today.setMinutes(today.getMinutes()+5);
+		var d1 = this.gfn_today("yyyyMMdd") + String(today.getHours()).padLeft(2, "0") + String(today.getMinutes()).padLeft(2, "0");
+		this.dt_rsvDtm.set_value(d1);
+	}
+}
+this.chk_bl_yn_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	alert('상품본부 과금 문자발송시 반드시 상품본부과금여부 체크바랍니다.');
+}
+]]></Script>
+  </Form>
+</FDL>

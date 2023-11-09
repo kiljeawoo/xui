@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Intro" classname="Intro" left="0" top="0" width="1010" height="836" onload="form_onload" onsize="Intro_onsize" cssclass="frm_INTRO_New">
+    <Layouts>
+      <Layout>
+        <Div id="div_mainbg" taborder="27" left="0" top="0" height="380" right="0" style="background:URL('theme://images/new/main_bg.png') repeat-x left top;" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Div id="div_main_visual" taborder="0" left="0" top="0" width="1010" height="380" style="background:URL('theme://images/new/main_visual.png') center middle;" scrollbars="none">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="1" left="10" top="40" width="135" height="30" style="background:URL('theme://images/new/nh_logo.png') center middle;"/>
+                    <Div id="div_change" taborder="2" top="270" right="0" width="336" height="110" cssclass="div_ADMIN_Switch">
+                      <Layouts>
+                        <Layout width="336" height="110">
+                          <Button id="btn_change" taborder="8" onclick="button_onclick" cssclass="btn_ADMIN_Switch" left="261" top="57" width="48" height="25" style="cursor:hand;"/>
+                          <Edit id="edt_change" taborder="9" onkeydown="div_change_edt_change_onkeydown" cssclass="edt_ADMIN_Switch" left="25" top="57" width="231" height="25"/>
+                          <Static id="Static00" taborder="10" cssclass="sta_ADMIN_SwitchTitle" left="30" top="10" width="101" height="16"/>
+                          <Button id="btn_searchP" taborder="11" onclick="button_onclick" cssclass="btn_ADMIN_SwitchSearch" left="225" top="57" width="30" height="25" style="cursor:hand;"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_footer_bg" taborder="29" left="0" top="686" height="150" scrollbars="none" right="0" style="background:#f0f0f0ff;">
+          <Layouts>
+            <Layout width="1010" height="150"/>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <WebBrowser id="WebBrowser00" left="0%" top="0" right="0%" height="0" taborder="40"/>
+        <Div id="div_footer" taborder="42" url="frame::main_bottom_new.xfdl" left="0" top="686" width="1010" height="150" scrollbars="none"/>
+        <Div id="div_related_wrap" taborder="44" left="0" top="635" height="46" style="background:white;border:1 solid #dbdbdbff,1 solid transparent,1 solid transparent,1 solid transparent;" scrollbars="none" right="0">
+          <Layouts>
+            <Layout width="1008" height="33">
+              <Div id="div_related" taborder="10" left="0" top="1" width="1010" height="45">
+                <Layouts>
+                  <Layout>
+                    <ImageViewer id="img_related01" taborder="0" onclick="img_related_onclick" left="182" top="0" width="162" height="45" style="background:URL('theme://images/new/family_00.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                    <ImageViewer id="img_related03" taborder="1" onclick="img_related_onclick" left="344" top="0" width="162" height="45" style="background:URL('theme://images/new/family_01.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                    <ImageViewer id="img_related02" taborder="2" onclick="img_related_onclick" left="506" top="0" width="162" height="45" style="background:URL('theme://images/new/family_03.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                    <ImageViewer id="img_related04" taborder="3" onclick="img_related_onclick" left="668" top="0" width="162" height="45" style="background:URL('theme://images/new/family_02.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_content_wrap" taborder="45" left="0" top="380" height="255" right="0" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Div id="div_content" taborder="0" left="0" top="0" width="1010" bottom="0" scrollbars="none">
+                <Layouts>
+                  <Layout width="1010" height="255">
+                    <Div id="div_notice_box" taborder="0" left="345" top="30" width="320" height="195" scrollbars="none">
+                      <Layouts>
+                        <Layout width="320" height="156">
+                          <Static id="Static02" taborder="5" text="공지사항" left="0" top="0" right="0" height="37" style="border:1 solid transparent,1 solid transparent,1 solid #a7a7a7ff,1 solid transparent;color:#3a3a3aff;padding:0 0 0 5;font:bold 12 맑은 고딕,Gulim;"/>
+                          <Grid id="grd_bbs" taborder="6" binddataset="ds_bbs" scrollbars="autovert" useinputpanel="false" autofittype="col" oncellclick="grd_oncellclick" left="10" top="47" right="0" bottom="10" cssclass="grd_INTRO_Notice2">
+                            <Formats>
+                              <Format id="default">
+                                <Columns>
+                                  <Column size="10"/>
+                                  <Column size="190"/>
+                                  <Column size="9"/>
+                                  <Column size="80"/>
+                                </Columns>
+                                <Rows>
+                                  <Row size="25"/>
+                                </Rows>
+                                <Band id="body">
+                                  <Cell displaytype="image" style="align:left middle;padding:0 0 0 0;" text="URL('theme://images/new/icon_dot.png')"/>
+                                  <Cell col="1" style=":mouseover {cursor:hand;}" text="bind:BBRD_TI"/>
+                                  <Cell col="2"/>
+                                  <Cell col="3" displaytype="normal" style="align:right middle;padding:3 3 3 0;color:#a0a0a0ff;color2:#a0a0a0ff;" text="bind:FSRG_DTM"/>
+                                </Band>
+                              </Format>
+                            </Formats>
+                          </Grid>
+                          <Static id="btn_more" taborder="7" top="10" height="20" style="background:URL('theme://images/new/icon_more.png') center middle;" right="0" width="20" visible="true" onclick="button_onclick"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <Div id="div_help_box" taborder="1" left="690" top="30" width="320" height="195">
+                      <Layouts>
+                        <Layout>
+                          <Static id="Static02" taborder="0" text="고객센터" left="0" top="0" right="0" height="37" style="color:#3a3a3aff;padding:0 0 0 5;font:bold 12 맑은 고딕,Gulim;"/>
+                          <Static id="Static06" taborder="1" left="15" top="47" height="45" width="46" style="background:URL('theme://images/new/icon_call.png') left middle;"/>
+                          <Static id="Static07" taborder="2" text="02) 1522-1211" cssclass="sta_INTRO_CSNum" left="81" top="47" height="45" style="color:#ff5e2dff;align:right middle;font:bold 23 맑은 고딕, Arial;" width="218"/>
+                          <Static id="Static08" taborder="3" text="평일 09:00 ~ 18:00&#13;&#10;점심 12:00 ~ 13:00" left="35" top="105" right="163" height="37" style="linespace:3;color:#717171ff;padding:0 0 0 0;align:left middle;font:bold 9 맑은 고딕, Gulim;"/>
+                          <Button id="btn_remote" taborder="4" onclick="button_onclick" cssclass="btn_INTRO_Remote2" left="185" top="105" height="37" style="cursor:hand;" width="114" text="원격지원"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <Div id="div_nhnotice_box" taborder="3" left="0" top="30" width="320" height="195" scrollbars="none">
+                      <Layouts>
+                        <Layout width="320" height="156">
+                          <Static id="Static02" taborder="12" text="농협 공지사항" left="0" top="0" right="0" height="37" style="border:1 solid transparent,1 solid transparent,1 solid #a7a7a7ff,1 solid transparent;color:#3a3a3aff;padding:0 0 0 5;font:bold 12 맑은 고딕,Gulim;"/>
+                          <Static id="btn_NHmore" taborder="10" visible="true" top="10" right="0" width="20" height="20" style="background:URL('theme://images/new/icon_more.png') center middle;" onclick="button_onclick"/>
+                          <Grid id="grd_notice" cssclass="grd_INTRO_Notice2" taborder="11" binddataset="ds_notice" scrollbars="autovert" useinputpanel="false" autofittype="col" oncellclick="grd_oncellclick" left="10" top="47" right="0" bottom="10">
+                            <Formats>
+                              <Format id="default">
+                                <Columns>
+                                  <Column size="10"/>
+                                  <Column size="190"/>
+                                  <Column size="9"/>
+                                  <Column size="80"/>
+                                </Columns>
+                                <Rows>
+                                  <Row size="25"/>
+                                </Rows>
+                                <Band id="body">
+                                  <Cell displaytype="image" style="align:left middle;padding:0 0 0 0;" text="URL('theme://images/new/icon_dot.png')"/>
+                                  <Cell col="1" style=":mouseover {cursor:hand;}" text="bind:OFANC_TINM"/>
+                                  <Cell col="2"/>
+                                  <Cell col="3" displaytype="normal" style="align:right middle;padding:3 3 3 0;color:#a0a0a0ff;color2:#a0a0a0ff;" text="bind:FSRG_DTM"/>
+                                </Band>
+                              </Format>
+                            </Formats>
+                          </Grid>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_mbInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="MB_PW" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_bbs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BOARD_ID" type="STRING" size="256"/>
+          <Column id="SKIN" type="string" size="32"/>
+          <Column id="MOBILE_SKIN" type="string" size="32"/>
+          <Column id="BOARD_TITLE" type="string" size="32"/>
+          <Column id="BOARD_DESCRIPTION" type="string" size="32"/>
+          <Column id="BOARD_AUTH" type="string" size="32"/>
+          <Column id="FILES_YN" type="string" size="32"/>
+          <Column id="CATEGORY_YN" type="string" size="32"/>
+          <Column id="TYPE_CODE" type="string" size="32"/>
+          <Column id="IF_INIT_REG_DT" type="string" size="32"/>
+          <Column id="IF_INIT_REG_USER" type="string" size="32"/>
+          <Column id="FIR_OFFICE_CODE" type="string" size="32"/>
+          <Column id="INIT_REG_DT" type="string" size="32"/>
+          <Column id="INIT_REG_USER" type="string" size="32"/>
+          <Column id="LAST_CHG_DT" type="string" size="32"/>
+          <Column id="LAST_CHG_USER" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_notice" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="LAST_CHG_DT" type="string" size="32"/>
+          <Column id="LAST_CHG_USER" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_change">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="MB_PW" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_mainbg.div_main_visual.div_change.edt_change" propid="value" datasetid="ds_change" columnid="MB_ID"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.Intro_onsize(this);
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   ///페이지 로딩후 실행부분
+   this.fn_retrieveBlbdOfancMainList();
+   this.fn_retrieveNacfOfancMainList();
+}
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveBlbdOfancMainList = function()
+{
+	var sSvcID        = "retrieveBlbdOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveBlbdOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bbs=ds_bbs";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+this.fn_retrieveNacfOfancMainList = function()
+{
+	var sSvcID        = "retrieveNacfOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveNacfOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_notice=ds_notice";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	application.set_usewaitcursor(true);
+ 	
+ 	if(ErrorCode > -1)
+ 	{
+		switch(svcID)
+		{
+			case "retrieveBlbdOfancMainList":
+			case "retrieveNacfOfancMainList":
+				break;
+			case "search":
+				if(this.ds_mbInfo.rowcount > 0)
+				{
+					if(this.ds_mbInfo.getColumn(0, "MB_ID") == this.div_mainbg.div_main_visual.div_change.edt_change.value)
+					{
+						application.setPrivateProfile("userid", this.ds_mbInfo.getColumn(0, "MB_ID"));
+						application.setPrivateProfile("userpw",this.ds_mbInfo.getColumn(0, "MB_PW"));
+						nexacro._setCookie('userid',this.ds_mbInfo.getColumn(0, "MB_ID"),7);
+						nexacro._setCookie('userpw',this.ds_mbInfo.getColumn(0, "MB_PW"),7);
+						this.gfn_callAdminSite(this.ds_mbInfo.getColumn(0, "MB_ID"),this.ds_mbInfo.getColumn(0, "MB_PW"));
+					}
+					else
+					{
+						this.div_mainbg.div_main_visual.div_change.btn_searchP.click();
+					}
+				}
+				else
+				{
+					this.div_mainbg.div_main_visual.div_change.btn_searchP.click();
+				}
+				break;
+				
+		}
+ 	}
+}
+// this.gfn_callAdminSite = function(pId, pPW)
+// {
+// 	var adlUrl = application.xadl;	
+// 
+// 	if(adlUrl.indexOf('localhost') > 0 || adlUrl.indexOf('121.0.0.1') > 0)
+// 	{//로컬
+// 		system.execBrowser("http://localhost:8080/nhvan/escm/index.html");
+// 	}
+// 	else if(adlUrl.indexOf('121.156.58.242') != -1)
+// 	{ 
+// 		system.execBrowser("http://121.156.58.242/escm/index.html");
+// 	}
+// 	else if(adlUrl.indexOf("https://www.nhescm.co.kr") != -1)
+// 	{ 
+// 		system.execBrowser("https://www.nhescm.co.kr/escm/index.html");
+// 	}
+// 	system.exit();
+// }
+
+this.fn_popupAfter = function(strId, strVal)
+{   
+	if(strId == "OMG_DS_SC_9040" && strVal != undefined)
+	{
+		var val = strVal.split(",");
+		application.setPrivateProfile("userid", val[0]);
+		application.setPrivateProfile("userpw",val[1]);
+		nexacro._setCookie('userid',val[0],7);
+		nexacro._setCookie('userpw',val[1],7);
+		
+		this.div_mainbg.div_main_visual.div_change.edt_change.set_value(val[0]);
+		
+		this.gfn_callAdminSite(val[0], val[1]);
+	}
+}
+
+this.button_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_searchP":
+			var oArg = {paramMode:"U", dsArg:this.ds_change};
+		    var sOption = "autosize=true,title=true";
+		    var sPopupCallBack = "fn_popupAfter";     
+		    this.gfn_openPopup("OMG_DS_SC_9040","OMG.MG::OMG_DS_SC_9040.xfdl",oArg,sOption,sPopupCallBack);       
+			break;
+			
+		case "btn_more":
+			this.fn_openMenu("26004003");
+			break;
+		case "btn_NHmore":	
+			this.fn_openMenu("26004001");
+			break;
+		case "btn_change":
+			if(this.gfn_isNull(this.div_mainbg.div_main_visual.div_change.edt_change.value))
+			{
+				this.div_mainbg.div_main_visual.div_change.btn_searchP.click();
+			}		
+			else if( this.gfn_length(this.div_mainbg.div_main_visual.div_change.edt_change.value)<2)
+			{
+				alert("두 글자 이상 입력해 주세요.");
+				return;
+			}
+			else
+			{
+				this.fn_searchMb();
+			}
+			break;
+			
+		case "btn_remote":
+			window.open("http://939.co.kr/nhescm/");
+			break;
+			
+		case "btn_quick01":
+			this.fn_openMenu("90005001");
+			break;
+		case "btn_quick02":
+			this.fn_openMenu("90010002");
+			break;
+		case "btn_quick03":
+			this.fn_openMenu("26003001");
+			break;
+	}
+}
+
+this.img_related_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "img_related01"://농협경제지주
+			window.open("http://www.nhabgroup.com");
+			break;
+		case "img_related03"://농협몰
+			window.open("http://www.nonghyupmall.com");
+			break;
+		case "img_related02"://하나로유통
+			window.open("http://www.nhhanaro.co.kr/mbshome/mbs/nahh002/index.do");
+			break;
+		case "img_related04"://농협유통
+			window.open("http://www.nhhanaro.co.kr/mbshome/mbs/nahh003/index.do");
+			break;
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "grd_notice":
+			this.fn_openNhNotice(e.row);
+			break;
+		case "grd_bbs":
+			this.fn_openBbsNotice(e.row);
+			break;
+	}
+}
+
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_searchMb = function()
+{
+	var sParam = "searchType=1"
+				+" searchText="+this.gfn_nullToEmpty(this.div_mainbg.div_main_visual.div_change.edt_change.value);
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveUsrInfList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_mbInfo=ds_mbInfo";	
+	var sArgument     = sParam
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);	
+}
+this.fn_openNhNotice = function(nRow)
+{
+	var oArg = {noticeSeq:this.ds_notice.getColumn(nRow, "BBRD_SQNO")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4511","OMG.PT::OMG_DS_SC_4511.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_openBbsNotice = function(nRow)
+{
+	var oArg = {blbdId:this.ds_bbs.getColumn(nRow, "BLBD_ID"), bbrdId:this.ds_bbs.getColumn(nRow, "BBRD_ID")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4111","OMG.PT::OMG_DS_SC_4111.xfdl",oArg,sOption,sPopupCallBack);	
+}
+this.div_change_edt_change_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13')
+	{
+		obj.updateToDataset();
+		this.div_mainbg.div_main_visual.div_change.btn_change.click();
+	}
+}
+
+this.fn_openMenu = function(menuId) //26004003
+{
+	var sMenuId = menuId.substr(0,2);//26
+	application.afrm_HFrameSet0.set_separatesize("190,*,0");
+	application.afrm_VFrameSet1.set_separatesize("32,*");
+	application.afrm_LeftFrame.form.ds_menu.filter("MENU_LEVEL >= 1 && MENU_ID.substr(0,2)=='"+sMenuId+"' && DISPLAY_YN!='N'");
+	
+	var nRow    = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId);
+	var objGrid = application.afrm_LeftFrame.form.div_menu.grd_menu;
+	
+	var nTopRow      = application.gds_menu.findRow("MENU_ID", sMenuId+"000000");
+	
+	var sLFTitleText = application.gds_menu.getColumn(nTopRow,"MENU_NAME");
+	
+	application.afrm_LeftFrame.form.btn_menuList.set_text(sLFTitleText);
+	
+	//중메뉴의 첫번째 소메뉴 선택
+	var nRow2   = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId.substr(0,5) + '000');
+	objGrid.setTreeStatus(objGrid.getTreeRow(nRow2),true);//26004000
+	application.afrm_LeftFrame.form.ds_menu.set_rowposition(nRow);
+	
+	var sMId =application.afrm_LeftFrame.form.ds_menu.getColumn(nRow,"MENU_ID");
+	
+	//해당Grid visible처리
+	application.afrm_LeftFrame.form.div_menu.grd_menu.set_visible(true);
+	application.afrm_LeftFrame.form.div_menu.grd_myInfo.set_visible(false);
+	
+	this.gfn_OpenMenuId(sMId);
+}
+
+
+/* 화면리사이즈에 따른 레이아웃 유지 */
+var RESIZE_DIV = [ /* 가운데 정렬할 객체 */
+	 this.div_mainbg.div_main_visual
+	,this.div_footer
+	,this.div_content_wrap.div_content
+	,this.div_related_wrap.div_related
+];
+var RESIZE_WRAP = [ /* 정렬할 객체의 부모 레이아웃(기본 폭 유지) */
+	 this.div_mainbg
+	,this.div_footer_bg
+	,this.div_content_wrap
+	,this.div_related_wrap
+];
+this.Intro_onsize = function(obj:Form, e:nexacro.SizeEventInfo)
+{
+	var BASE_WIDTH = 1010; // 기본사이즈(넓이)
+	var BASE_HEIGHT = 836; // 기본사이즈(높이)
+	var diffW = 0, diffH = 0;
+	if (obj.width > BASE_WIDTH) {
+		diffW = (obj.width - BASE_WIDTH) / 2;
+	} else {
+		diffW = 0;
+	}
+	
+	if (obj.height > BASE_HEIGHT) {
+		diffH = obj.height - BASE_HEIGHT;
+	} else {
+		diffH = 0;
+	}
+	
+	// 기본 높이(BASE_HEIGHT)에 따른 하단(Footer) 위치 조절
+	this.div_related_wrap.set_top(635+diffH);
+	this.div_footer.set_top(686+diffH);
+	this.div_footer_bg.set_top(686+diffH);
+	
+	// 기본 넓이(BASE_WIDTH) 보다 넓을 때, 화면 가운데 정렬
+	for (var i=0; i<RESIZE_DIV.length; i++) {
+		RESIZE_DIV[i].set_left(diffW);
+	}
+	
+	// 기본 넓이(BASE_WIDTH)보다 좁을 때, 최소 넓이 유지(스크롤)
+	for (var i=0; i<RESIZE_WRAP.length; i++) {
+		if (diffW == 0) {
+			RESIZE_WRAP[i].set_width(BASE_WIDTH);
+			RESIZE_WRAP[i].set_right("");
+		} else {
+			RESIZE_WRAP[i].set_width("");
+			RESIZE_WRAP[i].set_right(0);
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

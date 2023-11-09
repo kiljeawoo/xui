@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="740" height="361" titletext="유통취급상품 조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static07" taborder="0" text="8" visible="false" left="579" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="1" left="17" top="76" right="17" height="42" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="16" text="10" visible="false" left="157" top="0" width="91" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static06" taborder="17" text="10" visible="false" left="165" top="31" width="91" height="10" style="background:#dc143c5b;"/>
+              <Combo id="cbo_search_type" taborder="18" value="01" text="사업장코드" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="5" top="10" width="130" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">01</Col>
+                      <Col id="datacolumn">사업장코드</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">02</Col>
+                      <Col id="datacolumn">사업장명</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">03</Col>
+                      <Col id="datacolumn">사업자번호</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Edit id="edt_search_txt" taborder="19" left="137" top="10" width="257" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static06" taborder="2" text="유통취급상품 조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Static id="Static14" taborder="3" text="5" visible="false" left="243" top="106" width="91" height="5" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="4" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" left="699" top="0" right="0" height="32"/>
+        <Static id="Static05" taborder="5" text="15" visible="false" left="363" top="118" width="76" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="6" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="7" text="10" visible="false" left="363" top="295" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="8" text="17" visible="false" left="363" top="334" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="9" text="17" visible="false" left="0" top="74" width="17" height="73" style="background:#dc143c5b;"/>
+        <Button id="btn_cancle" taborder="10" text="취소" onclick="btn_close_onclick" cssclass="btn_WF_Popup" left="384" top="305" width="54" height="29"/>
+        <Button id="Button65" taborder="11" text="확인" cssclass="btn_WF_Popup" left="328" top="305" width="54" height="29"/>
+        <Grid id="grd_master" taborder="12" binddataset="ds_dataM" useinputpanel="false" oncellclick="grd_master_oncellclick" left="17" top="132" right="17" height="163">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="250"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="158"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="중앙회조합구분"/>
+                <Cell col="1" text="거래처코드"/>
+                <Cell col="2" text="거래처명"/>
+                <Cell col="3" text="사업장유형"/>
+                <Cell col="4" text="사업장 세부유형"/>
+                <Cell col="5" text="사업장유형명(전체)"/>
+                <Cell col="6" text="사업자번호"/>
+                <Cell col="7" text="지역"/>
+                <Cell col="8" text="전화번호"/>
+                <Cell col="9" text="사업유형"/>
+                <Cell col="10" text="거래중지여부"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:NAAC_DSC_N"/>
+                <Cell col="1" text="bind:NA_TRPL_C"/>
+                <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:NA_TRPL_N"/>
+                <Cell col="3" text="bind:BZPL_TPC"/>
+                <Cell col="4" text="bind:BZPL_DTI_TPC_N"/>
+                <Cell col="5" text="bind:BZPL_TPNM"/>
+                <Cell col="6" text="bind:BIZ_NUMBER"/>
+                <Cell col="7" text="bind:RGN_CNM"/>
+                <Cell col="8" text="bind:TEL"/>
+                <Cell col="9" text="bind:NA_BZ_TPNM"/>
+                <Cell col="10" text="bind:TR_STOP_YN"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_search" taborder="13" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="47" right="17" width="58" height="21"/>
+        <Button id="Button07" taborder="14" text="초기화" cssclass="btn_WF_CRUD" top="47" right="77" width="53" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NAAC_DSC_N" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_N" type="STRING" size="256"/>
+          <Column id="BZPL_TPC" type="STRING" size="256"/>
+          <Column id="BZPL_DTI_TPC_N" type="STRING" size="256"/>
+          <Column id="BZPL_TPNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="NA_RGN_C" type="STRING" size="256"/>
+          <Column id="RGN_CNM" type="STRING" size="256"/>
+          <Column id="TEL" type="STRING" size="256"/>
+          <Column id="NA_BZ_TPC" type="STRING" size="256"/>
+          <Column id="NA_BZ_TPNM" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+/*##################################################################################
+ 화면명	: 수주등록
+ 화면ID  	: VAN_DS_SC_0100_P00
+ 작성자 	: swha
+  작성일자 : 2015.07.06
+####################################################################################*/
+/*
+	Option
+*/
+//var form_id = "";//부모창 ID
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{	
+	
+	this.gfn_setInitForm(obj, e); //공통
+	form_id = this.getOwnerFrame().form_id;
+	this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	var searchParam =
+	{
+				form: this,									
+				param:[{									
+						edit: this.div_search.edt_search_txt,
+						fnc: 'btn_search_onclick'
+				}]
+	};
+	this.addEventEnterSearch(searchParam);
+}
+
+
+
+
+this.fn_afterFormOnload = function(){
+}
+
+
+
+
+//Search
+this.fn_search = function(){
+	this.ds_dataM.clearData();
+	
+	var search_type = this.gfn_nullToEmpty(this.div_search.cbo_search_type.value);
+	var search_txt = this.gfn_nullToEmpty(this.div_search.edt_search_txt.value);
+	
+	
+	var param = "searchType='"+searchType+"' searchText='"+searchText+"'";
+	
+	
+	trace(">>>> params : " + params);
+				
+	var sSvcID        = "retrieveBr";//통신아이디
+	var sURL          = "svc::/rest/scm/order/retrieveBr";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_dataM=ds_dataM";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveBr"){
+			if(this.ds_dataM.rowcount == 0)
+				this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+				
+			this.ds_dataM.set_enableevent(false);
+			this.ds_dataM.set_rowposition(-1);
+			this.ds_dataM.set_enableevent(true);
+		}
+	}
+}
+
+
+//Close
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+this.validationChk = function(){
+	var search_type = this.gfn_nullToEmpty(this.div_search.cbo_search_type.value);
+	var search_txt = this.gfn_nullToEmpty(this.div_search.edt_search_txt.value);
+	
+	if(search_type == "02"){//명
+		if(this.gfn_length(search_txt) < 2){
+			alert("조회조건을 입력하고 조회하세요(코드 3자리, 명칭 2자리이상");
+			return false;
+		}
+	}else{
+		if(this.gfn_length(search_txt) < 3){
+			alert("조회조건을 입력하고 조회하세요(코드 3자리, 명칭 2자리이상");
+			return false;
+		}
+	}
+	return true;
+}
+//Event
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.validationChk())
+		this.fn_search();
+}
+
+
+
+this.grd_master_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	
+	trace("form_id  -->" + form_id);
+	
+	
+	
+	//수주등록일 경우
+	if(form_id == "POPUP_TRNREL_ODRPL"){	
+		this.objRtnArr = new Array(1);
+		var na_trpl_c = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "NA_TRPL_C"); 
+		this.objRtnArr[0] = na_trpl_c;
+		this.close(this.objRtnArr.toString());	
+	}
+	
+}
+]]></Script>
+  </Form>
+</FDL>

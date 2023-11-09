@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="POPUP_TEMP" classname="popup01" left="0" top="0" width="891" height="800" titletext="농협몰 꾸러미 참여 신청 안내" onload="form_onload" scrollbars="none">
+    <Layouts>
+      <Layout>
+        <Button id="btn_cancel" taborder="1" text="확인" onclick="btn_close_onclick" cssclass="btn_WF_Popup" right="40%" bottom="35" height="29" left="40%"/>
+        <CheckBox id="chk" taborder="3" text="다시 보지 않기" value="0" truevalue="1" falsevalue="0" onchanged="div_chk_onchanged" right="10" bottom="10" width="105" height="17"/>
+        <Div id="div_img" taborder="5" left="0" top="0" right="0" bottom="75" scrollbars="autovert">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="imgView" taborder="0" left="0" top="0" height="848" stretch="fixaspectratio" image="URL('theme://images/new/nh20211027p.png')" width="891"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_down">
+        <ColumnInfo>
+          <Column id="FILENAME" type="STRING" size="256"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="FILENAME">(붙임)마트상품부 갱신계약 필요서류.hwp</Col>
+            <Col id="SYSTEMFILENAME">elt20211217</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.div_chk_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if (obj.value == 1) {
+		application.setPrivateProfile("nhm_220214", "Y");
+		this.close();
+	}
+}]]></Script>
+  </Form>
+</FDL>

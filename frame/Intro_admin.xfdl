@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Intro" classname="Intro" left="0" top="0" width="1008" height="552" onload="form_onload" oninit="Intro_oninit" visible="false">
+    <Layouts>
+      <Layout>
+        <Static id="Static08" taborder="27" left="0" height="330" cssclass="sta_ADMIN_Image" top="0" style="background:URL('theme://images/sta_ADMIN_Image.jpg') left top;" right="0"/>
+        <Static id="Static00" taborder="2" left="1149" top="25" width="21" height="40" style="background:#dc143c66;" visible="false"/>
+        <Div id="Div03" taborder="29" text="Div03" left="0" top="486" height="66" url="frame::main_bottom.xfdl" right="0"/>
+        <Div id="Div00" taborder="30" text="Div00" left="335" top="330" width="337" height="156" cssclass="div_INTRO_ContentsBg02" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static04" taborder="0" cssclass="sta_PORTAL_ContentsTitle01" left="20" top="13" width="109" height="23"/>
+              <Grid id="grd_notice" cssclass="grd_INTRO_Notice" taborder="3" binddataset="ds_notice" scrollbars="none" useinputpanel="false" oncellclick="grd_oncellclick" left="20" top="44" width="301" height="102">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="15"/>
+                      <Column size="200"/>
+                      <Column size="9"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="25"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="image" style="padding: ;" text="URL('theme://images/grdIco_INTRO_Notice.png')"/>
+                      <Cell col="1" style="padding:0 0 0 0;" cssclass="Cellgrd_WF_AlignLeft" text="bind:OFANC_TINM"/>
+                      <Cell col="2"/>
+                      <Cell col="3" displaytype="date" style="align: ;color:#8f8f8fff;color2:#8f8f8fff;selectcolor:#8f8f8fff;selectfont:9 Gulim;" text="bind:BLTN_ST_DTM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="14" text="Div02" left="0" width="336" height="156" cssclass="div_INTRO_ContentsBg01" top="330">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="15" cssclass="sta_INTRO_ContentsLine" left="335" top="0" width="1" height="156"/>
+              <Static id="Static07" taborder="16" text="9999 - 9999" cssclass="sta_INTRO_CSNum" left="27.08%" top="40" right="7.14%" height="35"/>
+              <Static id="Static06" taborder="17" cssclass="sta_INTRO_CSImage" left="7.14%" top="47" right="77.08%" height="53"/>
+              <Static id="Static08" taborder="18" text="[평일] 09:00 ~ 18:00&#13;&#10;[점심] 12:00 ~ 13:00" cssclass="sta_INTRO_CSTime" left="27.38%" top="75" right="36.31%" height="33"/>
+              <Button id="btn_remote" taborder="19" onclick="button_onclick" cssclass="btn_INTRO_Remote" left="61.31%" top="81" right="7.14%" height="25"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="13" text="Div01" left="671" top="330" height="156" cssclass="div_INTRO_ContentsBg02" right="0">
+          <Layouts>
+            <Layout>
+              <Static id="Static02" taborder="1" cssclass="sta_PORTAL_ContentsTitle02" left="20" top="13" width="109" height="23"/>
+              <Static id="Static05" taborder="3" cssclass="sta_INTRO_ContentsLine" left="0" top="0" width="1" height="154"/>
+              <Grid id="grd_bbs" cssclass="grd_INTRO_Notice" taborder="4" binddataset="ds_bbs" scrollbars="none" useinputpanel="false" oncellclick="grd_oncellclick" left="20" top="44" width="301" height="102">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="15"/>
+                      <Column size="200"/>
+                      <Column size="9"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="25"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="image" style="padding: ;" text="URL('theme://images/grdIco_INTRO_Notice.png')"/>
+                      <Cell col="1" style="padding:0 0 0 0;" cssclass="Cellgrd_WF_AlignLeft" text="bind:BBRD_TI"/>
+                      <Cell col="2"/>
+                      <Cell col="3" style="color:#8f8f8fff;color2:#8f8f8fff;selectcolor:#8f8f8fff;selectfont:9 Gulim;" text="bind:FSRG_DTM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="26" visible="false" left="1111" top="25" width="8" height="40" style="background:#dc143c66;"/>
+        <Div id="div_login" taborder="31" left="0" top="168" width="336" height="162" cssclass="div_IINTRO_LoginBg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="6" cssclass="sta_INTRO_LoginSystemName" left="30" top="19" width="259" height="81"/>
+              <Edit id="edt_id" taborder="9" cssclass="edt_INTRO_Login" left="30" top="78" width="205" height="25" value="admin123"/>
+              <Edit id="edt_pw" taborder="10" password="true" cssclass="edt_INTRO_Login" left="30" top="104" width="205" height="25" value="1234"/>
+              <Button id="btn_login" taborder="11" cssclass="btn_INTRO_Login" left="240" top="78" width="66" height="51" onclick="btn_login_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static01" taborder="32" cssclass="sta_ADMIN_ImageBg" left="1007" top="0" right="0" height="330"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bbs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BOARD_ID" type="STRING" size="256"/>
+          <Column id="SKIN" type="string" size="32"/>
+          <Column id="MOBILE_SKIN" type="string" size="32"/>
+          <Column id="BOARD_TITLE" type="string" size="32"/>
+          <Column id="BOARD_DESCRIPTION" type="string" size="32"/>
+          <Column id="BOARD_AUTH" type="string" size="32"/>
+          <Column id="FILES_YN" type="string" size="32"/>
+          <Column id="CATEGORY_YN" type="string" size="32"/>
+          <Column id="TYPE_CODE" type="string" size="32"/>
+          <Column id="IF_INIT_REG_DT" type="string" size="32"/>
+          <Column id="IF_INIT_REG_USER" type="string" size="32"/>
+          <Column id="FIR_OFFICE_CODE" type="string" size="32"/>
+          <Column id="INIT_REG_DT" type="string" size="32"/>
+          <Column id="INIT_REG_USER" type="string" size="32"/>
+          <Column id="LAST_CHG_DT" type="string" size="32"/>
+          <Column id="LAST_CHG_USER" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_notice" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="LAST_CHG_DT" type="string" size="32"/>
+          <Column id="LAST_CHG_USER" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_login" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="userKey" type="string" size="32" prop=""/>
+          <Column id="userID" type="string" size="32" prop=""/>
+          <Column id="glnCode" type="string" size="32" prop=""/>
+          <Column id="mbcoType" type="string" size="32" prop=""/>
+          <Column id="companyName" type="string" size="32" prop=""/>
+          <Column id="userName" type="string" size="32" prop=""/>
+          <Column id="commanyType" type="string" size="32" prop=""/>
+          <Column id="lastLoginDt" type="string" size="32" prop=""/>
+          <Column id="userType" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	this.gfn_setInitForm(obj, e); //공통
+	
+	this.btn_login_onclick();
+}
+
+this.fn_afterFormOnload = function()
+{
+   ///페이지 로딩후 실행부분
+    this.fn_retrieveBlbdOfancMainList();
+   this.fn_retrieveNacfOfancMainList();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveBlbdOfancMainList = function()
+{
+	var sSvcID        = "retrieveBlbdOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveBlbdOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bbs=ds_bbs";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:���옣/�궘�젣, S:議고쉶
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+this.fn_retrieveNacfOfancMainList = function()
+{
+	var sSvcID        = "retrieveNacfOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveNacfOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_notice=ds_notice";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:���옣/�궘�젣, S:議고쉶
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_login = function(sId, sPW)
+{
+	var sParam        = "OPER_MB_ID="+sId+" MB_PW="+sPW;
+
+	var sSvcID        = "retrieveSession";
+	var sURL          = "svc::rest/pt/retrieveSession";		// svc = http://localhost:8080/nhvan/
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_login=ds_session";
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+	//application.afrm_VFrameSet0.set_separatesize("0,65,*");
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	application.set_usewaitcursor(true);
+	
+	if(ErrorCode < 0) //에러
+ 	{
+		//trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+		if(svcID== "retrieveSession")
+		{
+				alert("회원정보가 존재하지 않습니다.");
+		}
+ 	}
+ 	else
+ 	{
+		//trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+		switch(svcID)
+		{
+			case "retrieveBlbdOfancMainList":
+				break;
+			
+			case "retrieveNacfOfancMainList":
+				break;
+			
+			case "retrieveSession":
+		
+				if(this.ds_login.rowcount > 0){
+					this.fn_setGlobalVariable();
+					this.fn_callMenuList();
+					this.fn_callMymenu();
+				}else{
+					alert("회원정보가 존재하지 않습니다.");
+				}
+				break;
+				
+			case "retrieveMenuList":
+							
+				application.afrm_TopFrame.set_formurl("frame::TopFrame_portal_admin.xfdl");
+				application.afrm_LeftFrame.set_formurl("frame::LeftFrame.xfdl");
+				
+				application.afrm_VFrameSet0.set_separatesize("0,65,*");
+				break;
+		}
+ 	}
+}
+
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//var sId = this.div_login.edt_id.value;
+	//var sPW = this.div_login.edt_pw.value;
+	
+	//var sId = application.getPrivateProfile("user_id");
+	//var sPW = application.getPrivateProfile("user_pw");
+	
+	var sId = application.gv_paramID;
+	var sPW = application.gv_paramPW;
+	
+	trace(sId+"/"+sPW);
+		
+	if(this.gfn_isNull(sId)){
+		alert("아이디를 입력하세요.");
+		this.div_login.edt_id.setFocus();
+		return;
+	}
+	
+	if(this.gfn_isNull(sPW)){
+		alert("비밀번호를 입력하세요.");
+		this.div_login.edt_pw.setFocus();
+		return;
+	}
+	
+	this.fn_login(sId, sPW);
+}
+
+
+this.button_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_join":
+			this.alert("회원가입");
+			break;
+			
+		case "btn_find":
+			this.alert("ID/PW 찾기");
+			break;
+			
+		case "btn_remote":
+			this.alert("원격지원동");
+			break;
+			
+		case "btn_new":
+			this.alert("신규상담");
+			break;
+		
+		case "btn_into":
+			this.alert("가입안내");
+			break;
+		
+		case "btn_more":
+		case "btn_NHmore":	
+			this.alert("로그인이 필요합니다.");
+			break;
+		
+	}
+}
+
+
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "grd_notice":
+			this.fn_openNhNotice(e.row);
+			break;
+		case "grd_bbs":
+			this.fn_openBbsNotice(e.row);
+			break;
+	}
+}
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_openNhNotice = function(nRow)
+{
+	var oArg = {noticeSeq:this.ds_notice.getColumn(nRow, "BBRD_SQNO")};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","OMG.PT::OMG_DS_SC_4512.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_openBbsNotice = function(nRow)
+{
+	var oArg = {boardId:this.ds_bbs.getColumn(nRow, "BLBD_ID"), documentId:this.ds_bbs.getColumn(nRow, "BBRD_ID")};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","OMG.PT::OMG_DS_SC_4113.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_setGlobalVariable = function()
+{
+	application.gv_userKey     = this.gfn_nvl(this.ds_login.getColumn(0,"userKey"));
+	application.gv_userId      = this.gfn_nvl(this.ds_login.getColumn(0,"userID"));
+	application.gv_glnCode     = this.gfn_nvl(this.ds_login.getColumn(0,"glnCode"));
+	application.gv_mbcoType    = this.gfn_nvl(this.ds_login.getColumn(0,"mbcoType"));
+	application.gv_companyName = this.gfn_nvl(this.ds_login.getColumn(0,"companyName"));
+	application.gv_userName    = this.gfn_nvl(this.ds_login.getColumn(0,"userName"));
+	application.gv_companyType = this.gfn_nvl(this.ds_login.getColumn(0,"commanyType"));
+	application.gv_lastLoginDt = this.gfn_nvl(this.ds_login.getColumn(0,"lastLoginDt"));
+	application.gv_userType    = this.gfn_nvl(this.ds_login.getColumn(0,"userType"));	
+}
+
+this.fn_callMymenu = function()
+{
+   var sSvcID        = "retrieveMyMenuList";      
+   var sURL          = "svc::rest/pt/retrieveMyMenuList";
+   var sInDatasets   = "";
+   var sOutDatasets  = "gds_myMenu=ds_myMenu";   
+   var sArgument     = "";
+   var sCallbackFunc = "fn_callBack";
+   var sTranType     = "S"; // U:저장/삭제, S:조회         
+   this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType)
+}
+
+this.fn_callMenuList = function()
+{
+	var sGlnCode      = this.ds_login.getColumn(0,"glnCode");
+
+	var sSvcID        = "retrieveMenuList";
+	var sURL          = "svc::rest/mg/retrieveMenuListAll";		// svc = http://localhost:8080/nhvan/
+	var sInDatasets   = "";
+	var sOutDatasets  = "gds_menu=ds_menu gds_userInfoMenu=ds_my_menu";
+	var sArgument     = "glnCode="+sGlnCode;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}]]></Script>
+  </Form>
+</FDL>

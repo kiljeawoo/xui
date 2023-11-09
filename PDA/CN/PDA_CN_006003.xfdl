@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_006003" classname="PDA_CN_006003" left="0" top="0" width="629" height="591" titletext="PDA공지사항 등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static33" taborder="0" text="공지사항 등록" onclick="Static33_onclick" cssclass="sta_WF_Subtitle" left="1.43%" top="14" right="70.59%" height="21"/>
+        <Static id="Static19" taborder="1" text="일렬번호" cssclass="sta_WF_Label" left="1.59%" top="34" right="85.69%" height="29" style="linespace:5;"/>
+        <TextArea id="notice_sqno" taborder="2" onclick="st_CNR_CMPL_ENO_onclick" cssclass="sta_WF_Labelbg" left="14.31%" top="34" right="60.57%" height="29" style="align:left middle;"/>
+        <TextArea id="notice_subject" taborder="3" cssclass="sta_WF_Labelbg" left="54.53%" top="34" right="3.34%" height="29" style="align:left middle;"/>
+        <Static id="Static27" taborder="4" text="제목" cssclass="sta_WF_Label" left="39.43%" top="34" right="45.31%" height="29" style="linespace:5;"/>
+        <Static id="Static00" taborder="5" text="게시 기간" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="417" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <TextArea id="notice_cntn" taborder="6" cssclass="sta_WF_Labelbg" left="1.59%" top="74" right="3.5%" height="335" style="align:left middle;"/>
+        <TextArea id="notice_st_dtm" taborder="7" left="17.49%" top="417" right="68.2%" height="21"/>
+        <Static id="Static05" taborder="8" text="~" left="32.43%" top="417" right="65.98%" height="21"/>
+        <TextArea id="notice_ed_dtm" taborder="9" left="34.34%" top="417" right="51.35%" height="21"/>
+        <Static id="Static01" taborder="10" text="푸시사용여부" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="450" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <Radio id="push_use_yn" taborder="11" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="Y" direction="vertical" left="19.55%" top="449" right="47.06%" height="20">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="100"/>
+              <Column id="datacolumn" size="100"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">사용안함</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static02" taborder="12" text="처리여부" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.83%" top="449" right="32.11%" height="21" style="linespace:5;align:middle;"/>
+        <Radio id="push_prc_st" taborder="13" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="Y" direction="vertical" left="69.16%" top="449" right="-1.91%" height="20">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="100"/>
+              <Column id="datacolumn" size="100"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">처리</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">미처리</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <TextArea id="push_send_result" taborder="14" cssclass="sta_WF_Labelbg" left="67.73%" top="470" right="3.5%" height="21" style="align:left middle; :disabled {background:yellow;}" enable="false"/>
+        <Static id="Static04" taborder="15" text="송신결과" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.83%" top="470" right="32.27%" height="21" style="linespace:5;align:middle;"/>
+        <TextArea id="push_send_dtm" taborder="16" cssclass="sta_WF_Labelbg" left="17.49%" top="469" right="48.01%" height="21" style="align:left middle; :disabled {background:yellow;}" enable="false"/>
+        <Static id="Static03" taborder="17" text="송신일시" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="469" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static06" taborder="18" text="최초등록자" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="490" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <TextArea id="fs_rgm" taborder="19" cssclass="sta_WF_Labelbg" left="17.49%" top="489" right="48.01%" height="21" style="align:left middle;"/>
+        <Static id="Static07" taborder="20" text="최초등록일시" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.99%" top="490" right="31.96%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="fsrg_dtm" taborder="21" cssclass="sta_WF_Labelbg" left="67.73%" top="490" right="3.5%" height="21" style="padding:0 0 0 0;align:left middle;" text="(자동등록)" enable="false"/>
+        <Static id="lschg_dtm" taborder="22" cssclass="sta_WF_Labelbg" left="67.73%" top="510" right="3.5%" height="21" style="padding:0 0 0 0;align:left;" text="(자동등록)" enable="false"/>
+        <Static id="Static09" taborder="23" text="최종변경일시" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.83%" top="510" right="32.27%" height="21" style="linespace:5;align:middle;"/>
+        <TextArea id="ls_chgm" taborder="24" cssclass="sta_WF_Labelbg" left="17.49%" top="510" right="48.01%" height="21" style="align:left middle;"/>
+        <Static id="Static08" taborder="25" text="최종변경자" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="510" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <Button id="btn_save" taborder="26" text="등록" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" left="36.09%" top="548" right="55.17%" height="21"/>
+        <Button id="btn_delete" taborder="27" text="취소" onclick="btn_delete_onclick" cssclass="btn_WF_CRUD" left="53.26%" top="548" right="38%" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="pda_mst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NOTICE_SQNO" type="bigdecimal" size="10"/>
+          <Column id="NOTICE_ST_DTM" type="STRING" size="10"/>
+          <Column id="NOTICE_ED_DTM" type="STRING" size="10"/>
+          <Column id="NOTICE_SUBJECT" type="STRING" size="200"/>
+          <Column id="NOTICE_CNTN" type="STRING" size="4000"/>
+          <Column id="PUSH_USE_YN" type="STRING" size="1"/>
+          <Column id="PUSH_PRC_ST" type="STRING" size="1"/>
+          <Column id="PUSH_SEND_DTM" type="STRING" size="14"/>
+          <Column id="PUSH_SEND_RESULT" type="STRING" size="200"/>
+          <Column id="FS_RGM" type="STRING" size="9"/>
+          <Column id="FSRG_DTM" type="STRING" size="14"/>
+          <Column id="LS_CHGM" type="STRING" size="9"/>
+          <Column id="LSCHG_DTM" type="STRING" size="14"/>
+          <Column id="NOTICE_MAX_SQNO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var btn_save_enable = false;
+//var NOTICE_MAX_SQNO = "";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통   
+   this.notice_sqno.set_value(this.parent.NOTICE_MAX_SQNO); //textArea에 6001로 받아온 값 세팅   
+}
+
+this.fn_afterFormOnload = function()
+{
+}
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*콜백 함수*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+    if(svcID == "insert") {
+		this.gfn_getMessage("alert", "result.message.save.success");
+		btn_save_enable = false;
+		this.close("SUCCESS");
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/*추가등록 시 사용되는 Validation Check */
+/*추가등록 시 사용되는 Validation Check */
+this.fn_validationCheck = function() {
+
+	if (this.gfn_isNull(this.notice_st_dtm.value)) {
+		this.alert("시작일시를 입력해주세요");
+		this.notice_st_dtm.setFocus();
+		return false;
+	}
+	if (this.notice_st_dtm.value.length <= 9) {
+		this.alert("게시시작 기간을 확인해주세요(ex:yyyymmddss)");
+		this.notice_st_dtm.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.notice_ed_dtm.value)) {
+		this.alert("종료일시를 입력해주세요");
+		this.notice_ed_dtm.setFocus();
+		return false;
+	}
+	if (this.notice_ed_dtm.value.length <= 9) {
+		this.alert("게시종료 기간을 확인해주세요(ex:yyyymmddss)");
+		this.notice_ed_dtm.setFocus();
+		return false;
+	}	
+	if (this.gfn_isNull(this.notice_subject.value)) {
+		this.alert("제목을 입력해주세요");
+		this.notice_subject.setFocus();
+		return false;
+	}
+		if (this.gfn_isNull(this.notice_cntn.value)) {
+		this.alert("내용을 입력해주세요");
+		this.notice_cntn.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.push_use_yn.value)) {
+		this.alert("PUSH 사용여부를 입력해주세요");
+		this.push_use_yn.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.push_prc_st.value)) {
+		this.alert("PUSH 처리상태를 입력해주세요");
+		this.push_prc_st.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.fs_rgm.value)) {
+		this.alert("최초등록자를 입력해주세요");
+		this.fs_rgm.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.ls_chgm.value)) {
+		this.alert("최종변경자를 입력해주세요");
+		this.ls_chgm.setFocus();
+		return false;
+	}
+	
+	return true;
+}
+
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		if(this.fn_validationCheck()){
+		 	var sSvcID        = "insert";
+			var sURL          = "svc::rest/pda/insertpdaNotice";
+			var sInDatasets   = ""
+			var sOutDatasets  = "pda_mst=pda_mst";
+			var sArgument     = "NOTICE_MAX_SQNO="+ this.gfn_nullToEmpty(this.notice_sqno.value) +
+			                    " NOTICE_ST_DTM="+ this.gfn_nullToEmpty(this.notice_st_dtm.value) +
+								" NOTICE_ED_DTM=" + this.gfn_nullToEmpty(this.notice_ed_dtm.value) +
+								" NOTICE_SUBJECT=" + this.gfn_nullToEmpty(this.notice_subject.value) +
+								" NOTICE_CNTN=" + this.gfn_nullToEmpty(this.notice_cntn.value) +
+								" PUSH_USE_YN=" + this.gfn_nullToEmpty(this.push_use_yn.value) +
+								" PUSH_PRC_ST=" + this.gfn_nullToEmpty(this.push_prc_st.value) +
+								" PUSH_SEND_DTM=" + this.gfn_nullToEmpty(this.push_send_dtm.value) +
+								" PUSH_SEND_RESULT=" + this.gfn_nullToEmpty(this.push_send_result.value) +
+								" FS_RGM=" + this.gfn_nullToEmpty(this.fs_rgm.value) +
+								" FSRG_DTM=" + this.gfn_nullToEmpty(this.fsrg_dtm.value) +
+								" LS_CHGM=" + this.gfn_nullToEmpty(this.ls_chgm.value) +
+								" LSCHG_DTM=" + this.gfn_nullToEmpty(this.lschg_dtm.value);
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+				
+			if (!confirm("등록하시겠습니까?")) {
+				return;
+				}
+			
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);			
+		}	
+}]]></Script>
+  </Form>
+</FDL>

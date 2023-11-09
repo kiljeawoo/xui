@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="pagingBTN" classname="pagingBTN" left="0" top="0" width="379" height="29" style="background:#ffffffff;padding:0 0 0 0;" onload="pagingBTN_onload" scrollbars="none">
+    <Layouts>
+      <Layout>
+        <Static id="Static11" taborder="2" text="10" visible="false" left="0" top="0" width="228" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_next" taborder="13" onclick="btn_next_onclick" cssclass="btn_WF_PageNext" left="344" top="10" width="14" height="14" style="cursor:hand;"/>
+        <Button id="btn_previous" taborder="14" onclick="btn_previous_onclick" cssclass="btn_WF_PagePrevious" left="18" top="10" width="14" height="14" style="cursor:hand;"/>
+        <Button id="btn_end" taborder="15" onclick="btn_end_onclick" cssclass="btn_WF_PageNextP" left="362" top="10" width="14" height="14" style="cursor:hand;"/>
+        <Button id="btn_first" taborder="16" onclick="btn_first_onclick" cssclass="btn_WF_PagePreviousP" left="0" top="10" width="14" height="14" style="cursor:hand;"/>
+        <Static id="Static16" taborder="17" text="5" visible="false" left="0" top="24" width="228" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="18" text="10" visible="false" left="9.47%" top="9" right="86.98%" height="15" style="background:#dc143c5b;"/>
+        <Static id="sta_page9" taborder="19" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="312" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page8" taborder="20" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="282" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page7" taborder="21" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="252" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page6" taborder="22" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="222" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page5" taborder="23" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="192" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page4" taborder="24" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="162" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page3" taborder="25" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="132" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page2" taborder="26" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="102" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page1" taborder="27" text="888" onclick="btn_page_onclick" cssclass="sta_WF_Page" left="72" top="10" height="16" width="30" style="cursor:hand;"/>
+        <Static id="sta_page0" taborder="28" text="888" onclick="btn_page_onclick" cssclass="sta_WF_PageS" left="42" top="10" height="16" width="30" style="cursor:hand;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var iStartPageNo    = 0;   // 전체 페이지 순서
+var iUnitSelRowNo   = 0;  // 한번 Server호출시 가져올 row갯수
+var iStartSelRowNo  = 1;   // Server호출시 시작할 row no
+var iMaxPageNum     = 10;  // 화면에 보여줄 최대 Page번호 갯수
+//var iServerRowCount = 30;   // 서버에서 넘어온 Row갯수(100건이 안될 수 있음)
+var iTotCnt = 0;
+var lsDivPage = "";//페이지 컴포넌트 경로
+var lsDivPageNum = "";//총건수 컴포넌트 경로
+var lsTotCntDst = "";//총건수 사용여부
+var lsFuncNm = "";//화면호출변수명
+var objDivNm =""; //부모디비전명
+var currentPage = 0;
+var pageInfoDivName = "div_page_"; //페이지정보 DIV 이름
+
+this.pagingBTN_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	/*
+	var parentWidth = (obj.parent.getOffsetWidth()/2);
+	var divWidth    = (this.width/2);
+	this.set_left(parentWidth-divWidth);
+	*/
+}
+
+this.btn_page_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	var iNo = new Number(obj.text);
+	currentPage = iNo;
+	var iPageNo = iNo % 10;
+	//objDivNm = obj.parent.name;
+	
+	if (iPageNo == 0)
+	{
+		iPageNo = 10;
+	}
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		//eval(lsFuncNm + "(" +  iNo + ")");
+		this.lookupFunc(lsFuncNm).call(iNo,objDivNm);
+	} else	{
+		this.lookupFunc("fn_paging").call(iNo,objDivNm);
+	}
+	
+	this.fn_btnColorSet(iPageNo-1);
+   
+}
+
+//-------------------------------------------------------------------------------------------------
+// Page번호 Setting
+//-------------------------------------------------------------------------------------------------
+this.fn_SetPageNo = function(iVStartPageNo){
+
+	var sPage   = iVStartPageNo*iMaxPageNum;
+	var iPageNo = 0;	//페이지번호
+
+	// 이전버튼 처리
+	if(iVStartPageNo < 1){
+		this.btn_first.set_visible(false);
+		this.btn_previous.set_visible(false);
+	} else {
+		this.btn_first.set_visible(true);
+		this.btn_previous.set_visible(true);
+	}
+
+	// 마지막 버튼 처리
+	if(iTotCnt <= ((sPage + 10 )*iUnitSelRowNo)){
+		this.btn_next.set_visible(false);
+		this.btn_end.set_visible(false);		
+	}else{
+		this.btn_next.set_visible(true);
+		this.btn_end.set_visible(true);	
+	}
+
+	var nCnt = "";
+	// 인덱스 번호 처리
+	for(var i=0; i<iMaxPageNum; i++){
+		iPageNo = sPage+i+1;
+		this.all["sta_page"+i].set_visible(true);
+		this.all["sta_page"+i].set_text(iPageNo);
+		this.all["sta_page"+i].set_tooltiptext(iPageNo);
+		
+		if (iTotCnt > ((iPageNo - 1 )*iUnitSelRowNo))
+		{
+			this.all["sta_page"+i].set_visible(true);
+			nCnt = i;			
+		}else
+		{
+			this.all["sta_page"+i].set_visible(false);
+		}
+	}
+	
+	this.fn_setButtonOrder();
+}
+
+this.btn_next_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo=iStartPageNo+1;
+	
+	this.fn_SetPageNo(iStartPageNo);
+	this.fn_btnColorSet(0);//버튼색상설정	
+	//objDivNm   = obj.parent.name;
+	var iValue = (iStartPageNo*iMaxPageNum) + 1;
+	
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  iValue + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(iValue, objDivNm);
+	}
+}
+
+this.btn_previous_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo=iStartPageNo-1;
+	this.fn_SetPageNo(iStartPageNo);	
+	this.fn_btnColorSet(9);//버튼색상설정
+	//objDivNm = obj.parent.name;
+	var iValue = ((iStartPageNo + 1)*iMaxPageNum);
+	
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  iValue + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(iValue, objDivNm);
+	}	
+}
+
+this.btn_first_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo=0;
+	this.fn_SetPageNo(iStartPageNo);	
+	this.fn_btnColorSet(0);//버튼색상설정
+	//objDivNm = obj.parent.name;
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  1 + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(1, objDivNm);
+	}		
+
+}
+
+this.btn_end_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	iStartPageNo = parseInt(iTotCnt / (iUnitSelRowNo * 10));
+	
+    var iNam = iTotCnt % iUnitSelRowNo;//나머지
+
+	var iValue = parseInt((iTotCnt/iUnitSelRowNo)) % 10;
+
+	var jValue = parseInt((iTotCnt / iUnitSelRowNo)) + 1;	
+	var jTValue = parseInt(jValue % 10);//페이지 끝번호
+	
+	//objDivNm = obj.parent.name;
+
+	if (iNam == 0)
+	{
+		iValue = iValue - 1;
+		jValue = jValue - 1;
+		//iStartPageNo = iStartPageNo -1;
+	}
+	
+	if (iValue == -1)
+	{
+		iValue = 9;
+	}
+
+	if (iNam == 0)
+	{
+		jTValue = parseInt(jValue % 10);//페이지 끝번호
+		
+		if (jTValue == 0)
+		{
+			iStartPageNo = iStartPageNo-1;
+			this.fn_SetPageNo(iStartPageNo);			
+		} else
+		{
+			this.fn_SetPageNo(iStartPageNo);			
+		}
+	} else
+	{
+		this.fn_SetPageNo(iStartPageNo);	
+	}
+	
+	this.fn_btnColorSet(iValue);//버튼색상설정
+
+
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(lsFuncNm))
+	{
+		this.all[lsFuncNm + "(" +  jValue + ")"];
+	} else
+	{
+		this.lookupFunc("fn_paging").call(jValue,objDivNm);
+	}	
+}
+
+//업무화면에서 호출
+this.fn_pageSet = function(sTotalRowCnt, sPageSize, sdivPage, sNowPage, sCalFuncNm, sTotCntDst, sDivPageNum)
+{
+	iTotCnt = sTotalRowCnt;
+	
+	objDivNm = sdivPage;
+	
+	var grdId = '';
+	if(sdivPage.indexOf(',') != -1){
+		grdId = sdivPage.split(",")[0].trim();	
+		sdivPage = sdivPage.split(",")[1].trim();
+		objDivNm = sdivPage;
+	}
+	
+	//호출되는 함수명 추가
+	if (!this.gfn_isNull(sCalFuncNm))
+	{
+		lsFuncNm = sCalFuncNm;
+	}
+		
+	if (iTotCnt > 0)
+	{
+		//this.all[sdivPage].visible = true; //2015
+		this.set_visible(true);
+		 
+	} else
+	{
+
+		if (this.gfn_isNull(sTotalRowCnt))
+		{	
+			
+		}	
+		//this.all[sdivPage].visible = false; //2015
+		this.set_visible(false);
+	}
+	
+	iUnitSelRowNo = sPageSize;
+	
+	//현재페이지가 첫 페이지 일경우
+	if (sNowPage == 1)
+	{
+		iStartPageNo=0;	
+	}
+	
+	this.fn_SetPageNo(iStartPageNo);	
+		
+	//현재페이지가 첫 페이지 일경우
+	if (sNowPage == 1)
+	{
+		this.fn_btnColorSet(0);
+	}
+		
+	//페이지 정보 표시
+	if(grdId){
+		var grd = this.parent.all[grdId];
+		grd.addEventHandler('onsize',this.fn_setButtonOrder,this);
+		currentPage = sNowPage;
+		this.pageInfoText(grdId, sdivPage);
+	}	
+	
+}
+
+//업무화면에서 호출
+this.fn_pageSetText = function(sTotalRowCnt, sPageSize, sdivPage, sNowPage, sCalFuncNm, sTotCntDst, sDivPageNum)
+{
+	var grdId = '';
+	if(sdivPage.indexOf(',') != -1){
+		grdId = sdivPage.split(",")[0].trim();	
+		sdivPage = sdivPage.split(",")[1].trim();
+		objDivNm = sdivPage;
+	}
+	
+	var grd = this.parent.all[grdId];
+	grd.addEventHandler('onsize',this.fn_setButtonOrder,this);
+	currentPage = sNowPage;
+	this.pageInfoOnlyText(grdId, sdivPage, sTotalRowCnt);
+}
+
+this.pageInfoOnlyText = function(grdId, sdivPage, sTotalRowCnt){
+	
+	var pageDiv = this.parent.all[sdivPage];
+	var grd = this.parent.all[grdId];
+	var parentDiv = grd.parent;
+	var ds = grd.getBindDataset();
+	var rowCnt = ds.getRowCount();
+	var totPage = 0;
+	if(rowCnt != 0){
+		totPage = parseInt(iTotCnt/iUnitSelRowNo);
+		var n = iTotCnt%iUnitSelRowNo;
+		if(n != 0){
+			totPage +=1;
+		}
+	}
+	
+	var pageText = '';
+	
+	
+	if(!iTotCnt) iTotCnt = 0;
+	pageText += ' 총 '+sTotalRowCnt+'건이 검색되었습니다.';
+	
+	var grdLeft = grd.getOffsetLeft();
+	var grdTop = grd.getOffsetTop();
+	var divWidth = 250;
+	var divHeight = 20;
+	
+	if(!parentDiv.all[pageInfoDivName+grdId]){
+		var objDiv = new Div(pageInfoDivName+grdId, "absolute", grdLeft, grdTop-divHeight, divWidth+"px", divHeight+"px");
+		objDiv.style.set_align("left");
+		objDiv.set_text(pageText);
+		parentDiv.addChild(pageInfoDivName+grdId, objDiv); 
+		objDiv.show();
+	}else{
+		var objDiv = parentDiv.all[pageInfoDivName+grdId];
+		objDiv.set_text(pageText);
+	}
+};
+
+this.pageInfoText = function(grdId, sdivPage){
+	
+	var pageDiv = this.parent.all[sdivPage];
+	var grd = this.parent.all[grdId];
+	var parentDiv = grd.parent;
+	var ds = grd.getBindDataset();
+	var rowCnt = ds.getRowCount();
+	var totPage = 0;
+	if(rowCnt != 0){
+		totPage = parseInt(iTotCnt/iUnitSelRowNo);
+		var n = iTotCnt%iUnitSelRowNo;
+		if(n != 0){
+			totPage +=1;
+		}
+	}
+	
+	var pageText = '';
+	
+	if(totPage == 0){
+		pageText = '[ 0 / 0 ]';
+	}else{
+		pageText = '[ '+currentPage+' / '+totPage+' ]';
+	}
+	
+	if(!iTotCnt) iTotCnt = 0;
+	pageText += ' 총 '+iTotCnt+'건이 검색되었습니다.';
+	
+	var grdLeft = grd.getOffsetLeft();
+	var grdTop = grd.getOffsetTop();
+	var divWidth = 250;
+	var divHeight = 20;
+	
+	if(!parentDiv.all[pageInfoDivName+grdId]){
+		var objDiv = new Div(pageInfoDivName+grdId, "absolute", grdLeft, grdTop-divHeight, divWidth+"px", divHeight+"px");
+		objDiv.style.set_align("left");
+		objDiv.set_text(pageText);
+		parentDiv.addChild(pageInfoDivName+grdId, objDiv); 
+		objDiv.show();
+	}else{
+		var objDiv = parentDiv.all[pageInfoDivName+grdId];
+		objDiv.set_text(pageText);
+	}
+};
+
+this.clearPageInfo = function(){
+	
+	var comp = this.parent.all;
+	
+	for(var i=0 ; i<comp.length; i++){
+		
+		var compType = comp[i].valueOf();
+		if(compType == "[object Div]"){
+			trace(comp[i].id);
+		}
+		
+	
+	}
+	
+
+};
+
+
+//버튼색상설정
+this.fn_btnColorSet = function(sNo)
+{	
+    
+	for (var iLoop=0;iLoop < 10; iLoop++)
+	{
+		if (iLoop == sNo)
+		{
+			this.all["sta_page"+iLoop].set_cssclass("sta_WF_PageS");
+		} else
+		{
+			this.all["sta_page"+iLoop].set_cssclass("sta_WF_Page");		
+		}
+	}
+	
+	this.fn_setButtonOrder();//버튼위치조정	
+}
+
+this.getMaxPageNum = function(){
+	
+	var iPos = 10;	
+	for (var iLoop=0;iLoop < 10; iLoop++)
+	{
+		if (this.all["sta_page"+iLoop].visible == false)
+		{
+			iPos = iLoop;
+			break;
+		} 
+	}
+	return iPos;
+}
+
+/***********************************************************************************************
+ * 함수명     : lfn_setButtonOrder()
+ * 설명       : 버튼위치 정렬
+ * parameter   : 
+ * return      : void
+***********************************************************************************************/ 
+this.fn_setButtonOrder = function() 
+{		
+	var iPos = this.getMaxPageNum();
+	
+	if(iPos < 1 ) return;
+	
+	this.set_left(0);
+	this.set_width(788);
+	this.set_height(30);
+	this.set_scrollbars('none');
+	this.set_style("align:center");
+	
+	var pageAllComp = [this.btn_first,this.btn_previous,this.btn_next,this.btn_end,
+		this.sta_page0,
+		this.sta_page1,
+		this.sta_page2,
+		this.sta_page3,
+		this.sta_page4,
+		this.sta_page5,
+		this.sta_page6,
+		this.sta_page7,
+		this.sta_page8,
+		this.sta_page9
+	];
+	
+	var pageComp = [
+		this.sta_page0,
+		this.sta_page1,
+		this.sta_page2,
+		this.sta_page3,
+		this.sta_page4,
+		this.sta_page5,
+		this.sta_page6,
+		this.sta_page7,
+		this.sta_page8,
+		this.sta_page9
+	];
+	
+	var pageTextLength = this.all["sta_page"+(iPos-1)].text.length;
+	
+	//사이즈 조절(default:1글자 20px, 1글자 증가 +5)
+	var default_width = 20 + (pageTextLength-1) * 5;
+	for(var i=0 ; i< iPos ; i++){
+		pageComp[i].set_width(default_width);
+	}
+	
+	//위치 조정
+	var padding1 = 3; //(처음,이전) or (다음,마지막) 버튼 사이 간격
+	var padding2 = 7; //(이전버튼,시작숫자) or (마지막숫자,다음버튼) 사이 간격
+	var padding3 = 4; // 숫자 사이 간격
+	
+	//가운데 정렬
+	var total_width = 0;
+	for(var i=0 ; i<pageAllComp.length ; i++){
+		
+		if(pageAllComp[i].visible == true){
+			total_width += pageAllComp[i].width*1;
+			if(i==0 || i==3) total_width += padding1;
+			else if(i==1 || i==2) total_width += padding2;
+			else total_width += padding3;
+		}
+	}
+	
+	this.set_width(total_width);
+	var pWidth = this.parent.getOffsetWidth();
+	var mLeft = (pWidth-total_width)/2;
+	this.set_left(mLeft);
+	
+	var startLeft = 0;
+	var startWidth = 0;	
+	if(this.btn_first.visible == true){
+		this.btn_first.set_left(startLeft);		
+		startLeft = this.btn_first.left*1;
+		startWidth = this.btn_first.width*1;
+	}
+	if(this.btn_previous.visible == true){
+		this.btn_previous.set_left(startLeft + startWidth + padding1);
+		startLeft = this.btn_previous.left*1;
+		startWidth = this.btn_previous.width*1;
+	}
+	
+	for(var i=0 ; i<iPos ; i++){
+	
+		if(i==0){
+			if(startLeft == 0 && startWidth == 0) pageComp[i].set_left(0);
+			else pageComp[i].set_left(startLeft + startWidth + padding2);
+		}else{ 
+			pageComp[i].set_left(pageComp[i-1].left*1 + pageComp[i-1].width*1 + padding3);
+		}		
+		if(i==iPos-1){
+			startLeft = pageComp[i].left;
+			startWidth = pageComp[i].width;
+		}
+	}
+	
+	if(this.btn_next.visible == true){
+		this.btn_next.set_left(startLeft + startWidth + padding2);
+		startLeft = this.btn_next.left*1;
+		startWidth = this.btn_next.width*1;
+	}
+	if(this.btn_end.visible == true){
+		this.btn_end.set_left(startLeft + startWidth + padding2);
+	}
+}
+
+//페이지 이벤트
+this.addPageEvent = function(param){
+
+	var form = param.form;
+	var m_grd = param.m_grd;
+	var m_ds = m_grd.getBindDataset();
+	var m_pageDiv = param.m_pageDiv;
+	var m_afterFnc = param.m_afterFnc;
+	
+	var d_grd = param.d_grd;	
+	var d_ds = d_grd.getBindDataset();
+	var d_pageDiv = param.d_pageDiv;
+	var d_afterFnc = param.d_afterFnc;
+	
+	//그리드 클릭 이벤트 등록
+	if(m_afterFnc){
+		m_grd.addEventHandler("oncellclick", m_afterFnc, form);
+		m_grd.style.set_cursor('pointer');
+	}
+	if(d_afterFnc){ 
+		d_grd.addEventHandler("oncellclick", d_afterFnc, form);
+		d_grd.style.set_cursor('pointer');
+	}
+	
+	var pageInfo = {
+		form: form,
+		m_grd: m_grd,
+		m_ds: m_ds,
+		m_pageDiv: m_pageDiv,
+		d_grd: d_grd,
+		d_ds: d_ds,
+		d_pageDiv: d_pageDiv
+	}	
+	m_ds.pageInfo = pageInfo;
+	m_ds.addEventHandler('onload', this.pageCompHide, this);
+};
+
+this.pageCompHide = function(obj, e){
+
+	var pageInfo = obj.pageInfo;
+	pageInfo.d_ds.clearData(); 
+
+	//var pageDiv = this.all[pageInfoDivName+d_grd.id];
+	
+	if(pageInfo.d_ds.getRowCount() == 0){
+		var page = pageInfo.d_pageDiv.components;
+		for(var i=0; i<page.length ; i++){
+			page[i].set_visible(false);
+		}
+		var pageInfo = pageInfo.d_grd.parent.all[pageInfoDivName+pageInfo.d_grd.name];
+		if(pageInfo){
+			pageInfo.set_text('[ 0 / 0 ] 총 0건이 검색되었습니다.');
+		}
+	}
+};]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SearchAddress" classname="AuthorityWorkplace" left="0" top="0" width="800" height="500" onload="form_onload" titletext="주소등록">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="wb_addr" left="0" top="0" taborder="0" right="0" bottom="120" onusernotify="wb_addr_onusernotify"/>
+        <Div id="div_result" taborder="1" left="0" right="0" bottom="0" height="115">
+          <Layouts>
+            <Layout>
+              <Static id="Static10" taborder="0" cssclass="sta_WF_Labelbg" left="96" top="40" right="10" height="29"/>
+              <Static id="Static23" taborder="1" cssclass="sta_WF_Labelbg" left="96" top="68" right="10" height="29"/>
+              <Button id="btn_register" taborder="2" text="주소 등록" onclick="btn_register_onclick" cssclass="btn_WF_CRUD" enable="false" top="5" height="21" right="10" width="100"/>
+              <Static id="Static13" taborder="3" text="도로명 주소" cssclass="sta_WF_Label" left="10" top="40" width="120" height="29"/>
+              <Static id="Static25" taborder="4" text="지번 주소" cssclass="sta_WF_Label" left="10" top="68" width="120" height="29"/>
+              <Edit id="edt_road" taborder="5" left="135" top="44" width="500" height="21"/>
+              <Edit id="edt_jibun" taborder="6" left="135" top="72" width="500" height="21"/>
+              <Static id="Static16" taborder="7" text="주소 등록 내용" cssclass="sta_WF_Subtitle" left="10" top="10" width="301" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_addr">
+        <ColumnInfo>
+          <Column id="BLD_AMNNO" type="STRING" size="256"/>
+          <Column id="DTCT_NO" type="STRING" size="256"/>
+          <Column id="PROVNM" type="STRING" size="256"/>
+          <Column id="PROV_ENM" type="STRING" size="256"/>
+          <Column id="CCWNM" type="STRING" size="256"/>
+          <Column id="CCW_ENM" type="STRING" size="256"/>
+          <Column id="TTVNM" type="STRING" size="256"/>
+          <Column id="TTV_ENM" type="STRING" size="256"/>
+          <Column id="RODNM_C" type="STRING" size="256"/>
+          <Column id="RODNM" type="STRING" size="256"/>
+          <Column id="RODNM_ENM" type="STRING" size="256"/>
+          <Column id="UGR_YN" type="STRING" size="256"/>
+          <Column id="BLD_NO_MHZNO" type="STRING" size="256"/>
+          <Column id="BLD_NO_SHZNO" type="STRING" size="256"/>
+          <Column id="LGQT_DVPNM" type="STRING" size="256"/>
+          <Column id="CCWN_BLDNM" type="STRING" size="256"/>
+          <Column id="LWDG_C" type="STRING" size="256"/>
+          <Column id="LWDGNM" type="STRING" size="256"/>
+          <Column id="RINM" type="STRING" size="256"/>
+          <Column id="ADDGNM" type="STRING" size="256"/>
+          <Column id="MNT_YN" type="STRING" size="256"/>
+          <Column id="LTNO_MHZNO" type="STRING" size="256"/>
+          <Column id="TTV_SQNO" type="STRING" size="256"/>
+          <Column id="LTNO_SHZNO" type="STRING" size="256"/>
+          <Column id="ZIP" type="STRING" size="256"/>
+          <Column id="ZIP_SQNO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.edt_chrrNm" propid="value" datasetid="ds_rc" columnid="CHRRNM"/>
+      <BindItem id="item1" compid="Div00.edt_chrrEmail" propid="value" datasetid="ds_rc" columnid="CHRR_EMAIL"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	var jusoUrl = application.gv_server_url + "escm/OpenWeb_API/juso.html";
+	this.wb_addr.set_url(jusoUrl);
+}
+
+this.wb_addr_onusernotify = function(obj:WebBrowser, e:nexacro.WebTitleChangeEventInfo)
+{
+	if (!this.gfn_isNull(e.userdata)) {
+		this.returnAddrStr(e.userdata);
+		//this.close();
+	}
+}
+
+this.returnAddrStr = function(str)
+{
+	trace(str);
+	if (!this.gfn_isNull(str)){
+		var temp = str.split("|");
+		this.ds_addr.clearData();
+		var row = this.ds_addr.addRow();
+		this.ds_addr.setColumn(row, "BLD_AMNNO", temp[0]);
+		this.ds_addr.setColumn(row, "DTCT_NO", temp[1]);
+		this.ds_addr.setColumn(row, "PROVNM", temp[2]);
+		this.ds_addr.setColumn(row, "CCWNM", temp[3]);
+		this.ds_addr.setColumn(row, "TTVNM", temp[4]);
+		this.ds_addr.setColumn(row, "RODNM_C", temp[5]);
+		this.ds_addr.setColumn(row, "RODNM", temp[6]);
+		this.ds_addr.setColumn(row, "UGR_YN", temp[7]);
+		this.ds_addr.setColumn(row, "BLD_NO_MHZNO", temp[8]);
+		this.ds_addr.setColumn(row, "BLD_NO_SHZNO", temp[9]);
+		this.ds_addr.setColumn(row, "CCWN_BLDNM", temp[10]);
+		this.ds_addr.setColumn(row, "LWDG_C", temp[11]);
+		this.ds_addr.setColumn(row, "LWDGNM", temp[12]);
+		this.ds_addr.setColumn(row, "RINM", temp[13]);
+		this.ds_addr.setColumn(row, "MNT_YN", temp[14]);
+		this.ds_addr.setColumn(row, "LTNO_MHZNO", temp[15]);
+		this.ds_addr.setColumn(row, "TTV_SQNO", temp[16]);
+		this.ds_addr.setColumn(row, "LTNO_SHZNO", temp[17]);
+		
+		this.div_result.edt_road.set_value(temp[18]);
+		this.div_result.edt_jibun.set_value(temp[19]);
+		this.div_result.btn_register.set_enable(true);
+	}
+}
+
+this.btn_register_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

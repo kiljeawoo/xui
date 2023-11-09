@@ -1,0 +1,999 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_21113" classname="pattern_01" left="0" top="0" width="803" height="1105" titletext="신규계약 (수산 냉동 평가표)" onload="OMG_DS_SC_21113_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static140" taborder="97" cssclass="sta_WF_Labelbg" top="597" width="60" height="29" right="15"/>
+        <Static id="Static161" taborder="118" cssclass="sta_WF_Labelbg" top="569" width="60" height="29" right="15"/>
+        <Static id="Static135" taborder="92" cssclass="sta_WF_Labelbg" top="793" width="60" height="29" right="15"/>
+        <Static id="Static162" taborder="119" cssclass="sta_WF_Labelbg" top="653" width="60" height="57" right="15"/>
+        <Static id="Static145" taborder="102" cssclass="sta_WF_Labelbg" top="261" width="60" height="57" right="15"/>
+        <Static id="Static143" taborder="100" cssclass="sta_WF_Labelbg" top="345" width="60" height="113" right="15"/>
+        <Static id="Static141" taborder="98" cssclass="sta_WF_Labelbg" top="485" width="60" height="57" right="15"/>
+        <Static id="Static18" taborder="1" text="항목" cssclass="sta_WF_Label_c" left="16" top="10" width="120" height="29"/>
+        <Static id="Static23" taborder="27" text="업력" cssclass="sta_WF_Label_c" left="16" top="38" width="120" height="140"/>
+        <Static id="Static24" taborder="28" text="운영능력" cssclass="sta_WF_Label_c" left="16" top="177" width="120" height="393"/>
+        <Static id="Static80" taborder="29" text="실적" cssclass="sta_WF_Label_c" left="16" top="569" width="120" height="85"/>
+        <Static id="Static81" taborder="30" text="기타&#13;&#10;(가점)" cssclass="sta_WF_Label_c" left="16" top="653" width="120" height="200"/>
+        <Static id="Static82" taborder="31" text="소계" cssclass="sta_WF_Label_c" left="16" top="850" width="512" height="29" onclick="Static82_onclick"/>
+        <Static id="Static83" taborder="32" text="20" visible="false" left="16" top="879" right="-5" height="20" style="background:#dc143c5b;" onclick="Static83_onclick"/>
+        <Button id="btn_register01" taborder="25" text="등록" onclick="btn_register_onclick" cssclass="btn_WF_CRUD" enable="false" top="902" width="41" height="21" right="106" visible="false"/>
+        <Button id="btn_insert" taborder="26" text="상담가능" cssclass="btn_WF_CRUD" enable="false" top="902" width="84" height="21" right="23" visible="false"/>
+        <Static id="Static84" taborder="33" text="○ 계약 조건" cssclass="sta_WF_DescriptionB01" left="15" top="920" width="423" height="21" style="background:left middle;padding:0 0 0 0;" onclick="Static84_onclick"/>
+        <Static id="Static86" taborder="35" text="- 유통 전 단계 원산지 증명서 증빙 가능업체 (수입수산물 포함)" cssclass="sta_WF_DescriptionB01" left="15" top="936" width="423" height="21" style="background:left middle;"/>
+        <Static id="Static87" taborder="36" text="- 생산물책임보험(1사고당 1억원 이상 보장) 가입업체" cssclass="sta_WF_DescriptionB01" left="15" top="955" width="423" height="21" style="background:left middle;"/>
+        <Static id="Static90" taborder="39" text="계약종료 후 2년 내 계약상담 불가" cssclass="sta_WF_DescriptionB01" left="16" top="1040" width="423" height="21"/>
+        <Static id="Static91" taborder="40" text="70점 이상 득점시 계약상담 가능" cssclass="sta_WF_DescriptionB01" left="16" top="1062" width="423" height="21" onclick="Static91_onclick"/>
+        <Static id="Static92" taborder="41" visible="false" left="113" top="1088" width="279" height="15" style="background:#00ffff66;"/>
+        <Static id="Static94" taborder="43" text="거래실적 확인서(계산서 등)" cssclass="sta_WF_Label" left="135" top="821" width="246" height="30" onclick="Static94_onclick"/>
+        <Static id="Static95" taborder="44" text="농협 경제사업 참여" cssclass="sta_WF_Label" left="135" top="793" width="246" height="29"/>
+        <Static id="Static96" taborder="45" text="신용평가서 첨부" cssclass="sta_WF_Label" left="135" top="709" width="246" height="29"/>
+        <Static id="Static97" taborder="46" text="기업 · 개인 신용등급" cssclass="sta_WF_Label" left="135" top="653" width="246" height="57"/>
+        <Static id="Static98" taborder="47" text="전년 세금계산서(월별) 첨부" cssclass="sta_WF_Label" left="135" top="625" width="246" height="29"/>
+        <Static id="Static99" taborder="48" text="매출규모(직전년)" cssclass="sta_WF_Label" left="135" top="569" width="246" height="57"/>
+        <Static id="Static100" taborder="49" text="인증서 첨부" cssclass="sta_WF_Label" left="135" top="541" width="246" height="29"/>
+        <Static id="Static101" taborder="50" text="수산물 품질인증" cssclass="sta_WF_Label" left="135" top="485" width="246" height="57"/>
+        <Static id="Static102" taborder="51" text="관련서류 첨부" cssclass="sta_WF_Label" left="135" top="457" width="246" height="29"/>
+        <Static id="Static103" taborder="52" text="품질관리 및 위생관리" cssclass="sta_WF_Label" left="135" top="345" width="246" height="113"/>
+        <Static id="Static104" taborder="53" text="관련서류 첨부" cssclass="sta_WF_Label" left="135" top="317" width="246" height="29"/>
+        <Static id="Static105" taborder="54" text="HACCP 인증&#13;&#10;(소규모 HACCP 포함)" cssclass="sta_WF_Label" left="135" top="261" width="246" height="57"/>
+        <Static id="Static106" taborder="55" text="관련서류 첨부" cssclass="sta_WF_Label" left="135" top="233" width="246" height="29"/>
+        <Static id="Static107" taborder="56" text="직수입 또는 제조(가공)" cssclass="sta_WF_Label" left="135" top="177" width="246" height="57"/>
+        <Static id="Static108" taborder="57" text="사업자등록증명원 첨부" cssclass="sta_WF_Label" left="135" top="149" width="246" height="29"/>
+        <Static id="Static109" taborder="58" text="동종업계 업력" cssclass="sta_WF_Label" left="135" top="38" width="246" height="113"/>
+        <Static id="Static110" taborder="59" text="평가기준" cssclass="sta_WF_Label_c" left="135" top="10" width="246" height="29"/>
+        <Static id="Static111" taborder="60" text="구분" cssclass="sta_WF_Label_c" left="380" top="10" height="29" right="133"/>
+        <Static id="Static112" taborder="61" text="1년 이상 ~ 3년 미만" cssclass="sta_WF_Labelbg" top="38" height="29" right="133" left="380"/>
+        <Static id="Static113" taborder="62" text="3년 이상 ~ 5년 미만" cssclass="sta_WF_Labelbg" left="380" top="66" height="29" right="133"/>
+        <Static id="Static114" taborder="63" text="5년 이상 ~ 10년 미만" cssclass="sta_WF_Labelbg" left="380" top="94" height="29" right="133"/>
+        <Static id="Static115" taborder="64" text="10년 이상" cssclass="sta_WF_Labelbg" left="380" top="122" height="29" right="133"/>
+        <Static id="Static116" taborder="65" cssclass="sta_WF_Labelbg" left="380" top="149" height="29" right="15"/>
+        <Edit id="edt_down00" taborder="66" readonly="true" enable="false" left="384" top="153" height="21" right="89" oneditclick="edt_down00_oneditclick"/>
+        <Static id="Static117" taborder="67" text="소분" cssclass="sta_WF_Labelbg" left="380" top="177" height="29" right="133"/>
+        <Static id="Static118" taborder="68" text="직접 제조(가공)" cssclass="sta_WF_Labelbg" left="380" top="205" height="29" right="133"/>
+        <Static id="Static119" taborder="69" cssclass="sta_WF_Labelbg" left="380" top="233" height="29" right="15"/>
+        <Edit id="edt_down01" taborder="70" readonly="true" enable="false" left="384" top="237" height="21" right="89"/>
+        <Static id="Static120" taborder="71" text="위해요소 중점관리기준&#13;&#10;적용업소 지정서(식약처)" cssclass="sta_WF_Labelbg" left="380" top="261" height="57" right="133"/>
+        <Static id="Static121" taborder="72" cssclass="sta_WF_Labelbg" left="380" top="317" height="29" right="15"/>
+        <Edit id="edt_down02" taborder="73" readonly="true" enable="false" left="384" top="321" height="21" right="89"/>
+        <Static id="Static122" taborder="74" text="① 자가 품질 검사 여부&#13;&#10;(자체 품질검사원 지정)&#13;&#10;② 음용수 살균장치&#13;&#10;(수질검사성적서 포함)" cssclass="sta_WF_Labelbg" left="380" top="345" height="113" right="133"/>
+        <Static id="Static123" taborder="75" cssclass="sta_WF_Labelbg" left="380" top="457" height="29" right="15"/>
+        <Edit id="edt_down03" taborder="76" readonly="true" enable="false" left="384" top="461" height="21" right="89"/>
+        <Static id="Static124" taborder="77" text="국립수산물품질검사원&#13;&#10;품질인증 마크(품목별)" cssclass="sta_WF_Labelbg" left="380" top="485" height="57" right="133"/>
+        <Static id="Static125" taborder="78" cssclass="sta_WF_Labelbg" left="380" top="541" height="29" right="15"/>
+        <Edit id="edt_down04" taborder="79" readonly="true" enable="false" left="384" top="545" height="21" right="89"/>
+        <Static id="Static126" taborder="80" text="1억이상 ~ 10억 미만" cssclass="sta_WF_Labelbg" left="380" top="569" height="29" right="133"/>
+        <Static id="Static127" taborder="81" text="10억이상" cssclass="sta_WF_Labelbg" left="380" top="597" height="29" right="133"/>
+        <Static id="Static128" taborder="82" cssclass="sta_WF_Labelbg" left="380" top="625" height="29" right="15"/>
+        <Edit id="edt_down05" taborder="83" readonly="true" enable="false" left="384" top="629" height="21" right="89"/>
+        <Static id="Static129" taborder="84" text="기업 : BB 이상&#10;개인 : 900점이상" cssclass="sta_WF_Labelbg" left="380" top="653" height="57" right="133" onclick="Static129_onclick"/>
+        <Static id="Static130" taborder="85" cssclass="sta_WF_Labelbg" left="380" top="709" height="29" right="15"/>
+        <Edit id="edt_down06" taborder="86" readonly="true" enable="false" left="384" top="713" height="21" right="89"/>
+        <Static id="Static131" taborder="87" text="5년이내 연 1억원 이상" cssclass="sta_WF_Labelbg" left="380" top="793" height="29" right="133" onclick="Static131_onclick"/>
+        <Static id="Static132" taborder="88" cssclass="sta_WF_Labelbg" left="380" top="765" height="29" right="15"/>
+        <Edit id="edt_down07" taborder="89" readonly="true" enable="false" left="384" top="769" height="21" right="89"/>
+        <Static id="Static134" taborder="91" text="0" cssclass="sta_WF_Labelbg_R" top="850" height="29" right="15" width="119" onclick="Static134_onclick"/>
+        <FileUpload id="FileUpload07" taborder="23" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="769" width="72" height="21" right="19"/>
+        <CheckBox id="chk_a09" taborder="22" value="0" truevalue="5" falsevalue="0" onchanged="chk_a09_onchanged" top="798" width="25" height="21" right="26" onclick="chk_a09_onclick"/>
+        <FileUpload id="FileUpload06" taborder="20" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="713" width="72" height="21" right="19"/>
+        <Static id="Static136" taborder="93" text="5" cssclass="sta_WF_Labelbg_R" top="653" width="60" height="57" right="74"/>
+        <Static id="Static137" taborder="94" text="5" cssclass="sta_WF_Labelbg_R" top="793" width="60" height="29" right="74"/>
+        <Static id="Static138" taborder="95" text="20" cssclass="sta_WF_Labelbg_R" top="597" width="60" height="29" right="74"/>
+        <Static id="Static139" taborder="96" text="10" cssclass="sta_WF_Labelbg_R" top="569" width="60" height="29" right="74"/>
+        <CheckBox id="chk_a07" taborder="19" value="0" truevalue="5" falsevalue="0" onchanged="chk_a07_onchanged" top="656" width="25" height="50" right="26"/>
+        <FileUpload id="FileUpload05" taborder="17" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="629" width="72" height="21" right="19"/>
+        <Radio id="rdo_a06" taborder="16" innerdataset="@ds_rdo03" codecolumn="level" datacolumn="point" onitemchanged="rdo_a06_onitemchanged" top="569" width="20" height="57" right="31"/>
+        <FileUpload id="FileUpload04" taborder="14" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="545" width="72" height="21" right="19"/>
+        <CheckBox id="chk_a05" taborder="13" value="0" truevalue="5" falsevalue="0" onchanged="chk_a05_onchanged" top="488" width="25" height="50" right="26"/>
+        <Static id="Static142" taborder="99" text="5" cssclass="sta_WF_Labelbg_R" top="485" width="60" height="57" right="74"/>
+        <FileUpload id="FileUpload03" taborder="11" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="461" width="72" height="21" right="19"/>
+        <CheckBox id="chk_a04" taborder="10" value="0" truevalue="5" falsevalue="0" onchanged="chk_a04_onchanged" top="348" width="25" height="106" right="26"/>
+        <Static id="Static144" taborder="101" text="5" cssclass="sta_WF_Labelbg_R" top="345" width="60" height="113" right="74"/>
+        <FileUpload id="FileUpload02" taborder="8" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="321" width="72" height="21" right="19"/>
+        <CheckBox id="chk_a03" taborder="7" value="0" truevalue="10" falsevalue="0" onchanged="chk_a03_onchanged" top="264" width="25" height="50" right="26"/>
+        <Static id="Static146" taborder="103" text="10" cssclass="sta_WF_Labelbg_R" top="261" width="60" height="57" right="74"/>
+        <FileUpload id="FileUpload01" taborder="5" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="237" width="72" height="21" right="19"/>
+        <Static id="Static147" taborder="104" cssclass="sta_WF_Labelbg" top="205" width="60" height="29" right="15"/>
+        <Static id="Static148" taborder="105" cssclass="sta_WF_Labelbg" top="177" width="60" height="29" right="15"/>
+        <Radio id="rdo_a02" taborder="4" innerdataset="@ds_rdo01" codecolumn="level" datacolumn="point" onitemchanged="rdo_a02_onitemchanged" top="177" width="20" height="57" right="31"/>
+        <Static id="Static149" taborder="106" text="25" cssclass="sta_WF_Labelbg_R" top="177" width="60" height="29" right="74"/>
+        <Static id="Static150" taborder="107" text="30" cssclass="sta_WF_Labelbg_R" top="205" width="60" height="29" right="74"/>
+        <FileUpload id="FileUpload00" taborder="2" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="153" width="72" height="21" right="19"/>
+        <Static id="Static151" taborder="108" cssclass="sta_WF_Labelbg" top="122" width="60" height="29" right="15"/>
+        <Static id="Static152" taborder="109" text="30" cssclass="sta_WF_Labelbg_R" top="122" width="60" height="29" right="74"/>
+        <Static id="Static153" taborder="110" text="25" cssclass="sta_WF_Labelbg_R" top="94" width="60" height="29" right="74"/>
+        <Static id="Static154" taborder="111" cssclass="sta_WF_Labelbg" top="94" width="60" height="29" right="15"/>
+        <Static id="Static155" taborder="112" cssclass="sta_WF_Labelbg" top="66" width="60" height="29" right="15"/>
+        <Static id="Static156" taborder="113" text="20" cssclass="sta_WF_Labelbg_R" top="66" width="60" height="29" right="74"/>
+        <Static id="Static157" taborder="114" text="15" cssclass="sta_WF_Labelbg_R" top="38" width="60" height="29" right="74"/>
+        <Static id="Static158" taborder="115" cssclass="sta_WF_Labelbg" top="38" width="60" height="29" right="15"/>
+        <Radio id="rdo_a01" taborder="0" innerdataset="@ds_rdo00" codecolumn="level" datacolumn="point" onitemchanged="rdo_a01_onitemchanged" top="38" width="20" height="113" right="31"/>
+        <Static id="Static159" taborder="116" text="배점" cssclass="sta_WF_Label_c" top="10" width="60" height="29" right="74"/>
+        <Static id="Static160" taborder="117" text="득점" cssclass="sta_WF_Label_c" top="10" width="60" height="29" right="15"/>
+        <Button id="btn_down02" taborder="9" text="파일다운" onclick="btn_down02_onclick" visible="false" top="321" right="-77" width="70" height="21"/>
+        <Button id="btn_down03" taborder="12" text="파일다운" onclick="btn_down03_onclick" visible="false" top="461" right="-77" width="70" height="21"/>
+        <Button id="btn_down04" taborder="15" text="파일다운" onclick="btn_down04_onclick" visible="false" top="545" right="-77" width="70" height="21"/>
+        <Button id="btn_down05" taborder="18" text="파일다운" onclick="btn_down05_onclick" visible="false" top="629" right="-77" width="70" height="21"/>
+        <Button id="btn_down06" taborder="21" text="파일다운" onclick="btn_down06_onclick" visible="false" top="713" right="-77" width="70" height="21"/>
+        <Button id="btn_down00" taborder="3" text="파일다운" onclick="btn_down00_onclick" visible="false" top="153" right="-77" width="70" height="21"/>
+        <Button id="btn_down01" taborder="6" text="파일다운" onclick="btn_down01_onclick" visible="false" top="237" right="-77" width="70" height="21"/>
+        <Static id="Static00" taborder="120" text="농협 경제사업 참여" cssclass="sta_WF_DescriptionB01" left="15" top="1000" width="401" height="21"/>
+        <Static id="Static01" taborder="121" text="동종업체 거래 업력 : 계약상담일 현재 1년이내 거래실적 보유" cssclass="sta_WF_DescriptionB01" left="15" top="979" width="423" height="21"/>
+        <Static id="Static52" taborder="122" text="동종업체 거래 업력" cssclass="sta_WF_Label" left="135" top="737" width="246" height="29"/>
+        <Static id="Static02" taborder="123" text="거래실적 확인서(계산서 등)" onclick="Static94_onclick" cssclass="sta_WF_Label" left="135" top="765" width="246" height="29"/>
+        <Static id="Static03" taborder="125" onclick="Static132_onclick" cssclass="sta_WF_Labelbg" left="380" top="821" right="15" height="30"/>
+        <Edit id="edt_down08" taborder="126" readonly="true" enable="false" left="384" top="825" right="89" height="21"/>
+        <FileUpload id="FileUpload08" taborder="127" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="825" right="19" width="72" height="21"/>
+        <Static id="Static54" taborder="128" text="5개중 1개이상" cssclass="sta_WF_Labelbg" left="380" top="737" right="133" height="29"/>
+        <Static id="Static56" taborder="129" text="5" cssclass="sta_WF_Labelbg_R" top="737" right="75" width="60" height="29"/>
+        <Static id="Static57" taborder="130" cssclass="sta_WF_Labelbg" top="737" right="15" width="60" height="29"/>
+        <CheckBox id="chk_a08" taborder="131" value="0" truevalue="5" falsevalue="0" onchanged="chk_a08_onchanged" top="742" right="28" width="25" height="21"/>
+        <Button id="btn_down07" taborder="132" text="파일다운" onclick="btn_down07_onclick" visible="false" top="769" right="-77" width="70" height="21"/>
+        <Static id="Static186" taborder="133" onclick="Static186_onclick" cssclass="sta_WF_Labelbg" left="528" top="850" right="131" height="29"/>
+        <Button id="btn_down08" taborder="134" text="파일다운" onclick="btn_down08_onclick" visible="false" top="827" right="-77" width="70" height="21"/>
+        <Static id="Static04" taborder="135" text=" - 유통계열사ㆍ조합 하나로마트ㆍ농협경제 판매사업과 최근 5년이내 연 1억원 이상 거래" onclick="Static75_onclick" cssclass="sta_WF_DescriptionB01" left="13" top="1019" width="599" height="21" style="background:left middle;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rdo00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">15</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">20</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">25</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">30</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">25</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">30</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">10</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">15</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo03" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">10</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">20</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rcev" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CSLT_RQ_NO" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A1" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A2" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A3" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A4" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A5" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A6" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B1" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B11" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B2" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B3" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B4" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B5" type="STRING" size="256"/>
+          <Column id="EVL_HDNGCN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rdo04" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">10</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">15</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">20</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item46" compid="rdo_a06" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A6"/>
+      <BindItem id="item41" compid="chk_a05" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A5"/>
+      <BindItem id="item40" compid="chk_a04" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A4"/>
+      <BindItem id="item39" compid="chk_a03" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A3"/>
+      <BindItem id="item38" compid="rdo_a02" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A2"/>
+      <BindItem id="item36" compid="rdo_a01" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A1"/>
+      <BindItem id="item0" compid="chk_a07" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B1"/>
+      <BindItem id="item1" compid="chk_a09" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B3"/>
+      <BindItem id="item35" compid="chk_a08" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B2"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var rdoA01 = 0;
+var rdoA02 = 0;
+var chkA03 = 0;
+var chkA04 = 0;
+var chkA05 = 0;
+var rdoA06 = 0;
+var chkA07 = 0;
+var chkA08 = 0;
+var chkA09 = 0;
+
+
+var tot;
+
+this.OMG_DS_SC_21113_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if(this.parent.edt_dsc.value == "popup")
+	{
+		this.btn_insert.set_visible(false);
+		this.btn_register01.set_text("저장");
+		this.btn_register01.set_right(15);
+		
+		/*조회 호출*/
+		this.parent.search();
+	}else if(this.parent.edt_dsc.value == "select"){
+		this.btn_insert.set_visible(false);
+		this.btn_register01.set_visible(false);
+		this.rdo_a01.set_readonly(true);
+		this.rdo_a02.set_readonly(true);
+		this.chk_a03.set_readonly(true);
+		this.chk_a04.set_readonly(true);
+		this.chk_a05.set_readonly(true);
+		this.rdo_a06.set_readonly(true);
+		this.chk_a07.set_readonly(true);
+		this.chk_a08.set_readonly(true);
+		this.chk_a09.set_readonly(true);
+
+	}
+}
+
+/**
+ * 냉동
+ */
+
+//동종업계 업력
+this.rdo_a01_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.gfn_isNull(this.rdo_a01.value))
+	{
+		this.rdo_a01.set_index(0);
+	}
+	rdoA01 = this.rdo_a01.value;
+	this.FileUpload00.set_enable(true);
+	this.edt_down00.set_enable(true);
+	this.fn_sum();
+}
+
+//직수입 · 제조(가공)
+this.rdo_a02_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.gfn_isNull(this.rdo_a02.value))
+	{
+		this.rdo_a02.set_index(0);
+	}
+	rdoA02 = this.rdo_a02.value;
+	this.FileUpload01.set_enable(true);
+	this.edt_down01.set_enable(true);
+	this.fn_sum();
+}
+
+//위해요소 중점관리기준 적용업소 지정서(식약청)
+this.chk_a03_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a03.value == 10)
+	{
+		chkA03 = 10;
+		this.FileUpload02.set_enable(true);
+		this.edt_down02.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a03.value == 0)
+	{
+		chkA03 = 0;
+		this.FileUpload02.set_enable(false);
+		this.edt_down02.set_enable(false);
+		this.fn_sum();
+		
+		//uncheck 삭제
+		var dmc = 02;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		this.edt_down02.set_value("");
+	}
+}
+
+//품질관리 및 위생관리
+this.chk_a04_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a04.value == 5)
+	{
+		chkA04 = 5;
+		this.FileUpload03.set_enable(true);
+		this.edt_down03.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a04.value == 0)
+	{
+		chkA04 = 0;
+		this.FileUpload03.set_enable(false);
+		this.edt_down03.set_enable(false);
+		this.fn_sum();
+		
+		//uncheck 삭제
+		var dmc = 03;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		this.edt_down03.set_value("");
+	}
+}
+
+//수산물 품질인증
+this.chk_a05_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a05.value == 5)
+	{
+		chkA05 = 5;
+		this.FileUpload04.set_enable(true);
+		this.edt_down04.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a05.value == 0)
+	{
+		chkA05 = 0;
+		this.FileUpload04.set_enable(false);
+		this.edt_down04.set_enable(false);
+		this.fn_sum();
+		
+		//uncheck 삭제
+		var dmc = 04;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		this.edt_down04.set_value("");
+	}
+}
+
+
+//매출규모(직전년)
+this.rdo_a06_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.gfn_isNull(this.rdo_a06.value))
+	{
+		this.rdo_a06.set_index(0);
+	}
+	rdoA06 = this.rdo_a06.value;
+	this.FileUpload05.set_enable(true);
+	this.edt_down05.set_enable(true);
+	this.fn_sum();
+}
+
+//기업 · 개인 신용등급
+this.chk_a07_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a07.value == 5)
+	{
+		chkA07 = 5;
+		this.FileUpload06.set_enable(true);
+		this.edt_down06.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a07.value == 0)
+	{
+		chkA07 = 0;
+		this.FileUpload06.set_enable(false);
+		this.edt_down06.set_enable(false);
+		this.fn_sum();
+		
+		
+		//uncheck 삭제
+		var dmc = 06;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		
+		this.edt_down06.set_value("");
+	}
+}
+
+//농협(계통포함) 거래 업력
+this.chk_a08_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a08.value == 5)
+	{
+		chkA08 = 5;
+		this.FileUpload07.set_enable(true);
+		this.edt_down07.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a08.value == 0)
+	{
+		chkA08 = 0;
+		this.FileUpload07.set_enable(false);
+		this.edt_down07.set_enable(false);
+		this.fn_sum();
+		
+		
+		//uncheck 삭제
+		var dmc = 07;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		
+		this.edt_down07.set_value("");
+	}
+}
+
+//농협 경제 사업 참여
+this.chk_a09_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a09.value == 5)
+	{
+		chkA09 = 5;
+		this.FileUpload08.set_enable(true);
+		this.edt_down08.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a09.value == 0)
+	{
+		chkA09 = 0;
+		this.FileUpload08.set_enable(false);
+		this.edt_down08.set_enable(false);
+		this.fn_sum();
+		
+		
+		//uncheck 삭제
+		var dmc = 08;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		
+		this.edt_down08.set_value("");
+	}
+}
+
+this.retrieveSum = function()
+{	
+	var nIndex = -1;
+	
+	//동종업계 업력
+	if(this.gfn_isNull(this.rdo_a01.value))
+	{
+		this.rdo_a01.set_index(nIndex);
+	}
+	rdoA01 = this.rdo_a01.value;
+	this.FileUpload00.set_enable(true);
+	
+	//직수입 · 제조(가공)
+	if(this.gfn_isNull(this.rdo_a02.value))
+	{
+		this.rdo_a02.set_index(nIndex);
+	}
+	rdoA02 = this.rdo_a02.value;
+	this.FileUpload01.set_enable(true);
+	
+	//위해요소 중점관리기준 적용업소 지정서(식약청)
+	if(this.gfn_isNull(this.chk_a03.value))
+	{
+		this.chk_a03.set_value(0);
+	}
+	chkA03 = this.chk_a03.value;
+	this.FileUpload02.set_enable(true);
+	
+	//품질관리 및 위생관리
+	if(this.gfn_isNull(this.chk_a04.value))
+	{
+		this.chk_a04.set_value(0);
+	}
+	chkA04 = this.chk_a04.value;
+	this.FileUpload03.set_enable(true);
+
+	//수산물 품질인증
+	if(this.gfn_isNull(this.chk_a05.value))
+	{
+		this.chk_a05.set_value(0);
+	}
+	chkA05 = this.chk_a05.value;
+	this.FileUpload04.set_enable(true);
+
+	//매출규모(직전년)
+	if(this.gfn_isNull(this.rdo_a06.value))
+	{
+		this.rdo_a06.set_index(nIndex);
+	}
+	rdoA06 = this.rdo_a06.value;
+	this.FileUpload05.set_enable(true);
+
+	//기업 · 개인 신용등급
+	if(this.gfn_isNull(this.chk_a07.value))
+	{
+		this.chk_a07.set_value(0);
+	}
+	chkA07 = this.chk_a07.value;
+	this.FileUpload06.set_enable(true);
+	
+	//농협(계통포함) 거래 업력
+	if(this.gfn_isNull(this.chk_a08.value))
+	{
+		this.chk_a08.set_value(0);
+	}
+	chkA08 = this.chk_a08.value;
+	this.FileUpload07.set_enable(true);
+	
+	//농협 경제사업 참여
+	if(this.gfn_isNull(this.chk_a09.value))
+	{
+		this.chk_a09.set_value(0);
+	}
+	chkA09 = this.chk_a09.value;
+	this.FileUpload08.set_enable(true);
+	
+	this.fn_sum();
+}
+
+//합계
+this.fn_sum = function()
+{
+	var num01 = 0;
+	var num02 = 0;
+	var num03 = 0;
+	var num04 = 0;
+	var num05 = 0;
+	var num06 = 0;
+	var num07 = 0;
+	var num08 = 0;
+	var num09 = 0;
+
+
+	num01 = nexacro.toNumber(rdoA01);
+	num02 = nexacro.toNumber(rdoA02);
+	num03 = nexacro.toNumber(chkA03);
+	num04 = nexacro.toNumber(chkA04);
+	num05 = nexacro.toNumber(chkA05);
+	num06 = nexacro.toNumber(rdoA06);
+	num07 = nexacro.toNumber(chkA07);
+	num08 = nexacro.toNumber(chkA08);
+	num09 = nexacro.toNumber(chkA09);
+
+		
+	tot = num01 + num02 + num03 + num04 + num05 + num06 + num07 + num08 + num09;
+
+	this.Static134.set_text(tot);
+	
+	if(this.parent.edt_dsc.value == "popup")
+	{
+		this.parent.mae_sum00.set_value(tot);
+	}else{
+		this.parent.div00.mae_sum00.set_value(tot);
+	}
+	this.ds_rcev.setColumn(0, "EVL_HDNGCN", tot);
+	this.parent.fn_btnEnable(tot >= 70);
+	/*
+	if(tot >= 70)
+	{
+		this.parent.btn_register.set_enable(true);
+		this.btn_insert.set_enable(true);
+		this.btn_register01.set_enable(true);
+	}
+	else
+	{
+		this.parent.btn_register.set_enable(false);
+		this.btn_insert.set_enable(false);
+		this.btn_register01.set_enable(false);
+	}
+	*/
+}
+
+
+this.FileUpload_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+/*회사서류 파일첨부*/
+var dmc;
+var name;
+this.FileUpload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{	
+	name = obj.name.substring(10,12); //첨부파일코드00~09
+	dmc = this.ds_uploadresult.findRow("DCM_C",name).toString(); //파일Row위치
+	//alert("obj.name==> "+obj.name+"e.eventid==> "+e.eventid+"e.fromobject==> "+e.fromobject.name);
+	
+	//trace("dmc =>>" + dmc)  ;
+	
+	if(dmc == -1){
+		if( e.datasets == null )
+		{
+			//trace("업로드 실패");
+			return;
+		} else {
+			//trace("업로드 성공");
+			
+			this.ds_uploadresult02.copyData(e.datasets[0]);
+			var fName = this.ds_uploadresult02.getColumn(0,"FILENAME");
+			var fType = this.ds_uploadresult02.getColumn(0,"FILETYPE");
+			var fSize = this.ds_uploadresult02.getColumn(0,"FILESIZE");
+			var orgName = this.ds_uploadresult02.getColumn(0,"ORGFNAME");
+			var sysName = this.ds_uploadresult02.getColumn(0,"SYSTEMFILENAME");
+			
+			var nRow = this.ds_uploadresult.rowposition ;
+		
+			if(this.ds_uploadresult.rowposition == "-1" ){
+				nRow = this.ds_uploadresult.addRow();1
+			}else{
+		
+				nRow = this.ds_uploadresult.addRow();
+			}
+			this.ds_uploadresult.setColumn(nRow ,"DCM_C", name);
+			this.ds_uploadresult.setColumn(nRow,"FILENAME",fName);
+			this.ds_uploadresult.setColumn(nRow,"FILETYPE",fType);
+			this.ds_uploadresult.setColumn(nRow,"FILESIZE",fSize);
+			this.ds_uploadresult.setColumn(nRow,"ORGFNAME",orgName);
+			this.ds_uploadresult.setColumn(nRow,"SYSTEMFILENAME",sysName);
+			
+			this.all["edt_down"+name].set_value(e.datasets[0].getColumn(0,"ORGFNAME"));
+		
+			//trace( this.ds_uploadresult.saveXML()		);
+		}
+		
+	}else{
+		//기존upload파일삭제
+		this.ds_uploadresult.deleteRow(dmc);
+// 		this.ds_uploadresult.appendData(e.datasets[0],false,false);
+// 		this.ds_uploadresult.setColumn(this.ds_uploadresult.rowcount -1 ,"DCM_C", name);
+		
+		this.ds_uploadresult02.copyData(e.datasets[0]);
+		
+		var fName = this.ds_uploadresult02.getColumn(0,"FILENAME");
+		var fType = this.ds_uploadresult02.getColumn(0,"FILETYPE");
+		var fSize = this.ds_uploadresult02.getColumn(0,"FILESIZE");
+		var orgName = this.ds_uploadresult02.getColumn(0,"ORGFNAME");
+		var sysName = this.ds_uploadresult02.getColumn(0,"SYSTEMFILENAME");
+
+		var nRow = this.ds_uploadresult.addRow();
+		
+		this.ds_uploadresult.setColumn(nRow ,"DCM_C", name);
+		this.ds_uploadresult.setColumn(nRow,"FILENAME",fName);
+		this.ds_uploadresult.setColumn(nRow,"FILETYPE",fType);
+		this.ds_uploadresult.setColumn(nRow,"FILESIZE",fSize);
+		this.ds_uploadresult.setColumn(nRow,"ORGFNAME",orgName);
+		this.ds_uploadresult.setColumn(nRow,"SYSTEMFILENAME",sysName);
+		
+		this.all["edt_down"+name].set_value(e.datasets[0].getColumn(0,"ORGFNAME"));
+
+	}
+	
+	//trace( this.ds_uploadresult.saveXML()		);
+}
+
+this.FileUpload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+// 	trace("FileUpload00_onerror");
+// 	trace("e.errorcode: "+e.errorcode);
+// 	trace("e.errormsg: "+e.errormsg);
+}
+
+this.btn_register_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.parent.insert();
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	if(this.edt_down00.enable == true && this.gfn_isNull(this.edt_down00.value)){
+		this.edt_down00.setFocus();
+		this.alert('사업자 등록증을 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down01.enable == true && this.gfn_isNull(this.edt_down01.value)){
+		this.edt_down01.setFocus();
+		this.alert('직수입 · 제조(가공) 관련서류를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down02.enable == true && this.gfn_isNull(this.edt_down02.value)){
+		this.edt_down02.setFocus();
+		this.alert('HACCP 인증 관련서류를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down03.enable == true && this.gfn_isNull(this.edt_down03.value)){
+		this.edt_down03.setFocus();
+		this.alert('품질관리 및 위생관리  관련서류를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down04.enable == true && this.gfn_isNull(this.edt_down04.value)){
+		this.edt_down04.setFocus();
+		this.alert('인증서를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down05.enable == true && this.gfn_isNull(this.edt_down05.value)){
+		this.edt_down05.setFocus();
+		this.alert('전년 세금계산서(월별, 매월)를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down06.enable == true && this.gfn_isNull(this.edt_down06.value)){
+		this.edt_down06.setFocus();
+		this.alert('신용평가서를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down07.enable == true && this.gfn_isNull(this.edt_down07.value)){
+		this.edt_down07.setFocus();
+		this.alert('거래실적 확인서(계산서 등)를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down08.enable == true && this.gfn_isNull(this.edt_down08.value)){
+		this.edt_down08.setFocus();
+		this.alert('거래실적 확인서(계산서 등)를 첨부 하세요.');
+		return false;
+	}
+	return true;
+}
+
+
+this.btn_down00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down01.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","00");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down01.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","01");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down02.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","02");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down03.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","03");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down04.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","04");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down05.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","05");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down06.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","06");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down07.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","07");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down08_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down08.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","08");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+/* 비활성화 */
+this.disable = function()
+{
+	this.rdo_a01.set_readonly(true);
+	this.rdo_a02.set_readonly(true);
+	this.chk_a03.set_readonly(true);
+	this.chk_a04.set_readonly(true);
+	this.chk_a05.set_readonly(true);
+	this.rdo_a06.set_readonly(true);
+	this.chk_a07.set_readonly(true);
+	this.chk_a08.set_readonly(true);
+	this.chk_a09.set_readonly(true);
+
+	
+	this.btn_down00.set_visible(true);
+	this.btn_down00.set_right(19);
+	this.btn_down01.set_visible(true);
+	this.btn_down01.set_right(19);
+	this.btn_down02.set_visible(true);
+	this.btn_down02.set_right(19);
+	this.btn_down03.set_visible(true);
+	this.btn_down03.set_right(19);
+	this.btn_down04.set_visible(true);
+	this.btn_down04.set_right(19);
+	this.btn_down05.set_visible(true);
+	this.btn_down05.set_right(19);
+	this.btn_down06.set_visible(true);
+	this.btn_down06.set_right(19);
+	this.btn_down07.set_visible(true);
+	this.btn_down07.set_right(19);
+	this.btn_down08.set_visible(true);
+	this.btn_down08.set_right(19);
+	
+	this.FileUpload00.set_visible(false);
+	this.FileUpload01.set_visible(false);
+	this.FileUpload02.set_visible(false);
+	this.FileUpload03.set_visible(false);
+	this.FileUpload04.set_visible(false);
+	this.FileUpload05.set_visible(false);
+	this.FileUpload06.set_visible(false);
+	this.FileUpload07.set_visible(false);
+	this.FileUpload08.set_visible(false);
+
+	
+	this.edt_down00.set_enable(false);
+	this.edt_down01.set_enable(false);
+	this.edt_down02.set_enable(false);
+	this.edt_down03.set_enable(false);
+	this.edt_down04.set_enable(false);
+	this.edt_down05.set_enable(false);
+	this.edt_down06.set_enable(false);
+	this.edt_down07.set_enable(false);
+	this.edt_down08.set_enable(false);
+
+
+	this.btn_register01.set_enable(false);
+}
+
+/*sts2 보완수정 파일업로드 점수입력 비활성화*/
+this.disable2 = function()
+{
+	this.rdo_a01.set_readonly(true);
+	this.rdo_a02.set_readonly(true);
+	this.chk_a03.set_readonly(true);
+	this.chk_a04.set_readonly(true);
+	this.chk_a05.set_readonly(true);
+	this.rdo_a06.set_readonly(true);
+	this.chk_a07.set_readonly(true);
+	this.chk_a08.set_readonly(true);
+	this.chk_a09.set_readonly(true);
+
+	
+	//파일업로드 활성화
+	if(!this.gfn_isNull(this.edt_down00.value))
+	{
+		this.edt_down00.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down01.value))
+	{
+		this.edt_down01.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down02.value))
+	{
+		this.edt_down02.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down03.value))
+	{
+		this.edt_down03.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down04.value))
+	{
+		this.edt_down04.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down05.value))
+	{
+		this.edt_down05.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down06.value))
+	{
+		this.edt_down06.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down07.value))
+	{
+		this.edt_down07.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down08.value))
+	{
+		this.edt_down08.set_enable(true);
+	}
+}]]></Script>
+  </Form>
+</FDL>

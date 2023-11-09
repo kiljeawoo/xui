@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="547" height="400" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="산지 조회">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="3" cssclass="btn_WFSA_Searchbtn" top="46" right="18" width="58" height="21" onclick="btn_search_onclick"/>
+        <Div id="div_search" taborder="4" left="17" top="76" right="17" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="searchText" taborder="18" left="166" top="9" width="257" height="21" onkeydown="div_search_searchText_onkeydown"/>
+              <Radio id="searchMode" direction="vertical" taborder="19" left="5" top="9" width="161" height="21" codecolumn="codecolumn" datacolumn="datacolumn" value="NAME">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">NAME</Col>
+                      <Col id="datacolumn">산지명</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">CODE</Col>
+                      <Col id="datacolumn">산지코드</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" left="218" top="354" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" left="274" top="354" width="54" height="29" onclick="btn_cancel_onclick"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="9" text="17" visible="false" left="529" top="76" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="455" top="383" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="455" top="344" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="12" text="8" visible="false" left="428" top="67" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="307" top="31" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="119" width="76" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" left="509" top="0" width="37" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="16" text="산지 코드 조회" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+        <Div id="div_searchR" taborder="20" text="div_searchR" left="17" right="17" top="135" height="208" visible="true" scrollbars="autovert">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_searchR" taborder="5" binddataset="ds_pdaa" useinputpanel="false" left="0" top="0" height="100%" autofittype="none" width="100%" scrollbars="autovert" oncellclick="div_searchR_grd_searchR_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="127"/>
+                      <Column size="127"/>
+                      <Column size="127"/>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="산지코드"/>
+                      <Cell col="1" text="시도"/>
+                      <Cell col="2" text="시군"/>
+                      <Cell col="3" text="읍면"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:left;" text="bind:NA_WRS_PDAA_C"/>
+                      <Cell col="1" style="align:left;" text="bind:PDAA_PROVNM"/>
+                      <Cell col="2" style="align:left;" text="bind:PDAA_CCONM"/>
+                      <Cell col="3" style="align:left;" text="bind:PDATTS_NM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pdaa" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_PDAA_C" type="STRING" size="256"/>
+          <Column id="PDAA_PROVNM" type="STRING" size="256"/>
+          <Column id="PDAA_CCONM" type="STRING" size="256"/>
+          <Column id="PDATTS_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_LCLC">가나다라마</Col>
+            <Col id="NA_WRS_MCLC">123456789</Col>
+            <Col id="NA_WRS_SCLC">123456789</Col>
+            <Col id="NA_WRS_DTCF_C">123456789</Col>
+            <Col id="WRS_LCLFNM">123456789</Col>
+            <Col id="WRS_MCLFNM">123456789</Col>
+            <Col id="WRS_SCLFNM">123456789</Col>
+            <Col id="WRS_DTCFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectL" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_LCLC">가나다라마</Col>
+            <Col id="WRS_LCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_MCLC">가나다라마</Col>
+            <Col id="WRS_MCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectS" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--   
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_SCLC">가나다라마</Col>
+            <Col id="WRS_SCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_DTCF_C">가나다라마</Col>
+            <Col id="WRS_DTCFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+
+var autoPop = this.parent.autoPop;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.div_searchR.grd_searchR.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	if (this.gfn_nullToEmpty(autoPop.searchCode) != "") {
+		this.div_search.searchMode.set_value("CODE");
+		this.div_search.searchText.set_value(autoPop.searchCode);
+		this.btn_search.click();
+	}
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var pdaa_nm = this.ds_pdaa.getColumn(this.ds_pdaa.rowposition,"PDAA_PROVNM");
+	pdaa_nm += "/"+this.ds_pdaa.getColumn(this.ds_pdaa.rowposition,"PDAA_CCONM");
+	pdaa_nm += "/"+this.ds_pdaa.getColumn(this.ds_pdaa.rowposition,"PDATTS_NM");
+
+	this.objRtnArr[0] = this.ds_pdaa.getColumn(this.ds_pdaa.rowposition,"NA_WRS_PDAA_C");
+	this.objRtnArr[1] = pdaa_nm;
+	this.close(this.objRtnArr.toString());
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var searchMode = this.gfn_nullToEmpty(this.div_search.searchMode.value);
+	var searchText = this.gfn_nullToEmpty(this.div_search.searchText.value);
+	
+	if(this.fn_validationCheck()){
+		var param = "searchMode='"+searchMode+"' searchText='"+searchText+"'";
+					
+		var sSvcID        = "retrieveNaWrsPdaaC";//통신아이디
+		var sURL          = "svc::rest/pds/pricat/Product/retrieveNaWrsPdaaC";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_pdaa=ds_pdaa";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);					
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+	if (this.gfn_length(this.div_search.searchText.value) < 2) {
+		this.alert('검색어는 2자이상이어야 합니다.');
+		return false;
+	}
+	return true;
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "retrieveNaWrsPdaaC"){										
+			if(this.ds_pdaa.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}
+		}
+	}
+}
+
+this.div_searchR_grd_searchR_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.btn_ok_onclick();
+}
+
+this.div_search_searchText_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{
+		this.btn_search.click();
+	}
+}]]></Script>
+  </Form>
+</FDL>

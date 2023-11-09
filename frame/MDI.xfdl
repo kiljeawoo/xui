@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="MDI" classname="MDI" left="0" top="0" width="818" height="32" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" left="0" top="0" height="32" cssclass="sta_MDI_Bg" right="0"/>
+        <Button id="Button00" taborder="1" left="15" top="5" height="27" width="28" cssclass="btn_MDI_Home" visible="false"/>
+        <Button id="btn_ctrMax" taborder="5" top="4" width="26" height="23" cssclass="btn_MDI_CtrMax" right="108" visible="false" onclick="btn_ctrMax_onclick"/>
+        <Button id="btn_ctrV" taborder="6" top="4" width="26" height="23" cssclass="btn_MDI_CtrV" right="86" visible="false" onclick="btn_ctrV_onclick"/>
+        <Button id="btn_ctrH" taborder="7" top="4" width="26" height="23" cssclass="btn_MDI_CtrH" right="64" visible="false" onclick="btn_ctrH_onclick"/>
+        <Button id="btn_ctrOut" taborder="8" top="4" width="26" height="23" cssclass="btn_MDI_CtrOut" right="42" visible="false" onclick="btn_ctrOut_onclick"/>
+        <Button id="btn_closeAll" taborder="9" top="4" width="26" height="23" cssclass="btn_MDI_CtrAllX" right="20" onclick="btn_closeAll_onclick"/>
+        <Static id="Static01" taborder="10" top="10" width="5" height="11" cssclass="sta_MDI_BtnLine" right="136" wordwrap="none" visible="false"/>
+        <Button id="Button08" taborder="11" left="673" top="71" width="25" height="26" cssclass="btn_MDI_PrevTab" visible="false"/>
+        <Button id="Button09" taborder="12" cssclass="btn_MDI_NextTab" left="707" top="71" width="25" height="25" visible="false"/>
+        <Tab id="tab_openList" taborder="13" left="15" top="5" right="6.6%" height="26" tabindex="0" scrollbars="autoboth" cssclass="tab_MDI_Mdi" onextrabuttonclick="tab_openList_onextrabuttonclick" onchanged="tab_openList_onchanged">
+          <Tabpages>
+            <Tabpage id="tabpage_defalut" text="상품상세조회"/>
+          </Tabpages>
+        </Tab>
+        <Static id="Sta" taborder="14" text="5.5%" left="8.8%" top="56" right="76.53%" height="21" visible="false"/>
+        <Button id="btn_MDIOpen" taborder="3" top="0" width="15" height="32" cssclass="btn_MDI_OpenBtn" right="1" onclick="btn_MDIOpen_onclick"/>
+        <Button id="btn_MDIClose" taborder="4" cssclass="btn_MDI_CloseBtn" top="0" height="32" visible="true" width="15" right="1" onclick="btn_MDIClose_onclick"/>
+        <Static id="Static02" taborder="15" cssclass="sta_MDI_BtnLine" top="10" right="43" width="5" height="11"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+/**********************************************************************************************
+*프로그램명  :  
+*작  성  자  :  
+*작  성  일  :  
+*설      명  :  
+*수  정  일  : 
+*수  정  자  :
+*수정내용    :
+***********************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{ 
+	var nCnt = this.tab_openList.getTabpageCount();
+	
+    for (var i=0; i<nCnt; i++) 
+    {
+        this.tab_openList.removeTabpage(0);
+    }
+}
+
+this.gfn_formAddList = function (arg_id, arg_title)
+{
+    var nIndex;
+	
+    nIndex = this.tab_openList.insertTabpage(arg_id,-1,"", " " + arg_title + " ");
+
+	if (nIndex >= 0) 
+    {
+        this.tab_openList.set_visible(true);
+           
+        this.tab_openList.style.set_color("");
+		this.tab_openList.style.set_buttonbackground("");
+    }    
+}
+
+this.tab_openList_onextrabuttonclick = function(obj:Tab, e:nexacro.TabMouseEventInfo)
+{
+	
+    var strFormId = this.tab_openList.tabpages[e.index].name;
+	
+	application.afrm_FrameSet.frames[strFormId].form.close();
+}
+
+this.formDelList = function (strId)
+{	
+    var bResult;
+
+    if (this.tab_openList.tabindex >= 0) 
+    {       
+        bResult = this.formPosition(strId);
+        
+        this.tab_openList.removeTabpage(bResult);
+    }
+}
+
+this.formPosition = function (strName,strOpen)
+{
+    var nCnt = this.tab_openList.getTabpageCount();
+
+    for (var i=0; i<nCnt; i++) 
+    {		
+        if (this.tab_openList.tabpages[i].name == strName) 
+        {
+			if(strOpen=="true"){
+				this.tab_openList.set_tabindex(i);
+			}
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
+this.tab_openList_onlbuttonup = function(obj:Tab, e:nexacro.TabMouseEventInfo)
+{
+	if(e.index == -1) return;
+	this._gfn_tapChange(obj,e.index);
+}
+
+this.tab_openList_onchanged = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{
+	this._gfn_tapChange(obj,e.postindex);
+}
+
+this._gfn_tapChange = function (obj,nIndex) 
+{
+
+	//선택 보더 컨트롤 
+	this.tab_openList.style.set_color("");
+	this.tab_openList.style.set_buttonbackground("");
+
+	var strFormId = obj.tabpages[nIndex].name;
+
+	if(strFormId != "tabpage_defalut") ////초기값제외하고
+	{
+		application.afrm_FrameSet[strFormId].form.setFocus();
+	}
+	
+	var form = application.afrm_FrameSet[strFormId].form.div_work;
+	this.formOnActivate(form);
+}
+
+
+/***********************************************************************************/
+this.btn_MDIOpen_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.afrm_VFrameSet0.set_separatesize("0,65,*");
+	this.btn_MDIClose.set_visible(true);
+	this.btn_MDIOpen.set_visible(false);
+}
+
+this.btn_MDIClose_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.afrm_VFrameSet0.set_separatesize("0,0,*");
+	this.btn_MDIClose.set_visible(false);
+	this.btn_MDIOpen.set_visible(true);
+}
+
+this.btn_closeAll_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.tab_openList.getTabpageCount() > 0){
+		var bFlag = confirm("현재창을 제외하고 종료하겠습니까?");
+		
+		if(!bFlag){
+			return;
+		}
+		
+		var strFormId;
+	
+		var nCnt = this.tab_openList.getTabpageCount()-1;
+		
+		var nIndex = this.tab_openList.tabindex;
+		var objFrameNm = this.tab_openList.tabpages[nIndex].name;
+		
+		for (var i=nCnt; i>=0; i--)
+		{			
+			strFormId = this.tab_openList.tabpages[i].name;
+						
+			if(objFrameNm == strFormId) continue;
+			
+			application.gds_openMenu.deleteRow(i);		
+			application.afrm_FrameSet[strFormId].form.close();			
+		}
+	}
+}
+
+this.btn_ctrMax_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nCnt         = this.tab_openList.getTabpageCount()-1;
+	var fv_strFormId = this.tab_openList.tabpages[nCnt].name;
+	application.afrm_FrameSet[fv_strFormId].set_openstatus("maximize");	
+}
+
+this.btn_ctrV_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.afrm_FrameSet.arrange("tilevertical");
+}
+
+this.btn_ctrH_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.afrm_FrameSet.arrange("tilehorizontal");
+}
+
+this.btn_ctrOut_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.afrm_FrameSet.arrange("cascade");
+}
+]]></Script>
+  </Form>
+</FDL>

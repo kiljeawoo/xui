@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="POPUP_RGN" classname="popup01" left="0" top="0" width="686" height="564" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="계약서최종서명 안내메일 내용 확인">
+    <Layouts>
+      <Layout>
+        <Button id="btn_close" taborder="15" top="0" width="29" height="32" cssclass="btn_WF_PopupClose" onclick="btn_cancel_onclick" right="0"/>
+        <Static id="Static06" taborder="16" text="계약서최종서명 안내메일 내용 확인" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+        <WebBrowser id="WebBrowser00" left="5" top="35" height="521" taborder="26" width="676"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_body" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_CNTN" type="STRING" size="4000"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.WebBrowser00.set_url(application.gv_serviceHtml_url + "escm/CTMail/ct_mail.html");
+	this.search();
+}
+
+
+/*조회*/
+this.search = function()
+{
+	var sSvcID        = "search";//통신아이디
+	var sURL          = "svc::rest/ct/eltctrw/retrieveEltCtrwMailList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_body=ds_body";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "search") {
+			var vHtml = this.WebBrowser00.getProperty("document").getProperty("body");
+			this.xmlData = this.ds_body.getColumn(0, "CTRW_CNTN");	
+			vHtml.setProperty( "innerHTML", this.xmlData );
+		}		
+	}
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close("N");
+}
+
+]]></Script>
+  </Form>
+</FDL>

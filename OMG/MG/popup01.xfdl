@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="1056" height="387" titletext="로그인테스트" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Div id="Div00" taborder="39" left="17" top="76" right="10" height="276" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="MB_ID" taborder="0" left="142" top="56" width="123" height="21" value="do000015"/>
+              <Edit id="MB_PW" taborder="1" left="142" top="103" width="123" height="21" value="doru2015"/>
+              <Button id="btn_login" taborder="2" text="로그인" cssclass="btn_WF_Popup" left="272" top="107" width="54" height="29" onclick="Div00_btn_login_onclick"/>
+              <Static id="Static00" taborder="3" left="46" top="55" width="120" height="21" text="아이디"/>
+              <Static id="Static01" taborder="4" text="비밀번호" left="46" top="105" width="120" height="21"/>
+              <Static id="로그인테스트" taborder="5" text="로그인테스트" left="23" top="10" width="167" height="33" onclick="Div00_Static02_onclick"/>
+              <Button id="btn_login00" taborder="6" text="메뉴목록조회" onclick="fn_getMenuList" cssclass="btn_WF_Popup" left="275" top="56" width="115" height="29"/>
+              <Grid id="Grid00" taborder="7" useinputpanel="false" left="10" top="155" width="1004" height="89" binddataset="ds_session">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="411"/>
+                      <Column size="133"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="userKey"/>
+                      <Cell col="1" text="glnCode"/>
+                      <Cell col="2" text="mbcoType"/>
+                      <Cell col="3" text="companyName"/>
+                      <Cell col="4" text="userName"/>
+                      <Cell col="5" text="commanyType"/>
+                      <Cell col="6" text="lastLoginDt"/>
+                      <Cell col="7" text="userType"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:userKey"/>
+                      <Cell col="1" text="bind:glnCode"/>
+                      <Cell col="2" text="bind:mbcoType"/>
+                      <Cell col="3" text="bind:companyName"/>
+                      <Cell col="4" text="bind:userName"/>
+                      <Cell col="5" text="bind:commanyType"/>
+                      <Cell col="6" text="bind:lastLoginDt"/>
+                      <Cell col="7" text="bind:userType"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_logout" taborder="8" text="로그아웃" cssclass="btn_WF_Popup" left="336" top="107" width="54" height="29" onclick="Div00_btn_logout_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_session" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <ConstColumn id="userKey" type="STRING" size="30" value=""/>
+          <ConstColumn id="glnCode" type="STRING" size="30" value=""/>
+          <ConstColumn id="mbcoType" type="STRING" size="30" value=""/>
+          <ConstColumn id="companyName" type="STRING" size="30" value=""/>
+          <ConstColumn id="userName" type="STRING" size="30" value=""/>
+          <ConstColumn id="commanyType" type="STRING" size="30" value=""/>
+          <ConstColumn id="lastLoginDt" type="STRING" size="30" value=""/>
+          <ConstColumn id="userType" type="STRING" size="30" value=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+
+       
+}
+
+
+this.Div00_btn_login_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var id = this.Div00.MB_ID.value;
+	var pw = this.Div00.MB_PW.value;
+
+		var sParams = 
+					"userKey="+application.gv_userId  
+					//+" MB_ID="+this.Div00.MB_ID.value
+					//+" MB_PW="+this.Div00.MB_PW.value
+					+" MB_ID=do000015 MB_PW=doru2015"
+					//+" MB_ID=do000015 MB_PW=doru2017"
+				   ;
+		
+					
+					
+		var sSvcID        = "retrieveSession";		
+		var sURL          = "svc::rest/pt/retrieveSession";	
+		var sInDatasets   = "";
+		var sOutDatasets  = "ds_session=ds_session";	
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회			
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+ }
+ 
+
+ 
+ 
+  /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	//저장시 사용되는 ds초기화	
+	trace(this.ds_session.saveXML());
+	
+	if(ErrorCode < 0){
+		if(svcID="retrieveSession" && ErrorCode == -2){
+			this.gfn_getMessage("alert", "error.message.2001.badCredentials");
+			return;
+		}		
+	}else{
+		this.gfn_getMessage("alert", "result.message.save.success");		
+	}	
+}
+
+/*메뉴목록*/
+this.fn_getMenuList = function(){
+	
+		alert(this.ds_session.getColumn(0,"glnCode"));
+		var sParams = 
+					"userKey="+this.ds_session.getColumn(0,"userKey")
+					+" glnCode="+this.ds_session.getColumn(0,"glnCode")					
+				   ;
+		
+		var sSvcID        = "retrieveMenuList";		
+		var sURL          = "svc::rest/mg/retrieveMenuList";	
+		var sInDatasets   = "";
+		var sOutDatasets  = "ds_menu=ds_menu";	
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회			
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+ 
+
+
+this.Div00_btn_logout_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//alert(application.gv_userId);
+	var sParams = "userKey="+this.ds_session.getColumn(0,"userKey");
+					
+					
+		var sSvcID        = "logout";		
+		var sURL          = "svc::rest/pt/logout?"+sParams;	
+		var sInDatasets   = "";
+		var sOutDatasets  = "";	
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회			
+		alert(sParams);
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+]]></Script>
+  </Form>
+</FDL>

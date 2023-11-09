@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_1111_1" classname="OMG_DS_SC_3212" left="0" top="0" width="456" height="382" titletext="주소조회확인" onload="OMG_DS_SC_1111_1_onload" style="border:2 solid #067394ff ;" visible="true">
+    <Layouts>
+      <Layout>
+        <Static id="btn_newTop" taborder="14" cssclass="sta_WF_Menulist" left="0" top="0" width="456" height="30"/>
+        <Button id="btn_newClose" taborder="15" cssclass="btn_WF_PopupClose" left="416" top="0" width="37" height="30" onclick="btn_newClose_onclick"/>
+        <Button id="btn_zipSearch" taborder="17" onclick="btn_zipSearch_onclick" cssclass="btn_WFSA_Searchbtn" top="47" right="15" width="58" height="21"/>
+        <Div id="div_search" taborder="18" left="17" top="76" right="17" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="edt_search" taborder="0" left="15" top="10" width="390" height="21" value="홍제동"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_zip" taborder="19" binddataset="ds_zip" useinputpanel="false" left="17" top="134" right="17" height="163" autofittype="col" oncellclick="grd_zip_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="37"/>
+                <Column size="77"/>
+                <Column size="74"/>
+                <Column size="124"/>
+                <Column size="106"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="normal"/>
+                <Cell col="1" text="시도명"/>
+                <Cell col="2" text="시군구명"/>
+                <Cell col="3" text="법정동명"/>
+                <Cell col="4" text="우편번호"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" text="bind:PROVNM"/>
+                <Cell col="2" text="bind:CCWNM"/>
+                <Cell col="3" text="bind:LWDGNM"/>
+                <Cell col="4" text="bind:ZIP"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_confirm" taborder="20" text="확인" cssclass="btn_WF_Popup" left="329" top="336" width="54" height="29" onclick="btn_confirm_onclick"/>
+        <Button id="btn_cancel" taborder="21" text="취소" onclick="btn_cancel_onclick" cssclass="btn_WF_Popup" left="385" top="336" width="54" height="29"/>
+        <Div id="div_paging" taborder="22" url="common::pagingBTN.xfdl" text="Div03" left="59" width="338" height="29" visible="false" top="297"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_zip" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="ZIP" type="STRING" size="256"/>
+          <Column id="POST_SQNO" type="STRING" size="256"/>
+          <Column id="PROVNM" type="STRING" size="256"/>
+          <Column id="CCWNM" type="STRING" size="256"/>
+          <Column id="TTVNM" type="STRING" size="256"/>
+          <Column id="RODNM_C" type="STRING" size="256"/>
+          <Column id="RODNM" type="STRING" size="256"/>
+          <Column id="BLD_NO_MHZNO" type="STRING" size="256"/>
+          <Column id="BLD_NO_SHZNO" type="STRING" size="256"/>
+          <Column id="CCWN_BLDNM" type="STRING" size="256"/>
+          <Column id="LWDG_C" type="STRING" size="256"/>
+          <Column id="LWDGNM" type="STRING" size="256"/>
+          <Column id="LTNO_MHZNO" type="STRING" size="256"/>
+          <Column id="LTNO_SHZNO" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TOTAL_ROW_COUNT">13</Col>
+            <Col id="PAGE_SIZE">10</Col>
+            <Col id="CURRENT_PAGE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+this.OMG_DS_SC_1111_1_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.btn_zipSearch_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+
+}
+
+this.fn_zipSearch =  function()
+{
+	
+	if(this.fn_validationCheck()){
+		
+		edtSearch = this.div_search.edt_search.value;  //조회주소
+		
+		
+		param = " edt_zip="+edtSearch;
+		
+		
+		trace("sssssssssss   :   "+ param);
+				
+		var sSvcID        = "search";//통신아이디
+		var sURL          = "svc::rest/bt/apply/retrieveZipList";// 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+		var sOutDatasets  = "ds_zip=ds_zip ds_pageVO=ds_pageVO";		//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+
+	if(this.gfn_isNull(this.div_search.edt_search.value)){
+		this.div_search.edt_search.setFocus();
+		this.alert('조회할 주소 값을 입력 하세요.');
+		return false;
+	}
+	return true;
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "search"){
+			
+			
+// 			this.ds_copy.copyData(this.ds_bbs);
+// 				this.ds_copy.clearData();
+				
+				if(this.ds_zip.rowcount > 0)
+				{ 
+					var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+					var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+								
+					this.div_paging.fn_pageSet(sTotal, sPagesize,"div_paging",lsNowPage);	
+			
+				}else if(this.ds_zip.rowcount == 0){
+					//this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+					alert("조회된 건수가 없습니다");
+					return false;
+				}
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+	}
+	
+	//trace(this.ds_zip.saveXML());
+	/*
+	var conf = application.confirm("신청자 "+ this.edt_chrr.value +" 님의 신청내역이 있습니다. 조회 화면으로 이동 하시겠습니까?");
+	if(conf == true){
+		//this.parent.go("OMG.BT::OMG_DS_SC_3211.xfdl");
+		this.fn_openRequestSum();
+		
+		return true;
+	}else{
+		return false;
+	}
+	*/
+}
+/*
+this.fn_openRequestSum = function()
+{
+	" mae_bzno="+maeBzno;
+	" edt_chrr="+edtChrr;
+	" chrr_hp="+chrr_hp;
+	
+	var oArg = {paramMode:"S", dsArg:this.ds_new, mae_bzno:maeBzno, edt_chrr:edtChrr, chrr_hp:chrr_hp};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";       
+	this.gfn_openPopup("popIdCheck","OMG.BT::OMG_DS_SC_3211.xfdl",oArg,sOption,sPopupCallBack);
+}
+*/
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+this.fn_afterFormOnload = function()
+{
+	trace("fn_afterFormOnload");
+}
+
+this.btn_newClose_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.parent.div_addr.set_visible(false);
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.parent.div_addr.set_visible(false);
+}
+
+this.grd_zip_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell==0){
+		this.gfn_singleChk(obj,e);	
+	}
+}
+
+this.btn_confirm_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var zipCode;
+	if(this.ds_zip.rowcount > 0){
+		for(var i = 0; i < this.ds_zip.rowcount; i++){
+			if(this.ds_zip.getColumn(i, "ISCHECKED") == 1)
+			{
+				zipCode = this.ds_zip.getColumn(i,"ZIP");
+				var addr1 = this.ds_zip.getColumn(i,"PROVNM");
+				var addr2 = this.ds_zip.getColumn(i,"CCWNM");
+				var addr3 = this.ds_zip.getColumn(i,"LWDGNM");
+				var addr4 = this.ds_zip.getColumn(i,"LTNO_MHZNO");
+				var addr5 = this.ds_zip.getColumn(i,"LTNO_SHZNO");
+					
+				this.fn_zipCode(zipCode, this.parent.edt_fZip, this.parent.edt_rZip);
+				this.parent.edt_dongUp.set_value(addr1 + " " + addr2 + " " + addr3);
+				this.parent.edt_dongBw.set_value(addr4 + " " + addr5);
+			}
+		}
+		if(this.gfn_isNull(zipCode)){
+			alert("입력할 주소를 체크 하세요");
+			return false;
+		}
+	}else
+	{
+		alert("주소를 조회 하세요");
+		return false;
+	}
+	
+	
+	this.parent.div_addr.set_visible(false);
+}
+
+//주소 변경
+this.fn_zipCode = function(strZipCode, strVal1, strVal2){
+		if(strZipCode.length == 6){
+
+			strVal1.set_value(strZipCode.substr(0,3));
+			strVal2.set_value(strZipCode.substr(3,5));
+		}
+
+}
+
+
+/************************************************************************************************
+ * 페이징처리
+************************************************************************************************/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_zip.clearData();     //Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = 10; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 0; 	//전체건수. 화면조회후 리턴받아 사용
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);	 
+	 
+	var argumentObj = "";
+		
+	lsNowPage = vPageNum;//현재페이지 설정 
+	
+	this.fn_zipSearch();
+ 
+}
+]]></Script>
+  </Form>
+</FDL>

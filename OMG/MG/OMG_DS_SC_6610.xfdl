@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6610" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="고객응대정보" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="1" url="common::location.xfdl" text="Div01" left="0" top="0" width="49.44%" height="21"/>
+        <Static id="Static04" taborder="2" text="15" visible="false" left="788" top="0" width="1.87%" height="490" style="background:#00ffffb5;"/>
+        <Div id="div_list" taborder="5" text="Div02" left="0" top="71" bottom="0" width="98.13%" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_result" taborder="8" useinputpanel="false" autofittype="col" left="0" top="42" bottom="7" width="100%" cellsizingtype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="91"/>
+                      <Column size="74"/>
+                      <Column size="96"/>
+                      <Column size="69"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="69"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="59"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="24" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="등록일자"/>
+                      <Cell col="1" rowspan="2" text="완료일자"/>
+                      <Cell col="2" rowspan="2" text="문의내용"/>
+                      <Cell col="3" rowspan="2" text="조치내용"/>
+                      <Cell col="4" rowspan="2" text="문의자"/>
+                      <Cell col="5" rowspan="2" text="연락처"/>
+                      <Cell col="6" colspan="3" text="처리중"/>
+                      <Cell col="9" colspan="3" text="처리완료"/>
+                      <Cell col="12" rowspan="2" text="최종&#13;&#10;처리상태"/>
+                      <Cell row="1" col="6" text="응대자"/>
+                      <Cell row="1" col="7" text="시작"/>
+                      <Cell row="1" col="8" text="종료"/>
+                      <Cell row="1" col="9" text="응대자"/>
+                      <Cell row="1" col="10" text="시작"/>
+                      <Cell row="1" col="11" text="종료"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell mask="####-##-##"/>
+                      <Cell col="1" style="align:right;" mask="####-##-##"/>
+                      <Cell col="2" style="align:right;" text="bind:QTY"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                      <Cell col="6"/>
+                      <Cell col="7" mask="##:##"/>
+                      <Cell col="8" mask="##:##"/>
+                      <Cell col="9"/>
+                      <Cell col="10" mask="##:##"/>
+                      <Cell col="11" mask="##:##"/>
+                      <Cell col="12"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_toggle00" taborder="9" onclick="div_list_btn_toggle00_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" width="62" height="12"/>
+            </Layout>
+          </Layouts>
+          <InitValue/>
+        </Div>
+        <Button id="btn_search00" taborder="6" onclick="search" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="57" height="21"/>
+        <Div id="div_search" taborder="7" left="0" top="29" width="98.13%" height="43" scrollbars="none" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_searchType" taborder="37" text="등록일자" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="77"/>
+              <Calendar id="cal_to" taborder="38" dateformat="yyyy-MM-dd" left="204" top="10" height="21" width="99"/>
+              <Static id="Static08" taborder="39" text="~" left="194" top="10" height="21" width="9"/>
+              <Calendar id="cal_from" taborder="40" dateformat="yyyy-MM-dd" left="94" top="10" height="21" width="99"/>
+              <Static id="sta_status" taborder="41" text="처리상태" cssclass="sta_WFSA_Label" left="334" top="10" height="21" index="0" width="77"/>
+              <Combo id="cbo_satus" taborder="43" value="0" text="전체" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="cbo_svc_onitemchanged" left="413" top="10" height="21" width="99">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">처리중</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">처리완료</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="cbo_status00" taborder="44" text="응대자" cssclass="sta_WFSA_Label" left="543" top="10" height="21" index="0" width="77"/>
+              <Combo id="cbo_rspId" taborder="45" value="0" text="전체" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="cbo_svc_onitemchanged" left="622" top="10" height="21" width="99">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">처리중</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">처리완료</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분   
+   /*초기값세팅*/   
+   
+   /*조회 호출*/
+   this.btn_search.click();  
+}
+ 
+ 
+ /*조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+ /*Paging 처리*/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();
+	this.ds_mb.clearData();     //Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = this.div_search.cbo_pageNum.value; //Grid에 보여줄 Row수 선택
+	var vTotalCount = 0;	//전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	this.fn_retrieveMbInqList();
+} 
+
+/*조회-서비스 Call*/ 
+this.fn_retrieveMbInqList = function()
+{
+	var sParams = "MB_ID="+this.gfn_nullToEmpty(this.div_search.edt_MB_ID.value)
+				+ " USR_NM="+this.gfn_nullToEmpty(this.div_search.edt_USR_NM.value)
+				+ " PAY_STS_C="+this.gfn_nullToEmpty(this.div_search.cbo_PAY_STS_C.value)
+				+ " NA_TRPL_C="+this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value)
+				+ " CLNTNM="+this.gfn_nullToEmpty(this.div_search.edt_CLNTNM.value)
+				+ " PRC_STSC="+this.gfn_nullToEmpty(this.div_search.cbo_PRC_STSC.value)
+				;
+	
+	var sSvcID        = "mbList";
+	var sURL          ="svc::rest/mg/mbcslt/retrieveMbInqList";	
+	 
+	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_mb=ds_mb ds_pageVO=ds_pageVO" ;	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{	
+	this.btn_search.click();  
+}
+
+
+ /*체크박스선택시 이벤트*/
+this.Div02_Grid01_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0,"PAGE_SIZE");
+	var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	this.ds_mb.addColumn("CHK", "string");
+	this.ds_mb.addColumn("NUMBER", "string");
+	
+	for(var i = 0 ; i < this.ds_mb.rowcount; i++)
+	{
+		this.ds_mb.setColumn(i,"CHK",0);
+	 	//this.ds_mb.setColumn(i,"NUMBER",(current_page-1)*(page_size)+(i+1));
+		this.ds_mb.setColumn(i,"NUMBER",sTotal - (current_page-1) * page_size - i);
+	}
+	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "mbList"){			
+	 		if(this.ds_mb.rowcount > 0)
+				{ 		
+					this.div_list.div_paging.fn_pageSet(sTotal, page_size,"div_paging",current_page);	
+				}	
+	 		else if(this.ds_mb.rowcount == 0){
+	 			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 			this.div_list.div_paging.fn_pageSet(0, 0,"div_paging",current_page);
+	 		}
+		}else{
+			if(this.ds_mb.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		}
+		this.resetScroll();	
+	}	
+}
+ 
+
+this.btn_MB_INF_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+	var position =0 ;	//선택된 체크박스 위치
+	for(var i = 0 ; i < this.ds_mb.rowcount; i++){		
+		if(this.ds_mb.getColumn(i, "CHK") =="1"){
+			checkCnt = checkCnt +1;			
+			position = i;
+		}
+	}
+
+	if(checkCnt > 1){
+		alert("하나만 선택해주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	}else if(checkCnt == 0){
+		alert("회원정보를 보기 위한 회원을 선택해 주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	}else{
+		var mb_id = this.ds_mb.getColumn(this.ds_mb.rowposition, "MB_ID");
+		alert("MB_ID=" + mb_id);
+		var oArg = {paramMode:"U", dsArg:this.ds_mb, MB_ID:mb_id};
+		var sOption = "autosize=true,title=true";
+		var sPopupCallBack = "fn_popupAfter";       
+		//this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_6511.xfdl",oArg,sOption,sPopupCallBack);
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

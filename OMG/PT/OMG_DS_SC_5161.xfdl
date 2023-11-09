@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5161" classname="popup01" left="0" top="0" width="767" height="253" titletext="회원권한등록/수정" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static08" taborder="14" cssclass="sta_WF_Labelbg" left="126" top="76" right="17" height="29"/>
+        <Static id="upper_level1" taborder="15" cssclass="sta_WF_Labelbg" left="126" top="132" right="17" height="58"/>
+        <Button id="btn_close" taborder="10" text="닫기" cssclass="btn_WF_CRUD" top="47" right="13" width="41" height="21" onclick="btn_close_onclick"/>
+        <Static id="text_title" taborder="11" cssclass="sta_WF_Subtitle" left="17" top="51" width="135" height="21" text="회원권한등록/수정"/>
+        <Static id="Static07" taborder="13" text="메뉴 선택" cssclass="sta_WF_Label" left="17" top="132" height="58" width="110" onclick="Static07_onclick"/>
+        <Static id="Static00" taborder="70" text="17" visible="false" left="750" top="76" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="71" text="15" visible="false" left="673" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="72" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="73" text="8" visible="false" left="674" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="74" text="회원권한관리" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32" onclick="Static06_onclick"/>
+        <Button id="brn_cls" taborder="75" cssclass="btn_WF_PopupClose" left="729" top="0" width="37" height="32" onclick="btn_close_onclick"/>
+        <Button id="btn_save" taborder="95" text="저장" cssclass="btn_WF_CRUD" top="47" right="55" width="43" height="21" onclick="btn_save_onclick"/>
+        <Edit id="edt_mbId" taborder="106" left="130" top="80" height="21" width="186" visible="true" oneditclick="edt_simpTpc_oneditclick"/>
+        <Static id="Static04" taborder="127" text="회원ID" cssclass="sta_WF_Label" left="17" top="76" height="29" width="110"/>
+        <Edit id="edt_menuId" taborder="128" left="130" top="164" height="21" width="186" oneditclick="edt_simpC_oneditclick" readonly="true"/>
+        <Button id="btn_dupCheck" taborder="131" text="중복확인" onclick="fn_dupCheck" left="326" top="164" height="21" width="65" visible="true"/>
+        <Static id="Static02" taborder="138" text="사용여부" cssclass="sta_WF_Label" left="17" top="189" height="29" width="110"/>
+        <Static id="Static10" taborder="139" cssclass="sta_WF_Labelbg" left="126" top="189" right="17" height="29"/>
+        <Radio id="rdo_useYn" taborder="140" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="Y" direction="vertical" onitemclick="Radio00_onitemclick" left="130" top="193" height="21" width="158">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">사용안함</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Combo id="cbo_level0" taborder="141" text="대메뉴" left="130" top="137" width="185" height="21" innerdataset="@ds_menu0" codecolumn="MENU_ID" datacolumn="MENU_NM" onitemchanged="cbo_level0_onitemchanged" enable="false"/>
+        <Combo id="cbo_level1" taborder="142" text="중메뉴" left="326" top="137" width="185" height="21" innerdataset="@ds_menu1" codecolumn="MENU_ID" datacolumn="MENU_NM" onitemchanged="cbo_level1_onitemchanged" enable="false"/>
+        <Combo id="cbo_level2" taborder="143" text="소메뉴" left="522" top="137" width="185" height="21" innerdataset="@ds_menu2" codecolumn="MENU_ID" datacolumn="MENU_NM" onitemchanged="cbo_level2_onitemchanged" enable="false"/>
+        <Static id="sta_menupath" taborder="155" left="130" top="137" width="553" height="21" visible="false"/>
+        <Static id="Static01" taborder="157" text="사용자 여부" onclick="Static07_onclick" cssclass="sta_WF_Label" left="17" top="104" width="110" height="29"/>
+        <Static id="upper_level00" taborder="158" cssclass="sta_WF_Labelbg" left="126" top="104" right="17" height="29"/>
+        <Radio id="rdo_useradmin" taborder="159" columncount="-1" rowcount="-1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemchanged="rdo_useradmin_onitemchanged" left="130" top="104" width="159" height="29" style="textpadding:0 20 0 8;">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">사용자</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">관리자</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static19" taborder="160" text="사용자 유형" cssclass="sta_WF_Label" left="282" top="104" width="91" height="29"/>
+        <Radio id="rdo_usrTpc" taborder="161" columncount="-1" rowcount="-1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemchanged="rdo_usrTpc_onitemchanged" left="377" top="104" width="386" height="29" style="textpadding:0 20 0 8;">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">01</Col>
+                <Col id="datacolumn">협력업체</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">02</Col>
+                <Col id="datacolumn">본부</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">03</Col>
+                <Col id="datacolumn">하나로마트</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">04</Col>
+                <Col id="datacolumn">세금계산서전용</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_in" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="string" size="32"/>
+          <Column id="MB_ID" type="string" size="16"/>
+          <Column id="MENU_ID" type="string" size="8"/>
+          <Column id="MENU_NM" type="string" size="50"/>
+          <Column id="MENU_PATH" type="STRING" size="100"/>
+          <Column id="UYN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_authCheck" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="AUTH_CHECK" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_finalValue" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="FINAL_MB_ID" type="STRING" size="16"/>
+          <Column id="FINAL_MENU_ID" type="STRING" size="8"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_clickDupBtn" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CLICK_DUP_BTN" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_in_backup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="string" size="32"/>
+          <Column id="MB_ID" type="string" size="16"/>
+          <Column id="MENU_ID" type="string" size="8"/>
+          <Column id="MENU_NM" type="string" size="50"/>
+          <Column id="MENU_PATH" type="STRING" size="100"/>
+          <Column id="UYN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_menu0" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_ID">0</Col>
+            <Col id="MENU_NM">대메뉴</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_menu1" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_ID">0</Col>
+            <Col id="MENU_NM">중메뉴</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_menu2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_ID">0</Col>
+            <Col id="MENU_NM">소메뉴</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_mbId" propid="value" datasetid="ds_in" columnid="MB_ID"/>
+      <BindItem id="item1" compid="edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item4" compid="edt_simpTpc00" propid="value" datasetid="ds_in" columnid="SIMP_TPC"/>
+      <BindItem id="item8" compid="rdo_useYn" propid="value" datasetid="ds_in" columnid="UYN"/>
+      <BindItem id="item3" compid="sta_menupath" propid="text" datasetid="ds_in" columnid="MENU_PATH"/>
+    </Bind>
+    <InitValue>
+      <Radio id="rdo_usrTpc" enable="false"/>
+    </InitValue>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+   this.gfn_setInitForm(obj, e);
+}
+
+this.fn_afterFormOnload = function() //페이지 로딩후 실행부분
+{
+	var fv_paramMode = this.getOwnerFrame().paramMode;
+
+	//중복체크 초기값세팅
+	this.ds_clickDupBtn.setColumn(0,"CLICK_DUP_BTN","N"); // 중복체크의 수행여부 판별
+	this.ds_authCheck.setColumn(0,"AUTH_CHECK","N"); // 중복체크 결과 초기 셋팅
+
+	this.rdo_useYn.set_index(0);
+
+	// 체크박스로 선택된 row의 수정업데이트  모드일 경우 실행
+	if(fv_paramMode == "U"){
+		this.edt_mbId.set_readonly(true);
+		this.edt_menuId.set_readonly(true);
+		this.rdo_useradmin.set_enable(false);
+		this.sta_menupath.set_visible(true);
+		this.btn_dupCheck.set_visible(false);
+		this.cbo_level0.set_visible(false);
+		this.cbo_level1.set_visible(false);
+		this.cbo_level2.set_visible(false);
+		
+		this.search();
+        }
+	// 새로운 row를 추가등록할 경우 실행
+	else if(fv_paramMode == "I"){
+		}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+/*저장 버튼 이벤트*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.getOwnerFrame().paramMode== "I"){ //추가등록
+		this.insert();
+	}else if(this.getOwnerFrame().paramMode== "U"){	 //수정업데이트
+	    this.update();
+	}
+}
+
+/*창닫기 버튼 이벤트*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/*중복확인 버튼 이벤트*/
+this.fn_dupCheck = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_isNull(this.edt_mbId.value)){
+		this.alert('회원ID를 입력바랍니다.');
+		this.edt_mbId.setFocus();
+		return false;
+	}
+
+	if(this.gfn_isNull(this.edt_menuId.value)){
+		this.alert('메뉴를 선택해주시기 바랍니다.');
+		this.edt_menuId.setFocus();
+		return false;
+	}
+
+	this.ds_clickDupBtn.setColumn(0,"CLICK_DUP_BTN","Y");
+
+	var sParams = "mb_id="+this.gfn_nullToEmpty(this.edt_mbId.value)
+				+ " menu_id="+this.gfn_nullToEmpty(this.edt_menuId.value);
+	var sSvcID        = "dupCheck";
+	var sURL          = "svc::rest/pt/dupCheckMemberAuth";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_authCheck=ds_authCheck";
+	var sArgument     =  sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/* 등록 및 수정시 사용되는 Validation Check */
+this.fn_validationCheck = function(){
+
+	var mbId = this.edt_mbId.value;
+	var menuId = this.edt_menuId.value;
+
+	//유형코드와 단순코드는 필수값이다.
+	if(this.gfn_isNull(this.edt_mbId.value)){
+		this.alert('회원ID를 입력바랍니다.');
+		this.edt_mbId.setFocus();
+		return false;
+	}
+	if(this.gfn_isNull(this.edt_menuId.value)){
+		this.alert('메뉴를 선택해주시기 바랍니다.');
+		this.edt_menuId.setFocus();
+		return false;
+	}
+
+    /*등록시 validation check*/
+	if(this.getOwnerFrame().paramMode== "I"){
+		//중복확인을 하지 않고 저장하면 중복확인이 필수인 것을 알린다.
+		if(this.ds_clickDupBtn.getColumn(0,"CLICK_DUP_BTN") == "N"){
+			alert("중복확인을 해주시기 바랍니다.");
+			return;
+		}
+		//중복확인을 한 후 단순코드, 유형코드를 변경하면 아래와 같이 처리한다.
+		if(this.ds_finalValue.getColumn(0, "FINAL_MB_ID") != mbId || this.ds_finalValue.getColumn(0, "FINAL_MENU_ID") != menuId){
+			alert("입력정보가 변경되었습니다. 다시 한 번 중복확인을 해주시기 바랍니다.");
+			this.ds_clickDupBtn.setColumn(0,"CLICK_DUP_BTN","N");
+			return;
+		}
+	}
+
+    return true;
+}
+
+/*  사용자 여부에 따른 사용자 유형 선택 */
+this.rdo_useradmin_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	this.cbo_level0.set_value("0");
+	this.cbo_level0.set_enable(false);
+	this.cbo_level1.set_index(0);
+	this.cbo_level2.set_index(0);
+	this.cbo_level1.set_enable(false);
+	this.cbo_level2.set_enable(false);
+	this.edt_menuId.set_value("");
+	if(this.rdo_useradmin.value == "N"){
+		this.rdo_usrTpc.set_enable(true);
+	} else if(this.rdo_useradmin.value == "Y"){
+		this.rdo_usrTpc.set_enable(false);
+		this.rdo_usrTpc.set_value("");
+		this.fn_getUpperCommonCombo(0);
+	}
+}
+
+/*  사용자 유형 선택 */
+this.rdo_usrTpc_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	this.cbo_level0.set_value("0");
+	this.cbo_level1.set_index(0);
+	this.cbo_level2.set_index(0);
+	this.cbo_level1.set_enable(false);
+	this.cbo_level2.set_enable(false);
+	this.edt_menuId.set_value("");
+	this.fn_getUpperCommonCombo(0);
+}
+
+/*중메뉴 선택시 대메뉴 나와야 함  sMenuLvl값 0 */
+this.fn_getUpperCommonCombo = function(sMenuLvl, upperId){	
+	var codeKey = "ds_menu"+sMenuLvl;
+	var sParam 		  = "codeKey="+codeKey+" menu_lvl="+sMenuLvl
+						+" usr_tpc="+this.gfn_nullToEmpty(this.rdo_usrTpc.value)
+						+" isadmin="+this.gfn_nullToEmpty(this.rdo_useradmin.value);
+	
+	if (!this.gfn_isNull(upperId)) {
+		sParam += " upperId="+upperId;
+	}
+
+	var sSvcID        = "combo"+sMenuLvl;
+	var sURL          = "svc::rest/mg/getMenuCombo";
+	var sInDatasets   = "";
+	var sOutDatasets  = codeKey+"="+codeKey;
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 대메뉴 선택 */
+this.cbo_level0_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.cbo_level1.set_index(0);
+	this.cbo_level2.set_index(0);
+	this.cbo_level1.set_enable(false);
+	this.cbo_level2.set_enable(false);
+	this.edt_menuId.set_value("");
+	if(this.cbo_level0.value !="0"){
+		var upperId = this.ds_menu0.getColumn(e.postindex, "MENU_ID");
+		this.fn_getUpperCommonCombo(1, upperId);
+	}
+}
+
+/* 중메뉴 선택 */
+this.cbo_level1_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.cbo_level2.set_index(0);
+	this.cbo_level2.set_enable(false);
+	this.edt_menuId.set_value("");
+	if(this.cbo_level1.value !="0"){
+		var upperId = this.ds_menu1.getColumn(e.postindex, "MENU_ID");
+		this.fn_getUpperCommonCombo(2, upperId);
+	}
+}
+
+/* 소메뉴 선택 */
+this.cbo_level2_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if (e.postindex == 0) {
+		this.edt_menuId.set_value("");
+		return;
+	}
+	var menuId = this.ds_menu2.getColumn(e.postindex, "MENU_ID");
+	this.edt_menuId.set_value(menuId);
+}
+
+/*추가등록*/
+this.insert = function()
+{
+	if(this.fn_validationCheck()){
+
+		var sParams = "mb_id="+this.gfn_nullToEmpty(this.edt_mbId.value)
+				+ " menu_id="+this.gfn_nullToEmpty(this.edt_menuId.value)
+                + " use_yn="+this.gfn_nullToEmpty(this.rdo_useYn.value);
+
+		var sSvcID        = "insert";
+		var sURL          = "svc::rest/pt/insertMemberAuth";
+
+		var sInDatasets   = "";
+		var sOutDatasets  = "";
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+ /*공통코드조회 화면에서 체크박스 선택 후 수정버튼 클릭시 해당 row 정보 조회*/
+this.search = function()
+{
+	var ds_parent = this.parent.dsArg;
+	this.ds_in.copyRow(0,ds_parent,0);
+	this.ds_in_backup.copyRow(0,ds_parent,0);
+}
+
+/*수정*/
+this.update = function()
+{
+	if(this.fn_validationCheck()){
+
+		var sParams = "use_yn="+this.gfn_nullToEmpty(this.rdo_useYn.value);
+
+		var sSvcID        = "update";
+		var sURL          = "svc::rest/pt/updateMemberAuth";
+		var sInDatasets   = "ds_in=ds_in";
+		var sOutDatasets  = "";
+		var sArgument     = sParams;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	if(ErrorCode < 0){
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID =="insert"){
+			if(ErrorCode == 1){
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.close();
+			}
+		}else if(svcID=="update"){
+			if(ErrorCode == 1){
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.close();
+				}
+		}else if(svcID =="dupCheck"){
+			if(this.ds_authCheck.getColumn(0, "AUTH_CHECK") == "Y"){
+				alert("동일한 회원 권한이 존재 합니다.");
+				this.ds_clickDupBtn.setColumn(0,"CLICK_DUP_BTN","N");
+				return;
+			}else if(this.ds_authCheck.getColumn(0, "AUTH_CHECK") == "N"){
+				alert("등록가능한 권한입니다.");
+				// 중복검사 결과가 유효하다면 해당 값을 final value에 저장.
+				this.ds_finalValue.setColumn(0,"FINAL_MB_ID",this.edt_mbId.value);
+				this.ds_finalValue.setColumn(0,"FINAL_MENU_ID",this.edt_menuId.value);
+			}else{
+				alert("정해지지 않은 값입니다.");
+				return;
+			}
+		}else if(svcID=="combo0") {
+			this.ds_menu0.insertRow(0);
+			this.ds_menu0.setColumn(0,"MENU_ID","0");
+			this.ds_menu0.setColumn(0,"MENU_NM","대메뉴");
+			this.cbo_level0.set_enable(true);
+		}else if(svcID=="combo1") {
+			this.ds_menu1.insertRow(0);
+			this.ds_menu1.setColumn(0,"MENU_ID","0");
+			this.ds_menu1.setColumn(0,"MENU_NM","중메뉴");
+			this.cbo_level1.set_enable(true);
+		}else if(svcID=="combo2") {
+			this.ds_menu2.insertRow(0);
+			this.ds_menu2.setColumn(0,"MENU_ID","0");
+			this.ds_menu2.setColumn(0,"MENU_NM","소메뉴");
+			this.cbo_level2.set_enable(true);
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

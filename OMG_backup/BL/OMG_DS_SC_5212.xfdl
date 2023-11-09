@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5212" classname="pattern_01" left="0" top="0" width="730" height="520" titletext="이용료청구내역" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static91" taborder="7" cssclass="sta_WF_Labelbg" left="11" top="20" height="29" width="705"/>
+        <Static id="Static101" taborder="10" cssclass="sta_WF_Labelbg" left="11" top="48" height="29" width="705"/>
+        <Static id="Static98" taborder="11" cssclass="sta_WF_Labelbg" left="11" top="76" height="29" width="705"/>
+        <Static id="Static92" taborder="14" text="사업장코드" cssclass="sta_WF_Label" left="11" top="20" height="29" width="110"/>
+        <Static id="Static94" taborder="15" text="대납업체수" cssclass="sta_WF_Label" left="11" top="48" height="29" width="110"/>
+        <Static id="Static93" taborder="19" text="사업장명" cssclass="sta_WF_Label" left="363" top="20" height="29" width="110"/>
+        <Edit id="edt_NA_TRPL_C" taborder="23" readonly="true" maxlength="5" left="124" top="24" height="21" width="236"/>
+        <Edit id="edt_CLNTNM" taborder="24" readonly="true" maxlength="13" left="476" top="24" height="21" width="236"/>
+        <Static id="Static29" taborder="117" text="20" visible="false" left="1.51%" top="133" right="-20.68%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static40" taborder="138" text="20" visible="false" left="1.51%" style="background:#dc143c5b;" width="719" bottom="0" height="20"/>
+        <Grid id="Grid00" taborder="148" useinputpanel="false" left="11" top="153" autofittype="col" binddataset="ds_result" useselcolor="false" readonly="true" bottom="20" width="705">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="130"/>
+                <Column size="130"/>
+                <Column size="130"/>
+                <Column size="130"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="서비스종류"/>
+                <Cell col="1" text="요금항목"/>
+                <Cell col="2" text="사용량"/>
+                <Cell col="3" text="금액(원)"/>
+              </Band>
+              <Band id="body">
+                <Cell rowspan="2" text="기본료"/>
+                <Cell col="1" text="기본료"/>
+                <Cell col="2"/>
+                <Cell col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:BASIC_RATE_SUM"/>
+                <Cell row="1" col="1" text="XML/EDI"/>
+                <Cell row="1" col="2"/>
+                <Cell row="1" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:XMLEDI_BASIC_RATE_SUM"/>
+                <Cell row="2" text="SCM업무"/>
+                <Cell row="2" col="1" text="EDI서비스"/>
+                <Cell row="2" col="2" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:EDI_UGQT_SUM"/>
+                <Cell row="2" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:EDI_UG_AM_SUM"/>
+                <Cell row="3" text="부가정보"/>
+                <Cell row="3" col="1" text="부가정보"/>
+                <Cell row="3" col="2" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:ADINF_UGQT_SUM"/>
+                <Cell row="3" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:ADINF_UG_AM_SUM"/>
+                <Cell row="4" rowspan="5" text="정보분석"/>
+                <Cell row="4" col="1" text="BI조회"/>
+                <Cell row="4" col="2"/>
+                <Cell row="4" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:IA_BI_UG_AM_SUM"/>
+                <Cell row="5" col="1" text="추이분석"/>
+                <Cell row="5" col="2"/>
+                <Cell row="5" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:IA_PG_UG_AM_SUM"/>
+                <Cell row="6" col="1" text="시장분석(자사)"/>
+                <Cell row="6" col="2"/>
+                <Cell row="6" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:IA_MA_UG_AM_SUM"/>
+                <Cell row="7" col="1" text="카테고리 시장분석"/>
+                <Cell row="7" col="2"/>
+                <Cell row="7" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:IA_CTGR_UG_AM_SUM"/>
+                <Cell row="8" col="1" text="파일제공"/>
+                <Cell row="8" col="2"/>
+                <Cell row="8" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:IA_BLBD_UG_AM_SUM"/>
+                <Cell row="9" text="판매상세정보"/>
+                <Cell row="9" col="1" text="판매상세정보"/>
+                <Cell row="9" col="2" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:CTGR_SL_UGQT_SUM"/>
+                <Cell row="9" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:CTGR_SL_UG_AM_SUM"/>
+                <Cell row="10" text="세금계산서"/>
+                <Cell row="10" col="1" text="발행건수"/>
+                <Cell row="10" col="2" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:TXBIL_RPBC_CNT"/>
+                <Cell row="10" col="3" style="align:right middle;padding:2 5 0 5;" text="-"/>
+                <Cell row="11" rowspan="2" text="기타"/>
+                <Cell row="11" col="1" text="SMS"/>
+                <Cell row="11" col="2"/>
+                <Cell row="11" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:SMS_UG_AM_SUM"/>
+                <Cell row="12" col="1" text="연체료"/>
+                <Cell row="12" col="2"/>
+                <Cell row="12" col="3" displaytype="number" style="align:right middle;padding:2 5 0 5;" text="bind:LATE_AM_SUM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static15" taborder="150" text="17" visible="false" left="0" top="1" width="1.49%" height="1195" style="background:#dc143c5b;"/>
+        <MaskEdit id="msk_SUP_CNT" taborder="157" mask="###,#" limitbymask="none" left="124" top="52" height="21" width="236" readonly="true"/>
+        <Static id="Static00" taborder="159" cssclass="sta_WF_Labelbg" left="11" top="104" height="29" width="705"/>
+        <Static id="Static01" taborder="160" text="사용요금" cssclass="sta_WF_Label" left="11" top="76" height="29" width="110"/>
+        <MaskEdit id="msk_DC_BF_UG_AM_SUM" taborder="161" mask="###,#" limitbymask="none" left="124" top="80" height="21" width="236" readonly="true"/>
+        <Static id="Static02" taborder="162" text="공급가액" cssclass="sta_WF_Label" left="363" top="76" height="29" width="110"/>
+        <MaskEdit id="msk_SPPR_SUM" taborder="163" mask="###,#" limitbymask="none" left="476" top="80" height="21" width="236" readonly="true"/>
+        <MaskEdit id="msk_VAT_AM_SUM" taborder="164" mask="###,#" limitbymask="none" left="476" top="108" height="21" width="236" readonly="true"/>
+        <Static id="Static97" taborder="165" text="부가세(VAT)" cssclass="sta_WF_Label" left="363" top="104" height="29" width="110"/>
+        <Static id="Static99" taborder="20" text="청구금액" cssclass="sta_WF_Label" left="363" top="48" height="29" width="110"/>
+        <MaskEdit id="msk_LS_RQS_AM_SUM" taborder="155" left="476" top="52" height="21" limitbymask="none" mask="###,#" width="236" readonly="true"/>
+        <Static id="Static08" taborder="83" text="할인금액" cssclass="sta_WF_Label" left="11" top="104" height="29" width="110"/>
+        <MaskEdit id="msk_DC_AM_SUM" taborder="156" mask="###,#" limitbymask="none" left="124" top="109" height="21" width="236" readonly="true"/>
+        <Static id="Static03" taborder="166" text="20" visible="false" left="2.6%" top="0" right="-20.27%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static87" taborder="167" text="14" visible="false" top="1" height="1195" style="background:#dc143c5b;" right="0" width="14"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SUP_CNT" type="STRING" size="256"/>
+          <Column id="DC_AM_SUM" type="STRING" size="256"/>
+          <Column id="VAT_AM_SUM" type="STRING" size="256"/>
+          <Column id="LS_RQS_AM_SUM" type="STRING" size="256"/>
+          <Column id="EDI_UGQT_SUM" type="STRING" size="256"/>
+          <Column id="ADINF_UGQT_SUM" type="STRING" size="256"/>
+          <Column id="BASIC_RATE_SUM" type="STRING" size="256"/>
+          <Column id="EDI_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="ADINF_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="IA_BI_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="IA_PG_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="IA_MA_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="IA_CTGR_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="IA_BLBD_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="BLBD_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="DC_BF_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="TRPL_C" type="STRING" size="256"/>
+          <Column id="SPPR_SUM" type="STRING" size="256"/>
+          <Column id="TXBIL_RPBC_CNT" type="STRING" size="256"/>
+          <Column id="SMS_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="LATE_AM_SUM" type="STRING" size="256"/>
+          <Column id="CTGR_SL_UGQT_SUM" type="STRING" size="256"/>
+          <Column id="CTGR_SL_UG_AM_SUM" type="STRING" size="256"/>
+          <Column id="XMLEDI_BASIC_RATE_SUM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+      <BindItem id="item9" compid="edt_NA_TRPL_C" propid="value" datasetid="ds_result" columnid="TRPL_C"/>
+      <BindItem id="item10" compid="edt_CLNTNM" propid="value" datasetid="ds_result" columnid="CLNTNM"/>
+      <BindItem id="item12" compid="msk_LS_RQS_AM_SUM" propid="value" datasetid="ds_result" columnid="LS_RQS_AM_SUM"/>
+      <BindItem id="item11" compid="msk_DC_AM_SUM" propid="value" datasetid="ds_result" columnid="DC_AM_SUM"/>
+      <BindItem id="item13" compid="msk_SUP_CNT" propid="value" datasetid="ds_result" columnid="SUP_CNT"/>
+      <BindItem id="item14" compid="msk_DC_BF_UG_AM_SUM" propid="value" datasetid="ds_result" columnid="DC_BF_UG_AM_SUM"/>
+      <BindItem id="item8" compid="msk_VAT_AM_SUM" propid="value" datasetid="ds_result" columnid="VAT_AM_SUM"/>
+      <BindItem id="item16" compid="msk_SPPR_SUM" propid="value" datasetid="ds_result" columnid="SPPR_SUM"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); // 공통
+}
+
+/***************************************************
+	이용요금조회 메소드
+****************************************************/
+this.fn_retrieveMmRqsBrk = function(RMS_MM, RMS_TRPL_C)
+{
+	var sParam = "RMS_MM=" + RMS_MM
+			   + " RMS_TRPL_C=" + RMS_TRPL_C;
+	
+	var sSvcID        = "retrieveMmRqsBrk";
+	var sURL          = "svc::rest/pt/myinf/retrieveMmRqsBrk";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_result=ds_result";
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+ 
+/***************************************************
+	callback메소드
+****************************************************/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "retrieveMmRqsBrk") {
+		if (this.ds_result.rowcount == 0) {
+			//this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			return;
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="740" height="402" titletext="반품의뢰전표 조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="Button07" taborder="0" text="초기화" cssclass="btn_WF_CRUD" top="47" right="76" width="53" height="21" onclick="Button07_onclick"/>
+        <Button id="btn_search" taborder="3" cssclass="btn_WFSA_Searchbtn" top="47" right="16" width="58" height="21" onclick="btn_search_onclick"/>
+        <Grid id="grd_master" taborder="5" binddataset="ds_dataM" useinputpanel="false" left="17" top="159" right="17" autofittype="none" height="163" oncellclick="grd_master_oncellclick" onkeydown="grd_master_onkeydown">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="39"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="90"/>
+                <Column size="106"/>
+                <Column size="106"/>
+                <Column size="180"/>
+                <Column size="90"/>
+                <Column size="0"/>
+                <Column size="106"/>
+                <Column size="131"/>
+                <Column size="131"/>
+                <Column size="180"/>
+                <Column size="90"/>
+                <Column size="116"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="반품등록일자"/>
+                <Cell col="2" text="전표번호"/>
+                <Cell col="3" text="수주처팀"/>
+                <Cell col="4" text="계통구분"/>
+                <Cell col="5" text="의뢰처 코드"/>
+                <Cell col="6" text="의뢰처명"/>
+                <Cell col="7" text="의뢰처팀"/>
+                <Cell col="8" text="구분"/>
+                <Cell col="9" text="반품구분"/>
+                <Cell col="10" text="회수예정일자"/>
+                <Cell col="11" text="회수처코드"/>
+                <Cell col="12" text="회수처명"/>
+                <Cell col="13" text="회수처팀"/>
+                <Cell col="14" text="반품관리구분"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:RGD_RG_DT"/>
+                <Cell col="2" text="bind:RGD_PLA_NO"/>
+                <Cell col="3" text="bind:RVOPL_NA_TEAM_C"/>
+                <Cell col="4" text="bind:CSER_CTR_TPC"/>
+                <Cell col="5" text="bind:NA_TRPL_C"/>
+                <Cell col="6" text="bind:CLNTNM"/>
+                <Cell col="7" text="bind:NA_TEAM_C"/>
+                <Cell col="8" text="bind:DIV"/>
+                <Cell col="9" text="bind:NA_RGD_STS_DSC"/>
+                <Cell col="10" text="bind:WDR_PLA_DT"/>
+                <Cell col="11" text="bind:WDRPL_NA_TRPL_C"/>
+                <Cell col="12" text="bind:WDRPL_CLNTNM"/>
+                <Cell col="13" text="bind:WDRPL_NA_TEAM_C"/>
+                <Cell col="14" text="bind:RGD_AMN_DSC"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button65" taborder="6" text="확인" cssclass="btn_WF_Popup" left="329" top="332" width="54" height="29" onclick="Button65_onclick"/>
+        <Button id="btn_cancle" taborder="7" text="취소" cssclass="btn_WF_Popup" left="385" top="332" width="54" height="29" onclick="btn_close_onclick"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="74" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="363" top="361" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="363" top="322" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="145" width="76" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" left="699" top="0" cssclass="btn_WF_PopupClose" height="32" right="4" onclick="btn_close_onclick"/>
+        <Static id="Static14" taborder="38" text="5" visible="false" left="243" top="106" width="91" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="39" text="반품의뢰전표 조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Div id="div_search" taborder="41" left="17" top="76" right="17" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="반품등록일자" cssclass="sta_WFSA_Label" left="82" top="10" width="114" height="21"/>
+              <Calendar id="cal_dvy_rqr_dt_fr" taborder="1" dateformat="yyyy-MM-dd" left="179" top="10" width="100" height="21" onkeydown="div_search_cal_dvy_rqr_dt_fr_onkeydown"/>
+              <Calendar id="cal_dvy_rqr_dt_to" taborder="2" dateformat="yyyy-MM-dd" left="290" top="10" width="100" height="21" onkeydown="div_search_cal_dvy_rqr_dt_to_onkeydown"/>
+              <Static id="Static04" taborder="3" text="~" left="280" top="10" width="10" height="21"/>
+              <Static id="Static01" taborder="4" text="전표번호" cssclass="sta_WFSA_Label" left="427" top="10" width="79" height="21"/>
+              <Edit id="edt_rgd_pla_no" taborder="5" cssclass="WF_Essential" left="511" top="10" width="100" height="21" onkeydown="div_search_edt_rgd_pla_no_onkeydown"/>
+              <Static id="Static02" taborder="6" text="반품의뢰처" cssclass="sta_WFSA_Label" left="142" top="36" width="91" height="21"/>
+              <Edit id="edt_na_trpl_c" taborder="7" cssclass="WF_Essential" left="239" top="36" width="138" height="21" onkeydown="div_search_edt_na_trpl_c_onkeydown"/>
+              <Edit id="edt_na_trpl_c_name" taborder="9" cssclass="WF_Essential" enable="true" left="380" top="36" width="155" height="21" onkeydown="div_search_edt_na_trpl_c_name_onkeydown"/>
+              <Static id="Static05" taborder="11" text="10" visible="false" left="157" top="0" width="91" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static14" taborder="12" text="5" visible="false" left="304" top="31" width="103" height="5" style="background:#dc143c5b;"/>
+              <Static id="Static06" taborder="13" text="10" visible="false" left="165" top="57" width="91" height="10" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="42" text="8" visible="false" left="579" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RGD_RG_DT" type="string" size="32"/>
+          <Column id="RGD_PLA_NO" type="string" size="32"/>
+          <Column id="RVOPL_NA_TEAM_C" type="string" size="32"/>
+          <Column id="CSER_CTR_TPC" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="CLNTNM" type="string" size="32"/>
+          <Column id="DIV" type="string" size="32"/>
+          <Column id="NA_TEAM_C" type="string" size="32"/>
+          <Column id="NA_RGD_STS_DSC" type="string" size="32"/>
+          <Column id="WDR_PLA_DT" type="string" size="32"/>
+          <Column id="WDRPL_NA_TRPL_C" type="string" size="32"/>
+          <Column id="WDRPL_CLNTNM" type="string" size="32"/>
+          <Column id="WDRPL_NA_TEAM_C" type="string" size="32"/>
+          <Column id="RGD_AMN_DSC" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+/*##################################################################################
+ 화면명	: 반품의뢰전표 조회
+ 화면ID  	: VAN_DS_SC_0610_P00
+ 작성자 	: hroh
+  작성일자 : 2015.07.22
+####################################################################################*/
+
+this.objRtnArr = new Array(6); //팝업창 close시 전달할 값을 위한 배열 선언
+
+var autoPop = this.parent.autoPop;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{	
+	this.gfn_setInitForm(obj, e); //공통	
+	
+};
+
+this.fn_afterFormOnload = function(){	
+	var today = this.gfn_today('yyyyMMdd');
+	//this.div_search.cal_dvy_rqr_dt_fr.set_value(this.gfn_minusDate(today, 7));	
+	//this.div_search.cal_dvy_rqr_dt_to.set_value(today);
+
+	
+
+	trace("autoPop.search_date->"+autoPop.search_date);		
+
+	//trace("1-->"+this.gfn_datetime(autoPop.search_date));
+
+	
+
+	this.div_search.cal_dvy_rqr_dt_fr.set_value(this.gfn_minusDate(this.gfn_datetime(autoPop.search_date), 7));	
+
+	this.div_search.cal_dvy_rqr_dt_to.set_value(autoPop.search_date);
+
+	
+	//this.div_search.cal_dvy_rqr_dt_to.set_value(this.gfn_addDate(today, 7));
+	
+	//trace("autoPop.autoType->"+autoPop.autoType);
+	//trace("autoPop.p_rgd_pla_no->"+autoPop.p_rgd_pla_no);
+	//trace("autoPop.p_mbco_code->"+autoPop.p_mbco_code);	
+	
+	this.div_search.edt_rgd_pla_no.set_value( autoPop.p_rgd_pla_no); //반품입고확인등록 화면에서 반품요청번호 입력햇을시
+	
+	if(autoPop.autoType){		
+		this.btn_search_onclick();
+	}
+	
+};
+
+//Search
+this.fn_search = function(){
+	this.ds_dataM.clearData();	
+	
+	var mbco_code = application.gv_glnCode;
+	
+	if(this.gfn_isEmpty(autoPop.p_mbco_code)){	
+		mbco_code = this.gfn_nullToEmpty(autoPop.p_mbco_code); //거래처코드
+	}	
+	
+	var dvy_rqr_dt_fr = this.gfn_nullToEmpty(this.div_search.cal_dvy_rqr_dt_fr.value); //조회시작일
+	var dvy_rqr_dt_to = this.gfn_nullToEmpty(this.div_search.cal_dvy_rqr_dt_to.value); //조회종료일	
+	var rgd_pla_no = this.gfn_nullToEmpty(this.div_search.edt_rgd_pla_no.value);  //전표번호
+	
+	var na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_na_trpl_c.value);  //반품의뢰처코드	
+	
+	var params =  	"dvy_rqr_dt_fr=" + dvy_rqr_dt_fr 
+					+ " dvy_rqr_dt_to=" + dvy_rqr_dt_to
+					+ " rgd_pla_no=" + rgd_pla_no
+					+ " na_trpl_c=" + na_trpl_c
+					+ " mbco_code=" + mbco_code;
+	
+	trace(">>>> params : " + params);
+	
+	
+	var sSvcID        = "retrieveRqtSlpList";//통신아이디
+	var sURL          = "svc::/rest/retann/retrieveRqtSlpList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_dataM=ds_retannCnf";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveRqtSlpList"){
+					
+			if(this.ds_dataM.rowcount == 0){
+				this.ds_dataM.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));				
+			}else if(this.ds_dataM.rowcount == 1){
+				if(autoPop.autoType == true){
+					this.grd_master.selectRow(0);
+					this.grd_master_oncellclick();
+				}
+			}else{
+				this.grd_master.selectRow(0);
+				this.ds_dataM.setFocus();
+			}		
+		}	
+	}
+}
+
+
+//Close
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+//Event
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+}
+
+
+
+this.grd_master_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	/*
+	trace("this.opener.name  -->" + this.opener.name);
+	
+	//반품입고확인등록
+	if(this.opener.name == "VAN_DS_SC_0610"){
+	
+		this.objRtnArr = new Array(4);
+		
+		var na_trpl_c = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "NA_TRPL_C"); //의뢰처코드
+		var clntnm = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "CLNTNM"); //의뢰처명
+		var na_team_c = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "NA_TEAM_C"); //의뢰처팀
+		var rgd_rg_dt = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "RGD_RG_DT"); //반품등록일자
+		var rgd_pla_no = this.ds_dataM.getColumn(this.ds_dataM.rowposition, "RGD_PLA_NO"); //전표번호		
+				
+		this.objRtnArr[0] = na_trpl_c;
+		this.objRtnArr[1] = clntnm;
+		this.objRtnArr[2] = rgd_rg_dt;
+		this.objRtnArr[3] = rgd_pla_no;
+		
+		this.opener.div_search.mae_rgd_rqt_code.set_value(na_trpl_c);
+		this.opener.div_search.edt_rgd_rqt_name.set_value(clntnm);
+		this.opener.div_search.mae_rgd_rqt_team_code.set_value(na_team_c);
+		this.opener.div_search.cal_search_date.set_value(rgd_rg_dt);
+		this.opener.div_search.edt_rgd_pla_no.set_value(rgd_pla_no);
+		
+		//팝업 조회 했는지 여부
+		this.opener.div_list.edt_hidden_chk_function.set_value("true");
+		
+		this.close();
+	}
+	*/
+	
+	this.objRtnArr[0] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"NA_TRPL_C");
+	this.objRtnArr[1] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"CLNTNM");
+	this.objRtnArr[2] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"NA_TEAM_C");
+	this.objRtnArr[3] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"RGD_RG_DT");
+	this.objRtnArr[4] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"RGD_PLA_NO");
+	this.objRtnArr[5] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"CSER_CTR_TPC");
+	this.objRtnArr[6] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"RGD_AMN_DSC");
+	this.objRtnArr[7] = this.ds_dataM.getColumn(this.ds_dataM.rowposition,"NA_RGD_STS_DSC");
+	this.objRtnArr[8] = "true";
+	
+	trace(this.objRtnArr.toString());
+	this.close(this.objRtnArr.toString());
+}
+
+this.div_search_edt_rgd_pla_no_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{
+		this.fn_search();
+	}
+}
+
+this.div_search_edt_na_trpl_c_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{
+		this.fn_search();
+	}	
+}
+
+this.div_search_edt_na_trpl_c_name_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{
+		this.fn_search();
+	}	
+}
+
+
+/*초기화버튼*/
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_dataM.clearData();
+	this.div_search.edt_rgd_pla_no.set_value("");
+	this.div_search.edt_na_trpl_c.set_value("");
+	this.div_search.edt_na_trpl_c_name.set_value("");
+
+}
+
+this.div_search_cal_dvy_rqr_dt_fr_onkeydown = function(obj:Calendar, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{
+		this.fn_search();
+	}	
+}
+
+
+
+this.div_search_cal_dvy_rqr_dt_to_onkeydown = function(obj:Calendar, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{
+		this.fn_search();
+	}		
+}
+
+this.grd_master_onkeydown = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == "13"){
+		this.grd_master_oncellclick();
+	}
+}
+
+this.Button65_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.grd_master_oncellclick();
+}
+]]></Script>
+  </Form>
+</FDL>

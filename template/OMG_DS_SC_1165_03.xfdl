@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_1165_03" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="자료실 - 작성">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="105" text="Div01" left="0" top="0" height="21" right="563" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static05" taborder="107" text="15" visible="false" left="788" top="-18" height="490" style="background:#00ffffb5;" width="15"/>
+        <Static id="Static03" taborder="108" text="8" visible="false" left="92.53%" top="21" right="1.87%" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static24" taborder="137" cssclass="sta_WF_Labelbg" left="109" top="29" height="29" right="15"/>
+        <Static id="Static07" taborder="138" text="구분" cssclass="sta_WF_Label" left="0" top="29" width="110" height="29"/>
+        <Edit id="Edit00" taborder="180" left="221" top="33" width="563" height="21"/>
+        <Button id="Button08" taborder="181" text="삭제" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Button id="Button09" taborder="182" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Button id="Button02" taborder="183" text="쓰기" cssclass="btn_WF_CRUD" top="0" right="118" width="41" height="21"/>
+        <Combo id="Combo00" taborder="184" text="제목" left="113" top="33" width="105" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">제목</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">작성자</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">날짜</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">4</Col>
+                <Col id="datacolumn">번호</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Grid id="Grid01" taborder="185" binddataset="Dataset00" useinputpanel="false" left="0" top="68" right="15" bottom="0">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="45"/>
+                <Column size="419"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox" text="No."/>
+                <Cell col="1" text="번호"/>
+                <Cell col="2" text="제목"/>
+                <Cell col="3" text="작성자"/>
+                <Cell col="4" text="날짜"/>
+                <Cell col="5" text="조회수"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:Column2"/>
+                <Cell col="3"/>
+                <Cell col="4" text="bind:Column3"/>
+                <Cell col="5" text="bind:Column4"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects/>
+  </Form>
+</FDL>

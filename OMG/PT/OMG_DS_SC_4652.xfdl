@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4652" classname="pattern_01" left="0" top="0" width="900" height="1077" titletext="오시는길(eSCM)" onload="form_onload" name="OMG_DS_SC_6120" scrollbars="autoboth">
+    <Layouts>
+      <Layout>
+        <Static id="Static13" taborder="1" onclick="Static01_onclick" cssclass="sta_WF_Menulist" left="11" top="54" height="1" width="777"/>
+        <Static id="Static14" taborder="0" text="오시는길" left="11" top="23" height="26" style="font:12 맑은 고딕;" width="777"/>
+        <Static id="Static07" taborder="2" text="주소" onclick="Static03_onclick" cssclass="sta_WF_Subtitle" left="11" top="72" height="21" style="font:bold 9 Gulim;" width="777"/>
+        <Static id="Static00" taborder="24" text="대표번호" onclick="Static03_onclick" cssclass="sta_WF_Subtitle" left="11" top="141" height="21" style="font:bold 9 Gulim;" width="777"/>
+        <Static id="Static02" taborder="25" text="팩스번호" onclick="Static03_onclick" cssclass="sta_WF_Subtitle" left="11" top="191" height="21" style="font:bold 9 Gulim;" width="777"/>
+        <Static id="Static04" taborder="26" text="지하철 이용 시" onclick="Static03_onclick" cssclass="sta_WF_Subtitle" left="11" top="793" height="21" style="font:bold 9 Gulim;" width="777"/>
+        <Static id="Static15" taborder="27" text="버스 이용 시" onclick="Static03_onclick" cssclass="sta_WF_Subtitle" left="11" top="912" height="21" style="font:bold 9 Gulim;" width="777"/>
+        <Static id="TextArea00" taborder="29" wordwrap="char" left="11" top="91" height="24" style="border:1 none #bfbfbfff ;" readonly="true" width="777" text="서울특별시 서대문구 통일로 81(미근동)"/>
+        <Static id="TextArea01" taborder="30" text="02-1522-1211" wordwrap="char" left="11" top="163" height="18" style="border:1 none #bfbfbfff ;" readonly="true" width="777"/>
+        <Static id="TextArea02" taborder="31" text="02-318-3456" wordwrap="char" left="11" top="213" height="18" style="border:1 none #bfbfbfff ;" readonly="true" width="777"/>
+        <Static id="TextArea03" taborder="32" text="2호선/5호선 충정로역 3번 출구 도보로 5분 소요" wordwrap="char" left="11" top="819" height="18" style="border:1 none #bfbfbfff ;" readonly="true" width="777"/>
+        <Static id="TextArea05" taborder="34" text="간선 : 101, 370, 700, 701, 702A, 702B, 704, 705, 707, 708, 750A, 750B, 751, 752" wordwrap="char" left="11" top="939" height="21" style="border:1 none #bfbfbfff ;" readonly="true" width="595"/>
+        <ImageViewer id="ImageViewer00" taborder="38" tabstop="false" image="URL('theme://images/info_map2.png')" stretch="fixaspectratio" left="15" top="245" width="875" height="533" style="border:1 solid #008080ff ;color:aqua;" onclick="ImageViewer00_onclick"/>
+        <Static id="TextArea06" taborder="39" text="NH농협생명빌딩 서관 8층" wordwrap="char" left="10" top="110" width="777" height="24" style="border:1 none #bfbfbfff ;" readonly="true"/>
+        <Static id="TextArea07" taborder="40" text="지선 : 7019, 7021, 7024" wordwrap="char" left="11" top="962" width="595" height="21" style="border:1 none #bfbfbfff ;" readonly="true"/>
+        <Static id="TextArea08" taborder="41" text="광역 : 9701, 9703, 9709, 9714, M7119, M7129" wordwrap="char" left="11" top="985" width="595" height="21" style="border:1 none #bfbfbfff ;" readonly="true"/>
+        <Static id="TextArea09" taborder="42" text="1호선/2호선 시청역 10번 출구 도보로 9분 소요" wordwrap="char" left="11" top="844" width="777" height="18" style="border:1 none #bfbfbfff ;" readonly="true"/>
+        <Static id="TextArea11" taborder="44" text="5호선 서대문역 7번 출구 도보로 7분 소요" wordwrap="char" left="11" top="869" width="777" height="18" style="border:1 none #bfbfbfff ;" readonly="true"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+
+this.ImageViewer00_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

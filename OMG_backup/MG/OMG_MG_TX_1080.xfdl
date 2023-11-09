@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_MG_TX_1090" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="신고현황(eSCM)" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="9" left="0" top="29" right="15" height="69" scrollbars="none" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="38" text="작성일" cssclass="sta_WFSA_Label" left="15" top="10" width="76" height="21"/>
+              <Static id="Static01" taborder="39" text="공급받는자" cssclass="sta_WFSA_Label" left="15" top="36" width="103" height="21"/>
+              <Edit id="edt_suppliee" taborder="40" onkeydown="edt_suppliee_onkeydown" onchanged="div_search_edt_suppliee_onchanged" left="118" top="36" width="130" height="21"/>
+              <Button id="btn_popup" taborder="49" onclick="common_onclick" cssclass="btn_WF_Searchbtn" left="251" top="36" width="21" height="21"/>
+              <Edit id="edt_suppliee2" taborder="50" enable="false" left="275" top="36" width="142" height="21"/>
+              <Div id="cal_mon" taborder="51" url="common::calendarMonth.xfdl" left="118" top="10" height="21" scrollbars="none" width="79"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_grd" taborder="4" left="0" top="97" right="15" bottom="0" visible="true">
+          <Layouts>
+            <Layout width="788" height="367">
+              <Button id="btn_flag" taborder="6" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="329" top="0" right="332" height="12"/>
+              <Button id="btn_excel" taborder="10" text="엑셀다운로드" onclick="common_onclick" top="16" right="0" width="89" height="21" visible="false"/>
+              <Grid id="grd_rptPstt" taborder="11" binddataset="ds_rptPstt" useinputpanel="false" selecttype="cell" cellsizingtype="col" summarytype="top" useselcolor="false" oncellclick="div_grd_grd_tax_oncellclick" onheadclick="div_grd_grd_tax_onheadclick" oncelldblclick="div_grd_grd_tax_oncelldblclick" left="0" top="42" right="0" bottom="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="100"/>
+                      <Column size="75"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="130"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24" band="head"/>
+                      <Row size="30" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="3" colspan="2" text="구분"/>
+                      <Cell col="2" colspan="9" text="매출세금계산서"/>
+                      <Cell col="11" colspan="9" text="매입세금계산서"/>
+                      <Cell row="1" col="2" colspan="4" text="일반"/>
+                      <Cell row="1" col="6" colspan="4" text="영세"/>
+                      <Cell row="1" col="10" rowspan="2" text="합계"/>
+                      <Cell row="1" col="11" colspan="4" text="일반"/>
+                      <Cell row="1" col="15" colspan="4" text="영세"/>
+                      <Cell row="1" col="19" rowspan="2" text="합계"/>
+                      <Cell row="2" col="2" text="세금계산서"/>
+                      <Cell row="2" col="3" text="수정세금계산서"/>
+                      <Cell row="2" col="4" text="계산서"/>
+                      <Cell row="2" col="5" text="수정계산서"/>
+                      <Cell row="2" col="6" text="세금계산서"/>
+                      <Cell row="2" col="7" text="수정세금계산서"/>
+                      <Cell row="2" col="8" text="계산서"/>
+                      <Cell row="2" col="9" text="수정계산서"/>
+                      <Cell row="2" col="11" text="세금계산서"/>
+                      <Cell row="2" col="12" text="수정세금계산서"/>
+                      <Cell row="2" col="13" text="계산서"/>
+                      <Cell row="2" col="14" text="수정계산서"/>
+                      <Cell row="2" col="15" text="세금계산서"/>
+                      <Cell row="2" col="16" text="수정세금계산서"/>
+                      <Cell row="2" col="17" text="계산서"/>
+                      <Cell row="2" col="18" text="수정계산서"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell rowspan="2" displaytype="normal" style="background:whitesmoke;background2:whitesmoke;" text="bind:TITLE"/>
+                      <Cell col="1" style="background:whitesmoke;background2:whitesmoke;" text="건수"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="bind:COUNT01" tooltiptext="bind:COUNT01"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:COUNT02" tooltiptext="bind:COUNT02"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="bind:COUNT03" tooltiptext="bind:COUNT03"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:COUNT04" tooltiptext="bind:COUNT04"/>
+                      <Cell col="6" displaytype="number" style="align:right;" text="bind:COUNT05" tooltiptext="bind:COUNT05"/>
+                      <Cell col="7" displaytype="number" style="align:right;" text="bind:COUNT06" tooltiptext="bind:COUNT06"/>
+                      <Cell col="8" displaytype="number" style="align:right;" text="bind:COUNT07" tooltiptext="bind:COUNT07"/>
+                      <Cell col="9" displaytype="number" style="align:right;" text="bind:COUNT08" tooltiptext="bind:COUNT08"/>
+                      <Cell col="10" displaytype="number" style="align:right;" text="bind:COUNT10"/>
+                      <Cell col="11" displaytype="number" style="align:right;" text="bind:COUNT11" tooltiptext="bind:COUNT01"/>
+                      <Cell col="12" displaytype="number" style="align:right;" text="bind:COUNT12" tooltiptext="bind:COUNT02"/>
+                      <Cell col="13" displaytype="number" style="align:right;" text="bind:COUNT13" tooltiptext="bind:COUNT03"/>
+                      <Cell col="14" displaytype="number" style="align:right;" text="bind:COUNT14" tooltiptext="bind:COUNT04"/>
+                      <Cell col="15" displaytype="number" style="align:right;" text="bind:COUNT15" tooltiptext="bind:COUNT05"/>
+                      <Cell col="16" displaytype="number" style="align:right;" text="bind:COUNT16" tooltiptext="bind:COUNT06"/>
+                      <Cell col="17" displaytype="number" style="align:right;" text="bind:COUNT17" tooltiptext="bind:COUNT07"/>
+                      <Cell col="18" displaytype="number" style="align:right;" text="bind:COUNT18" tooltiptext="bind:COUNT08"/>
+                      <Cell col="19" displaytype="number" style="align:right;" text="bind:COUNT20"/>
+                      <Cell row="1" col="1" style="background:whitesmoke;background2:whitesmoke;" text="합계액"/>
+                      <Cell row="1" col="2" displaytype="number" style="align:right;" text="bind:SUM01" tooltiptext="bind:SUM01"/>
+                      <Cell row="1" col="3" displaytype="number" style="align:right;" text="bind:SUM02" tooltiptext="bind:SUM02"/>
+                      <Cell row="1" col="4" displaytype="number" style="align:right;" text="bind:SUM03" tooltiptext="bind:SUM03"/>
+                      <Cell row="1" col="5" displaytype="number" style="align:right;" text="bind:SUM04" tooltiptext="bind:SUM04"/>
+                      <Cell row="1" col="6" displaytype="number" style="align:right;" text="bind:SUM05" tooltiptext="bind:SUM05"/>
+                      <Cell row="1" col="7" displaytype="number" style="align:right;" text="bind:SUM06" tooltiptext="bind:SUM06"/>
+                      <Cell row="1" col="8" displaytype="number" style="align:right;" text="bind:SUM07" tooltiptext="bind:SUM07"/>
+                      <Cell row="1" col="9" displaytype="number" style="align:right;" text="bind:SUM08" tooltiptext="bind:SUM08"/>
+                      <Cell row="1" col="10" displaytype="number" style="align:right;" text="bind:SUM10"/>
+                      <Cell row="1" col="11" displaytype="number" style="align:right;" text="bind:SUM11" tooltiptext="bind:SUM01"/>
+                      <Cell row="1" col="12" displaytype="number" style="align:right;" text="bind:SUM12" tooltiptext="bind:SUM02"/>
+                      <Cell row="1" col="13" displaytype="number" style="align:right;" text="bind:SUM13" tooltiptext="bind:SUM03"/>
+                      <Cell row="1" col="14" displaytype="number" style="align:right;" text="bind:SUM14" tooltiptext="bind:SUM04"/>
+                      <Cell row="1" col="15" displaytype="number" style="align:right;" text="bind:SUM15" tooltiptext="bind:SUM05"/>
+                      <Cell row="1" col="16" displaytype="number" style="align:right;" text="bind:SUM16" tooltiptext="bind:SUM06"/>
+                      <Cell row="1" col="17" displaytype="number" style="align:right;" text="bind:SUM17" tooltiptext="bind:SUM07"/>
+                      <Cell row="1" col="18" displaytype="number" style="align:right;" text="bind:SUM18" tooltiptext="bind:SUM08"/>
+                      <Cell row="1" col="19" displaytype="number" style="align:right;" text="bind:SUM20"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="1" onclick="common_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Static id="Static04" taborder="2" text="15" visible="false" top="1" right="0" width="15" height="491" style="background:#00ffffb5;"/>
+        <Static id="Static09" taborder="3" text="15" visible="false" left="1" top="30" width="15" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="5" text="15" visible="false" left="724" top="98" width="56" height="41" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="6" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Static id="st_info" taborder="7" text="* 문서종류 : 기업(세금)계산서(회원/비회원), 개인(세금)계산서, 위수탁(세금)계산서(회원/비회원)" cssclass="sta_WF_DescriptionE02" left="0" top="117" width="547" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rptPstt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SOAC_PBC_STSC" type="string" size="32" prop=""/>
+          <Column id="SPRTT_SUM" type="string" size="32" prop=""/>
+          <Column id="SPRTT_SUM01" type="string" size="32" prop=""/>
+          <Column id="SPRTT_SUM023" type="string" size="32" prop=""/>
+          <Column id="SPRTT_SUM00" type="string" size="32" prop=""/>
+          <Column id="SPRTT_SUM02" type="string" size="32" prop=""/>
+          <Column id="SPRTT_SUM03" type="string" size="32" prop=""/>
+          <Column id="SPRTT_COUNT" type="string" size="32" prop=""/>
+          <Column id="SPRTT_COUNT01" type="string" size="32" prop=""/>
+          <Column id="SPRTT_COUNT023" type="string" size="32" prop=""/>
+          <Column id="SPRTT_COUNT00" type="string" size="32" prop=""/>
+          <Column id="SPRTT_COUNT02" type="string" size="32" prop=""/>
+          <Column id="SPRTT_COUNT03" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_combo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_condition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DT_TYPE" type="STRING" size="256"/>
+          <Column id="STARTDT" type="STRING" size="256"/>
+          <Column id="ENDDT" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="TXBIL_STSC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="STARTDT"/>
+            <Col id="ENDDT"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_buyer"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item3" compid="div_search.edt_suppliee2" propid="value" datasetid="ds_condition" columnid="NA_TRPL_C"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.flag = true;
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+   var param = [  
+ 		{code:"TXBIL_STSC",   dsName:"ds_combo",   selecttype:"A"}
+    ];
+    
+	this.gfn_setPortalCommonCode(param);
+}
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	this.div_grd.grd_rptPstt.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+    this.div_search.cal_mon._setValue(this.gfn_today("yyyyMMdd").substr(0,6));
+    this.div_search.cal_mon.setFunctionName("fn_monthChanged");
+    this.fn_monthChanged();
+    this.fn_retrieveRptPsttEScm();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveRptPsttEScm = function()
+{
+	var sSvcID        = "retrieveRptPsttEScm";
+	var sURL          = "svc::rest/tx/retrieveRptPsttEScm";
+	var sInDatasets   = "ds_condition=ds_condition";
+	var sOutDatasets  = "ds_rptPstt=ds_rptPstt";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "retrieveRptPsttEScm":
+				trace("retrieveRptPsttEScm");
+				break;
+		}
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_search":	
+			this.fn_retrieveRptPsttEScm();
+			break;
+			
+		case "btn_excel": 
+			if(this.ds_rptPstt.rowcount < 1)
+			{
+				alert("조회내용이 없습니다.");
+				return;
+			}
+			var params = "DT_TYPE=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"DT_TYPE"))
+						+ "&STARTDT=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"STARTDT"))
+						+ "&ENDDT=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"ENDDT"))
+						+ "&NA_BZPLC=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NA_BZPLC"))
+						+ "&NA_TRPL_C=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NA_TRPL_C"))
+						+ "&TXBIL_STSC=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"TXBIL_STSC"))
+						+ "&NTS_TMS_SQNO=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NTS_TMS_SQNO"))
+						+ "&TXBIL_KD=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"TXBIL_KD"))
+						+ "&SPLR_BZNO=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"SPLR_BZNO"))
+						+ "&CODE01=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"CODE01"))
+						+ "&CODE02=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"CODE02"))
+						+ "&BUY_BZNO=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"BUY_BZNO"))
+						+ "&RPBC_DSC=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"RPBC_DSC"))
+						+ "&NA_TEAM_C=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NA_TEAM_C"))
+						+ "&NA_CLNT_TEAM_C=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NA_CLNT_TEAM_C"))
+						+ "&TOTAL_ROW_COUNT=" + this.gfn_nullToEmpty(this.ds_pageVO.getColumn(0,"TOTAL_ROW_COUNT"))
+						+ "&FORM_ID=" + this.gfn_nullToEmpty(this.getOwnerFrame().arguments["FORM_ID"])
+						+ "&FORM_NM=" + this.gfn_nullToEmpty(this.getOwnerFrame().arguments["FORM_NM"]);
+			           
+			//this.web_downExcelM.set_url(application.gv_server_url+"rest/excel/tx/retrieveTaxBillListExcel?"+params);
+			excelDownHandler(application.gv_server_url+"rest/excel/tx/retrieveTaxBillListExcel?"+params, this);
+			break;
+			
+		case "btn_popup":
+			var oArg = {searchWord:this.div_search.edt_suppliee.value};
+			var sOption = "autosize=true,title=true";
+			var sPopupCallBack = "fn_popupAfter";    
+			this.gfn_openPopup("POPUP_TRPL","OMG.TX::POPUP_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+			break;
+	}
+}
+
+
+this.div_search_edt_suppliee_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13')
+	{
+		this.fn_retrieveRptPsttEScm();
+	}
+}
+
+this.edt_suppliee_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode=='13')
+	{
+		this.div_search.btn_popup.click();
+	}
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_grd);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_monthChanged = function()
+{
+	var period = "";
+	var sDate = this.gfn_firstDate(this.div_search.cal_mon._getValue()+ "15");
+	var eDate = this.gfn_lastDate(this.div_search.cal_mon._getValue() + "15");
+	
+	period += sDate.substr(0,4) + "-" + sDate.substr(4,2) + "-" +  sDate.substr(6,2);
+	period += " ~ ";
+	period += eDate.substr(0,4) + "-" + eDate.substr(4,2) + "-" +  eDate.substr(6,2);
+	
+	this.ds_condition.setColumn(0, "STARTDT", sDate);
+	this.ds_condition.setColumn(0, "ENDDT", eDate);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+	switch(strId)
+	{
+		case "POPUP_TRPL":
+			if(!this.gfn_isNull(strVal))
+			{
+				var strValNo = strVal.split('$');
+				
+				this.ds_buyer.clear();
+				
+				for(var i = 0 ; i < strValNo.length ; i++ )
+				{
+					this.ds_buyer.addColumn(strValNo[i].substr(0,strValNo[i].indexOf(":")), "string");
+				}
+				this.ds_buyer.addRow();
+				for(var i = 0 ; i < strValNo.length ; i++ )
+				{
+					this.ds_buyer.setColumn(0, i, strValNo[i].substr(strValNo[i].indexOf(":")+1));
+				}
+				this.div_search.edt_suppliee2.set_value(this.ds_buyer.getColumn(0, "NA_TRPL_C"));
+				this.div_search.edt_suppliee.set_value(this.ds_buyer.getColumn(0, "CLNTNM"));
+			}
+			break;
+	}
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

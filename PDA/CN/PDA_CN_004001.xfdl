@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_004001" classname="pattern_01" left="0" top="0" width="881" height="490" titletext="PDA 검수내역 다운로드" onload="form_onload" oninit="form_init" visible="false">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="103" left="0" top="29" height="150" cssclass="div_WFSA_Searchbg" width="1000">
+          <Layouts>
+            <Layout width="788" height="126">
+              <Static id="Static05" taborder="12" text="PDA 검수기간" cssclass="sta_WFSA_Label" left="13" top="10" onclick="div_search_Static05_onclick" width="110" height="21"/>
+              <Calendar id="cal_from" taborder="13" dateformat="yyyy-MM-dd" left="130" top="10" height="21" oneditclick="div_search_cal_from_oneditclick" width="100"/>
+              <Calendar id="cal_to" taborder="15" dateformat="yyyy-MM-dd" left="250" top="10" height="21" oneditclick="div_search_cal_to_oneditclick" position="absolute" width="98"/>
+              <Static id="Static00" taborder="16" text="물류센터" cssclass="sta_WFSA_Label" left="568" top="10" height="21" position="absolute" width="94"/>
+              <Button id="btn_excelListDown01" taborder="20" text="센터-마트별 상세 엑셀 다운로드" onclick="btn_excelListDown01_onclick" cssclass="btn_WF_CRUD" top="93" width="188" height="21" position="absolute" left="368"/>
+              <Static id="Static08" taborder="21" text="~" left="234" top="10" height="21" width="10"/>
+              <Edit id="centerId" taborder="106" readonly="true" cssclass="edt_WF_Readonly" enable="false" left="668" top="10" width="175" height="21" style="align:left middle;"/>
+              <Combo id="cbo_STAT_CD" taborder="22" value="A" text="전체" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="668" top="10" width="175" height="21" position="absolute" visible="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">A</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983304892</Col>
+                      <Col id="datacolumn">북부물류센터</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983300108</Col>
+                      <Col id="datacolumn">평택물류센터</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983000312</Col>
+                      <Col id="datacolumn">광주물류센터</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983000916</Col>
+                      <Col id="datacolumn">제주물류센터</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983000510</Col>
+                      <Col id="datacolumn">경북물류센터</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983305950</Col>
+                      <Col id="datacolumn">군위물류센터</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983000411</Col>
+                      <Col id="datacolumn">경남물류센터</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983327631</Col>
+                      <Col id="datacolumn">횡성물류센터</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+          <InitValue/>
+        </Div>
+        <WebBrowser id="web_downExcel" left="13.95%" top="7" right="80.57%" height="14" taborder="104" visible="false"/>
+        <Button id="btn_excelListDown00" taborder="105" text="PDA 센터별 집계 엑셀 다운로드" onclick="btn_excelListDown_onclick" cssclass="btn_WF_CRUD" top="78" height="21" position="absolute" left="368" width="188"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="centerBzplc">
+        <ColumnInfo>
+          <Column id="bzplc" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item23" compid="centerId" propid="value" datasetid="centerBzplc" columnid="bzplc"/>
+      <BindItem id="item0" compid="div_search.centerId" propid="value" datasetid="centerBzplc" columnid="bzplc"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+var bzplc = application.gv_glnCode;
+
+/* Form Init: 페이지 호출 후 실행 */
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	this.centerBzplc.addRow();
+	this.centerBzplc.setColumn(0,"bzplc",bzplc);
+	var temp1 = this.centerBzplc.getColumn(0,"bzplc");
+	if (application.gv_glnCode == "8808983000015" || application.gv_glnCode == "8808983304892" || application.gv_glnCode == "8808983300108" || application.gv_glnCode == "8808983000312" || application.gv_glnCode == "8808983000916" || application.gv_glnCode == "8808983000510" || application.gv_glnCode == "8808983305950" || application.gv_glnCode == "8808983000411" || application.gv_glnCode == "8808983327631" || application.gv_glnCode == "8808990646589" ) { // 회원의 권한 목록에 없는 경우
+        }else{
+        alert("권한이 없습니다.");
+		this.fn_close();
+        }
+	var toDay = this.gfn_today("yyyyMMdd");
+	this.div_search.cal_from.set_value(this.gfn_firstDate(toDay));
+	this.div_search.cal_to.set_value(toDay);
+	if(application.gv_glnCode == "8808983304892" || application.gv_glnCode == "8808983300108" || application.gv_glnCode == "8808983000312" || application.gv_glnCode == "8808983000916" || application.gv_glnCode == "8808983000510" || application.gv_glnCode == "8808983305950" || application.gv_glnCode == "8808983000411" || application.gv_glnCode == "8808983327631"){
+		this.div_search.cbo_STAT_CD.set_visible(true);
+		this.div_search.centerId.set_visible(false);
+	}else{
+		this.div_search.cbo_STAT_CD.set_visible(true);
+		this.div_search.centerId.set_visible(false);
+	}
+}
+
+
+/* Form Onload: DataSet 로딩 후 실행 */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	// 페이지 로딩후 실행부분
+	this.gfn_setPortalCommonCode(param); 
+}
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/* 조회조건 영역 펼치기, 접기 */
+this.Div02_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+this.fn_close = function()
+{	
+	var nLength = application.afrm_FrameSet.frames.length;
+	
+	for(var i=nLength-1; i >= 0 ; i--){
+		
+		application.afrm_FrameSet.frames[i].form.close();	
+	}
+	
+	application.gds_openMenu.clearData();	
+	
+	
+	if(this.gfn_isNull(application.gv_userKey))
+	{
+		application.afrm_VFrameSet0.set_separatesize("*,0,0");
+	}
+	else
+	{	
+		if(application.gv_userTPC == "user"){
+			application.afrm_TopFrame.set_formurl("");
+			application.afrm_LeftFrame.set_formurl("");
+			application.afrm_PotalFrame.set_formurl("");
+			
+			application.afrm_TopFrame.set_formurl("frame::TopFrame.xfdl");
+			application.afrm_LeftFrame.set_formurl("frame::LeftFrame.xfdl");
+			application.afrm_PotalFrame.set_formurl("frame::Potal.xfdl");
+		}else{
+			application.afrm_TopFrame.set_formurl("frame::TopFrame_portal_admin.xfdl");
+			application.afrm_LeftFrame.set_formurl("frame::LeftFrame_admin.xfdl");
+			application.afrm_PotalFrame.set_formurl("frame::Potal_admin.xfdl");
+		}
+	}
+	
+}
+
+/* 검색결과 그리드 엑셀다운로드 */
+this.btn_excelListDown_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) < 0){
+		this.alert(this.gfn_getTextMessage('validation.message.fromDate.toDate.reConfirm'));
+		return false;
+	}else{
+		if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) > 31){
+			this.alert(this.gfn_getTextMessage('validation.message.selectDateIn31Day'));
+			return false;
+		}
+	}
+	var fromDt			= this.div_search.cal_from.value;
+	var toDt			= this.div_search.cal_to.value;
+	var tmpbzplc        = this.div_search.cbo_STAT_CD.value;
+	var sParams			= "FROM_DT="	+ fromDt
+						+ "&TO_DT="		+ toDt
+						+ "&TRPL_C="	+ tmpbzplc;
+	sParams = encodeURI(encodeURI(sParams));
+	trace("엑셀 다운로드 params >>> " + sParams);
+	if(application.gv_userTPC == "admin")
+	excelDownHandler(application.gv_serverAdmin_url + "rest/excel/pda/downloadExcelPda?" + sParams, this);
+	excelDownHandler(application.gv_server_url + "rest/excel/pda/downloadExcelPda?" + sParams, this);
+}
+
+this.btn_excelListDown01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) < 0){
+		this.alert(this.gfn_getTextMessage('validation.message.fromDate.toDate.reConfirm'));
+		return false;
+	}else{
+		if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) > 31){
+			this.alert(this.gfn_getTextMessage('validation.message.selectDateIn31Day'));
+			return false;
+		}
+	}
+	var fromDt			= this.div_search.cal_from.value;
+	var toDt			= this.div_search.cal_to.value;
+	var tmpbzplc        = this.div_search.cbo_STAT_CD.value;
+
+	var sParams			= "FROM_DT="	+ fromDt
+						+ "&TO_DT="		+ toDt
+						+ "&TRPL_C="	+ tmpbzplc;
+	sParams = encodeURI(encodeURI(sParams));
+	trace("엑셀 다운로드 params >>> " + sParams);
+	if(application.gv_userTPC == "admin")
+	excelDownHandler(application.gv_serverAdmin_url + "rest/excel/pda/downloadExcelPdaDetail?" + sParams, this);
+	excelDownHandler(application.gv_server_url + "rest/excel/pda/downloadExcelPdaDetail?" + sParams, this);
+}
+
+]]></Script>
+  </Form>
+</FDL>

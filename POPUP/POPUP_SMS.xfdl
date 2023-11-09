@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="261" height="316" onload="form_onload" titletext="고객응대SMS" scrollbars="none" layoutautofittype="none" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Static id="Static06" taborder="16" text="고객응대SMS" left="0" top="0" height="32" cssclass="sta_WF_PopupTitle" right="0"/>
+        <Button id="btn_send" taborder="6" text="보내기" cssclass="btn_WF_Popup" left="167" top="271" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="148" top="300" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="148" top="229" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="149" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" top="0" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick" width="37" right="0"/>
+        <Div id="div_searchR" taborder="17" text="div_searchR" left="17" top="47" height="222" scrollbars="autovert" width="235">
+          <Layouts>
+            <Layout>
+              <TextArea id="txt_content" taborder="0" top="9" height="176" left="0.78%" width="219" onkeyup="div_searchR_TextArea00_onkeyup" maxlength="0"/>
+              <Edit id="edt_telno" taborder="1" inputtype="number" displaynulltext="연락처를 입력하세요." maxlength="11" left="2" top="190" width="133" height="29" onkeyup="div_searchR_Edit00_onkeyup"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta_byte" taborder="18" text="0" left="65.13%" top="239" right="27.97%" height="20"/>
+        <Static id="Static03" taborder="19" text="/60 byte" left="68.97%" top="239" right="11.11%" height="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_searchR" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_LCLC">가나다라마</Col>
+            <Col id="NA_WRS_MCLC">123456789</Col>
+            <Col id="NA_WRS_SCLC">123456789</Col>
+            <Col id="NA_WRS_DTCF_C">123456789</Col>
+            <Col id="WRS_LCLFNM">123456789</Col>
+            <Col id="WRS_MCLFNM">123456789</Col>
+            <Col id="WRS_SCLFNM">123456789</Col>
+            <Col id="WRS_DTCFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectL" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_LCLC">가나다라마</Col>
+            <Col id="WRS_LCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_MCLC">가나다라마</Col>
+            <Col id="WRS_MCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectS" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--   
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_SCLC">가나다라마</Col>
+            <Col id="WRS_SCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_DTCF_C">가나다라마</Col>
+            <Col id="WRS_DTCFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//trace("paramMode : "+this.getOwnerFrame().paramMode);
+	//trace("dsArg : "+this.parent.dsArg.rowcount);	
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var str = null;
+	
+	if (this.gfn_isNull(this.div_searchR.txt_content.value)) {
+		this.alert("내용을 입력하시기 바랍니다.");
+		this.div_searchR.txt_content.setFocus();
+		return;
+	}
+	
+	if (this.gfn_isNull(this.div_searchR.edt_telno.value)) {
+		this.alert("연락처를 입력하시기 바랍니다.");
+		this.div_searchR.edt_telno.setFocus();
+		return;
+	} else {
+		str = "[" + this.div_searchR.edt_telno.value + "]" + this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+	}
+	
+	if(this.gfn_lengthByte(str) > 60){
+		this.alert("60Byte 이상 입력하실 수 없습니다.");
+		return;
+	}
+	
+	if(application.confirm("SMS 전송하겠습니까?")){
+		trace("전송");
+		var params =  	"content='" + str + "'";
+		
+		var sSvcID        = "sendSms";//통신아이디
+		var sURL          = "svc::rest/pt/sendSMS";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}else{
+		this.div_searchR.txt_content.set_value('');
+		this.sta_byte.set_text('0');
+		return false;
+	}
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+		switch(svcID)
+		{
+			case "sendSms":
+				alert(ErrorMsg);
+				this.div_searchR.txt_content.set_value('');
+				this.sta_byte.set_text('0');
+			break;
+		}
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "sendSms":
+				alert("담당자에게 전송되었습니다.");
+				this.div_searchR.txt_content.set_value('');
+				this.sta_byte.set_text('0');
+				break;
+		}
+ 	}
+}
+
+this.div_searchR_TextArea00_onkeyup = function(obj:TextArea, e:nexacro.KeyEventInfo)
+{
+	var str = null;
+	
+	if (this.gfn_isNull(this.div_searchR.edt_telno.value)) {
+		str = this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+	} else {
+		str = "[" + this.div_searchR.edt_telno.value + "]" + this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+	}
+	
+	if(e.keycode == 8){
+		this.sta_byte.set_text(this.gfn_lengthByte(str));
+	}else{
+		if(this.gfn_lengthByte(str) > -1){
+		trace(this.gfn_lengthByte(str));
+			if(this.gfn_lengthByte(str) > 60){
+				alert("60Byte 이상 입력하실수 없습니다.");
+				
+				if (this.gfn_lengthByte(this.div_searchR.txt_content.value) > 47) {
+					var byteLength = 0;
+					var tmp = this.div_searchR.txt_content.value;
+					var contents = null;
+					
+					for (var i = 0; i < tmp.length; i++){
+						if (byteLength <= 47) {
+							if (tmp.charCodeAt(i) > 127){
+								byteLength += 2;
+							} else {
+								byteLength += 1;
+							}
+							
+							contents = tmp.substring(0, i);
+						} else {
+							this.div_searchR.txt_content.set_value(contents);
+							
+							if (this.gfn_isNull(this.div_searchR.edt_telno.value)) {
+								str = this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+							} else {
+								str = "[" + this.div_searchR.edt_telno.value + "]" + this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+							}
+							
+							break;
+						}
+					}
+				}
+				
+				this.sta_byte.set_text(this.gfn_lengthByte(str));
+			}else{
+				this.sta_byte.set_text(this.gfn_lengthByte(str));
+			}
+		
+		}else{
+			this.sta_byte.set_text('0');
+		}
+	}
+}
+
+this.div_searchR_Edit00_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	var str = null;
+	
+	if (this.gfn_isNull(this.div_searchR.edt_telno.value)) {
+		str = this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+	} else {
+		str = "[" + this.div_searchR.edt_telno.value + "]" + this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+	}
+	
+	if(e.keycode == 8){
+		this.sta_byte.set_text(this.gfn_lengthByte(str));
+	}else{
+		if(this.gfn_lengthByte(str) > -1){
+		trace(this.gfn_lengthByte(str));
+			if(this.gfn_lengthByte(str) > 60){
+				alert("60Byte 이상 입력하실수 없습니다.");
+				
+				if (this.gfn_lengthByte(this.div_searchR.txt_content.value) > 47) {
+					var byteLength = 0;
+					var tmp = this.div_searchR.txt_content.value;
+					var contents = null;
+					
+					for (var i = 0; i < tmp.length; i++){
+						if (byteLength <= 47) {
+							if (tmp.charCodeAt(i) > 127){
+								byteLength += 2;
+							} else {
+								byteLength += 1;
+							}
+							
+							contents = tmp.substring(0, i);
+						} else {
+							this.div_searchR.txt_content.set_value(contents);
+							
+							if (this.gfn_isNull(this.div_searchR.edt_telno.value)) {
+								str = this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+							} else {
+								str = "[" + this.div_searchR.edt_telno.value + "]" + this.gfn_nullToEmpty(this.div_searchR.txt_content.value);
+							}
+							
+							break;
+						}
+					}
+				}
+				
+				this.sta_byte.set_text(this.gfn_lengthByte(str));
+			}else{
+				this.sta_byte.set_text(this.gfn_lengthByte(str));
+			}
+		
+		}else{
+			this.sta_byte.set_text('0');
+		}
+	}	
+}]]></Script>
+  </Form>
+</FDL>

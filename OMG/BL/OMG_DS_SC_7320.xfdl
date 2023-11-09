@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7320" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="대손관리" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="17" onclick="btn_search_onclick"/>
+        <Button id="btn_excelListDown" taborder="37" text="엑셀" cssclass="btn_WF_CRUD" top="0" width="41" height="21" right="86" onclick="btn_excelListDown_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="102" right="15" bottom="-1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Grid id="grd_bdList" taborder="2" useinputpanel="false" left="0" top="17" right="0" bottom="8" cellsizingtype="col" autofittype="col" summarytype="top" binddataset="ds_bdList" onsummclick="grd_bd_onsummclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="50"/>
+                      <Column size="40"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="선택"/>
+                      <Cell col="1" text="No"/>
+                      <Cell col="2" text="업체코드"/>
+                      <Cell col="3" text="업체명"/>
+                      <Cell col="4" text="청구월"/>
+                      <Cell col="5" text="청구금액"/>
+                      <Cell col="6" text="대손금액"/>
+                      <Cell col="7" text="대손입금액(합산)"/>
+                      <Cell col="8" text="폐업여부"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" style="align: ;" text="bind:BD_CHK" tooltiptext="bind:BD_CHK"/>
+                      <Cell col="1" expr="currow+1"/>
+                      <Cell col="2" edittype="none" editfilter="none" text="bind:RMS_TRPL_C" tooltiptext="bind:RMS_TRPL_C"/>
+                      <Cell col="3" style="align:left middle;" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="4" displaytype="normal" editfilter="none" style="align: ;" text="bind:RMS_MM" mask="@@@@-@@" tooltiptext="bind:RMS_MM"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:LS_RQS_AM" tooltiptext="bind:LS_RQS_AM"/>
+                      <Cell col="6" displaytype="number" editfilter="none" style="align:right;" text="bind:BAD_DEBT_AM" tooltiptext="bind:BAD_DEBT_AM"/>
+                      <Cell col="7" displaytype="number" style="align:right;" text="bind:BD_RV_AM" tooltiptext="bind:BD_RV_AM"/>
+                      <Cell col="8" displaytype="normal" edittype="none" text="bind:SD_YN" tooltiptext="bind:SD_YN"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell celltype="none" displaytype="checkbox" edittype="checkbox" style="align:center middle;" text="0"/>
+                      <Cell col="1"/>
+                      <Cell col="2" displaytype="number" expr="dataset.getCountNF()" tooltiptext="expr:dataset.getCountNF()"/>
+                      <Cell col="3"/>
+                      <Cell col="4" displaytype="normal"/>
+                      <Cell col="5" displaytype="number" expr="dataset.getSum(&quot;LS_RQS_AM&quot;)" tooltiptext="expr:dataset.getSum(&quot;LS_RQS_AM&quot;)"/>
+                      <Cell col="6" displaytype="number" expr="dataset.getSum(&quot;BAD_DEBT_AM&quot;)" tooltiptext="expr:dataset.getSum(&quot;BAD_DEBT_AM&quot;)"/>
+                      <Cell col="7" displaytype="number" expr="dataset.getSum(&quot;BD_RV_AM&quot;)" tooltiptext="expr:dataset.getSum(&quot;BD_RV_AM&quot;)"/>
+                      <Cell col="8" displaytype="normal"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button75" taborder="3" onclick="Div02_Button75_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_creation" taborder="107" text="생성" onclick="btn_creation_onclick" cssclass="btn_WF_CRUD" top="0" right="190" width="41" height="21"/>
+        <Div id="div_search" taborder="108" left="0" top="29" right="15" height="75" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="27" text="업체조회" cssclass="sta_WFSA_Label" left="34.73%" top="10" right="55.73%" height="21"/>
+              <Edit id="Edit_comnum" taborder="28" left="43.26%" top="10" right="47.84%" height="21"/>
+              <Edit id="Edit_comname" taborder="29" left="52.42%" top="10" right="38.17%" height="21"/>
+              <Button id="btn_comname" taborder="30" onclick="div_search_btn_comname_onclick" cssclass="btn_WF_Searchbtn" left="62.09%" top="10" right="35.24%" height="21"/>
+              <Static id="Static05" taborder="31" text="청구월" cssclass="sta_WFSA_Label" left="0.89%" top="10" right="90.59%" height="21"/>
+              <Div id="cal_month" taborder="32" url="common::calendarMonth.xfdl" left="9.41%" top="10" right="77.86%" height="21"/>
+              <CheckBox id="chk_month_all" taborder="33" text="이전월" left="25.06%" top="10" right="66.92%" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_action" taborder="109" text="대손" onclick="btn_action_onclick" cssclass="btn_WF_CRUD" top="0" right="138" width="41" height="21"/>
+        <WebBrowser id="web_downExcel" left="35.87%" top="7" right="58.66%" height="14" taborder="110" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bdList" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BD_CHK" type="INT" size="1"/>
+          <Column id="RMS_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="20"/>
+          <Column id="RMS_MM" type="STRING" size="6"/>
+          <Column id="LS_RQS_AM" type="BIGDECIMAL" size="10"/>
+          <Column id="BAD_DEBT_AM" type="BIGDECIMAL" size="10"/>
+          <Column id="BD_RV_AM" type="BIGDECIMAL" size="10"/>
+          <Column id="SD_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var	listFlag = 0;
+var	month_all;
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+/* Form Init: 페이지 호출 후 실행 */
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	var	toDay	= this.gfn_today("yyyyMMdd");
+	var	fDay	= this.gfn_firstDate(toDay);
+	var	rMon	= this.gfn_addMonth(fDay, -6).substr(0, 6);
+	this.div_search.cal_month._setValue(rMon);
+}
+
+/* Form Onload: DataSet 로딩 후 실행 */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* 콜백 함수 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+//	trace(this.ds_bdList.saveXML());
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	else
+	{
+		if(svcID == "retrieveBadDebtReqList")
+		{
+			if(this.ds_bdList.rowcount == 0)
+			{
+				this.Div02.grd_bdList.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+			listFlag = 1;
+		}
+		else if(svcID == "creationBadDebt")
+		{
+			if(this.ds_bdList.rowcount == 0)
+			{
+				this.Div02.grd_bdList.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+			else
+			{
+				this.Div02.grd_bdList.setCellProperty("Summ", 0, "text", "1");
+			}	
+			listFlag = 2;
+		}
+		else if(svcID == "actionBadDebt")
+		{
+			alert("대손처리를 완료하였습니다.");
+		//	this.btn_search_onclick();
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/* 조회조건 영역 펼치기, 접기 */
+this.Div02_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.btn_creation_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams			= "CAL_MON="	+ this.div_search.cal_month._getValue().substr(0, 6)
+						;
+//	trace("sParams:" + sParams);
+	this.fn_creation(sParams);
+}
+
+this.fn_creation = function(sParams)
+{
+	var sSvcID			= "creationBadDebt";
+	var sURL			= "svc::rest/bl/creationBadDebt";
+	var sInDatasets		= "";
+	var sOutDatasets	= "ds_bdList=ds_bdList";
+	var sArgument		= sParams
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "U";	// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_action_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSvcID			= "actionBadDebt";
+	var sURL			= "svc::rest/bl/actionBadDebt";
+	var sInDatasets		= "ds_bdList=ds_bdList";
+	var sOutDatasets	= "";
+	var sArgument		= "";
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "U";	// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_excelListDown_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.div_search.chk_month_all.value == true)	month_all = "1";
+	else month_all = "0";
+
+	var sParams			= "CAL_MON="	+ this.div_search.cal_month._getValue().substr(0, 6)
+						+ "&TRPL_C="	+ this.gfn_nullToEmpty(this.div_search.Edit_comnum.value)
+						+ "&CLNTNM="	+ this.gfn_nullToEmpty(this.div_search.Edit_comname.value)
+						+ "&MONTH_ALL="	+ month_all
+						+ "&LIST_FLAG="	+ listFlag
+						;
+//	trace("sParams:" + sParams);
+	this.fn_excel(sParams);
+}
+
+this.fn_excel = function(sParams)
+{
+//	trace("엑셀 다운로드 params >>> " + sParams);
+	this.web_downExcel.set_url(application.gv_serverAdmin_url + "rest/excel/bl/downloadExcelBadDebtReqList?" + sParams);
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.div_search.chk_month_all.value == true)	month_all = "1";
+	else month_all = "0";
+
+	var sParams			= "CAL_MON="	+ this.div_search.cal_month._getValue().substr(0, 6)
+						+ " TRPL_C="	+ this.gfn_nullToEmpty(this.div_search.Edit_comnum.value)
+						+ " CLNTNM="	+ this.gfn_nullToEmpty(this.div_search.Edit_comname.value)
+						+ " MONTH_ALL="	+ month_all
+						;
+//	trace("sParams:" + sParams);
+	this.fn_search(sParams);
+}
+
+this.fn_search = function(sParams)
+{
+	var sSvcID			= "retrieveBadDebtReqList";
+	var sURL			= "svc::rest/bl/retrieveBadDebtReqList";
+	var sInDatasets		= "";
+	var sOutDatasets	= "ds_bdList=ds_bdList";
+	var sArgument		= sParams;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";	// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//	업체 조회
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg			= "";
+	var sOption			= "autosize=true,title=true";
+	var sPopupCallBack	= "fn_popupAfter";
+	this.gfn_openPopup("trplSearchPopup", "OMG.BL::OMG_DS_SC_7230_P01.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+//	팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+//	trace(" strId : " + strId + " strVal : " + strVal);
+	if(strVal != '')
+	{
+		var paramsArr = strVal.split(",");
+		if(strId == "trplSearchPopup")
+		{
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+
+this.grd_bd_onsummclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.col == 0)
+	{
+		if(this.Div02.grd_bdList.getCellProperty("Summ", 0, "text") == "0")
+		{
+			this.Div02.grd_bdList.setCellProperty("Summ", 0, "text", "1");
+			for(var i = 0, length = this.ds_bdList.getRowCount(); i < length; i++)
+			{
+				this.ds_bdList.setColumn(i, "BD_CHK", "1");
+			}
+		}
+		else if(this.Div02.grd_bdList.getCellProperty("Summ", 0, "text") == "1")
+		{
+			this.Div02.grd_bdList.setCellProperty("Summ", 0, "text", "0");
+			for(var i = 0, length = this.ds_bdList.getRowCount(); i < length; i++)
+			{
+				this.ds_bdList.setColumn(i, "BD_CHK", "0");
+			}
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

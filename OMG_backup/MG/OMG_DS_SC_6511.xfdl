@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5061" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="회원정보" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static12" taborder="67" cssclass="sta_WF_Labelbg" left="1.49%" top="707" right="1.87%" height="29"/>
+        <Static id="Static07" taborder="159" cssclass="sta_WF_Labelbg" left="1.49%" top="616" right="1.87%" height="29"/>
+        <Static id="Static02" taborder="156" cssclass="sta_WF_Labelbg" left="1.49%" top="735" right="1.87%" height="29"/>
+        <Static id="Static21" taborder="155" cssclass="sta_WF_Labelbg" left="1.49%" top="588" right="1.87%" height="29"/>
+        <Static id="Static23" taborder="151" text="해지일자" cssclass="sta_WF_Label" left="1.49%" top="588" right="81.82%" height="29"/>
+        <MaskEdit id="edt_CANCEL_DTM" taborder="152" type="string" mask="####-##-##" left="18.56%" top="592" right="68.74%" height="21"/>
+        <Static id="Static22" taborder="153" text="재개시일자" cssclass="sta_WF_Label" left="50.19%" top="588" right="30.76%" height="29"/>
+        <MaskEdit id="edt_REAPPLY_DTM" taborder="154" type="string" mask="####-##-##" left="69.74%" top="592" right="17.56%" height="21"/>
+        <Static id="Static37" taborder="130" cssclass="sta_WF_Labelbg" left="1.49%" top="560" right="1.87%" height="29"/>
+        <Static id="Static34" taborder="125" cssclass="sta_WF_Labelbg" left="1.49%" top="532" right="1.87%" height="29"/>
+        <Static id="Static32" taborder="122" cssclass="sta_WF_Labelbg" left="1.49%" top="504" right="1.87%" height="29"/>
+        <Static id="Static26" taborder="114" cssclass="sta_WF_Labelbg" left="1.49%" top="294" right="1.87%" height="29"/>
+        <Static id="Static27" taborder="115" cssclass="sta_WF_Labelbg" left="1.49%" top="322" right="1.87%" height="29"/>
+        <Static id="Static95" taborder="12" cssclass="sta_WF_Labelbg" left="1.49%" top="143" right="1.87%" height="29"/>
+        <Static id="Static20" taborder="99" cssclass="sta_WF_Labelbg" left="1.49%" top="228" right="1.87%" height="29"/>
+        <Static id="Static14" taborder="86" cssclass="sta_WF_Labelbg" left="1.49%" top="87" right="1.87%" height="29"/>
+        <Static id="Static13" taborder="85" text="전화번호" cssclass="sta_WF_Label" left="1.49%" top="87" right="81.82%" height="29"/>
+        <Static id="Static01" taborder="3" text="20" visible="false" left="1.37%" top="865" right="3.24%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static124" taborder="6" cssclass="sta_WF_Labelbg" left="1.49%" top="834" right="1.87%" height="29"/>
+        <Static id="Static91" taborder="7" cssclass="sta_WF_Labelbg" left="1.49%" top="31" height="29" right="1.87%"/>
+        <CheckBox id="chk_CONTRACT_AUTH" taborder="8" text="전자계약" value="N" truevalue="Y" falsevalue="N" readonly="true" onchanged="CheckBox03_onchanged" left="31.26%" top="838" right="56.04%" height="21"/>
+        <Static id="Static103" taborder="9" cssclass="sta_WF_Labelbg" left="1.49%" top="171" right="1.87%" height="58"/>
+        <Static id="Static101" taborder="10" cssclass="sta_WF_Labelbg" left="1.49%" top="59" right="1.87%" height="29"/>
+        <Static id="Static98" taborder="11" cssclass="sta_WF_Labelbg" left="1.49%" top="115" right="1.87%" height="29"/>
+        <Static id="Static89" taborder="13" text="회사 정보" cssclass="sta_WF_Subtitle" left="1.49%" top="9" right="78.08%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static92" taborder="14" text="사업자번호" cssclass="sta_WF_Label" left="1.49%" top="31" right="81.82%" height="29"/>
+        <Static id="Static94" taborder="15" text="회사명" cssclass="sta_WF_Label" left="1.49%" top="59" right="81.82%" height="29"/>
+        <Static id="Static97" taborder="16" text="본지사구분" cssclass="sta_WF_Label" left="1.49%" top="115" right="81.82%" height="29"/>
+        <Static id="Static100" taborder="17" text="우편번호" cssclass="sta_WF_Label" left="1.49%" top="143" right="81.82%" height="29"/>
+        <Static id="Static102" taborder="18" text="회사주소" cssclass="sta_WF_Label" left="1.49%" top="171" right="81.82%" height="58"/>
+        <Static id="Static93" taborder="19" text="거래처코드" cssclass="sta_WF_Label" left="50.19%" top="31" right="30.76%" height="29"/>
+        <Static id="Static99" taborder="20" text="업체유형" cssclass="sta_WF_Label" left="50.19%" top="115" right="30.76%" height="29"/>
+        <Edit id="edt_BZNO02" taborder="22" readonly="true" maxlength="2" left="23.91%" top="35" height="21" right="71.86%"/>
+        <Edit id="edt_BZNO03" taborder="23" readonly="true" maxlength="5" left="28.52%" top="35" height="21" right="62.27%"/>
+        <Edit id="edt_NA_TRPL_C" taborder="24" readonly="false" maxlength="13" left="69.74%" top="35" height="21" right="2.37%" inputtype="number"/>
+        <Edit id="edt_DONGBW" taborder="29" readonly="true" left="18.56%" top="177" right="4.11%" height="21"/>
+        <Edit id="edt_DONGUP" taborder="30" readonly="true" left="18.56%" top="202" right="4.11%" height="21"/>
+        <Radio id="rdo_COMP_TPC" taborder="31" codecolumn="codecolumn" datacolumn="datacolumn" readonly="true" direction="vertical" onitemclick="Radio00_onitemclick" left="18.56%" top="119" right="55.79%" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">본사</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">지사</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static03" taborder="33" text="납부정보" cssclass="sta_WF_Subtitle" left="1.49%" top="485" right="79.58%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static107" taborder="34" cssclass="sta_WF_Labelbg" left="1.49%" top="679" right="1.87%" height="29"/>
+        <Static id="Static115" taborder="36" cssclass="sta_WF_Labelbg" left="1.49%" top="763" right="1.87%" height="29"/>
+        <Static id="Static114" taborder="37" text="대표전화번호" cssclass="sta_WF_Label" left="50.19%" top="143" right="30.76%" height="29"/>
+        <Static id="Static04" taborder="38" text="이메일" onclick="Div05_Static03_onclick" cssclass="sta_WF_Label" left="1.49%" top="735" right="81.82%" height="29"/>
+        <Static id="Static106" taborder="39" text="회원ID" cssclass="sta_WF_Label" left="1.49%" top="679" right="81.82%" height="29"/>
+        <Static id="Static121" taborder="40" text="권한 정보" cssclass="sta_WF_Subtitle" left="1.49%" top="814" right="79.58%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <CheckBox id="chk_TAX_AUTH" taborder="41" text="세금계산서" value="N" truevalue="Y" falsevalue="N" readonly="true" left="45.83%" top="838" right="41.47%" height="21"/>
+        <CheckBox id="chk_BILLING_AUTH" taborder="42" text="빌링" value="N" truevalue="Y" falsevalue="N" readonly="true" onchanged="CheckBox04_onchanged" left="18.56%" top="838" right="73.23%" height="21"/>
+        <CheckBox id="chk_SMS_YN" taborder="43" text="SMS" value="N" truevalue="Y" falsevalue="N" readonly="true" left="18.56%" top="767" right="73.23%" height="21"/>
+        <CheckBox id="chk_MAIL_YN" taborder="44" text="메일" value="N" truevalue="Y" falsevalue="N" readonly="true" left="31.26%" top="767" right="60.65%" height="21"/>
+        <Combo id="cbo_TEL" taborder="45" readonly="true" innerdataset="ds_telNo" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="69.86%" top="147" right="22.91%" height="21"/>
+        <Edit id="edt_TEL01" taborder="46" inputtype="number" readonly="true" maxlength="4" left="77.46%" top="147" right="15.82%" height="21"/>
+        <Edit id="edt_TEL02" taborder="47" inputtype="number" readonly="true" maxlength="4" left="84.68%" top="147" right="8.47%" height="21"/>
+        <Edit id="edt_USR_EMAIL01" taborder="48" maxlength="25" left="18.56%" top="739" right="68.74%" height="21" readonly="true"/>
+        <Edit id="edt_MB_ID" taborder="49" inputtype="number,english" readonly="true" maxlength="9" left="18.56%" top="683" right="64.38%" height="21"/>
+        <Edit id="edt_USR_EMAIL02" taborder="50" maxlength="25" left="33.37%" top="739" height="21" right="52.43%" readonly="true"/>
+        <Static id="Static134" taborder="51" text="@" left="31.63%" top="739" right="66.63%" height="21"/>
+        <Static id="Static05" taborder="52" text="이름" cssclass="sta_WF_Label" left="50.19%" top="707" right="30.76%" height="29"/>
+        <Edit id="edt_USR_NM" taborder="53" maxlength="16" left="69.61%" top="711" right="2.49%" height="21" readonly="true"/>
+        <Static id="Static116" taborder="54" text="휴대전화번호" cssclass="sta_WF_Label" left="50.19%" top="763" right="30.76%" height="29"/>
+        <Combo id="cbo_HP" taborder="55" readonly="true" innerdataset="@ds_hpNo" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="69.61%" top="767" right="23.16%" height="21"/>
+        <Edit id="edt_HP01" taborder="57" inputtype="number" maxlength="4" left="77.21%" top="767" right="15.94%" height="21" readonly="true"/>
+        <Edit id="edt_HP02" taborder="59" inputtype="number" maxlength="4" left="84.43%" top="767" right="8.72%" height="21" readonly="true"/>
+        <Static id="Static119" taborder="62" text="수신 서비스" cssclass="sta_WF_Label" left="1.49%" top="763" right="81.82%" height="29"/>
+        <Edit id="edt_CLNTNM" taborder="63" readonly="true" left="18.56%" top="63" right="53.55%" height="21"/>
+        <Static id="Static09" taborder="64" text="회원권한" cssclass="sta_WF_Label" left="1.49%" top="834" right="81.82%" height="29"/>
+        <Static id="Static10" taborder="68" text="생년월일" onclick="Div05_Static03_onclick" cssclass="sta_WF_Label" left="1.49%" top="707" right="81.82%" height="29"/>
+        <Static id="Static11" taborder="69" text="성별" cssclass="sta_WF_Label" left="50.19%" top="735" right="30.76%" height="29"/>
+        <Radio id="rdo_SEX_DSC" taborder="70" codecolumn="codecolumn" datacolumn="datacolumn" readonly="true" direction="vertical" onitemclick="Radio00_onitemclick" left="69.61%" top="740" right="4.61%" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">남</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">여</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Edit id="edt_BZNO01" taborder="71" readonly="true" maxlength="3" left="18.56%" top="35" height="21" right="76.46%"/>
+        <MaskEdit id="edt_BIRTH" taborder="72" type="string" mask="####-##-##" left="18.56%" top="712" right="68.74%" height="21" readonly="true"/>
+        <Static id="Static17" taborder="81" text="20" visible="false" left="1.49%" top="468" right="-27.15%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static08" taborder="83" text="대표자명" cssclass="sta_WF_Label" left="50.19%" top="59" right="30.76%" height="29"/>
+        <Edit id="edt_REPMNM00" taborder="84" readonly="true" left="69.74%" top="63" height="21" right="2.37%"/>
+        <Static id="Static18" taborder="87" text="팩스번호" cssclass="sta_WF_Label" left="50.19%" top="87" right="30.76%" height="29"/>
+        <Combo id="cbo_FAX" taborder="91" readonly="true" innerdataset="@ds_telNo" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="69.86%" top="91" height="21" index="-1" right="22.91%"/>
+        <Edit id="edt_FAX1" taborder="92" inputtype="number" maxlength="4" left="77.46%" top="91" height="21" right="15.69%"/>
+        <Edit id="edt_FAX2" taborder="93" inputtype="number" maxlength="4" left="84.68%" top="91" height="21" right="8.47%"/>
+        <Radio id="rdo_COMP_TPC00" taborder="94" codecolumn="codecolumn" datacolumn="datacolumn" readonly="true" direction="vertical" onitemclick="Radio00_onitemclick" left="69.86%" top="119" height="21" right="2.86%" index="-1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1010</Col>
+                <Col id="datacolumn">공급업체</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1020</Col>
+                <Col id="datacolumn">쿠폰관리</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">1030</Col>
+                <Col id="datacolumn">위탁업체</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static00" taborder="96" text="개시일자" cssclass="sta_WF_Label" left="50.19%" top="560" right="30.76%" height="29"/>
+        <Edit id="edt_CLNTNM00" taborder="97" readonly="true" left="18.56%" top="232" right="53.55%" height="21"/>
+        <Static id="Static19" taborder="98" text="거래중지여부" cssclass="sta_WF_Label" left="1.49%" top="228" right="81.82%" height="29"/>
+        <MaskEdit id="edt_APPLY_DTM" taborder="100" type="string" mask="####-##-##" left="69.74%" top="564" right="17.56%" height="21"/>
+        <Static id="Static24" taborder="107" text="부가정보 이용" cssclass="sta_WF_Label" left="1.49%" top="294" right="81.69%" height="29"/>
+        <Static id="Static25" taborder="108" text="정보분석 이용" cssclass="sta_WF_Label" left="1.49%" top="322" right="81.69%" height="29"/>
+        <CheckBox id="cbk_SVC31" taborder="109" text="BI조회" value="N" truevalue="Y" falsevalue="N" readonly="true" left="18.56%" top="327" width="58" height="21"/>
+        <CheckBox id="cbk_SVC32" taborder="110" text="추이분석" value="N" truevalue="Y" falsevalue="N" readonly="true" left="31.13%" top="327" width="74" height="21"/>
+        <Radio id="rdo_SVC_ID" taborder="111" codecolumn="codecolumn" datacolumn="datacolumn" readonly="true" direction="vertical" left="18.56%" top="299" right="56.79%" height="21" onitemclick="rdo_SVC_ID_onitemclick">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">22</Col>
+                <Col id="datacolumn">종량제</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">21</Col>
+                <Col id="datacolumn">정액제</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <CheckBox id="cbk_SVC33" taborder="112" text="시장분석(자사)" value="N" truevalue="Y" falsevalue="N" readonly="true" left="42.96%" top="327" width="112" height="21"/>
+        <CheckBox id="cbk_SVC34" taborder="113" text="카테고리 시장분석" value="N" truevalue="Y" falsevalue="N" readonly="true" left="59.53%" top="327" width="132" height="21"/>
+        <Static id="Static28" taborder="116" text="서비스 이용" cssclass="sta_WF_Subtitle" left="1.49%" top="274" right="79.7%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static29" taborder="117" text="20" visible="false" left="1.49%" top="256" right="-27.9%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static31" taborder="121" text="납부방식" cssclass="sta_WF_Label" left="1.49%" top="504" right="81.82%" height="29"/>
+        <Static id="Static33" taborder="123" text="거래은행" cssclass="sta_WF_Label" left="1.49%" top="532" right="81.82%" height="29"/>
+        <Static id="Static35" taborder="126" text="계좌번호" cssclass="sta_WF_Label" left="50.19%" top="504" right="30.76%" height="29"/>
+        <Static id="Static36" taborder="128" text="청구금액" cssclass="sta_WF_Label" left="1.49%" top="560" right="81.82%" height="29"/>
+        <MaskEdit id="edt_BIRTH07" taborder="129" type="number" mask="#,##0" left="18.56%" top="564" right="53.55%" height="21" readonly="true"/>
+        <Static id="Static38" taborder="131" text="납부금액" cssclass="sta_WF_Label" left="50.19%" top="532" right="30.76%" height="29"/>
+        <MaskEdit id="edt_PAY_AMT" taborder="132" type="number" mask="#,##0" left="69.74%" top="536" right="2.37%" height="21" readonly="true"/>
+        <Edit id="edt_CLNTNM01" taborder="133" readonly="true" left="18.56%" top="508" right="53.55%" height="21"/>
+        <Edit id="edt_CLNTNM03" taborder="135" readonly="true" left="69.74%" top="508" right="2.37%" height="21"/>
+        <Static id="Static39" taborder="137" text="회원 정보" cssclass="sta_WF_Subtitle" left="1.49%" top="661" right="79.58%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static40" taborder="138" text="20" visible="false" left="1.49%" top="645" right="-24.53%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static16" taborder="139" left="1.49%" top="862" right="3.11%" height="21"/>
+        <Static id="Static41" taborder="140" text="20" visible="false" left="1.37%" top="792" right="-18.68%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static15" taborder="141" text="17" visible="false" left="0%" top="1" right="98.51%" height="1195" style="background:#dc143c5b;"/>
+        <Static id="Static87" taborder="142" text="17" visible="false" left="98.13%" top="1" right="0%" height="1195" style="background:#dc143c5b;"/>
+        <Combo id="cbo_HP00" taborder="143" readonly="true" innerdataset="@ds_telNo" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="18.56%" top="91" width="7.22%" height="21"/>
+        <Edit id="edt_HP00" taborder="144" inputtype="number" maxlength="4" left="26.15%" top="91" width="6.85%" height="21"/>
+        <Edit id="edt_HP03" taborder="145" inputtype="number" maxlength="4" left="33.37%" top="91" width="6.85%" height="21"/>
+        <Edit id="edt_HP06" taborder="146" inputtype="number" maxlength="4" left="18.56%" top="147" height="21" right="74.6%"/>
+        <Edit id="edt_HP07" taborder="147" inputtype="number" maxlength="4" left="25.78%" top="147" height="21" right="67.37%"/>
+        <Button id="btn_usrChange" taborder="148" text="업체ID전환" cssclass="btn_WF_CRUD" top="0" right="15" width="77" height="21" onclick="btn_usrChange_onclick"/>
+        <Combo id="cbo_BANK" taborder="150" readonly="true" innerdataset="@ds_bankCode" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="18.56%" top="537" right="53.55%" height="21"/>
+        <Static id="Static06" taborder="157" text="빌링회원" cssclass="sta_WF_Label" left="1.49%" top="616" right="81.82%" height="29"/>
+        <Edit id="edt_TAX_USR" taborder="160" readonly="true" left="69.74%" top="620" right="2.37%" height="21"/>
+        <Static id="Static30" taborder="161" text="세금계산서회원" cssclass="sta_WF_Label" left="50.19%" top="616" right="30.76%" height="29"/>
+        <Edit id="edt_BUILING_USR" taborder="162" readonly="true" left="18.56%" top="620" right="53.55%" height="21"/>
+        <Static id="Static122" taborder="164" text="20" visible="false" left="16" top="351" width="717" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static42" taborder="165" text="자사판매정보 제공동의" cssclass="sta_WF_Subtitle" left="1.49%" top="371" width="155" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static43" taborder="166" cssclass="sta_WF_Labelbg" left="1.49%" top="394" right="1.87%" height="74"/>
+        <Static id="sta_contents02" taborder="167" text="판매상세정보를 이용하기 위해서는 자사판매정보 제공동의를 체크하셔야 이용이 가능합니다." left="2.86%" top="398" width="634" height="21"/>
+        <Static id="sta_contents03" taborder="168" text="※ 제공동의 체크시 과금은 발생하지 않으며, 서비스 이용시(엑셀 다운로드) 과금이 SKU당 1,500원/월 부과됩니다." left="3.86%" top="444" width="634" height="21"/>
+        <CheckBox id="cbk_SVC35" taborder="163" text="자사판매정보 제공동의" value="N" truevalue="Y" falsevalue="N" readonly="true" left="3.86%" top="421" width="173" height="21"/>
+        <Button id="btn_napl_change" taborder="169" text="거래처 코드 변경" onclick="btn_napl_change_onclick" cssclass="btn_WF_CRUD" top="0" right="100" height="21" width="112"/>
+        <Button id="btn_tpc_change" taborder="170" text="사용자 유형 변경" onclick="btn_tpc_change_onclick" cssclass="btn_WF_CRUD" top="0" right="270" width="160" height="21" visible="false"/>
+        <Edit id="edt_force" taborder="171" readonly="true" maxlength="3" top="0" height="21" visible="false" value="N" enable="false" width="20" right="433"/>
+        <Static id="Static44" taborder="172" text="회원유형" cssclass="sta_WF_Label" left="50.19%" top="679" right="30.76%" height="29"/>
+        <Combo id="cbo_tpc" taborder="173" left="69.61%" top="683" height="21" right="17.56%" codecolumn="codecolumn" datacolumn="datacolumn" index="0" text="-회원유형-" readonly="true">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn"/>
+                <Col id="datacolumn">-회원유형-</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">01</Col>
+                <Col id="datacolumn">협력업체</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">02</Col>
+                <Col id="datacolumn">본부</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">03</Col>
+                <Col id="datacolumn">사업장</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">04</Col>
+                <Col id="datacolumn">세금계산서전용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">05</Col>
+                <Col id="datacolumn">전자계약전용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">70</Col>
+                <Col id="datacolumn">제주물류센터</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">80</Col>
+                <Col id="datacolumn">농협IT전략부</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">81</Col>
+                <Col id="datacolumn">농협몰</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_hpNo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="30" value=""/>
+          <Column id="SIMP_CNM" type="STRING" size="30" value=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_telNo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="30" value=""/>
+          <Column id="SIMP_CNM" type="STRING" size="30" value=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_bankCode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="30" value=""/>
+          <Column id="SIMP_CNM" type="STRING" size="30" value=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_usrInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BZNO01" type="STRING" size="256"/>
+          <Column id="BZNO02" type="STRING" size="256"/>
+          <Column id="BZNO03" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="REPMNM" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="ATEL" type="STRING" size="256"/>
+          <Column id="HTEL" type="STRING" size="256"/>
+          <Column id="STEL" type="STRING" size="256"/>
+          <Column id="FAX_RGNO" type="STRING" size="256"/>
+          <Column id="HFAX" type="STRING" size="256"/>
+          <Column id="FAX_SQNO" type="STRING" size="256"/>
+          <Column id="NA_MBCO_DSC" type="STRING" size="256"/>
+          <Column id="COMP_TPC" type="STRING" size="256"/>
+          <Column id="FZIP" type="STRING" size="256"/>
+          <Column id="RZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="BIRTH" type="STRING" size="256"/>
+          <Column id="SEX_DSC" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+          <Column id="USR_EMAIL01" type="STRING" size="256"/>
+          <Column id="USR_EMAIL02" type="STRING" size="256"/>
+          <Column id="TELNO01" type="STRING" size="256"/>
+          <Column id="TELNO02" type="STRING" size="256"/>
+          <Column id="TELNO03" type="STRING" size="256"/>
+          <Column id="MPNO01" type="STRING" size="256"/>
+          <Column id="MPNO02" type="STRING" size="256"/>
+          <Column id="MPNO03" type="STRING" size="256"/>
+          <Column id="SMS_RMS_YN" type="STRING" size="256"/>
+          <Column id="EMAIL_RMS_YN" type="STRING" size="256"/>
+          <Column id="MB_PW" type="STRING" size="256"/>
+          <Column id="TR_STOP_YN" type="STRING" size="256"/>
+          <Column id="USR_TPC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_usrAuth" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SVC_ID" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="RQ_DSC" type="STRING" size="256"/>
+          <Column id="ENT_PRG_STSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_payInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="STL_METH_DSC_NM" type="STRING" size="256"/>
+          <Column id="BNK_C" type="STRING" size="256"/>
+          <Column id="ACNO" type="STRING" size="256"/>
+          <Column id="BUILING_USR" type="STRING" size="256"/>
+          <Column id="TAX_USR" type="STRING" size="256"/>
+          <Column id="CANCEL_DTM" type="STRING" size="256"/>
+          <Column id="APPLY_DTM" type="STRING" size="256"/>
+          <Column id="REAPPLY_DTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_svcInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SVC_ID" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item45" compid="edt_TAX_USR" propid="value" datasetid="ds_payInfo" columnid="TAX_USR"/>
+      <BindItem id="item47" compid="cbo_BANK" propid="value" datasetid="ds_payInfo" columnid="BNK_C"/>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+      <BindItem id="item8" compid="edt_BZNO02" propid="value" datasetid="ds_usrInfo" columnid="BZNO02"/>
+      <BindItem id="item9" compid="edt_BZNO03" propid="value" datasetid="ds_usrInfo" columnid="BZNO03"/>
+      <BindItem id="item10" compid="edt_NA_TRPL_C" propid="value" datasetid="ds_usrInfo" columnid="NA_TRPL_C"/>
+      <BindItem id="item14" compid="edt_DONGBW" propid="value" datasetid="ds_usrInfo" columnid="DONGUP"/>
+      <BindItem id="item15" compid="edt_DONGUP" propid="value" datasetid="ds_usrInfo" columnid="DONGBW"/>
+      <BindItem id="item16" compid="rdo_COMP_TPC" propid="value" datasetid="ds_usrInfo" columnid="NA_MBCO_DSC"/>
+      <BindItem id="item29" compid="chk_SMS_YN" propid="value" datasetid="ds_usrInfo" columnid="SMS_RMS_YN"/>
+      <BindItem id="item30" compid="chk_MAIL_YN" propid="value" datasetid="ds_usrInfo" columnid="EMAIL_RMS_YN"/>
+      <BindItem id="item23" compid="cbo_TEL" propid="value" datasetid="ds_usrInfo" columnid="TELNO01"/>
+      <BindItem id="item24" compid="edt_TEL01" propid="value" datasetid="ds_usrInfo" columnid="TELNO02"/>
+      <BindItem id="item25" compid="edt_TEL02" propid="value" datasetid="ds_usrInfo" columnid="TELNO03"/>
+      <BindItem id="item21" compid="edt_USR_EMAIL01" propid="value" datasetid="ds_usrInfo" columnid="USR_EMAIL01"/>
+      <BindItem id="item17" compid="edt_MB_ID" propid="value" datasetid="ds_usrInfo" columnid="MB_ID"/>
+      <BindItem id="item22" compid="edt_USR_EMAIL02" propid="value" datasetid="ds_usrInfo" columnid="USR_EMAIL02"/>
+      <BindItem id="item18" compid="edt_USR_NM" propid="value" datasetid="ds_usrInfo" columnid="USR_NM"/>
+      <BindItem id="item26" compid="cbo_HP" propid="value" datasetid="ds_usrInfo" columnid="MPNO01"/>
+      <BindItem id="item27" compid="edt_HP01" propid="value" datasetid="ds_usrInfo" columnid="MPNO02"/>
+      <BindItem id="item28" compid="edt_HP02" propid="value" datasetid="ds_usrInfo" columnid="MPNO03"/>
+      <BindItem id="item19" compid="edt_CLNTNM" propid="value" datasetid="ds_usrInfo" columnid="CLNTNM"/>
+      <BindItem id="item20" compid="rdo_SEX_DSC" propid="value" datasetid="ds_usrInfo" columnid="SEX_DSC"/>
+      <BindItem id="item31" compid="edt_BZNO01" propid="value" datasetid="ds_usrInfo" columnid="BZNO01"/>
+      <BindItem id="item32" compid="edt_BIRTH" propid="value" datasetid="ds_usrInfo" columnid="BIRTH"/>
+      <BindItem id="item33" compid="edt_REPMNM00" propid="value" datasetid="ds_usrInfo" columnid="REPMNM"/>
+      <BindItem id="item37" compid="cbo_FAX" propid="value" datasetid="ds_usrInfo" columnid="FAX_RGNO"/>
+      <BindItem id="item38" compid="edt_FAX1" propid="value" datasetid="ds_usrInfo" columnid="HFAX"/>
+      <BindItem id="item39" compid="edt_FAX2" propid="value" datasetid="ds_usrInfo" columnid="FAX_SQNO"/>
+      <BindItem id="item11" compid="rdo_COMP_TPC00" propid="value" datasetid="ds_usrInfo" columnid="COMP_TPC"/>
+      <BindItem id="item41" compid="edt_CLNTNM00" propid="value" datasetid="ds_usrInfo" columnid="TR_STOP_YN"/>
+      <BindItem id="item40" compid="edt_APPLY_DTM" propid="value" datasetid="ds_payInfo" columnid="APPLY_DTM"/>
+      <BindItem id="item48" compid="edt_BIRTH07" propid="value" datasetid="ds_userInfo" columnid="BIRTH"/>
+      <BindItem id="item49" compid="edt_PAY_AMT" propid="value" datasetid="ds_userInfo" columnid="BIRTH"/>
+      <BindItem id="item44" compid="edt_CLNTNM01" propid="value" datasetid="ds_payInfo" columnid="STL_METH_DSC_NM"/>
+      <BindItem id="item46" compid="edt_CLNTNM03" propid="value" datasetid="ds_payInfo" columnid="ACNO"/>
+      <BindItem id="item34" compid="cbo_HP00" propid="value" datasetid="ds_usrInfo" columnid="ATEL"/>
+      <BindItem id="item35" compid="edt_HP00" propid="value" datasetid="ds_usrInfo" columnid="HTEL"/>
+      <BindItem id="item36" compid="edt_HP03" propid="value" datasetid="ds_usrInfo" columnid="STEL"/>
+      <BindItem id="item12" compid="edt_HP06" propid="value" datasetid="ds_usrInfo" columnid="FZIP"/>
+      <BindItem id="item13" compid="edt_HP07" propid="value" datasetid="ds_usrInfo" columnid="RZIP"/>
+      <BindItem id="item43" compid="edt_CANCEL_DTM" propid="value" datasetid="ds_payInfo" columnid="CANCEL_DTM"/>
+      <BindItem id="item42" compid="edt_REAPPLY_DTM" propid="value" datasetid="ds_payInfo" columnid="REAPPLY_DTM"/>
+      <BindItem id="item51" compid="edt_BUILING_USR" propid="value" datasetid="ds_payInfo" columnid="BUILING_USR"/>
+      <BindItem id="item52" compid="cbo_tpc" propid="value" datasetid="ds_usrInfo" columnid="USR_TPC"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+   /* 초기값세팅 */
+	var param = [
+ 		{code:"HP"	,     dsName:"ds_hpNo", selecttype:"N"},
+ 		{code:"TEL"	,     dsName:"ds_telNo", selecttype:"N"},
+ 		{code:"BNK_C"	, dsName:"ds_bankCode", selecttype:"N"}
+    ];
+	this.gfn_setPortalCommonCode(param);
+
+	/* selectBox처음 보여줄떄는 N로 보여주기 */
+	this.cbk_SVC31.set_value("N");
+	this.cbk_SVC32.set_value("N");
+	this.cbk_SVC33.set_value("N");
+	this.cbk_SVC34.set_value("N");
+	this.cbk_SVC35.set_value("N");
+	this.chk_BILLING_AUTH.set_value("N");
+	this.chk_CONTRACT_AUTH.set_value("N");
+	this.chk_TAX_AUTH.set_value("N");
+	this.chk_MAIL_YN.set_value("N");
+	this.chk_SMS_YN.set_value("N");
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*회원정보조회*/
+this.fn_clearDataSet = function ()
+{
+	this.ds_payInfo.clearData();
+	this.ds_svcInfo.clearData();
+	this.ds_usrAuth.clearData();
+	this.ds_usrInfo.clearData();
+	this.rdo_SVC_ID.set_value("");
+	this.cbk_SVC31.set_value("N");
+	this.cbk_SVC32.set_value("N");
+	this.cbk_SVC33.set_value("N");
+	this.cbk_SVC34.set_value("N");
+	this.cbk_SVC35.set_value("N");
+	this.chk_BILLING_AUTH.set_value("N");
+	this.chk_CONTRACT_AUTH.set_value("N");
+	this.chk_TAX_AUTH.set_value("N");
+	this.chk_MAIL_YN.set_value("N");
+	this.chk_SMS_YN.set_value("N");
+}
+
+/*회원정보조회*/
+this.fn_retriveUsrInfo = function (mb_id, usr_nm, na_trpl_c)
+{
+	if (this.gfn_isNull(mb_id)) {
+		this.gfn_getMessage("alert","validation.message.needs.action","회원ID", "입력");
+		return false;
+	}
+
+	var sParams = "MB_ID="+this.gfn_nullToEmpty(mb_id)
+				+ " USR_NM="+this.gfn_nullToEmpty(usr_nm)
+				+ " NA_TRPL_C="+this.gfn_nullToEmpty(na_trpl_c)
+				;
+	var sSvcID        = "retriveUsrInfo";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveUsrInf";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_usrInfo=ds_usrInfo ds_usrAuth=ds_usrAuth ds_payInfo=ds_payInfo ds_svcInfo=ds_svcInfo" ;
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		if (svcID == "changeTpc") {
+			this.edt_force.set_value("N");
+			if (ErrorCode == -2) {
+				this.alert(ErrorMsg);
+				return;
+			} else if (ErrorCode == -3) {
+				if (this.confirm("해당 사업장으로 가입 가능한 사번이 아닙니다.\n계속 진행하시겠습니까?")) {
+					this.edt_force.set_value("Y");
+					this.btn_tpc_change_onclick();
+				}
+			}
+		} else {		
+			if (ErrorCode == -2) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+				this.fn_clearDataSet();
+				return;
+			} else if (ErrorCode == -9) {
+				alert("등록되지 않은 거래처코드로 변경하실 수 없습니다.");
+				return;
+			} else {
+				this.gfn_getMessage("alert", "error.message.server.exception");
+				return;
+			}
+		}
+	} else {
+		if (svcID == "retriveUsrInfo") {
+			this.fn_setTpcChange();
+			
+			if (this.ds_usrAuth.rowcount >0) {
+				if (this.fn_svc_check(this.ds_usrAuth, "1")) {
+					this.chk_BILLING_AUTH.set_value("Y");
+				} else {
+					this.chk_BILLING_AUTH.set_value("N");
+				}			
+
+				if (this.fn_svc_check(this.ds_usrAuth, "2")) {
+					this.chk_CONTRACT_AUTH.set_value("Y");
+				} else {
+					this.chk_CONTRACT_AUTH.set_value("N");
+				}
+
+				if (this.fn_svc_check(this.ds_usrAuth, "3")) {
+					this.chk_TAX_AUTH.set_value("Y");
+				} else {
+					this.chk_TAX_AUTH.set_value("N");
+				}
+			} else {
+				this.chk_BILLING_AUTH.set_value("N");
+				this.chk_CONTRACT_AUTH.set_value("N");
+				this.chk_TAX_AUTH.set_value("N");
+			}
+
+			if (this.ds_svcInfo.rowcount >0) {
+				if (this.fn_svc_check(this.ds_svcInfo, "21")) {
+					this.rdo_SVC_ID.set_value("21");
+				}
+				if (this.fn_svc_check(this.ds_svcInfo, "22")) {
+					this.rdo_SVC_ID.set_value("22");
+				}
+
+				if (this.fn_svc_check(this.ds_svcInfo, "31")) {
+					this.cbk_SVC31.set_value("Y");
+				} else {
+					this.cbk_SVC31.set_value("N");
+				}
+				if (this.fn_svc_check(this.ds_svcInfo, "32")) {
+					this.cbk_SVC32.set_value("Y");
+				} else {
+					this.cbk_SVC32.set_value("N");
+				}
+				if (this.fn_svc_check(this.ds_svcInfo, "33")) {
+					this.cbk_SVC33.set_value("Y");
+				} else {
+					this.cbk_SVC33.set_value("N");
+				}
+				if (this.fn_svc_check(this.ds_svcInfo, "34")) {
+					this.cbk_SVC34.set_value("Y");
+				} else {
+					this.cbk_SVC34.set_value("N");
+				}
+				if (this.fn_svc_check(this.ds_svcInfo, "35")) {
+					this.cbk_SVC35.set_value("Y");
+				} else {
+					this.cbk_SVC35.set_value("N");
+				}
+			} else {
+				this.cbk_SVC31.set_value("N");
+				this.cbk_SVC32.set_value("N");
+				this.cbk_SVC33.set_value("N");
+				this.cbk_SVC34.set_value("N");
+				this.cbk_SVC35.set_value("N");
+			}
+
+			if (this.ds_payInfo.rowcount == 0) {
+				this.ds_payInfo.addRow();
+			}
+		} else if (svcID == "changeNa") {
+			this.gfn_getMessage("alert", "result.message.save.success");
+		} else if (svcID == "changeTpc") {
+			this.edt_force.set_value("N");
+			this.gfn_getMessage("alert", "result.message.save.success");
+			this.fn_retriveUsrInfo(this.ds_usrInfo.getColumn(0, "MB_ID"), this.ds_usrInfo.getColumn(0, "USR_NM"), this.ds_usrInfo.getColumn(0, "NA_TRPL_C"));
+		}
+	}
+}
+
+this.fn_svc_check = function(ds, svcId)
+{
+	var row = ds.findRow("SVC_ID", svcId);
+	if (row >= 0 && ds.getColumn(row, "RQ_DSC") == "1" && (ds.getColumn(row, "ENT_PRG_STSC") != "2" && ds.getColumn(row, "ENT_PRG_STSC") != "4")) {
+		return true;
+	}
+	return false;
+}
+
+/*업체ID전환*/
+this.btn_usrChange_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var id = this.edt_MB_ID.value;
+	var pw = this.ds_usrInfo.getColumn(0,"MB_PW");
+	application.setPrivateProfile("userid", id);
+	application.setPrivateProfile("userpw",pw);
+	nexacro._setCookie('userid',id,7);
+	nexacro._setCookie('userpw',pw,7);
+	this.gfn_callAdminSite(id, pw);
+}
+
+//거래처코드 변경
+this.btn_napl_change_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (confirm("정말로 거래처 코드를 변경하시겠습니까?")) {
+		var orgval = this.ds_usrInfo.getOrgColumn(0, "NA_TRPL_C");
+		var sParam = "na_trpl_c=" + this.edt_NA_TRPL_C.value
+						+ " org_na_trpl_c=" + orgval
+						+ " mb_id=" + this.edt_MB_ID.value ;
+		var sSvcID        = "changeNa";
+		var sURL          = "svc::rest/mg/usrinf/changeNa";
+		var sInDatasets   = "";
+		var sOutDatasets  = "";
+		var sArgument     = sParam;
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.fn_setTpcChange = function()
+{
+	var tpc = this.ds_usrInfo.getColumn(0, "USR_TPC");
+	this.btn_tpc_change.set_visible(tpc == "02" || tpc == "03");
+	this.edt_force.set_value("N");
+	
+	if (tpc == "02") {
+		this.btn_tpc_change.set_text("사용자 유형 변경[사업장]");
+	} else if (tpc == "03") {
+		this.btn_tpc_change.set_text("사용자 유형 변경[본부]");
+	}
+}
+
+this.btn_tpc_change_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var tpc = this.ds_usrInfo.getColumn(0, "USR_TPC");
+	if (tpc == "02" || tpc == "03") {
+		var msg;
+		if (tpc == "02") {
+			msg = "[본부 → 사업장]";
+		} else {
+			msg = "[사업장 → 본부]";
+		}
+	
+		if (this.edt_force.value == "Y" || confirm("가입 유형을 변경하시겠습니까?\n"+msg)) {
+			var orgval = this.ds_usrInfo.getOrgColumn(0, "NA_TRPL_C");
+			var sParam = "NA_TRPL_C=" + this.edt_NA_TRPL_C.value
+							+ " MB_ID=" + this.edt_MB_ID.value
+							+ " USR_TPC=" + tpc
+							+ " FORCE_YN=" + this.edt_force.value
+							;
+			var sSvcID        = "changeTpc";
+			var sURL          = "svc::rest/mg/usrinf/changeNhUsrTpc";
+			var sInDatasets   = "";
+			var sOutDatasets  = "";
+			var sArgument     = sParam;
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		}
+	} else {
+		this.alert("본부 또는 사업장 회원만 가능합니다");
+	}
+}]]></Script>
+  </Form>
+</FDL>

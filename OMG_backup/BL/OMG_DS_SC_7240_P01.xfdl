@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7240_P01" classname="popup01" left="0" top="0" width="456" height="321" onload="form_onload" titletext="청구입금 팝업조회">
+    <Layouts>
+      <Layout>
+        <Grid id="rqrvInq" taborder="0" binddataset="ds_rqrvInq" useinputpanel="false" left="17" top="40" right="17" height="225" autofittype="col" oncelldblclick="grd_rvopl_oncelldblclick" onkeydown="grd_rvopl_onkeydown" summarytype="top" autosizebandtype="summary">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="150"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="청구월"/>
+                <Cell col="1" text="청구금액"/>
+                <Cell col="2" text="입금금액"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:RMS_FM" mask="@@@@-@@" tooltiptext="bind:RMS_FM"/>
+                <Cell col="1" displaytype="number" style="align:right;" text="bind:LS_RQS_AM" tooltiptext="bind:LS_RQS_AM"/>
+                <Cell col="2" displaytype="number" style="align:right;" text="bind:RV_AM" tooltiptext="bind:RV_AM"/>
+              </Band>
+              <Band id="summary">
+                <Cell style="align:center middle;" text="합계"/>
+                <Cell col="1" displaytype="number" expr="dataset.getSum(&quot;LS_RQS_AM&quot;)" tooltiptext="expr:dataset.getSum(&quot;LS_RQS_AM&quot;)"/>
+                <Cell col="2" displaytype="number" expr="dataset.getSum(&quot;RV_AM&quot;)" tooltiptext="expr:dataset.getSum(&quot;RV_AM&quot;)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static09" taborder="1" text="17" visible="false" left="0" top="44" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="2" text="17" visible="false" left="439" top="44" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="3" text="17" visible="false" left="363" width="91" height="17" style="background:#dc143c5b;" top="304"/>
+        <Static id="Static02" taborder="4" text="10" visible="false" left="363" top="265" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="5" text="8" visible="false" left="363" top="36" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="6" text="15" visible="false" left="242" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="7" text="15" visible="false" left="363" top="87" width="76" height="15" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rqrvInq" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RMS_FM" type="STRING" size="6"/>
+          <Column id="LS_RQS_AM" type="INT" size="256"/>
+          <Column id="RV_AM" type="INT" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_TRPL_C">1</Col>
+            <Col id="CLNTNM">가나다라마바</Col>
+            <Col id="NA_TEAM_C">ABC123456789</Col>
+            <Col id="TEAMNM">ABC123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.fn_search();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.fn_search = function()
+{
+	var sParams	= "TRPL_C="		+ this.getOwnerFrame().RMS_TRPL_C
+				+ " FROM_DT="	+ this.getOwnerFrame().RMS_FM
+				+ " TO_DT="		+ this.getOwnerFrame().RMS_TM
+				;
+	var sSvcID			= "rqrvSearchPopup";				// 통신아이디
+	var sURL			= "svc::rest/bl/rqrvSearchPopup";	// 호출할 서버 페이지 주소
+	var sInDatasets		= "";								// 보내는데이터셋
+	var sOutDatasets	= "ds_rqrvInq=ds_rqrvInq";			// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= sParams;							// 파라미터
+	var sCallbackFunc	= "fn_callBack";					// 콜백
+	var sTranType		= "S";								// U:저장/삭제, S:조회
+
+	//API 호출
+//	trace("sArgument : " + sArgument);
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	trace(this.ds_rqrvInq.saveXML());
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}
+	else
+	{
+		if(svcID == "rqrvSearchPopup")
+		{
+			if(this.ds_rqrvInq.rowcount == 0)
+			{
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+			else
+			{
+				var rq_am = 0;
+				var rv_am = 0;
+				var tot_rv_am = this.getOwnerFrame().RV_AM;
+				var tot_rf_am = this.getOwnerFrame().RF_AM;
+				var tot_rq_am = tot_rv_am - tot_rf_am;
+			//	trace("tot_rq_am:" + tot_rq_am);
+				for(var i = 0; i < this.ds_rqrvInq.rowcount; i++)
+				{
+					if(tot_rq_am <= 0) break;
+				//	trace("bf tot_rq_am:" + tot_rq_am + " rq_am:" + rq_am + " rv_am:" + rv_am);
+					rq_am = this.ds_rqrvInq.getColumn(i, "LS_RQS_AM");
+					if(tot_rq_am - rq_am >= 0) rv_am = rq_am;
+					else rv_am = tot_rq_am;
+					tot_rq_am = tot_rq_am - rv_am;
+				//	trace("af tot_rq_am:" + tot_rq_am + " rq_am:" + rq_am + " rv_am:" + rv_am);
+					this.ds_rqrvInq.setColumn(i, "RV_AM", rv_am);
+				}
+				// 역순으로 데이터셋 정렬
+				this.ds_rqrvInq.set_keystring("S:-RMS_FM");
+				// 스크롤을 맨위로 보낸다
+				this.ds_rqrvInq.set_rowposition(0);
+				this.ds_rqrvInq.summary.redraw();
+			//	this.rqrvInq.vscrollbar.set_pos(1);
+			}
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Guide08_n" classname="Guide08_n" left="0" top="0" width="1008" height="1000" titletext="Class Component">
+    <Layouts>
+      <Layout>
+        <Static id="Static60" taborder="0" text="Class Name Component" cssclass="sta_GID_Title" left="0" top="0" height="30" right="0"/>
+        <Static id="Static33" taborder="1" text="출력Label" cssclass="sta_WF_Label" left="19" top="265" width="110" height="29"/>
+        <Static id="Static35" taborder="2" text="조회label" cssclass="sta_WFSA_Label" left="19" top="217" width="80" height="21"/>
+        <Static id="Static36" taborder="3" text="권한사업장" cssclass="sta_WF_MiniTitle" left="19" top="370" width="67" height="21"/>
+        <Static id="Static37" taborder="4" text="Data " cssclass="sta_WF_Labelbg" left="128" top="265" width="128" height="29"/>
+        <Static id="Static38" taborder="5" text="서브타이틀" cssclass="sta_WF_Subtitle" left="19" top="98" width="110" height="21"/>
+        <Static id="Static49" taborder="13" left="106" top="283" width="1" height="29" style="background:red;"/>
+        <Static id="Static00" taborder="20" text="- Bullet Title" cssclass="sta_GID_txt02" left="19" top="54" width="199" height="21"/>
+        <Static id="Static01" taborder="21" text="class : &lt;b v='true'&gt;sta_WF_Subtitle&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="117" top="98" width="183" height="21"/>
+        <Static id="Static02" taborder="22" text="class : &lt;b v='true'&gt;sta_WFSA_Label&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="117" top="217" width="183" height="21"/>
+        <Static id="Static04" taborder="24" text="class : &lt;b v='true'&gt;sta_WF_MiniTitle&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="117" top="370" width="173" height="21"/>
+        <Static id="Static05" taborder="25" text="class : &lt;b v='true'&gt;sta_WF_Label&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="19" top="305" width="160" height="21"/>
+        <Static id="Static06" taborder="26" text="class : &lt;b v='true'&gt;sta_WF_Labelbg&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="207" top="305" width="163" height="21"/>
+        <Static id="Static07" taborder="27" left="229" top="283" width="1" height="29" style="background:red;"/>
+        <CheckBox id="CheckBox00" taborder="28" cssclass="chk_WF_allSlct" top="888" height="21" width="21" left="19"/>
+        <Static id="Static78" taborder="29" text="- 결제 계좌정보등록은 농협사업장으로 문의 바랍니다." cssclass="sta_WF_DescriptionE02" left="19" top="683" width="318" height="21"/>
+        <Static id="Static41" taborder="30" text="[처리대상건수 &lt;fc v='#0084ab'&gt;&lt;b v='true'&gt;0&lt;/b&gt;&lt;/fc&gt;건]" usedecorate="true" cssclass="sta_WF_GridCount" left="18" top="844" height="21" width="115"/>
+        <Static id="Static08" taborder="31" text="- Location" cssclass="sta_GID_txt02" left="19" top="441" width="199" height="21"/>
+        <Static id="Static09" taborder="32" text="- Description" cssclass="sta_GID_txt02" left="19" top="565" width="199" height="21"/>
+        <Static id="Static10" taborder="33" text="- Label Static" cssclass="sta_GID_txt02" left="19" top="168" width="199" height="21"/>
+        <Static id="Static11" taborder="34" left="0" top="148" height="1" style="border:1 dashed #999999ff ;" right="0"/>
+        <Static id="Static12" taborder="35" left="0" top="421" height="1" style="border:1 dashed #999999ff ;" right="0"/>
+        <Static id="Static13" taborder="36" left="0" top="545" height="1" style="border:1 dashed #999999ff ;" right="0"/>
+        <Static id="Static14" taborder="37" text="class : &lt;b v='true'&gt;sta_WF_DescriptionE02&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="354" top="683" width="224" height="21"/>
+        <Static id="Static15" taborder="38" left="0" top="774" height="1" style="border:1 dashed #999999ff ;" right="0"/>
+        <Static id="Static16" taborder="39" text="- ETC." cssclass="sta_GID_txt02" left="18" top="793" width="199" height="21"/>
+        <Static id="Static17" taborder="40" text="class : &lt;b v='true'&gt;sta_WF_GridCount&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="148" top="844" width="181" height="21"/>
+        <Static id="Static18" taborder="41" text="class : &lt;b v='true'&gt;chk_WF_allSlct&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="148" top="888" width="163" height="21"/>
+        <Static id="Static19" taborder="42" text="그리드 상단(모듈버튼 좌측)에 배치" cssclass="sta_GID_txt02" left="323" top="844" width="199" height="21"/>
+        <Static id="Static20" taborder="43" text="전체화면 데이터 선택스타일 체크박스" cssclass="sta_GID_txt02" left="305" top="888" width="204" height="21"/>
+        <CheckBox id="CheckBox01" taborder="44" cssclass="chk_WF_allSlct" top="888" height="21" value="true" width="21" left="44"/>
+        <Static id="Static21" taborder="45" text="- 결제 계좌정보등록은 농협사업장으로 문의 바랍니다." cssclass="sta_WF_DescriptionB02" left="19" top="714" right="66.47%" height="21"/>
+        <Static id="Static22" taborder="46" text="class : &lt;b v='true'&gt;sta_WF_DescriptionB02&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="354" top="714" height="21" width="224"/>
+        <Static id="Static23" taborder="47" text="결제 계좌정보등록은 농협사업장으로 문의 바랍니다." cssclass="sta_WF_DescriptionE01" left="19" top="618" right="66.47%" height="21"/>
+        <Static id="Static24" taborder="48" text="class : &lt;b v='true'&gt;sta_WF_DescriptionE02&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="354" top="618" height="21" width="224"/>
+        <Static id="Static25" taborder="49" text="결제 계좌정보등록은 농협사업장으로 문의 바랍니다." cssclass="sta_WF_DescriptionB01" left="19" top="649" right="66.47%" height="21"/>
+        <Static id="Static26" taborder="50" text="class : &lt;b v='true'&gt;sta_WF_DescriptionB02&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="354" top="649" height="21" width="224"/>
+        <Static id="Static27" taborder="51" text="결품내역 조회" cssclass="sta_WF_Location" left="19" top="487" width="240" height="21"/>
+        <Static id="Static03" taborder="23" text="class : &lt;b v='true'&gt;sta_WF_Location&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="117" top="487" width="173" height="21"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

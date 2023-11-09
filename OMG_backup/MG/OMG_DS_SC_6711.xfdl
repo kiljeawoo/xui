@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="767" height="254" titletext="부서 등록/수정" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_save" taborder="0" text="저장" cssclass="btn_WF_CRUD" top="47" right="56" width="41" height="21" onclick="btn_save_onclick"/>
+        <Button id="btn_close2" taborder="1" text="닫기" cssclass="btn_WF_CRUD" top="47" right="13" width="41" height="21" onclick="btn_close_onclick"/>
+        <Static id="Static51" taborder="2" text="부서 등록/수정" cssclass="sta_WF_Subtitle" left="17" top="51" width="135" height="21"/>
+        <Static id="Static04" taborder="3" text="부서 아이디" cssclass="sta_WF_Label" left="17" top="76" width="134" height="29"/>
+        <Static id="Static07" taborder="4" text="상위 부서 아이디" cssclass="sta_WF_Label" left="17" top="104" width="134" height="29"/>
+        <Static id="Static08" taborder="5" cssclass="sta_WF_Labelbg" left="150" top="76" right="17" height="29"/>
+        <Static id="Static11" taborder="6" cssclass="sta_WF_Labelbg" left="150" top="104" right="17" height="29"/>
+        <Static id="Static03" taborder="7" text="15" visible="false" left="673" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="9" text="부서 정보 관리" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="btn_close" taborder="10" cssclass="btn_WF_PopupClose" left="729" top="0" width="37" height="32" onclick="btn_close_onclick"/>
+        <Edit id="edit_dept_id" taborder="11" left="154" top="80" height="21" cssclass="edt_WF_Essential" width="166" ontextchange="edit_dept_id_ontextchange"/>
+        <Edit id="edit_depthigh_id" taborder="13" left="154" top="108" height="21" cssclass="edt_WF_Essential" width="166" readonly="false"/>
+        <Static id="Static01" taborder="18" cssclass="sta_WF_Labelbg" left="150" top="132" right="17" height="29"/>
+        <Edit id="edit_deptname" taborder="20" cssclass="edt_WF_Essential" left="154" top="136" height="21" readonly="false" width="166" ontextchanged="edit_deptname_ontextchanged"/>
+        <Static id="Static02" taborder="21" text="부 서 명" cssclass="sta_WF_Label" left="17" top="132" height="29" width="134"/>
+        <Button id="btn_deptidCheck" taborder="25" text="중복확인" onclick="btn_deptidCheck_onclick" left="322" top="80" height="21" width="54"/>
+        <Static id="Static10" taborder="26" cssclass="sta_WF_Labelbg" left="150" top="160" right="17" height="29"/>
+        <Edit id="edit_nabzplc" taborder="27" readonly="false" cssclass="edt_WF_Essential" left="154" top="164" height="21" width="166"/>
+        <Static id="Static12" taborder="28" text="사업장 코드" cssclass="sta_WF_Label" left="17" top="160" height="29" width="134"/>
+        <Static id="Static00" taborder="29" text="정렬 순서" cssclass="sta_WF_Label" left="17" top="188" height="29" width="134"/>
+        <Static id="Static05" taborder="31" cssclass="sta_WF_Labelbg" left="150" top="188" height="29" right="17"/>
+        <Edit id="edit_deptsort" taborder="30" cssclass="edt_WF_Essential" left="154" top="192" height="21" width="166"/>
+        <Static id="Static13" taborder="32" text="부서 레벨" cssclass="sta_WF_Label" left="17" top="216" height="29" width="134"/>
+        <Static id="Static14" taborder="34" cssclass="sta_WF_Labelbg" left="150" top="216" right="17" height="29"/>
+        <Edit id="edit_deptlevel" taborder="33" cssclass="edt_WF_Essential" left="154" top="220" height="21" width="166"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DEPT_ID" type="STRING" size="64"/>
+          <Column id="DEPT_HIGH" type="STRING" size="64"/>
+          <Column id="DEPT_NAME" type="STRING" size="128"/>
+          <Column id="DEPT_SORT" type="STRING" size="32"/>
+          <Column id="NA_BZPLC" type="STRING" size="13"/>
+          <Column id="DEPT_LEVEL" type="STRING" size="1"/>
+          <Column id="LEVEL_ID" type="STRING" size="30"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var btn_save_enable = false;
+var save_exec = false;
+var dept_id="";
+var dept_highid="";
+var paraMode = "";
+var dept_sort="";
+var dept_level="";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	paraMode = this.getOwnerFrame().paramMode;
+	dept_highid=this.getOwnerFrame().depthighid;	//dept_highid 입력
+	this.edit_depthigh_id.set_value(dept_highid);
+	dept_level=this.getOwnerFrame().deptlevel;
+	dept_sort=this.getOwnerFrame().deptsort;	//deptsort 입력
+	if(paraMode == "I"){
+		this.edit_deptlevel.set_value(nexacro.toNumber(this.getOwnerFrame().deptlevel)+1);
+		this.edit_deptsort.set_enable("false");
+	}
+	if(paraMode == "U"){	 //수정업데이트
+		dept_id=this.getOwnerFrame().deptid;	//dept_id 입력
+		this.edit_dept_id.set_value(dept_id);
+		this.edit_deptname.set_value(this.getOwnerFrame().deptname);	//deptname 입력
+		
+		this.edit_deptsort.set_value(dept_sort);
+		
+		this.edit_deptlevel.set_value(dept_level);
+		this.edit_nabzplc.set_value(this.getOwnerFrame().nabzplc);	    //nabzplc 입력
+		this.btn_deptidCheck.set_visible(false);
+		this.edit_dept_id.set_cssclass("edt_WF_Readonly");
+		this.edit_dept_id.set_readonly("true");
+		btn_save_enable = true;
+	}
+	
+}
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*콜백 함수*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "checkEmpeAmnid"){
+			if(this.ds_dept.rowcount==0){
+				this.alert("사용 가능합니다.");
+				btn_save_enable = true;
+			}
+			else {
+				this.alert("이미 사용중입니다.");
+			}
+		}
+		else if(svcID == "insertEmpeAmn") {
+			this.gfn_getMessage("alert", "result.message.save.success");
+			btn_save_enable = false;
+			save_exec = true;
+		}
+		else if(svcID == "updateEmpeAmn") {
+			this.gfn_getMessage("alert", "result.message.save.success");
+			save_exec = true;
+		}
+	}	
+
+}
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/*추가등록 시 사용되는 Validation Check */
+this.fn_validationCheck = function() {
+	
+	if(this.gfn_isNull(this.edit_dept_id.value)){
+		this.alert("부서 아이디를 입력해주세요");
+		this.edit_dept_id.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_deptname.value)){
+		this.alert("부서명을 입력해주세요");
+		this.edit_deptname.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_deptname.value)){
+		this.alert("부서명을 입력해주세요");
+		this.edit_deptname.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_nabzplc.value)){
+		this.alert("사업장 코드를 입력해주세요");
+		this.edit_nabzplc.setFocus();
+		return false;
+	}
+	
+	return true;
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+/*닫기*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(save_exec){
+		this.close(dept_id);
+	}else{
+		this.close();
+	}
+}
+
+/*저장*/
+
+
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(btn_save_enable){
+		if(this.fn_validationCheck()){
+			
+			if(paraMode == "I"){
+				this.ds_dept.addRow();
+				this.ds_dept.setColumn(0,"DEPT_ID",this.edit_dept_id.value);
+				this.ds_dept.setColumn(0,"DEPT_HIGH",this.edit_depthigh_id.value);
+				dept_id=this.edit_depthigh_id.value;
+				this.ds_dept.setColumn(0,"DEPT_NAME",this.edit_deptname.value);
+				this.ds_dept.setColumn(0,"DEPT_SORT",dept_sort);
+				this.ds_dept.setColumn(0,"NA_BZPLC",this.edit_nabzplc.value);
+				this.ds_dept.setColumn(0,"DEPT_LEVEL",this.edit_deptlevel.value);
+				var sParams = "";
+				var sSvcID        = "insertEmpeAmn";
+				var sURL          = "svc::rest/mg/insertEmpeAmn";	
+				var sInDatasets   = "ds_dept=ds_dept";
+				var sOutDatasets  = "";	
+				var sArgument     = sParams;
+				var sCallbackFunc = "fn_callBack";
+				var sTranType     = "U"; // U:저장/삭제, S:조회			
+				
+				this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+				btn_save_enable = false;
+			}
+			else if(paraMode == "U"){
+				this.ds_dept.addRow();
+				this.ds_dept.setColumn(0,"DEPT_ID",this.edit_dept_id.value);
+				this.ds_dept.setColumn(0,"DEPT_HIGH",this.edit_depthigh_id.value);
+				this.ds_dept.setColumn(0,"DEPT_NAME",this.edit_deptname.value);
+				this.ds_dept.setColumn(0,"DEPT_SORT",this.edit_deptsort.value);
+				this.ds_dept.setColumn(0,"DEPT_LEVEL",this.edit_deptlevel.value);
+				trace("1");
+				this.ds_dept.setColumn(0,"NA_BZPLC",this.edit_nabzplc.value);
+				var sParams = "";
+				var sSvcID        = "updateEmpeAmn";
+				var sURL          = "svc::rest/mg/updateEmpeAmn";	
+				var sInDatasets   = "ds_dept=ds_dept";
+				var sOutDatasets  = "";	
+				var sArgument     = sParams;
+				var sCallbackFunc = "fn_callBack";
+				var sTranType     = "U"; // U:저장/삭제, S:조회			
+				
+				this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+			}
+		}
+ 	}
+ 	else {
+ 		this.alert("중복확인을 해주세요.");
+ 	}
+}
+
+this.btn_deptidCheck_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_isNull(this.edit_dept_id.value)){
+		this.alert("부서 아이디를 입력해주세요");
+		this.edit_dept_id.setFocus();
+		return false;
+	}
+	
+	var sParams = "dept_id="+this.gfn_nullToEmpty(this.edit_dept_id.value);
+	var sSvcID        = "checkEmpeAmnid";
+	var sURL          = "svc::rest/mg/checkEmpeAmnid";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_dept=ds_dept";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회  
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+this.edit_dept_id_ontextchange = function(obj:Edit,  e:nexacro.TextChangeEventInfo)
+{
+	btn_save_enable = false;
+}
+]]></Script>
+  </Form>
+</FDL>

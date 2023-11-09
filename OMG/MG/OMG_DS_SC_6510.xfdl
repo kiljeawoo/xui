@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5060" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="회원조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="1" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="85" left="0" top="29" right="15" height="42" cssclass="div_WFSA_Searchbg" enable="true">
+          <Layouts>
+            <Layout>
+              <Edit id="edt_MB_ID" taborder="76" left="106" top="10" width="140" height="21" maxlength="9"/>
+              <Static id="Static00" taborder="77" text="회원ID" cssclass="sta_WFSA_Label" left="15" top="10" width="91" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="84" text="30" visible="false" left="507" top="31" width="30" height="40" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="86" visible="false" left="1" top="30" width="15" height="40" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="88" text="30" visible="false" left="246" top="29" width="30" height="40" style="background:#dc143c5b;" onclick="Static04_onclick"/>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="70" right="9" bottom="2">
+          <Layouts>
+            <Layout>
+              <Button id="Button" taborder="1" cssclass="btn_WFSA_SearchClose" top="0" height="12" left="363" right="362" onclick="div_list_Button_onclick"/>
+              <Static id="Static03" taborder="5" text="15" visible="false" left="922" top="1" width="56" height="15" style="background:#dc143c5b;"/>
+              <Tab id="Tab00" taborder="6" left="0" top="23" bottom="8" width="99.11%" onchanged="Tab00_onchanged" tabindex="0" scrollbars="autoboth" style="showextrabutton:false;">
+                <Tabpages>
+                  <Tabpage id="tabpage1" text="회원정보" url="OMG.MG::OMG_DS_SC_6511.xfdl" onclick="div_list_Tab00_tabpage1_onclick"/>
+                  <Tabpage id="tabpage2" text="응답내역등록" async="false"/>
+                  <Tabpage id="tabpage3" text="청구및납부내역" async="false"/>
+                  <Tabpage id="tabpage4" text="EDI서비스일별내역" async="false"/>
+                  <Tabpage id="tabpage5" text="세금계산서발행내역" async="false"/>
+                  <Tabpage id="tabpage6" text="매출조회" async="false"/>
+                  <Tabpage id="tabpage7" text="서비스변경현황" async="false"/>
+                  <Tabpage id="tabpage8" text="부가정보일별내역" async="false"/>
+                  <Tabpage id="tabpage9" text="정보분석조회" async="false"/>
+                </Tabpages>
+              </Tab>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Edit id="edt_org_mb_id" taborder="92" left="70" top="514" width="17.43%" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분         
+}
+ 
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.edt_org_mb_id.set_value(this.div_search.edt_MB_ID.value);
+	this.div_list.Tab00.tabpage1.fn_retriveUsrInfo(this.div_search.edt_MB_ID.value,'' ,'');	 
+	
+	if(!this.gfn_isNull(this.edt_org_mb_id.value) &&(this.div_search.edt_MB_ID.value != this.div_list.Tab00.tabpage1.edt_MB_ID.value)){
+		this.div_list.Tab00.set_tabindex(0);			
+	}
+}
+
+/*tabpage 및 데이터셋 초기화*/
+this.fn_initTabUrl = function (){		
+
+	this.div_list.Tab00.tabpage1.fn_clearDataSet();		
+	this.div_list.Tab00.tabpage2.set_url("");
+	this.div_list.Tab00.tabpage3.set_url("");
+	this.div_list.Tab00.tabpage4.set_url("");
+	this.div_list.Tab00.tabpage5.set_url("");
+	this.div_list.Tab00.tabpage6.set_url("");
+	this.div_list.Tab00.tabpage7.set_url("");
+	this.div_list.Tab00.tabpage8.set_url("");
+	this.div_list.Tab00.tabpage9.set_url("");
+	this.div_list.Tab00.set_tabindex(0);
+}
+
+/*tabpage 조회 */
+this.Tab00_onchanged = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo){	
+	
+	if(e.preindex >=0 ){ 		
+		if(this.gfn_isNull(this.div_search.edt_MB_ID.value) || this.gfn_isNull(this.div_list.Tab00.tabpage1.ds_usrInfo.getColumn(0,"MB_ID"))){			
+			if(e.postindex !=0){
+				alert("회원ID로 조회 후 회원정보를 확인해주시기 바랍니다.");	
+			}
+			this.div_list.Tab00.set_tabindex(0);	
+			return false;
+		}
+			
+		if(this.div_list.Tab00.tabpage1.ds_usrInfo.getColumn(0,"MB_ID") != this.div_search.edt_MB_ID.value){
+			if(e.postindex ==0){				
+				this.fn_initTabUrl();
+			}else{
+				alert("회원ID값이 변경되었습니다. 회원ID로 조회 후 회원정보를 확인해주시기 바랍니다.");
+			}
+			this.div_list.Tab00.set_tabindex(0);	
+			return false;
+		}
+		 
+		if(e.postindex ==0){		
+		
+		}else if(e.postindex ==1){
+			//응대내역등록
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage2.url)){
+				this.div_list.Tab00.tabpage2.set_url("OMG.MG::OMG_DS_SC_6512.xfdl");
+				this.div_list.Tab00.tabpage2.ds_qstIns.setColumn(0, "MB_ID", this.div_search.edt_MB_ID.value);
+				this.div_list.Tab00.tabpage2.edt_NA_TRPL_C.set_value(this.div_list.Tab00.tabpage1.edt_NA_TRPL_C.value);
+				this.div_list.Tab00.tabpage2.Edit_comnum.set_value(this.div_list.Tab00.tabpage1.edt_NA_TRPL_C.value);
+				this.div_list.Tab00.tabpage2.edt_CLNTNM.set_value(this.div_list.Tab00.tabpage1.edt_CLNTNM.value);
+				this.div_list.Tab00.tabpage2.edt_USR_NM.set_value(this.div_list.Tab00.tabpage1.edt_USR_NM.value);
+				this.div_list.Tab00.tabpage2.cbo_HP.set_value(this.div_list.Tab00.tabpage1.cbo_HP.value);
+				this.div_list.Tab00.tabpage2.edt_HP01.set_value(this.div_list.Tab00.tabpage1.edt_HP01.value);
+				this.div_list.Tab00.tabpage2.edt_HP02.set_value(this.div_list.Tab00.tabpage1.edt_HP02.value);
+			}
+		}else if(e.postindex ==2){
+			//청구및납부내역		
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage3.url)){			
+				this.div_list.Tab00.tabpage3.set_url("OMG.MG::OMG_DS_SC_6513.xfdl");
+			}
+		}else if(e.postindex ==3){
+			//EDI서비스 일별내역
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage4.url)){				
+				this.div_list.Tab00.tabpage4.set_url("OMG.MG::OMG_DS_SC_6514.xfdl");
+				var mbcoDsc = this.div_list.Tab00.tabpage1.ds_usrInfo.getColumn(0,"NA_MBCO_DSC");								
+				this.div_list.Tab00.tabpage4.fn_retriveUsrInfo(this.div_list.Tab00.tabpage1.edt_NA_TRPL_C.value , mbcoDsc);				
+			}
+		}else if(e.postindex ==4){
+			//세금계산서발행내역
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage5.url)){				
+				this.div_list.Tab00.tabpage5.set_url("OMG.MG::OMG_DS_SC_6515.xfdl");				
+				this.div_list.Tab00.tabpage5.fn_retriveUsrInfo(this.div_list.Tab00.tabpage1.edt_MB_ID.value);
+			}
+		}else if(e.postindex ==5){
+			//매출조회
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage6.url)){				
+				this.div_list.Tab00.tabpage6.set_url("OMG.MG::OMG_DS_SC_6516.xfdl");				
+				this.div_list.Tab00.tabpage6.fn_retriveUsrInfo(this.div_list.Tab00.tabpage1.edt_NA_TRPL_C.value,"Y");
+			}
+		}else if(e.postindex ==6){			
+			//서비스변경현황
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage7.url)){				
+				this.div_list.Tab00.tabpage7.set_url("OMG.MG::OMG_DS_SC_6517.xfdl");						
+				this.div_list.Tab00.tabpage7.fn_retriveUsrInfo(this.div_list.Tab00.tabpage1.edt_NA_TRPL_C.value);
+			}
+		}else if(e.postindex ==7){			
+			//부가정보일별내역		
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage8.url)){				
+				this.div_list.Tab00.tabpage8.set_url("OMG.MG::OMG_DS_SC_6518.xfdl");									 
+				var mbcoDsc = this.div_list.Tab00.tabpage1.ds_usrInfo.getColumn(0,"NA_MBCO_DSC");
+				var initParam ="Y";
+				this.div_list.Tab00.tabpage8.fn_retriveUsrInfo(this.div_list.Tab00.tabpage1.edt_NA_TRPL_C.value,mbcoDsc,initParam);				
+			}
+		}else if(e.postindex ==8){			
+			//정보분석조회		
+			if(this.gfn_isNull(this.div_list.Tab00.tabpage9.url)){				
+				this.div_list.Tab00.tabpage9.set_url("OMG.MG::OMG_DS_SC_6519.xfdl");									 
+				var mbcoDsc = this.div_list.Tab00.tabpage1.ds_usrInfo.getColumn(0,"NA_MBCO_DSC");
+				var initParam ="Y";
+				
+				trace("mbcoDsc =>>  "+mbcoDsc   +":::  initParam =>>   "+initParam );
+				this.div_list.Tab00.tabpage9.fn_test(this.div_list.Tab00.tabpage1.edt_NA_TRPL_C.value,mbcoDsc,initParam);	
+				
+			}
+		}						
+	}
+}
+ 
+
+this.div_list_Button_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+]]></Script>
+  </Form>
+</FDL>

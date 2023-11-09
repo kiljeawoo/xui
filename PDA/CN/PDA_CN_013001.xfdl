@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_013001" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="스마트PDA권한조회" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="89" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="31" text="사업장조회" cssclass="sta_WFSA_Label" left="2.16%" top="10" right="86.9%" height="21"/>
+              <Edit id="Edit_comnum" taborder="32" left="12.72%" top="10" right="78.37%" height="21" displaynulltext="사업장코드"/>
+              <Edit id="Edit_comname" taborder="33" left="21.88%" top="10" right="68.7%" height="21" enable="true" displaynulltext="사업장명"/>
+              <Button id="btn_comname" taborder="34" onclick="div_search_btn_comname_onclick" cssclass="btn_WF_Searchbtn" left="31.55%" top="10" right="65.78%" height="21"/>
+              <Static id="Static04" taborder="35" text="사번" cssclass="sta_WFSA_Label" left="35.5%" top="10" width="79" height="21"/>
+              <Edit id="edt_ID" taborder="36" onkeydown="edt_ACNO_onkeydown" left="45.67%" top="10" width="150" height="21" displaynulltext="사번"/>
+              <Static id="Static02" taborder="37" text="이름" cssclass="sta_WFSA_Label" left="68.83%" top="10" width="79" height="21"/>
+              <Edit id="edt_NM" taborder="38" onkeydown="edt_ACNO_onkeydown" left="77.1%" top="10" width="150" height="21" displaynulltext="이름"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="71" right="15" bottom="1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Button id="Button75" taborder="3" onclick="Div_Button75_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+              <Grid id="Grd01" taborder="2" binddataset="ds_pgmAuth" useinputpanel="false" left="0" top="42" right="0" bottom="66" cellsizingtype="col" autofittype="col" summarytype="top" treeusebutton="use" treeusecheckbox="false" treeuseexpandkey="true" treeuseimage="false" treeuseline="true">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="160"/>
+                      <Column size="0"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No"/>
+                      <Cell col="1" text="사업장명"/>
+                      <Cell col="2" text="레벨"/>
+                      <Cell col="3" text="사용자ID"/>
+                      <Cell col="4" text="사용자명"/>
+                      <Cell col="5" text="발주"/>
+                      <Cell col="6" text="검수"/>
+                      <Cell col="7" text="매입"/>
+                      <Cell col="8" text="가격변경"/>
+                      <Cell col="9" text="재고"/>
+                      <Cell col="10" text="가격할인"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="text" text="bind:RN"/>
+                      <Cell col="1" style="align:left;" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="2" displaytype="number" text="bind:LEV" tooltiptext="bind:LEV"/>
+                      <Cell col="3" text="bind:USRID" tooltiptext="bind:USRID"/>
+                      <Cell col="4" text="bind:USRNM" tooltiptext="bind:USRNM"/>
+                      <Cell col="5" displaytype="checkbox" text="bind:ORD_USE_YN" tooltiptext="bind:ORD_USE_YN"/>
+                      <Cell col="6" displaytype="checkbox" text="bind:CNR_USE_YN" tooltiptext="bind:CNR_USE_YN"/>
+                      <Cell col="7" displaytype="checkbox" text="bind:BY_USE_YN" tooltiptext="bind:BY_USE_YN"/>
+                      <Cell col="8" displaytype="checkbox" text="bind:PR_USE_YN" tooltiptext="bind:PR_USE_YN"/>
+                      <Cell col="9" displaytype="checkbox" text="bind:STPL_USE_YN" tooltiptext="bind:STPL_USE_YN"/>
+                      <Cell col="10" displaytype="checkbox" text="bind:ETC1_USE_YN" tooltiptext="bind:ETC1_USE_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_paging" taborder="4" url="common::pagingBTN.xfdl" left="226" bottom="40" width="338" height="29" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_execl" taborder="11" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="79" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pgmAuth" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CLNTNM" type="STRING" size="200"/>
+          <Column id="USRID" type="STRING" size="20"/>
+          <Column id="USRNM" type="STRING" size="20"/>
+          <Column id="ORD_USE_YN" type="STRING" size="1"/>
+          <Column id="CNR_USE_YN" type="STRING" size="1"/>
+          <Column id="BY_USE_YN" type="STRING" size="1"/>
+          <Column id="PR_USE_YN" type="STRING" size="1"/>
+          <Column id="STPL_USE_YN" type="STRING" size="1"/>
+          <Column id="ETC1_USE_YN" type="STRING" size="1"/>
+          <Column id="ETC2_USE_YN" type="STRING" size="1"/>
+          <Column id="ETC3_USE_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+// Form Init: 페이지 호출 후 실행
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+
+}
+ 
+// Form Onload: DataSet 로딩 후 실행
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+
+	//	사업장 권한이면 검색조건의 사업장조회를 고정한다
+	if(application.gv_userType == '03')
+	{
+		//	읽기전용 입력창 배경색
+		var	rdonly_bgcolor = "#999999ff";
+		//	조회조건 사업장코드 고정 & 비활성화
+		this.div_search.Edit_comnum.set_value(application.gv_glnCode);
+		this.div_search.Edit_comnum.set_readonly(true);
+		this.div_search.Edit_comnum.style.set_background(rdonly_bgcolor);
+		//	조회조건 사업장명 고정 & 비활성화
+		this.div_search.Edit_comname.set_value(application.gv_companyName);
+		this.div_search.Edit_comname.set_readonly(true);
+		this.div_search.Edit_comname.style.set_background(rdonly_bgcolor);
+		//	사업장조회 버튼 비활성화
+		this.div_search.btn_comname.set_enable(false);
+	}
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* Paging 처리 */
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_pgmAuth.clearData(); // Grid에 Binding된 Dataset명
+	this.ds_pageVO.addRow();
+
+	var vPageSize = 20; // Grid에 보여줄 Row수 선택
+	var vTotalCount = 0; // 전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+	this.ds_pageVO.setColumn(0, "CURRENT_PAGE", vPageNum); // 현재 페이지
+	this.ds_pageVO.setColumn(0, "PAGE_SIZE", vPageSize);
+	this.ds_pageVO.setColumn(0, "TOTAL_ROW_COUNT", vTotalCount);
+
+	var argumentObj = "";
+	this.fn_search();
+}
+
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+	var sTotal       = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+	}
+	else
+	{
+		if(svcID == "retrieveSmtPdaPgmAuthList")
+		{
+		//	trace("ds_pgmAuth:" + this.ds_pgmAuth.saveXML());
+			if (this.ds_pgmAuth.rowcount > 0)
+			{
+				this.Div02.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+			}
+			else if(this.ds_pgmAuth.rowcount == 0)
+			{
+				this.Div02.Grd01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+				this.Div02.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+			}
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+// 조회조건 영역 펼치기, 접기
+this.Div_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+// 엑셀 다운로드
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bzplC	= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var clntNm	= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var usrID	= this.gfn_nullToEmpty(this.div_search.edt_ID.value);
+	var usrNm	= this.gfn_nullToEmpty(this.div_search.edt_NM.value);
+
+	var param	= "BZPL_C=" 	+ bzplC
+				+ "&CLNTNM="	+ clntNm
+				+ "&USR_ID="	+ usrID
+				+ "&USR_NM="	+ usrNm
+				;
+
+	this.fn_excel(param);
+}
+
+this.fn_excel = function(param)
+{
+	trace("엑셀 다운로드 params >>> " + param);
+	excelDownHandler(application.gv_server_url + "rest/excel/pda/downloadExcelSmtPdaPgmAuthList?" + param, this);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+// 검수실적 그룹관리 목록조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);
+}
+
+this.fn_search = function()
+{
+	var bzplC	= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var clntNm	= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var usrID	= this.gfn_nullToEmpty(this.div_search.edt_ID.value);
+	var usrNm	= this.gfn_nullToEmpty(this.div_search.edt_NM.value);
+
+	var param	=  "BZPL_C="	+ bzplC
+				+ " CLNTNM="	+ clntNm
+				+ " USR_ID="	+ usrID
+				+ " USR_NM="	+ usrNm
+				;
+
+	var sSvcID			= "retrieveSmtPdaPgmAuthList";
+	var sURL			= "svc::rest/pda/retrieveSmtPdaPgmAuthList";
+	var sInDatasets		= "ds_pageVO=ds_pageVO";						// 보내는데이터셋
+	var sOutDatasets	= "ds_pgmAuth=ds_pgmAuth ds_pageVO=ds_pageVO";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";							// U:저장/삭제, S:조회
+
+//	trace("param:" + param);
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 업체 조회
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = "";
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("trplSearchPopup","MOB.MD::MOB_MD_SC_1111_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+// 팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+//	trace(" strId : " + strId + " strVal : " + strVal);	
+	if(strId == "trplSearchPopup"){
+		if(strVal != ''){
+			var paramsArr = strVal.split(",");
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_002002" classname="pattern_01" left="0" top="0" width="767" height="214" titletext="프로그램버전 등록" onload="form_onload" scrollbars="autoboth">
+    <Layouts>
+      <Layout>
+        <Button id="btn_confirm" taborder="133" text="등록" cssclass="btn_WF_CRUD" top="15" right="78" width="55" height="21" onclick="common_onclick" visible="true"/>
+        <Button id="btn_cancle" taborder="151" text="취소" onclick="common_onclick" cssclass="btn_WF_CRUD" top="15" right="17" width="55" height="21" visible="true"/>
+        <Static id="Static1" taborder="228" text="프로그램파일ID" cssclass="sta_WF_Label" position="absolute" left="17" top="44" width="134" height="29" style="linespace:5;"/>
+        <Static id="Static3" taborder="189" text="비고내용" cssclass="sta_WF_Label" left="17" top="100" width="134" height="29" position="absolute"/>
+        <Static id="Static124" taborder="234" cssclass="sta_WF_Labelbg" left="150" top="72" right="16" height="29"/>
+        <Static id="Static00" taborder="235" text="프로그램파일업로드" cssclass="sta_WF_Label" left="17" top="72" width="134" height="29" onclick="Static00_onclick"/>
+        <FileUpload id="FileUpload00" taborder="238" retry="0" index="0" scrollbars="none" onsuccess="popup_FileUpload_onsuccess" onerror="popup_FileUpload_onerror" onitemchanged="popup_FileUpload_onitemchanged" left="155" top="76" right="285" height="24"/>
+        <Static id="Static09" taborder="239" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static51" taborder="240" text="프로그램관리" cssclass="sta_WF_Subtitle" left="17" top="19" width="135" height="21"/>
+        <Static id="Static03" taborder="241" text="15" visible="false" left="673" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="242" cssclass="sta_WF_Labelbg" left="150" top="44" right="16" height="29"/>
+        <Edit id="PGM_FL_ID" taborder="243" inputmode="upper" inputfilter="comma,sign,symbol,digit,space" inputtype="number,english" lengthunit="ascii" maxlength="20" cssclass="edt_WF_Essential" left="157" top="48" width="256" height="21"/>
+        <Static id="Static04" taborder="244" cssclass="sta_WF_Labelbg" left="150" top="100" right="16" height="29"/>
+        <Edit id="RMK_CNTN" taborder="245" inputtype="number,english,space" lengthunit="ascii" maxlength="200" cssclass="edt_WF_Essential" left="157" top="104" width="544" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="pda_program" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PGM_FL_ID" type="STRING" size="256"/>
+          <Column id="PGM_FL_VER" type="STRING" size="256"/>
+          <Column id="PGM_FL_PATH" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var systemFileName = null;
+// this.bbsType = E_SCM;
+// this.noticeYn = 'N';
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	//페이지 로딩후 실행부분
+	this.PGM_FL_ID.setFocus();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_pdaProgramInsert = function()
+{
+	var PGM_FL_ID = this.gfn_nullToEmpty(this.PGM_FL_ID.value);       //프로그램파일ID    
+	var RMK_CNTN = this.gfn_nullToEmpty(this.RMK_CNTN.value);         //비고내용
+	
+	var param = "PGM_FL_ID=" + PGM_FL_ID
+				+ " systemFileName="+systemFileName
+				+ " RMK_CNTN="+RMK_CNTN;
+	
+    var sSvcID        = "insert";
+	var sURL          = "svc::rest/pda/ProgramInsert";
+	var sInDatasets   = "pda_program=pda_program";
+	var sOutDatasets  = "";
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+ 	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	this.close("SUCCESS");
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+     switch (obj.id) {
+		case "btn_confirm":
+		if(this.fn_checkValidation()){
+			this.fn_pdaProgramInsert();
+			}
+			break;
+			
+		case "btn_cancle":
+			this.close("FAIL");
+			break;
+	}
+}
+
+
+this.fn_checkValidation = function()
+{
+	if(this.gfn_isNull(this.PGM_FL_ID.value))
+	{
+		alert("프로그램ID를 입력해주세요");
+		return false;
+	}
+	if(this.gfn_isNull(systemFileName)  ) {
+			alert("첨부파일을 입력해주세요");
+			return false;
+		   }
+
+	return true;
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.popup_FileUpload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload_onerror aaa");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+this.popup_FileUpload_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+
+}
+
+this.popup_FileUpload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if( e.datasets == null ){
+		trace("업로드 실패");
+	} else {				
+		systemFileName = e.datasets[0].getColumn(0,"SYSTEMFILENAME");
+		this.txt_content.set_readonly(true);
+	}	
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

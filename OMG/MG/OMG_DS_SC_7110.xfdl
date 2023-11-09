@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7110" classname="pattern_01" left="0" top="0" width="803" height="650" titletext="메일발송" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static08" taborder="85" cssclass="sta_WF_Labelbg" left="163" top="111" width="625" height="89"/>
+        <Static id="Static107" taborder="68" cssclass="sta_WF_Labelbg" left="163" top="35" height="39" width="625"/>
+        <Static id="Static87" taborder="1" text="17" visible="false" left="98.13%" top="1" height="1195" style="background:#dc143c5b;" width="15"/>
+        <Static id="Static40" taborder="9" text="20" visible="false" left="3.11%" top="677" right="-27.15%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static41" taborder="10" text="20" visible="false" left="2.86%" top="857" right="-22.04%" height="20" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="11" text="저장" cssclass="btn_WF_CRUD" left="745" top="5" height="21" onclick="fn_save_onclick" width="43"/>
+        <Static id="Static89" taborder="13" text="메일발송" cssclass="sta_WF_Subtitle" left="1.49%" top="9" right="84.81%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static06" taborder="66" text="17" visible="false" left="0%" top="1" right="98.51%" height="1195" style="background:#dc143c5b;"/>
+        <Static id="Static35" taborder="67" text="발신자" cssclass="sta_WF_Label" left="11" top="35" height="39" width="153"/>
+        <Static id="Static00" taborder="69" text="사용자유형" cssclass="sta_WF_Label" left="11" top="73" height="39" width="153"/>
+        <Static id="Static01" taborder="70" cssclass="sta_WF_Labelbg" left="163" top="73" height="39" width="625"/>
+        <Static id="Static02" taborder="71" cssclass="sta_WF_Labelbg" left="163" top="199" height="39" width="625"/>
+        <Static id="Static03" taborder="72" text="제목" cssclass="sta_WF_Label" left="11" top="199" height="39" width="153"/>
+        <Static id="Static04" taborder="73" text="내용" cssclass="sta_WF_Label" left="11" top="237" height="294" width="153"/>
+        <Static id="Static05" taborder="74" cssclass="sta_WF_Labelbg" left="163" top="237" height="294" width="625"/>
+        <Edit id="sender" taborder="75" left="173" top="43" width="605" height="22"/>
+        <Edit id="title" taborder="76" left="173" top="207" width="605" height="22" oneditclick="title_oneditclick" enable="true"/>
+        <TextArea id="content" taborder="77" left="173" top="246" width="604" height="272" dragscrolltype="horz"/>
+        <CheckBox id="cbx_01" taborder="78" left="181" top="84" width="95" height="21" text="협력업체"/>
+        <CheckBox id="cbx_02" taborder="79" text="본부" left="301" top="84" width="80" height="21"/>
+        <CheckBox id="cbx_03" taborder="80" text="하나로마트" left="406" top="84" width="115" height="21"/>
+        <CheckBox id="cbx_04" taborder="81" text="세금계산서전용" left="541" top="84" width="140" height="21"/>
+        <Button id="btn_save00" taborder="82" text="HTML 에디터" onclick="fn_htmlEditor_onclick" cssclass="btn_WF_CRUD" left="652" top="5" width="88" height="21"/>
+        <Static id="Static07" taborder="84" text="추가 수신자" cssclass="sta_WF_Label" left="11" top="111" width="153" height="89"/>
+        <CheckBox id="cbx_99" taborder="86" text="운영자" left="671" top="84" width="110" height="21" onchanged="fn_changed"/>
+        <Grid id="grd_file" taborder="88" binddataset="ds_file" useinputpanel="false" autofittype="col" left="11" height="29" width="778" top="577">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="631"/>
+                <Column size="81"/>
+              </Columns>
+              <Rows>
+                <Row size="29"/>
+              </Rows>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" style="selectbackground: ;" text="bind:CHK"/>
+                <Cell col="1" style="align:left;selectbackground: ;" text="bind:ORGFNAME" expandshow="hide"/>
+                <Cell col="2" style="align:right;" text="expr:FILESIZE + ' KB'"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <FileUpload id="btn_file" taborder="89" multiselect="true" timeout="0" retry="0" async="true" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" width="72" height="21" onload="FileUpload00_onload" left="644" top="547"/>
+        <Button id="btn_delRow" taborder="90" text="파일삭제" onclick="btn_delRow_onclick" width="72" height="21" left="718" top="547"/>
+        <Static id="st_title" taborder="91" text="첨부파일" cssclass="sta_WF_Subtitle" left="12" width="301" height="21" top="547"/>
+        <TextArea id="receiver" taborder="92" left="173" top="119" width="604" height="72" dragscrolltype="none" lengthunit="ascii" scrollbars="autovert" wordwrap="char"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_mail">
+        <ColumnInfo>
+          <Column id="sender" type="STRING" size="256"/>
+          <Column id="usrTpc" type="STRING" size="256"/>
+          <Column id="title" type="STRING" size="256"/>
+          <Column id="content" type="STRING" size="256"/>
+          <Column id="receiver" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_mail_cnt">
+        <ColumnInfo>
+          <Column id="CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_file" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+      <BindItem id="item8" compid="sender" propid="value" datasetid="ds_mail" columnid="sender"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function() // 페이지 로딩 후 실행 부분
+{
+	this.ds_mail.addRow();
+	
+	this.ds_mail.setColumn(0, "sender", "\"농협하나로유통\"[NHeSCM]\<callcenter@nhescm.co.kr>");
+	this.sender.set_value(this.ds_mail.getColumn(0, "sender"));
+	
+}
+
+this.fn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.arr = new Array(5);
+	
+	if (this.cbx_01.value) {
+		this.arr[0] = "01";
+	}
+	if (this.cbx_02.value) {
+		this.arr[1] = "02";
+	}
+	if (this.cbx_03.value) {
+		this.arr[2] = "03";
+	}
+	if (this.cbx_04.value) {
+		this.arr[3] = "04";
+	}
+	if (this.cbx_99.value) {
+		this.arr[4] = "99";
+	}
+	/*
+	if (this.gfn_isNull(this.arr[0]) && this.gfn_isNull(this.arr[1]) && this.gfn_isNull(this.arr[2]) && this.gfn_isNull(this.arr[3]) && this.gfn_isNull(this.arr[4])) {
+		alert("최소 한개의 사용자유형을 체크해야 합니다.");
+		return;
+	}
+	*/
+	if (this.gfn_isNull(this.arr[0]) && this.gfn_isNull(this.arr[1]) && this.gfn_isNull(this.arr[2]) && this.gfn_isNull(this.arr[3]) && this.gfn_isNull(this.arr[4]) 
+		&& this.gfn_isNull(this.receiver.value)) {
+		alert("최소 한개의 사용자유형을 체크하거나 추가수신자를 입력하세요.");
+		return;
+	}
+	
+	if(this.gfn_isNull(this.title.value)){
+		alert("제목을  입력하세요.");
+		return;
+	}
+	if(this.gfn_isNull(this.content.value)){
+		alert("내용을  입력하세요.");
+		return;
+	}
+	
+	this.ds_mail.setColumn(0, "usrTpc", this.arr.toString());
+	this.ds_mail.setColumn(0, "title",this.title.value);
+	this.ds_mail.setColumn(0, "content",this.content.value);
+	this.ds_mail.setColumn(0, "receiver",this.receiver.value);
+
+		var sSvcID        = "sendMail";
+		var sURL          = "svc::rest/mg/mail/sendMail";
+		var sInDatasets   = "ds_mail=ds_mail ds_file=ds_file";
+		var sOutDatasets  = "ds_mail_cnt=ds_mail_cnt";
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+		
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if(svcID == "sendMail"){
+			
+			alert(this.ds_mail_cnt.getColumn(0,"CNT") + "건의 메일이 발송되었습니다.");
+ 			this.title.set_value(null);
+			this.content.set_value(null);
+ 			this.receiver.set_value(null);
+			this.cbx_01.set_value(false);
+			this.cbx_02.set_value(false);
+			this.cbx_03.set_value(false);
+			this.cbx_04.set_value(false);
+			this.cbx_99.set_value(false);
+			this.ds_file.clearData();
+			this.ds_uploadresult.clearData();
+			this.btn_file.deleteItem(0);
+			this.btn_file.appendItem();
+			this.grd_file.set_height(29);
+		
+		}
+	}
+} 
+
+this.FileUpload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{	
+	if( e.datasets == null )
+	{
+		trace("업로드 실패");
+	} else {
+		trace("업로드 성공");
+		
+		this.ds_file.addRow();
+		this.ds_uploadresult.copyData(e.datasets[0]);
+		this.ds_file.copyRow(this.ds_file.rowposition, this.ds_uploadresult, 0);
+		this.ds_file.setColumn(this.ds_file.rowposition,"CHK", 0);
+		this.fn_setDesign();
+	}	
+}
+
+this.fn_setDesign = function()
+{
+	//첨부파일 유무에 따른 디자인
+	var grdHeight;
+	if(this.ds_file.rowcount < 3)
+	{
+		grdHeight = nexacro.toNumber(this.grd_file.getRealRowSize(0)) * nexacro.toNumber(this.ds_file.rowcount);
+	}
+	else
+	{
+		grdHeight = nexacro.toNumber(this.grd_file.getRealRowSize(0)) * 2.5;
+	}
+	this.grd_file.set_height(grdHeight);
+}
+
+this.FileUpload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+
+}
+
+//UPLOAD
+this.FileUpload_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.btn_delRow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var i = 0;
+	if(this.ds_file.findRow("CHK", "1") < 0)
+	{
+		alert("선택된 파일이 없습니다.");
+		return;
+	}
+	var nRow = -1;
+	while(true)
+	{
+		nRow = this.ds_file.findRow("CHK", "1");
+		if(nRow < 0) break;
+		this.ds_file.deleteRow(nRow);
+		
+	}
+	
+	this.fn_setDesign();
+}
+
+this.fn_htmlEditor_onclick = function(obj,e)
+{
+	system.execBrowser("https://html-online.com/editor/");
+}
+]]></Script>
+  </Form>
+</FDL>

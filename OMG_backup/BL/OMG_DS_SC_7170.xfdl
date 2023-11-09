@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7170" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="빌링원천조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Div id="div_search" taborder="103" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="16" text="날짜" cssclass="sta_WFSA_Label" left="433" top="10" height="21" width="75"/>
+              <Edit id="Edit_comnum" taborder="17" left="88" top="10" height="21" width="96" readonly="true"/>
+              <Edit id="Edit_comname" taborder="18" left="187" top="10" height="21" width="154" readonly="true"/>
+              <Button id="btn_comname" taborder="19" cssclass="btn_WF_Searchbtn" left="344" top="10" height="21" onclick="div_search_btn_comname_onclick" width="21"/>
+              <Static id="Static05" taborder="25" text="업체명" onclick="div_search_Static05_onclick" cssclass="sta_WFSA_Label" left="1.91%" top="10" right="89.06%" height="21"/>
+              <Calendar id="cal_search" taborder="26" value="20150504" dateformat="yyyy-MM-dd" onkeydown="Calendar_onkeydown" onchanged="Calendar_onchanged" left="495" top="10" width="92" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="71" right="15" bottom="-1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Button id="Button75" taborder="1" cssclass="btn_WFSA_SearchClose" top="0" height="12" left="30%" right="30%" onclick="Div02_Button75_onclick"/>
+              <Grid id="Grid01" taborder="2" binddataset="ds_billSrcInq" useinputpanel="false" left="0" top="42" right="0" bottom="1" cellsizingtype="col" autofittype="col" summarytype="default" autoenter="none">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="200"/>
+                      <Column size="0"/>
+                      <Column size="200"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No"/>
+                      <Cell col="1" text="날짜"/>
+                      <Cell col="2" text="업체명"/>
+                      <Cell col="3" text="레벨"/>
+                      <Cell col="4" text="문서명"/>
+                      <Cell col="5" text="건수"/>
+                      <Cell col="6" text="라인수"/>
+                      <Cell col="7" text="사이즈"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="number" style="align: ;" expr="currow+1"/>
+                      <Cell col="1" displaytype="date" edittype="none" text="bind:LS_RMS_DT"/>
+                      <Cell col="2" displaytype="normal" edittype="none" text="bind:COM_NAME"/>
+                      <Cell col="3" displaytype="number" text="bind:"/>
+                      <Cell col="4" displaytype="combo" style="align:left;" text="bind:DOC_NAME" combodataset="ds_code" combocodecol="code" combodatacol="data"/>
+                      <Cell col="5" displaytype="number" style="align:right middle;" text="bind:CNT"/>
+                      <Cell col="6" displaytype="number" style="align:right;" text="bind:LINE_CN"/>
+                      <Cell col="7" displaytype="number" style="align:right;" text="bind:EDI_SIZE"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell colspan="5" style="align:center middle;" text="합계"/>
+                      <Cell col="5" displaytype="number" text="expr:dataset.getSum(&quot;nexacro.toNumber(CNT)&quot;)"/>
+                      <Cell col="6"/>
+                      <Cell col="7"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_billSrcInq"/>
+      <Dataset id="ds_code">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">ORDERS</Col>
+            <Col id="data">주문서</Col>
+          </Row>
+          <Row>
+            <Col id="code">ORDCHG</Col>
+            <Col id="data">주문변경서</Col>
+          </Row>
+          <Row>
+            <Col id="code">ORDRES</Col>
+            <Col id="data">주문예정서</Col>
+          </Row>
+          <Row>
+            <Col id="code">DESRSP</Col>
+            <Col id="data">배송응답서</Col>
+          </Row>
+          <Row>
+            <Col id="code">CONADV</Col>
+            <Col id="data">검수확정서</Col>
+          </Row>
+          <Row>
+            <Col id="code">CONRET</Col>
+            <Col id="data">반품확정서</Col>
+          </Row>
+          <Row>
+            <Col id="code">SILRPT</Col>
+            <Col id="data">마트별공급실적</Col>
+          </Row>
+          <Row>
+            <Col id="code">SLSRPT</Col>
+            <Col id="data">판매정보</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="div_search.cal_search" propid="value" datasetid="ds_condition" columnid="STARTDT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+// Form Onload: DataSet 로딩 후 실행
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통 
+}
+
+// gfn_setInitForm 처리 후 호출(CallBack)할 함수
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+   this.div_search.cal_search.set_value(this.gfn_today("yyyyMMdd"));
+   this.Div02.Grid01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	trace("svcID:" + svcID + " ErrorCode:" + ErrorCode);
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	else
+	{
+		switch(svcID)
+		{
+			case "retrieveBillSrcInq":
+				this.ds_billSrcInq.addColumn("COM_NAME");
+				for(var i = 0 ; i < this.ds_billSrcInq.rowcount ; i++)
+				{
+					this.ds_billSrcInq.setColumn(i, "COM_NAME", this.div_search.Edit_comname.value);
+				}
+				break;
+		}
+	}	
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+// 조회조건 영역 펼치기, 접기
+this.Div02_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+// 오납 조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.fn_checkValication())
+	{
+		var sParams			= "NA_TRPL_C=" + this.div_search.Edit_comnum.value
+							+ " searchDate=" + this.div_search.cal_search.value
+							;
+		var sSvcID			= "retrieveBillSrcInq";
+		var sURL			= "svc::rest/bl/rvanm/retrieveBillSrcInq";
+		var sInDatasets		= "";
+		var sOutDatasets	= "ds_billSrcInq=ds_billSrcInq";
+		var sArgument		= sParams;
+		var sCallbackFunc	= "fn_callBack";
+		var sTranType		= "S"; // U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+	
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+this.fn_checkValication = function()
+{
+	if(this.gfn_isNull(this.div_search.Edit_comnum.value))
+	{
+		alert("업체 조회를 해주십시오.");
+		return false;
+	}
+	return true;
+}
+// 업체 조회
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = "";
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("trplSearchPopup","OMG.BL::OMG_DS_SC_7230_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+// 팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+	// trace(" strId : " + strId + " strVal : " + strVal);
+	if(strVal != ''){
+		var paramsArr = strVal.split(",");
+	
+		if(strId == "trplSearchPopup"){
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

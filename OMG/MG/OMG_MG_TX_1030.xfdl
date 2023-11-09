@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="pattern_01" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="sms전송결과" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="0" top="29" height="69" cssclass="div_WFSA_Searchbg" right="15" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="전송일자" left="15" top="10" width="127" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static01" taborder="1" text="연락처" left="15" top="36" width="103" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static05" taborder="12" text="조회건수" cssclass="sta_WFSA_Label" left="463" top="36" height="21" width="79"/>
+              <Calendar id="cal_start" taborder="13" dateformat="yyyy-MM-dd" left="126" top="10" height="21" width="100" value="20150504" onkeydown="Calendar_onkeydown" onchanged="Calendar_onchanged"/>
+              <Static id="Static06" taborder="14" text="~" left="232" top="10" height="21" width="12"/>
+              <Calendar id="cal_end" taborder="15" dateformat="yyyy-MM-dd" left="247" top="10" height="21" width="100" value="20150716" onkeydown="Calendar_onkeydown" onchanged="Calendar_onchanged"/>
+              <Combo id="cbo_num" taborder="17" text="3" left="550" top="36" height="21" width="100" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="3">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">100</Col>
+                      <Col id="datacolumn">100</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">150</Col>
+                      <Col id="datacolumn">150</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">200</Col>
+                      <Col id="datacolumn">200</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">250</Col>
+                      <Col id="datacolumn">250</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">300</Col>
+                      <Col id="datacolumn">300</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static02" taborder="21" text="전송결과" cssclass="sta_WFSA_Label" left="463" top="10" width="94" height="21"/>
+              <Combo id="cbo_stat" taborder="22" innerdataset="@ds_combo" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="550" top="10" width="129" height="21" index="0" onitemchanged="div_search_cbo_stat_onitemchanged"/>
+              <Combo id="cbo_mpno" taborder="23" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="126" top="36" width="51" height="21" text="선택" onkeydown="common_onkeydown">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">선택</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">010</Col>
+                      <Col id="datacolumn">010</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">011</Col>
+                      <Col id="datacolumn">011</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static31" taborder="24" text="-" left="238" top="36" width="9" height="21"/>
+              <Static id="Static33" taborder="25" text="-" left="179" top="36" width="9" height="21"/>
+              <MaskEdit id="MaskEdit04" taborder="26" value="1234" left="188" top="36" width="48" height="21" autoskip="true" onkeydown="common_onkeydown" mask="####" limitbymask="integer"/>
+              <MaskEdit id="MaskEdit05" taborder="27" value="1234" left="247" top="36" width="48" height="21" onkeydown="common_onkeydown" mask="####" limitbymask="integer"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_grd" taborder="39" left="0" top="97" right="15" bottom="0">
+          <Layouts>
+            <Layout width="788" height="367">
+              <Button id="btn_flag" taborder="0" cssclass="btn_WFSA_SearchClose" left="329" top="0" right="332" height="12" onclick="btn_flag_onclick"/>
+              <Grid id="grd_sms" taborder="1" binddataset="ds_sms" useinputpanel="false" left="0" top="42" right="0" bottom="29" autofittype="col" onheadclick="div_grd_grd_sms_onheadclick" enable="true" cellsizingtype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40" band="left"/>
+                      <Column size="80" band="left"/>
+                      <Column size="100" band="left"/>
+                      <Column size="592"/>
+                      <Column size="80" band="right"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No."/>
+                      <Cell col="1" text="전송일자"/>
+                      <Cell col="2" text="수신자번호"/>
+                      <Cell col="3" text="전송내용"/>
+                      <Cell col="4" text="전송상태"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" displaytype="date" text="bind:SEND_DATE"/>
+                      <Cell col="2" displaytype="normal" text="bind:USR_MPNO" mask="###-####-####" maskchar=" "/>
+                      <Cell col="3" style="align:left;" text="bind:SMS_MSG" tooltiptext="bind:SMS_MSG"/>
+                      <Cell col="4" displaytype="combo" text="bind:SEND_STATUS" combodataset="ds_combo" combocodecol="SIMP_C" combodatacol="SIMP_CNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_excel" taborder="4" text="엑셀다운로드" top="16" right="0" width="89" height="21" onclick="common_onclick" visible="false"/>
+              <Div id="div_paging" taborder="6" url="common::pagingBTN.xfdl" text="Div03" left="225" bottom="0" width="338" height="29" visible="false"/>
+              <Static id="st_cnt" taborder="11" text="[ 총 건수 : 0   SMS 성공건수 : 0   SMS 실패건수 : 0 ]" left="0" top="19" width="460" height="21" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="common_onclick"/>
+        <Static id="Static04" taborder="22" text="15" visible="false" top="1" width="15" height="491" style="background:#00ffffb5;" right="0"/>
+        <Div id="Div01" taborder="44" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <WebBrowser id="web_downExcelM" left="520" top="117" right="230" height="20" taborder="49" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_condition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DT_TYPE" type="STRING" size="256"/>
+          <Column id="STARTDT" type="STRING" size="256"/>
+          <Column id="ENDDT" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="TXBIL_STSC" type="STRING" size="256"/>
+          <Column id="NTS_TMS_SQNO" type="STRING" size="256"/>
+          <Column id="TXBIL_KD" type="STRING" size="256"/>
+          <Column id="SEND_STATUS" type="STRING" size="256"/>
+          <Column id="MPNO1" type="STRING" size="256"/>
+          <Column id="MPNO2" type="STRING" size="256"/>
+          <Column id="MPNO3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="STARTDT"/>
+            <Col id="ENDDT"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="SIMP_CNM">전체</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">0</Col>
+            <Col id="SIMP_CNM">접수</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">1</Col>
+            <Col id="SIMP_CNM">처리시작</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">2</Col>
+            <Col id="SIMP_CNM">전송중</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">3</Col>
+            <Col id="SIMP_CNM">발송완료</Col>
+          </Row>
+          <Row>
+            <Col id="SIMP_C">-1</Col>
+            <Col id="SIMP_CNM">실패</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TOTAL_ROW_COUNT">13</Col>
+            <Col id="PAGE_SIZE">10</Col>
+            <Col id="CURRENT_PAGE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sms">
+        <ColumnInfo>
+          <Column id="MSG_ID" type="STRING" size="256"/>
+          <Column id="USER_ID" type="STRING" size="256"/>
+          <Column id="SMS_MSG" type="STRING" size="256"/>
+          <Column id="SUBJECT" type="STRING" size="256"/>
+          <Column id="CALLBACK" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+          <Column id="USR_MPNO" type="STRING" size="256"/>
+          <Column id="SEND_STATUS" type="STRING" size="256"/>
+          <Column id="SEND_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_search.cal_start" propid="value" datasetid="ds_condition" columnid="STARTDT"/>
+      <BindItem id="item1" compid="div_search.cal_end" propid="value" datasetid="ds_condition" columnid="ENDDT"/>
+      <BindItem id="item5" compid="div_search.cbo_stat" propid="value" datasetid="ds_condition" columnid="SEND_STATUS"/>
+      <BindItem id="item2" compid="div_search.cbo_mpno" propid="value" datasetid="ds_condition" columnid="MPNO1"/>
+      <BindItem id="item3" compid="div_search.MaskEdit04" propid="value" datasetid="ds_condition" columnid="MPNO2"/>
+      <BindItem id="item4" compid="div_search.MaskEdit05" propid="value" datasetid="ds_condition" columnid="MPNO3"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+include "lib::comTSToolKit.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.flag = true;
+this.enter = false;
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	this.div_grd.grd_sms.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	
+	this.div_search.cbo_mpno.set_index(0);
+	this.div_search.cbo_stat.set_index(0);
+	this.div_search.cbo_num.set_index(0);
+	this.div_search.cbo_stat.set_index(0);
+    
+	this.div_search.cal_start.set_value(this.gfn_firstDate(this.gfn_today("yyyyMMdd")));
+    this.div_search.cal_end.set_value(this.gfn_today("yyyyMMdd"));
+    
+    this.btn_search.click();
+}
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveTaxSmsResult = function()
+{
+	if(this.fn_chkDatePeriod())
+	{
+		var sSvcID        = "retrieveTaxSmsResult";
+		var sURL          = "svc::rest/tx/retrieveTaxSmsResult";
+		var sInDatasets   = "ds_condition=ds_condition ds_pageVO=ds_pageVO";
+		var sOutDatasets  = "ds_sms=ds_sms ds_pageVO=ds_pageVO";	
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "retrieveTaxSmsResult":
+				//this.div_grd.st_cnt.set_text("[ 총 건수 :  " +this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT")+ "  SMS 성공건수 : "+ this.ds_sms.getCaseCount("SEND_STATUS=='3'")+"  SMS 실패건수 : "+ this.ds_sms.getCaseCount("SEND_STATUS!='3'")+" ]");
+				if(this.ds_sms.rowcount > 0)
+				{ 
+					var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+					var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+								
+					this.div_grd.div_paging.fn_pageSet(sTotal, sPagesize,"grd_sms,div_paging",lsNowPage);	
+									  
+				}
+				else if(this.ds_sms.rowcount == 0)
+				{
+					this.div_grd.div_paging.fn_pageSet(0, 0,"grd_sms,div_paging",lsNowPage);//페이징 설정			
+				}
+				break;
+		}
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_search":	
+			this.fn_search();
+			break;
+			
+		case "btn_excel": 
+			if(this.ds_sms.rowcount < 1)
+			{
+				alert("조회내용이 없습니다.");
+				return;
+			}
+			
+			var params = "STARTDT="+ this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"STARTDT"))
+					   + "&ENDDT=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"ENDDT"))
+			           + "&DT_TYPE=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"DT_TYPE"))
+			           + "&NA_BZPLC=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NA_BZPLC"))
+			           + "&NA_TRPL_C=" + this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NA_TRPL_C")) 
+			           + "&TXBIL_STSC=" +  this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"TXBIL_STSC"))
+			           + "&NTS_TMS_SQNO=" +  this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"NTS_TMS_SQNO"))
+			           + "&TXBIL_KD=" +  this.gfn_nullToEmpty(this.ds_condition.getColumn(0,"TXBIL_KD"));
+			           
+			this.web_downExcelM.set_url(application.gv_server_url+"rest/excel/tx/retrieveSlTxbilListExcel?"+params);
+			break;
+	}
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_grd);
+}
+
+this.Calendar_onkeydown = function(obj:Calendar, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13')
+	{
+		this.enter = true;
+	}
+}
+
+this.Calendar_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	if(this.enter)
+	{
+		obj.updateToDataset();
+		this.btn_search.click();
+	}
+	this.enter = false;
+}
+
+this.common_onkeydown = function(obj:Combo, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13)
+	{
+		obj.updateToDataset();
+		this.btn_search.click();
+	}
+}
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_chkDatePeriod = function() 
+{
+	if(this.div_search.cal_start.value > this.div_search.cal_end.value)
+	{
+		alert("조회기간을 확인하여 주십시오.");
+		return false;
+	}
+	return true;
+}
+
+
+
+/************************************************************************************************
+ * 페이징처리
+************************************************************************************************/
+this.fn_search = function()
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_sms.clearData();     //Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = this.div_search.cbo_num.value; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 0; 	//전체건수. 화면조회후 리턴받아 사용
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);	 
+	 
+	var argumentObj = "";
+		
+	lsNowPage = vPageNum;//현재페이지 설정 
+	
+	this.fn_retrieveTaxSmsResult();
+ 
+}]]></Script>
+  </Form>
+</FDL>

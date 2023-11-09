@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_003003" classname="popupPda" cssclass="sta_WF_PopupTitle" left="0" top="0" width="767" height="214" titletext="단말기번호상세" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_delete" taborder="68" text="삭제" onclick="fn_deleteDetail" cssclass="btn_WF_CRUD" visible="true" top="15" right="16" width="55" height="21"/>
+        <Static id="Static24" taborder="69" text="최초등록자" onclick="Static24_onclick" cssclass="sta_WF_Label" left="17" top="100" width="134" height="29" style="align:left middle;"/>
+        <Static id="Static25" taborder="71" text="최종변경자" cssclass="sta_WF_Label" left="384" top="100" width="134" height="29"/>
+        <Static id="Static01" taborder="74" text="경제통합단말기번호" cssclass="sta_WF_Label" left="17" top="72" width="134" height="29" style="linespace:5;"/>
+        <Static id="mac_addr" taborder="76" cssclass="sta_WF_Labelbg" left="517" top="72" width="235" height="29" style="align:left middle;"/>
+        <Static id="ls_cmeno" taborder="77" cssclass="sta_WF_Labelbg" left="517" top="100" height="29" style="align:left middle;" width="235"/>
+        <Static id="clmnm" taborder="78" cssclass="sta_WF_Labelbg" left="150" top="44" width="602" height="29" style="align:left middle;"/>
+        <Static id="Static13" taborder="79" cssclass="sta_WF_Labelbg" left="150" top="72" width="235" height="29" style="align:left middle;"/>
+        <Static id="fsrgmn_eno" taborder="80" cssclass="sta_WF_Labelbg" left="150" top="100" width="235" height="29" style="align:left middle;"/>
+        <Static id="Static02" taborder="81" text="최초등록일시" onclick="Static24_onclick" cssclass="sta_WF_Label" left="17" top="128" width="134" height="29" style="align:left middle;"/>
+        <Static id="Static11" taborder="82" cssclass="sta_WF_Labelbg" left="150" top="128" width="235" height="29" style="align:left middle;"/>
+        <Static id="Static03" taborder="83" text="최종변경일시" cssclass="sta_WF_Label" left="384" top="128" width="134" height="29"/>
+        <Static id="Static12" taborder="84" cssclass="sta_WF_Labelbg" left="517" top="128" width="235" height="29" style="align:left middle;"/>
+        <Static id="Static04" taborder="85" text="비고내용" onclick="Static24_onclick" cssclass="sta_WF_Label" left="17" top="156" width="134" height="29"/>
+        <Static id="rmk_cntn" taborder="86" cssclass="sta_WF_Labelbg" left="150" top="156" width="602" height="29" style="align:left middle;"/>
+        <Static id="Static09" taborder="87" text="17" visible="false" left="0" top="99" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="89" text="경제통합사업장코드" cssclass="sta_WF_Label" left="17" top="44" width="134" height="29"/>
+        <Static id="Static05" taborder="90" text="MAC주소" cssclass="sta_WF_Label" left="384" top="72" width="134" height="29"/>
+        <Static id="Static51" taborder="92" text="단말기MAC주소관리" cssclass="sta_WF_Subtitle" left="17" top="19" width="135" height="21"/>
+        <Edit id="na_bzplc" taborder="93" readonly="true" cssclass="edt_WF_Readonly" left="154" top="48" width="166" height="21" enable="false"/>
+        <Edit id="clntnm" taborder="94" readonly="true" cssclass="edt_WF_Readonly" left="325" top="48" width="171" height="21" enable="false"/>
+        <Static id="Static06" taborder="96" text="15" visible="false" left="673" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <MaskEdit id="lschg_dtm" taborder="97" readonly="true" mask="####-##-## ##:##:##" left="67.54%" top="131" width="166" height="23" style="border:0 solid #bfbfbfff ;align:left middle;" type="string"/>
+        <MaskEdit id="fsrg_dtm" taborder="98" readonly="true" type="string" mask="####-##-## ##:##:##" left="19.69%" top="131" width="166" height="23" style="border:0 solid #bfbfbfff ;align:left middle;"/>
+        <Edit id="na_trmno" taborder="93" readonly="true" cssclass="edt_WF_Readonly" left="154" top="76" width="166" height="21" enable="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="na_bzplc" propid="value" datasetid="ds_data" columnid="NA_BZPLC"/>
+      <BindItem id="item1" compid="clntnm" propid="value" datasetid="ds_data" columnid="CLNTNM"/>
+      <BindItem id="item2" compid="na_trmno" propid="value" datasetid="ds_data" columnid="NA_TRMNO"/>
+      <BindItem id="item3" compid="mac_addr" propid="text" datasetid="ds_data" columnid="MAC_ADDR"/>
+      <BindItem id="item4" compid="fsrgmn_eno" propid="text" datasetid="ds_data" columnid="FSRGMN_ENO"/>
+      <BindItem id="item5" compid="ls_cmeno" propid="text" datasetid="ds_data" columnid="LS_CMENO"/>
+      <BindItem id="item6" compid="fsrg_dtm" propid="value" datasetid="ds_data" columnid="FSRG_DTM"/>
+      <BindItem id="item7" compid="lschg_dtm" propid="value" datasetid="ds_data" columnid="LSCHG_DTM"/>
+      <BindItem id="item8" compid="rmk_cntn" propid="text" datasetid="ds_data" columnid="RMK_CNTN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var na_bzplc = "";
+var na_trmno = "";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.na_bzplc = this.parent.na_bzplc;
+	this.na_trmno = this.parent.na_trmno;
+	this.fn_selectDetail();
+	if(application.gv_userTPC == "admin"){
+		this.btn_delete.set_visible(true);
+	}
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*콜백 함수*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if(svcID == "detail"){
+		if(this.ds_data.rowcount == 0){
+			this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+			alert("데이터가 없습니다.");
+			this.close();
+			return;
+		}
+	} else if(svcID == "delete"){
+		alert("삭제되었습니다.");
+		this.close("SUCCESS");
+	}
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_deleteDetail = function(status)
+{       
+    var sSvcID        = "delete";
+	var sURL          = "svc::rest/pda/deleteMacAddress";
+	var sInDatasets   = "ds_data=ds_data";
+	var sOutDatasets  = "";
+	var sArgument     = "na_bzplc="+ this.na_bzplc +
+	                    " na_trmno=" + this.na_trmno;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_selectDetail = function()
+{
+	var sSvcID        = "detail";
+	var sURL          = "svc::rest/pda/macAddressDetail";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_data=ds_data";	
+	var sArgument     = "na_bzplc="+ this.na_bzplc +
+	                    " na_trmno=" + this.na_trmno;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+]]></Script>
+  </Form>
+</FDL>

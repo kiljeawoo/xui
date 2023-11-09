@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_006002" classname="PDA_CN_006002" left="0" top="0" width="629" height="591" titletext="PDA공지사항" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static33" taborder="0" text="공지사항 상세보기" cssclass="sta_WF_Subtitle" left="1.43%" top="14" right="70.59%" height="21" onclick="Static33_onclick"/>
+        <Static id="Static19" taborder="1" text="일렬번호" cssclass="sta_WF_Label" left="1.66%" top="34" right="85.64%" height="29" style="linespace:5;"/>
+        <Static id="st_CNR_CMPL_ENO" taborder="2" cssclass="sta_WF_Labelbg" left="14.31%" top="34" right="60.57%" height="29" style="align:left middle;" onclick="st_CNR_CMPL_ENO_onclick"/>
+        <Static id="Static27" taborder="3" text="제목" cssclass="sta_WF_Label" left="39.43%" top="34" right="45.31%" height="29" style="linespace:5;"/>
+        <TextArea id="notice_subject" taborder="4" cssclass="sta_WF_Labelbg" left="54.53%" top="34" right="3.34%" height="29" style="align:left middle;"/>
+        <Static id="Static00" taborder="9" text="게시 기간" cssclass="sta_WF_Label" left="1.59%" top="417" right="82.51%" height="21" style="linespace:5;align:middle;" onclick="Static00_onclick"/>
+        <Static id="Static05" taborder="11" text="~" left="32.43%" top="417" right="65.98%" height="21"/>
+        <Static id="Static01" taborder="13" text="푸시사용여부" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="450" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static02" taborder="14" text="처리여부" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.83%" top="449" right="32.11%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static03" taborder="15" text="송신일시" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="469" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static04" taborder="16" text="송신결과" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.99%" top="470" right="32.11%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static06" taborder="18" text="최초등록자" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="490" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static07" taborder="19" text="최초등록일시" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.67%" top="490" right="32.27%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static08" taborder="20" text="최종변경자" onclick="Static00_onclick" cssclass="sta_WF_Label" left="1.59%" top="510" right="82.51%" height="21" style="linespace:5;align:middle;"/>
+        <Static id="Static09" taborder="21" text="최종변경일시" onclick="Static00_onclick" cssclass="sta_WF_Label" left="51.83%" top="510" right="32.27%" height="21" style="linespace:5;align:middle;"/>
+        <TextArea id="push_send_dtm" text="bind:PUSH_SEND_DTM" mask="####년##월##일##시##분##초" taborder="22" cssclass="sta_WF_Labelbg" left="17.49%" top="469" right="48.01%" height="21" style="align:left middle; :disabled {background:yellow;color:black;}" enable="false"/>
+        <TextArea id="push_send_result" taborder="23" cssclass="sta_WF_Labelbg" left="67.73%" top="470" right="3.5%" height="21" style="selectbackground:azure;background:yellow;align:left middle; :disabled {selectcolor:#ffffffff;selectbackground:#29a5c0ff;color:black;}" enable="false"/>
+        <TextArea id="fs_rgm" taborder="24" cssclass="sta_WF_Labelbg" left="17.49%" top="489" right="48.01%" height="21" style="align:left middle;"/>
+        <Static id="st_CNR_CMPL_ENO04" taborder="25" cssclass="sta_WF_Labelbg" left="67.73%" top="490" right="3.5%" height="21" style="padding:0 0 0 0;align:left middle;"/>
+        <TextArea id="ls_chgm" taborder="26" cssclass="sta_WF_Labelbg" left="17.49%" top="510" right="48.01%" height="21" style="align:left middle;"/>
+        <Static id="st_CNR_CMPL_ENO06" taborder="27" cssclass="sta_WF_Labelbg" left="67.73%" top="510" right="3.5%" height="21" style="padding:0 0 0 0;align:left;"/>
+        <Button id="btn_delete" taborder="29" text="삭제" onclick="btn_delete_onclick" cssclass="btn_WF_CRUD" left="53.26%" top="548" right="38%" height="21"/>
+        <Button id="btn_update" taborder="30" text="수정" onclick="btn_update_onclick" cssclass="btn_WF_CRUD" left="36.09%" top="548" right="55.17%" height="21"/>
+        <TextArea id="notice_cntn" taborder="36" cssclass="sta_WF_Labelbg" left="1.59%" top="74" right="3.5%" height="335" style="align:left middle;"/>
+        <TextArea id="notice_st_dtm" taborder="37" left="17.49%" top="417" right="68.2%" height="21"/>
+        <TextArea id="notice_ed_dtm" taborder="38" left="34.34%" top="417" right="51.35%" height="21"/>
+        <Radio id="push_use_yn" taborder="39" left="19.55%" top="449" right="47.06%" height="20" codecolumn="codecolumn" datacolumn="datacolumn" index="0" direction="vertical">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="100"/>
+              <Column id="datacolumn" size="100"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">사용안함</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Radio id="push_prc_st" taborder="40" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="Y" direction="vertical" left="69.16%" top="449" right="-2.07%" height="20">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="100"/>
+              <Column id="datacolumn" size="100"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">처리</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">미처리</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="pda_mst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NOTICE_SQNO" type="bigdecimal" size="10"/>
+          <Column id="NOTICE_ST_DTM" type="STRING" size="10"/>
+          <Column id="NOTICE_ED_DTM" type="STRING" size="10"/>
+          <Column id="NOTICE_SUBJECT" type="STRING" size="200"/>
+          <Column id="NOTICE_CNTN" type="STRING" size="4000"/>
+          <Column id="PUSH_USE_YN" type="STRING" size="1"/>
+          <Column id="PUSH_PRC_ST" type="STRING" size="1"/>
+          <Column id="PUSH_SEND_DTM" type="STRING" size="14"/>
+          <Column id="PUSH_SEND_RESULT" type="STRING" size="200"/>
+          <Column id="FS_RGM" type="STRING" size="9"/>
+          <Column id="FSRG_DTM" type="STRING" size="14"/>
+          <Column id="LS_CHGM" type="STRING" size="9"/>
+          <Column id="LSCHG_DTM" type="STRING" size="14"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item22" compid="st_CNR_CMPL_ENO" propid="text" datasetid="pda_mst" columnid="NOTICE_SQNO"/>
+      <BindItem id="item27" compid="notice_subject" propid="value" datasetid="pda_mst" columnid="NOTICE_SUBJECT"/>
+      <BindItem id="item1" compid="push_send_dtm" propid="value" datasetid="pda_mst" columnid="PUSH_SEND_DTM" mask="####년##월##일##시##분##초"/>
+      <BindItem id="item2" compid="push_send_result" propid="value" datasetid="pda_mst" columnid="PUSH_SEND_RESULT"/>
+      <BindItem id="item3" compid="fs_rgm" propid="value" datasetid="pda_mst" columnid="FS_RGM"/>
+      <BindItem id="item4" compid="st_CNR_CMPL_ENO04" propid="text" datasetid="pda_mst" columnid="FSRG_DTM"/>
+      <BindItem id="item5" compid="ls_chgm" propid="value" datasetid="pda_mst" columnid="LS_CHGM"/>
+      <BindItem id="item6" compid="st_CNR_CMPL_ENO06" propid="text" datasetid="pda_mst" columnid="LSCHG_DTM"/>
+      <BindItem id="item10" compid="notice_cntn" propid="value" datasetid="pda_mst" columnid="NOTICE_CNTN"/>
+      <BindItem id="item8" compid="notice_st_dtm" propid="value" datasetid="pda_mst" columnid="NOTICE_ST_DTM"/>
+      <BindItem id="item9" compid="notice_ed_dtm" propid="value" datasetid="pda_mst" columnid="NOTICE_ED_DTM"/>
+      <BindItem id="item0" compid="push_use_yn" propid="value" datasetid="pda_mst" columnid="PUSH_USE_YN"/>
+      <BindItem id="item7" compid="push_prc_st" propid="value" datasetid="pda_mst" columnid="PUSH_PRC_ST"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var NOTICE_SQNO = "";
+var NOTICE_ST_DTM = "";
+var NOTICE_ED_DTM = "";
+var DVY_PLA_DT = "";
+var NOTICE_SUBJECT = ""; //
+var NOTICE_CNTN = ""; //
+var PUSH_USE_YN = ""; //
+var PUSH_PRC_ST = ""; //
+var PUSH_SEND_DTM = ""; //
+var PUSH_SEND_RESULT = ""; //
+var FS_RGM = ""; //
+var FSRG_DTM = ""; //
+var LS_CHGM = ""; //
+var LSCHG_DTM = ""; //
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.NOTICE_SQNO = this.parent.NOTICE_SQNO;
+	this.NOTICE_ED_DTM = this.parent.NOTICE_ED_DTM;
+	this.DVY_PLA_DT = this.parent.DVY_PLA_DT;
+	this.NOTICE_SUBJECT = this.parent.NOTICE_SUBJECT;
+	this.NOTICE_CNTN  = this.parent.NOTICE_CNTN;
+	this.PUSH_USE_YN  = this.parent.PUSH_USE_YN;
+	this.PUSH_PRC_ST  = this.parent.PUSH_PRC_ST;
+	this.PUSH_SEND_DTM  = this.parent.PUSH_SEND_DTM;
+	this.PUSH_SEND_RESULT  = this.parent.PUSH_SEND_RESULT;
+	this.FS_RGM  = this.parent.FS_RGM;
+	this.FSRG_DTM  = this.parent.FSRG_DTM;
+	this.LS_CHGM  = this.parent.LS_CHGM;
+	this.LSCHG_DTM  = this.parent.LSCHG_DTM;	
+	
+	this.fn_PdaNoticeList();
+}
+
+this.fn_afterFormOnload = function()
+{
+	//페이지 로딩후 실행부분
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* 검색 */
+
+this.fn_PdaNoticeList = function()
+{
+	var sSvcID        = "PdaNoticeDetail";
+	var sURL          = "svc::rest/pda/PdaNoticeDetail";
+//	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sInDatasets   = "";
+	var sOutDatasets  = "pda_mst=pda_mst";
+	var sArgument     = "NOTICE_SQNO="+ this.NOTICE_SQNO +
+	                    " NOTICE_ST_DTM=" + this.NOTICE_ST_DTM +
+	                    " NOTICE_ED_DTM=" + this.NOTICE_ED_DTM +
+	                    " NOTICE_SUBJECT=" + this.NOTICE_SUBJECT +
+	                    " NOTICE_CNTN=" + this.NOTICE_CNTN +
+	                    " PUSH_USE_YN=" + this.PUSH_USE_YN +
+	                    " PUSH_PRC_ST=" + this.PUSH_PRC_ST +
+	                    " PUSH_SEND_DTM=" + this.PUSH_SEND_DTM +
+	                    " PUSH_SEND_RESULT=" + this.PUSH_SEND_RESULT +
+	                    " FS_RGM=" + this.FS_RGM +
+	                    " FSRG_DTM=" + this.FSRG_DTM +
+	                    " LS_CHGM=" + this.LS_CHGM +	                    
+	                    " LSCHG_DTM=" + this.LSCHG_DTM;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 새로고침 */
+this.fn_pdaRefresh = function()
+{
+	var sSvcID        = "PdaNoticeDetail";
+	var sURL          = "svc::rest/pda/PdaNoticeDetail";
+	var sInDatasets   = "";
+	var sOutDatasets  = "pda_mst=pda_mst";
+	var sArgument     = "NOTICE_SQNO="+ this.NOTICE_SQNO +
+	                    " NOTICE_ST_DTM=" + this.NOTICE_ST_DTM +
+	                    " NOTICE_ED_DTM=" + this.NOTICE_ED_DTM +
+	                    " NOTICE_SUBJECT=" + this.NOTICE_SUBJECT +
+	                    " NOTICE_CNTN=" + this.NOTICE_CNTN +
+	                    " PUSH_USE_YN=" + this.PUSH_USE_YN +
+	                    " PUSH_PRC_ST=" + this.PUSH_PRC_ST +
+	                    " PUSH_SEND_DTM=" + this.PUSH_SEND_DTM +
+	                    " PUSH_SEND_RESULT=" + this.PUSH_SEND_RESULT +
+	                    " FS_RGM=" + this.FS_RGM +
+	                    " FSRG_DTM=" + this.FSRG_DTM +
+	                    " LS_CHGM=" + this.LS_CHGM +	                    
+	                    " LSCHG_DTM=" + this.LSCHG_DTM;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//?
+this.fn_formatDate = function(dateStr)
+{
+	if (dateStr && dateStr.length == 8) {
+		dateStr = dateStr.substring(0, 4) + "-" + dateStr.substring(4, 6) + "-" + dateStr.substring(6, 8)
+	}
+	return dateStr;
+}
+
+//?
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+    alert("데이터가 없습니다.");
+ 	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+
+}
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+ 	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if(svcID == "PdaNoticeDetail"){
+ 		if(this.pda_mst.rowcount == 0){
+			this.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+			alert("데이터가 없습니다.");
+			this.close();
+			return;
+			}
+		}			
+		if(svcID == "delete"){
+		alert("삭제되었습니다.");
+		this.close("SUCCESS");
+		}	
+	    if(svcID == "update"){
+	    alert("수정되었습니다.");
+        this.close("SUCCESS");
+		}	    
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.fn_validationCheck = function() {
+
+	if (this.gfn_isNull(this.notice_st_dtm.value)) {
+		this.alert("시작일시를 입력해주세요");
+		this.notice_st_dtm.setFocus();
+		return false;
+	}
+	if (this.notice_st_dtm.value.length <= 9) {
+		this.alert("게시시작 기간을 확인해주세요(ex:yyyymmddss)");
+		this.notice_st_dtm.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.notice_ed_dtm.value)) {
+		this.alert("종료일시를 입력해주세요");
+		this.notice_ed_dtm.setFocus();
+		return false;
+	}
+	if (this.notice_ed_dtm.value.length <= 9) {
+		this.alert("게시종료 기간을 확인해주세요(ex:yyyymmddss)");
+		this.notice_ed_dtm.setFocus();
+		return false;
+	}	
+	if (this.gfn_isNull(this.notice_subject.value)) {
+		this.alert("제목을 입력해주세요");
+		this.notice_subject.setFocus();
+		return false;
+	}
+		if (this.gfn_isNull(this.notice_cntn.value)) {
+		this.alert("내용을 입력해주세요");
+		this.notice_cntn.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.push_use_yn.value)) {
+		this.alert("PUSH 사용여부를 입력해주세요");
+		this.push_use_yn.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.push_prc_st.value)) {
+		this.alert("PUSH 처리상태를 입력해주세요");
+		this.push_prc_st.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.fs_rgm.value)) {
+		this.alert("최초등록자를 입력해주세요");
+		this.fs_rgm.setFocus();
+		return false;
+	}
+	if (this.gfn_isNull(this.ls_chgm.value)) {
+		this.alert("최종변경자를 입력해주세요");
+		this.ls_chgm.setFocus();
+		return false;
+	}
+	
+	return true;
+}
+	
+
+
+this.btn_delete_onclick = function()
+{
+    var sSvcID        = "delete";
+	var sURL          = "svc::rest/pda/deletepdaNotice";
+	var sInDatasets   = "pda_mst=pda_mst";
+	var sOutDatasets  = "";
+	var sArgument     = "NOTICE_SQNO="+ this.NOTICE_SQNO;	                    
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	if (!confirm("삭제하시겠습니까?")) {
+		return;
+		}
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_update_onclick = function()
+{
+  if(this.fn_validationCheck()){
+	var params	      = "";
+	var sSvcID        = "update"; 					        // 통신아이디
+	var sURL          = "svc::rest/pda/updatepdaNotice";	// 호출할 서버 페이지 주소
+	var sInDatasets   = "pda_mst=pda_mst";                  // 보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = "NOTICE_SQNO="+ this.NOTICE_SQNO;	// 파라미터
+	var sCallbackFunc = "fn_callBack";				    	// 콜백
+	var tranType 	  = "U";					    	// U:저장/삭제, S:조회
+				
+	if (!confirm("수정하시겠습니까?")) {
+		return;
+		}
+				
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}]]></Script>
+  </Form>
+</FDL>

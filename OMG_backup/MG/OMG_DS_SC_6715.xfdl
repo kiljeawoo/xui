@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6713" classname="VAN_DS_SC_1550" left="0" top="0" width="803" height="490" titletext="하나로유통임직원관리" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="3" url="common::location.xfdl" text="Div01" left="0" top="0" height="21" width="323"/>
+        <Div id="div_search" taborder="1" left="0" top="29" right="15" height="70" cssclass="div_WFSA_Searchbg" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="4" text="개인번호" cssclass="sta_WFSA_Label" left="15" top="10" width="103" height="21" style="padding:0 20 0 11;"/>
+              <Edit id="edt_userid" taborder="0" maxlength="20" left="104" top="10" width="140" height="21" onkeydown="div_search_onkeydown" lengthunit="ascii"/>
+              <Static id="Static00" taborder="5" text="사무소코드" cssclass="sta_WFSA_Label" left="15" top="37" width="103" height="21" style="padding:0 20 0 11;"/>
+              <Edit id="edt_deptid" taborder="2" maxlength="13" left="104" top="37" width="140" height="21" onkeydown="div_search_onkeydown" lengthunit="ascii" inputtype="number"/>
+              <Static id="Static01" taborder="6" text="성명" cssclass="sta_WFSA_Label" left="312" top="9" width="103" height="21" style="padding:0 20 0 11;"/>
+              <Edit id="edt_usernm" taborder="1" maxlength="30" left="401" top="9" width="140" height="21" onkeydown="div_search_onkeydown"/>
+              <Static id="Static02" taborder="7" text="사무소명" cssclass="sta_WFSA_Label" left="312" top="37" width="103" height="21" style="padding:0 20 0 11;"/>
+              <Edit id="edt_deptnm" taborder="3" maxlength="30" left="401" top="37" width="140" height="21" onkeydown="div_search_onkeydown"/>
+              <Button id="btn_search_high" taborder="8" onclick="btn_search_high_onclick" cssclass="btn_WF_Searchbtn" left="246" top="37" width="21" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="2" left="0" top="98" right="15" bottom="35">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="0" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" right="45.94%" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_list" taborder="2" binddataset="ds_hanaro" useinputpanel="false" left="0" top="42" right="0" bottom="0" titletext="" autofittype="col" oncellclick="div_list_grd_list_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="60"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="150"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="75"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="삭제"/>
+                      <Cell col="1" text="순번"/>
+                      <Cell col="2" text="개인번호"/>
+                      <Cell col="3" text="성명"/>
+                      <Cell col="4" text="사무소코드"/>
+                      <Cell col="5" text="사무소명"/>
+                      <Cell col="6" text="직급"/>
+                      <Cell col="7" text="직명"/>
+                      <Cell col="8" text="변경상태"/>
+                    </Band>
+                    <Band id="body" style="selectbackground:EXPR(STATE == 'NEW' ? '#99ff99ff' : STATE == 'DEL' ? '#ff9999ff' : ORG_DEPT_ID != '99999' ? '#e3f2f7ff' : '#bbbbbbff');cellbackground:EXPR(STATE == 'NEW' ? '#55ff55ff' : STATE == 'DEL' ? '#ff5555ff' : ORG_DEPT_ID != '99999' ? '#ffffffff' : '#aaaaaaff');cellbackground2:EXPR(STATE == 'NEW' ? '#55ff55ff' : STATE == 'DEL' ? '#ff5555ff' : ORG_DEPT_ID != '99999' ? '#fafafaff' : '#aaaaaaff');">
+                      <Cell displaytype="checkbox" text="bind:ISCHECKED"/>
+                      <Cell col="1" text="expr:currow + 1"/>
+                      <Cell col="2" text="bind:ORG_USER_ID"/>
+                      <Cell col="3" edittype="text" style="color:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));color2:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));selectcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:ORG_USER_NAME" editlimit="64" editlengthunit="ascii"/>
+                      <Cell col="4" edittype="text" style="color:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));color2:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));selectcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:ORG_DEPT_ID" editlimit="20" editlengthunit="ascii"/>
+                      <Cell col="5" edittype="text" style="color:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));color2:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));selectcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:ORG_DEPT_NAME" editlimit="64" editlengthunit="ascii"/>
+                      <Cell col="6" edittype="text" style="color:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));color2:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));selectcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:ORG_POS" editlimit="64" editlengthunit="ascii"/>
+                      <Cell col="7" edittype="text" style="color:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));color2:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));selectcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:ORG_GRADE" editlimit="64" editlengthunit="ascii"/>
+                      <Cell col="8" text="expr:STATE == &quot;ADD&quot; ? &quot;추가됨&quot; : STATE == &quot;MOD&quot; ? &quot;변경됨&quot; : &quot;&quot;"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="0" text="조회" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21" onclick="btn_search_onclick"/>
+        <Button id="btn_save" taborder="4" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" enable="false" top="0" right="59" width="41" height="21"/>
+        <Button id="btn_new" taborder="5" text="신규등록" cssclass="btn_WF_CRUD" enable="true" top="0" right="159" width="65" height="21" onclick="btn_new_onclick"/>
+        <Button id="btn_delete" taborder="6" text="삭제" cssclass="btn_WF_CRUD" enable="false" top="0" right="103" width="41" height="21" onclick="btn_delete_onclick"/>
+        <Static id="Static00" taborder="7" text="※ 항목을 더블클릭하여 수정할 수 있습니다." left="0" right="0" bottom="10" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_hanaro" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_hanaro_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="USER_ID" type="STRING" size="256"/>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="USER_NAME" type="STRING" size="256"/>
+          <Column id="POS" type="STRING" size="256"/>
+          <Column id="GRADE" type="STRING" size="256"/>
+          <Column id="ORG_USER_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_NAME" type="STRING" size="256"/>
+          <Column id="ORG_POS" type="STRING" size="256"/>
+          <Column id="ORG_GRADE" type="STRING" size="256"/>
+          <Column id="ORG_USER_NAME" type="STRING" size="256"/>
+          <Column id="STATE" type="STRING" size="256"/>
+          <Column id="CHG_CNTN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="USER" type="STRING" size="256"/>
+          <Column id="CHG_GLN" type="STRING" size="256"/>
+          <Column id="CHG_TPC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	this.div_list.grd_list.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.btn_search.click();
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.btn_delete.set_enable(false);
+	this.btn_save.set_enable(false);
+	
+	var ui = this.gfn_nullToEmpty(this.div_search.edt_userid.value);
+	var un = this.gfn_nullToEmpty(this.div_search.edt_usernm.value);
+	var di = this.gfn_nullToEmpty(this.div_search.edt_deptid.value);
+	var dn = this.gfn_nullToEmpty(this.div_search.edt_deptnm.value);
+	
+	var param = "t=U"
+		 + " ui="+ui
+		 + " un="+un
+		 + " di="+di
+		 + " dn="+dn;
+
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/mg/nh/retrieveOrgNhData";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_hanaro=ds_hanaro";
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		if (ErrorCode == "-999") {
+			this.alert(ErrorMsg);
+		} else {
+			this.gfn_getMessage("alert", ErrorMsg);
+		}
+		return;
+	} else {
+		if (svcID == "p_search") {
+		} else if (svcID == "p_save") {
+			this.alert("정상적으로 저장되었습니다.");
+			this.btn_search.click();
+		} else if (svcID == "p_delete") {
+			if (ErrorCode > 0) {
+				this.alert("정상적으로 삭제되었습니다.");
+				this.btn_search.click();
+			} else {
+				this.alert("삭제된 건이 없습니다."); // 코드상 오류는 없으나 DB삭제되지 않음
+			}
+		}
+	}
+}
+
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.div_search_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13" && this.gfn_nullToEmpty(obj.value) != "") {
+		this.btn_search.click();
+	}
+}
+
+this.btn_save_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var sSvcID        = "p_save";//통신아이디
+	var sURL          = "svc::rest/mg/nh/insertHanaroUserData";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_hanaro=ds_hanaro:U";//보내는데이터셋
+	var sOutDatasets  = "ds_result=ds_result";
+	var sArgument     = "";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.btn_delete_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.ds_hanaro.findRow("ISCHECKED", "1") != -1 && this.confirm("삭제하시겠습니까?")) {
+		var sSvcID        = "p_delete";//통신아이디
+		var sURL          = "svc::rest/mg/nh/deleteHanaroData";// 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_hanaro=ds_hanaro:U";//보내는데이터셋
+		var sOutDatasets  = "";
+		var sArgument     = "t=U";// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var tranType 	  = "U"; // U:저장/삭제, S:조회
+
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	}
+}
+
+this.STATE = ["NONE", "ADD", "MOD"];
+this.NONE = 0;
+this.ADD = 1;
+this.MOD = 2;
+this.TEMP_CHG; // 행 수정시 초기화됨(ds_hanaro_oncolumnchanged)
+
+this.ds_hanaro_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	var i = e.row;
+	if (this.ds_hanaro.getRowType(i) == Dataset.ROWTYPE_UPDATE) {
+		var curState = this.NONE;
+		this.TEMP_CHG = "";
+		
+		curState = this.fn_compare(curState, i, "DEPT_ID");
+		curState = this.fn_compare(curState, i, "DEPT_NAME");
+		curState = this.fn_compare(curState, i, "USER_NAME");
+		curState = this.fn_compare(curState, i, "POS");
+		curState = this.fn_compare(curState, i, "GRADE");
+		
+		if (curState != this.NONE) {
+			this.fn_setUpdateData(i);
+			this.ds_hanaro.setColumn(i, "CHG_CNTN", this.TEMP_CHG);
+		} else if (curState == this.NONE) {
+			this.ds_hanaro.setColumn(i, "CHG_CNTN", "");
+		}
+		this.ds_hanaro.setColumn(i, "STATE", this.STATE[curState]);
+		this.fn_enableSave();
+	}
+}
+
+/**
+ * 저장버튼 활성화
+ */
+this.fn_enableSave = function()
+{
+	this.btn_delete.set_enable(this.ds_hanaro.findRow("ISCHECKED", "1") != -1);
+	
+	if (this.ds_hanaro.findRow("STATE", "NEW") != -1) { this.btn_save.set_enable(true); return; }
+	if (this.ds_hanaro.findRow("STATE", "ADD") != -1) { this.btn_save.set_enable(true); return; }
+	if (this.ds_hanaro.findRow("STATE", "MOD") != -1) { this.btn_save.set_enable(true); return; }
+	if (this.ds_hanaro.findRow("STATE", "DEL") != -1) { this.btn_save.set_enable(true); return; }
+	this.btn_save.set_enable(false);
+}
+
+/**
+ * 변경데이터 확인
+ */
+this.fn_compare = function(curState, idx, col)
+{
+	var state = this.NONE;
+	var before = this.ds_hanaro.getOrgColumn(idx, "ORG_" + col);
+	var after = this.ds_hanaro.getColumn(idx, "ORG_" + col);
+	
+	// if (this.gfn_isNull(before) && this.gfn_nullToEmpty(after) != "") {
+	//	state = this.ADD;
+	if (this.gfn_nullToEmpty(before) != this.gfn_nullToEmpty(after)) {
+		state = this.MOD;
+		this.TEMP_CHG += this.gfn_isNull(this.TEMP_CHG) ? col : "|"+col;
+	}
+	
+	if (state > curState) {
+		curState = state;
+	}
+	return curState;
+}
+
+this.fn_setUpdateData = function(idx)
+{
+	this.ds_hanaro.setColumn(idx, "USER_ID", this.ds_hanaro.getColumn(idx, "ORG_USER_ID"));
+	this.ds_hanaro.setColumn(idx, "DEPT_ID", this.ds_hanaro.getColumn(idx, "ORG_DEPT_ID"));
+	this.ds_hanaro.setColumn(idx, "DEPT_NAME", this.ds_hanaro.getColumn(idx, "ORG_DEPT_NAME"));
+	this.ds_hanaro.setColumn(idx, "USER_NAME", this.ds_hanaro.getColumn(idx, "ORG_USER_NAME"));
+	this.ds_hanaro.setColumn(idx, "POS", this.ds_hanaro.getColumn(idx, "ORG_POS"));
+	this.ds_hanaro.setColumn(idx, "GRADE", this.ds_hanaro.getColumn(idx, "ORG_GRADE"));
+}
+
+this.btn_new_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popDupUserId","OMG.MG::OMG_DS_SC_6715_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_search_high_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var oArg = {};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popDept","OMG.MG::OMG_DS_SC_6716_P02.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strId == "popDupUserId" && strVal == "I") {
+		this.btn_search.click();
+	} else if (strId == "popDept" && !this.gfn_isNull(strVal)) {
+		this.div_search.edt_deptid.set_value(strVal.split("#")[0]);
+		// this.div_search.edt_deptnm.set_value(strVal.split("#")[1]);
+	}
+}
+
+this.div_list_grd_list_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.col == 0) {
+		var chk = this.ds_hanaro.getColumn(e.row, "ISCHECKED");
+		if (this.gfn_isNull(chk)) { chk = "0"; }
+		this.ds_hanaro.setColumn(e.row, "ISCHECKED", chk == "0" ? "1" : "0");
+	}
+}
+
+/**
+ * 수정항목 글자색상 변경
+ * expr:dataset.parent.fn_chgCellColor(currow, this._col)
+ */
+this.fn_chgCellColor = function(row, col)
+{
+	var state = this.ds_hanaro.getColumn(row, "STATE");
+	if (state == "MOD") {
+		var cell = this.div_list.grd_list.getCellProperty("body", col, "text");
+		var bindCol = cell.substr(5).replace("ORG_", "");
+		var chgCol = this.ds_hanaro.getColumn(row, "CHG_CNTN");
+		if (chgCol.indexOf(bindCol) != -1) {
+			return "#0000ffff";
+		}
+	}
+	return "#000000ff";
+}]]></Script>
+  </Form>
+</FDL>

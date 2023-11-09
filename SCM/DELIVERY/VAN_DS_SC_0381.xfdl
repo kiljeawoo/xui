@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0381" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="수산부 결품내역관리" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="103" right="15" scrollbars="none" bottom="20">
+          <Layouts>
+            <Layout width="978" height="800">
+              <Grid id="grd" taborder="31" binddataset="ds_data" useinputpanel="false" oncellclick="div_list_grd_oncellclick" left="0" top="36" right="0" bottom="-1" autoenter="select" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="150"/>
+                      <Column size="70"/>
+                      <Column size="85"/>
+                      <Column size="85"/>
+                      <Column size="180"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="150"/>
+                      <Column size="300"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="30" band="head"/>
+                      <Row size="35"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="순번"/>
+                      <Cell col="1" colspan="2" text="발주처"/>
+                      <Cell col="3" rowspan="2" text="배송예정일자"/>
+                      <Cell col="4" rowspan="2" text="상품코드"/>
+                      <Cell col="5" rowspan="2" text="상품명"/>
+                      <Cell col="6" rowspan="2" text="수주량"/>
+                      <Cell col="7" rowspan="2" text="배송예정량"/>
+                      <Cell col="8" rowspan="2" text="결품수량"/>
+                      <Cell col="9" rowspan="2" text="납품단가"/>
+                      <Cell col="10" rowspan="2" text="결품금액"/>
+                      <Cell col="11" rowspan="2" text="비고(배송처)"/>
+                      <Cell col="12" rowspan="2" text="비고(결품사유)"/>
+                      <Cell row="1" col="1" text="발주처"/>
+                      <Cell row="1" col="2" text="팀"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:ODRPL_NA_TRPL_NM"/>
+                      <Cell col="2" text="bind:ODRPL_NA_TEAM_NM"/>
+                      <Cell col="3" displaytype="date" text="bind:DVY_PLA_DT" mask="yyyy-MM-dd"/>
+                      <Cell col="4" text="bind:NA_WRS_C"/>
+                      <Cell col="5" text="bind:WRSNM"/>
+                      <Cell col="6" displaytype="number" text="bind:ODR_QT" mask="###,###"/>
+                      <Cell col="7" displaytype="number" text="bind:DVY_PLA_QT" mask="###,###"/>
+                      <Cell col="8" displaytype="number" text="bind:SHORTAGE_QT" mask="###,###"/>
+                      <Cell col="9" displaytype="number" text="bind:DVY_WRS_UPR" mask="###,###"/>
+                      <Cell col="10" displaytype="number" text="bind:SHORTAGE_AMT" mask="###,###"/>
+                      <Cell col="11" text="bind:RMK_CNTN"/>
+                      <Cell col="12" text="bind:SHORTAGE_REASON" wordwrap="char"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1"/>
+                      <Cell col="2"/>
+                      <Cell col="3" style="align:center;" text="합계"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                      <Cell col="6" displaytype="number" expr="expr:dataset.getSum('ODR_QT')" mask="###,###"/>
+                      <Cell col="7" displaytype="number" expr="expr:dataset.getSum('DVY_PLA_QT')" mask="###,###"/>
+                      <Cell col="8" displaytype="number" expr="expr:dataset.getSum('SHORTAGE_QT')" mask="###,###"/>
+                      <Cell col="9" displaytype="number" expr="expr:dataset.getSum('DVY_AM')" mask="###,###"/>
+                      <Cell col="10" displaytype="number" expr="expr:dataset.getSum('SHORTAGE_AMT')" mask="###,###"/>
+                      <Cell col="11"/>
+                      <Cell col="12"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button10" taborder="23" cssclass="btn_WFSA_SearchClose" left="331" top="0" right="330" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_auth" taborder="35" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="158" width="379" height="21"/>
+        <Div id="div_search" taborder="3" left="0" top="29" right="15" height="74" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="32" text="배송예정일" cssclass="sta_WFSA_Label" left="15" top="41" width="89" height="21"/>
+              <Static id="Static131" taborder="54" text="~" left="222" top="41" width="10" height="21"/>
+              <Calendar id="dvy_from" taborder="55" dateformat="yyyy-MM-dd" left="121" top="41" width="100" height="21"/>
+              <Calendar id="dvy_to" taborder="56" dateformat="yyyy-MM-dd" left="232" top="41" width="100" height="21"/>
+              <Static id="Static05" taborder="65" text="발주처" cssclass="sta_WFSA_Label" left="15" top="10" width="87" height="21"/>
+              <Combo id="cbo_odrpl_na_trpl_c" taborder="72" left="121" top="10" width="200" height="21" codecolumn="codecolumn" datacolumn="datacolumn" value="" onitemchanged="cbo_odrpl_na_trpl_c_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn"> - 선택 - </Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983326641</Col>
+                      <Col id="datacolumn">(주)농협유통 수산사업부(본부)</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">8808983326634</Col>
+                      <Col id="datacolumn">(주)농협유통 수산사업부(영남)</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Combo id="cbo_odrpl_na_team_c" taborder="73" left="505" top="10" width="105" height="21" codecolumn="codecolumn" datacolumn="datacolumn" enable="false">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">15</Col>
+                      <Col id="datacolumn">수산신선팀</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">16</Col>
+                      <Col id="datacolumn">수산건어팀</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">17</Col>
+                      <Col id="datacolumn">수산식자재팀</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static01" taborder="74" text="발주처팀" cssclass="sta_WFSA_Label" left="429" top="10" width="77" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_print" taborder="21" text="출력" cssclass="btn_WF_CRUD" top="0" right="130" width="41" height="21" visible="false"/>
+        <Button id="btn_search" taborder="22" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Button id="btn_excel" taborder="34" text="엑셀" cssclass="btn_WF_Group" top="0" width="53" height="21" right="75" visible="false"/>
+        <Div id="Div01" taborder="36" url="common::location.xfdl" text="Div01" left="0" top="0" right="408" height="36"/>
+        <Static id="Static05" taborder="37" text="15" visible="false" left="788" top="1" width="15" height="490" style="background:#00ffffb5;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_data">
+        <ColumnInfo>
+          <Column id="ODRPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TEAM_NM" type="STRING" size="256"/>
+          <Column id="DVY_PLA_DT" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="ODR_QT" type="STRING" size="256"/>
+          <Column id="DVY_PLA_QT" type="STRING" size="256"/>
+          <Column id="SHORTAGE_QT" type="STRING" size="256"/>
+          <Column id="DVY_WRS_UPR" type="STRING" size="256"/>
+          <Column id="SHORTAGE_AMT" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SHORTAGE_REASON" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_odrpl_na_team_c">
+        <ColumnInfo>
+          <Column id="CSER_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="CSER_NA_TEAM_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+}
+
+/* Form Init*/
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	//권한사업장 표시 여부(1:본사)
+	if(application.gv_mbcoType != '1'){
+		this.Div00.visible = false;
+	}	
+}
+
+/* 페이지 로딩후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+	this.div_search.dvy_from.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"), 3));	
+	this.div_search.dvy_to.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"), -3));
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+	if (this.gfn_getDiffDay(this.div_search.dvy_from.value,this.div_search.dvy_to.value) < 0) {
+		//조회 시작일과 종료일을 다시 확인해 주세요
+		this.gfn_getMessage("alert", "validation.message.fromDate.toDate.reConfirm");
+		return false;
+	} else {
+		if (this.gfn_getDiffDay(this.div_search.dvy_from.value,this.div_search.dvy_to.value) > 31) {
+			//기간을 31일 이내로 선택해 주세요
+			this.gfn_getMessage("alert", "validation.message.selectDateIn31Day");
+			return false;
+		}
+	}
+	
+	if (this.gfn_isNull(this.div_search.cbo_odrpl_na_trpl_c.value)) {
+		this.alert("발주처를 선택하셔야 합니다.");
+		this.div_search.cbo_odrpl_na_trpl_c.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.div_search.cbo_odrpl_na_team_c.value)) {
+		this.alert("발주처팀을 선택하셔야 합니다.");
+		this.div_search.cbo_odrpl_na_team_c.setFocus();
+		return false;
+	}
+	
+	return true;
+}
+
+/* search */
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_data.clearData();
+	
+	var spyplNaTrplC = this.getTrplCode();
+	var dvyaaNaTrplC = this.div_search.cbo_odrpl_na_trpl_c.value;
+	var dvyaaNaTeamC = this.div_search.cbo_odrpl_na_team_c.value;
+	var dvyFrom = this.div_search.dvy_from.value;
+	var dvyTo = this.div_search.dvy_to.value;
+	
+	if (this.fn_validationCheck()) {
+		var sSvcID        = "retrieveShortageReasonList";//통신아이디
+		var sURL          = "svc::rest/delivery/sea/retrieveShortageReasonList";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_data=ds_data";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = "spyplNaTrplC=" + spyplNaTrplC + " dvyaaNaTrplC=" + dvyaaNaTrplC + " dvyaaNaTeamC=" + dvyaaNaTeamC + " dvyFrom=" + dvyFrom + " dvyTo=" + dvyTo;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.cbo_odrpl_na_trpl_c_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if (this.gfn_isNull(this.div_search.cbo_odrpl_na_trpl_c.value)) {
+		this.div_search.cbo_odrpl_na_team_c.set_enable(false);
+		this.div_search.cbo_odrpl_na_team_c.set_value(null);
+	} else {
+		this.div_search.cbo_odrpl_na_team_c.set_enable(true);
+	}
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg) {
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	} else {
+		if (svcID == "retrieveShortageReasonList") {
+			if (this.ds_data.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			} else {
+				
+			}
+		}
+	}
+}
+
+// this.btn_popup_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+// {
+// 	var trplC = this.getTrplCode();//권한사업장
+// 	var oArg = {form_id:"VAN_DS_SC_0302", trplC:trplC, DSTR_TER_YN:'N'};
+// 	var sOption = "autosize=true,title=false";
+// 	var sPopupCallBack = "fn_popupAfter";    
+// 	this.gfn_openPopup("POPUP_TRNREL_ODRPL","POPUP::POPUP_TRNREL_ODRPL.xfdl",oArg,sOption,sPopupCallBack);
+// }
+
+// this.msk_odrpl_na_trpl_c_onkeydown = function(obj:MaskEdit, e:nexacro.KeyEventInfo)
+// {
+// 	if(e.keycode == '13'){
+// 		var trplO = this.gfn_nullToEmpty(this.div_search.msk_odrpl_na_trpl_c.value);
+// 		if(this.gfn_length(trplO) < 6){
+// 			alert("발주처 코드["+trplO+"] 6자리 이상 입력해 주세요");
+// 			return false;
+// 		}
+// 		
+// 		var idx = "0";
+// 
+// 		//발주처코드 6자리일 경우 강제로 8808983을 붙혀준다.
+// 		if(trplO.length == 6){
+// 			trplO = '8808983' + trplO;
+// 		}
+// 		
+// 		var trplC = this.getTrplCode();//권한사업장
+// 		var oArg = {form_id:"VAN_DS_SC_0381", trplC:trplC, idx:idx, auto:"1", trplO:trplO};
+// 		var sOption = "autosize=true,title=false";
+// 		var sPopupCallBack = "fn_popupAfter";    
+// 		this.gfn_openPopup("POPUP_TRNREL_ODRPL","POPUP::POPUP_TRNREL_ODRPL.xfdl",oArg,sOption,sPopupCallBack);
+// 	}
+// }
+
+// this.fn_popupAfter = function(strId, strVal)
+// {
+// 	trace(" searchWRS strId : " + strId + " strVal : " + strVal);
+// 	var paramsArr = '';
+// 	if(strVal){
+// 		paramsArr = strVal.split(",");
+// 	}else{
+// 		return;
+// 	}	
+// 
+// 	if(strId == "POPUP_TRNREL_ODRPL"){
+// 		var valueArr = strVal.split(",");
+// 		
+// 		this.div_search.msk_odrpl_na_trpl_c.set_value(valueArr[0]);
+// 	}
+// }
+
+]]></Script>
+  </Form>
+</FDL>

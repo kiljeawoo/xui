@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_002001" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="PDA 공지" onload="form_onload" scrollbars="fixedhorz">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="9" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_onclick"/>
+        <Div id="Div01" taborder="11" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Static id="Static01" taborder="12" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="13" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="14" left="0" top="29" right="15" height="99" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="788" height="99">
+              <Static id="Static06" taborder="23" text="게시기간" cssclass="sta_WFSA_Label" left="15" top="7" width="103" height="21"/>
+              <Calendar id="cal_from" taborder="21" dateformat="yyyy-MM-dd" left="103" top="7" width="100" height="21" enable="true"/>
+              <Static id="Static05" taborder="73" text="~" left="205" top="7" width="10" height="21"/>
+              <Calendar id="cal_to" taborder="22" dateformat="yyyy-MM-dd" left="215" top="7" width="100" height="21" enable="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="16" visible="false" left="1" top="30" width="15" height="42" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="17" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Div id="div_pda" taborder="20" text="Div02" left="0" top="136" right="15" bottom="-40">
+          <Layouts>
+            <Layout width="788" height="419">
+              <Div id="div_paging" taborder="14" url="common::pagingBTN.xfdl" left="226" bottom="40" width="338" height="29" visible="false"/>
+              <Grid id="grd_pda" taborder="13" binddataset="ds_dataTotal" useinputpanel="false" autofittype="none" treeusecheckbox="false" treeuseimage="false" treeinitstatus="expand,all" left="0" top="11" right="0" bottom="62" style="background:#ffffffff URL('theme://images\B_btn_Titlebar_close_O.png');" oncellclick="grd_oncellclick" nodatatext="조회된 건수가 없습니다.">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="77"/>
+                      <Column size="98"/>
+                      <Column size="100"/>
+                      <Column size="97"/>
+                      <Column size="111"/>
+                      <Column size="113"/>
+                      <Column size="98"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="공지순번"/>
+                      <Cell col="1" text="공지사항제목"/>
+                      <Cell col="2" text="최초등록자"/>
+                      <Cell col="3" text="최종등록자"/>
+                      <Cell col="4" text="게시시작일시"/>
+                      <Cell col="5" text="게시종료일시"/>
+                      <Cell col="6" text="PUSH사용여부"/>
+                      <Cell col="7" text="PUSH송신일시"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:NOTICE_SQNO"/>
+                      <Cell col="1" text="bind:NOTICE_SUBJECT"/>
+                      <Cell col="2" text="bind:FS_RGM"/>
+                      <Cell col="3" text="bind:LS_CHGM"/>
+                      <Cell col="4" text="bind:NOTICE_ST_DTM" mask="####-##-##"/>
+                      <Cell col="5" text="bind:NOTICE_ED_DTM" mask="####-##-##"/>
+                      <Cell col="6" text="bind:PUSH_USE_YN"/>
+                      <Cell col="7" text="bind:PUSH_SEND_DTM" mask="####년##월##일##시"/>
+                    </Band>
+                  </Format>
+                  <Format id="format_copy"/>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static11" taborder="21" text="20" visible="false" left="524" top="30" width="20" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="22" text="20" visible="false" left="316" top="30" width="20" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static10" taborder="23" text="20" visible="false" left="88" top="128" width="700" height="20" style="background:#dc143c5b;"/>
+        <Button id="btn_add" taborder="24" text="등록" onclick="btn_add_onclick" cssclass="btn_WF_CRUD" left="91.91%" top="0" right="4.73%" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataTotal" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NOTICE_SQNO" type="bigdecimal" size="8"/>
+          <Column id="NOTICE_ST_DTM" type="bigdecimal" size="8"/>
+          <Column id="NOTICE_ED_DTM" type="bigdecimal" size="8"/>
+          <Column id="NOTICE_SUBJECT" type="bigdecimal" size="8"/>
+          <Column id="NOTICE_CNTN" type="bigdecimal" size="8"/>
+          <Column id="PUSH_USE_YN" type="bigdecimal" size="8"/>
+          <Column id="PUSH_PRC_ST" type="bigdecimal" size="8"/>
+          <Column id="PUSH_SEND_DTM" type="bigdecimal" size="8"/>
+          <Column id="PUSH_SEND_RESULT" type="bigdecimal" size="8"/>
+          <Column id="FS_RGM" type="bigdecimal" size="8"/>
+          <Column id="FSRG_DTM" type="bigdecimal" size="8"/>
+          <Column id="LS_CHGM" type="bigdecimal" size="8"/>
+          <Column id="LSCHG_DTM" type="bigdecimal" size="8"/>
+          <Column id="TOT_ROW_CNT" type="bigdecimal" size="8"/>
+          <Column id="SEQ" type="bigdecimal" size="8"/>
+          <Column id="NOTICE_MAX_SQNO" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_condition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NOTICE_MAX_SQNO" type="bigdecimal" size="8"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.menuId = "";
+this.blbdId = "";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	this.gfn_setInitForm(obj, e); //공통
+	if(application.gv_userTPC == "admin"){
+		this.div_search.bisCode.set_visible(true);
+		this.div_search.sr_NA_BZPLC.set_visible(true);		
+	}
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+    this.div_pda.grd_pda.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.div_search.cal_from.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"),1));
+	this.div_search.cal_to.set_value(this.gfn_today("yyyyMMdd"));
+
+	this.ds_dataTotal.clearData();
+	this.btn_onclick();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* Paging 처리 */
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_dataTotal.clearData(); // Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow();
+	
+	var vPageSize = 20; // Grid에 보여줄 Row수 선택
+	var vTotalCount = 0; // 전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+	this.ds_pageVO.setColumn(0, "CURRENT_PAGE", vPageNum); // 현재 페이지
+	this.ds_pageVO.setColumn(0, "PAGE_SIZE", vPageSize);
+	this.ds_pageVO.setColumn(0, "TOTAL_ROW_COUNT", vTotalCount);
+	
+	var argumentObj = "";
+	
+	this.fn_selectMstList();
+}
+
+this.fn_selectMstList = function()
+{
+	//this.ds_dataTotal.clearData();
+
+	var from_date = this.gfn_nullToEmpty(this.div_search.cal_from.value); //조회시작일
+	var to_date = this.gfn_nullToEmpty(this.div_search.cal_to.value); //조회종료일
+
+	
+	var param = "FROM_DATE=" + from_date+				
+				" TO_DATE="+to_date;
+				
+	var sSvcID        = "PdaNoticeList";//통신아이디
+	var sURL          = "svc::rest/pda/PdaNoticeList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+	var sOutDatasets  = "ds_dataTotal=ds_dataTotal ds_pageVO=ds_pageVO ds_condition=ds_condition";//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 콜백메소드 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+	var sTotal       = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "PdaNoticeList") {
+		if (this.ds_dataTotal.rowcount > 0) {
+			this.div_pda.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+		} else {
+			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			this.div_pda.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+		}
+	} 
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.btn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);
+}
+
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.fn_openPdaDetail(e.row);	
+}
+
+this.div_search_edt_search_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13')
+	{
+		this.div_search.edt_search.updateToDataset();
+		this.btn_search.click();
+	}
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_openPdaDetail = function(nRow)
+{	
+	var oArg = {NOTICE_SQNO:this.ds_dataTotal.getColumn(nRow, "NOTICE_SQNO")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("PDA_CN_006002","PDA.CN::PDA_CN_006002.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.btn_add_onclick = function()
+{
+	var oArg = {NOTICE_MAX_SQNO:this.ds_condition.getColumn("NOTICE_MAX_SQNO")};	
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("PDA_CN_006003","PDA.CN::PDA_CN_006003.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+	this.fn_selectMstList;	
+}
+
+this.div_search_odr_dt_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13') 
+	{
+		this.btn_search.click();
+	}
+}
+
+this.div_search_sr_NA_BZPLC_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13') 
+	{
+		var na_bzplc = this.gfn_nullToEmpty(this.div_search.sr_NA_BZPLC.value); //경제통합사업장코드
+		if (na_bzplc != "" && this.gfn_length(na_bzplc) < 8) {
+			this.alert('사업장코드는 8자이상이어야 합니다.');
+			return false;
+		}
+
+		this.btn_search.click();
+	}
+}
+
+this.div_search_tr_bass_no_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13') 
+	{
+		this.btn_search.click();
+	}
+}
+
+this.div_search_cnr_fix_usr_id_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13') 
+	{
+		this.btn_search.click();
+	}
+}
+
+this.div_search_na_slpno_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13') 
+	{
+		this.btn_search.click();
+	}
+}]]></Script>
+  </Form>
+</FDL>

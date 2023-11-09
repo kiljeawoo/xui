@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7111" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="SMS발송" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="2" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Static id="Static02" taborder="16" cssclass="sta_WF_Labelbg" left="79" top="330" width="708" height="138"/>
+        <Static id="Static01" taborder="11" cssclass="sta_WF_Labelbg" left="79" top="40" width="708" height="233"/>
+        <Static id="Static41" taborder="0" text="20" visible="false" left="2.86%" top="697" right="-24.53%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="4" cssclass="sta_WF_Labelbg" left="79" top="272" height="59" width="708"/>
+        <ListBox id="list_receiver" taborder="7" left="87" top="79" width="503" height="185" innerdataset="@ds_sms" datacolumn="receiver" scrollbars="autovert" style="itemheight:23;font:12 Gulim;"/>
+        <Button id="btn_remove" taborder="8" text="삭제" onclick="btn_remove_onclick" left="596" top="79" width="65" height="26"/>
+        <Button id="btn_removeAll" taborder="9" text="모두삭제" onclick="btn_removeAll_onclick" left="596" top="115" width="65" height="26"/>
+        <Static id="Static04" taborder="3" text="내용" cssclass="sta_WF_Label" left="0" top="272" height="59" width="80"/>
+        <Static id="Static00" taborder="10" text="수신번호" cssclass="sta_WF_Label" left="0" top="40" width="80" height="233"/>
+        <Button id="btn_add" taborder="5" text="추가" onclick="btn_add_onclick" left="596" top="45" width="65" height="26"/>
+        <Edit id="edt_receiver" taborder="6" left="87" top="45" width="503" height="26" displaynulltext="콤마(,)로 구분하여 한 번에 여러 건을 입력할 수 있습니다." onkeyup="edt_receiver_onkeyup" inputtype="number,comma" inputfilter="dot,sign,symbol,alpha,space"/>
+        <Static id="sta_byte" taborder="12" text="0" left="691" top="309" height="15" style="align:right middle;" width="25"/>
+        <Static id="sta_byte_max" taborder="13" text="/0 byte" left="717" top="309" height="15" width="50"/>
+        <Edit id="edt_msg" taborder="14" left="87" top="279" width="682" height="26" lengthunit="ascii" onkeyup="edt_msg_onkeyup" onkillfocus="edt_msg_onkillfocus" maxlength="64"/>
+        <TextArea id="txt_preview" taborder="15" left="141" top="351" width="176" height="95" readonly="true" wordwrap="char" scrollbars="autovert" style="padding:8 8 8 8;background:#eeeeeeff;border:0 solid #bfbfbfff ;color:#333333ff;bordertype:round 5 5 ;font:bold 9 Gulim;" enable="false" displaynulltext="[하나로eSCM]"/>
+        <Static id="Static07" taborder="17" text="미리보기" cssclass="sta_WF_Label" left="0" top="330" width="80" height="138"/>
+        <Static id="Static09" taborder="26" cssclass="sta_WF_Label" left="597" top="190" width="170" height="74"/>
+        <Static id="Static08" taborder="18" text="수신대상 :" left="610" top="193" width="66" height="24"/>
+        <Static id="sta_recv" taborder="19" left="667" top="193" width="30" height="24" style="align:right middle;font:bold 9 Gulim;" text="0"/>
+        <Static id="Static10" taborder="20" text="휴대전화 :" left="610" top="221" width="66" height="24"/>
+        <Static id="sta_mobile" taborder="21" text="0" left="667" top="221" width="30" height="24" style="align:right middle;font:bold 9 Gulim;"/>
+        <Static id="Static12" taborder="22" text="그 외      :" left="610" top="239" width="66" height="24"/>
+        <Static id="sta_tel" taborder="23" text="0" left="667" top="239" width="30" height="24" style="align:right middle;font:bold 9 Gulim;"/>
+        <Static id="sta_recv_max" taborder="24" text="/ 0" left="705" top="193" width="30" height="24" style="font:bold 9 Gulim;"/>
+        <Static id="Static03" taborder="25" left="609" top="219" width="146" height="1" style="border:1 solid #808080ff ;"/>
+        <Static id="Static06" taborder="27" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Button id="btn_save" taborder="1" text="보내기" cssclass="btn_WF_CRUD" top="10" height="21" onclick="fn_save_onclick" width="50" left="738"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sms">
+        <ColumnInfo>
+          <Column id="receiver" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+var MAX_LENGTH = 74; // SMS최대길이
+var MAX_SEND = 20; // 수신자 지정 최대 수
+	
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function() // 페이지 로딩 후 실행 부분
+{
+	// 수신자 수, 문자메시지 길이 수 제한 표시
+	this.sta_recv_max.set_text("/ " + MAX_SEND);
+	this.sta_byte_max.set_text("/" + MAX_LENGTH + " byte");
+	this.edt_msg.set_maxlength(MAX_LENGTH);
+	
+	this.edt_receiver.setFocus();
+}
+
+this.fn_validationCheck = function()
+{
+	if (this.ds_sms.getRowCount() == 0) {
+		this.alert('수신자를 등록바랍니다');
+		this.edt_receiver.setFocus();
+		return false;
+	}
+	
+	if (this.gfn_isNull(this.edt_msg.value)) {
+		this.alert('내용을 입력바랍니다');
+		this.edt_msg.setFocus();
+		return false;
+	}
+	
+	return application.confirm("SMS "+ this.ds_sms.getRowCount() + "건을 아래와 같이 발송합니다.\n\"[하나로eSCM] " + this.edt_msg.value + "\"");
+}
+
+this.fn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		var sSvcID        = "sendSMS";
+		var sURL          = "svc::rest/mg/usrinf/sendSMS";
+		var sInDatasets   = "ds_sms=ds_sms";
+		var sOutDatasets  = "";
+		var sArgument     = "content=" + nexacro.wrapQuote("[하나로eSCM] " + this.gfn_nullToEmpty(this.edt_msg.value));
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+		
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	if (ErrorCode < 0) {
+		if (ErrorCode == -1) {
+			this.gfn_getMessage("alert", ErrorMsg);
+		} else {
+			this.alert(ErrorMsg);
+		}
+		return;
+	} else {
+		if(svcID == "sendSMS"){
+			this.ds_sms.clearData();
+			this.edt_msg.set_value("");
+			this.txt_preview.set_value(null);
+			this.check_irregular_list();
+			this.edt_msg_onkeyup();
+			//this.alert(ErrorMsg + "건이 발송되었습니다.");
+			this.alert("발송되었습니다.");
+		}
+	}
+}
+
+this.check_irregular_list = function()
+{
+	var regular = 0, irregular = 0;
+	if (this.ds_sms.getRowCount() > 0) {	
+		for (var i=0; i<this.ds_sms.getRowCount(); i++) {
+			var tel = this.ds_sms.getColumn(i, "receiver");
+			var regex = new RegExp(/^01([0|1|6|7|8|9])(\d{7,8}$)/g);
+			if (regex.test(tel)) {
+				regular++;
+			} else {
+				irregular++;
+			}
+		}
+	}
+	this.sta_recv.set_text(regular + irregular);
+	if (regular + irregular >= MAX_SEND) { this.sta_recv.style.set_color("red"); }
+	else { this.sta_recv.style.set_color("#333333ff"); }
+	this.sta_mobile.set_text(regular);
+	this.sta_tel.set_text(irregular);
+}
+
+// 전화번호 추가(버튼)
+this.btn_add_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (!this.gfn_isNull(this.edt_receiver.value)) {
+		var list = this.edt_receiver.value.split(",");
+		var dupYn = false;
+		for (var i in list) {
+			if (this.ds_sms.getRowCount() < MAX_SEND) { // 수신자 수 제한(MAX_SEND값으로 조절)
+				var tel = list[i].replace(/[^0-9]/g,""); // 숫자만 입력
+				if (!this.gfn_isNull(tel)) {
+					var dup = this.ds_sms.findRow("receiver", tel); // 중복된 번호 입력 방지
+					if (dup == -1) {
+						var pos = this.ds_sms.addRow();
+						this.ds_sms.setColumn(pos, "receiver", tel);
+					} else {
+						dupYn = true;
+					}
+				}
+			} else {
+				this.alert(MAX_SEND + "건을 초과할 수 없습니다.");
+				break;
+			}
+		}
+		if (dupYn) { this.alert("중복된 번호가 제외되었습니다."); }
+		
+		this.edt_receiver.set_value("");
+		this.edt_receiver.setFocus();
+		this.check_irregular_list();
+	}
+}
+
+// 전화번호 추가(엔터입력)
+this.edt_receiver_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		this.btn_add_onclick();
+	}
+}
+
+// 전화번호 삭제(선택)
+this.btn_remove_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var idx = this.list_receiver.getSelectedItems()[0];
+	if (idx >= 0 && this.ds_sms.getRowCount() > idx) {
+		this.ds_sms.deleteRow(idx);
+		this.check_irregular_list();
+	} else {
+		this.alert("선택된 대상이 없거나 목록이 비어있습니다.");
+	}
+}
+
+// 전화번호 삭제(전부)
+this.btn_removeAll_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_sms.clearData();
+	this.check_irregular_list();
+}
+
+this.edt_msg_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	var len = this.gfn_lengthByte(this.edt_msg.value);
+	if (len < 0) { len = 0; }
+	if (len > this.MAX_LENGTH) { this.sta_byte.style.set_color("red"); }
+	else { this.sta_byte.style.set_color("#333333ff"); }
+	this.sta_byte.set_text(len);
+	
+	if(!this.gfn_isNull(this.edt_msg.value)){
+		this.txt_preview.set_value("[하나로eSCM] " + this.edt_msg.value);
+	} else {
+		this.txt_preview.set_value("[하나로eSCM]");
+	}
+}
+this.edt_msg_onkillfocus = function(obj:Edit, e:nexacro.KillFocusEventInfo)
+{	
+	this.edt_msg.set_value(this.gfn_trim(this.edt_msg.value));
+	this.edt_msg_onkeyup(obj);
+}
+]]></Script>
+  </Form>
+</FDL>

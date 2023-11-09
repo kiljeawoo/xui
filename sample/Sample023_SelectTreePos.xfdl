@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample023_SelectTreePos" classname="Sample023_SelectTreePos" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid03" taborder="0" binddataset="grd" useinputpanel="false" autofittype="col" treeusecheckbox="false" left="7.71%" top="85" right="72.17%" height="227">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="188"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Grid Tree"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="tree" edittype="tree" text="bind:Column" treelevel="bind:Lev"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static35" taborder="1" text="Tree Grid" cssclass="sta_WFSA_Label" left="7.71%" top="61" right="84.86%" height="21"/>
+        <Button id="Button00" taborder="2" text="1 depth title 03 선택" onclick="Button00_onclick" left="31.25%" top="91" right="54.79%" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="grd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Lev" type="STRING" size="256"/>
+          <Column id="Column" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Lev">0</Col>
+            <Col id="Column">1 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">1</Col>
+            <Col id="Column">2 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 02</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 03</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 04</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 05</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">1</Col>
+            <Col id="Column">2 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 02</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 03</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 04</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 05</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">0</Col>
+            <Col id="Column">1 depth title 02</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">1</Col>
+            <Col id="Column">2 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 02</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 03</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 04</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 05</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">1</Col>
+            <Col id="Column">2 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 02</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 03</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 04</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 05</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">0</Col>
+            <Col id="Column">3 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">1</Col>
+            <Col id="Column">2 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">1 depth title 03</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 02</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 03</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 04</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 05</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">1</Col>
+            <Col id="Column">2 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 01</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 02</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 03</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 04</Col>
+          </Row>
+          <Row>
+            <Col id="Lev">2</Col>
+            <Col id="Column">3 depth title 05</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	this.gfn_selectTreePos(this.Grid03, "Column", "1 depth title 03");
+}]]></Script>
+  </Form>
+</FDL>

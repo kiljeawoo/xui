@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0931" classname="VAN_DS_SC_0931" left="0" top="0" width="803" height="490" titletext="기간별 상품별/사업장별 정보 상세" onload="form_onload" onsize="div_list_onsize" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="1" left="17" top="76" right="17" height="43" scrollbars="none" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_searchType00" taborder="47" text="상품코드/상품명" cssclass="sta_WFSA_Label" left="15" top="10" width="132" height="21"/>
+              <Static id="sta_searchType01" taborder="48" left="147" top="10" width="90" height="21"/>
+              <Static id="sta_searchType02" taborder="49" left="252" top="10" width="300" height="21"/>
+              <Static id="Static00" taborder="50" text="/" left="242" top="10" width="15" height="21"/>
+              <Static id="sta_searchType03" taborder="51" left="603" top="10" width="90" height="21" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="0" text="Div02" left="17" top="119" right="17" bottom="10" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_main00" taborder="8" binddataset="ds_detail_store" useinputpanel="false" autofittype="col" visible="true" left="0" top="40" right="0" bottom="46">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="사업장코드"/>
+                      <Cell col="1" text="사업장명"/>
+                      <Cell col="2" text="재고수량"/>
+                      <Cell col="3" text="재고금액(천원)"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:center;" text="bind:CODE"/>
+                      <Cell col="1" style="align:left;" text="bind:NAME"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="bind:QTY" mask="#,##0"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:AMOUNT" mask="#,##0"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell colspan="2" style="align:center;" text="합계"/>
+                      <Cell col="2" displaytype="number" style="align:right;"/>
+                      <Cell col="3" style="align:right;"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_page" taborder="9" url="common::pagingBTN.xfdl" left="28.81%" bottom="0" width="338" height="44" style="align:center;" visible="false"/>
+              <Static id="Static06" taborder="12" text="40" visible="false" left="733" top="0" width="55" height="40" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+          <InitValue/>
+        </Div>
+        <WebBrowser id="web_downExcel" left="608" top="58" width="59" height="18" taborder="2" visible="false"/>
+        <Button id="btn_excel" taborder="3" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="47" right="17" width="41" height="21"/>
+        <Static id="Static04" taborder="4" text="15" visible="false" top="32" right="17" width="50" height="15" style="background:#dc143c5b;"/>
+        <Button id="Button01" taborder="5" cssclass="btn_WF_PopupClose" left="766" top="0" width="37" height="32" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="6" text="상품별/사업장별 상세 정보" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="btn_ok" taborder="7" text="확인" onclick="btn_ok_onclick" cssclass="btn_WF_Popup" left="676" top="444" width="54" height="29"/>
+        <Button id="btn_cancle" taborder="8" text="취소" onclick="btn_close_onclick" cssclass="btn_WF_Popup" top="444" height="29" right="17" width="54"/>
+        <Static id="Static02" taborder="9" text="10" visible="false" left="683" top="434" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="683" top="473" width="91" height="17" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_detail_store" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="QTY" type="STRING" size="256"/>
+          <Column id="AMOUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+            <Col id="PAGE_SIZE">10</Col>
+            <Col id="CURRENT_PAGE">1</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dataTotal">
+        <ColumnInfo>
+          <Column id="TOTAL_SL_QT" type="STRING" size="256"/>
+          <Column id="TOTAL_TOT_SLAM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.fn_paging(1);
+};
+
+//페이징 처리
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();  
+	this.ds_detail_store.clearData();     //Grid에 Binding된 Dataset명	
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = 10; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 1; 	//전체건수. 화면조회후 리턴받아 사용
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	lsNowPage = vPageNum;//현재페이지 설정 
+	
+	this.search();
+}
+
+this.search = function()
+{	
+	var position = this.parent.dsArg.rowposition;
+	this.div_search.sta_searchType01.set_text(this.parent.dsArg.getColumn(position,'CODE'));
+	this.div_search.sta_searchType02.set_text(this.parent.dsArg.getColumn(position,'NAME'));
+	this.div_search.sta_searchType03.set_text(this.parent.dsArg.getColumn(position,'NA_BZPLC'));
+	var json = this.getParamJson(this.components);
+	json.start_date=this.parent.sTartD;
+	json.end_date=this.parent.eNdD;
+	json.centercode=this.parent.dsArg.getColumn(position,'CODE');
+	json.TRPL_C=this.parent.pTrpl_c;
+	json.separator=2;
+	var params = this.getParamJsonToString(json);
+	
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/stock/Stock/retrievePeriodSkuSum";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_detail_store=ds_detail_store ds_pageVO=ds_pageVO ds_dataTotal=ds_dataTotal";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+	
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0)
+	{
+		this.gfn_getMessage("alert", sMSG);
+		return;
+	}else{
+		//페이징 처리 보고
+		if(svcID == "p_search"){
+			this.div_list.grd_main00.setCellProperty("Summ",1,"text",this.ds_dataTotal.getColumn(0,"TOTAL_SL_QT"));
+			this.div_list.grd_main00.setCellProperty("Summ",2,"text",this.ds_dataTotal.getColumn(0,"TOTAL_TOT_SLAM"));
+		
+			var p_sum = 0;
+			if(this.div_list.grd_main00.rowcount > 0){
+				var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+				
+				this.div_list.div_page.fn_pageSet(sTotal, sPagesize,"grd_main00,div_page",lsNowPage);
+
+				p_sum = 100;				
+				//합계대비의 합계  100으로 설정
+				this.div_list.grd_main00.setCellProperty("Summ",3,"text",p_sum);
+				
+				//현재페이지							
+				var sCurrentPage = this.ds_pageVO.getColumn(0, "CURRENT_PAGE")
+			}else{
+				this.div_list.div_page.fn_pageSet(0, 0,"grd_main00,div_page",lsNowPage);//페이징 설정				
+				
+				this.div_list.grd_main00.setCellProperty("Summ",1,"text",0);
+				this.div_list.grd_main00.setCellProperty("Summ",2,"text",0);
+				this.div_list.grd_main00.setCellProperty("Summ",3,"text",0);
+				
+				this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+	}
+}
+
+/* 페이지 숫자 위치 설정*/
+this.div_list_onsize = function(obj:Div, e:nexacro.SizeEventInfo)
+{	
+	var nLeft = (e.cx/2)-(this.div_list.div_page.width/2);
+	this.div_list.div_page.set_left(nLeft);
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var params = "start_date="+this.parent.sTartD
+				 +"&end_date="+this.parent.eNdD
+				 +"&TRPL_C="+this.parent.pTrpl_c
+				 +"&centercode="+this.div_search.sta_searchType01.text
+				 +"&fileName=기간별 상품별/사업장디테일.xls";
+	
+	params = encodeURI(encodeURI(params));
+	
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelPeriodSkuSumDetail?"+params, this);
+	//this.web_downExcel.set_url(application.gv_server_url+"rest/excel/downloadExcelPeriodSkuSumDetail?"+params);
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

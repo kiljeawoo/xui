@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6313" classname="OMG_DS_SC_5160" left="0" top="0" width="800" height="490" titletext="서비스통제관리" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="3" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Static id="Static07" taborder="4" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Div id="div_search" taborder="6" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Static id="Static00" taborder="17" text="사용여부" cssclass="sta_WFSA_Label" left="289" top="39" width="79" height="21" style="padding:0 20 0 11;"/>
+              <Combo id="cbo_useYn" taborder="18" codecolumn="codecolumn" datacolumn="datacolumn" left="366" top="39" width="140" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">선택</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">Y</Col>
+                      <Col id="datacolumn">사용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">N</Col>
+                      <Col id="datacolumn">사용안함</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static02" taborder="22" text="업무구분" cssclass="sta_WFSA_Label" left="15" top="10" width="103" height="21"/>
+              <Static id="Static03" taborder="31" text="상태" cssclass="sta_WFSA_Label" left="15" top="39" width="79" height="21" style="padding:0 20 0 11;"/>
+              <Combo id="cbo_blockState" taborder="32" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="118" top="39" width="140" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">대기</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">적용중</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">만료</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static04" taborder="21" text="30" onclick="Static04_onclick" visible="false" left="259" top="-2" width="30" height="67" style="background:#dc143c5b;"/>
+              <Combo id="cbo_bsnDsc" taborder="34" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="118" top="10" width="140" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">ESCM</Col>
+                      <Col id="datacolumn">ESCM</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">CONSULT</Col>
+                      <Col id="datacolumn">CONSULT</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">TAX</Col>
+                      <Col id="datacolumn">TAX</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="9" text="Div02" left="0" top="97" right="15" bottom="1">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Grid id="grd_comncList" taborder="8" binddataset="ds_ctrl" useinputpanel="false" cellsizingtype="col" autofittype="col" onheadclick="Div02_Grid01_onheadclick" left="0" top="42" right="0" bottom="0" oncellclick="div_list_grd_comncList_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="127"/>
+                      <Column size="89"/>
+                      <Column size="83"/>
+                      <Column size="224"/>
+                      <Column size="90"/>
+                      <Column size="92"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="62"/>
+                      <Column size="64"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="제목"/>
+                      <Cell col="1" rowspan="2" text="업무구분"/>
+                      <Cell col="2" rowspan="2" text="프로그램"/>
+                      <Cell col="3" rowspan="2" text="통제내용"/>
+                      <Cell col="4" rowspan="2" text="통제시작"/>
+                      <Cell col="5" rowspan="2" text="통제종료"/>
+                      <Cell col="6" colspan="5" text="통제기능"/>
+                      <Cell col="11" rowspan="2" text="상태"/>
+                      <Cell col="12" rowspan="2" text="사용여부"/>
+                      <Cell row="1" col="6" text="C"/>
+                      <Cell row="1" col="7" text="R"/>
+                      <Cell row="1" col="8" text="U"/>
+                      <Cell row="1" col="9" text="D"/>
+                      <Cell row="1" col="10" text="A"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:CTRL_TI" autosizecol="none"/>
+                      <Cell col="1" text="bind:BSN_DSC" autosizecol="none"/>
+                      <Cell col="2" text="bind:PGM_ID"/>
+                      <Cell col="3" text="bind:CTRL_CNTN" autosizecol="none"/>
+                      <Cell col="4" displaytype="date" text="bind:CTRL_ST_DT" mask="yyyy-MM-dd HH:mm" calendardisplaynulltype="none" autosizecol="none"/>
+                      <Cell col="5" displaytype="date" text="bind:CTRL_ED_DT" mask="yyyy-MM-dd HH:mm" calendardisplaynulltype="none" autosizecol="none"/>
+                      <Cell col="6" style="background:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;C&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);background2:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;C&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);color:red;selectbackground:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;C&quot;) ? &quot;#ffddddff&quot; : &quot;&quot;);selectcolor:red;" text="expr:comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;C&quot;) ? &quot;X&quot; : &quot;&quot;"/>
+                      <Cell col="7" style="background:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;R&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);background2:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;R&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);color:red;selectbackground:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;R&quot;) ? &quot;#ffddddff&quot; : &quot;&quot;);selectcolor:red;" text="expr:comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;R&quot;) ? &quot;X&quot; : &quot;&quot;"/>
+                      <Cell col="8" style="background:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;U&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);background2:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;U&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);color:red;selectbackground:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;U&quot;) ? &quot;#ffddddff&quot; : &quot;&quot;);selectcolor:red;" text="expr:comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;U&quot;) ? &quot;X&quot; : &quot;&quot;"/>
+                      <Cell col="9" style="background:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;D&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);background2:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;D&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);color:red;selectbackground:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;D&quot;) ? &quot;#ffddddff&quot; : &quot;&quot;);selectcolor:red;" text="expr:comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;D&quot;) ? &quot;X&quot; : &quot;&quot;"/>
+                      <Cell col="10" style="background:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;A&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);background2:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;A&quot;) ? &quot;#ffddddff&quot; : &quot;transparent&quot;);color:red;selectbackground:EXPR(comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;A&quot;) ? &quot;#ffddddff&quot; : &quot;&quot;);selectcolor:red;" text="expr:comp.parent.parent.setCtrlAction(CTRL_ACTION, &quot;A&quot;) ? &quot;X&quot; : &quot;&quot;"/>
+                      <Cell col="11" style="color:EXPR(BLOCK_STATE == '1' ? 'blue' : BLOCK_STATE == '2' ? 'red' : '');color2:EXPR(BLOCK_STATE == '1' ? 'blue' : BLOCK_STATE == '2' ? 'red' : '');" text="expr:CTRL_STATE == '0' ? '대기' : CTRL_STATE == '1' ? '적용중' : '만료'" autosizecol="none"/>
+                      <Cell col="12" style="color:EXPR(UYN == 'Y' ? '' : 'red');color2:EXPR(UYN == 'Y' ? '' : 'red');" text="expr:UYN == 'Y' ? '사용' : '사용안함'" autosizecol="none"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static03" taborder="9" text="15" visible="false" left="731" top="1" width="56" height="41" style="background:#dc143c5b;"/>
+              <Button id="btn_flag" taborder="11" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_delete" taborder="10" text="삭제" onclick="btn_delete_onclick" cssclass="btn_WF_CRUD" top="0" right="121" width="45" height="21" visible="false"/>
+        <Static id="Static02" taborder="11" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_insert" taborder="12" text="등록" onclick="btn_insert_onclick" cssclass="btn_WF_CRUD" top="0" right="78" width="41" height="21"/>
+        <Button id="btn_search" taborder="13" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="18" width="58" height="21"/>
+        <Button id="btn_update" taborder="14" text="수정" onclick="btn_update_onclick" cssclass="btn_WF_CRUD" top="0" right="168" width="41" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_ctrl" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRL_NO" type="string" size="12"/>
+          <Column id="CTRL_TI" type="string" size="250"/>
+          <Column id="CTRL_ST_DT" type="STRING" size="30"/>
+          <Column id="CTRL_ED_DT" type="string" size="30"/>
+          <Column id="CTRL_CNTN" type="string" size="250"/>
+          <Column id="CTRL_ACTION" type="STRING" size="16"/>
+          <Column id="PGM_ID" type="STRING" size="16"/>
+          <Column id="BSN_DSC" type="STRING" size="16"/>
+          <Column id="CTRL_STATE" type="STRING" size="1"/>
+          <Column id="UYN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CTRL_NO">1</Col>
+            <Col id="CTRL_TI">제목</Col>
+            <Col id="CTRL_ST_DT">201806191300</Col>
+            <Col id="CTRL_ED_DT">201806191400</Col>
+            <Col id="CTRL_CNTN">내용</Col>
+            <Col id="CTRL_ACTION">CUD</Col>
+            <Col id="BSN_DSC">ESCM</Col>
+            <Col id="CTRL_STATE">1</Col>
+            <Col id="UYN">Y</Col>
+            <Col id="PGM_ID"/>
+          </Row>
+          <Row>
+            <Col id="CTRL_NO">2</Col>
+            <Col id="CTRL_TI">제목2</Col>
+            <Col id="CTRL_ST_DT">201806191500</Col>
+            <Col id="CTRL_ED_DT">201806191600</Col>
+            <Col id="CTRL_CNTN">내용2</Col>
+            <Col id="CTRL_ACTION">RA</Col>
+            <Col id="BSN_DSC">ESCM</Col>
+            <Col id="CTRL_STATE">1</Col>
+            <Col id="UYN">Y</Col>
+            <Col id="PGM_ID"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_ctrl_temp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRL_NO" type="string" size="12"/>
+          <Column id="CTRL_TI" type="string" size="250"/>
+          <Column id="CTRL_ST_DT" type="STRING" size="30"/>
+          <Column id="CTRL_ED_DT" type="string" size="30"/>
+          <Column id="CTRL_CNTN" type="string" size="250"/>
+          <Column id="CTRL_ACTION" type="STRING" size="16"/>
+          <Column id="PGM_ID" type="STRING" size="16"/>
+          <Column id="BSN_DSC" type="STRING" size="16"/>
+          <Column id="CTRL_STATE" type="STRING" size="1"/>
+          <Column id="UYN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+	//페이지 로딩후 실행부분
+	/*초기값세팅*/
+	this.div_search.cbo_bsnDsc.set_index(0);
+	this.div_search.cbo_blockState.set_index(0);
+	this.div_search.cbo_useYn.set_index(0);
+
+
+    /*조회 호출*/
+   this.btn_search.click();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+ /*조회버튼 이벤트*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams = "BSN_DSC="+this.gfn_nullToEmpty(this.div_search.cbo_bsnDsc.value)
+				+ " CTRL_STATE="+this.gfn_nullToEmpty(this.div_search.cbo_blockState.value)
+				+ " UYN="+this.gfn_nullToEmpty(this.div_search.cbo_useYn.value)
+				;
+
+	var sSvcID        = "ctrlList";
+	var sURL          ="svc::rest/mg/retrieveCtrlServiceList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_ctrl=ds_ctrl";
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+ /*등록버튼 이벤트*/
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"I", dsArg:this.ds_ctrl};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_6313_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/*수정버튼 이벤트*/
+this.btn_update_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+	var position =0 ;	//선택된 체크박스 위치
+	for (var i = 0 ; i < this.ds_ctrl.rowcount; i++) {
+		if (this.ds_ctrl.getColumn(i, "CHK") =="1") {
+			checkCnt = checkCnt +1;
+			position = i;
+		}
+	}
+
+	this.ds_ctrl_temp.clearData();
+	if (checkCnt > 1) {
+		alert("하나만 선택해주시기 바랍니다.");
+		return;
+	} else if(checkCnt == 0) {
+		alert("수정해야할 데이터를 선택해 주시기 바랍니다.");
+		return;
+	} else {
+		this.ds_ctrl_temp.addRow();
+		this.ds_ctrl_temp.copyRow(0,this.ds_ctrl,position);
+		
+		var oArg = {paramMode:"U", dsArg:this.ds_ctrl_temp};
+		var sOption = "autosize=true";
+		var sPopupCallBack = "fn_popupAfter";
+		this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_6312_P01.xfdl",oArg,sOption,sPopupCallBack);
+	}
+}
+
+/*삭제버튼 이벤트*/
+this.btn_delete_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+
+	this.ds_ctrl_temp.clearData();
+	// 체크된 행들을 순차적으로 ds_param에 적재한다.
+	for (var i = 0 ; i < this.ds_ctrl.rowcount; i++) {
+		if(this.ds_ctrl.getColumn(i, "CHK") =="1"){
+		  checkCnt = checkCnt +1;
+		  this.ds_ctrl_temp.insertRow(checkCnt-1);
+		  this.ds_ctrl_temp.copyRow(checkCnt-1,this.ds_ctrl,i);
+		}
+	}
+
+	if (checkCnt > 0) {
+		var cfm = this.confirm("삭제하시겠습니까?");
+		if (cfm) {
+			var sParams       = "";
+			var sSvcID        = "delete";
+			var sURL          = "svc::rest/mg/block/deleteLoginBlockService";
+			var sInDatasets   = "ds_ctrl=ds_ctrl_temp";
+			var sOutDatasets  = "";
+			var sArgument     = "";
+			var sCallbackFunc = "fn_callBack";
+			var sTranType     = "U"; // U:저장/삭제, S:조회
+
+			this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		}
+	} else {
+		alert("삭제할 데이터를 선택해 주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	 }
+
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+ /*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{
+	this.btn_search.click();
+}
+
+ /*상단 전체 선택/해제 체크박스 및 컬럼 정렬 이벤트*/
+this.Div02_Grid01_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	} else {
+		this.gfn_gridSort(obj, e);
+	}
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	this.ds_ctrl.addColumn("CHK", "string");
+
+	for (var i = 0 ; i < this.ds_ctrl.rowcount; i++) {
+		this.ds_ctrl.setColumn(i,"CHK",0);
+	}
+
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+	 	if (svcID == "ctrlList") {
+			this.list_empty_check(this.ds_ctrl.rowcount == 0);
+	 	} else if (svcID=="delete") {
+	 		if (ErrorCode == 1) {
+	 			this.gfn_getMessage("alert", "result.message.save.success");
+	 			this.btn_search.click();
+	 		}
+	 	} else {
+			this.list_empty_check(this.ds_ctrl.rowcount == 0);
+	 	}
+	 }
+}
+
+this.list_empty_check = function(isEmpty) {
+	this.btn_delete.set_enable(!isEmpty);
+	this.btn_update.set_enable(!isEmpty);
+	if (isEmpty) {
+		this.div_list.grd_comncList.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	}
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.div_list_grd_comncList_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var chk = this.ds_ctrl.getColumn(e.row, "CHK");
+	if (chk == "0") {
+		this.ds_ctrl.setColumn(e.row, "CHK", "1");
+	} else {
+		this.ds_ctrl.setColumn(e.row, "CHK", "0");
+	}
+}
+
+this.div_search_rdo_blockDtm_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if (obj.value == "2" && this.gfn_nullToEmpty(this.div_search.dt_blockDtm.value) == '') {
+		this.div_search.dt_blockDtm.set_value(this.gfn_today("yyyyMMdd"));
+	}
+}
+
+this.setCtrlAction = function(ctrlAction, dsc){
+	// expr:comp.parent.parent.setCtrlAction(CTRL_ACTION, "C")
+	if (dsc == undefined) dsc = "C";
+	if (ctrlAction.indexOf(dsc) != -1) {
+		return true;
+	}
+	return false;
+}]]></Script>
+  </Form>
+</FDL>

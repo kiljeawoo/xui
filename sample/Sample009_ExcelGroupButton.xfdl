@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample009_ExcelGroup" classname="Sample009_ExcelGroup" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button94" taborder="0" text="엑셀" onclick="Button94_onclick" cssclass="btn_WF_Group" left="103" top="93" width="53" height="21"/>
+        <PopupDiv id="PopupDiv00" text="PopupDiv00" left="102" top="140" width="110" height="87" style="background:azure;" visible="false">
+          <Layouts>
+            <Layout>
+              <ListBox id="ListBox02" taborder="0" scrollbars="autovert" onitemchanged="Div00_ListBox02_onitemchanged" left="0" top="0" width="110" height="87" innerdataset="@ds_list" codecolumn="CODE" datacolumn="NAME"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="NAME">엑셀버튼명1</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="NAME">엑셀버튼명2</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">3</Col>
+            <Col id="NAME">엑셀버튼명3</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">4</Col>
+            <Col id="NAME">엑셀버튼명4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+//Popupdiv위에 ListBox을 올리고 Dataset을 bind한다
+//(스크롤 발생하지 않도록 필요에 따라 Popupdiv/ListBox 사이즈 조절한다)
+
+//Popupdiv 호출
+this.Button94_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nX = system.clientToScreenX(obj, 0) - system.clientToScreenX(application.mainframe, 0); 
+	var nY = system.clientToScreenY(obj, parseInt(obj.height)) - system.clientToScreenY(application.mainframe, 0); 
+	
+	this.PopupDiv00.trackPopup(nX, nY);
+}
+
+//ListBox 선택값 확인후, Popupdiv close
+this.Div00_ListBox02_onitemchanged = function(obj:ListBox, e:nexacro.ItemChangeEventInfo)
+{
+	trace(e.postvalue);
+	this.PopupDiv00.closePopup();
+}
+]]></Script>
+  </Form>
+</FDL>

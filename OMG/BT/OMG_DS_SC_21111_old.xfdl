@@ -1,0 +1,834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_21111" classname="pattern_01" left="0" top="0" width="803" height="940" titletext="신규계약 (수산 선어/활어 평가표)" onload="OMG_DS_SC_21111_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static28" taborder="57" cssclass="sta_WF_Labelbg" left="380" top="294" height="29" right="15"/>
+        <Static id="Static59" taborder="77" cssclass="sta_WF_Labelbg" left="380" top="658" height="29" right="15"/>
+        <Static id="Static44" taborder="92" cssclass="sta_WF_Labelbg" left="380" top="602" height="29" right="15"/>
+        <Static id="Static06" taborder="3" cssclass="sta_WF_Labelbg" top="182" width="60" height="29" right="15"/>
+        <Static id="Static57" taborder="93" cssclass="sta_WF_Labelbg" top="630" width="60" height="29" right="15"/>
+        <Static id="Static55" taborder="24" text="항목" cssclass="sta_WF_Label_c" left="16" top="15" width="120" height="29"/>
+        <Static id="Static45" taborder="25" text="평가기준" cssclass="sta_WF_Label_c" left="135" top="15" width="246" height="29"/>
+        <Static id="Static62" taborder="26" text="구분" cssclass="sta_WF_Label_c" left="380" top="15" height="29" right="133"/>
+        <Static id="Static63" taborder="27" text="배점" cssclass="sta_WF_Label_c" top="15" width="60" height="29" right="74"/>
+        <Static id="Static64" taborder="28" text="득점" cssclass="sta_WF_Label_c" top="15" width="60" height="29" right="15"/>
+        <Static id="Static58" taborder="29" text="업력" cssclass="sta_WF_Label_c" left="16" top="43" width="120" height="140"/>
+        <Static id="Static77" taborder="30" text="사업자 등록증 첨부파일" cssclass="sta_WF_Label" left="135" top="154" width="246" height="29"/>
+        <Static id="Static78" taborder="31" cssclass="sta_WF_Labelbg" left="380" top="154" height="29" right="15"/>
+        <Edit id="edt_down00" taborder="32" readonly="true" enable="false" left="384" top="158" height="21" right="89"/>
+        <Static id="Static02" taborder="33" cssclass="sta_WF_Labelbg" top="127" width="60" height="29" right="15"/>
+        <Static id="Static74" taborder="34" cssclass="sta_WF_Labelbg" top="99" width="60" height="29" right="15"/>
+        <Static id="Static71" taborder="35" cssclass="sta_WF_Labelbg" top="71" width="60" height="29" right="15"/>
+        <Static id="Static67" taborder="36" cssclass="sta_WF_Labelbg" top="43" width="60" height="29" right="15"/>
+        <Radio id="rdo_a01" taborder="0" innerdataset="@ds_rdo00" codecolumn="level" datacolumn="point" onitemchanged="rdo_a01_onitemchanged" top="43" width="20" height="113" index="-1" right="31"/>
+        <Static id="Static66" taborder="37" text="15" cssclass="sta_WF_Labelbg_R" top="43" width="60" height="29" right="74"/>
+        <Static id="Static70" taborder="38" text="20" cssclass="sta_WF_Labelbg_R" top="71" width="60" height="29" right="74"/>
+        <Static id="Static73" taborder="39" text="25" cssclass="sta_WF_Labelbg_R" top="99" width="60" height="29" right="74"/>
+        <Static id="Static01" taborder="40" text="30" cssclass="sta_WF_Labelbg_R" top="127" width="60" height="29" right="74"/>
+        <Static id="Static00" taborder="41" text="10년 이상" cssclass="sta_WF_Labelbg" top="127" height="29" right="133" left="380"/>
+        <Static id="Static72" taborder="42" text="5년 이상 ~ 10년 미만" cssclass="sta_WF_Labelbg" top="99" height="29" right="133" left="380"/>
+        <Static id="Static69" taborder="43" text="3년 이상 ~ 5년 미만" cssclass="sta_WF_Labelbg" top="71" height="29" right="133" left="380"/>
+        <Static id="Static65" taborder="44" text="1년 이상 ~ 3년 미만" cssclass="sta_WF_Labelbg" left="380" top="43" height="29" right="133"/>
+        <Static id="Static48" taborder="45" text="동종업계 업력" cssclass="sta_WF_Label" left="135" top="43" width="246" height="113"/>
+        <Static id="Static05" taborder="46" text="10" cssclass="sta_WF_Labelbg_R" top="182" width="60" height="29" right="74"/>
+        <Static id="Static04" taborder="47" text="3년 이상" cssclass="sta_WF_Labelbg" top="182" height="29" right="133" left="380"/>
+        <Static id="Static03" taborder="48" text="중매인 · 매참인" cssclass="sta_WF_Label" left="135" top="182" width="246" height="29"/>
+        <Static id="Static30" taborder="49" text="운영능력" cssclass="sta_WF_Label_c" left="16" top="182" width="120" height="253"/>
+        <Static id="Static08" taborder="50" cssclass="sta_WF_Labelbg" left="380" top="210" height="29" right="15"/>
+        <FileUpload id="FileUpload01" taborder="4" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="214" width="72" height="21" right="19"/>
+        <Static id="Static26" taborder="51" text="수입면장 기재" cssclass="sta_WF_Labelbg" top="238" height="29" right="133" left="380"/>
+        <Static id="Static20" taborder="52" cssclass="sta_WF_Labelbg" top="238" width="60" height="29" right="15"/>
+        <Static id="Static19" taborder="53" cssclass="sta_WF_Labelbg" top="266" width="60" height="29" right="15"/>
+        <Radio id="rdo_a03" taborder="6" innerdataset="@ds_rdo01" codecolumn="level" datacolumn="point" onitemchanged="rdo_a03_onitemchanged" top="238" width="20" height="57" index="-1" right="31"/>
+        <Static id="Static22" taborder="54" text="10" cssclass="sta_WF_Labelbg_R" top="266" width="60" height="29" right="74"/>
+        <Static id="Static25" taborder="55" text="신용장 약정서, 수입면장 기재" cssclass="sta_WF_Labelbg" top="266" height="29" right="133" left="380"/>
+        <Edit id="edt_down02" taborder="56" readonly="true" enable="false" left="384" top="298" height="21" right="89"/>
+        <Static id="Static21" taborder="58" text="5" cssclass="sta_WF_Labelbg_R" top="238" width="60" height="29" right="74"/>
+        <Static id="Static43" taborder="59" text="실적" cssclass="sta_WF_Label_c" left="16" top="434" width="120" height="113"/>
+        <Static id="Static33" taborder="60" text="5억 이상 ~ 10억 미만" cssclass="sta_WF_Labelbg" top="434" height="29" right="133" left="380"/>
+        <Static id="Static34" taborder="61" text="10억 이상 ~ 15억 미만" cssclass="sta_WF_Labelbg" top="462" height="29" right="133" left="380"/>
+        <Static id="Static40" taborder="62" text="10" cssclass="sta_WF_Labelbg_R" top="434" width="60" height="29" right="74"/>
+        <Static id="Static41" taborder="63" text="15" cssclass="sta_WF_Labelbg_R" top="462" width="60" height="29" right="74"/>
+        <Static id="Static35" taborder="64" text="15억 이상" cssclass="sta_WF_Labelbg" top="490" height="29" right="133" left="380"/>
+        <Static id="Static42" taborder="65" text="20" cssclass="sta_WF_Labelbg_R" top="490" width="60" height="29" right="74"/>
+        <Static id="Static38" taborder="66" cssclass="sta_WF_Labelbg" top="490" width="60" height="29" right="15"/>
+        <Static id="Static37" taborder="67" cssclass="sta_WF_Labelbg" top="462" width="60" height="29" right="15"/>
+        <Static id="Static36" taborder="68" cssclass="sta_WF_Labelbg" top="434" width="60" height="29" right="15"/>
+        <Radio id="rdo_a05" taborder="12" innerdataset="@ds_rdo03" codecolumn="level" datacolumn="point" onitemchanged="rdo_a05_onitemchanged" top="434" width="20" height="85" index="-1" right="31"/>
+        <Static id="Static39" taborder="69" cssclass="sta_WF_Labelbg" left="380" top="518" height="29" right="15"/>
+        <Edit id="edt_down04" taborder="70" readonly="true" enable="false" left="384" top="522" height="21" right="89"/>
+        <FileUpload id="FileUpload04" taborder="13" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="522" width="72" height="21" right="19"/>
+        <Static id="Static60" taborder="71" text="기타&#13;&#10;(가점)" cssclass="sta_WF_Label_c" left="16" top="546" width="120" height="141"/>
+        <Static id="Static49" taborder="72" text="기업 : BB 이상&#13;&#10;개인 : 4등급 이상" cssclass="sta_WF_Labelbg" top="546" height="57" right="133" left="380"/>
+        <Static id="Static50" taborder="73" text="5" cssclass="sta_WF_Labelbg_R" top="546" width="60" height="57" right="74"/>
+        <Static id="Static51" taborder="74" cssclass="sta_WF_Labelbg" top="546" width="60" height="57" right="15"/>
+        <CheckBox id="chk_a06" taborder="15" value="0" truevalue="5" falsevalue="0" onchanged="chk_a06_onchanged" top="549" width="25" height="50" right="26"/>
+        <FileUpload id="FileUpload05" taborder="16" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="606" width="72" height="21" right="19"/>
+        <Edit id="edt_down05" taborder="75" readonly="true" enable="false" left="384" top="606" height="21" right="89"/>
+        <Static id="Static54" taborder="76" text="2년 이상" cssclass="sta_WF_Labelbg" top="630" height="29" right="133" left="380"/>
+        <CheckBox id="chk_a07" taborder="18" value="0" truevalue="5" falsevalue="0" onchanged="chk_a07_onchanged" top="634" width="25" height="21" right="26"/>
+        <Static id="Static187" taborder="78" text="0" cssclass="sta_WF_Labelbg_R" top="686" height="29" right="15" width="119"/>
+        <Static id="Static186" taborder="79" cssclass="sta_WF_Labelbg" top="686" height="29" right="133" left="380"/>
+        <Static id="Static185" taborder="80" cssclass="sta_WF_Label" left="135" top="686" width="246" height="29"/>
+        <Static id="Static184" taborder="81" text="소계" cssclass="sta_WF_Label_c" left="16" top="686" width="120" height="29"/>
+        <Static id="Static199" taborder="82" text="20" visible="false" left="15" top="715" right="-4" height="20" style="background:#dc143c5b;"/>
+        <Button id="btn_register01" taborder="21" text="등록" onclick="btn_register_onclick" cssclass="btn_WF_CRUD" enable="false" top="735" width="41" height="21" right="103" visible="false"/>
+        <Button id="btn_insert" taborder="22" text="상담가능" cssclass="btn_WF_CRUD" enable="false" top="735" width="84" height="21" right="15" visible="false"/>
+        <Static id="Static188" taborder="83" text="○ 계약 필수조건" cssclass="sta_WF_DescriptionB01" left="16" top="753" width="423" height="21" style="background:left middle;padding:0 0 0 0;"/>
+        <Static id="Static189" taborder="84" text="- (선/활) 운송차량 직접운영(법인 또는 대표자 명의) 기간 3년 이상 업체" cssclass="sta_WF_DescriptionB01" left="16" top="774" width="599" height="21" style="background:left middle;"/>
+        <Static id="Static190" taborder="85" text="- (공통) 유통 전 단계 원산지 증명서 증빙 가능업체 (수입수산물 포함)" cssclass="sta_WF_DescriptionB01" left="16" top="795" width="423" height="21" style="background:left middle;"/>
+        <Static id="Static191" taborder="86" text="- (공통) 생산물책임보험(1사고당 1억원 이상 보장) 가입업체" cssclass="sta_WF_DescriptionB01" left="16" top="816" width="423" height="21" style="background:left middle;"/>
+        <Static id="Static192" taborder="87" text="- (공통) 계약자와 실 운영자 동일 원칙 (지역농협 명의도용 업체 배제)" onclick="Static192_onclick" cssclass="sta_WF_DescriptionB01" left="16" top="837" width="423" height="21" style="background:left middle;"/>
+        <Static id="Static193" taborder="88" text="신용등급(상 -&gt; 하) : AAA, AA, A+, A, A-, BBB+, BBB, BB+, BB, B+,B, B-, CCC+,CCC, CCC-, CC, C, D" cssclass="sta_WF_DescriptionB01" left="16" top="858" width="639" height="21"/>
+        <Static id="Static194" taborder="89" text="계약종료 후 2년 내 계약상담 불가" cssclass="sta_WF_DescriptionB01" left="16" top="879" width="423" height="21"/>
+        <Static id="Static61" taborder="90" text="70점 이상 획득업체 상담 가능" cssclass="sta_WF_DescriptionB01" left="16" top="900" width="423" height="21"/>
+        <Static id="Static68" taborder="91" visible="false" left="110" top="916" width="279" height="15" style="background:#00ffff66;"/>
+        <Static id="Static56" taborder="94" text="5" cssclass="sta_WF_Labelbg_R" top="630" width="60" height="29" right="74"/>
+        <Edit id="edt_down01" taborder="95" readonly="true" enable="false" left="384" top="214" height="21" right="89"/>
+        <FileUpload id="FileUpload06" taborder="19" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="662" width="72" height="21" right="19"/>
+        <Edit id="edt_down06" taborder="96" readonly="true" enable="false" left="384" top="662" height="21" right="89"/>
+        <Static id="Static53" taborder="97" text="계산서 첨부파일" cssclass="sta_WF_Label" left="135" top="658" width="246" height="29"/>
+        <Static id="Static52" taborder="98" text="농협(계통포함) 거래 업력" cssclass="sta_WF_Label" left="135" top="630" width="246" height="29"/>
+        <Static id="Static46" taborder="99" text="신용평가서 첨부파일" cssclass="sta_WF_Label" left="135" top="602" width="246" height="29"/>
+        <Static id="Static47" taborder="100" text="기업 · 개인 신용등급" cssclass="sta_WF_Label" left="135" top="546" width="246" height="57"/>
+        <Static id="Static32" taborder="101" text="전년 세금계산서(월별, 매월) 첨부파일" cssclass="sta_WF_Label" left="135" top="518" width="246" height="29"/>
+        <Static id="Static31" taborder="102" text="매출규모(직전년)" cssclass="sta_WF_Label" left="135" top="434" width="246" height="85"/>
+        <Static id="Static29" taborder="103" text="관련서류 첨부파일" cssclass="sta_WF_Label" left="135" top="294" width="246" height="29"/>
+        <Static id="Static27" taborder="104" text="직수입" cssclass="sta_WF_Label" left="135" top="238" width="246" height="57"/>
+        <Static id="Static07" taborder="105" text="관련서류 첨부파일" cssclass="sta_WF_Label" left="135" top="210" width="246" height="29"/>
+        <FileUpload id="FileUpload00" taborder="1" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="158" width="72" height="21" right="19"/>
+        <FileUpload id="FileUpload02" taborder="7" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="298" width="72" height="21" right="19"/>
+        <CheckBox id="chk_a02" taborder="23" value="0" truevalue="10" falsevalue="0" onchanged="chk_a02_onchanged" top="186" right="26" width="25" height="21"/>
+        <Static id="Static09" taborder="106" text="선/활 운송차량&#13;&#10;직접 운영 기간 (본인 명의)" cssclass="sta_WF_Label" left="135" top="322" width="246" height="85"/>
+        <Static id="Static10" taborder="107" text="3년 이상 ~ 5년 미만" cssclass="sta_WF_Labelbg" left="380" top="322" right="133" height="29"/>
+        <Static id="Static11" taborder="108" text="5년 이상 ~ 10년 미만" cssclass="sta_WF_Labelbg" left="380" top="350" right="133" height="29"/>
+        <Static id="Static24" taborder="109" text="10년 이상" cssclass="sta_WF_Labelbg" left="380" top="378" right="133" height="29"/>
+        <Static id="Static12" taborder="110" text="10" cssclass="sta_WF_Labelbg_R" top="322" right="74" width="60" height="29"/>
+        <Static id="Static13" taborder="111" text="20" cssclass="sta_WF_Labelbg_R" top="350" right="74" width="60" height="29"/>
+        <Static id="Static23" taborder="112" text="30" cssclass="sta_WF_Labelbg_R" top="378" right="74" width="60" height="29"/>
+        <Static id="Static14" taborder="113" cssclass="sta_WF_Labelbg" top="322" right="15" width="60" height="29"/>
+        <Static id="Static15" taborder="114" cssclass="sta_WF_Labelbg" top="350" right="15" width="60" height="29"/>
+        <Static id="Static18" taborder="115" cssclass="sta_WF_Labelbg" top="378" right="15" width="60" height="29"/>
+        <Radio id="rdo_a04" taborder="9" innerdataset="@ds_rdo02" codecolumn="level" datacolumn="point" onitemchanged="rdo_a04_onitemchanged" top="322" right="31" width="20" height="85"/>
+        <Static id="Static16" taborder="116" text="차량등록증 첨부파일" cssclass="sta_WF_Label" left="135" top="406" width="246" height="29"/>
+        <Static id="Static17" taborder="117" cssclass="sta_WF_Labelbg" left="380" top="406" right="15" height="29"/>
+        <Edit id="edt_down03" taborder="118" readonly="true" enable="false" left="384" top="410" right="89" height="21"/>
+        <FileUpload id="FileUpload03" taborder="10" retry="0" index="0" onsuccess="FileUpload_onsuccess" onerror="FileUpload_onerror" onitemchanged="FileUpload_onitemchanged" enable="false" top="410" right="19" width="72" height="21"/>
+        <Button id="btn_down00" taborder="2" text="파일다운" onclick="btn_down00_onclick" visible="false" top="158" right="-77" width="70" height="21"/>
+        <Button id="btn_down01" taborder="5" text="파일다운" onclick="btn_down01_onclick" visible="false" top="214" right="-75" width="70" height="21"/>
+        <Button id="btn_down02" taborder="8" text="파일다운" onclick="btn_down02_onclick" visible="false" top="298" right="-77" width="70" height="21"/>
+        <Button id="btn_down03" taborder="11" text="파일다운" onclick="btn_down03_onclick" visible="false" top="410" right="-77" width="70" height="21"/>
+        <Button id="btn_down04" taborder="14" text="파일다운" onclick="btn_down04_onclick" visible="false" top="522" right="-77" width="70" height="21"/>
+        <Button id="btn_down05" taborder="17" text="파일다운" onclick="btn_down05_onclick" visible="false" top="606" right="-77" width="70" height="21"/>
+        <Button id="btn_down06" taborder="20" text="파일다운" onclick="btn_down06_onclick" visible="false" top="662" right="-77" width="70" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rcev" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CSLT_RQ_NO" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A1" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A2" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A3" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A4" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A5" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_A6" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B1" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B11" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B2" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B3" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B4" type="STRING" size="256"/>
+          <Column id="EVL_HDNG_B5" type="STRING" size="256"/>
+          <Column id="EVL_HDNGCN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_uploadresult02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="DCM_C" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rdo00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">15</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">20</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">25</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">30</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">5</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">10</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">10</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">20</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">30</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rdo03" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="level" type="STRING" size="256"/>
+          <Column id="point" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="level">10</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">15</Col>
+            <Col id="point"/>
+          </Row>
+          <Row>
+            <Col id="level">20</Col>
+            <Col id="point"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item30" compid="rdo_a01" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A1"/>
+      <BindItem id="item32" compid="rdo_a03" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A3"/>
+      <BindItem id="item33" compid="rdo_a05" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A5"/>
+      <BindItem id="item34" compid="chk_a06" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B1"/>
+      <BindItem id="item35" compid="chk_a07" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_B2"/>
+      <BindItem id="item0" compid="chk_a02" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A2"/>
+      <BindItem id="item1" compid="rdo_a04" propid="value" datasetid="ds_rcev" columnid="EVL_HDNG_A4"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var rdoA01 = 0;
+var chkA02 = 0;
+var rdoA03 = 0;
+var rdoA04 = 0;
+var rdoA05 = 0;
+var chkA06 = 0;
+var chkA07 = 0;
+
+var tot;
+
+this.OMG_DS_SC_21111_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if(this.parent.edt_dsc.value == "popup")
+	{
+		this.btn_insert.set_visible(false);
+		this.btn_register01.set_text("저장");
+		this.btn_register01.set_right(15);
+		
+		/*조회 호출*/
+		this.parent.search();
+	}else if(this.parent.edt_dsc.value == "select"){
+		this.btn_insert.set_visible(false);
+		this.btn_register01.set_visible(false);
+		this.rdo_a01.set_readonly(true);
+		this.chk_a02.set_readonly(true);
+		this.rdo_a03.set_readonly(true);
+		this.rdo_a04.set_readonly(true);
+		this.rdo_a05.set_readonly(true);
+		this.chk_a06.set_readonly(true);
+		this.chk_a07.set_readonly(true);
+	}	
+}
+
+/**
+ * 선어/활어 평가표
+ */
+
+//동종업계 업력
+this.rdo_a01_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.gfn_isNull(this.rdo_a01.value))
+	{
+		this.rdo_a01.set_index(0);
+	}
+	rdoA01 = this.rdo_a01.value;
+	this.FileUpload00.set_enable(true);
+	this.edt_down00.set_enable(true);
+	this.fn_sum();
+}
+
+//중매인 · 매참인
+this.chk_a02_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a02.value == 10)
+	{
+		chkA02 = 10;
+		this.FileUpload01.set_enable(true);
+		this.edt_down01.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a02.value == 0)
+	{
+		chkA02 = 0;
+		this.FileUpload01.set_enable(false);
+		this.edt_down01.set_enable(false);
+		this.fn_sum();
+		
+		
+		//uncheck 삭제
+		var dmc = 01;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		
+		this.edt_down01.set_value("");
+	}
+}
+
+//직수입
+this.rdo_a03_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.gfn_isNull(this.rdo_a03.value))
+	{
+		this.rdo_a03.set_index(0);
+	}
+	rdoA03 = this.rdo_a03.value;
+	this.FileUpload02.set_enable(true);
+	this.edt_down02.set_enable(true);
+	this.fn_sum();
+}
+
+//선/활 운송차량 직접 운영 기간 (본인 명의)
+this.rdo_a04_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.gfn_isNull(this.rdo_a04.value))
+	{
+		this.rdo_a04.set_index(0);
+	}
+	rdoA04 = this.rdo_a04.value;
+	this.FileUpload03.set_enable(true);
+	this.edt_down03.set_enable(true);
+	this.fn_sum();
+}
+
+//매출규모(직전년)
+this.rdo_a05_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.gfn_isNull(this.rdo_a05.value))
+	{
+		this.rdo_a05.set_index(0);
+	}
+	rdoA05 = this.rdo_a05.value;
+	this.FileUpload04.set_enable(true);
+	this.edt_down04.set_enable(true);
+	this.fn_sum();
+}
+
+//기업 · 개인 신용등급
+this.chk_a06_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a06.value == 5)
+	{
+		chkA06 = 5;
+		this.FileUpload05.set_enable(true);
+		this.edt_down05.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a06.value == 0)
+	{
+		chkA06 = 0;
+		this.FileUpload05.set_enable(false);
+		this.edt_down05.set_enable(false);
+		this.fn_sum();
+		
+		
+		//uncheck 삭제
+		var dmc = 05;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		
+		this.edt_down05.set_value("");
+	}
+}
+
+//농협(계통포함) 거래 업력
+this.chk_a07_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(this.chk_a07.value == 5)
+	{
+		chkA07 = 5;
+		this.FileUpload06.set_enable(true);
+		this.edt_down06.set_enable(true);
+		this.fn_sum();
+	}
+	if(this.chk_a07.value == 0)
+	{
+		chkA07 = 0;
+		this.FileUpload06.set_enable(false);
+		this.edt_down06.set_enable(false);
+		this.fn_sum();
+		
+		
+		//uncheck 삭제
+		var dmc = 05;
+		this.ds_uploadresult.deleteRow(this.ds_uploadresult.findRow("DCM_C",dmc).toString());
+		
+		
+		this.edt_down06.set_value("");
+	}
+}
+
+/*retrieve합계*/
+this.retrieveSum = function()
+{	
+	var nIndex = -1;
+	
+	//동종업계 업력
+	if(this.gfn_isNull(this.rdo_a01.value))
+	{
+		this.rdo_a01.set_index(nIndex);
+	}
+	rdoA01 = this.rdo_a01.value;
+	this.FileUpload00.set_enable(true);
+
+	//중매인 · 매참인
+	if(this.gfn_isNull(this.chk_a02.value))
+	{
+		this.chk_a02.set_value(0);
+	}
+	chkA02 = this.chk_a02.value;
+	this.FileUpload01.set_enable(true);
+	
+	//직수입
+	if(this.gfn_isNull(this.rdo_a03.value))
+	{
+		this.rdo_a03.set_index(nIndex);
+	}
+	rdoA03 = this.rdo_a03.value;
+	this.FileUpload02.set_enable(true);
+
+	//선/활 운송차량 직접 운영 기간 (본인 명의)
+	if(this.gfn_isNull(this.rdo_a04.value))
+	{
+		this.rdo_a04.set_index(nIndex);
+	}
+	rdoA04 = this.rdo_a04.value;
+	this.FileUpload03.set_enable(true);
+
+	//매출규모(직전년)
+	if(this.gfn_isNull(this.rdo_a05.value))
+	{
+		this.rdo_a05.set_index(nIndex);
+	}
+	rdoA05 = this.rdo_a05.value;
+	this.FileUpload04.set_enable(true);
+
+	//기업 · 개인 신용등급
+	if(this.gfn_isNull(this.chk_a06.value))
+	{
+		this.chk_a06.set_value(0);
+	}
+	chkA06 = this.chk_a06.value;
+	this.FileUpload05.set_enable(true);
+	
+	//농협(계통포함) 거래 업력
+	if(this.gfn_isNull(this.chk_a07.value))
+	{
+		this.chk_a07.set_value(0);
+	}
+	chkA07 = this.chk_a07.value;
+	this.FileUpload06.set_enable(true);
+	
+	this.fn_sum();
+}
+
+//합계
+this.fn_sum = function()
+{
+	var num01 = 0;
+	var num02 = 0;
+	var num03 = 0;
+	var num04 = 0;
+	var num05 = 0;
+	var num06 = 0;
+	var num07 = 0;
+	var num08 = 0;
+	
+	num01 = nexacro.toNumber(rdoA01);
+	num02 = nexacro.toNumber(chkA02);
+	num03 = nexacro.toNumber(rdoA03);
+	num04 = nexacro.toNumber(rdoA04);
+	num05 = nexacro.toNumber(rdoA05);
+	num06 = nexacro.toNumber(chkA06);
+	num07 = nexacro.toNumber(chkA07);
+		
+	tot = num01 + num02 + num03 + num04 + num05 + num06 + num07;
+
+	this.Static187.set_text(tot);
+	
+	if(this.parent.edt_dsc.value == "popup")
+	{
+		this.parent.mae_sum00.set_value(tot);
+	}else{
+		this.parent.div00.mae_sum00.set_value(tot);
+	}
+	this.ds_rcev.setColumn(0, "EVL_HDNGCN", tot);
+	this.parent.fn_btnEnable(tot >= 70);
+	/*
+	if(tot >= 70)
+	{
+		this.parent.btn_register.set_enable(true);
+		this.btn_insert.set_enable(true);
+		this.btn_register01.set_enable(true);
+	}
+	else
+	{
+		this.parent.btn_register.set_enable(false);
+		this.btn_insert.set_enable(false);
+		this.btn_register01.set_enable(false);
+	}
+	*/
+}
+
+this.FileUpload_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+/*회사서류 파일첨부*/
+var dmc;
+var name;
+this.FileUpload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{	
+	name = obj.name.substring(10,12); //첨부파일코드00~09
+	dmc = this.ds_uploadresult.findRow("DCM_C",name).toString(); //파일Row위치
+	//alert("obj.name==> "+obj.name+"e.eventid==> "+e.eventid+"e.fromobject==> "+e.fromobject.name);
+	
+	//trace("dmc =>>" + dmc)  ;
+	
+	if(dmc == -1){
+		if( e.datasets == null )
+		{
+			//trace("업로드 실패");
+			return;
+		} else {
+			//trace("업로드 성공");
+			
+			this.ds_uploadresult02.copyData(e.datasets[0]);
+			var fName = this.ds_uploadresult02.getColumn(0,"FILENAME");
+			var fType = this.ds_uploadresult02.getColumn(0,"FILETYPE");
+			var fSize = this.ds_uploadresult02.getColumn(0,"FILESIZE");
+			var orgName = this.ds_uploadresult02.getColumn(0,"ORGFNAME");
+			var sysName = this.ds_uploadresult02.getColumn(0,"SYSTEMFILENAME");
+			
+			var nRow = this.ds_uploadresult.rowposition ;
+		
+			if(this.ds_uploadresult.rowposition == "-1" ){
+				nRow = this.ds_uploadresult.addRow();1
+			}else{
+		
+				nRow = this.ds_uploadresult.addRow();
+			}
+			this.ds_uploadresult.setColumn(nRow ,"DCM_C", name);
+			this.ds_uploadresult.setColumn(nRow,"FILENAME",fName);
+			this.ds_uploadresult.setColumn(nRow,"FILETYPE",fType);
+			this.ds_uploadresult.setColumn(nRow,"FILESIZE",fSize);
+			this.ds_uploadresult.setColumn(nRow,"ORGFNAME",orgName);
+			this.ds_uploadresult.setColumn(nRow,"SYSTEMFILENAME",sysName);
+			
+			this.all["edt_down"+name].set_value(e.datasets[0].getColumn(0,"ORGFNAME"));
+		
+			//trace( this.ds_uploadresult.saveXML()		);
+		}
+		
+	}else{
+		//기존upload파일삭제
+		this.ds_uploadresult.deleteRow(dmc);
+// 		this.ds_uploadresult.appendData(e.datasets[0],false,false);
+// 		this.ds_uploadresult.setColumn(this.ds_uploadresult.rowcount -1 ,"DCM_C", name);
+		
+		this.ds_uploadresult02.copyData(e.datasets[0]);
+		
+		var fName = this.ds_uploadresult02.getColumn(0,"FILENAME");
+		var fType = this.ds_uploadresult02.getColumn(0,"FILETYPE");
+		var fSize = this.ds_uploadresult02.getColumn(0,"FILESIZE");
+		var orgName = this.ds_uploadresult02.getColumn(0,"ORGFNAME");
+		var sysName = this.ds_uploadresult02.getColumn(0,"SYSTEMFILENAME");
+
+		var nRow = this.ds_uploadresult.addRow();
+		
+		this.ds_uploadresult.setColumn(nRow ,"DCM_C", name);
+		this.ds_uploadresult.setColumn(nRow,"FILENAME",fName);
+		this.ds_uploadresult.setColumn(nRow,"FILETYPE",fType);
+		this.ds_uploadresult.setColumn(nRow,"FILESIZE",fSize);
+		this.ds_uploadresult.setColumn(nRow,"ORGFNAME",orgName);
+		this.ds_uploadresult.setColumn(nRow,"SYSTEMFILENAME",sysName);
+		
+		this.all["edt_down"+name].set_value(e.datasets[0].getColumn(0,"ORGFNAME"));
+
+	}
+	
+	//trace( this.ds_uploadresult.saveXML()		);
+}
+
+this.FileUpload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+// 	trace("FileUpload00_onerror");
+// 	trace("e.errorcode: "+e.errorcode);
+// 	trace("e.errormsg: "+e.errormsg);
+}
+
+this.btn_register_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.parent.insert();
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	if(this.edt_down00.enable == true && this.gfn_isNull(this.edt_down00.value)){
+		this.edt_down00.setFocus();
+		this.alert('사업자 등록증을 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down01.enable == true && this.gfn_isNull(this.edt_down01.value)){
+		this.edt_down01.setFocus();
+		this.alert('중매인 · 매참인 관련서류를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down02.enable == true && this.gfn_isNull(this.edt_down02.value)){
+		this.edt_down02.setFocus();
+		this.alert('직수입 관련서류를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down03.enable == true && this.gfn_isNull(this.edt_down03.value)){
+		this.edt_down03.setFocus();
+		this.alert('차량등록증을 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down04.enable == true && this.gfn_isNull(this.edt_down04.value)){
+		this.edt_down04.setFocus();
+		this.alert('전년 세금계산서(월별, 매월)를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down05.enable == true && this.gfn_isNull(this.edt_down05.value)){
+		this.edt_down05.setFocus();
+		this.alert('신용평가서를 첨부 하세요.');
+		return false;
+	}
+	if(this.edt_down06.enable == true && this.gfn_isNull(this.edt_down06.value)){
+		this.edt_down06.setFocus();
+		this.alert('계산서를 첨부 하세요.');
+		return false;
+	}
+	
+	return true;
+}
+
+this.btn_down00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down01.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","00");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down01.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","01");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down02.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","02");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down03.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","03");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down04.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","04");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down05.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","05");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+this.btn_down06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(!this.gfn_isNull(this.edt_down06.value)){
+		var dmc = this.ds_uploadresult.findRow("DCM_C","06");
+		this.ds_uploadresult.set_rowposition(dmc);
+		this.gfn_callDownload(this.ds_uploadresult);
+	}
+}
+
+/* 비활성화 */
+this.disable = function()
+{
+	this.rdo_a01.set_readonly(true);
+	this.chk_a02.set_readonly(true);
+	this.rdo_a03.set_readonly(true);
+	this.rdo_a04.set_readonly(true);
+	this.rdo_a05.set_readonly(true);
+	this.chk_a06.set_readonly(true);
+	this.chk_a07.set_readonly(true);
+
+	this.btn_down00.set_visible(true);
+	this.btn_down00.set_right(19);
+	this.btn_down01.set_visible(true);
+	this.btn_down01.set_right(19);
+	this.btn_down02.set_visible(true);
+	this.btn_down02.set_right(19);
+	this.btn_down03.set_visible(true);
+	this.btn_down03.set_right(19);
+	this.btn_down04.set_visible(true);
+	this.btn_down04.set_right(19);
+	this.btn_down05.set_visible(true);
+	this.btn_down05.set_right(19);
+	this.btn_down06.set_visible(true);
+	this.btn_down06.set_right(19);
+	
+	this.FileUpload00.set_visible(false);
+	this.FileUpload01.set_visible(false);
+	this.FileUpload02.set_visible(false);
+	this.FileUpload03.set_visible(false);
+	this.FileUpload04.set_visible(false);
+	this.FileUpload05.set_visible(false);
+	this.FileUpload06.set_visible(false);
+
+	this.edt_down00.set_enable(false);
+	this.edt_down01.set_enable(false);
+	this.edt_down02.set_enable(false);
+	this.edt_down03.set_enable(false);
+	this.edt_down04.set_enable(false);
+	this.edt_down05.set_enable(false);
+	this.edt_down06.set_enable(false);
+	
+	this.btn_register01.set_enable(false);
+}
+
+/*sts2 보완수정 파일업로드 점수입력 비활성화*/
+this.disable2 = function()
+{
+	this.rdo_a01.set_readonly(true);
+	this.chk_a02.set_readonly(true);
+	this.rdo_a03.set_readonly(true);
+	this.rdo_a04.set_readonly(true);
+	this.rdo_a05.set_readonly(true);
+	this.chk_a06.set_readonly(true);
+	this.chk_a07.set_readonly(true);
+	
+	//파일업로드 활성화
+	if(!this.gfn_isNull(this.edt_down00.value))
+	{
+		this.edt_down00.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down01.value))
+	{
+		this.edt_down01.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down02.value))
+	{
+		this.edt_down02.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down03.value))
+	{
+		this.edt_down03.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down04.value))
+	{
+		this.edt_down04.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down05.value))
+	{
+		this.edt_down05.set_enable(true);
+	}
+	if(!this.gfn_isNull(this.edt_down06.value))
+	{
+		this.edt_down06.set_enable(true);
+	}
+}]]></Script>
+  </Form>
+</FDL>

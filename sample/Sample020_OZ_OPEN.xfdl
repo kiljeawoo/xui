@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="TEST_OZ_OPEN" classname="TEST_OZ_OPEN" left="0" top="0" width="1024" height="768" titletext="New Form" onload="testInit">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Button00" left="45.7%" top="17" right="42.58%" height="21" onclick="Button00_onclick"/>
+        <WebBrowser id="WebBrowser00" left="40.14%" top="67" right="0" height="0" taborder="1"/>
+        <Button id="Button01" taborder="2" text="Button01" left="60.94%" top="12" right="31.74%" height="24" onclick="test11"/>
+        <WebBrowser id="WebBrowser01" left="46.19%" top="45" right="24.02%" height="200" taborder="3"/>
+        <Grid id="grid_test" taborder="4" useinputpanel="false" left="1.86%" top="18" right="58.98%" height="235" binddataset="ds_test">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="66"/>
+                <Column size="91"/>
+                <Column size="108"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="a"/>
+                <Cell col="1" text="b"/>
+                <Cell col="2" text="c"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" text="bind:aaa"/>
+                <Cell col="1" text="bind:bbb"/>
+                <Cell col="2" text="bind:ccc"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="5" text="Button02" left="49.9%" top="268" right="41.11%" height="12" onclick="Button02_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_test" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="aaa" type="STRING" size="256"/>
+          <Column id="bbb" type="STRING" size="256"/>
+          <Column id="ccc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="aaa">0</Col>
+            <Col id="bbb">123</Col>
+            <Col id="ccc">456</Col>
+          </Row>
+          <Row>
+            <Col id="aaa">0</Col>
+            <Col id="bbb">dfas</Col>
+            <Col id="ccc">ads</Col>
+          </Row>
+          <Row>
+            <Col id="aaa">0</Col>
+            <Col id="bbb">asd</Col>
+            <Col id="ccc">asd</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+
+this.testInit = function(){
+	this.grid_test.afterFnc = this.abc;
+	this.addEventSingleCheckbox(this.grid_test);
+};
+
+this.abc = function(result, row){
+trace('aaa> '+result);
+trace('row> '+row);
+
+};
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.WebBrowser00.set_url("javascript:window.open('http://www.naver.com','popup','top=0px,left=0px,height=600px,width=800px')"); 
+	//system.execBrowser('http://www.naver.com');
+};
+
+
+this.test11 = function(){
+	var v1 = this.WebBrowser01.getProperty("document");
+	var v = this.WebBrowser01.getProperty("document").getProperty("body");//.getProperty("innerHTML"); 	
+	var fnc = "<script>function abc(){alert('abc')}</script>";
+	v.setProperty('onload', 'abc()');
+	v.setProperty("innerHTML", fnc); 
+	return;
+
+	var tag = '';
+	
+	tag+= "var method = 'post';";
+	tag+= "var path = 'http://www.naver.com';";
+	tag+= "var name = 'ozForm';";
+    tag+= "var form = document.createElement('form');";
+    tag+= "form.setAttribute('name', name);";
+    tag+= "form.setAttribute('method', method);";
+    tag+= "form.setAttribute('action', path);";
+	tag+= "var hiddenField = document.createElement('input');";
+	tag+= "hiddenField.setAttribute('type', 'hidden');";
+	tag+= "hiddenField.setAttribute('name', 'param');";
+	tag+= "hiddenField.setAttribute('value', '1234');";
+	tag+= "form.appendChild(hiddenField);";
+    tag+= "document.body.appendChild(form);";
+    tag+= "document.ozForm.target = 'ozPopup';";
+    //window.open('','ozPopup','top=0px,left=0px,height=600px,width=800px');
+    tag+= "window.open('','ozPopup','width=300, height=400, menubar=no,status=yes,scrollbars=no');";
+	tag+= "document.ozForm.submit();";
+	this.WebBrowser00.set_url('javascript:'+tag);
+};
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var a= this.checkColIndex(this.grid_test);
+	trace('chk> '+a);
+}
+]]></Script>
+  </Form>
+</FDL>

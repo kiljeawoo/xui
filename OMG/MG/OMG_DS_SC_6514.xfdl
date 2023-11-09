@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6513" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="EDI서비스 일별내역" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static91" taborder="0" cssclass="sta_WF_Labelbg" left="11" top="31" height="29" right="15"/>
+        <Static id="Static29" taborder="2" text="20" visible="false" left="12" top="60" width="122.04%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static40" taborder="3" text="20" visible="false" left="12" top="505" width="125.65%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static41" taborder="4" text="20" visible="false" left="12" top="685" width="120.8%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static87" taborder="5" text="17" visible="false" left="788" top="1" width="1.87%" height="1195" style="background:#dc143c5b;"/>
+        <Static id="Static15" taborder="6" text="17" visible="false" left="0" top="1" width="1.49%" height="1195" style="background:#dc143c5b;"/>
+        <Grid id="grd_result" taborder="7" binddataset="ds_result" useinputpanel="false" left="11" top="78" bottom="20" right="15">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="49"/>
+                <Column size="65"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+                <Column size="110"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="37" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" colspan="2" text="수신일자"/>
+                <Cell col="2" rowspan="2" text="주문서"/>
+                <Cell col="3" rowspan="2" text="주문예정서"/>
+                <Cell col="4" rowspan="2" text="배송예정&#13;&#10;응답서"/>
+                <Cell col="5" rowspan="2" text="검수확정서"/>
+                <Cell col="6" rowspan="2" text="반품확정서"/>
+                <Cell col="7" rowspan="2" text="마트별&#13;&#10;공급실적"/>
+                <Cell col="8" colspan="2" text="합계"/>
+                <Cell row="1" col="8" text="수/발신&#13;&#10;Byte"/>
+                <Cell row="1" col="9" text="빌링&#13;&#10;Byte"/>
+              </Band>
+              <Band id="body">
+                <Cell colspan="2" text="bind:RMS_DT" mask="####-##-##"/>
+                <Cell col="2" displaytype="number" style="align:right middle;" text="bind:ORDERS"/>
+                <Cell col="3" displaytype="number" edittype="none" style="align:right middle;" cssclass="Cellgrd_WF_AlignRight" text="bind:ORDRES"/>
+                <Cell col="4" displaytype="number" style="align:right middle;" cssclass="Cellgrd_WF_AlignRight" text="bind:DESRSP"/>
+                <Cell col="5" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:NACFCC"/>
+                <Cell col="6" displaytype="number" style="align:right middle;" text="bind:CONRET"/>
+                <Cell col="7" displaytype="number" style="align:right middle;" text="bind:SILRPT"/>
+                <Cell col="8" displaytype="number" style="align:right middle;" text="bind:DLY_SUM"/>
+                <Cell col="9" displaytype="number" style="align:right middle;" text="bind:BL_DLY_SUM"/>
+              </Band>
+              <Band id="summary">
+                <Cell rowspan="2" colspan="2">
+                  <Cell rowspan="2" style="align:right;" text="합계"/>
+                  <Cell col="1" displaytype="text" style="align:left middle;font:bold 10 arial;" text="(Byte)"/>
+                  <Cell row="1" col="1" style="align:left middle;font:bold 10 arial;" text="(Kbyte)"/>
+                </Cell>
+                <Cell col="2" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(ORDERS)&quot;)"/>
+                <Cell col="3" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(ORDRES)&quot;)"/>
+                <Cell col="4" displaytype="text" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(DESRSP)&quot;)"/>
+                <Cell col="5" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(NACFCC)&quot;)"/>
+                <Cell col="6" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(CONRET)&quot;)"/>
+                <Cell col="7" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(SILRPT)&quot;)"/>
+                <Cell col="8" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(DLY_SUM)&quot;)"/>
+                <Cell col="9" displaytype="number" style="align:right middle;" text="expr:dataset.getSum(&quot;nexacro.toNumber(BL_DLY_SUM)&quot;)"/>
+                <Cell row="1" col="2" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(ORDERS)&quot;)/1024)"/>
+                <Cell row="1" col="3" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(ORDRES)&quot;)/1024)"/>
+                <Cell row="1" col="4" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(DESRSP)&quot;)/1024)"/>
+                <Cell row="1" col="5" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(NACFCC)&quot;)/1024)"/>
+                <Cell row="1" col="6" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(CONRET)&quot;)/1024)"/>
+                <Cell row="1" col="7" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(SILRPT)&quot;)/1024)"/>
+                <Cell row="1" col="8" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(DLY_SUM)&quot;)/1024)"/>
+                <Cell row="1" col="9" displaytype="number" style="align:right middle;" text="expr:nexacro.round(dataset.getSum(&quot;nexacro.toNumber(BL_DLY_SUM)&quot;)/1024)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static92" taborder="8" text="수신일자기간" cssclass="sta_WF_Label" left="11" top="31" width="134" height="29"/>
+        <Button id="btn_search" taborder="9" text="조회" onclick="btn_search_onclick" cssclass="btn_WF_CRUD" top="5" right="14" width="44" height="21"/>
+        <Div id="div_rms_mm" taborder="10" url="common::calendarMonth.xfdl" left="147" top="35" width="108" height="21"/>
+        <Edit id="edt_NA_TRPL_C" taborder="12" left="42" top="554" width="17.43%" height="21" visible="false"/>
+        <Edit id="edt_MBCO_DSC" taborder="13" left="192" top="554" width="17.43%" height="21" visible="false"/>
+        <Static id="Static00" taborder="14" text="사업장코드" cssclass="sta_WF_Label" left="405" top="31" width="134" height="29"/>
+        <Combo id="cbo_NA_TRPL_C" taborder="15" innerdataset="ds_naTrplc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="541" top="35" height="21" width="24.91%"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RMS_DT" type="STRING" size="256"/>
+          <Column id="ORDERS" type="STRING" size="256"/>
+          <Column id="ORDRES" type="STRING" size="256"/>
+          <Column id="DESRSP" type="STRING" size="256"/>
+          <Column id="NACFCC" type="STRING" size="256"/>
+          <Column id="CONRET" type="STRING" size="256"/>
+          <Column id="SILRPT" type="STRING" size="256"/>
+          <Column id="DLY_SUM" type="STRING" size="256"/>
+          <Column id="BL_DLY_SUM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_naTrplc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_naTrplc_onrowposchanged">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+/*******************************************************************
+	전역변수 선언
+	sNaTrplC : 조회할 거래처번호
+	sMbcoDsc : 본지사구분코드
+*******************************************************************/
+this.sNaTrplC = "";
+this.sMbcoDsc = "";
+
+this.PRXP_COMP_TRPL_C = "";
+this.RMS_TRPL_C ;
+this.RMS_MM ;
+this.MASTER_SLAVE_CHK  ;
+
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통   
+   this.grd_result.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분   
+   /*초기값세팅*/       
+    
+    this.div_rms_mm._setValue(application.gv_today.substring(0,6));
+	this.sRmsMM = this.div_rms_mm._getValue();
+	this.fn_retrieveEdiSvcDtpBrkNaTrplCList(); 
+    
+    
+	//this.fn_retrieveEdiSvcDtpBrk(); 
+}
+
+/*******************************************************************************
+	거래처코드에 해당하는 콤보테이터 조회 함수
+*******************************************************************************/
+this.fn_retrieveEdiSvcDtpBrkNaTrplCList = function (){		
+
+	var sParams =  "RMS_MM="+this.div_rms_mm._getValue()
+				+ " NA_TRPL_C="+this.sNaTrplC;
+				
+trace("sParams =>>"  + sParams)				;
+				
+	var sSvcID        = "NaTrplC";
+	var sURL          = "svc::rest/mg/mbcslt/retrieveAdinfDtpBrkNaTrplCList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_naTrplc=ds_naTrplc";	
+	var sArgument     = sParams;	
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회	
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+}
+
+
+ 
+ 
+ /*******************************************************************************
+	TAB호출시 호출되는 함수
+*******************************************************************************/
+this.fn_retriveUsrInfo = function (naTrplC, mbcoDsc){				
+	trace("fn_retriveUsrInfo");
+	this.sNaTrplC = naTrplC;
+	this.sMbcoDsc = mbcoDsc;
+}
+ 
+ 
+ /*조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_retrieveAdinfDtpBrk();// 처음조회시 1페이지를 조회한다.
+}
+
+
+
+
+/*******************************************************************************
+	부가정보일별내역조회
+*******************************************************************************/
+this.fn_retrieveAdinfDtpBrk = function(){
+
+trace("test") ;
+	this.RMS_MM =  this.div_rms_mm._getValue() ;
+	trace("test1") ;
+	this.RMS_TRPL_C =  this.cbo_NA_TRPL_C.value ;
+	trace("test2") ;
+
+	if (this.RMS_TRPL_C  == "A"  ){
+		for(var i = 0 ; i < this.ds_naTrplc.rowcount; i++){		
+
+			if(this.ds_naTrplc.getColumn(i, "SIMP_C_EXPL") == "M"){
+
+				this.PRXP_COMP_TRPL_C = this.ds_naTrplc.getColumn(i, "SIMP_C") ;
+				this.MASTER_SLAVE_CHK = "M" ;
+			}
+		}
+	}else { 
+		for(var i = 0 ; i < this.ds_naTrplc.rowcount; i++){		
+
+			if(this.ds_naTrplc.getColumn(i, "SIMP_C") == this.RMS_TRPL_C ){
+				this.PRXP_COMP_TRPL_C = this.ds_naTrplc.getColumn(i, "SIMP_C") ;
+				this.MASTER_SLAVE_CHK = this.ds_naTrplc.getColumn(i, "SIMP_C_EXPL") ;
+			}
+		}
+	}
+	
+
+	var sParams =  "RMS_MM="+this.RMS_MM
+			   + " RMS_TRPL_C="+this.RMS_TRPL_C 
+			   + " PRXP_COMP_TRPL_C="+this.PRXP_COMP_TRPL_C 
+			   + " MASTER_SLAVE_CHK="+this.MASTER_SLAVE_CHK 
+			   ;
+	trace("sParams   = >> "  +  sParams) ;
+	
+	var sSvcID        = "retrieveEdiSvcDtpBrkList";
+	var sURL          ="svc::rest/mg/mbcslt/retrieveEdiSvcDtpBrkList";		 	
+	var sInDatasets   = "";	
+	var sOutDatasets  = "ds_result=ds_result";
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+ 
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+
+trace("svcID = >>   " +  svcID) ;
+	if(ErrorCode < 0){
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{	
+	 	if(svcID == "NaTrplC"){		 		
+			if(this.ds_naTrplc.rowcount == 0){
+		//		this.gfn_getMessage("alert", "result.message.search.no.exist.data");				
+			}else if(this.ds_naTrplc.rowcount > 0){
+			
+
+			
+                  if (this.ds_naTrplc.rowcount ==1){  
+
+					this.cbo_NA_TRPL_C.set_readonly(true);
+					this.btn_search.set_visible(false);
+					
+				 }else if (this.ds_naTrplc.rowcount == 2){  
+					if(this.ds_naTrplc.getColumn(0, "SIMP_C") == "A"){
+								this.ds_naTrplc.deleteRow(0);
+					}
+				 }
+ 					this.cbo_NA_TRPL_C.set_index(0);
+ 					this.fn_retrieveAdinfDtpBrk();
+				 
+				 
+
+				
+			}
+	 	}else if(svcID == "retrieveEdiSvcDtpBrkList"){			
+	 	
+	 	
+	 	
+			if(this.ds_result.rowcount == 0){
+	//			this.gfn_getMessage("alert", "result.message.search.no.exist.data");				
+			}			
+	 	}else{
+			alert("서비스ID매핑이 잘못되었습니다.");
+	 	}
+	 	
+	// 	trace(this.ds_result.saveXML());
+	}		  
+	
+	
+	
+}
+
+
+
+
+
+
+ 
+ ]]></Script>
+  </Form>
+</FDL>

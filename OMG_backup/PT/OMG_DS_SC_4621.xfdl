@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4621" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="서비스변경안내" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="1" onclick="Static01_onclick" cssclass="sta_WF_Menulist" left="11" top="54" height="1" width="777"/>
+        <Static id="Static02" taborder="0" text="서비스변경 안내" left="11" top="23" height="26" style="font:12 맑은 고딕;" width="777"/>
+        <Static id="Static03" taborder="2" text="회원정보 변경" cssclass="sta_WF_Subtitle" left="11" top="72" height="21" style="font:bold 9 Gulim;" width="777"/>
+        <Static id="Static00" taborder="4" text="비밀번호 변경" cssclass="sta_WF_Subtitle" left="11" top="370" height="21" style="font:bold 9 Gulim;" width="777"/>
+        <ImageViewer id="ImageViewer02" taborder="5" image="URL('theme://images\edit_password.png')" stretch="fixaspectratio" left="11" top="422" height="292" style="background:#ffffffff;border:1 double #385d8aff ;" onclick="ImageViewer02_onclick" width="777" tabstop="false"/>
+        <Static id="TextArea01" taborder="6" text="회원 비밀번호 변경 경로: 로그인 &gt; 내정보 &gt; 회원정보변경 &gt; 비밀번호변경" wordwrap="char" left="11" top="396" height="21" style="border:1 none #bfbfbfff ;" readonly="true" width="777"/>
+        <Static id="Static10" taborder="7" text="회원정보 변경 가능 내용" cssclass="sta_WF_Label" left="11" top="127" height="29" style="align:center middle;font:bold 9 arial;" width="777"/>
+        <Static id="Static08" taborder="8" text="구분" cssclass="sta_WF_Labelbg" left="11" top="155" height="29" style="background:#f6f6f6ff;align:center middle;" width="287"/>
+        <Static id="Static09" taborder="9" text="변경 내용" cssclass="sta_WF_Labelbg" left="297" top="155" height="29" style="background:#f6f6f6ff;align:center middle;" width="491"/>
+        <Static id="Static12" taborder="10" text="업체유형(공급업체/쿠폰관리/위탁업체)" cssclass="sta_WF_Labelbg" left="297" top="183" height="29" style="align:left middle;" width="491"/>
+        <Static id="Static06" taborder="11" text="회사정보" cssclass="sta_WF_Labelbg" left="11" top="183" height="29" style="align:center middle;" width="287"/>
+        <Static id="TextArea00" taborder="3" text="회원 비밀번호 변경 경로: 로그인 &gt; 내정보 &gt; 회원정보변경 &gt;회원정보변경" wordwrap="char" left="11" top="103" height="21" style="border:1 none #bfbfbfff ;" readonly="true" width="777"/>
+        <Static id="Static04" taborder="13" text="회원정보" cssclass="sta_WF_Labelbg" left="11" top="211" height="29" style="align:center middle;" width="287"/>
+        <Static id="Static05" taborder="14" text="권한정보" cssclass="sta_WF_Labelbg" left="11" top="239" height="122" style="align:center middle;" width="141"/>
+        <Static id="Static07" taborder="15" text="이름, 생년월일, 성별, 이메일, 휴대폰번호, 수신서비스(SMS,메일)" cssclass="sta_WF_Labelbg" left="297" top="211" height="29" style="align:left middle;" width="491"/>
+        <Static id="Static11" taborder="16" text="빌링" cssclass="sta_WF_Labelbg" left="151" top="239" height="66" style="align:center middle;" width="147"/>
+        <Static id="Static13" taborder="17" text="전자계약" cssclass="sta_WF_Labelbg" left="151" top="304" height="29" style="align:center middle;" width="147"/>
+        <Static id="Static14" taborder="18" text="세금계산서" cssclass="sta_WF_Labelbg" left="151" top="332" height="29" style="align:center middle;" width="147"/>
+        <Static id="Static15" taborder="19" text="서비스이용-부가정보(정액제/종량제), 정보분석(BI조회/추이분석/시장분석)&#13;&#10;청구정보(회사명, 사업자번호, 대표자명, 회사주소, 업태, 종목)&#13;&#10;납부정보(결제방식, 출금일, 거래은행, 계좌번호 등)" cssclass="sta_WF_Labelbg" left="297" top="239" height="66" style="align:left middle;" width="491" onclick="Static15_onclick"/>
+        <Static id="Static16" taborder="20" text="인감정보" cssclass="sta_WF_Labelbg" left="297" top="304" height="29" style="align:left middle;" width="491"/>
+        <Static id="Static17" taborder="21" text="전자세금계산서 업무" cssclass="sta_WF_Labelbg" left="297" top="332" height="29" style="align:left middle;" width="491"/>
+        <Static id="Static33" taborder="22" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+
+
+this.Static15_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

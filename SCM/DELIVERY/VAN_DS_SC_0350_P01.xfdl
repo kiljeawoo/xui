@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="825" height="329" titletext="배송예정 상품 조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="5" binddataset="ds_dataD" useinputpanel="false" left="17" top="47" right="17" height="226" autofittype="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="50"/>
+                <Column size="120"/>
+                <Column size="250"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="140"/>
+                <Column size="140"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="50" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="순번"/>
+                <Cell col="1" text="상품코드"/>
+                <Cell col="2" text="상품명"/>
+                <Cell col="3" text="규격"/>
+                <Cell col="4" text="단위"/>
+                <Cell col="5" text="입수"/>
+                <Cell col="6" text="단가"/>
+                <Cell col="7" text="수주량"/>
+                <Cell col="8" text="배송예정량"/>
+                <Cell col="9" text="금액"/>
+                <Cell col="10" text="부가세"/>
+                <Cell col="11" text="공병단가"/>
+                <Cell col="12" text="공병금액"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:DVY_PLA_SQNO"/>
+                <Cell col="1" text="bind:NA_WRS_C"/>
+                <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:WRSNM"/>
+                <Cell col="3" text="bind:WRS_STDNM"/>
+                <Cell col="4" text="bind:NA_WRS_UNT_C"/>
+                <Cell col="5" displaytype="number" style="align:right;" text="bind:BOXPE_AQZ" mask="#,##0"/>
+                <Cell col="6" displaytype="number" style="align:right;" text="bind:ODR_PCS" mask="#,##0"/>
+                <Cell col="7" displaytype="number" style="align:right;" text="bind:ODR_QT" mask="#,##0"/>
+                <Cell col="8" displaytype="number" style="align:right;" text="bind:DVY_PLA_QT" mask="#,##0"/>
+                <Cell col="9" displaytype="number" style="align:right;" text="bind:ODR_AM" mask="#,##0"/>
+                <Cell col="10" displaytype="number" style="align:right;" text="bind:ODR_VAT" mask="#,##0"/>
+                <Cell col="11" displaytype="number" style="align:right;" text="bind:VCBT_UPR" mask="#,##0"/>
+                <Cell col="12" displaytype="number" style="align:right;" text="bind:VCBT_AM" mask="#,##0"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button65" taborder="6" text="확인" cssclass="btn_WF_Popup" left="753" top="283" width="54" height="29" onclick="Button65_onclick"/>
+        <Static id="Static01" taborder="8" text="17" visible="false" left="733" top="312" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="9" text="10" visible="false" left="733" top="273" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="10" text="15" visible="false" left="363" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="11" text="17" visible="false" left="808" top="32" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="12" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Button id="Button01" taborder="13" cssclass="btn_WF_PopupClose" left="770" top="0" height="32" onclick="btn_close_onclick" right="0"/>
+        <Static id="Static06" taborder="14" text="배송예정 상품 조회" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ODRPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="ODRPL_NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="ODR_DT" type="STRING" size="256"/>
+          <Column id="ODR_SLPNO" type="STRING" size="256"/>
+          <Column id="ODR_DSQNO" type="STRING" size="256"/>
+          <Column id="VAN_SEQ" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="INT" size="256"/>
+          <Column id="WRS_STDNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_UNT_C" type="STRING" size="256"/>
+          <Column id="ODR_QT" type="INT" size="256"/>
+          <Column id="ODR_PCS" type="STRING" size="256"/>
+          <Column id="NEW_ODR_PCS" type="STRING" size="256"/>
+          <Column id="ODR_VAT" type="INT" size="256"/>
+          <Column id="ODR_AM" type="INT" size="256"/>
+          <Column id="DEL_YN" type="STRING" size="256"/>
+          <Column id="DVY_PLA_QT" type="INT" size="256"/>
+          <Column id="DVY_AM" type="INT" size="256"/>
+          <Column id="DVY_VAT" type="INT" size="256"/>
+          <Column id="DQPD_RSNC" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="DVYAA_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_DVY_PLASH_SLPNO" type="STRING" size="256"/>
+          <Column id="DVY_PLA_SQNO" type="STRING" size="256"/>
+          <Column id="VCBT_UPR" type="INT" size="256"/>
+          <Column id="VCBX_UPR" type="INT" size="256"/>
+          <Column id="VCBT_AM" type="INT" size="256"/>
+          <Column id="VCBX_AM" type="INT" size="256"/>
+          <Column id="SSDYRT" type="FLOAT" size="256"/>
+          <Column id="SSDY_BAS_AM" type="FLOAT" size="256"/>
+          <Column id="SPY_PSB_DT" type="STRING" size="256"/>
+          <Column id="TXT_DSC" type="STRING" size="256"/>
+          <Column id="SVS_QT" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="DDLY_ED_DT" type="STRING" size="256"/>
+          <Column id="DDLY_BAS_QT" type="STRING" size="256"/>
+          <Column id="MIN_ODR_QT" type="STRING" size="256"/>
+          <Column id="MAX_ODR_QT" type="STRING" size="256"/>
+          <Column id="VCBT_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="VCBT_QT" type="STRING" size="256"/>
+          <Column id="DVY_WRS_UPR" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.Grid00.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+	
+	var spypl_na_trpl_c = this.parent.Pspypl_na_trpl_c;
+	var dvyaa_na_trpl_c = this.parent.Pdvyaa_na_trpl_c;
+	var na_dvy_plash_slpno = this.parent.Pna_dvy_plash_slpno;
+	var dvy_pla_dt = this.parent.Pdvy_pla_dt;
+	var ddly_yn = this.parent.Pddly_yn;
+	var cser_ctr_tpc = this.parent.Pcser_ctr_tpc;
+	
+	var params = "spypl_na_trpl_c="+spypl_na_trpl_c
+			 + 	" dvyaa_na_trpl_c="+dvyaa_na_trpl_c
+			 +	" na_dvy_plash_slpno=" + na_dvy_plash_slpno
+			 +	" dvy_pla_dt=" + dvy_pla_dt
+			  +	" ddly_yn=" + ddly_yn
+			 +	" cser_ctr_tpc=" + cser_ctr_tpc;
+
+	// trace("PARAMS="+params);
+	
+	var sSvcID        = "getDeliveryNoticeOrderDetail";//통신아이디
+	var sURL          = "svc::/rest/scm/delivery/getDeliveryNoticeOrderDetail";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_dataD=ds_dataD";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+this.fCalVat02 = function(dvy_am, vatRat){
+	 var lVat;
+
+    dvy_am = this.fParseFloat(dvy_am);
+    vatRat = this.fParseFloat(vatRat);
+    if ( vatRat ==0 || dvy_am <= 10 ) return 0;
+    lVat = Math.floor(dvy_am/((100+vatRat)/vatRat));
+    return lVat;
+}
+
+this.fParseFloat = function(txt){
+    var tmpflt= 0.0;
+    if ( !isNaN(txt) && typeof txt != 'string' ) return( parseFloat(txt,10) );
+    if ( isNaN(txt) ) tmpflt = parseFloat(txt.delMask(),10);
+    else tmpflt =  parseFloat(txt,10) ;
+    if ( isNaN(tmpflt) ) return(0.0)
+    else  return( tmpflt);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) {
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "getDeliveryNoticeOrderDetail"){
+		//trace("getDeliveryNoticeOrderDetail");
+		//trace("---"+this.ds_dataD.rowcount);
+			if(this.ds_dataD.rowcount == 0){
+				this.Grid00.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));	
+			} else {
+				for(var row=0; row < this.ds_dataD.rowcount; row++){
+					var dvy_pla_qt 	= this.gfn_getNum(this.ds_dataD.getColumn(row, "DVY_PLA_QT"));
+					var dvy_wrs_upr = this.gfn_getNum(this.ds_dataD.getColumn(row, "DVY_WRS_UPR"));
+					var txt_dsc 	= this.ds_dataD.getColumn(row, "TXT_DSC");
+					
+					var dvy_vat = 0;
+					var odr_am = 0;
+// 					trace(dvy_pla_qt);
+// 					trace(dvy_wrs_upr);
+					
+					odr_am = dvy_wrs_upr * dvy_pla_qt;
+					
+					if(txt_dsc == "1"){
+						dvy_vat = this.fCalVat02(odr_am, 10);
+					}else{
+						dvy_vat = 0;
+					}
+					
+// 					trace(odr_am);
+// 					trace(dvy_vat);
+					this.ds_dataD.setColumn(row, "DVY_VAT", dvy_vat);
+					this.ds_dataD.setColumn(row, "DVY_AM", odr_am);
+					
+// 					trace(this.ds_dataD.saveXML());
+					
+				}
+			}
+		}
+	}
+}
+
+this.Button65_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+]]></Script>
+  </Form>
+</FDL>

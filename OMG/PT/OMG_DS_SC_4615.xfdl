@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4615" classname="pattern_01" left="0" top="0" width="810" height="1222" titletext="모바일 앱" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="1" text="모바일 앱" left="15" top="15" width="780" height="25" cssclass="sta_INFO_title"/>
+        <Static id="Static01" taborder="2" text="모바일 앱 설치 방법" cssclass="sta_INFO_title" left="15" top="175" width="780" height="25"/>
+        <Static id="Static02" taborder="3" text="모바일 앱 서비스 내용" cssclass="sta_INFO_title" left="15" top="500" width="780" height="25"/>
+        <Static id="Static04" taborder="5" text="서비스 명 : 하나로eSCM 모바일 앱" cssclass="sta_INFO_txt1list" left="15" top="45" width="780" height="25"/>
+        <Static id="Static05" taborder="6" text="서비스 개요 : 하나로 eSCM 웹에서 제공되는 수주, 배송, 검수, 반품, 회계업무, 공지사항," cssclass="sta_INFO_txt1list" left="15" top="70" width="780" height="25"/>
+        <Static id="Static06" taborder="7" text="PUSH 기능 강화 예정(시스템 장애/복구 알림, PUSH 목록 보기)" cssclass="sta_INFO_txt1" left="15" top="120" width="780" height="25"/>
+        <Static id="Static08" taborder="9" text="PUSH 기능(공지사항, 수주내역, 배송예정결과오류, 반품입고내역, 매출세금계산서 결과(역발행))을 제공." cssclass="sta_INFO_txt1" left="15" top="95" width="780" height="25"/>
+        <Static id="Static09" taborder="10" text="아래의 QR코드를 해당 스마트 폰에서 읽어 앱을 설치하시면 됩니다." cssclass="sta_INFO_txt1list" left="15" top="205" width="780" height="25"/>
+        <Static id="Static10" taborder="11" text="QR코드 사용법을 모르는 경우" cssclass="sta_INFO_txt1list" left="15" top="230" width="780" height="25"/>
+        <Static id="Static11" taborder="12" text="1) 안드로이드 폰은 플레이 스토어에서 “하나로 eSCM”으로 검색하여 설치" left="15" top="255" width="780" height="25" style="padding:0 0 0 27;font:bold 10 맑은 고딕, Gulim;"/>
+        <Static id="Static12" taborder="13" text="2) iOS 앱은 아이폰에서 앱 설치 페이지로 이동하여 앱 설치 진행 (QR코드 추천)" left="15" top="280" width="780" height="25" style="padding:0 0 0 27;font:bold 10 맑은 고딕, Gulim;" visible="false"/>
+        <ImageViewer id="ImageViewer00" taborder="14" left="42" top="315" width="282" height="156" style="background:URL('theme://images/new/app_qr.png') left middle;border:0 solid #bfbfbfff ;"/>
+        <ImageViewer id="ImageViewer01" taborder="15" left="15" top="530" width="286" height="518" style="background:URL('theme://images/new/app_img.png') left middle;border:0 solid #bfbfbfff ;"/>
+        <Grid id="grd_menu" taborder="16" useinputpanel="false" left="316" top="530" width="479" height="589" binddataset="ds_menu" autofittype="col" style="border:2 solid #808e9aff,0 none #00000000,0 none #00000000,0 none #00000000;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="120"/>
+                <Column size="358"/>
+              </Columns>
+              <Rows>
+                <Row size="29" band="head"/>
+                <Row size="27"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="line:1 solid #c2c8c9ff,1 solid #c2c8c9ff,0 none #c2c8c9ff,0 none #c2c8c9ff;background:#f1f4f9ff;color:#4b4a4aff;font:bold 10 맑은 고딕, Gulim;" text="구분"/>
+                <Cell col="1" style="line:1 solid #c2c8c9ff,0 none #c2c8c9ff,0 none #c2c8c9ff,0 none #c2c8c9ff;background:#f1f4f9ff;color:#4b4a4aff;font:bold 10 맑은 고딕, Gulim;" text="화면"/>
+              </Band>
+              <Band id="body">
+                <Cell style="line:1 solid #c2c8c9ff,1 solid #c2c8c9ff,1 solid #c2c8c9ff,0 none #c2c8c9ff;background:#ffffffff;background2:#ffffffff;font:10 맑은 고딕, Gulim;selectbackground:#ffffffff;selectfont:10 맑은 고딕, Gulim;selectline:1 solid #c2c8c9ff,1 solid #c2c8c9ff,1 solid #c2c8c9ff,0 none #c2c8c9ff;" text="bind:MENU_DSC" suppress="1" suppressalign="middle,over"/>
+                <Cell col="1" style="line:1 solid #c2c8c9ff,0 none #c2c8c9ff;background:#ffffffff;background2:#ffffffff;font:10 맑은 고딕, Gulim;selectbackground:#ffffffff;selectfont:10 맑은 고딕, Gulim;selectline:1 solid #c2c8c9ff,0 none #c2c8c9ff;" text="bind:MENU_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_ios" taborder="17" text="iOS앱 설치페이지(모바일)" cssclass="btn_WF_CRUD" top="281" width="160" height="21" onclick="btn_ios_onclick" left="524" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menu">
+        <ColumnInfo>
+          <Column id="MENU_DSC" type="STRING" size="256"/>
+          <Column id="MENU_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_DSC">수주</Col>
+            <Col id="MENU_NM">수주내역 조회 / 상세</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">수주</Col>
+            <Col id="MENU_NM">사업장별R1 수주조회 / 상세</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">배송</Col>
+            <Col id="MENU_NM">배송예정서 일반등록</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">배송</Col>
+            <Col id="MENU_NM">배송예정서 직송등록</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">배송</Col>
+            <Col id="MENU_NM">배송예정서 신선등록</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_NM">배송예정서 축산등록</Col>
+            <Col id="MENU_DSC">배송</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_NM">배송예정서 수산등록</Col>
+            <Col id="MENU_DSC">배송</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">배송</Col>
+            <Col id="MENU_NM">배송예정서 PB직송등록</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_NM">배송예정 거래처별 조회 / 상세</Col>
+            <Col id="MENU_DSC">배송</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_NM">배송예정 상품별 조회 / 상세</Col>
+            <Col id="MENU_DSC">배송</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_NM">배송예정결과 조회</Col>
+            <Col id="MENU_DSC">배송</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">검수</Col>
+            <Col id="MENU_NM">검수실적_전표별 / 상세</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_NM">검수실적_직송분 / 상세</Col>
+            <Col id="MENU_DSC">검수</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">반품</Col>
+            <Col id="MENU_NM">반품입고 내역 조회 / 상세</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">회계</Col>
+            <Col id="MENU_NM">매출세금계산서결과</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">회계</Col>
+            <Col id="MENU_NM">일잔액원장 조회</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">회계</Col>
+            <Col id="MENU_NM">월잔액원장 조회</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">회계</Col>
+            <Col id="MENU_NM">이용료명세서</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">기타</Col>
+            <Col id="MENU_NM">공지사항</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">기타</Col>
+            <Col id="MENU_NM">설정</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_DSC">기타</Col>
+            <Col id="MENU_NM">푸쉬 내역</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.btn_ios_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	window.open("https://www.nhescm.co.kr/mobile/app.html"); // 제정 내용
+}]]></Script>
+  </Form>
+</FDL>

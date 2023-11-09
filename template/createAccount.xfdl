@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="pattern_01" classname="pattern_01" left="0" top="0" width="750" height="500" titletext="Detail" onload="pattern_01_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static86" taborder="288" text="15" visible="false" left="3" top="0" width="737" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static87" taborder="289" text="17" visible="false" left="733" top="0" width="17" height="479" style="background:#dc143c5b;"/>
+        <Static id="Static88" taborder="290" text="17" visible="false" left="0" top="6" width="17" height="479" style="background:#dc143c5b;"/>
+        <Div id="Div02" taborder="292" left="17" top="15" height="43" cssclass="div_WFSA_Searchbg" width="716">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="52" text="회원정보변경" left="15" top="9" width="107" height="21" style="font:bold 9 arial;"/>
+              <Button id="Button51" taborder="55" text="저장" cssclass="btn_WF_CRUD" left="662" top="9" width="41" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static89" taborder="293" text="회사 정보" cssclass="sta_WF_Subtitle" left="17" top="74" width="135" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static90" taborder="294" text="20" visible="false" left="17" top="58" width="717" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static91" taborder="295" cssclass="sta_WF_Labelbg" left="125" top="95" height="29" width="609"/>
+        <Static id="Static92" taborder="296" text="사업자번호" cssclass="sta_WF_Label" left="16" top="95" width="110" height="29"/>
+        <Static id="Static93" taborder="297" text="경제통합거래처코드" cssclass="sta_WF_Label" left="352" top="95" width="130" height="29"/>
+        <Static id="Static94" taborder="298" text="회사명" cssclass="sta_WF_Label" left="16" top="123" width="110" height="29"/>
+        <Static id="Static95" taborder="299" cssclass="sta_WF_Labelbg" left="125" top="123" height="29" width="609"/>
+        <Static id="Static96" taborder="300" text="대표전화번호" cssclass="sta_WF_Label" left="352" top="123" width="130" height="29"/>
+        <Static id="Static97" taborder="301" text="대표자명" cssclass="sta_WF_Label" left="16" top="151" width="110" height="29"/>
+        <Static id="Static98" taborder="302" cssclass="sta_WF_Labelbg" left="125" top="151" height="29" width="609"/>
+        <Static id="Static99" taborder="303" text="업체유형" cssclass="sta_WF_Label" left="352" top="151" width="130" height="29"/>
+        <Static id="Static100" taborder="304" text="우편번호" cssclass="sta_WF_Label" left="16" top="179" width="110" height="29"/>
+        <Static id="Static101" taborder="305" cssclass="sta_WF_Labelbg" left="125" top="179" height="29" width="609"/>
+        <Static id="Static102" taborder="306" text="회사주소" cssclass="sta_WF_Label" left="16" top="207" width="110" height="58"/>
+        <Static id="Static103" taborder="307" cssclass="sta_WF_Labelbg" left="125" top="207" height="58" width="609"/>
+        <Edit id="Edit06" taborder="308" left="129" top="214" width="601" height="21"/>
+        <Edit id="Edit07" taborder="309" left="129" top="238" width="601" height="21"/>
+        <Static id="Static104" taborder="310" text="20" visible="false" left="17" top="265" width="717" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static105" taborder="311" text="회원 정보" cssclass="sta_WF_Subtitle" left="17" top="281" width="135" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static106" taborder="312" text="회원ID" cssclass="sta_WF_Label" left="16" top="302" width="110" height="29"/>
+        <Static id="Static107" taborder="313" cssclass="sta_WF_Labelbg" left="125" top="302" height="29" width="609"/>
+        <Static id="Static108" taborder="314" text="이름" cssclass="sta_WF_Label" left="352" top="302" width="130" height="29"/>
+        <Static id="Static109" taborder="315" text="비밀번호" cssclass="sta_WF_Label" left="16" top="330" width="110" height="29"/>
+        <Static id="Static110" taborder="316" cssclass="sta_WF_Labelbg" left="125" top="330" height="29" width="609"/>
+        <Static id="Static111" taborder="317" text="비밀번호 확인" cssclass="sta_WF_Label" left="352" top="330" width="130" height="29"/>
+        <Static id="Static112" taborder="318" text="이메일" cssclass="sta_WF_Label" left="16" top="358" width="110" height="29"/>
+        <Static id="Static113" taborder="319" cssclass="sta_WF_Labelbg" left="125" top="358" height="29" width="609"/>
+        <Static id="Static114" taborder="320" text="회원전화번호" cssclass="sta_WF_Label" left="16" top="386" width="110" height="29"/>
+        <Static id="Static115" taborder="321" cssclass="sta_WF_Labelbg" left="125" top="386" height="29" width="609"/>
+        <Static id="Static116" taborder="322" text="휴대전화번호" cssclass="sta_WF_Label" left="352" top="386" width="130" height="29"/>
+        <Static id="Static117" taborder="323" text="휴대전화인증" cssclass="sta_WF_Label" left="16" top="414" width="110" height="58"/>
+        <Static id="Static118" taborder="324" cssclass="sta_WF_Labelbg" left="125" top="414" height="58" width="609"/>
+        <Static id="Static119" taborder="325" text="수신 서비스" cssclass="sta_WF_Label" left="16" top="471" width="110" height="29"/>
+        <Static id="Static120" taborder="326" cssclass="sta_WF_Labelbg" left="125" top="471" height="29" width="609"/>
+        <Static id="Static121" taborder="327" text="권한 정보" cssclass="sta_WF_Subtitle" left="17" top="515" width="135" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static122" taborder="328" text="20" visible="false" left="17" top="499" width="717" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static123" taborder="329" text="회원권한" cssclass="sta_WF_Label" left="16" top="536" width="110" height="29"/>
+        <Static id="Static124" taborder="330" cssclass="sta_WF_Labelbg" left="125" top="536" height="29" width="609"/>
+        <Combo id="Combo25" taborder="334" value="1" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="488" top="390" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">010</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">011</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="Static125" taborder="335" text="-" left="541" top="390" width="9" height="21"/>
+        <MaskEdit id="MaskEdit12" taborder="336" value="1234" left="550" top="390" width="48" height="21"/>
+        <Static id="Static126" taborder="337" text="-" left="600" top="390" width="9" height="21"/>
+        <MaskEdit id="MaskEdit13" taborder="338" value="1234" left="609" top="390" width="48" height="21"/>
+        <Combo id="Combo26" taborder="339" value="1" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="132" top="390" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">010</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">011</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="Static127" taborder="340" text="-" left="185" top="390" width="9" height="21"/>
+        <MaskEdit id="MaskEdit14" taborder="341" value="1234" left="194" top="390" width="48" height="21"/>
+        <Static id="Static128" taborder="342" text="-" left="244" top="390" width="9" height="21"/>
+        <MaskEdit id="MaskEdit15" taborder="343" value="1234" left="253" top="390" width="48" height="21"/>
+        <MaskEdit id="MaskEdit16" taborder="344" value="1234" left="129" top="99" width="35" height="21"/>
+        <Static id="Static129" taborder="345" text="-" left="166" top="99" width="9" height="21"/>
+        <MaskEdit id="MaskEdit17" taborder="346" value="1234" left="175" top="99" width="30" height="21"/>
+        <Static id="Static130" taborder="347" text="-" left="207" top="99" width="9" height="21"/>
+        <MaskEdit id="MaskEdit18" taborder="348" value="1234" left="216" top="99" width="65" height="21"/>
+        <MaskEdit id="MaskEdit19" taborder="349" value="1234" left="485" top="99" width="245" height="21"/>
+        <MaskEdit id="MaskEdit20" taborder="350" value="1234" left="129" top="127" width="220" height="21"/>
+        <Combo id="Combo27" taborder="351" value="1" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="485" top="127" width="51" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">010</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">011</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="Static131" taborder="352" text="-" left="538" top="127" width="9" height="21"/>
+        <MaskEdit id="MaskEdit21" taborder="353" value="1234" left="547" top="127" width="48" height="21"/>
+        <Static id="Static132" taborder="354" text="-" left="597" top="127" width="9" height="21"/>
+        <MaskEdit id="MaskEdit22" taborder="355" value="1234" left="606" top="127" width="48" height="21"/>
+        <MaskEdit id="MaskEdit23" taborder="356" value="1234" left="129" top="155" width="220" height="21"/>
+        <Radio id="Radio00" taborder="357" left="485" top="155" width="183" height="21" direction="vertical" codecolumn="codecolumn" datacolumn="datacolumn">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">공급업체</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">쿠폰관리</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <MaskEdit id="MaskEdit24" taborder="358" value="1234" left="129" top="183" width="35" height="21"/>
+        <Static id="Static133" taborder="359" text="-" left="166" top="183" width="9" height="21"/>
+        <MaskEdit id="MaskEdit25" taborder="360" value="1234" left="175" top="183" width="35" height="21"/>
+        <Edit id="Edit08" taborder="361" left="129" top="306" width="220" height="21"/>
+        <Edit id="Edit11" taborder="362" left="129" top="334" width="220" height="21"/>
+        <Edit id="Edit12" taborder="363" left="485" top="306" width="245" height="21"/>
+        <Edit id="Edit13" taborder="364" left="485" top="334" width="245" height="21"/>
+        <Edit id="Edit14" taborder="365" left="129" top="362" width="122" height="21"/>
+        <Static id="Static134" taborder="366" text="@" left="256" top="362" width="13" height="21"/>
+        <Edit id="Edit17" taborder="367" left="273" top="362" width="122" height="21"/>
+        <Button id="Button11" taborder="368" text="인증번호생성" left="129" top="418" width="89" height="21"/>
+        <Static id="Static135" taborder="369" text="인증번호를 생성하여 등록된 휴대폰으로 전송합니다." left="223" top="418" width="297" height="21"/>
+        <Edit id="Edit18" taborder="370" left="129" top="445" width="89" height="21"/>
+        <Static id="Static136" taborder="371" text="휴대폰으로 전송된 인증번호를 입력해주세요." left="223" top="445" width="249" height="21"/>
+        <Button id="Button13" taborder="372" text="인증" left="475" top="445" width="41" height="21"/>
+        <CheckBox id="CheckBox01" taborder="373" text="SMS" left="129" top="475" width="58" height="21"/>
+        <CheckBox id="CheckBox02" taborder="374" text="메일" left="201" top="475" width="58" height="21"/>
+        <CheckBox id="CheckBox03" taborder="375" text="빌링" left="129" top="540" width="58" height="21" onchanged="CheckBox03_onchanged"/>
+        <CheckBox id="CheckBox04" taborder="376" text="전자계약" left="201" top="540" width="90" height="21" onchanged="CheckBox04_onchanged"/>
+        <CheckBox id="CheckBox05" taborder="377" text="세금계산서" left="299" top="540" width="90" height="21"/>
+        <Static id="Static137" taborder="378" text="20" visible="false" left="269" top="515" width="30" height="84" style="background:#dc143c5b;"/>
+        <Div id="Div00" taborder="382" left="16" top="628" width="719" height="50" style="background:transparent;" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="Static121" taborder="12" text="인감 정보" cssclass="sta_WF_Subtitle" left="1" top="0" width="135" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+              <Static id="Static123" taborder="13" text="인감이미지" cssclass="sta_WF_Label" left="0" top="21" width="110" height="29"/>
+              <Static id="Static124" taborder="14" cssclass="sta_WF_Labelbg" left="109" top="21" width="609" height="29"/>
+              <FileUpload id="FileUpload00" taborder="15" retry="0" index="0" left="111" top="25" width="601" height="24"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="383" left="16" top="700" width="719" height="454" style="background:transparent;" visible="false">
+          <Layouts>
+            <Layout>
+              <Static id="Static121" taborder="57" text="서비스 이용" cssclass="sta_WF_Subtitle" left="1" top="0" width="135" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+              <Static id="Static123" taborder="58" text="기본서비스 이용" cssclass="sta_WF_Label" left="0" top="21" width="110" height="58"/>
+              <Static id="Static124" taborder="59" cssclass="sta_WF_Labelbg" left="109" top="21" width="609" height="58"/>
+              <Static id="Static00" taborder="60" text="부가정보 이용" cssclass="sta_WF_Label" left="0" top="78" width="110" height="29"/>
+              <Static id="Static01" taborder="61" cssclass="sta_WF_Labelbg" left="109" top="78" width="609" height="29"/>
+              <Static id="Static02" taborder="62" text="정보분석 이용" cssclass="sta_WF_Label" left="0" top="106" width="110" height="29"/>
+              <Static id="Static03" taborder="63" cssclass="sta_WF_Labelbg" left="109" top="106" width="609" height="29"/>
+              <Static id="Static04" taborder="64" text="SCM업무, EDI서비스, 세금계산서는 기본서비스로 제공됩니다.&#13;&#10;EDI서비스, SCM업무는 이용량(KR)에 따라 청구됩니다. 상세정보는 서비스이용료를 참조바랍니다." left="115" top="27" width="586" height="46"/>
+              <CheckBox id="CheckBox01" taborder="65" text="SMS" left="115" top="84" width="58" height="21"/>
+              <Radio id="Radio00" taborder="66" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="184" top="84" width="150" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">정액제</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">종량제</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static137" taborder="67" text="20" visible="false" left="237" top="40" width="22" height="84" style="background:#dc143c5b;"/>
+              <CheckBox id="CheckBox00" taborder="68" text="BI조회" left="115" top="111" width="58" height="21"/>
+              <CheckBox id="CheckBox02" taborder="69" text="추이분석" left="187" top="111" width="74" height="21"/>
+              <CheckBox id="CheckBox03" taborder="70" text="시장분석(자사)" left="272" top="111" width="112" height="21"/>
+              <CheckBox id="CheckBox04" taborder="71" text="시장분석(경쟁사)" left="392" top="111" width="132" height="21"/>
+              <Static id="Static05" taborder="72" text="20" visible="false" left="168" top="88" width="19" height="84" style="background:#dc143c5b;"/>
+              <Static id="Static06" taborder="73" text="20" visible="false" left="253" top="88" width="19" height="84" style="background:#dc143c5b;"/>
+              <Static id="Static07" taborder="74" text="20" visible="false" left="373" top="88" width="19" height="84" style="background:#dc143c5b;"/>
+              <Static id="Static08" taborder="75" text="납부 정보" cssclass="sta_WF_Subtitle" left="1" top="151" width="135" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+              <Static id="Static09" taborder="76" cssclass="sta_WF_Labelbg" left="119" top="171" width="599" height="29"/>
+              <Static id="Static10" taborder="77" cssclass="sta_WF_Labelbg" left="119" top="199" width="599" height="29"/>
+              <Static id="Static110" taborder="78" cssclass="sta_WF_Labelbg" left="119" top="227" width="599" height="29"/>
+              <Static id="Static111" taborder="79" text="생년월일/사업자번호" cssclass="sta_WF_Label" left="336" top="227" width="135" height="29"/>
+              <Static id="Static11" taborder="80" cssclass="sta_WF_Labelbg" left="119" top="255" width="599" height="29"/>
+              <Static id="Static12" taborder="81" text="계좌번호" cssclass="sta_WF_Label" left="336" top="255" width="135" height="29"/>
+              <Static id="Static13" taborder="82" cssclass="sta_WF_Labelbg" left="119" top="283" width="599" height="29"/>
+              <Static id="Static14" taborder="83" cssclass="sta_WF_Labelbg" left="119" top="311" width="599" height="29"/>
+              <Static id="Static15" taborder="84" cssclass="sta_WF_Labelbg" left="119" top="339" width="599" height="58"/>
+              <Static id="Static16" taborder="85" cssclass="sta_WF_Labelbg" left="119" top="396" width="599" height="58"/>
+              <Static id="Static17" taborder="86" text="통장사본" cssclass="sta_WF_Label" left="0" top="283" width="120" height="29"/>
+              <Static id="Static18" taborder="87" text="예금주의&#13;&#10;출금이체동의서" cssclass="sta_WF_Label" left="0" top="339" width="120" height="58"/>
+              <Static id="Static19" taborder="88" text="금융거래 정보의&#13;&#10;제공동의서" cssclass="sta_WF_Label" left="0" top="396" width="120" height="58"/>
+              <Static id="Static20" taborder="89" text="사업자등록증 사본" cssclass="sta_WF_Label" left="0" top="311" width="120" height="29"/>
+              <Static id="Static21" taborder="90" text="결제방식" cssclass="sta_WF_Label" left="0" top="171" width="120" height="29"/>
+              <Static id="Static22" taborder="91" text="희망출금일" cssclass="sta_WF_Label" left="0" top="199" width="120" height="29"/>
+              <Static id="Static109" taborder="92" text="예금주" cssclass="sta_WF_Label" left="0" top="227" width="120" height="29"/>
+              <Static id="Static23" taborder="93" text="거래은행" cssclass="sta_WF_Label" left="0" top="255" width="120" height="29"/>
+              <Radio id="Radio01" taborder="94" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="125" top="176" width="586" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">CMS계좌(농협)이체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">CMS계좌이체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">가상계좌</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">4</Col>
+                      <Col id="datacolumn">KT전화요금</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="Radio02" taborder="95" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="125" top="204" width="220" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">15일</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">20일</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">28일</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="Edit18" taborder="96" left="123" top="231" width="89" height="21"/>
+              <Radio id="Radio03" taborder="97" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="218" top="231" width="107" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">개인</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">법인</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="Edit00" taborder="98" left="474" top="231" width="240" height="21"/>
+              <Edit id="Edit01" taborder="99" left="474" top="259" width="240" height="21"/>
+              <Combo id="Combo00" taborder="100" codecolumn="codecolumn" datacolumn="datacolumn" left="123" top="259" width="210" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">농협은행</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">우리은행</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <FileUpload id="FileUpload00" taborder="101" retry="0" index="0" left="121" top="287" width="593" height="24"/>
+              <FileUpload id="FileUpload01" taborder="102" retry="0" index="0" left="121" top="315" width="593" height="24"/>
+              <TextArea id="TextArea00" taborder="103" left="123" top="343" width="522" height="50"/>
+              <TextArea id="TextArea01" taborder="104" left="123" top="400" width="522" height="50"/>
+              <CheckBox id="CheckBox05" taborder="105" text="동의" left="660" top="357" width="46" height="21"/>
+              <CheckBox id="CheckBox06" taborder="106" text="동의" left="660" top="413" width="47" height="21"/>
+              <Static id="Static122" taborder="107" text="20" visible="false" left="2" top="135" width="717" height="20" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static138" taborder="384" text="* 업무시간외 회원가입시 익일 업무처리가 됩니다." cssclass="sta_WF_DescriptionE02" visible="false" left="16" top="1158" width="447" style="padding:2 0 0 3;" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[var nBasicBottom = nexacro.toNumber(this.Static124.top) + nexacro.toNumber(this.Static124.height);
+
+this.pattern_01_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+}
+
+this.CheckBox03_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(e.postvalue == 1){		
+		this.Div00.set_top(nBasicBottom+20);
+		this.Div00.set_visible(true);
+		
+		var nDiv00Bottom = nexacro.toNumber(this.Div00.top) + nexacro.toNumber(this.Div00.height);
+		
+		if(this.Div03.visible){	
+			
+			this.Div03.set_top(nDiv00Bottom+20);
+			var nDiv03Bottom = nexacro.toNumber(this.Div03.top) + nexacro.toNumber(this.Div03.height);
+			this.Static138.set_top(nDiv03Bottom);
+		}else{
+			//맨밑 Static (* 업무시간외 회원가입시 익일 업무처리가 됩니다.)
+			this.Static138.set_top(nDiv00Bottom);
+			this.Static138.set_visible(true);
+		}
+		
+		
+	}else{
+		this.Div00.set_visible(false);
+		
+		if(this.Div03.visible){	
+			this.Div03.set_top(nBasicBottom+20);
+			var nDiv03Bottom = nexacro.toNumber(this.Div03.top) + nexacro.toNumber(this.Div03.height);
+			this.Static138.set_top(nDiv03Bottom);
+		}else{
+			this.Static138.set_visible(false);
+		}
+		
+	}
+	this.resetScroll();
+}
+
+this.CheckBox04_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if(e.postvalue == 1){		
+		
+		
+		
+		
+		if(this.Div00.visible){	
+			
+			var nDiv00Bottom = nexacro.toNumber(this.Div00.top) + nexacro.toNumber(this.Div00.height);
+			this.Div03.set_top(nDiv00Bottom+20);
+			this.Div03.set_visible(true);
+			var nDiv03Bottom = nexacro.toNumber(this.Div03.top) + nexacro.toNumber(this.Div03.height);
+			this.Static138.set_top(nDiv03Bottom);
+		}else{
+			this.Div03.set_top(nBasicBottom+20);
+			this.Div03.set_visible(true);
+			var nDiv03Bottom = nexacro.toNumber(this.Div03.top) + nexacro.toNumber(this.Div03.height);
+			//맨밑 Static (* 업무시간외 회원가입시 익일 업무처리가 됩니다.)
+			this.Static138.set_top(nDiv03Bottom);
+			this.Static138.set_visible(true);
+		}
+		
+		
+	}else{
+		this.Div03.set_visible(false);
+		
+		if(this.Div00.visible){	
+			var nDiv00Bottom = nexacro.toNumber(this.Div00.top) + nexacro.toNumber(this.Div00.height);
+			this.Static138.set_top(nDiv00Bottom);
+		}else{
+			this.Static138.set_visible(false);
+		}
+		
+	}
+	this.resetScroll();
+}
+]]></Script>
+  </Form>
+</FDL>

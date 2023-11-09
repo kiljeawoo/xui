@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="calrendarMonth" classname="calrendarMonth" left="0" top="0" width="100" height="21" onload="form_onload" onsetfocus="calrendarMonth_onsetfocus">
+    <Layouts>
+      <Layout>
+        <MaskEdit id="mae_monthCal" taborder="3" top="0" height="21" mask="9999-99" onkeydown="mae_monthCal_onkeydown" style="align:left middle;" limitbymask="integer" type="string" autoselect="true" onkillfocus="mae_monthCal_onkillfocus" readonly="false" right="0" left="0" oneditclick="mae_monthCal_oneditclick"/>
+        <Button id="btn_monthCal" taborder="1" top="0" width="21" height="21" style="background:transparent URL('theme://images\cal_WF_Essential.png') center middle;border:0 solid #aeaeaeff ;" onclick="btn_monthCal_onclick" right="0"/>
+        <PopupDiv id="pdv_monthCal" left="5" top="34" width="168" height="181" visible="false" cssclass="pdiv_WF_Calendar" onpopup="pdv_monthCal_onpopup">
+          <Layouts>
+            <Layout>
+              <Button id="btn_month09" taborder="0" text="9" cssclass="btn_WF_Calendarmm" left="10" top="126" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month10" taborder="1" text="10" cssclass="btn_WF_Calendarmm" left="47" top="126" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month11" taborder="2" text="11" cssclass="btn_WF_Calendarmm" left="84" top="126" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month12" taborder="3" text="12" cssclass="btn_WF_Calendarmm" left="121" top="126" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month05" taborder="4" text="5" cssclass="btn_WF_Calendarmm" left="10" top="81" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month06" taborder="5" text="6" cssclass="btn_WF_Calendarmm" left="47" top="81" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month07" taborder="6" text="7" cssclass="btn_WF_Calendarmm" left="84" top="81" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month08" taborder="7" text="8" cssclass="btn_WF_Calendarmm" left="121" top="81" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month04" taborder="8" text="4" cssclass="btn_WF_Calendarmm" left="121" top="36" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month03" taborder="9" text="3" cssclass="btn_WF_Calendarmm" left="84" top="36" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month02" taborder="10" text="2" cssclass="btn_WF_Calendarmm" left="47" top="36" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="btn_month01" taborder="11" text="1" cssclass="btn_WF_Calendarmm" left="10" top="36" width="35" height="43" onclick="btn_month_onclick"/>
+              <Button id="Button12" taborder="12" cssclass="btn_WF_CalendarPrev" left="0" top="-1" width="30" height="26"/>
+              <Static id="sta_calendarYY" taborder="13" text="2015" cssclass="sta_WF_Calendaryy" left="0" top="-1" width="166" height="27"/>
+              <Button id="btn_next" taborder="14" cssclass="btn_WF_CalendarNext" left="136" top="-1" width="30" height="26" onclick="pdv_monthCal_btn_next_onclick"/>
+              <Button id="btn_pre" taborder="15" cssclass="btn_WF_CalendarPrev" left="8" top="-1" width="30" height="26" onclick="pdv_monthCal_btn_pre_onclick"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_enableMonth" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/**
+ * Program ID    : calendarMonth.xfdl
+ * Program Name  : monthCalendar User Component
+ * Author        : 조경진
+ * Created On    : 2015.06.17
+ * Desc          : monthCalendar User Component
+ *
+ ************************************************************************************************
+ *     수정일        이  름    사유
+ ************************************************************************************************
+ *     2015.06.17     조경진   최초 작성
+ ************************************************************************************************
+ */
+
+/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+ ************************************************************************************************/
+include "lib::comLib.xjs"; 
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+ ************************************************************************************************/
+var v_sCallbackDef = "";
+var v_sBeforeValue = "";
+var strDateNewNew;
+var strDateNewOld;
+var gFunctionName; //값이 변경될때 호출할 함수명
+var sLimitMonth = false;
+this.lockEdt = false;
+
+/************************************************************************************************
+ * FORM EVENT 영역
+ ************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+    //현재 년월 초기값설정
+    //mae_monthCal.value = gfn_toDay().substr(0, 6);
+}
+
+// function form_onsetfocus(obj:Form, e:SetFocusEventInfo)
+// {
+// 	this.setFocus();
+// }
+
+/**
+ * @desc 달력 띄우기
+ * @param obj Button
+ * @param e ClickEventInfo
+ */
+this.btn_monthCal_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sVal = this.mae_monthCal.value;
+	
+	if (!this.gfn_isNull(sVal)) {
+		if (sVal.length > 4) {
+			if (sVal.toString().substr(4) > 12) {
+				alert("1 ~ 12월만 가능합니다.");
+				this.mae_monthCal.set_value(sVal.toString().substr(0,4));
+				
+				this.mae_monthCal.setFocus();
+				this.mae_monthCal.setCaretPos(5);
+				return;
+			}
+		}
+	}
+	
+	var nX = system.clientToScreenX(this.mae_monthCal, 0) - system.clientToScreenX(application.mainframe, 0); 
+	var nY = system.clientToScreenY(this.mae_monthCal, parseInt(this.mae_monthCal.height)) - system.clientToScreenY(application.mainframe, 0); 
+	
+	this._gfn_setCalendar(this._getValue());	
+	var nRtn = this.pdv_monthCal.trackPopup(nX,nY);	
+}
+
+/**
+ * @desc 글자가 완성되었을때 발생하는 이벤트
+ * @param obj Edit
+ * @param e CharEventInfo
+ */
+this.edt_monthCal_onchar = function(obj:Edit,  e:nexacro.CharEventInfo)
+{
+	var strYYMM = e.posttext;
+		
+	if (!this.gfn_isNum(strYYMM))    return false;
+	var strMonth = parseInt(strYYMM.substr(4));
+	
+	if (strYYMM.length == 5) 
+	{
+		if (strMonth != 0 && strMonth != 1) {
+			alert("0과 1만 가능합니다.");
+			return true;
+		}
+	} else if (strYYMM.length == 6) 
+	{
+		if (strMonth <= 0 || strMonth >= 13)    return false;
+	}	
+}
+
+/**
+ * @desc 날짜가 변경되었을때 날짜를 바꿀건지 여부를 확인
+ * @param obj Edit
+ * @param e ChangeEventInfo
+ */
+this.edt_monthCal_canchange = function(obj:Edit,  e:nexacro.ChangeEventInfo)
+{
+	var nYear;
+	var nMonth;
+    
+	if (e.postvalue.toString().trim().length >= 4) 
+	{
+		nYear = e.postvalue.toString().substr(0, 4);
+		nMonth = "01";
+	} else 
+	{
+		nYear = gfn_toDay().toString().substr(0, 4);
+		nMonth = "01";
+	}
+	obj.value = nYear+nMonth;
+	return false;
+	
+}
+
+this.mae_monthCal_onkeydown = function(obj:MaskEdit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13 ){
+		this.btn_monthCal_onclick();
+	}	
+	//전체선택이면 초기화
+// 	if (obj.getSelectedText() == obj.text) 
+// 	{
+// 		obj.value = "";
+// 		obj.setCaretPos(0);		
+// 		return true;
+// 	}
+// 	
+// 	var strValue = "";
+// 	if (!this.gfn_isNull(obj.value)) 
+// 	{
+// 		strValue = String(obj.value).trim();
+// 	}
+// 	var nPos = strValue.length;
+// 	 
+// 	if (nPos > 4) nPos++;
+// 	if (nPos > 6) nPos++;
+// 	
+// 	obj.setCaretPos(nPos);
+}
+
+this.edt_monthCal_ontextchanged = function(obj:Edit,  e:nexacro.TextChangedEventInfo)
+{
+	if (this._getMaskLength(obj.value) == 6 && obj.mask == "######") 
+	{
+        if (!this._getIsDate(obj.value)) 
+        {
+            obj.value = "";
+            return false;
+        }else{
+			this._callBindFunction();
+        }
+    }
+}
+
+/**
+ * 월 버튼 클릭시 날짜 선택
+ * @param obj:nuButton
+ * @param e:ClickEventInfo
+ */
+this.btn_month_onclick = function (obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	var strYear	= strDateNew.substr(0, 4);
+	var strText	= obj.text; 
+		strText = strText.replace("월","");
+		
+	if (strText.length == 1) 
+	{
+		strDateNew = strYear+"0"+strText;
+	}
+	if( strText =="0 month")
+	{ 
+		strDateNew = strYear+"00";
+	} else if(strText.length > 1)
+	{
+		strDateNew = strYear+strText;
+	} 
+	this.pdv_monthCal.closePopup();
+	
+	this._setValue(strDateNew);
+	if (!this.gfn_isNull(strDateNew) && !this.gfn_isNull(v_sCallbackDef)) 
+	{
+		v_sBeforeValue = this.mae_monthCal.value;
+		this.all[v_sCallbackDef]; //2015
+	}
+	
+	this._callBindFunction(); // 함수호출
+}
+
+/**
+ * 작년으로 이동
+ * @param obj:Button
+ * @param e:ClickEventInfo
+ */
+this.pdv_monthCal_btn_pre_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strYear	 = parseInt(strDateNew.substr(0, 4));
+	var strMonth = strDateNew.substr(4, 2);
+	
+	strYear = strYear - 1;
+
+	this.pdv_monthCal.sta_calendarYY.set_text(strYear);	
+	strDateNew = strYear.toString() + strMonth;
+	
+	if(sLimitMonth){
+		this._gfn_setmonthCal();
+	}
+}
+
+/**
+ * 내년으로 이동
+ * @param obj:Button
+ * @param e:ClickEventInfo
+ */
+this.pdv_monthCal_btn_next_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strYear	= parseInt(strDateNew.substr(0, 4));
+	var strMonth = strDateNew.substr(4, 2);
+	
+	strYear = strYear + 1;
+
+	this.pdv_monthCal.sta_calendarYY.set_text(strYear);
+	strDateNew = strYear.toString() + strMonth;
+	
+	if(sLimitMonth){
+		this._gfn_setMonthCal();
+	}
+}
+
+/************************************************************************************************
+ * 사용자 FUNCTION 영역
+ ************************************************************************************************/
+
+/**
+ * @desc 년월값이 맞는지 검증
+ * @param strYYMM 비교할 값
+ * @return 체크한값
+ */
+this._checkDate = function (strYYMM)
+{
+	// 년월의 값은 6자리로 제한.
+	if (strYYMM == null) strYYMM = "";
+	if (strYYMM.length != 6) strYYMM = "";
+	
+	var strYear	= strYYMM.substr(0, 4);
+	var strMonth = parseInt(strYYMM.substr(4, 2));
+	
+	if (strMonth < 0 || strMonth >= 13) strYYMM = "";
+	
+	return strYYMM;
+}
+
+/**
+ * @desc 값을 가지고 올때 연동해서 처리할 함수명을 설정
+ * @param v_sCallbackInput 콜백함수설정
+ */
+this._setCallback = function (v_sCallbackInput)
+{
+	v_sCallbackDef = v_sCallbackInput;
+}
+
+/**
+ * @desc 종료월 초기값 결정
+ * @param strDateNew 초기값
+ */ 
+this._gfn_setCalendar = function (strDate)
+{
+	strDateNew = strDate;
+	strDateOld = strDate;
+	
+	// 기본값 : 현재년월셋팅
+	if(strDateNew == null || strDateNew.length < 4) strDateNew = this.gfn_today("yyyyMMdd").substr(0, 6);
+
+	var strYear	= strDateNew.substr(0, 4);
+	var strMonth = parseInt(strDateNew.substr(4, 2));
+
+	this.pdv_monthCal.sta_calendarYY.set_text(strYear);
+
+}
+
+/**
+ * @desc 값이 변경될때 호출될 함수명을 지정한다.
+ * @param sFunctionName 함수명
+ */
+this.setFunctionName = function (sFunctionName) 
+{
+	gFunctionName = sFunctionName;
+}
+
+/**
+ * @desc 값이 변경될때 마다 함수를 호출한다.
+ */
+this._callBindFunction = function ()
+{
+
+	var strDateNew = this._getValue();
+	
+	if (!this.gfn_isNull(gFunctionName)) 
+	{
+		
+		try 
+		{
+// 			var callBackFunc = "this.getOwnerFrame()."+gFunctionName+"(strDateNew)";
+// 			trace("in >> "+ callBackFunc);
+//  			eval(callBackFunc);
+ 			this.lookupFunc(gFunctionName).call(strDateNew);	
+			
+		} catch(e) 
+		{
+		}
+	}
+}
+
+/**
+ * @desc 달력을 읽기 전용으로 할것인지 여부 설정
+ * @param isReadonly
+ */
+this._setReadonly = function (isReadonly)
+{
+	if (this.gfn_isNull(isReadonly)) 
+	{
+        isReadonly = true;
+	}
+	if (isReadonly) 
+	{
+		this.mae_monthCal.set_cssclass("msk_WF_Readonly");
+		this.mae_monthCal.set_readonly(true);
+		this.btn_monthCal.set_enable(false);
+	} else 
+	{
+		this.mae_monthCal.set_cssclass("");
+		this.mae_monthCal.set_readonly(false);
+		this.btn_monthCal.set_enable(true);
+	}
+}
+
+/**
+ * @desc 달력을 필수 전용으로 할것인지 여부 설정
+ * @param isRequired
+ */
+this._setRequired = function(isRequired, strMsgKey)
+{
+	if (this.gfn_isNull(isRequired)) 
+	{
+        isRequired = true;
+    }
+// 	_required = isRequired;
+// 	_msgkey = strMsgKey; 2015
+	if (isRequired) 
+	{
+		this.mae_monthCal.set_cssclass("msk_WF_Essential");
+	} else 
+	{
+		this.mae_monthCal.set_cssclass("");
+	}
+}
+
+/**
+ * calendar 에 focus 를 지정하자.
+ */
+this._setFocus = function ()
+{
+	this.mae_monthCal.setFocus();
+}
+
+/**
+ * @desc 달력 날짜 정합성 체크
+ * @param strDateNew 입력받은 달력날짜
+ */
+this._getIsDate = function(strValue)
+{
+    //날짜가 4자리(MMdd), 8자리(yyyyMMdd)가 아닐 경우
+	if (!(String(strValue).trim().length == 6)) return false;
+    
+    if (String(strValue).trim().length == 6) 
+    {
+        var nYear =  nexacro.toNumber(strValue.toString().substr(0,4));
+        var nMonth = nexacro.toNumber(strValue.toString().substr(4,2));
+        
+        //입력받은 년월일이 값이 없을 경우
+        if (this.gfn_isNull(nYear) || this.gfn_isNull(nMonth)) return false;
+        
+        //입력받은 월이 범위를 초과할 경우
+        if (nMonth > 12 || nMonth < 1) return false;
+    }
+    
+    return true;
+}
+
+this._getMaskLength = function(strValue)
+{
+    var strValue = new String(strValue);
+	strValue = new String(strValue);
+    if (strValue == null 
+     || strValue == "null" 
+     || strValue.trim().length <= 0 
+     || escape(strValue) == "undefined")
+    {
+        return 0;
+    } else 
+    {
+        return strValue.length;
+    }
+}
+
+this._getValue = function()
+{
+	if(!this.gfn_isNull(this.mae_monthCal.value)){	
+		var oParamData = this.mae_monthCal.value;
+		return oParamData;	
+	}else{
+		return "";
+	}	
+}
+
+this._setValue = function (strYYMM)
+{
+	this.mae_monthCal.set_value(this._checkDate(strYYMM)); 
+}
+
+this._clearValue = function ()
+{
+	this.mae_monthCal.set_value(""); 
+}
+
+this._enable = function(obj)
+{
+	if(obj){
+		this.mae_monthCal.set_enable(true); 
+		this.btn_monthCal.set_enable(true); 
+	}else{
+		this.mae_monthCal.set_enable(false); 
+		this.btn_monthCal.set_enable(false);
+	}
+}
+
+this._readonly = function (obj)
+{
+	if(obj){
+		this.mae_monthCal.set_cssclass("msk_WF_Readonly");
+		this.mae_monthCal.set_readonly(true); 
+		this.btn_monthCal.set_enable(false);
+	}else{
+		this.mae_monthCal.set_cssclass("");
+		this.mae_monthCal.readonly(false); 
+		this.btn_monthCal.set_enable(true); 
+	}
+}
+
+this._edtLock = function(isLock)
+{
+	this.mae_monthCal.set_readonly(isLock);
+	this.mae_monthCal.set_autoselect(!isLock);
+	this.mae_monthCal.style.set_cursor(isLock ? "pointer" : "auto");
+	this.lockEdt = isLock;
+}
+
+this._setMonth = function (ds)
+{
+	this.ds_enableMonth.copyData(ds);
+	sLimitMonth = true;
+}
+
+function pdv_MonthCal_onpopup(obj:PopupDiv, e:EventInfo)
+{
+	if(sLimitMonth){	
+		this._gfn_setMonthCal()
+	}	
+}
+
+this._gfn_setMonthCal = function ()
+{
+	var strYear = strDateNew.substr(0, 4);
+	for(var i=1; i<=12;i++) {
+				
+		var strMonth = this.gfn_lpad(String(i), "0", 2);
+		var sEnableMonth = this.ds_enableMonth.findRow(0,String(strYear+strMonth));
+		var strBtnMonth = this.all["pdv_monthCal.btn_Month"+String(strMonth)];
+				
+		if(sEnableMonth >= 0 ){
+			strBtnMonth.set_enable(true);
+			
+		}else{
+			strBtnMonth.set_enable(false);
+		}
+		
+	}
+}
+
+this.mae_monthCal_onkillfocus = function(obj:MaskEdit, e:nexacro.KillFocusEventInfo)
+{
+	if(!this.gfn_isNull(obj.value)){
+		if(obj.value.length == 6){
+			if(obj.value.toString().substr(4) > 12) {
+				alert("1 ~ 12월만 가능합니다.");
+				this.mae_monthCal.set_value(obj.value.toString().substr(0,4));
+				
+				this.mae_monthCal.setFocus();
+				this.mae_monthCal.setCaretPos(5);
+				return;
+			}
+		}
+	}
+}
+
+this.mae_monthCal_oneditclick = function(obj:MaskEdit, e:nexacro.EditClickEventInfo)
+{
+	if (this.lockEdt) {
+		this.btn_monthCal_onclick();
+	}
+}]]></Script>
+  </Form>
+</FDL>

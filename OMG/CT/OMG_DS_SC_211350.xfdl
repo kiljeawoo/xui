@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211341" classname="pattern_01" left="0" top="0" width="788" height="139" titletext="메일 수정내용" onload="form_onload" style="background:#ffffffff;">
+    <Layouts>
+      <Layout>
+        <Static id="Static12" taborder="1" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <Button id="Button06" taborder="2" text="계약서보기" left="711" top="0" width="77" height="21" visible="false"/>
+        <Static id="Static70" taborder="3" text="개별 수정 내용" cssclass="sta_WF_Subtitle" left="0" top="2" width="467" height="21"/>
+        <TextArea id="txa_ctrwModCntn" taborder="0" wordwrap="char" left="15" top="25" height="114" right="1.9%"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item1" compid="txa_ctrwModCntn" propid="value" datasetid="ds_in" columnid="CNTN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0 ;  //데이터 체크 
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+  
+}
+
+this.fn_afterFormOnload = function()
+{
+
+}
+
+
+
+
+	
+
+
+
+
+]]></Script>
+  </Form>
+</FDL>

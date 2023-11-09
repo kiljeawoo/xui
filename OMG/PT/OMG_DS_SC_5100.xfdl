@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5100" classname="popup01" left="0" top="0" width="456" height="180" titletext="회원가입" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="8" text="17" visible="false" left="363" top="162" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="9" text="10" visible="false" left="363" top="123" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="10" text="15" visible="false" left="363" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="11" text="17" visible="false" left="439" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="12" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Button id="Button01" taborder="13" cssclass="btn_WF_PopupClose" left="419" top="0" width="37" height="32"/>
+        <Static id="Static06" taborder="14" text="회원가입" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Radio id="rdo_userType" taborder="15" left="21" top="65" width="416" height="48" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">01</Col>
+                <Col id="datacolumn">협력업체</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">02</Col>
+                <Col id="datacolumn">본부</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">03</Col>
+                <Col id="datacolumn">하나로마트</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Button id="btn_close" taborder="16" text="취소" cssclass="btn_WF_Popup" left="216" top="133" width="54" height="29" onclick="btn_close_onclick"/>
+        <Button id="btn_confirm" taborder="17" text="확인" cssclass="btn_WF_Popup" left="160" top="133" width="54" height="29" onclick="btn_confirm_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{   
+	/*결과값 초기화*/
+
+}
+ 
+/*창닫기*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/***************************************************
+	회원종류선택
+****************************************************/
+this.btn_confirm_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	if(this.gfn_isNull(this.rdo_userType.value)){
+		alert("회원종류를 선택하세요");	
+		return;
+	}else{
+		if(this.rdo_userType.value == "01"){
+			this.fn_joinUser("OMG.PT::OMG_DS_SC_5110.xfdl");			
+		}else if(this.rdo_userType.value == "02"){
+			this.fn_joinUser("OMG.PT::OMG_DS_SC_5111.xfdl");
+		}else if(this.rdo_userType.value == "03"){
+			this.fn_joinUser("OMG.PT::OMG_DS_SC_5112.xfdl");
+		}
+	} 
+}
+
+
+/***************************************************
+	회원종류에 따른 화면 호출
+****************************************************/
+this.fn_joinUser = function (url) {	
+
+	var oArg = {paramMode:"U", dsArg:""};	
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId",url,oArg,sOption,sPopupCallBack);
+}
+
+/***************************************************
+	후처리
+****************************************************/
+this.fn_popupAfter = function(){
+ trace("fn_popupAfter");
+ }]]></Script>
+  </Form>
+</FDL>

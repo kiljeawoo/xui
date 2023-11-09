@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_VAN_DS_SC_0800" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="판매정보 - 일자별 정보" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="103" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static05" taborder="12" text="조회월" cssclass="sta_WFSA_Label" left="15" top="10" width="67" height="21"/>
+              <Div id="cal_by_dt" taborder="45" url="common::calendarMonth.xfdl" left="82" top="10" width="100" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static09" taborder="102" text="15" visible="false" left="1" top="22" width="15" height="141" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="47" text="Div01" left="0" top="0" height="21" right="539" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static05" taborder="58" text="15" visible="false" left="788" top="0" height="490" style="background:#00ffffb5;" width="15"/>
+        <Div id="div_list" taborder="64" left="0" top="71" right="15" bottom="0" scrollbars="none">
+          <Layouts>
+            <Layout width="978" height="503">
+              <Button id="btn_divResize" taborder="12" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" onclick="div_list_btn_divResize_onclick" width="62"/>
+              <Grid id="grd_master" taborder="10" binddataset="ds_dataM" useinputpanel="false" autofittype="col" left="0" top="40" right="0" oncellclick="fn_grid01_search" bottom="0" onheadclick="div_list_grd_master_onheadclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="140"/>
+                      <Column size="250"/>
+                      <Column size="250"/>
+                      <Column size="140"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="일자"/>
+                      <Cell col="1" text="수량"/>
+                      <Cell col="2" text="금액"/>
+                      <Cell col="3" text="점유율(%)"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:SL_DT" mask="####-##-##"/>
+                      <Cell col="1" style="align:right;" text="bind:SL_QT" mask="###,##0"/>
+                      <Cell col="2" style="align:right;" text="bind:SL_AM" mask="###,##0"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:SHARE_SLAM"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="align:center;" text="합   계"/>
+                      <Cell col="1" displaytype="number" style="align:right;" expr="expr:dataset.getSum('SL_QT');" mask="###,##0"/>
+                      <Cell col="2" displaytype="number" style="align:right;" expr="expr:dataset.getSum('SL_AM');" mask="###,##0"/>
+                      <Cell col="3" displaytype="number" text="0"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static06" taborder="13" text="40" visible="false" left="733" top="1" width="55" height="40" style="background:#dc143c5b;"/>
+              <Div id="div_dateInfo" taborder="14" top="20" right="5" width="200" height="20" style="align:right middle;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="104" text="8" visible="false" left="733" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="106" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_excel" taborder="110" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="111" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Div id="div_auth" taborder="112" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="116" width="431" height="21"/>
+        <WebBrowser id="web_downExcel" left="684" top="25" width="44" height="14" taborder="113" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dataM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_event_priceM_onrowposchanged">
+        <ColumnInfo>
+          <Column id="SL_DT" type="string" size="32"/>
+          <Column id="SL_QT" type="bigdecimal" size="8"/>
+          <Column id="SL_AM" type="float" size="8"/>
+          <Column id="SHARE_SLAM" type="float" size="8"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/*##################################################################################
+ 화면명	: 일자별정보
+ 화면ID  	: VAN_DS_SC_0800
+ 작성자 	: hroh
+####################################################################################*/
+include "lib::comLib.xjs";
+
+var chkDay;
+/* Form Load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj,e);
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+/* Form Init*/
+this.fn_afterFormOnload = function() //onload
+{	
+	///페이지 로딩후 실행부분
+	var toDay = this.gfn_today("yyyyMMdd");
+	//3년전
+	chkDay = Number(this.gfn_minusMonth(toDay, 36).substr(0, 6)); 
+	
+	trace("toDay---->"+toDay);
+	trace("chkDay---->"+chkDay);
+	
+	var initdate = this.gfn_today('yyyyMM');
+	
+	this.div_search.cal_by_dt._setValue(initdate);
+  
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+
+	var byDt = this.div_search.cal_by_dt._getValue();
+	
+	trace("조회 월======>"+byDt);
+	
+	if(this.gfn_isDate6(byDt) == false){
+		this.gfn_getMessage("alert", "validation.message.selectDate.no.data");
+		return false;
+	}else{
+		if(Number(byDt.toString()) - Number(chkDay) < 0){
+			//최근 3년 범위내에서 조회 가능합니다.
+			this.gfn_getMessage("alert", "msg.van_ds_sc_0800.view.search.validation.3years");
+			return false;
+		}
+		
+	}
+	
+	return true;
+}
+
+
+/* Search */
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+
+	
+	if(this.fn_validationCheck()){
+		this.ds_dataM.clearData();
+		
+		var byDt = (this.div_search.cal_by_dt._getValue() + "").substr(0, 6);
+		
+		//거래처코드
+		var trplC = this.getTrplCode();
+		
+		var params =  "BY_DT=" + byDt 
+					+ " TRPL_C=" + trplC;					
+					
+		trace(">>>>>>> params : " +  params);
+					
+		var sSvcID        = "retrieveSalesDailyStoreSumList";//통신아이디
+		var sURL          = "svc::/rest/pds/retrieveSalesDailyStoreSumList";// 호출할 서버 페이지 주소
+		//var sURL          = "svc::rest/pds/retrieveSalesDailyStoreSumList";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_dataM=ds_dataM";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+			
+	}
+	
+	
+}
+
+/* Print */
+
+/* Excel */
+
+
+
+
+/* Event */
+
+
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveSalesDailyStoreSumList"){			
+			//최근 업데이트
+			var param = {
+				form: this,
+				table: 'IAS_SL_DD_ALL',
+				div: this.div_list.div_dateInfo
+			};
+			this.getInfoTableDt(param);
+				
+			if(this.ds_dataM.rowcount == 0){
+				//this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}else{
+			
+				trace(this.div_list.grd_master.rowcount);			
+				var p_sum = 100;			
+				//합계대비 sum 구하기
+				/*
+				 for ( i=0; i < this.div_list.grd_master.rowcount ;i++)			
+				{				
+					p_sum = p_sum + nexacro.toNumber(this.div_list.grd_master.getCellText(i,3));				
+					trace("p_sum  ---->" + p_sum);				
+				}			
+				
+				*/
+				
+				//합계대비의 합계  100으로 설정
+				this.div_list.grd_master.setCellProperty("Summ",3,"text",p_sum);					
+				
+			}
+		}
+		
+		if(svcID == "downloadExcelSalesDailyStoreSumList"){
+		}
+	}
+}
+this.div_list_btn_divResize_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var byDt = (this.div_search.cal_by_dt._getValue() + "").substr(0, 6);		
+	var trplC = this.getTrplCode(); //거래처코드
+		
+	var title = '판매정보_'+this.parent.sNm;
+	title = title.replace(/ /gi, '');
+	var fileName = title + "_" + this.getDate() + ".xls";
+	
+	var params =  "BY_DT=" + byDt 
+				+ "&TRPL_C=" + trplC
+				+ "&fileName=" + fileName;	
+			
+	trace(">>>>>>> params : " +  params);
+	
+	params = encodeURI(encodeURI(params));
+	
+	//this.web_downExcel.set_url(application.gv_server_url+"rest/excel/downloadExcelSalesDailyStoreSumList?"+params);
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelSalesDailyStoreSumList?"+params, this);
+}
+
+this.div_list_grd_master_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell != 3){ //정렬기능 적용할 컬럼 지정
+		this.gfn_gridSort(obj,e);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

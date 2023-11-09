@@ -1,0 +1,965 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0610" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="반품입고확인등록" oninit="form_init" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="1" left="0" top="28" right="15" height="121" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="127" text="본/지사" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="120"/>
+              <Static id="Static01" taborder="128" text="반품요청일" cssclass="sta_WFSA_Label" left="15" top="36" height="21" width="120"/>
+              <Static id="Static03" taborder="129" text="반품의뢰처유형" cssclass="sta_WFSA_Label" left="517" top="10" height="21" width="120"/>
+              <Static id="Static05" taborder="130" text="거래구분" cssclass="sta_WFSA_Label" left="517" top="63" height="21" width="120"/>
+              <Edit id="edt_yn_aply_somae" taborder="131" left="644" top="10" height="21" width="126" enable="false"/>
+              <Static id="Static06" taborder="132" text="반품의뢰처" cssclass="sta_WFSA_Label" left="15" top="62" height="21" width="120"/>
+              <Static id="Static08" taborder="133" text="반품상태구분코드" cssclass="sta_WFSA_Label" left="517" top="88" height="21" width="127"/>
+              <Static id="Static09" taborder="134" text="반품관리구분코드" cssclass="sta_WFSA_Label" left="15" top="88" height="21" width="127"/>
+              <Static id="Static02" taborder="135" text="10" visible="false" left="145" top="0" right="750" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static04" taborder="136" text="5" visible="false" left="145" top="31" right="750" height="5" style="background:#dc143c5b;"/>
+              <Static id="Static07" taborder="137" text="5" visible="false" left="145" top="57" right="750" height="5" style="background:#dc143c5b;"/>
+              <Static id="Static10" taborder="138" text="10" visible="false" left="145" top="109" right="750" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static11" taborder="139" text="5" visible="false" left="146" top="83" right="749" height="5" style="background:#dc143c5b;"/>
+              <Combo id="cbo_rgd_amn_dsc" taborder="144" left="142" top="88" height="21" width="124" index="-1" innerdataset="@ds_rgd_amn_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM"/>
+              <Button id="btn_mbco" taborder="147" cssclass="btn_WF_Searchbtn" left="488" top="10" height="21" width="21" onclick="div_search_btn_mbco_onclick"/>
+              <Button id="Button00" taborder="150" cssclass="btn_WF_Searchbtn" left="432" top="62" height="21" width="21" onclick="div_search_Button00_onclick"/>
+              <Edit id="edt_rgd_pla_no" taborder="152" left="644" top="36" height="21" width="102" inputtype="number" maxlength="5" onkeydown="div_search_edt_rgd_pla_no_onkeydown"/>
+              <Button id="btn_rgd_pla_no" taborder="153" cssclass="btn_WF_Searchbtn" left="749" top="36" height="21" width="21" onclick="div_search_btn_rgd_pla_no_onclick"/>
+              <Static id="Static14" taborder="154" text="반품요청번호" cssclass="sta_WFSA_Label" left="517" top="36" height="21" width="127"/>
+              <Calendar id="cal_search_date" taborder="155" cssclass="WF_Essential" left="142" top="36" height="21" width="124" dateformat="yyyy-MM-dd" value="null"/>
+              <Combo id="cbo_na_rgd_sts_dsc" taborder="156" innerdataset="ds_na_rgd_sts_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" top="88" height="21" left="644" index="-1" width="126"/>
+              <Combo id="cbo_tr_dsc" taborder="157" innerdataset="ds_contract_type" codecolumn="SIMP_C" datacolumn="SIMP_CNM" onitemchanged="div_search_cbo_contract_type_onitemchanged" left="644" top="63" width="126" height="21"/>
+              <Edit id="edt_rgd_rqt_name" taborder="160" cssclass="WF_Essential" enable="false" left="269" top="62" width="160" height="21"/>
+              <Edit id="edt_mbco_name" taborder="163" cssclass="WF_Essential" left="269" top="10" width="216" height="21" onkeydown="div_search_edt_mbco_name_onkeydown"/>
+              <Edit id="mae_rgd_rqt_team_code" taborder="164" left="456" top="62" width="53" height="21" enable="false" style=":disabled {align:right middle;}"/>
+              <Edit id="mae_rgd_rqt_code" taborder="165" left="142" top="62" width="124" height="21" enable="false" maxlength="13" inputtype="number"/>
+              <Edit id="mae_mbco_code" taborder="166" left="142" top="10" width="124" height="21" maxlength="13" inputtype="number" onkeydown="div_search_mae_mbco_code_onkeydown"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static13" taborder="9" text="10" visible="false" left="646" top="29" right="267" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static15" taborder="10" text="5" visible="false" left="647" top="60" right="266" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="13" text="15" visible="false" left="923" top="149" right="15" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="17" text="5" visible="false" left="645" top="112" right="268" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="18" text="40" visible="false" left="922" top="304" right="15" height="40" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="24" text="저장" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_save_onclick"/>
+        <Button id="btn_search" taborder="25" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="26" url="common::location.xfdl" text="Div01" left="0" top="0" right="408" height="36"/>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="148" right="15" bottom="0" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static06" taborder="176" text="5" visible="false" left="924" top="37" right="0" height="5" style="background:#dc143c5b;"/>
+              <Button id="btn_divResize" taborder="179" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" onclick="div_list_btn_divResize_onclick" width="62"/>
+              <Grid id="grd_master" taborder="212" binddataset="ds_retannCnf" useinputpanel="false" left="0" top="41" right="0" bottom="49">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="123"/>
+                      <Column size="210"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="106"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="180"/>
+                      <Column size="180"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="상품코드"/>
+                      <Cell col="2" text="상품명"/>
+                      <Cell col="3" text="단위"/>
+                      <Cell col="4" text="입수"/>
+                      <Cell col="5" text="단가"/>
+                      <Cell col="6" text="조정단가"/>
+                      <Cell col="7" text="반품상태"/>
+                      <Cell col="8" text="반품수량"/>
+                      <Cell col="9" text="반품금액"/>
+                      <Cell col="10" text="부가세액"/>
+                      <Cell col="11" text="박스수량"/>
+                      <Cell col="12" text="생산년도"/>
+                      <Cell col="13" text="반품사유"/>
+                      <Cell col="14" text="비고"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:NA_WRS_C"/>
+                      <Cell col="2" style="align:left;" text="bind:WRSNM"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:NA_WRS_UNT_C" mask="###,###"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="bind:BOXPE_AQZ" mask="###,###"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:RGD_UPR" mask="#,##0.99" editlimitbymask="none"/>
+                      <Cell col="6" displaytype="number" edittype="expr:NA_RGD_STS_DSC == '승인대기' ? 'text' : 'none'" editfilter="none" style="align:right;" text="bind:AJ_UPR" mask="#,##0.99" editdisplay="display" editlimitbymask="none"/>
+                      <Cell col="7" text="bind:NA_RGD_STS_DSC"/>
+                      <Cell col="8" displaytype="number" style="align:right;" text="bind:RGD_QT" mask="###,###"/>
+                      <Cell col="9" displaytype="number" style="align:right;" text="bind:RGD_AM" mask="###,###"/>
+                      <Cell col="10" displaytype="number" style="align:right;" text="bind:RGD_VAT" mask="###,###"/>
+                      <Cell col="11" displaytype="number" style="align:right;" text="bind:BOX_QT" mask="###,###"/>
+                      <Cell col="12" text="bind:PD_YY"/>
+                      <Cell col="13" style="align:left;" text="bind:NA_RGD_RSN_DSC_NAME"/>
+                      <Cell col="14" style="align:left;" text="bind:RMK_CNTN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Edit id="edt_hidden_na_rgd_sts_dsc" taborder="226" left="247" top="14" width="48" height="21" visible="false"/>
+              <Edit id="edt_hidden_chk_function" taborder="227" visible="false" left="195" top="14" width="48" height="21"/>
+              <Div id="div_page" taborder="228" url="common::pagingBTN.xfdl" left="28.55%" bottom="5" width="338" height="44" style="align:center;" visible="false"/>
+              <Button id="btn_confirmN" taborder="229" text="승인거절" enable="true" width="65" height="21" visible="false" right="0" top="16" onclick="div_list_btn_confirmN_onclick"/>
+              <Button id="btn_confirmY" taborder="230" text="승인확정" enable="true" width="65" height="21" visible="false" right="67" top="16" onclick="div_list_btn_confirmY_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_na_rgd_sts_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_contract_type" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rgd_amn_dsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_retannCnf" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="AJ_DT" type="string" size="32"/>
+          <Column id="AJMN_ENO" type="string" size="32"/>
+          <Column id="DML_CODE" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="NA_TEAM_C" type="string" size="32"/>
+          <Column id="RGD_RG_DT" type="string" size="32"/>
+          <Column id="RGD_PLA_NO" type="string" size="32"/>
+          <Column id="RGD_SQNO" type="bigdecimal" size="8"/>
+          <Column id="NA_WRS_C" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="NA_WRS_UNT_C" type="string" size="32"/>
+          <Column id="BOXPE_AQZ" type="int" size="4"/>
+          <Column id="RGD_UPR" type="float" size="8"/>
+          <Column id="AJ_UPR" type="float" size="8"/>
+          <Column id="RGD_AM" type="float" size="8"/>
+          <Column id="RGD_QT" type="bigdecimal" size="8"/>
+          <Column id="RGD_VAT" type="float" size="8"/>
+          <Column id="BOX_QT" type="float" size="8"/>
+          <Column id="PD_YY" type="string" size="32"/>
+          <Column id="NA_RGD_RSN_DSC" type="string" size="32"/>
+          <Column id="NA_RGD_RSN_DSC_NAME" type="string" size="32"/>
+          <Column id="RMK_CNTN" type="string" size="32"/>
+          <Column id="BYNG_DFN_TROT_FEE" type="bigdecimal" size="8"/>
+          <Column id="dsRowType" type="int" size="4"/>
+          <Column id="NA_RGD_STS_DSC" type="string" size="4"/>
+          <Column id="ADD_NA_RGD_STS_DSC" type="string" size="4"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_confirm" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="string" size="32"/>
+          <Column id="name" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">no</Col>
+            <Col id="name">-선택-</Col>
+          </Row>
+          <Row>
+            <Col id="name">승인확정</Col>
+            <Col id="code">04</Col>
+          </Row>
+          <Row>
+            <Col id="code">06</Col>
+            <Col id="name">승인거절</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+			
+var dataDArr = new Array(
+							'NA_WRS_C'
+							,'WRSNM'
+							,'NA_WRS_UNT_C'
+							,'BOXPE_AQZ'
+							,'RGD_UPR'
+							,'AJ_UPR'							
+							,'RGD_QT'
+							,'RGD_AM'
+							,'RGD_VAT'
+							,'BOX_QT'
+							,'PD_YY'							
+							,'NA_RGD_RSN_DSC_NAME'
+							,'RMK_CNTN'
+						);
+
+			
+
+var retannCnfInfoArr = new Array(
+						  'edt_rgd_sqno'
+						, 'edt_na_wrs_c'
+						, 'edt_wrsnm'
+						, 'edt_na_wrs_unt_c'
+						, 'edt_boxpe_aqz'
+						, 'mae_rgd_upr'
+						, 'mae_aj_upr'
+						, 'mae_rgd_qt'
+						, 'mae_rgd_am'
+						, 'mae_rgd_vat'
+						, 'mae_box_qt'
+						, 'edt_pd_yy'
+						, 'edt_na_rgd_rsn_dsc'
+						, 'edt_rmk_cntn'
+					);
+								
+var retannCnfInfoArr2 = new Array(
+						  'edt_na_wrs_c'
+						, 'edt_wrsnm'
+						, 'edt_na_wrs_unt_c'
+						, 'edt_boxpe_aqz'
+						, 'mae_rgd_upr'
+						, 'mae_aj_upr'
+						, 'mae_rgd_qt'
+						, 'mae_rgd_am'
+						, 'mae_rgd_vat'
+						, 'mae_box_qt'
+						, 'edt_pd_yy'
+						, 'edt_na_rgd_rsn_dsc'
+						, 'edt_rmk_cntn'
+					);
+					
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	this.gfn_setInitForm(obj,e);
+	
+	var param = [
+		{code:"CSER_CTR_TPC",   dsName:"ds_contract_type", selecttype:"S"},
+		{code:"RGD_AMN_DSC",   dsName:"ds_rgd_amn_dsc", selecttype:"S"},
+ 		{code:"NA_RGD_STS_DSC",   dsName:"ds_na_rgd_sts_dsc", selecttype:"S"}
+    ];
+
+	this.gfn_setCommonCode(param);
+	
+}
+
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	
+	//처리대상건수
+	//this.div_list.sta_processingNumber.set_text(this.gfn_setRowCount(this.ds_retannCnf.rowcount));
+	
+	
+	//본/지사 코드/명 
+	//로그인 값에서 가져와야함 임의적으로 셋팅
+	//application.gv_glnCode = "8808983300108"
+	//application.gv_companyName = "(주)대상에프엔에프"
+	
+	this.ds_retannCnf.clearData();
+	
+	//승인확인/거절 버튼 안보이게 함
+	this.div_list.btn_confirmY.set_visible(false);
+	this.div_list.btn_confirmN.set_visible(false);
+
+	//승인확정/승인거절버튼 색깔 리셋
+	this.div_list.btn_confirmY.set_cssclass("");
+	this.div_list.btn_confirmN.set_cssclass("");
+	
+	
+	this.div_search.mae_mbco_code.set_value(application.gv_glnCode);
+	this.div_search.edt_mbco_name.set_value(application.gv_companyName);
+	
+	//반품요청번호 돋보기 버튼 클릭했는지 여부의 초기화
+	this.div_list.edt_hidden_chk_function.set_value("false");
+	
+	
+	this.div_search.edt_yn_aply_somae.set_value("");//반품의뢰처유형
+	this.div_search.edt_rgd_pla_no.set_value(""); //반품요청번호	
+	this.div_search.mae_rgd_rqt_code.set_value(""); //반품의뢰처코드
+	this.div_search.edt_rgd_rqt_name.set_value(""); //반품의뢰처코드
+	this.div_search.mae_rgd_rqt_team_code.set_value(""); //반품의뢰처코드	
+	this.div_search.cbo_tr_dsc.set_value(""); //거래구분
+	this.div_search.cbo_rgd_amn_dsc.set_value(""); //반품관리구분코드
+	this.div_search.cbo_na_rgd_sts_dsc.set_value(""); //반품상태구분코드
+	
+	
+	
+}
+
+//공통코드 데이터셋 onload후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	
+	this.div_search.cbo_tr_dsc.set_index(0);  //거래부분 콤보박스 첫번째항목 선택
+	this.div_search.cbo_na_rgd_sts_dsc.set_index(0); //반품상태구분 콤보박스 첫번째항목 선택
+	this.div_search.cbo_rgd_amn_dsc.set_index(0); //반품관리구분 콤보박스 첫번째항목 선택
+	
+}
+
+/* 페이지 로딩후 실행부분 */
+this.fn_afterFormOnload = function()
+{	
+	this.btnDisable(this.btn_save);
+
+	this.div_search.cal_search_date.set_value(this.gfn_today("yyyyMMdd"));	
+	
+	//그리드 nodata
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));	
+	//그리드클릭 이벤트 등록
+	this.div_list.grd_master.addEventHandler("oncellclick", this.grd_afterFnc, this);
+	
+	if(application.gv_mbcoType == 1){
+		//본사		
+		this.div_search.btn_mbco.set_visible(true);
+		
+		this.div_search.mae_mbco_code.set_enable(true);	
+		this.div_search.edt_mbco_name.set_enable(true);
+		this.div_search.btn_mbco.set_enable(true);
+		
+	}else{
+		//지사		
+		this.div_search.btn_mbco.set_visible(false);
+		
+		this.div_search.mae_mbco_code.set_enable(false);	
+		this.div_search.edt_mbco_name.set_enable(false);		
+	}
+	
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+	//trace(this.gfn_isDate8(this.div_search.cal_search_date.value));
+	
+	//반품요청번호를 입력하세요.
+	if(this.gfn_isEmpty(this.div_search.edt_rgd_pla_no.value) == ""){	
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.rgdplano");
+		return false;		
+	}
+	
+	//반품요청번호를 다시 조회 하세요.
+	if( this.div_list.edt_hidden_chk_function.value == "false" ) {
+         this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.rgdplano.popupYN");
+         return false;
+    }
+	
+	if(!this.gfn_isEmpty(this.div_search.cbo_na_rgd_sts_dsc.value)){
+		
+		alert("반품상태구분코드를 선택하세요.");
+		return false;
+	}
+	
+	/*
+	if(!this.gfn_isDate8(this.div_search.cal_search_date.value)){
+		
+		//반품예정일자를 확인하세요
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.searchdate");
+		return false;
+	}
+	
+	
+	if(!this.gfn_isDate8(this.div_search.cal_search_date.value)){
+		
+		//반품예정일자를 확인하세요
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.searchdate");
+		return false;
+	}
+	
+		
+	//사용자의 반품처정보에 오류가 있습니다. 사용자정보를 확인하세요.
+	if(this.gfn_isEmpty(this.div_search.mae_mbco_code.value) == ""){		
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.usr");
+		return false;
+	}
+		
+	//반품의뢰처를 확인하세요.
+	if(this.gfn_isEmpty(this.div_search.mae_rgd_rqt_code.value) == "" && this.gfn_isEmpty(this.div_search.edt_rgd_rqt_name.value) == ""){		
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.rgdrqt");
+	return false;		
+	}	
+	
+	//반품관리 구분코드가 반품불가인 경우에는 반품이 불가합니다.
+	if(this.div_search.cbo_rgd_amn_dsc.value == "1"){	
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.rgdamndsc");
+		return false;		
+	}
+	*/
+	
+	return true;
+}
+
+/* 저장시 Check */
+this.fn_SaveCheck = function(){
+
+	//반품관리 구분코드가 반품불가인 경우에는 반품이 불가합니다.
+	if(this.div_search.cbo_rgd_amn_dsc.value == "1"){	
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.rgdamndsc");
+		return false;	
+	}
+	
+	/*반품상태구분코드가 02(승인대기)가 아닐 경우 조회만 가능*/
+	/*
+	if(this.div_search.cbo_na_rgd_sts_dsc.value == "03"){	
+		//반품상태구분코드를 확인하세요. [반품확인] 상태입니다.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.nargdstsdsc03");
+		return false;	
+	}else if(this.div_search.cbo_na_rgd_sts_dsc.value == "05"){
+		//반품상태구분코드를 확인하세요. [반품확정] 상태입니다.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.nargdstsdsc05");
+		return false;
+	}else if(this.div_search.cbo_na_rgd_sts_dsc.value == "06"){
+		//반품상태구분코드를 확인하세요. [승인거절] 상태입니다.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.nargdstsdsc06");
+		return false;
+	}
+	*/
+	
+	/*반품상태구분코드가 02(승인대기)가 아닐 경우 조회만 가능*/
+	if(this.div_search.cbo_na_rgd_sts_dsc.value != "02"){
+		//반품상태구분코드가 승인대기가 아닐 경우 조회만 가능합니다. 반품상태구분코드를 변경해주세요.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.nargdstsdsc");
+		return false;		
+	}
+	
+	//히든값 - 반품상태구분코드가 02(승인대기)이 아닐 경우 조회만 가능
+	if(this.div_list.edt_hidden_na_rgd_sts_dsc.value != "02"){
+		//반품상태구분코드가 반품예정이 아닐 경우 조회만 가능합니다. 반품상태구분코드를 변경해주세요.
+		this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.nargdstsdsc");	
+		return false;		
+	}
+	
+	
+	//승인대기시에 승인확인을 안했을 경우 저장이 안됨.
+	if(this.ds_retannCnf.rowcount > 0){
+		
+		for (var i=0; i < this.ds_retannCnf.rowcount ;i++)			
+		{				
+			if (this.ds_retannCnf.getColumn(i,"ADD_NA_RGD_STS_DSC") == 'no'){					
+				//승인확정/거절 버튼 선택을 해주세요.
+				this.gfn_getMessage("alert", "msg.van_ds_sc_0610.view.search.validation.confirm");					
+				return;
+			}			
+			//this.ds_retannCnf.setColumn(i,"NA_RGD_STS_DSC",this.ds_retannCnf.getColumn(i,"ADD_NA_RGD_STS_DSC")); //승인확인의 값을 반품상태에 넣음.
+			trace(this.ds_retannCnf.getColumn(i,"ADD_NA_RGD_STS_DSC"));
+		}
+	}
+	
+	//저장하시겠습니까?
+	if(this.gfn_getMessage("confirm", "msg.isSave")){
+		return true;
+	};
+	
+}
+
+/*Grid Init*/
+this.fn_init = function(){
+	this.ds_retannCnf.clearData();
+	//this.btn_clear_onclick(); //입력정보 init
+}
+
+/* search */
+this.fn_search = function(){
+	this.fn_init();
+		
+	if(this.fn_validationCheck()){
+		
+		
+		var mbco_code = this.gfn_nullToEmpty(this.div_search.mae_mbco_code.value); //본/지사코드
+		var yn_aply_somae = this.gfn_nullToEmpty(this.div_search.edt_yn_aply_somae.value); //반품의뢰처유형		
+		var search_date = this.gfn_nullToEmpty(this.div_search.cal_search_date.value); //반품요청일
+		var rgd_pla_no = this.gfn_nullToEmpty(this.div_search.edt_rgd_pla_no.value); //반품요청번호
+		var rgd_rqt_code = this.gfn_nullToEmpty(this.div_search.mae_rgd_rqt_code.value); //반품의뢰처코드
+		var tr_dsc = this.gfn_nullToEmpty(this.div_search.cbo_tr_dsc.value); //거래구분
+		var rgd_amn_dsc = this.gfn_nullToEmpty(this.div_search.cbo_rgd_amn_dsc.value); //반품관리구분코드
+		var na_rgd_sts_dsc = this.gfn_nullToEmpty(this.div_search.cbo_na_rgd_sts_dsc.value); //반품상태구분코드
+				
+		//테스트 데이터
+		from_date = "20150504"
+		to_date = "20150504"		
+		
+		var param = " mbco_code="+mbco_code+
+					" yn_aply_somae="+yn_aply_somae+
+					" search_date="+search_date+
+					" rgd_pla_no="+rgd_pla_no+
+					" rgd_rqt_code="+rgd_rqt_code+
+					" tr_dsc="+tr_dsc+
+					" rgd_amn_dsc="+rgd_amn_dsc+
+					" na_rgd_sts_dsc="+na_rgd_sts_dsc;
+					
+		trace("##MASTER##PARAM##->"+param);	
+		
+		var sSvcID        = "retrieveCnfList";//통신아이디
+		var sURL          = "svc::rest/retann/retrieveCnfList";// 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+		var sOutDatasets  = "ds_retannCnf=ds_retannCnf ds_pageVO=ds_pageVO";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = param;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+		
+		/* 자동 파라미터 */		
+		/*
+		var json = this.getParamJson(this.components, true);
+		json.all
+		
+		if(json.all == true){
+			json.all = 'Y'
+		}else{
+			json.all = 'N'
+		}	
+		var s = this.getParam(this.div_search, true);
+		*/	
+	}
+}
+
+
+/* 조회 버튼 클릭시*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.	
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "retrieveCnfList"){										
+			//처리대상건수
+			//this.div_list.sta_processingNumber.set_text(this.gfn_setRowCount(this.ds_retannCnf.rowcount));			
+			//반품상태구분코드 히든값
+			var hidden_na_rgd_sts_dsc = this.div_list.edt_hidden_na_rgd_sts_dsc.set_value(this.div_search.cbo_na_rgd_sts_dsc.value);
+			
+			//trace(this.ds_retannCnf.saveXML());
+			//this.div_search.cbo_na_rgd_sts_dsc.set_index(0); //반품상태구분 콤보박스 첫번째항목 선택
+			
+			this.div_list.btn_confirmY.set_visible(false);
+			this.div_list.btn_confirmN.set_visible(false);
+					
+			if(this.ds_retannCnf.rowcount > 0){
+							
+				// 승인상태컬럼 활성화/비활성화
+				if(this.ds_retannCnf.getColumn(0, "NA_RGD_STS_DSC")=="승인대기"){
+					
+					//this.div_list.grd_master.setRealColSize(8, 0)
+					
+					//승인확정/승인거절버튼 색깔 리셋
+					this.div_list.btn_confirmY.set_cssclass("");
+					this.div_list.btn_confirmN.set_cssclass("");
+	
+					//승인확인/거절 버튼 보이게 함
+					this.div_list.btn_confirmY.set_visible(true);
+					this.div_list.btn_confirmN.set_visible(true);
+				}else{
+				
+					//승인확정/승인거절버튼 색깔 리셋
+					this.div_list.btn_confirmY.set_cssclass("");
+					this.div_list.btn_confirmN.set_cssclass("");
+					
+					//승인확인/거절 버튼 안보이게 함
+					this.div_list.btn_confirmY.set_visible(false);
+					this.div_list.btn_confirmN.set_visible(false);
+				}
+				
+			
+				// 페이지 셋팅
+				var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");				
+
+				this.div_list.div_page.fn_pageSet(sTotal, sPagesize,"grd_master,div_page",lsNowPage);
+				
+				//this.form_init();
+			}else{	
+				this.div_list.div_page.fn_pageSet(0, 0,"grd_master,div_page",lsNowPage);//페이징 설정
+			}
+		}
+		
+		if(svcID == "saveCnf"){
+			this.gfn_getMessage("alert", "result.message.save.success");
+			//this.fn_search();
+			//초기화
+			this.form_init();
+		}
+	}
+}
+
+/*반품요청번호 돋보기 클릭시*/
+this.div_search_btn_rgd_pla_no_onclick = function(params)
+{	
+	
+	if(params == true){
+		if(!this.gfn_isEmpty(this.div_search.edt_rgd_pla_no.value)){
+			
+			alert("반품요청번호를 입력해주세요.");
+			return false;
+		}
+	}
+	if(!this.gfn_isEmpty(this.div_search.mae_mbco_code.value)){
+		
+		alert("본/지사코드를 입력해주세요.");
+		return false;
+	}
+	if(!this.gfn_isEmpty(this.div_search.cal_search_date.value)){
+	
+	alert("반품요청일을 입력해주세요.");
+	return false;
+	}
+	
+	var mbco_code = this.gfn_nullToEmpty(this.div_search.mae_mbco_code.value); //본/지사코드
+	var rgd_pla_no = this.gfn_nullToEmpty(this.div_search.edt_rgd_pla_no.value); //반품요청번호
+	var search_date = this.gfn_nullToEmpty(this.div_search.cal_search_date.value); //반품요청일
+	
+	var param = {
+            autoType:params,
+            searchCode:mbco_code,
+            searchText:rgd_pla_no,
+            p_rgd_pla_no:rgd_pla_no,
+            p_mbco_code:mbco_code,
+            search_date:search_date
+	};
+	
+	//var oArg = {p_rgd_pla_no:rgd_pla_no,p_mbco_code:mbco_code};
+	var oArg = {autoPop:param};
+	var sOption = "autosize=true,title=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("VAN_DS_SC_0610_P00","SCM.RETANN::VAN_DS_SC_0610_P00.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.grd_afterFnc = function(obj, e)
+{
+/*
+	if(e.reason == 51)
+	{      
+      this.ds_retannCnf.set_enableevent(false);
+      this.ds_retannCnf.set_rowposition(-1);
+      this.ds_retannCnf.set_enableevent(true);
+      return;
+   }
+*/   
+   
+   /*
+	this.div_list.edt_rgd_sqno.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"RGD_SQNO"));
+   	this.div_list.edt_na_wrs_c.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"NA_WRS_C"));
+	this.div_list.edt_wrsnm.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"WRSNM"));	
+	this.div_list.edt_na_wrs_unt_c.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"NA_WRS_UNT_C"));	
+	this.div_list.edt_boxpe_aqz.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"BOXPE_AQZ"));	
+	this.div_list.mae_rgd_upr.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"RGD_UPR"));	
+	this.div_list.mae_aj_upr.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"AJ_UPR"));	
+	this.div_list.mae_rgd_qt.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"RGD_QT"));
+	this.div_list.mae_rgd_am.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"RGD_AM"));
+	this.div_list.mae_rgd_vat.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"RGD_VAT"));
+	this.div_list.mae_box_qt.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"BOX_QT")); 
+	this.div_list.edt_pd_yy.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"PD_YY")); 
+	this.div_list.edt_na_rgd_rsn_dsc.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"NA_RGD_RSN_DSC_NAME")); 
+	this.div_list.edt_rmk_cntn.set_value(this.ds_retannCnf.getColumn(this.ds_retannCnf.rowposition,"RMK_CNTN")); 
+	*/
+   
+}
+
+/*입력정보 박스 초기화*/
+/*
+this.btn_clear_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	for(var i = 0; i < retannCnfInfoArr.length; i++){		
+		var obj = retannCnfInfoArr[i];
+		if(obj.indexOf('mae') > -1){
+			eval("this.div_list."+retannCnfInfoArr[i]+".set_value(0);");
+		}else if(obj.indexOf('edt') > -1){
+			eval("this.div_list."+retannCnfInfoArr[i]+".set_value('');");
+		}else if(obj.indexOf('chk') > -1){
+			eval("this.div_list."+retannCnfInfoArr[i]+".set_value('N');");
+		}
+	}
+}
+*/
+
+/*행추가/삭제 버튼 눌렀을때*/
+this.div_list_btn_rowUpdate_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_isUpdate();
+}
+
+this.fn_isUpdate = function(){
+	var duplicateRowCount = 0;
+	for(var i=0;i<this.div_list.grd_master.rowcount;i++){
+		var na_wrs_c = this.ds_retannCnf.getColumn(i,"NA_WRS_C");
+		var rgd_sqno = this.ds_retannCnf.getColumn(i,"RGD_SQNO");
+		if(rgd_sqno == this.div_list.edt_rgd_sqno.value && na_wrs_c == this.div_list.edt_na_wrs_c.value){
+			++duplicateRowCount;
+			//var bok = application.confirm("[ "+this.div_list.edt_na_wrs_c.value+" / "+this.div_list.edt_wrsnm.value+" ] 는(은) 이미 등록된 자료입니다. 수정하시겠습니까 ?");
+			//수정하시겠습니까?
+			var bok = this.gfn_getMessage("alert", "msg.isUpdate");
+			if(bok == true){
+				this.fn_rowUpdate();
+			}else{
+				return false;
+			}
+		}
+	}
+	
+	/*
+	if(duplicateRowCount == 0){
+		this.fn_rowInsert();
+	}
+	*/
+}
+
+this.fn_rowUpdate = function(){
+	
+	for(var i = 0; i < dataDArr.length; i++){
+		eval("this.ds_retannCnf.setColumn(this.ds_retannCnf.rowposition, '"+dataDArr[i]+"', this.div_list."+retannCnfInfoArr2[i]+".value)");
+	}
+}
+
+/* 저장 버튼 클릭 시*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.fn_SaveCheck()){
+	
+		trace("저장버튼");
+		
+		var dsParams = "ds_retannCnf=ds_retannCnf:A";
+		
+		/*
+		if(this.gfn_dsIsUpdated(this.ds_retannCnf)){
+			dsParams = dsParams + " ds_retannCnf=ds_retannCnf:U";
+		}
+		*/
+		//trace("################### dsParams : " + dsParams);			
+		
+		var sSvcID        = "saveCnf";//통신아이디
+		var sURL          = "svc::/rest/retann/saveCnf";// 호출할 서버 페이지 주소
+		var sInDatasets   = dsParams;//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = "";// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	}
+}
+
+this.div_list_btn_divResize_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+
+this.div_search_btn_rgd_onclick = function(params)
+{
+	var mbco_code = this.gfn_nullToEmpty(this.div_search.mae_mbco_code.value); //본/지사코드
+	var mbco_name = this.gfn_nullToEmpty(this.div_search.edt_mbco_name.value); //본/지사코드명
+	//var mbco_name = '';
+	
+	var param = {
+            autoType:params,
+            searchCode:mbco_code,
+            searchText:mbco_name,
+	};
+	
+	if(typeof params == "boolean"){
+		
+		if(!this.searPopValue(param)){return};
+      
+   };
+	
+	//var oArg = {code:mbco_code, name:mbco_name};
+	var oArg = {autoPop:param};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter_VAN_DS_SC_0600_P00";    
+	//this.gfn_openPopup("POPUP_SRC_SPYPL_TRPL","POPUP::POPUP_SRC_SPYPL_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+	this.gfn_openPopup("VAN_DS_SC_0600_P00","SCM.RETANN::VAN_DS_SC_0600_P00.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/* 본/지사 돋보기 클릭시*/
+this.div_search_btn_mbco_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_search_btn_rgd_onclick();
+}
+
+this.fn_popupAfter_VAN_DS_SC_0600_P00 = function(strId, strVal)
+{
+	if(strVal != null && strVal.length > 0){
+		var strValNo = strVal.split(',');
+		this.div_search.mae_mbco_code.set_value(strValNo[0]); //공급처코드
+		this.div_search.edt_mbco_name.set_value(strValNo[1]); //공급처명
+	}
+}
+
+
+this.fn_popupAfter = function(strId, strVal)
+{	
+	
+	trace(" strId : " + strId + " strVal : " + strVal);		
+	if(strVal != null && strVal.length > 0){
+	//반품 요청번호 팝업
+		var strValNo = strVal.split(',');
+		this.div_search.mae_rgd_rqt_code.set_value(strValNo[0]); 
+		this.div_search.edt_rgd_rqt_name.set_value(strValNo[1]); 
+		this.div_search.mae_rgd_rqt_team_code.set_value(strValNo[2]); 
+		this.div_search.cal_search_date.set_value(strValNo[3]); 
+		this.div_search.edt_rgd_pla_no.set_value(strValNo[4]);
+		this.div_search.cbo_tr_dsc.set_text(strValNo[5]);
+		this.div_search.cbo_rgd_amn_dsc.set_text(strValNo[6]);
+		this.div_search.cbo_na_rgd_sts_dsc.set_text(strValNo[7]);
+		this.div_list.edt_hidden_chk_function.set_value(strValNo[8]);	
+	}
+}
+
+/*-----------------------------------------------------------------------------------------*/
+// 페이징처리
+/*-----------------------------------------------------------------------------------------*/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_retannCnf.clearData();     //Grid에 Binding된 Dataset명	
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = 10; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 1; 	//전체건수. 화면조회후 리턴받아 사용
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	lsNowPage = vPageNum;//현재페이지 설정 
+	
+	this.fn_search();
+ 
+}
+
+
+
+this.div_list_onsize = function(obj:Div, e:nexacro.SizeEventInfo)
+{
+	/* 페이지 숫자 위치 설정*/
+	
+	trace("div_list_onsize");
+	var nLeft = (e.cx/2)-(this.div_list.div_page.width/2);
+	this.div_list.div_page.set_left(nLeft);
+	
+}
+
+// 승인확인 버튼 눌럿을 경우 : 04
+this.div_list_btn_confirmY_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_list.btn_confirmY.set_enable(true);
+	//this.div_list.btn_confirmN.set_enable(false);
+	
+	//this.div_list.btn_confirmY.setStyleValue("btn_confirmY","cssclass","btn_WF_CRUD");
+	
+	this.div_list.btn_confirmY.set_cssclass("btn_WF_CRUD");
+	this.div_list.btn_confirmN.set_cssclass("");
+	
+	
+	if(this.ds_retannCnf.rowcount > 0){			
+		for (var i=0; i < this.ds_retannCnf.rowcount ;i++){
+			this.ds_retannCnf.setColumn(i,"ADD_NA_RGD_STS_DSC","04");
+		}
+	}
+	
+}
+
+
+// 승인거절 버튼 눌럿을 경우 : 06
+this.div_list_btn_confirmN_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//this.div_list.btn_confirmY.set_enable(false);
+	this.div_list.btn_confirmN.set_enable(true);
+	
+	this.div_list.btn_confirmY.set_cssclass("");
+	this.div_list.btn_confirmN.set_cssclass("btn_WF_CRUD");
+	
+	if(this.ds_retannCnf.rowcount > 0){			
+		for (var i=0; i < this.ds_retannCnf.rowcount ;i++){
+			this.ds_retannCnf.setColumn(i ,"ADD_NA_RGD_STS_DSC","06");
+		}
+	}
+}
+
+/*반품의뢰처 팝업 클릭*/
+this.div_search_Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//수요처
+	var oArg = {paramMode:"U", dsArg:this.Dataset00};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter_SRC_RVOPL_TRPL";    
+	this.gfn_openPopup("POPUP_SRC_RVOPL_TRPL","POPUP::POPUP_SRC_RVOPL_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter_SRC_RVOPL_TRPL = function(strId, strVal)
+{	
+	
+	trace(" strId : " + strId + " strVal : " + strVal);		
+	if(strVal != null && strVal.length > 0){	
+		var strValNo = strVal.split(',');
+		this.div_search.mae_rgd_rqt_code.set_value(strValNo[0]); //수요처코드
+		this.div_search.edt_rgd_rqt_name.set_value(strValNo[1]); //수요처명
+	}
+}
+
+
+this.div_search_mae_mbco_code_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{	
+		this.div_search_btn_rgd_onclick(true);
+	};
+}
+
+
+this.div_search_edt_mbco_name_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{	
+		this.div_search_btn_rgd_onclick(true);
+	};
+}
+
+/*반품요청번호 텍스트 입력후 엔터*/
+this.div_search_edt_rgd_pla_no_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode==13)
+	{	
+		this.div_search_btn_rgd_pla_no_onclick(true);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

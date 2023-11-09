@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1250" classname="pattern_01" left="0" top="0" width="803" height="1030" titletext="기타당좌자산 회수내역" oninit="form_init" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_auth" taborder="38" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="118" width="431" height="21"/>
+        <Static id="Static05" taborder="13" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static03" taborder="14" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="22" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Button id="btn_excel" taborder="23" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_excel_onclick"/>
+        <Div id="div_search" taborder="32" left="0" top="29" right="15" height="95" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static04" taborder="77" text="거래구분" cssclass="sta_WFSA_Label" left="15" top="62" width="120" height="21"/>
+              <Static id="Static00" taborder="64" text="일자구분" cssclass="sta_WFSA_Label" left="15" top="36" width="91" height="21"/>
+              <Static id="Static01" taborder="65" text="사업장" cssclass="sta_WFSA_Label" left="15" top="10" width="91" height="21"/>
+              <Static id="Static05" taborder="80" text="30" visible="false" left="411" top="0" right="536" height="95" style="background:#dc143c5b;"/>
+              <Radio id="rdo_trade_type" taborder="83" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="0" direction="vertical" left="106" top="62" width="250" height="21" enable="true">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">반환</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">회수</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static09" taborder="84" text="전표번호" cssclass="sta_WFSA_Label" left="484" top="36" width="100" height="21"/>
+              <Static id="Static10" taborder="85" text="5" visible="false" left="106" top="83" right="790" height="5" style="background:#dc143c5b;"/>
+              <Combo id="cbo_serach_type" taborder="86" left="599" top="62" width="149" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="3" text="거래처코드" enable="false">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">거래처코드</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static11" taborder="87" text="조회구분" cssclass="sta_WFSA_Label" left="484" top="62" width="91" height="21"/>
+              <MaskEdit id="edt_slpno01" taborder="88" left="599" top="36" width="70" height="21" enable="false"/>
+              <MaskEdit id="edt_slpno02" taborder="89" type="string" left="678" top="36" width="70" height="21" enable="false"/>
+              <Static id="Static120" taborder="90" text="-" left="669" top="36" width="9" height="21"/>
+              <Static id="Static12" taborder="91" text="10" visible="false" left="106" top="109" right="790" height="10" style="background:#dc143c5b;"/>
+              <Combo id="cbo_date" taborder="92" innerdataset="ds_date" codecolumn="code" datacolumn="name" index="-1" onitemchanged="Div01_Combo02_onitemchanged" left="106" top="36" width="135" height="21"/>
+              <Calendar id="cal_from" taborder="93" dateformat="yyyy-MM-dd" left="244" top="36" width="100" height="21"/>
+              <Static id="Static131" taborder="94" text="~" left="344" top="36" width="10" height="21"/>
+              <Calendar id="cal_to" taborder="95" dateformat="yyyy-MM-dd" left="354" top="36" width="100" height="21"/>
+              <Static id="Static02" taborder="96" text="정정취소구분" cssclass="sta_WFSA_Label" left="484" top="10" width="120" height="21"/>
+              <Combo id="cbo_can_type" taborder="97" innerdataset="ds_can_type" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="599" top="10" width="149" height="21"/>
+              <Combo id="cbo_nacode" taborder="98" innerdataset="ds_NABizPlace" codecolumn="NA_BZPLC" datacolumn="SHRT_BZPLNM" index="-1" displayrowcount="20" onitemchanged="div_search_cbo_nacode_onitemchanged" left="106" top="10" width="348" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static13" taborder="33" text="10" visible="false" left="199" top="30" right="494" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static14" taborder="34" text="5" visible="false" left="199" top="61" right="494" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="36" text="15" visible="false" left="1" top="30" right="977" height="95" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="37" url="common::location.xfdl" text="Div01" left="0" top="0" right="408" height="36"/>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="123" right="15" scrollbars="autoboth" bottom="50" onsize="div_list_onsize">
+          <Layouts>
+            <Layout width="978" height="800">
+              <Grid id="grd_master" taborder="24" binddataset="ds_etcCaAsetM" useinputpanel="false" left="0" top="42" right="0" height="305">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="50" band="head"/>
+                      <Row size="28"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="전표일자"/>
+                      <Cell col="2" text="전표번호"/>
+                      <Cell col="3" text="거래구분코드"/>
+                      <Cell col="4" text="정정취소구분코드"/>
+                      <Cell col="5" text="거래처코드"/>
+                      <Cell col="6" text="단축사업장명"/>
+                      <Cell col="7" text="기타당좌자산&#13;&#10; 반환수량"/>
+                      <Cell col="8" text="반환금액"/>
+                      <Cell col="9" text="반환수수료"/>
+                      <Cell col="10" text="반환수수료&#13;&#10; 부가세"/>
+                      <Cell col="11" text="원전표일자"/>
+                      <Cell col="12" text="원전표번호"/>
+                      <Cell col="13" text="회수예정일"/>
+                      <Cell col="14" text="비고"/>
+                      <Cell col="15" text="차량구분"/>
+                      <Cell col="16" text="차량코드"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:RN"/>
+                      <Cell col="1" text="bind:SLP_DT"/>
+                      <Cell col="2" text="bind:NA_SLPNO"/>
+                      <Cell col="3" text="bind:NA_TR_DSC"/>
+                      <Cell col="4" text="bind:NA_CRC_CAN_DSC"/>
+                      <Cell col="5" text="bind:NA_TRPL_C"/>
+                      <Cell col="6" style="align:left;" text="bind:SHRT_CLNTNM"/>
+                      <Cell col="7" style="align:right;" text="bind:ETC_CA_ASET_RTU_QT"/>
+                      <Cell col="8" style="align:right;" text="bind:RTU_AM"/>
+                      <Cell col="9" style="align:right;" text="bind:RTU_FEE"/>
+                      <Cell col="10" style="align:right;" text="bind:RTU_FEE_VAT"/>
+                      <Cell col="11" text="bind:OSLIP_DT"/>
+                      <Cell col="12" style="align:left;" text="bind:OSLIP_NA_SLPNO"/>
+                      <Cell col="13" text="bind:WDR_PLA_DT"/>
+                      <Cell col="14" text="bind:RMK_CNTN"/>
+                      <Cell col="15" text="bind:VHC_TYPE"/>
+                      <Cell col="16" text="bind:VHC_NO"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1"/>
+                      <Cell col="2"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                      <Cell col="6"/>
+                      <Cell col="7" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'ETC_CA_ASET_RTU_QT')" mask="###,###"/>
+                      <Cell col="8" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'RTU_AM')" mask="###,###"/>
+                      <Cell col="9" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'RTU_FEE')" mask="###,###"/>
+                      <Cell col="10" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'RTU_FEE_VAT')" mask="###,###"/>
+                      <Cell col="11"/>
+                      <Cell col="12"/>
+                      <Cell col="13"/>
+                      <Cell col="14"/>
+                      <Cell col="15"/>
+                      <Cell col="16"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_detail" taborder="26" binddataset="ds_etcCaAsetD" useinputpanel="false" left="0" top="390" right="0" height="468">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="150"/>
+                      <Column size="300"/>
+                      <Column size="180"/>
+                      <Column size="180"/>
+                      <Column size="180"/>
+                      <Column size="180"/>
+                      <Column size="180"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="28" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="상품코드"/>
+                      <Cell col="2" text="상품명"/>
+                      <Cell col="3" text="반환수량"/>
+                      <Cell col="4" text="수수료단가"/>
+                      <Cell col="5" text="반환금액"/>
+                      <Cell col="6" text="반환수수료"/>
+                      <Cell col="7" text="반환수수료부가세"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow+1"/>
+                      <Cell col="1" text="bind:NA_WRS_C"/>
+                      <Cell col="2" style="align:left;" text="bind:WRSNM"/>
+                      <Cell col="3" style="align:right;" text="bind:VCBT_RTU_QT"/>
+                      <Cell col="4" style="align:right;" text="bind:VCBT_UPR"/>
+                      <Cell col="5" style="align:right;" text="bind:RTU_AM"/>
+                      <Cell col="6" style="align:right;" text="bind:RTU_FEE"/>
+                      <Cell col="7" style="align:right;" text="bind:RTU_FEE_VAT"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1"/>
+                      <Cell col="2"/>
+                      <Cell col="3" displaytype="number" expr="expr:dataset.getSum('VCBT_RTU_QT')" mask="###,###"/>
+                      <Cell col="4"/>
+                      <Cell col="5" displaytype="number" expr="expr:dataset.getSum('RTU_AM')" mask="###,###"/>
+                      <Cell col="6" displaytype="number" expr="expr:dataset.getSum('RTU_FEE')" mask="###,###"/>
+                      <Cell col="7" displaytype="number" expr="expr:dataset.getSum('RTU_FEE_VAT')" mask="###,###"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_gradD_excel" taborder="31" text="엑셀" top="364" right="0" width="41" height="21" onclick="div_list_btn_gradD_excel_onclick"/>
+              <Static id="Static02" taborder="32" text="15" visible="false" left="936" top="-1" right="2" height="15" style="background:#dc143c5b;"/>
+              <Button id="btn_gradM_excel" taborder="33" text="엑셀" top="16" right="0" width="41" height="21" onclick="div_list_btn_gradM_excel_onclick" visible="false"/>
+              <Static id="Static07" taborder="34" text="5" visible="false" left="936" top="35" right="2" height="5" style="background:#dc143c5b;"/>
+              <Static id="Static01" taborder="36" text="15" visible="false" left="675" top="1" right="-7" height="15" style="background:#dc143c5b;"/>
+              <Static id="Static03" taborder="37" text="5" visible="false" left="668" top="385" right="0" height="5" style="background:#dc143c5b;"/>
+              <Button id="btn_divResize" taborder="23" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" onclick="div_list_btn_divResize_onclick" width="62"/>
+              <WebBrowser id="web_downExcelM" left="600" top="19" width="44" height="12" taborder="38" visible="false"/>
+              <WebBrowser id="web_downExcelD" left="591" top="360" width="57" height="21" taborder="39" visible="false"/>
+              <Div id="div_page" taborder="40" url="common::pagingBTN.xfdl" left="28.55%" top="346" width="338" height="44" style="align:center;" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="39" text="기타당좌자산회수내역 화면 &lt;b v='true'&gt;기능문의&lt;/b&gt;는 &lt;u v='true'&gt;하나로eSCM고객센터(02-1522-1211)&lt;/u&gt;로, &lt;b v='true'&gt;금액문의&lt;/b&gt;는 &lt;u v='true'&gt;담당 바이어&lt;/u&gt;에게로 부탁드립니다." wordwrap="char" left="0" right="15" bottom="5" height="40" usedecorate="true"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">13</Col>
+            <Col id="Column2">ABC123456789</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_date" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="string" size="13"/>
+          <Column id="name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="name">회수일기준</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="name">회수예정일기준</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_can_type" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32"/>
+          <Column id="SIMP_CNM" type="string" size="32"/>
+          <Column id="SIMP_C_EXPL" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_NABizPlace" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="SHRT_BZPLNM" type="string" size="32"/>
+          <Column id="BZPL_TPC" type="string" size="32"/>
+          <Column id="BZPL_DTI_TPC" type="string" size="32"/>
+          <Column id="BZPL_TPNM" type="string" size="32"/>
+          <Column id="BZPL_DTI_TPNM" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcCaAsetM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RN" type="bigdecimal" size="8"/>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="NA_TEAM_C" type="string" size="32"/>
+          <Column id="SLP_DT" type="string" size="32"/>
+          <Column id="NA_SLPNO" type="string" size="32"/>
+          <Column id="NA_TR_DSC" type="string" size="32"/>
+          <Column id="NA_CRC_CAN_DSC" type="string" size="32"/>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="SHRT_CLNTNM" type="string" size="32"/>
+          <Column id="ETC_CA_ASET_RTU_QT" type="bigdecimal" size="8"/>
+          <Column id="RTU_AM" type="bigdecimal" size="8"/>
+          <Column id="RTU_FEE" type="bigdecimal" size="8"/>
+          <Column id="RTU_FEE_VAT" type="bigdecimal" size="8"/>
+          <Column id="OSLIP_DT" type="string" size="32"/>
+          <Column id="OSLIP_NA_SLPNO" type="string" size="32"/>
+          <Column id="WDR_PLA_DT" type="date" size="6"/>
+          <Column id="RMK_CNTN" type="string" size="32"/>
+          <Column id="VHC_TYPE" type="string" size="32"/>
+          <Column id="VHC_NO" type="string" size="32"/>
+          <Column id="UPYAM_OCU_YN" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcCaAsetD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="string" size="32"/>
+          <Column id="WRSNM" type="string" size="32"/>
+          <Column id="VCBT_RTU_QT" type="float" size="8"/>
+          <Column id="VCBT_UPR" type="float" size="8"/>
+          <Column id="RTU_AM" type="bigdecimal" size="8"/>
+          <Column id="RTU_FEE" type="bigdecimal" size="8"/>
+          <Column id="RTU_FEE_VAT" type="bigdecimal" size="8"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_sum" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ETC_CA_ASET_RTU_QT" type="string" size="32"/>
+          <Column id="RTU_AM" type="string" size="32"/>
+          <Column id="RTU_FEE" type="string" size="32"/>
+          <Column id="RTU_FEE_VAT" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+include "lib::comEsum.xjs";
+
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.InitEventInfo)
+{	
+	this.gfn_setInitForm(obj,e);
+		
+	var param = [  
+ 		{code:"NA_CRC_CAN_DSC",   dsName:"ds_can_type",   selecttype:"A"}
+    ];
+
+	this.gfn_setCommonCode(param);
+	
+	this.fn_getNABizPlace(application.gv_glnCode,"default");	
+}
+
+//권한사업장 콤보박스 변경시 농협사업장 조회
+this.fn_afterCall = function(sVal)
+{
+	//this.fn_getNABizPlace(sVal);
+}
+
+//공통코드 데이터셋 onload후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	
+	this.div_search.cbo_can_type.set_index(0);
+	this.div_search.cbo_date.set_index(0);	
+
+}
+
+/* 페이지 로딩후 실행부분 */
+this.fn_afterFormOnload = function()
+{	
+	//그리드클릭 이벤트 등록
+	this.div_list.grd_master.addEventHandler("oncellclick", this.grd_afterFnc, this);
+	//그리드 nodata
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.div_list.grd_detail.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	
+	//권한사업장 체크 안보이게
+	//this.authChkDisable();
+	
+	this.div_search.cal_from.set_value(this.gfn_minusDate(this.gfn_today("yyyyMMdd"),7));	
+	this.div_search.cal_to.set_value(this.gfn_today("yyyyMMdd"));
+	
+	//권한사업장 콤보박스 변경시 농협사업장 조회
+	this.div_auth.setFunctionName("fn_afterCall");
+	
+}
+
+//권한사업장 콤보박스 변경시 농협사업장 조회
+this.fn_afterCall = function(sVal)
+{
+	//this.fn_getNABizPlace(sVal,"added");
+}
+
+/*농협사업장 조회*/
+this.fn_getNABizPlace = function(v_nacode,search_type){
+	
+	var nacode = v_nacode;	
+	
+	var param = "search_type="+search_type+
+				" splr_na_trpl_c="+nacode;
+	
+	trace("##### fn_getNABizPlace PARAM ################"+param);
+		
+	var sSvcID        = "getNABizPlace";//통신아이디
+	var sURL          = "svc::rest/common/getNABizPlace";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_NABizPlace=data";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+
+	if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) < 0){
+	
+		//조회 시작일과 종료일을 다시 확인해 주세요
+		this.gfn_getMessage("alert", "validation.message.fromDate.toDate.reConfirm");
+		return false;
+	}else{
+		if(this.gfn_getDiffDay(this.div_search.cal_from.value,this.div_search.cal_to.value) > 31){
+
+		//기간을 31일 이내로 선택해 주세요
+		this.gfn_getMessage("alert", "validation.message.selectDateIn31Day");
+		return false;
+		}
+	}
+	
+	/*
+	if(this.gfn_isNull(this.div_search.cbo_nacode.value)){
+		//농협사업장을 선택 하세요.
+		this.gfn_getMessage("alert", "validation.message.select.nacode");
+		return false;
+	}
+	*/
+	return true;
+}
+
+/* search */
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.			
+}
+
+this.fn_search = function(){
+	this.ds_etcCaAsetM.clearData();
+	this.ds_etcCaAsetD.clearData();
+	
+	/* 자동 파라미터 넘기는 예제
+	var json = this.getParamJson(this.components, true);
+	json.all
+	
+	if(json.all == true){
+		json.all = 'Y'
+	}else{
+		json.all = 'N'
+	}
+	
+	var p = this.getParamJsonToString(json);
+	*/
+	
+	if(this.fn_validationCheck()){
+	
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	
+	var search_date_type = this.gfn_nullToEmpty(this.div_search.cbo_date.value); //일자구분
+	var from_date = this.gfn_nullToEmpty(this.div_search.cal_from.value); //조회시작일
+	var to_date = this.gfn_nullToEmpty(this.div_search.cal_to.value); //조회종료일
+	var can_type =this.gfn_nullToEmpty(this.div_search.cbo_can_type.value); //정정취소구분
+	var trade_type = this.gfn_nullToEmpty(this.div_search.rdo_trade_type.value); //거래구분
+	//var upyam_ocu_yn = this.gfn_nullToEmpty(this.div_search.cbo_upyam_ocu_yn.value); //미수금계정여부	
+	var na_bzplc = this.gfn_nullToEmpty(this.div_search.cbo_nacode.value); //농협사업장
+	var serach_type = this.gfn_nullToEmpty(this.div_search.cbo_serach_type.value); //조회구분	
+	var edt_slpno = this.gfn_nullToEmpty(this.div_search.edt_slpno01.value+this.div_search.edt_slpno02.value); //전표번호
+	
+	upyam_ocu_yn = "";
+	
+	var param = " search_date_type="+search_date_type+
+				" from_date="+from_date+
+				" to_date="+to_date+
+				" can_type="+can_type+
+				" trade_type="+trade_type+
+				" upyam_ocu_yn="+upyam_ocu_yn+
+				" na_bzplc="+na_bzplc+
+				" serach_type="+serach_type+
+				" edt_slpno="+edt_slpno+
+				" TRPL_C=" + trplC;
+				
+	trace("##MASTER##PARAM##->"+param);
+	
+	
+	var sSvcID        = "retrieveEtcCaAsetMasterList";//통신아이디
+	var sURL          = "svc::rest/payment/retrieveEtcCaAsetMasterList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+	var sOutDatasets  = "ds_etcCaAsetM=ds_paymentEtcCaAsetM ds_pageVO=ds_pageVO ds_sum=DS_SUM";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+	}
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "retrieveEtcCaAsetMasterList"){
+
+			if(this.ds_etcCaAsetM.rowcount > 0){
+					
+				this.ds_etcCaAsetM.set_rowposition(1);
+				this.ds_etcCaAsetM.set_rowposition(0);
+				
+				// 페이지 셋팅
+				var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+				var sPagesize = this.ds_pageVO.getColumn(0, "PAGE_SIZE");				
+
+				this.div_list.div_page.fn_pageSet(sTotal, sPagesize,"grd_master,div_page",lsNowPage);
+			}else{	
+				this.div_list.div_page.fn_pageSet(0, 0,"grd_master,div_page",lsNowPage);//페이징 설정
+			}
+		}else if(svcID == "retrieveAffSsdyDetailList") {
+			if(this.ds_paymentAffSsdyD.rowcount == 0){				
+				//this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}
+		}else if(svcID == "getNABizPlace") {
+			
+			if(this.ds_NABizPlace.rowcount != 0){
+			
+			//구매본부코드 제거
+			if (this.ds_NABizPlace.getColumn(i,0) == '8808983000015'){					
+				this.ds_NABizPlace.deleteRow(i);					
+			}
+	
+			for (var i=0; i < this.ds_NABizPlace.rowcount ;i++)			
+			{					
+				this.ds_NABizPlace.setColumn(i,"SHRT_BZPLNM","["+this.ds_NABizPlace.getColumn(i,0)+"] "+this.ds_NABizPlace.getColumn(i,1));
+			}
+				
+			if (this.ds_NABizPlace.insertRow(0) != -1){
+				this.ds_NABizPlace.setColumn(0,"NA_BZPLC","");
+				this.ds_NABizPlace.setColumn(0,"SHRT_BZPLNM","- 전체 -");
+				};
+			this.div_search.cbo_nacode.set_index(0);
+			}
+		}
+	}
+}
+
+this.div_search_cbo_nacode_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	//this.div_search.edt_nacode00.set_value(this.div_search.cbo_nacode.value);
+	//this.div_search.edt_nacode01.set_value(this.div_search.cbo_nacode.text);
+}
+
+this.grd_afterFnc = function(obj, e)
+{
+/*
+	if(e.reason == 51)
+	{		
+		this.ds_etcCaAsetM.set_enableevent(false);
+		this.ds_etcCaAsetM.set_rowposition(-1);
+		this.ds_etcCaAsetM.set_enableevent(true);
+		return;
+	}
+*/
+	var na_bzplc = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"NA_BZPLC"));	//경제통합사업장코드
+	var na_team_c = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"NA_TEAM_C"));	//경제통합팀코드
+	var slp_dt = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"SLP_DT"));	//전표일자
+    var na_slpno = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"NA_SLPNO"));  //경제통합 전표번호    
+				
+	param = "na_bzplc="+na_bzplc+
+			" na_team_c="+na_team_c+
+			" slp_dt="+slp_dt+
+			" na_slpno="+na_slpno
+			;
+	
+	trace("##DETAIL##PARAM##->"+param);
+	
+	var sSvcID        = "retrieveEtcCaAsetDetailList";//통신아이디
+	var sURL          = "svc::rest/payment/retrieveEtcCaAsetDetailList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_etcCaAsetD=ds_paymentEtcCaAsetD";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc , "S");
+}
+
+this.div_list_btn_divResize_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+/* 마스터 그리드 엑셀 다운로드*/
+this.div_list_btn_gradM_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_excel();
+}
+
+this.fn_excel = function(){
+	
+	
+	if(!this.fn_validationCheck()) return;
+	
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	
+	var search_date_type = this.gfn_nullToEmpty(this.div_search.cbo_date.value); //일자구분
+	var from_date = this.gfn_nullToEmpty(this.div_search.cal_from.value); //조회시작일
+	var to_date = this.gfn_nullToEmpty(this.div_search.cal_to.value); //조회종료일
+	var can_type =this.gfn_nullToEmpty(this.div_search.cbo_can_type.value); //정정취소구분
+	var trade_type = this.gfn_nullToEmpty(this.div_search.rdo_trade_type.value); //거래구분
+	//var upyam_ocu_yn = this.gfn_nullToEmpty(this.div_search.cbo_upyam_ocu_yn.value); //미수금계정여부	
+	var na_bzplc = this.gfn_nullToEmpty(this.div_search.cbo_nacode.value); //농협사업장
+	var serach_type = this.gfn_nullToEmpty(this.div_search.cbo_serach_type.value); //조회구분	
+	var edt_slpno = this.gfn_nullToEmpty(this.div_search.edt_slpno01.value+this.div_search.edt_slpno02.value); //전표번호
+	
+	upyam_ocu_yn = "";
+	
+	//엑셀명
+	var title = this.parent.sNm;
+	title = title.replace(/ /gi, '');
+	var fileName = title + "_기준정보_" + this.getDate() + ".xls";	
+		
+	var param = "search_date_type="+search_date_type+
+				"&from_date="+from_date+
+				"&to_date="+to_date+
+				"&can_type="+can_type+
+				"&trade_type="+trade_type+
+				"&upyam_ocu_yn="+upyam_ocu_yn+
+				"&na_bzplc="+na_bzplc+
+				"&serach_type="+serach_type+
+				"&edt_slpno="+edt_slpno+
+				"&TRPL_C=" + trplC+
+				"&fileName="+fileName;			
+			
+	trace("##MASTER##PARAM##->"+param);
+	
+	param = encodeURI(encodeURI(param));
+
+	//this.div_list.web_downExcelM.set_url(application.gv_server_url+"rest/excel/downloadExcelEtcCaAsetMaster?"+param);
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelEtcCaAsetMaster?"+param, this);
+}
+
+/* 맨 위 엑셀 버튼*/
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_excel();
+}
+
+/* 디테일 그리드 엑셀 다운로드 */
+
+this.div_list_btn_gradD_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	
+	var search_date_type = this.gfn_nullToEmpty(this.div_search.cbo_date.value); //일자구분
+	var from_date = this.gfn_nullToEmpty(this.div_search.cal_from.value); //조회시작일
+	var to_date = this.gfn_nullToEmpty(this.div_search.cal_to.value); //조회종료일
+	var can_type =this.gfn_nullToEmpty(this.div_search.cbo_can_type.value); //정정취소구분
+	var trade_type = this.gfn_nullToEmpty(this.div_search.rdo_trade_type.value); //거래구분
+	//var upyam_ocu_yn = this.gfn_nullToEmpty(this.div_search.cbo_upyam_ocu_yn.value); //미수금계정여부	
+	var na_bzplc = this.gfn_nullToEmpty(this.div_search.cbo_nacode.value); //농협사업장
+	var serach_type = this.gfn_nullToEmpty(this.div_search.cbo_serach_type.value); //조회구분	
+	var edt_slpno = this.gfn_nullToEmpty(this.div_search.edt_slpno01.value+this.div_search.edt_slpno02.value); //전표번호
+	
+	upyam_ocu_yn = "";
+	
+	//엑셀명
+	var title = this.parent.sNm;
+	title = title.replace(/ /gi, '');
+	var fileName = title + "_상세정보_" + this.getDate() + ".xls";
+		
+	var param = "search_date_type="+search_date_type+
+				"&from_date="+from_date+
+				"&to_date="+to_date+
+				"&can_type="+can_type+
+				"&trade_type="+trade_type+
+				"&upyam_ocu_yn="+upyam_ocu_yn+
+				"&na_bzplc="+na_bzplc+
+				"&serach_type="+serach_type+
+				"&edt_slpno="+edt_slpno+
+				"&TRPL_C=" + trplC+
+				"&fileName="+fileName;
+	
+	var na_bzplcD = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"NA_BZPLC"));	//경제통합사업장코드
+	var na_team_c = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"NA_TEAM_C"));	//경제통합팀코드
+	var slp_dt = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"SLP_DT"));	//전표일자
+    var na_slpno = this.gfn_nullToEmpty(this.ds_etcCaAsetM.getColumn(this.ds_etcCaAsetM.rowposition,"NA_SLPNO"));  //경제통합 전표번호    
+				
+	param2 = "&na_bzplcD="+na_bzplcD+
+			"&na_team_c="+na_team_c+
+			"&slp_dt="+slp_dt+
+			"&na_slpno="+na_slpno
+			;
+			
+	trace("##DETAIL##PARAM##->"+param+param2);
+	
+	param = encodeURI(encodeURI(param));
+	param2 = encodeURI(encodeURI(param2));
+
+	//this.div_list.web_downExcelD.set_url(application.gv_server_url+"rest/excel/downloadExcelEtcCaAsetDetail?"+param+param2);
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelEtcCaAsetDetail?"+param+param2, this);
+	
+	
+}
+
+
+/* 최상단 엑셀(상세) 버튼*/
+this.btn_excelDetail_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var param = '';
+	
+	this.div_list.web_downExcelD.set_url(application.gv_server_url+"rest/excel/downloadExcelEtcCaAsetD?"+param);
+}
+
+/*-----------------------------------------------------------------------------------------*/
+// 페이징처리
+/*-----------------------------------------------------------------------------------------*/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();  
+	this.ds_etcCaAsetM.clearData();     //Grid에 Binding된 Dataset명	
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = 5; 	//Grid에 보여줄 Row수, 화면에 따라 변경하여 사용
+	var vTotalCount = 1; 	//전체건수. 화면조회후 리턴받아 사용
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	lsNowPage = vPageNum;//현재페이지 설정 
+	
+	this.fn_search();
+ 
+}
+
+
+
+this.div_list_onsize = function(obj:Div, e:nexacro.SizeEventInfo)
+{
+	/* 페이지 숫자 위치 설정*/
+	
+	trace("div_list_onsize");
+	var nLeft = (e.cx/2)-(this.div_list.div_page.width/2);
+	this.div_list.div_page.set_left(nLeft);
+	
+}]]></Script>
+  </Form>
+</FDL>

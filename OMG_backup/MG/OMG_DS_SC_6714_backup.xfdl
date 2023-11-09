@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6714" classname="VAN_DS_SC_1550" left="0" top="0" width="803" height="490" titletext="하나로유통사무소일괄등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="17" text="변경없음" width="60" height="20" style="border:1 solid #808080ff ;align:center;font:bold 9 Gulim;" right="201" top="120"/>
+        <Div id="div_menu" taborder="1" url="common::location.xfdl" text="Div01" left="0" top="0" height="21" width="323"/>
+        <Button id="btn_clear00" taborder="2" text="초기화" cssclass="btn_WF_CRUD" top="0" right="101" width="53" height="21" onclick="btn_clear00_onclick"/>
+        <Button id="btn_save" taborder="3" text="저장" cssclass="btn_WF_CRUD" top="0" right="58" width="41" height="21" onclick="btn_save_onclick" enable="false"/>
+        <Div id="div_search" taborder="7" left="0" top="29" right="15" height="72" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title00" taborder="110" text="엑셀 업로드" cssclass="sta_WFSA_Label" left="15" top="40" width="99" height="21"/>
+              <Edit id="edt_data00" taborder="131" left="160" top="40" width="233" height="21"/>
+              <FileUpload id="FileUpload00" taborder="135" multiselect="true" timeout="0" retry="0" async="true" index="0" onsuccess="FileUpload00_onsuccess" onerror="FileUpload00_onerror" onitemchanged="FileUpload00_onitemchanged" left="396" top="40" height="21" onload="FileUpload00_onload" width="72"/>
+              <Button id="btn_find_file00" taborder="136" text="업로드" onclick="div_search_btn_find_file00_onclick" cssclass="btn_WF_CRUD" top="40" width="77" height="21" left="473"/>
+              <Button id="btn_data" taborder="137" text="다운로드" onclick="btn_data_onclick" cssclass="btn_WF_CRUD" top="10" width="80" height="21" left="160"/>
+              <Static id="sta_title01" taborder="138" text="현재 데이터 내려받기" cssclass="sta_WFSA_Label" left="15" top="10" width="142" height="21"/>
+              <CheckBox id="chk_use" taborder="139" text="'사용안함' 포함" left="253" top="10" width="121" height="20" truevalue="Y" falsevalue="N"/>
+              <Button id="btn_sample" taborder="140" text="샘플 다운로드" onclick="btn_sample_onclick" cssclass="btn_WF_CRUD" top="40" width="90" height="21" left="570"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="10" left="0" top="100" right="15" bottom="50">
+          <Layouts>
+            <Layout>
+              <Button id="btn_toggle00" taborder="0" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" right="45.94%" height="12" onclick="div_list_btn_toggle00_onclick"/>
+              <Grid id="grd_after" taborder="1" useinputpanel="false" left="47%" top="42" right="0" bottom="0" binddataset="ds_hanaro_new" titletext="신규상품요청 일괄등록" nodatatext="엑셀 데이터 업로드가 필요합니다" autoenter="select">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="80"/>
+                      <Column size="100"/>
+                      <Column size="130"/>
+                      <Column size="80"/>
+                      <Column size="110"/>
+                      <Column size="105"/>
+                      <Column size="80"/>
+                      <Column size="150"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="사무소코드"/>
+                      <Cell col="2" text="상위사무소코드"/>
+                      <Cell col="3" text="사무소명"/>
+                      <Cell col="4" text="사무소유형"/>
+                      <Cell col="5" text="대표사업장코드"/>
+                      <Cell col="6" text="사업자번호"/>
+                      <Cell col="7" text="점장사번"/>
+                      <Cell col="8" text="소속사업장코드"/>
+                    </Band>
+                    <Band id="body" style="selectbackground:EXPR(STATE == 'NEW' ? '#55ff55ff' : STATE == 'MOD' ? '#ffff55ff' : STATE == 'DEL' ? '#ff5555ff' : '#e3f2f7ff');cellbackground:EXPR(STATE == 'NEW' ? '#55ff55ff' : STATE == 'MOD' ? '#ffff55ff' : STATE == 'DEL' ? '#ff5555ff' : '#ffffffff');cellbackground2:EXPR(STATE == 'NEW' ? '#55ff55ff' : STATE == 'MOD' ? '#ffff55ff' : STATE == 'DEL' ? '#ff5555ff' : '#fafafaff');">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:DEPT_ID"/>
+                      <Cell col="2" displaytype="expr:STATE == 'DEL' ? 'normal' : 'text'" edittype="expr:STATE == 'DEL' ? 'none' : 'text'" style="controlcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:DEPT_HIGH" editlimit="20" editdisplay="expr:STATE == 'DEL' ? 'edit' : 'display'" editlengthunit="ascii"/>
+                      <Cell col="3" displaytype="expr:STATE == 'DEL' ? 'normal' : 'text'" edittype="expr:STATE == 'DEL' ? 'none' : 'text'" style="controlcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:DEPT_NAME" editlimit="64" editdisplay="expr:STATE == 'DEL' ? 'edit' : 'display'" editlengthunit="ascii"/>
+                      <Cell col="4" displaytype="combo" edittype="expr:STATE == 'DEL' ? 'none' : 'combo'" style="controlcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:DEPT_DSC" editimemode="none" editdisplay="edit" combodataset="ds_cbodsc" combocodecol="CODE" combodatacol="NAME" combodisplay="display"/>
+                      <Cell col="5" displaytype="expr:STATE == 'DEL' ? 'normal' : 'text'" edittype="expr:STATE == 'DEL' ? 'none' : 'text'" style="controlcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:NA_BZPLC" editlimit="13" editdisplay="expr:STATE == 'DEL' ? 'edit' : 'display'" editlengthunit="ascii"/>
+                      <Cell col="6" displaytype="expr:STATE == 'DEL' ? 'normal' : 'text'" edittype="expr:STATE == 'DEL' ? 'none' : 'text'" editfilter="number" style="controlcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:BIZ_NUMBER" mask="@@@-@@-@@@@@" editlimit="10" editdisplay="expr:STATE == 'DEL' ? 'edit' : 'display'" editlengthunit="ascii"/>
+                      <Cell col="7" displaytype="expr:STATE == 'DEL' ? 'normal' : 'text'" edittype="expr:STATE == 'DEL' ? 'none' : 'text'" style="controlcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:CHIEF_ENO" editlimit="20" editdisplay="expr:STATE == 'DEL' ? 'edit' : 'display'" editlengthunit="ascii"/>
+                      <Cell col="8" displaytype="expr:STATE == 'DEL' ? 'normal' : 'text'" edittype="expr:STATE == 'DEL' ? 'none' : 'text'" style="controlcolor:EXPR(dataset.parent.fn_chgCellColor(currow, this._col));" text="bind:BLG_NA_BZPLC" editlimit="1000" editdisplay="expr:STATE == 'DEL' ? 'edit' : 'display'" editlengthunit="ascii"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_before" taborder="2" binddataset="ds_hanaro" useinputpanel="false" left="0" top="42" right="54%" bottom="0" titletext="신규상품요청 일괄등록">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="80"/>
+                      <Column size="100"/>
+                      <Column size="130"/>
+                      <Column size="80"/>
+                      <Column size="100"/>
+                      <Column size="90"/>
+                      <Column size="80"/>
+                      <Column size="75"/>
+                      <Column size="150"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="사무소코드"/>
+                      <Cell col="2" text="상위사무소코드"/>
+                      <Cell col="3" text="사무소명"/>
+                      <Cell col="4" text="사무소유형"/>
+                      <Cell col="5" text="대표사업장코드"/>
+                      <Cell col="6" text="사업자번호"/>
+                      <Cell col="7" text="점장사번"/>
+                      <Cell col="8" text="사용여부"/>
+                      <Cell col="9" text="소속사업장코드"/>
+                    </Band>
+                    <Band id="body" style="selectbackground:EXPR(ORG_USE_YN == 'Y' ? '#e3f2f7ff' : '#bbbbbbff');cellbackground:EXPR(ORG_USE_YN == 'Y' ? '#ffffffff' : '#aaaaaaff');cellbackground2:EXPR(ORG_USE_YN == 'Y' ? '#fafafaff' : '#aaaaaaff');">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:ORG_DEPT_ID"/>
+                      <Cell col="2" text="bind:ORG_DEPT_HIGH"/>
+                      <Cell col="3" text="bind:ORG_DEPT_NAME"/>
+                      <Cell col="4" text="expr:ORG_DEPT_DSC == '01' ? '본부' : '직영점'"/>
+                      <Cell col="5" text="bind:ORG_NA_BZPLC"/>
+                      <Cell col="6" text="bind:ORG_BIZ_NUMBER" mask="@@@-@@-@@@@@"/>
+                      <Cell col="7" text="bind:ORG_CHIEF_ENO"/>
+                      <Cell col="8" text="expr:ORG_USE_YN == 'Y' ? '사용' : '사용안함'"/>
+                      <Cell col="9" text="bind:BLG_NA_BZPLC"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static00" taborder="3" text="&lt;현재&gt;" left="0" top="19" height="21" style="font:bold 9 Gulim;" width="150"/>
+              <Static id="Static01" taborder="4" text="&lt;변경&gt;" left="47%" top="19" height="21" style="font:bold 9 Gulim;" width="150"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="12" text="조회" onclick="btn_search_onclick" cssclass="btn_WF_CRUD" top="0" right="15" width="41" height="21"/>
+        <Static id="Static00" taborder="13" text="※ 저장 시 기존 사무소코드가 제외되면 '사용안함' 상태로 변경됩니다.&#13;&#10;※ 소속사업장코드가 다수 일 경우 띄어쓰기 없이 콤마(,)로 구분하여 입력" left="47%" bottom="10" height="35" right="0" style="align:left top;" wordwrap="char"/>
+        <Static id="Static01" taborder="14" text="신규" width="60" height="20" style="background:#55ff55ff;border:1 solid #808080ff ;align:center;font:bold 9 Gulim;" right="139" top="120"/>
+        <Static id="Static02" taborder="15" text="변경" width="60" height="20" style="background:#ffff55ff;border:1 solid #808080ff ;align:center;font:bold 9 Gulim;" right="77" top="120"/>
+        <Static id="Static03" taborder="16" text="사용안함" width="60" height="20" style="background:#ff5555ff;border:1 solid #808080ff ;align:center;font:bold 9 Gulim;" right="15" top="120"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_uploadresult" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_hanaro" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_DSC" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BLG_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_NAME" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_DSC" type="STRING" size="256"/>
+          <Column id="ORG_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="ORG_BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="ORG_CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="STATE" type="STRING" size="256"/>
+          <Column id="ORG_BLG_NA_BZPLC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_hanaro_new" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_hanaro_new_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_DSC" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BLG_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_ID" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_HIGH" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_NAME" type="STRING" size="256"/>
+          <Column id="ORG_DEPT_DSC" type="STRING" size="256"/>
+          <Column id="ORG_NA_BZPLC" type="STRING" size="256"/>
+          <Column id="ORG_BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="ORG_CHIEF_ENO" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="STATE" type="STRING" size="256"/>
+          <Column id="CHG_CNTN" type="STRING" size="256"/>
+          <Column id="ORG_BLG_NA_BZPLC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_result" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ACTIVE" type="STRING" size="256"/>
+          <Column id="INACTIVE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cbodsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="NAME">본부</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="NAME">직영점</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_search.edt_data00" propid="value" datasetid="ds_uploadresult" columnid="ORGFNAME"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.wv_excel;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.fn_afterFormOnload = function() //onload
+{
+	var fileParam = {
+		form:this,
+		param:[{//필요없는 프로퍼티는 주석처리
+				fileObj: this.div_search.FileUpload00,
+				maxSize:10, //허용할 파일 사이즈(MB)
+				maxLength:1, //허용할 파일갯수
+				ext:['xlsx'], //허용할 확장자명
+				cancel_after:function(obj) { //파일선택후, 취소버튼 눌렀을때 실행할 함수명 또는 함수
+					this.form.div_search.txa_excel00.set_value(""); //this대신 this.form으로 접근
+				},
+				valid_after_fail: 'FileUpload00_onerror', //파일검사 실패후 호출할 함수명 또는 함수
+				upload_after_succ: 'FileUpload00_onsuccess', //파일 업로드 성공후 호출할 함수명 또는 함수
+				upload_after_fail: 'FileUpload00_onerror' //파일 업로드 실패후 호출할 함수명 또는 함수
+			}]
+	};
+	this.gfn_addEventFileUpload(fileParam);
+	
+	this.btn_search.click();
+}
+
+//UPLOAD
+this.FileUpload00_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if (e.datasets == null) {
+		trace("업로드 실패");
+	} else {
+		trace("업로드 성공");
+		this.ds_uploadresult.clear();
+		this.ds_uploadresult.copyData(e.datasets[0]);
+	}
+}
+
+this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/mg/nh/retrieveOrgNhData";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_hanaro=ds_hanaro";
+	var sArgument     = "t=D";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_registerSvcDS(sSvcID, this.ds_hanaro, false);
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+
+this.btn_clear00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+this.div_search_btn_find_file00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_uploadXls();
+}
+
+this.fn_uploadXls = function()
+{
+	if (this.gfn_isEmpty(this.div_search.edt_data00.value) == "") {
+		this.alert("파일을 선택해 주세요");
+		return false;
+	}
+
+	var params = "t=D sysFileNm="+this.ds_uploadresult.getColumn(0, "SYSTEMFILENAME");
+	var sSvcID = "p_upload"; //통신아이디
+
+	var sURL = "svc::rest/mg/nh/uploadXls"; // 호출할 서버 페이지 주소
+	var sInDatasets = ""; //보내는데이터셋
+	var sOutDatasets = "ds_hanaro_new=ds_hanaro";
+	var sArgument = params; // 파라미터
+	var sCallbackFunc = "fn_callBack"; //콜백
+	var tranType = "U"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_registerSvcDS(sSvcID, this.ds_hanaro_new, false);
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (!this.fn_validation()) {
+		return;
+	}
+	
+	var sSvcID        = "p_save";//통신아이디
+	var sURL          = "svc::rest/mg/nh/insertHanaroDeptData";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_hanaro=ds_hanaro_new";//보내는데이터셋
+	var sOutDatasets  = "ds_result=ds_result";
+	var sArgument     = "xls=Y";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_validation = function()
+{
+	for (var i=0; i<this.ds_hanaro_new.rowcount; i++) {	
+		if (this.ds_hanaro_new.getRowType(i) == Dataset.ROWTYPE_UPDATE) {
+			var deptNm = this.gfn_nullToEmpty(this.ds_hanaro_new.getColumn(i, "DEPT_NAME"));
+			var deptHigh = this.gfn_nullToEmpty(this.ds_hanaro_new.getColumn(i, "DEPT_HIGH"));
+			var deptDsc = this.gfn_nullToEmpty(this.ds_hanaro_new.getColumn(i, "DEPT_DSC"));
+			var naBzplc = this.gfn_nullToEmpty(this.ds_hanaro_new.getColumn(i, "NA_BZPLC"));
+			var bizNumber = this.gfn_nullToEmpty(this.ds_hanaro_new.getColumn(i, "BIZ_NUMBER"));
+			
+			if (this.gfn_isNull(this.gfn_trim(deptHigh))) {
+				this.alert("상위사무소코드를 공백으로 입력할 수 없습니다.");
+				return false;
+			} else if (this.gfn_isNull(this.gfn_trim(deptNm))) {
+				this.alert("사무소명을 공백으로 입력할 수 없습니다.");
+				return false;
+			} else if (this.gfn_isNull(this.gfn_trim(deptDsc))) {
+				this.alert("사무소유형을 공백으로 입력할 수 없습니다.");
+				return false;
+			} else if (this.gfn_isNull(this.gfn_trim(naBzplc))) {
+				this.alert("사업장코드를 공백으로 입력할 수 없습니다.");
+				return false;
+			} else if (this.gfn_isNull(this.gfn_trim(bizNumber))) {
+				this.alert("사업자번호를 공백으로 입력할 수 없습니다.");
+				return false;
+			}
+		}
+	}
+	return this.confirm("저장하시겠습니까?\n\n(※ 저장 시 기존 사무소코드가 제외되면 '사용안함' 상태로 변경됩니다.)");
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	this.gfn_svcDsToggle(svcID, true);
+	
+	if (ErrorCode < 0) {
+		if (svcID=="p_upload") {
+			this.alert(ErrorMsg);
+		} else {
+			if (ErrorCode == "-999") {
+				this.alert(ErrorMsg);
+			} else {
+				this.gfn_getMessage("alert", ErrorMsg);
+			}
+			return;
+		}
+	} else {
+		if (svcID=="p_upload") {
+			if (ErrorMsg != "SUCCESS") {
+				this.alert(ErrorMsg + "\n\n오류가 발생한 행 데이터는 반영되지 않습니다.");
+			}
+			this.fn_enableSave();
+		} else if (svcID=="p_save") {
+			this.alert("정상적으로 저장되었습니다.");
+			this.reload();
+		}
+	}
+}
+
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+/*sample 다운로드 클릭*/
+this.btn_sample_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strDownUrl = application.gv_serverAdmin_url+"rest/mg/nh/excelHanaroData?t=D&sample=Y";
+	excelDownHandler(strDownUrl, this);
+	/*
+	if (this.gfn_isNull(this.wv_excel)) {
+		this.wv_excel = this.gfn_createWebBorwserComponent(this);
+	}
+	this.wv_excel.set_url(strDownUrl);
+	*/
+}
+
+this.btn_data_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (this.ds_hanaro.rowcount == 0) {
+		this.alert("등록된 데이터가 없어 샘플 데이터 양식으로 다운로드합니다.");
+		this.btn_sample_onclick();
+		return;
+	}
+	var strDownUrl = application.gv_serverAdmin_url+"rest/mg/nh/excelHanaroData?t=D&use=" + this.div_search.chk_use.value;
+	excelDownHandler(strDownUrl, this);
+	/*
+	if (this.gfn_isNull(this.wv_excel)) {
+		this.wv_excel = this.gfn_createWebBorwserComponent(this);
+	}
+	this.wv_excel.set_url(strDownUrl);
+	*/
+}
+
+this.STATE = ["NONE", "ADD", "MOD"];
+this.NONE = 0;
+this.ADD = 1;
+this.MOD = 2;
+this.TEMP_CHG; // 행 수정시 초기화됨(ds_hanaro_oncolumnchanged)
+
+this.ds_hanaro_new_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	var i = e.row;
+	if (this.ds_hanaro_new.getRowType(i) == Dataset.ROWTYPE_UPDATE) {
+		var state = this.ds_hanaro_new.getColumn(i, "STATE");
+		if (state == "NEW") {
+			// 신규는 내용 수정여부에 관계없이 상태값이 변하지 않음
+			return;
+		}
+		
+		var curState = this.NONE;
+		this.TEMP_CHG = "";
+		
+		curState = this.fn_compare(curState, i, "DEPT_ID");
+		curState = this.fn_compare(curState, i, "DEPT_NAME");
+		curState = this.fn_compare(curState, i, "DEPT_HIGH");
+		curState = this.fn_compare(curState, i, "DEPT_DSC");
+		curState = this.fn_compare(curState, i, "NA_BZPLC");
+		curState = this.fn_compare(curState, i, "BLG_NA_BZPLC");
+		curState = this.fn_compare(curState, i, "BIZ_NUMBER");
+		curState = this.fn_compare(curState, i, "CHIEF_ENO");
+		curState = this.fn_compare(curState, i, "USE_YN");
+		
+		if (curState != this.NONE) {
+			this.ds_hanaro_new.setColumn(i, "CHG_CNTN", this.TEMP_CHG);
+		} else if (curState == this.NONE) {
+			this.ds_hanaro_new.setColumn(i, "CHG_CNTN", "");
+		}
+		
+		this.ds_hanaro_new.setColumn(i, "STATE", this.STATE[curState]);
+		this.fn_enableSave();
+	}
+}
+
+/**
+ * 저장버튼 활성화
+ */
+this.fn_enableSave = function()
+{
+	if (this.ds_hanaro_new.findRow("STATE", "NEW") != -1) { this.btn_save.set_enable(true); return; }
+	if (this.ds_hanaro_new.findRow("STATE", "ADD") != -1) { this.btn_save.set_enable(true); return; }
+	if (this.ds_hanaro_new.findRow("STATE", "MOD") != -1) { this.btn_save.set_enable(true); return; }
+	if (this.ds_hanaro_new.findRow("STATE", "DEL") != -1) { this.btn_save.set_enable(true); return; }
+	this.btn_save.set_enable(false);
+}
+
+/**
+ * 변경데이터 확인
+ */
+this.fn_compare = function(curState, idx, col)
+{
+	var state = this.NONE;
+	var before = this.ds_hanaro_new.getOrgColumn(idx, "ORG_" + col);
+	var after = this.ds_hanaro_new.getColumn(idx, col);
+	if (col == "BLG_NA_BZPLC" && !this.gfn_isNull(after)) {
+		// 소속사업장 입력값 정리
+		after = after.replace(/([^0-9\,])|(,+$)|(^,+)/g, ""); // 숫자와 콤마만 남기기
+		after = after.replace(/(?:,)+/g, ","); // 연속된 콤마 하나로 합치기
+		after = after.replace(/(,+$)|(^,+)/g, ""); // 앞뒤 콤마 제거
+		this.ds_hanaro_new.setColumn(idx, col, after);
+	}
+	
+	// if (this.gfn_isNull(before) && this.gfn_nullToEmpty(after) != "") {
+	//	state = this.ADD;
+	if (this.gfn_nullToEmpty(before) != this.gfn_nullToEmpty(after)) {
+		state = this.MOD;
+		this.TEMP_CHG += this.gfn_isNull(this.TEMP_CHG) ? col : "|"+col;
+	}
+	
+	if (state > curState) {
+		curState = state;
+	}
+	return curState;
+}
+
+this.div_list_grd_after_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 8) {
+		if (this.confirm("리스트에서 제외하시겠습니까?")) {
+			this.ds_hanaro_new.deleteRow(e.row);
+			this.fn_enableSave();
+		}
+	}
+}
+
+/**
+ * 수정항목 글자색상 변경
+ * expr:dataset.parent.fn_chgCellColor(currow, this._col)
+ */
+this.fn_chgCellColor = function(row, col)
+{
+	var state = this.ds_hanaro_new.getColumn(row, "STATE");
+	if (state == "MOD") {
+		var cell = this.div_list.grd_after.getCellProperty("body", col, "text");
+		var bindCol = cell.substr(5);
+		var chgCol = this.ds_hanaro_new.getColumn(row, "CHG_CNTN");
+		var reg = new RegExp('\\b(?!_)('+bindCol+')', 'g');
+		if (reg.test(chgCol)) {
+			return "#0000ffff";
+		}
+	}
+	return "#000000ff";
+}]]></Script>
+  </Form>
+</FDL>

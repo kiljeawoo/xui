@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="456" height="329" titletext="데이터팝업" cssclass="frm_WF_PopupBg">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="5" binddataset="grd01" useinputpanel="false" left="17" top="47" right="17" height="226" autofittype="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="106"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" text="Column3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Column1"/>
+                <Cell col="2" text="bind:Column2"/>
+                <Cell col="3" text="bind:Column3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button65" taborder="6" text="확인" cssclass="btn_WF_Popup" left="327" top="283" width="54" height="29"/>
+        <Button id="Button00" taborder="7" text="취소" cssclass="btn_WF_Popup" left="383" top="283" width="54" height="29"/>
+        <Static id="Static01" taborder="8" text="17" visible="false" left="363" top="312" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="9" text="10" visible="false" left="363" top="273" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="10" text="15" visible="false" left="363" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static00" taborder="11" text="17" visible="false" left="439" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="12" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Button id="Button01" taborder="13" cssclass="btn_WF_PopupClose" left="419" top="0" width="37" height="32"/>
+        <Static id="Static06" taborder="14" text="팝업타이틀" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="grd01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">가나다라마</Col>
+            <Col id="Column1">123456789</Col>
+            <Col id="Column2">abcdefgh</Col>
+            <Col id="Column3">가나다라마</Col>
+          </Row>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8221" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="동영상 교육" onload="form_onload" cssclass="div_Video_scroll">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="2" text="15" visible="false" left="788" top="0" width="1.87%" height="490" style="background:#00ffffb5;"/>
+        <Div id="div_search" taborder="7" left="0" top="29" height="43" scrollbars="none" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="sta_status" taborder="41" text="대분류" cssclass="sta_WFSA_Label" left="15" top="10" height="21" index="0" width="77"/>
+              <Static id="cbo_status00" taborder="44" text="중분류" cssclass="sta_WFSA_Label" left="200" top="10" height="21" index="0" width="77"/>
+              <Combo id="cbo_menuLvl01" taborder="45" codecolumn="MENU_ID" datacolumn="MENU_NM" index="-1" onitemchanged="cbo_menuLvl01_onitemchanged" left="263" top="10" height="21" width="99" innerdataset="@ds_menuM"/>
+              <Static id="cbo_status01" taborder="46" text="메뉴명" cssclass="sta_WFSA_Label" left="385" top="10" width="77" height="21" index="0"/>
+              <Combo id="cbo_menuLvl02" taborder="47" codecolumn="MENU_ID" datacolumn="MENU_NM" index="-1" onitemchanged="cbo_menuLvl02_onitemchanged" left="448" top="10" width="170" height="21" innerdataset="@ds_menuS"/>
+              <Static id="cbo_status02" taborder="48" text="강의명" cssclass="sta_WFSA_Label" left="642" top="10" width="77" height="21" index="0"/>
+              <Edit id="edt_menuNm" taborder="48" readonly="false" left="705" top="10" height="21" width="170" oneditclick="div_search_edt_menuNm_oneditclick" visible="true"/>
+              <Combo id="cbo_menuLvl00" taborder="49" innerdataset="@ds_menuD" codecolumn="MENU_ID" datacolumn="MENU_NM" onitemchanged="cbo_menuLvl00_onitemchanged" left="78" top="10" width="99" height="21" index="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="9" left="0" top="71" bottom="0" width="98.13%" scrollbars="autoboth">
+          <Layouts>
+            <Layout>
+              <Button id="btn_flag" taborder="0" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="46.04%" top="0" width="62" height="12"/>
+              <Grid id="grd_comncList" taborder="1" binddataset="ds_videoList" useinputpanel="false" cellsizingtype="col" autofittype="col" oncellclick="grd_oncellclick" left="0" top="26" right="0" bottom="45" style="font:11 Gulim;" autosizingtype="none">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="66"/>
+                      <Column size="80"/>
+                      <Column size="116"/>
+                      <Column size="33"/>
+                      <Column size="112"/>
+                      <Column size="259"/>
+                      <Column size="52"/>
+                      <Column size="62"/>
+                      <Column size="44"/>
+                      <Column size="77"/>
+                      <Column size="75"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none" text="선택"/>
+                      <Cell col="1" text="대분류"/>
+                      <Cell col="2" text="중분류"/>
+                      <Cell col="3" text="메뉴명"/>
+                      <Cell col="4" colspan="2">
+                        <Cell/>
+                        <Cell col="1" style="align:left;" text="        강의명"/>
+                      </Cell>
+                      <Cell col="6" text="내용"/>
+                      <Cell col="7" text="강의시간"/>
+                      <Cell col="8" text="등록일"/>
+                      <Cell col="9" text="조회수"/>
+                      <Cell col="10" text="동영상파일명"/>
+                      <Cell col="11" text="이미지파일명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHK" autosizecol="none"/>
+                      <Cell col="1" style="font:11 arial;selectfont:11 arial;" text="bind:MENU_D"/>
+                      <Cell col="2" style="font:11 arial;selectfont:11 arial;" text="bind:MENU_M"/>
+                      <Cell col="3" style="font:11 arial;selectfont:11 arial;" text="bind:MENU_S"/>
+                      <Cell col="4" colspan="2" style="font:11 arial;selectfont:11 arial;">
+                        <Cell displaytype="image" style="align:left;" expr="expr:&quot;theme://images/Icon_VideoPlay.png&quot;"/>
+                        <Cell col="1" style="align:left;padding:0 0 0 5;font:11 arial;selectfont:11 arial;" text="bind:MENU_NM"/>
+                      </Cell>
+                      <Cell col="6" edittype="textarea" style="align:left;padding:0 0 0 10;font:11 arial;selectfont:11 arial;" text="bind:VIDEO_DSC" wordwrap="char" autosizecol="default"/>
+                      <Cell col="7" displaytype="normal" edittype="text" style="font:11 arial;selectfont:11 arial;" text="bind:VIDEO_LNGTH"/>
+                      <Cell col="8" displaytype="normal" style="font:11 arial;selectfont:11 arial;" text="bind:FSRG_DTM"/>
+                      <Cell col="9" displaytype="normal" style="font:11 arial;selectfont:11 arial;" text="bind:INQ_CN"/>
+                      <Cell col="10" style="font:11 arial;selectfont:11 arial;" text="bind:VIDEO_FLNM"/>
+                      <Cell col="11" style="font:11 arial;selectfont:11 arial;" text="bind:IMG_FLNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_paging" taborder="2" url="common::pagingBTN.xfdl" left="28.55%" bottom="-1" width="338" height="29" style="align:center middle;" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_dtllist" taborder="13" left="833" top="0" width="98.13%" visible="false" scrollbars="autoboth" bottom="0">
+          <Layouts>
+            <Layout>
+              <Div id="div_list" taborder="0" top="10%" right="6" width="26.65%" height="16.94%"/>
+              <Div id="div_list00" taborder="1" top="30.99%" right="5" width="26.65%" height="63.22%"/>
+              <WebBrowser id="WebBrowser00" left="20" top="60" width="69.92%" height="86.53%" taborder="2"/>
+              <Static id="Static00" taborder="3" text="다음 동영상" onclick="Static00_onclick" top="29" right="19" width="25%" height="4.13%" style="font:bold 9 Gulim;"/>
+              <Static id="Static01" taborder="4" text="관련 동영상" top="26.73%" right="19" width="25%" height="4.08%" style="font:bold 9 Gulim;"/>
+              <Static id="Static02" taborder="5" visible="true" left="20" top="29" right="68.15%" height="29" style="font:bold 9 Gulim;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_close" taborder="15" text="목록" cssclass="btn_WF_CRUD" top="0" right="-713" width="73" height="21" visible="false" onclick="btn_close_onclick"/>
+        <Static id="Static02" taborder="16" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_insert" taborder="17" text="등록" onclick="btn_insert_onclick" cssclass="btn_WF_CRUD" top="0" right="125" width="41" height="21"/>
+        <Button id="btn_update" taborder="18" text="수정" onclick="btn_update_onclick" cssclass="btn_WF_CRUD" top="0" right="80" width="41" height="21"/>
+        <Button id="btn_search" taborder="20" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="0" right="18" width="58" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menuM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_LVL" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+          <Column id="MENU_PATH" type="string" size="32"/>
+          <Column id="UP_MENU_ID" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_menuS" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_LVL" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+          <Column id="MENU_PATH" type="string" size="32"/>
+          <Column id="UP_MENU_ID" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_menuD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_LVL" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+          <Column id="MENU_PATH" type="string" size="32"/>
+          <Column id="UP_MENU_ID" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_videoList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+          <Column id="VIDEO_FLNM" type="string" size="32"/>
+          <Column id="IMG_FLNM" type="string" size="32"/>
+          <Column id="MENU_PATH" type="string" size="32"/>
+          <Column id="CNT" type="string" size="32"/>
+          <Column id="VIDEO_LVL" type="STRING" size="32"/>
+          <Column id="VIDEO_LNGTH" type="STRING" size="32"/>
+          <Column id="FSRG_DTM" type="STRING" size="32"/>
+          <Column id="MENU_D" type="STRING" size="256"/>
+          <Column id="MENU_M" type="STRING" size="256"/>
+          <Column id="MENU_S" type="STRING" size="256"/>
+          <Column id="VIDEO_DSC" type="STRING" size="256"/>
+          <Column id="INQ_CN" type="STRING" size="32"/>
+          <Column id="TAGS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_param" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="cbo_menuLvl00" type="STRING" size="32"/>
+          <Column id="cbo_menuLvl01" type="STRING" size="32"/>
+          <Column id="cbo_menuLvl02" type="STRING" size="32"/>
+          <Column id="edt_menuNm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rcmdVideoList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+          <Column id="VIDEO_FLNM" type="string" size="32"/>
+          <Column id="IMG_FLNM" type="string" size="32"/>
+          <Column id="MENU_PATH" type="string" size="32"/>
+          <Column id="CNT" type="string" size="32"/>
+          <Column id="VIDEO_LVL" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rltdVideoList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+          <Column id="VIDEO_FLNM" type="string" size="32"/>
+          <Column id="IMG_FLNM" type="string" size="32"/>
+          <Column id="MENU_PATH" type="string" size="32"/>
+          <Column id="TAGS" type="string" size="32"/>
+          <Column id="VIDEO_LVL" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_m" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="32"/>
+          <Column id="CERT_ID" type="STRING" size="256"/>
+          <Column id="CERT_NAME" type="STRING" size="256"/>
+          <Column id="CERT_TYPE" type="STRING" size="256"/>
+          <Column id="SYS_NAME" type="STRING" size="256"/>
+          <Column id="SSL_URL" type="STRING" size="256"/>
+          <Column id="CN" type="STRING" size="256"/>
+          <Column id="CERT_PATH" type="STRING" size="256"/>
+          <Column id="NOT_BEFORE" type="STRING" size="256"/>
+          <Column id="NOT_AFTER" type="STRING" size="256"/>
+          <Column id="NOTIFICATION" type="STRING" size="256"/>
+          <Column id="MP_1" type="STRING" size="256"/>
+          <Column id="EMAIL_1" type="STRING" size="256"/>
+          <Column id="MP_2" type="STRING" size="256"/>
+          <Column id="EMAIL_2" type="STRING" size="256"/>
+          <Column id="HOST_NAME" type="STRING" size="256"/>
+          <Column id="IP_ADDRESS" type="STRING" size="256"/>
+          <Column id="RMK" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="BAS_YM">201809</Col>
+            <Col id="BSN_DSC">TX_BILL_MON</Col>
+            <Col id="TMS_DT">20181005</Col>
+            <Col id="TMS_YN">N</Col>
+            <Col id="SMS_TEXT">하나로 eSCM에서 확인 후 9월 10일까지 전자서명 부탁드립니다.</Col>
+            <Col id="FSRG_DTM">18/05/02</Col>
+            <Col id="FS_RGM">TX_SMS</Col>
+            <Col id="LSCHG_DTM">18/05/02</Col>
+            <Col id="LS_CHGM">TX_SMS</Col>
+          </Row>
+        </Rows>
+        -->
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_block" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="string" size="1"/>
+          <Column id="BLOCK_SQNO" type="string" size="12"/>
+          <Column id="BLOCK_TI" type="string" size="250"/>
+          <Column id="BLOCK_ST_DTM" type="STRING" size="30"/>
+          <Column id="BLOCK_ED_DTM" type="string" size="30"/>
+          <Column id="BLOCK_CNTN" type="string" size="250"/>
+          <Column id="BLOCK_PGM" type="STRING" size="20"/>
+          <Column id="BSN_DSC" type="STRING" size="16"/>
+          <Column id="BLOCK_STATE" type="STRING" size="1"/>
+          <Column id="UYN" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+      <Dataset id="ds_block_temp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+          <Column id="VIDEO_FLNM" type="string" size="32"/>
+          <Column id="IMG_FLNM" type="string" size="32"/>
+          <Column id="MENU_PATH" type="string" size="32"/>
+          <Column id="CNT" type="string" size="32"/>
+          <Column id="VIDEO_LVL" type="STRING" size="32"/>
+          <Column id="VIDEO_LNGTH" type="STRING" size="32"/>
+          <Column id="FSRG_DTM" type="STRING" size="32"/>
+          <Column id="MENU_D" type="STRING" size="256"/>
+          <Column id="MENU_M" type="STRING" size="256"/>
+          <Column id="MENU_S" type="STRING" size="256"/>
+          <Column id="VIDEO_DSC" type="STRING" size="256"/>
+          <Column id="INQ_CN" type="STRING" size="32"/>
+          <Column id="TAGS" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var menuId = "";
+var menuPath = "";
+var videoLvl = "";
+var videoFlm = "";
+var imgFlm = "";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분   
+   /*초기값세팅*/
+   
+   /*조회 호출*/
+	this.fn_callMenuList();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+/*숨김 버튼 클릭*/
+this.btn_flag_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+/*조회버튼 클릭*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_param.clearData();
+	this.ds_param.addRow();
+	
+	this.ds_param.setColumn(0, "edt_menuNm", this.div_search.edt_menuNm.value);
+	this.ds_param.setColumn(0, "cbo_menuLvl00", this.div_search.cbo_menuLvl00.value);
+	this.ds_param.setColumn(0, "cbo_menuLvl01", this.div_search.cbo_menuLvl01.value);
+	this.ds_param.setColumn(0, "cbo_menuLvl02", this.div_search.cbo_menuLvl02.value);
+	
+    var sSvcID        = "retrieveEducationVideoList";
+	var sURL          = "svc::rest/mg/edu/retrieveEducationVideoList";
+	var sInDatasets   = "ds_param=ds_param";
+	var sOutDatasets  = "ds_videoList=ds_videoList";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+ /*등록버튼 이벤트*/
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {paramMode:"I", dsArg:this.ds_block};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_8221_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/*수정버튼 이벤트*/
+this.btn_update_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+	var position =0 ;	//선택된 체크박스 위치
+	for (var i = 0 ; i < this.ds_videoList.rowcount; i++) {
+		if (this.ds_videoList.getColumn(i, "CHK") =="1") {
+			checkCnt = checkCnt +1;
+			position = i;
+		}
+	}
+	
+	this.ds_block_temp.clearData();
+	if (checkCnt > 1) {
+		alert("하나만 선택해주시기 바랍니다.");
+		return;
+	} else if(checkCnt == 0) {
+		alert("수정해야할 데이터를 선택해 주시기 바랍니다.");
+		return;
+	} else {
+		this.ds_block_temp.addRow();
+		this.ds_block_temp.copyRow(0,this.ds_videoList,position);
+		
+		var oArg = {paramMode:"U", dsArg:this.ds_block_temp};
+		var sOption = "autosize=true";
+		var sPopupCallBack = "fn_popupAfter";
+		this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_8221_P01.xfdl",oArg,sOption,sPopupCallBack);
+	}
+}
+
+/*대메뉴 선택시 중분류 콤보 세팅*/
+this.cbo_menuLvl00_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	//this.ds_menuM.setColumn(0,"UP_MENU_ID","00000000");	
+	var MENU_ID = this.div_search.cbo_menuLvl00.value;
+	var MENU_STR = MENU_ID.slice(0,2);
+	
+	if(MENU_ID == "00000000"){
+		this.ds_menuM.filter("");
+		this.ds_menuS.filter("");	
+	}else{
+		this.ds_menuM.filter("UP_MENU_ID=='"+MENU_ID+"' || MENU_ID=='00000000'");
+		this.ds_menuS.filter("String(MENU_ID).substr(0, 2).indexOf('" +  MENU_STR + "') >= 0 || MENU_ID=='00000000'");
+		this.div_search.edt_menuNm.set_value("");
+	}
+	
+	this.div_search.cbo_menuLvl01.set_index(0);
+	this.div_search.cbo_menuLvl02.set_index(0);
+	this.cbo_menuLvl02_onitemchanged();
+}
+
+/*중분류 선택시 소분류 콤보 세팅*/
+this.cbo_menuLvl01_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	var MENU_ID = this.div_search.cbo_menuLvl00.value;
+	var MENU_ID_M = this.div_search.cbo_menuLvl01.value;
+	var MENU_STR = MENU_ID.slice(0,2);
+	if(MENU_ID_M =="00000000"){
+		if(MENU_ID =="00000000"){
+         this.ds_menuS.filter("");
+		}else{
+         this.ds_menuS.filter("String(MENU_ID).substr(0, 2).indexOf('" +  MENU_STR + "') >= 0 || MENU_ID=='00000000'");
+		}
+	}else{
+      this.ds_menuS.filter("UP_MENU_ID=='"+MENU_ID_M+"' || MENU_ID=='00000000'");
+	}
+	
+	this.div_search.cbo_menuLvl02.set_index(0);
+	this.cbo_menuLvl02_onitemchanged();
+}
+
+/*소분류 선택시 메뉴명 세팅*/
+this.cbo_menuLvl02_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	var MENU_ID = this.div_search.cbo_menuLvl02.value;
+	
+	if(MENU_ID == "00000000"){
+		this.div_search.edt_menuNm.set_enable(true);
+	}else{
+		this.div_search.edt_menuNm.set_value("");
+		this.div_search.edt_menuNm.set_enable(false);
+	}
+}
+
+
+/*그리드 클릭*/
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (obj.currentcell == 4) {
+		menuId = this.ds_videoList.getColumn(this.ds_videoList.rowposition,"MENU_ID");
+		menuPath = this.ds_videoList.getColumn(this.ds_videoList.rowposition, "MENU_PATH");		//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+		videoLvl = this.ds_videoList.getColumn(this.ds_videoList.rowposition, "VIDEO_LVL");		//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+		videoFlm = this.ds_videoList.getColumn(this.ds_videoList.rowposition, "VIDEO_FLNM");	//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+		imgFlm = this.ds_videoList.getColumn(this.ds_videoList.rowposition, "IMG_FLNM");		//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+	
+		if (this.INIT) {
+			this.div_dtllist.WebBrowser00.callMethod("callShowVideo", imgFlm, videoFlm);
+		}
+		this.fn_retrieveVideoDetails(menuId, videoLvl);
+	} else {
+		return;
+	}
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*조회-서비스 Call*/ 
+this.fn_callMenuList = function()
+{
+	this.ds_param.clearData();
+	this.ds_param.addRow();
+	this.ds_param.setColumn(0, "cbo_menuLvl00", "0");
+	this.ds_param.setColumn(0, "cbo_menuLvl01", "1");
+	this.ds_param.setColumn(0, "cbo_menuLvl02", "2");
+	
+	var sSvcID        = "retrieveEducationMenuList";
+	var sURL          = "svc::rest/mg/edu/retrieveEducationMenuList";
+	var sInDatasets   = "ds_param=ds_param";
+	var sOutDatasets  = "ds_menuD=ds_menuD ds_menuM=ds_menuM ds_menuS=ds_menuS";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	trace("ErrorCode " + ErrorCode);
+	
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+	 	if (svcID == "retrieveEducationMenuList") {
+	 		this.div_search.cbo_menuLvl00.set_index(0);
+	 		this.div_search.cbo_menuLvl01.set_index(0);
+	 		this.div_search.cbo_menuLvl02.set_index(0);		
+	 		
+	 		this.btn_search_onclick();
+		} else if (svcID == "retrieveEducationVideoList") {
+			this.ds_menuS.getColumn(0, "MENU_NM");
+			//this.fn_ShowVideo();			
+		} else if(svcID == "videoDetails") {
+			this.btn_insert.set_visible(false);
+			this.btn_update.set_visible(false);
+			this.btn_search.set_visible(false);
+			this.div_search.set_visible(false);
+			this.div_list.set_visible(false);
+			this.btn_close.set_visible(true);
+			this.btn_close.set_right(15);
+			this.div_dtllist.set_visible(true);
+			this.div_dtllist.set_left(0);
+			this.div_dtllist.Static02.set_text(menuPath);	
+			this.fn_ShowVideoDtl();
+			this.fn_ShowRcmdVideo();
+			this.fn_ShowRltdVideo();
+		}
+	}	
+}
+
+ /*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{
+	this.btn_search.click();
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+/*비디오 표시*/
+this.fn_ShowVideo = function()
+{
+	var strTop = 10;
+	var strHeight = 30;
+	var strWidth = 280;
+	var strLeft = 20;
+	var strimgTop = 40;
+	var strimgHeight = 200;
+	var j = 0;
+	var childList = this.div_list.components;
+	
+	if(this.ds_videoList.getRowCount()==0){
+		for (var idx=childList.length-1; 0<=idx; idx--)
+		{
+		  if(childList[idx].id != "btn_flag"){
+			 var objRemove = this.div_list.removeChild(childList[idx].id);
+			 objRemove.destroy();
+			 objRemove = null;
+		  }
+		}
+		this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+    }else{	
+		for (var idx=childList.length-1; 0<=idx; idx--)
+		{
+		  if(childList[idx].id != "btn_flag"){
+			 var objRemove = this.div_list.removeChild(childList[idx].id);
+			 objRemove.destroy();
+			 objRemove = null;
+		  }
+		}
+	}	
+    
+	for(var i=0; i<this.ds_videoList.getRowCount(); i++){
+		var objStatic = new Static();  
+		objStatic.init("Static1"+i, "absolute", strLeft, strTop, 200, strHeight, null, null);
+		this.div_list.addChild("Static1"+i, objStatic); 
+		objStatic.show();
+		objStatic.set_text(this.ds_videoList.getColumn(i, "MENU_PATH"));	
+		
+		cnt = this.ds_videoList.getColumn(i, "CNT");
+		menuId = this.ds_videoList.getColumn(i, "MENU_ID");
+		
+		for(var k=0; k<cnt; k++){
+			var objImageViewer = new ImageViewer();
+			
+			if (k % 5 == 0 && k !== 0) {
+				strimgTop = strimgTop + strimgHeight + 20;
+				strLeft = 20;	
+			}
+			j=nexacro.toNumber(i)+nexacro.toNumber(k);
+			var strImgURL = application.gv_serviceHtml_url+"escm/Video/img/"+this.ds_videoList.getColumn(j, "IMG_FLNM");
+			
+			objImageViewer.init("ImageViewer"+j, "absolute", strLeft, strimgTop, strWidth, strimgHeight);
+			this.div_list.addChild("ImageViewer"+j, objImageViewer);
+			objImageViewer.show();
+			objImageViewer.set_image(strImgURL);
+			objImageViewer.setEventHandler("onclick", this.img_videoImage_onclick, this);
+			strLeft = strLeft + strWidth + 10;
+		}
+		strTop = strimgTop + strimgHeight + 30;
+		strimgTop = strTop + 30;
+		strLeft = 20;
+		i=nexacro.toNumber(i)+nexacro.toNumber(cnt)-1;
+		this.div_list.resetScroll();
+	}
+}
+
+/*기능 : 서비스 Call(동영상 상세 조회)*/ 
+this.fn_retrieveVideoDetails = function(menuId, videoLvl)
+{
+	var sParams       = "menuId="+this.gfn_nullToEmpty(menuId) +
+					    " videoLvl="+this.gfn_nullToEmpty(videoLvl);
+	var sSvcID        = "videoDetails";
+	var sURL          = "svc::rest/mg/edu/retrieveVideoDetails";
+	var sArgument     = sParams;
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_rcmdVideoList=ds_rcmdVideoList ds_rltdVideoList=ds_rltdVideoList";	
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.INIT = false;
+/*기능 : 상세 동영상 표시*/
+this.fn_ShowVideoDtl = function()
+{
+	if (!this.INIT) {
+		this.div_dtllist.WebBrowser00.set_url(application.gv_serviceHtml_url+"escm/Video/video.html");	//application.gv_serviceHtml_url    ?imgFlnm="+imgFlnm+"&videoFlnm="+videoFlnm
+		this.div_dtllist.WebBrowser00.setProperty("allowfullscreen", "");
+		this.div_dtllist.WebBrowser00.setEventHandler("onloadcompleted", this.fn_onloadcompleted, this);
+		this.INIT = true;
+	}
+}
+
+this.fn_onloadcompleted = function(obj:WebBrowser, e:nexacro.WebLoadCompEventInfo)
+{
+	obj.callMethod("callShowVideo", imgFlm, videoFlm);
+	
+}
+
+
+/*기능 : 추천 동영상 표시*/
+this.fn_ShowRcmdVideo = function()
+{
+	var strImgWidth = 168;	//86%
+	var strLeft = 0;
+	var strimgTop = 0;
+	var strimgHeight = 80;
+	var childList = this.div_dtllist.div_list.components;
+	
+	for (var idx=childList.length-1; 0<=idx; idx--)
+	{
+      if(childList[idx].id != "btn_flag"){
+      var objRemove = this.div_dtllist.div_list.removeChild(childList[idx].id);
+         objRemove.destroy();
+         objRemove = null;
+      }
+    }
+    
+	for(var i=0; i<this.ds_rcmdVideoList.getRowCount(); i++){
+		var objImageViewer = new ImageViewer();
+		var objStatic = new Static();  
+		
+		var strImgURL = application.gv_serviceHtml_url+"escm/Video/img/"+this.ds_rcmdVideoList.getColumn(i, "IMG_FLNM");	//'url("http://localhost:8080/nhvan/escm/Video/img/01001002.jpg")'
+		var strVideoDsc = this.ds_rcmdVideoList.getColumn(i, "VIDEO_DSC");
+		
+		objImageViewer.init("ImageViewer"+i, "absolute", strLeft, strimgTop, strImgWidth, strimgHeight);
+		objStatic.init("Static1"+i, "absolute", strLeft+strImgWidth+10, strimgTop, strImgWidth, strimgHeight, null, null);
+		objStatic.set_wordwrap("char");
+		objStatic.style.set_align("left top");
+		this.div_dtllist.div_list.addChild("ImageViewer"+i, objImageViewer);
+		this.div_dtllist.div_list.addChild("Static1"+i, objStatic);
+		objImageViewer.show();
+		objStatic.show();
+		objImageViewer.set_image(strImgURL);
+		objStatic.set_text(strVideoDsc);	
+		objImageViewer.setEventHandler("onclick", this.img_rcmdImage_onclick, this);
+		strimgTop = strimgTop + 90;
+	}
+		this.div_dtllist.div_list.resetScroll();
+}
+
+/*기능 : 관련동영상 표시*/
+this.fn_ShowRltdVideo = function()
+{
+	var strImgWidth = 168;	//86%
+	var strLeft = 0;
+	var strimgTop = 5;
+	var strimgHeight = 80;	
+	var childList = this.div_dtllist.div_list00.components;
+	
+	for (var idx=childList.length-1; 0<=idx; idx--)
+	{
+      var objRemove = this.div_dtllist.div_list00.removeChild(childList[idx].id);
+         objRemove.destroy();
+         objRemove = null;
+    }
+    
+	for(var i=0; i<this.ds_rltdVideoList.getRowCount(); i++){
+		var objImageViewer = new ImageViewer();
+		var objStatic = new Static();  
+		
+		var strImgURL = application.gv_serviceHtml_url+"escm/Video/img/"+this.ds_rltdVideoList.getColumn(i, "IMG_FLNM");	//'url("http://localhost:8080/nhvan/escm/Video/img/01001002.jpg")'
+		var strVideoDsc = this.ds_rltdVideoList.getColumn(i, "VIDEO_DSC");
+		
+		objImageViewer.init("ImageViewer"+i, "absolute", strLeft, strimgTop, strImgWidth, strimgHeight);
+		objStatic.init("Static1"+i, "absolute", strLeft+strImgWidth+10, strimgTop, strImgWidth, strimgHeight, null, null);
+		objStatic.set_wordwrap("char");
+		objStatic.style.set_align("left top");
+		this.div_dtllist.div_list00.addChild("ImageViewer"+i, objImageViewer);
+		this.div_dtllist.div_list00.addChild("Static1"+i, objStatic);
+		objImageViewer.show();
+		objStatic.show();
+		objImageViewer.set_image(strImgURL);
+		objStatic.set_text(strVideoDsc);	
+		objImageViewer.setEventHandler("onclick", this.img_rltdImage_onclick, this);
+		strimgTop = strimgTop + 90;
+	}
+		this.div_dtllist.div_list00.resetScroll();
+}
+
+this.btn_close_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.btn_search.set_visible(true);
+	this.div_search.set_visible(true);
+	this.div_list.set_visible(true);
+	this.btn_close.set_visible(false);
+	this.div_dtllist.set_visible(false);
+	this.div_dtllist.WebBrowser00.callMethod("stopVideo");
+	this.btn_insert.set_visible(true);
+	this.btn_update.set_visible(true);
+}
+
+/*이벤트 : 추천 동영상 이미지 클릭*/
+this.img_rcmdImage_onclick = function(obj:ImageViewer, e:nexacro.ClickEventInfo)
+{
+	menuId = this.ds_rcmdVideoList.getColumn(obj.id.substr(11), "MENU_ID");	//이미지 ID(ImageViewer0~)에 해당하는 메뉴 아이디 가져오기
+	menuPath = this.ds_rcmdVideoList.getColumn(obj.id.substr(11), "MENU_PATH");	//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+	videoLvl = this.ds_rcmdVideoList.getColumn(obj.id.substr(11), "VIDEO_LVL");	//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+	imgFlm = this.ds_rcmdVideoList.getColumn(obj.id.substr(11),"IMG_FLNM");
+	videoFlm = this.ds_rcmdVideoList.getColumn(obj.id.substr(11),"VIDEO_FLNM");
+	
+	this.div_dtllist.WebBrowser00.callMethod("callShowVideo", imgFlm, videoFlm);
+	this.fn_retrieveVideoDetails(menuId, videoLvl);	//동영상 상세 조회
+}
+
+/*이벤트 : 관련 동영상 이미지 클릭*/
+this.img_rltdImage_onclick = function(obj:ImageViewer, e:nexacro.ClickEventInfo)
+{
+	menuId = this.ds_rltdVideoList.getColumn(obj.id.substr(11), "MENU_ID");	//이미지 ID(ImageViewer0~)에 해당하는 메뉴 아이디 가져오기
+	menuPath = this.ds_rltdVideoList.getColumn(obj.id.substr(11), "MENU_PATH");	//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+	videoLvl = this.ds_rltdVideoList.getColumn(obj.id.substr(11), "VIDEO_LVL");	//이미지 ID(ImageViewer0~)에 해당하는 메뉴 경로 가져오기
+	imgFlm = this.ds_rltdVideoList.getColumn(obj.id.substr(11),"IMG_FLNM");
+	videoFlm = this.ds_rltdVideoList.getColumn(obj.id.substr(11),"VIDEO_FLNM");
+	
+	this.div_dtllist.WebBrowser00.callMethod("callShowVideo", imgFlm, videoFlm);
+	this.fn_retrieveVideoDetails(menuId, videoLvl);	//동영상 상세 조회
+}
+
+]]></Script>
+  </Form>
+</FDL>

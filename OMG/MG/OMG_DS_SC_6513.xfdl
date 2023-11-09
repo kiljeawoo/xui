@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6513" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="청구및 납부내역" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static87" taborder="1" text="17" visible="false" left="98.13%" top="1" height="1195" style="background:#dc143c5b;" width="15"/>
+        <Static id="Static40" taborder="9" text="20" visible="false" left="1.12%" top="445" right="-26.28%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static41" taborder="10" text="20" visible="false" left="2.86%" top="613" right="-22.54%" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static89" taborder="13" text="청구 및 납부내역" cssclass="sta_WF_Subtitle" left="1.49%" top="9" right="78.08%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Grid id="grd_result" taborder="65" binddataset="ds_dataD" useinputpanel="false" autofittype="col" left="1.49%" top="39" height="207" right="15">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사용월"/>
+                <Cell col="1" text="사용료"/>
+                <Cell col="2" text="할인할증"/>
+                <Cell col="3" text="공급가"/>
+                <Cell col="4" text="부가세"/>
+                <Cell col="5" text="청구액"/>
+                <Cell col="6" text="반영액"/>
+                <Cell col="7" text="잔액"/>
+                <Cell col="8" text="납부상태"/>
+                <Cell col="9" text="입금일"/>
+                <Cell col="10" text="방법"/>
+                <Cell col="11" text="은행"/>
+                <Cell col="12" text="계좌번호"/>
+                <Cell col="13" text="적요"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center middle;" cssclass="Cellgrd_WF_AlignRight" mask="####/##"/>
+                <Cell col="1" displaytype="number"/>
+                <Cell col="2" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="3" displaytype="number" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="4" displaytype="number" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="5" displaytype="number" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="6" displaytype="number"/>
+                <Cell col="7" displaytype="number"/>
+                <Cell col="8"/>
+                <Cell col="9" mask="####-##-##"/>
+                <Cell col="10"/>
+                <Cell col="11"/>
+                <Cell col="12"/>
+                <Cell col="13"/>
+              </Band>
+              <Band id="summary">
+                <Cell style="align:center;" text="합계"/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+                <Cell col="6"/>
+                <Cell col="7"/>
+                <Cell col="8"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+                <Cell col="11"/>
+                <Cell col="12"/>
+                <Cell col="13"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static06" taborder="66" text="17" visible="false" left="0%" top="1" right="98.51%" height="1195" style="background:#dc143c5b;"/>
+        <Static id="Static28" taborder="67" text="납부방식 변경내역" cssclass="sta_WF_Subtitle" left="1.49%" top="265" right="79.7%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Static id="Static29" taborder="68" text="20" visible="false" left="1.49%" top="246" right="-23.91%" height="20" style="background:#dc143c5b;"/>
+        <Grid id="grd_result00" taborder="69" binddataset="ds_dataD" useinputpanel="false" autofittype="col" left="1.49%" top="287" height="159" right="15">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="46"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="123"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="92"/>
+                <Column size="123"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="순번"/>
+                <Cell col="1" rowspan="2" text="변경일자"/>
+                <Cell col="2" colspan="5" text="변경전"/>
+                <Cell col="7" colspan="5" text="변경후"/>
+                <Cell row="1" col="2" text="방법"/>
+                <Cell row="1" col="3" text="은행"/>
+                <Cell row="1" col="4" text="계좌번호"/>
+                <Cell row="1" col="5" text="출금일"/>
+                <Cell row="1" col="6" text="사업자/주민번호"/>
+                <Cell row="1" col="7" text="방법"/>
+                <Cell row="1" col="8" text="은행"/>
+                <Cell row="1" col="9" text="계좌번호"/>
+                <Cell row="1" col="10" text="출금일"/>
+                <Cell row="1" col="11" text="사업자/주민번호"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1" style="align:center middle;" cssclass="Cellgrd_WF_AlignRight" mask="####/##/##"/>
+                <Cell col="2"/>
+                <Cell col="3" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="4" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="5" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="6" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="7" displaytype="normal"/>
+                <Cell col="8"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+                <Cell col="11"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="70" text="통장입금내역" cssclass="sta_WF_Subtitle" left="1.49%" top="465" right="79.7%" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+        <Grid id="grd_result01" taborder="71" binddataset="ds_dataD" useinputpanel="false" autofittype="col" left="1.49%" top="487" right="15" bottom="-124">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="160"/>
+                <Column size="92"/>
+                <Column size="144"/>
+                <Column size="92"/>
+                <Column size="218"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="입금반영일자"/>
+                <Cell col="1" text="은행"/>
+                <Cell col="2" displaytype="number" text="입금반영금액"/>
+                <Cell col="3" text="납부방식"/>
+                <Cell col="4" text="적요"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center middle;" cssclass="Cellgrd_WF_AlignRight" mask="####/##/##"/>
+                <Cell col="1" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="2" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="3" cssclass="Cellgrd_WF_AlignRight"/>
+                <Cell col="4" cssclass="Cellgrd_WF_AlignRight"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+   this.grd_result.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+   this.grd_result00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+   this.grd_result01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분   
+   /*초기값세팅*/   
+   this.div_search.cbo_PAY_STS_C.set_index(0);
+   this.div_search.cbo_PRC_STSC.set_index(0);
+   this.div_search.cbo_pageNum.set_index(0);
+   
+   /*조회 호출*/
+   this.btn_search.click();  
+   
+}
+ 
+ 
+ /*조회*/
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);// 처음조회시 1페이지를 조회한다.
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+ /*Paging 처리*/
+this.fn_paging = function(vPageNum)
+{ 	  	 
+	this.ds_pageVO.clearData();
+	this.ds_mb.clearData();     //Grid에 Binding된 Dataset명
+	
+	this.ds_pageVO.addRow(); 
+	
+	var vPageSize   = this.div_search.cbo_pageNum.value; //Grid에 보여줄 Row수 선택
+	var vTotalCount = 0;	//전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	this.fn_retrieveMbInqList();
+} 
+
+/*조회-서비스 Call*/ 
+this.fn_retrieveMbInqList = function()
+{
+	var sParams = "MB_ID="+this.gfn_nullToEmpty(this.div_search.edt_MB_ID.value)
+				+ " USR_NM="+this.gfn_nullToEmpty(this.div_search.edt_USR_NM.value)
+				+ " PAY_STS_C="+this.gfn_nullToEmpty(this.div_search.cbo_PAY_STS_C.value)
+				+ " NA_TRPL_C="+this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value)
+				+ " CLNTNM="+this.gfn_nullToEmpty(this.div_search.edt_CLNTNM.value)
+				+ " PRC_STSC="+this.gfn_nullToEmpty(this.div_search.cbo_PRC_STSC.value)
+				;
+	
+	var sSvcID        = "mbList";
+	var sURL          ="svc::rest/mg/mbcslt/retrieveMbInqList";	
+	 
+	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_mb=ds_mb ds_pageVO=ds_pageVO" ;	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*팝업호출확인하기*/
+this.fn_popupAfter = function(strId, strVal)
+{	
+	this.btn_search.click();  
+}
+
+
+ /*체크박스선택시 이벤트*/
+this.Div02_Grid01_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	if(e.cell == 0) {
+		this.gfn_setGridCheckAll(obj,e);
+	}
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0,"PAGE_SIZE");
+	var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	this.ds_mb.addColumn("CHK", "string");
+	this.ds_mb.addColumn("NUMBER", "string");
+	
+	for(var i = 0 ; i < this.ds_mb.rowcount; i++)
+	{
+		this.ds_mb.setColumn(i,"CHK",0);
+	 	//this.ds_mb.setColumn(i,"NUMBER",(current_page-1)*(page_size)+(i+1));
+		this.ds_mb.setColumn(i,"NUMBER",sTotal - (current_page-1) * page_size - i);
+	}
+	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "mbList"){			
+	 		if(this.ds_mb.rowcount > 0)
+				{ 		
+					this.div_list.div_paging.fn_pageSet(sTotal, page_size,"div_paging",current_page);	
+				}	
+	 		else if(this.ds_mb.rowcount == 0){
+	 			//this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 			this.div_list.div_paging.fn_pageSet(0, 0,"div_paging",current_page);
+	 		}
+		}else{
+			if(this.ds_mb.rowcount == 0){
+				//this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		}
+		this.resetScroll();	
+	}	
+}
+ 
+
+this.btn_MB_INF_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var checkCnt =0 ;	//선택된 체크박스 개수
+	var position =0 ;	//선택된 체크박스 위치
+	for(var i = 0 ; i < this.ds_mb.rowcount; i++){		
+		if(this.ds_mb.getColumn(i, "CHK") =="1"){
+			checkCnt = checkCnt +1;			
+			position = i;
+		}
+	}
+
+	if(checkCnt > 1){
+		alert("하나만 선택해주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	}else if(checkCnt == 0){
+		alert("회원정보를 보기 위한 회원을 선택해 주시기 바랍니다.");
+		this.ds_param.clearData();
+		return;
+	}else{
+		var mb_id = this.ds_mb.getColumn(this.ds_mb.rowposition, "MB_ID");
+		alert("MB_ID=" + mb_id);
+		var oArg = {paramMode:"U", dsArg:this.ds_mb, MB_ID:mb_id};
+		var sOption = "autosize=true,title=true";
+		var sPopupCallBack = "fn_popupAfter";       
+		//this.gfn_openPopup("popId","OMG.MG::OMG_DS_SC_6511.xfdl",oArg,sOption,sPopupCallBack);
+	}
+}
+
+]]></Script>
+  </Form>
+</FDL>

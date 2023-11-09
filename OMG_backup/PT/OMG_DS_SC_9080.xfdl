@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_9080" classname="OMG_DS_SC_3212" left="0" top="0" width="458" height="129" titletext="계약서 확인" onload="OMG_DS_SC_9080_onload" style="border:2 solid #067394ff ;" visible="true" scrollbars="none" onkeydown="OMG_DS_SC_9080_onkeydown">
+    <Layouts>
+      <Layout>
+        <Static id="btn_newTop" taborder="14" cssclass="sta_WF_Menulist" left="0" top="0" width="456" height="30" text="계약서 확인"/>
+        <Button id="btn_Close" taborder="15" cssclass="btn_WF_PopupClose" left="416" top="0" width="37" height="30" onclick="btn_Close_onclick"/>
+        <Div id="div_search" taborder="18" left="17" top="40" right="17" height="39" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static02" taborder="1" text="계약서 확인번호" cssclass="sta_WFSA_Label" left="15" top="8" width="120" height="21"/>
+              <Static id="Static03" taborder="4" text="10" visible="false" left="0" top="-4" width="15" height="800" style="background:#dc143c5b;"/>
+              <Edit id="edt_eltCtrwNo" taborder="11" left="138" top="8" right="46" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="32" text="10" visible="false" left="213" top="69" width="103" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="33" text="10" visible="false" left="347" top="79" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="34" text="10" visible="false" left="344" top="118" width="91" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_cancel" taborder="35" text="취소" onclick="btn_cancel_onclick" cssclass="btn_WF_Popup" top="89" right="17" width="42" height="29"/>
+        <Button id="btn_ok" taborder="36" text="확인" onclick="btn_confirm_onclick" cssclass="btn_WF_Popup" top="89" right="61" width="54" height="29"/>
+        <Static id="Static00" taborder="37" text="10" visible="false" left="355" top="30" width="91" height="10" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs"
+
+this.OMG_DS_SC_9080_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	this.gfn_setInitForm(obj, e); //공통
+
+}
+
+
+
+this.fn_popupAfter = function(strId, strVal)
+{
+
+}
+
+this.fn_afterFormOnload = function()
+{
+
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+	
+}
+
+this.btn_Close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+this.btn_confirm_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var edtEltCtrwNo=  this.div_search.edt_eltCtrwNo.value ;
+	
+	if( edtEltCtrwNo.length == 19) {
+		
+		var nh =  edtEltCtrwNo.substring(0,2);
+		var chgSqNo =    edtEltCtrwNo.substring(2,5);
+		var eltCtrwNo =  edtEltCtrwNo.substring(5);
+	
+		if(nh == "NH"){
+			var ozParam = {
+			sId: 'OMG_DS_SC_211301',
+			sUrl: '/rest/oz/ct/eltctrw/osEltctrw',
+			paramType: 'param',
+			sParam: {ELT_CTRW_NO:eltCtrwNo, CHG_SQNO:chgSqNo}
+			};
+
+			this.ozViewer(ozParam ,"ozViewerPotal");	
+	}else{
+		alert("전자 계약서확인 번호를 잘못되었습니다. ");
+		return false;
+	}
+		
+		
+		
+
+	}else{
+		alert("전자 계약서확인 번호 자리수가 잘못 되었습니다.  ");
+		return false;
+	}
+		
+}
+
+this.OMG_DS_SC_9080_onkeydown = function(obj:Form, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode==13  ){
+ 		this.btn_ok.click() ;
+ 	}
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

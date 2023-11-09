@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7260" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="오납 조회" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execl" taborder="11" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="75" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Div id="div_search" taborder="103" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="16" text="업체조회" cssclass="sta_WFSA_Label" left="35.75%" top="10" right="54.71%" height="21"/>
+              <Edit id="Edit_comnum" taborder="17" left="44.27%" top="10" right="46.82%" height="21"/>
+              <Edit id="Edit_comname" taborder="18" left="53.44%" top="10" right="37.15%" height="21"/>
+              <Button id="btn_comname" taborder="19" cssclass="btn_WF_Searchbtn" left="63.1%" top="10" right="34.22%" height="21" onclick="div_search_btn_comname_onclick"/>
+              <Static id="Static01" taborder="23" text="처리상태" onclick="div_search_Static05_onclick" cssclass="sta_WFSA_Label" left="67.05%" top="10" right="21.63%" height="21"/>
+              <Radio id="rdo_rslt" taborder="24" index="1" codecolumn="codecolumn" datacolumn="datacolumn" value="2" direction="vertical" left="77.1%" top="10" right="0%" height="21" style="font:9 Gulim;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">미처리</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">처리</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static05" taborder="25" text="입금일" onclick="div_search_Static05_onclick" cssclass="sta_WFSA_Label" left="1.91%" top="10" right="89.06%" height="21"/>
+              <Calendar id="cal_from" taborder="26" dateformat="yyyy-MM-dd" oneditclick="div_search_cal_from_oneditclick" left="8.78%" top="10" right="78.88%" height="21"/>
+              <Static id="Static08" taborder="27" text="~" left="21.37%" top="10" right="77.35%" height="21"/>
+              <Calendar id="cal_to" taborder="28" dateformat="yyyy-MM-dd" left="22.65%" top="10" right="64.89%" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="71" right="15" bottom="-1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Button id="Button75" taborder="1" cssclass="btn_WFSA_SearchClose" top="0" height="12" left="363" right="362" onclick="Div02_Button75_onclick"/>
+              <Grid id="Grid01" taborder="2" binddataset="ds_mpayInq" useinputpanel="false" left="0" top="42" right="0" bottom="1" cellsizingtype="col" autofittype="col" onheadclick="Div02_Grid01_onheadclick" summarytype="top" treeusebutton="use" treeusecheckbox="false" treeuseexpandkey="true" treeuseimage="false" treeuseline="true" oncellclick="Grid01_oncellclick" autoenter="select">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="0"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No"/>
+                      <Cell col="1" text="업체코드"/>
+                      <Cell col="2" text="업체명"/>
+                      <Cell col="3" text="레벨"/>
+                      <Cell col="4" text="입금일"/>
+                      <Cell col="5" text="은행"/>
+                      <Cell col="6" text="계좌"/>
+                      <Cell col="7" text="오납금"/>
+                      <Cell col="8" text="거래내용"/>
+                      <Cell col="9" text="거래기록사항"/>
+                      <Cell col="10" text="거래점"/>
+                      <Cell col="11" text="업무선택"/>
+                      <Cell col="12" text="적용"/>
+                      <Cell col="13" text="적용일"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="number" style="align: ;" expr="currow+1"/>
+                      <Cell col="1" displaytype="text" edittype="expr:MIS_PAY_N==0?'text':'none'" text="bind:RV_TRPL_C" tooltiptext="bind:RV_TRPL_C"/>
+                      <Cell col="2" displaytype="text" edittype="none" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="3" displaytype="number" text="bind:LEV" tooltiptext="bind:LEV"/>
+                      <Cell col="4" displaytype="date" text="bind:RV_DT" mask="@@@@-@@-@@" tooltiptext="bind:RV_DT"/>
+                      <Cell col="5" displaytype="combo" text="bind:RV_BNK" combodataset="ds_bnkC" combocodecol="SIMP_C" combodatacol="SIMP_CNM" tooltiptext="bind:RV_BNK"/>
+                      <Cell col="6" displaytype="text" text="bind:ACNO" tooltiptext="bind:ACNO"/>
+                      <Cell col="7" displaytype="number" style="align:right middle;" text="bind:MIS_PAY_AM" tooltiptext="bind:MIS_PAY_AM"/>
+                      <Cell col="8" displaytype="normal" style="align: ;" text="bind:TR_CNTN" tooltiptext="bind:TR_CNTN"/>
+                      <Cell col="9" displaytype="normal" style="align: ;" text="bind:TR_REC_SJT_CNTN" tooltiptext="bind:TR_REC_SJT_CNTN"/>
+                      <Cell col="10" displaytype="normal" style="align: ;" text="bind:TR_STOR" tooltiptext="bind:TR_STOR"/>
+                      <Cell col="11" displaytype="combo" edittype="expr:MIS_PAY_N==0?'combo':'none'" style="align: ;" text="bind:MIS_PAY_C" editdisplay="edit" combodataset="ds_mipDsc" combocodecol="SIMP_C" combodatacol="SIMP_CNM" combodisplay="expr:MIS_PAY_N==0?'display':'edit'" tooltiptext="bind:MIS_PAY_C"/>
+                      <Cell col="12" displaytype="expr:MIS_PAY_N==0?'button':'none'" style="align: ;" text="적용" tooltiptext="적용"/>
+                      <Cell col="13" displaytype="expr:LSCHG_DTM==null?'none':'date'" style="align: ;" text="bind:LSCHG_DTM" mask="@@@@-@@-@@" tooltiptext="bind:LSCHG_DTM"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell colspan="2" style="align:center middle;" text="합계"/>
+                      <Cell col="2"/>
+                      <Cell col="3" displaytype="number" expr="dataset.getSum(&quot;RQS_BAC&quot;)" tooltiptext="expr:dataset.getSum(&quot;RQS_BAC&quot;)"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                      <Cell col="6"/>
+                      <Cell col="7" displaytype="number" expr="dataset.getSum(&quot;MIS_PAY_AM&quot;)" tooltiptext="expr:dataset.getSum(&quot;MIS_PAY_AM&quot;)"/>
+                      <Cell col="8" displaytype="normal"/>
+                      <Cell col="9" displaytype="normal"/>
+                      <Cell col="10" displaytype="normal"/>
+                      <Cell col="11" displaytype="normal"/>
+                      <Cell col="12" displaytype="normal"/>
+                      <Cell col="13" displaytype="normal"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <WebBrowser id="web_downExcel" left="80.07%" top="21" right="14.45%" height="14" taborder="104" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_mpayInq" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RV_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="RV_DT" type="STRING" size="10"/>
+          <Column id="RV_SEQ" type="INT" size="256"/>
+          <Column id="RV_BNK" type="STRING" size="10"/>
+          <Column id="ACNO" type="STRING" size="64"/>
+          <Column id="TR_CNTN" type="STRING" size="128"/>
+          <Column id="TR_REC_SJT_CNTN" type="STRING" size="128"/>
+          <Column id="TR_STOR" type="STRING" size="128"/>
+          <Column id="MIS_PAY_AM" type="INT" size="256"/>
+          <Column id="MIS_PAY_C" type="STRING" size="256"/>
+          <Column id="MIS_PAY_N" type="INT" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_mpayInq_1row" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="RV_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="RV_DT" type="STRING" size="10"/>
+          <Column id="RV_SEQ" type="INT" size="256"/>
+          <Column id="RV_BNK" type="STRING" size="10"/>
+          <Column id="ACNO" type="STRING" size="64"/>
+          <Column id="TR_CNTN" type="STRING" size="128"/>
+          <Column id="TR_REC_SJT_CNTN" type="STRING" size="128"/>
+          <Column id="TR_STOR" type="STRING" size="128"/>
+          <Column id="MIS_PAY_AM" type="INT" size="256"/>
+          <Column id="MIS_PAY_C" type="STRING" size="256"/>
+          <Column id="MIS_PAY_N" type="INT" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_mipDsc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_bnkC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_search.rdo_rslt" propid="value" datasetid="ds_dataM" columnid="DVY_VHC_DSC"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+// Form Init: 페이지 호출 후 실행
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	var toDay = this.gfn_today("yyyyMMdd");
+	this.div_search.cal_from.set_value(this.gfn_firstDate(toDay));
+	this.div_search.cal_to.set_value(toDay);
+}
+
+// Form Onload: DataSet 로딩 후 실행
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통 
+	this.ds_mpayInq_1row.addRow();
+
+    var param = [  
+		{code:"BNK_C"		, dsName:"ds_bnkC"		, selecttype:""},
+		{code:"MIP_DSC"		, dsName:"ds_mipDsc"	, selecttype:""}
+    ];
+
+	this.gfn_setPortalCommonCode(param); 
+}
+
+// gfn_setCommonCode, gfn_setPortalCommonCode처리 후 호출(CallBack)할 함수
+this.fn_commonAfterOnload = function()
+{
+//	trace("ds_mipDsc:" + this.ds_mipDsc.saveXML());
+}
+
+// gfn_setInitForm 처리 후 호출(CallBack)할 함수
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+   	this.btn_search_onclick();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	trace("svcID:" + svcID + " ErrorCode:" + ErrorCode);
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	else
+	{
+		if(svcID == "retrieveMisPayInqList")
+		{
+		//	trace("this.ds_mpayInq:" + this.ds_mpayInq.saveXML());
+			if(this.ds_mpayInq.rowcount == 0)
+			{
+				this.Div02.Grid01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+		else if(svcID == "saveMisPayC")
+		{
+	 		if(ErrorCode == 1)
+	 		{
+	 			this.gfn_getMessage("alert", "result.message.save.success");
+	 			this.btn_search_onclick();
+	 		}
+	 		else if(ErrorCode == 2)
+	 		{
+	 			this.gfn_getMessage("alert", "result.message.ovrpay.no.exist.rqs.brk");
+	 		}
+	 		else if(ErrorCode == 3)
+	 		{
+	 			this.gfn_getMessage("alert", "result.message.mispay.no.exist.vndrcode");
+	 		}
+		}
+	}	
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+// 조회조건 영역 펼치기, 접기
+this.Div02_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+// 업무선택 저장
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+//	trace("ds_mpayInq_1row:" + this.ds_mpayInq_1row.saveXML());
+	var params	      = "";
+	var sSvcID        = "saveMisPayC";					// 통신아이디
+	var sURL          = "svc::rest/bl/saveMisPayC";		// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_mpayInq_1row:A";		// 보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = params;							// 파라미터
+	var sCallbackFunc = "fn_callBack";					// 콜백
+	var tranType 	  = "U";							// U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+// 엑셀 다운로드
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var fromDt			= this.div_search.cal_from.value;
+	var toDt			= this.div_search.cal_to.value;
+	var trplC			= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var clntNm			= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var rslt			= this.div_search.rdo_rslt.value;
+	var sParams			= "FROM_DT=" + fromDt
+						+ "&TO_DT=" + toDt
+						+ "&TRPL_C=" + trplC
+						+ "&CLNTNM=" + clntNm
+						+ "&RSLT=" + rslt
+						;
+
+	this.fn_excel(sParams);
+}
+
+this.fn_excel = function(sParams)
+{
+	trace("엑셀 다운로드 params >>> " + sParams);
+	this.web_downExcel.set_url(application.gv_serverAdmin_url + "rest/excel/bl/downloadExcelMisPayInq?" + sParams);
+}
+
+// 오납 조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var fromDt			= this.div_search.cal_from.value;
+	var toDt			= this.div_search.cal_to.value;
+	var trplC			= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var clntNm			= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var rslt			= this.div_search.rdo_rslt.value;
+	var sParams			= "FROM_DT=" + fromDt
+						+ " TO_DT=" + toDt
+						+ " TRPL_C=" + trplC
+						+ " CLNTNM=" + clntNm
+						+ " RSLT=" + rslt
+						;
+//	trace("sParams:" + sParams);
+	this.fn_search(sParams);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+this.fn_search = function(sParams)
+{
+	var sSvcID			= "retrieveMisPayInqList";
+	var sURL			= "svc::rest/bl/retrieveMisPayInqList";
+	var sInDatasets		= "";
+	var sOutDatasets	= "ds_mpayInq=ds_mpayInq";
+	var sArgument		= sParams;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 그리드 내부 셀 클릭
+this.Grid01_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+//	alert("cell:" + e.cell + " col:" + e.col + " row:" + e.row);
+	var mpay_null = this.ds_mpayInq.getColumn(e.row, "MIS_PAY_N");
+	var mpay_st = this.ds_mpayInq.getColumn(e.row, "MIS_PAY_C");
+	var vndrCode = this.gfn_nullToEmpty(this.Div02.Grid01.getCellValue(e.row, 1));
+ 	if (e.col == 12 && mpay_null == 0)
+ 	{
+	//	상태값 검증
+		if (mpay_st == 'D' || mpay_st == 'R')
+		{
+			if (vndrCode == '')
+			{
+				this.gfn_getMessage("alert", "validation.message.mispay.no.vndrcode");
+				return;
+			}
+			else this.ds_mpayInq.setColumn(e.row, "RV_TRPL_C", vndrCode);
+		}
+	//	1줄만 복사하여 서버에 넘겨준다
+		var bSucc = this.ds_mpayInq_1row.copyRow(0, this.ds_mpayInq, e.row);
+	//	trace("bSucc:" + bSucc);
+	//	trace("ds_mpayInq_1row:" + this.ds_mpayInq_1row.saveXML());
+		this.btn_save_onclick();
+ 	}
+}
+
+// 업체 조회
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = "";
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("trplSearchPopup","OMG.BL::OMG_DS_SC_7230_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+// 팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+	// trace(" strId : " + strId + " strVal : " + strVal);
+	if(strVal != ''){
+		var paramsArr = strVal.split(",");
+	
+		if(strId == "trplSearchPopup"){
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

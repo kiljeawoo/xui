@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="600" height="314" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="데이터마트 신청등록">
+    <Layouts>
+      <Layout>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="339" top="245" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="12" text="8" visible="false" left="442" top="69" width="91" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" top="0" width="37" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick" right="0"/>
+        <Static id="Static06" taborder="16" text="데이터마트 신청등록" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle" onclick="Static06_onclick"/>
+        <Static id="Static13" taborder="17" cssclass="sta_WF_Labelbg" left="107" top="161" right="17" height="29" style="background:#ffffffff;"/>
+        <Static id="Static14" taborder="19" cssclass="sta_WF_Label" left="17" top="161" width="110" height="29" text="권한사업장"/>
+        <Static id="Static00" taborder="23" cssclass="sta_WF_Label" left="17" top="105" width="110" height="29" text="유      형"/>
+        <Static id="Static02" taborder="24" cssclass="sta_WF_Labelbg" left="126" top="105" right="17" height="29"/>
+        <Static id="Static05" taborder="25" cssclass="sta_WF_Label" left="17" top="77" width="110" height="29" onclick="Static05_onclick" text="문 서 명"/>
+        <Static id="Static07" taborder="26" cssclass="sta_WF_Labelbg" left="126" top="77" right="17" height="29"/>
+        <Combo id="req_doc" taborder="27" codecolumn="codecolumn" datacolumn="datacolumn" left="133" top="81" width="130" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">CONADV</Col>
+                <Col id="datacolumn">검수실적</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Combo id="cbo_doc_type" taborder="30" codecolumn="codecolumn" datacolumn="datacolumn" left="133" top="109" width="130" height="21" onitemchanged="cbo_doc_type_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">전표별</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">상품별</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Static id="Static10" taborder="33" cssclass="sta_WF_Labelbg" left="107" top="188" right="17" height="29" style="background:#ffffffff;"/>
+        <Static id="Static08" taborder="34" text="조회기간" cssclass="sta_WF_Label" left="17" top="188" width="110" height="29"/>
+        <Combo id="dayType" taborder="35" codecolumn="codecolumn" datacolumn="datacolumn" left="133" top="192" width="130" height="21" index="-1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">매출일</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">검수일</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">지급예정일</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Calendar id="cal_from" taborder="36" dateformat="yyyy-MM-dd" left="267" top="192" width="100" height="21"/>
+        <Static id="Static131" taborder="37" text="~" left="368" top="192" width="10" height="21"/>
+        <Calendar id="cal_to" taborder="38" dateformat="yyyy-MM-dd" left="378" top="192" width="100" height="21"/>
+        <Static id="Static11" taborder="39" cssclass="sta_WF_Labelbg" left="107" top="216" right="17" height="29" style="background:#ffffffff;" visible="false"/>
+        <Static id="Static12" taborder="40" text="문서포맷" cssclass="sta_WF_Label" left="17" top="216" width="110" height="29" visible="false"/>
+        <Static id="Static15" taborder="42" text="17" visible="false" left="339" top="291" width="91" height="17" style="background:#dc143c5b;"/>
+        <Div id="div_auth" taborder="44" url="common::AuthorityWorkplace.xfdl" text="Div00" top="165" right="36" width="431" height="21"/>
+        <Radio id="rdo_doc_fmt" taborder="45" left="22.17%" top="220" height="21" codecolumn="codecolumn" datacolumn="datacolumn" width="133" rowcount="1" value="1" visible="false">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">텍스트</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">엑셀</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Button id="btn_save" taborder="47" text="등록" cssclass="btn_WF_Popup" left="257" top="262" width="54" height="29" onclick="btn_save_onclick"/>
+        <Button id="btn_cancel" taborder="48" text="취소" onclick="btn_cancel_onclick" cssclass="btn_WF_Popup" left="313" top="262" width="54" height="29"/>
+        <Static id="Static16" taborder="49" cssclass="sta_WF_Labelbg" left="126" top="133" right="17" height="29"/>
+        <Combo id="cbo_doc_type_dtl1" taborder="50" left="133" top="137" width="130" height="21" innerdataset="ds_doc_type_dtl1" codecolumn="SIMP_C" datacolumn="SIMP_CNM" index="-1"/>
+        <Static id="Static17" taborder="51" text="상세유형" cssclass="sta_WF_Label" left="17" top="133" width="110" height="29"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dmart_req">
+        <ColumnInfo>
+          <Column id="REQ_TM" type="STRING" size="256"/>
+          <Column id="REQ_ID" type="STRING" size="256"/>
+          <Column id="REQ_STAT" type="STRING" size="256"/>
+          <Column id="REQ_DOC" type="STRING" size="256"/>
+          <Column id="DOC_TYPE" type="STRING" size="256"/>
+          <Column id="DOC_TYPE_DTL1" type="STRING" size="256"/>
+          <Column id="REQ_TRPL_C" type="STRING" size="256"/>
+          <Column id="SRCH_DAY_TYPE" type="STRING" size="256"/>
+          <Column id="SRCH_FM_DT" type="STRING" size="256"/>
+          <Column id="SRCH_ED_DT" type="STRING" size="256"/>
+          <Column id="RSLT_DOC_FMT" type="STRING" size="256"/>
+          <Column id="BATCH_ST_TM" type="STRING" size="256"/>
+          <Column id="BATCH_ED_TM" type="STRING" size="256"/>
+          <Column id="DEL_DT" type="STRING" size="256"/>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="COMP_FILE_SIZE" type="STRING" size="256"/>
+          <Column id="TOT_EDI_SIZE" type="STRING" size="256"/>
+          <Column id="BATCH_RELT_KEY" type="STRING" size="256"/>
+          <Column id="SMS_SEND_TM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_doc_type_dtl1">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item7" compid="Static13" propid="text" datasetid="ds_bbs" columnid="TITLE"/>
+      <BindItem id="item0" compid="Static10" propid="text" datasetid="ds_bbs" columnid="TITLE"/>
+      <BindItem id="item1" compid="Static11" propid="text" datasetid="ds_bbs" columnid="TITLE"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(4); //팝업창 close시 전달할 값을 위한 배열 선언
+
+/*
+	TB_DMART_REQ;
+
+	REQ_TM               신청일시                                    
+	REQ_ID               신청ID                                      
+	REQ_STAT             진행상태(1:신청,2:진행,3:생성,4:삭제,5:오류)
+	REQ_DOC              신청문서                                    
+	DOC_TYPE             문서유형(1:전표별,3:상품별)                 
+	REQ_TRPL_C           신청권한사업장(A:권한사업장전체)            
+	SRCH_DAY_TYPE        조회기준일(1:매출일,2:검수일,3:지급예정일)  
+	SRCH_FM_DT           조회시작일                                  
+	SRCH_ED_DT           조회종료일                                  
+	RSLT_DOC_FMT         결과문서포맷(1:텍스트,2:엑셀)               
+	BATCH_ST_TM          배치시작시간                                
+	BATCH_ED_TM          배치종료시간                                
+	DEL_DT               삭제예정일자                                
+	FILE_PATH            파일경로                                    
+	COMP_FILE_SIZE       압축파일크기                                
+	TOT_EDI_SIZE         전체EDI문서크기                             
+	BATCH_RELT_KEY       배치키값                                    
+	SMS_SEND_TM          SMS전송일시(N:미전송)                       
+	FSRG_DTM             최초등록일시                                
+	FS_RGM               최초등록자                                  
+	LSCHG_DTM            최종변경일시                                
+	LS_CHGM              최종변경자                                  
+ */
+
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo){
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function(){
+	
+   //페이지 로딩후 실행부분  
+   try
+	{
+
+		this.writeType  = this.getOwnerFrame().writeType; //작업 유형: 등록0, 수정1, 답글2 
+
+	}
+	catch(e)
+	{
+	
+	
+	}
+	
+	
+	// 콤보박스 기본값 설정
+	this.req_doc.set_value('CONADV') ; // 검수확정서
+	this.cbo_doc_type.set_value('1') ;
+	this.dayType.set_value('1') ;
+	
+    this.setDtl1Cbo(); // 콤보 상세 설정 . DB 공통코드 설정
+	
+	
+	// this.docType.set
+	var dt_today = this.gfn_today("yyyyMMdd");
+	var dt_to =  this.gfn_minusDate(dt_today, + 1); // 전일자
+	var dt_from = this.gfn_minusDate(dt_to, + 7); // 전일부터 7일
+	this.cal_from.set_value(dt_from);
+	this.cal_to.set_value(dt_to);
+		
+}
+
+
+/* ****************************************************
+ * 저장
+ *
+ */
+
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+    
+	if(this.fn_checkValidation())
+	{
+
+		var strCrmMsg = "데이터마트 신청등록 확인\n\n데이터마트를 통해 EDI문서를 신청하면\n문서생성 시 검수업무 화면에서 엑셀파일을 다운로드 받는 것과\n동일한 기준으로 EDI 이용요금이 부과됩니다.\n생성된 파일은 생성일로 부터 31일동안 보관 후 자동삭제됩니다.\n신청하시겠습니까?";
+		
+		if(confirm(strCrmMsg) == false )
+		{
+			return false;
+		}
+		
+		var req_tm         = this.gfn_today("yyyyMMdd"); // 신청일시. 오늘
+		var req_id         = ""                        ; // 신청ID                                      
+		var req_stat       = "1"                       ; // 진행상태(1:신청,2:진행,3:생성,4:삭제,5:오류). 웹은 1 신청만 있음. 
+		var req_doc        = this.req_doc.value        ; // 신청문서                                    
+		var doc_type       = this.cbo_doc_type.value       ; // 문서유형(1:전표별,3:상품별)
+		var doc_type_dtl1  = this.cbo_doc_type_dtl1.value  ; // 문서상세유형 
+		/*
+				DMART_CONADV_SLIP	2	전표_상품_수수료합계
+				DMART_CONADV_SLIP	3	전표_상품_수수료상세
+				DMART_CONADV_ITEM	2	상품_전표합계
+				DMART_CONADV_ITEM	3	전표_상품_수수료
+
+		 */
+		
+		var req_trpl_c     = ""   ; // 신청권한사업장(A:권한사업장전체)   
+		if(this.div_auth.chk_all.value == true){
+		    req_trpl_c = "A"
+		}else{
+		    req_trpl_c = this.getTrplCode();
+		
+		}
+
+		var srch_day_type  = this.dayType.value        ; // 조회기준일(1:매출일,2:검수일,3:지급예정일)  
+		var srch_fm_dt     = this.cal_from.value       ; // 조회시작일                                  
+		var srch_ed_dt     = this.cal_to.value         ; // 조회종료일                                  
+		var rslt_doc_fmt   = this.rdo_doc_fmt.value    ; // 결과문서포맷(1:텍스트,2:엑셀)               
+		var batch_st_tm    = ""; // 배치시작시간                                
+		var batch_ed_tm    = ""; // 배치종료시간                                
+		var del_dt         = ""; // 삭제예정일자                                
+		var file_path      = ""; // 파일경로                                    
+		var comp_file_size = ""; // 압축파일크기                                
+		var tot_edi_size   = ""; // 전체EDI문서크기                             
+		var batch_relt_key = ""; // 배치키값                                    
+		var sms_send_tm    = ""; // SMS전송일시(N:미전송)     
+		
+	trace("req_tm        : " + req_tm        );
+	trace("req_id        : " + req_id        );
+	trace("req_stat      : " + req_stat      );
+	trace("req_doc       : " + req_doc       );
+	trace("doc_type      : " + doc_type      );
+	trace("req_trpl_c    : " + req_trpl_c    );
+	trace("srch_day_type : " + srch_day_type );
+	trace("srch_fm_dt    : " + srch_fm_dt    );
+	trace("srch_ed_dt    : " + srch_ed_dt    );
+	trace("rslt_doc_fmt  : " + rslt_doc_fmt  );
+	trace("batch_st_tm   : " + batch_st_tm   );
+	trace("batch_ed_tm   : " + batch_ed_tm   );
+	trace("del_dt        : " + del_dt        );
+	trace("file_path     : " + file_path     );
+	trace("comp_file_size: " + comp_file_size);
+	trace("tot_edi_size  : " + tot_edi_size  );
+	trace("batch_relt_key: " + batch_relt_key);
+	trace("sms_send_tm   : " + sms_send_tm   );
+	trace("doc_type_dtl1   : " + doc_type_dtl1   );
+	
+	
+	
+
+/*
+	alert(srch_day_type);
+	alert(this.div_auth.chk_all.value);
+	return;
+*/
+
+		if(this.writeType == 0)//등록
+		{
+		    // this.ds_dmart_req.addRow();
+		    
+			this.ds_dmart_req.setColumn( 0, "REQ_TM",         req_tm        ); // 신청일시                                    
+			this.ds_dmart_req.setColumn( 0, "REQ_ID",         req_id        ); // 신청ID                                      
+			this.ds_dmart_req.setColumn( 0, "REQ_STAT",       req_stat      ); // 진행상태(1:신청,2:진행,3:생성,4:삭제,5:오류)
+			this.ds_dmart_req.setColumn( 0, "REQ_DOC",        req_doc       ); // 신청문서                                    
+			this.ds_dmart_req.setColumn( 0, "DOC_TYPE",       doc_type      ); // 문서유형(1:전표별,3:상품별)                 
+			this.ds_dmart_req.setColumn( 0, "DOC_TYPE_DTL1",  doc_type_dtl1      ); // 문서상세유형
+			
+			this.ds_dmart_req.setColumn( 0, "REQ_TRPL_C",     req_trpl_c    ); // 신청권한사업장(A:권한사업장전체)            
+			this.ds_dmart_req.setColumn( 0, "SRCH_DAY_TYPE",  srch_day_type ); // 조회기준일(1:매출일,2:검수일,3:지급예정일)  
+			this.ds_dmart_req.setColumn( 0, "SRCH_FM_DT",     srch_fm_dt    ); // 조회시작일                                  
+			this.ds_dmart_req.setColumn( 0, "SRCH_ED_DT",     srch_ed_dt    ); // 조회종료일                                  
+			this.ds_dmart_req.setColumn( 0, "RSLT_DOC_FMT",   rslt_doc_fmt  ); // 결과문서포맷(1:텍스트,2:엑셀)               
+			
+//          웹화면에서 저장하지 않는 항목들
+// 			this.ds_dmart_req.setColumn(10, "BATCH_ST_TM",    batch_st_tm   ); // 배치시작시간                                
+// 			this.ds_dmart_req.setColumn(11, "BATCH_ED_TM",    batch_ed_tm   ); // 배치종료시간                                
+// 			this.ds_dmart_req.setColumn(12, "DEL_DT",         del_dt        ); // 삭제예정일자                                
+// 			this.ds_dmart_req.setColumn(13, "FILE_PATH",      file_path     ); // 파일경로                                    
+// 			this.ds_dmart_req.setColumn(14, "COMP_FILE_SIZE", comp_file_size); // 압축파일크기                                
+// 			this.ds_dmart_req.setColumn(15, "TOT_EDI_SIZE",   tot_edi_size  ); // 전체EDI문서크기                             
+// 			this.ds_dmart_req.setColumn(16, "BATCH_RELT_KEY", batch_relt_key); // 배치키값                                    
+// 			this.ds_dmart_req.setColumn(17, "SMS_SEND_TM",    sms_send_tm   ); // SMS전송일시(N:미전송)     
+ 
+ 
+// alert(this.ds_dmart_req.getRowCount());
+
+			this.fn_insertDmartReq();
+			
+		}
+		else if(this.writeType == 1)//수정
+		{
+
+			
+			
+			// this.fn_update ;
+		}
+		else  
+		{
+			// 오류
+		}
+	}
+
+	//this.close();
+}
+
+
+this.fn_insertDmartReq = function()
+{
+
+	var today = this.gfn_today("yyyyMMdd");
+	
+	var param = " today="+today ;
+	// var param = "=" ;
+				
+	// trace("##MASTER##PARAM## fn_insertDmartReq->"+param);
+	
+	var sSvcID        = "insertDmartReq";
+	var sURL          = "svc::rest/dmart/insertDmartReq";
+	var sInDatasets   = "ds_dmart_req=ds_dmart_req";
+	var sOutDatasets  = "";	
+	var sArgument     = param;
+
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+	if (this.gfn_length(this.div_search.searchText.value) < 2) {
+		this.alert('검색어는 2자이상이어야 합니다.');
+		return false;
+	}
+	return true;
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "insertDmartReq"){
+			this.gfn_getMessage("alert", "result.message.save.success");
+			// 부모창 재조회
+			this.opener.fn_search();
+			this.close();
+		}
+	}
+}
+
+this.grd_rvopl_onkeydown = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.btn_ok_onclick();
+	}
+}
+
+
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+this.fn_checkValidation = function()
+{
+
+	var prevLimit = '20120101';
+	var toDay = this.gfn_today("yyyyMMdd");
+	
+	var cal_date_fr = this.cal_from.value;
+	var cal_date_to = this.cal_to.value;
+	
+	if(cal_date_fr > cal_date_to ) {
+	
+		alert('종료일이 시작일보다 이전날짜 입니다.');
+		
+		return false;
+	}
+	
+	if(  cal_date_fr > toDay || cal_date_to  > toDay){
+	
+		alert('신청 당일 이후 데이터는 신청할 수 없습니다');
+		
+		return false;
+	}
+	 
+	if(  cal_date_fr < prevLimit || cal_date_to  < prevLimit){
+	
+		alert('신청 가능 과거일자 범위를 초과 하였습니다. ' + prevLimit);
+		
+		return false;
+	}
+/*
+	if(this.gfn_isNull(this.edt_title.value))
+	{
+		alert("제목을 입력해 주세요.");
+		return false;
+	}
+	
+*/
+
+	return true;
+}
+
+
+
+/************************************************************************************************
+ * 문서유형 선택시 상세유형 재설정
+************************************************************************************************/	
+this.cbo_doc_type_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+    this.setDtl1Cbo();
+	
+
+}
+
+this.setDtl1Cbo = function( )
+{
+    var dtl1_code;
+    
+    // alert(this.cbo_doc_type.text ); // 문서 유형별
+    
+    if (this.cbo_doc_type.text == '전표별'){
+    
+         dtl1_code = 'DMART_CONADV_SLIP';  // 데이터마트 검수실적 전표별 상세유형
+         
+    }else if (this.cbo_doc_type.text == '상품별'){
+         dtl1_code = 'DMART_CONADV_ITEM';  // 데이터마트 검수실적 상품별 상세유형
+    }
+    
+	var param = [  
+       {code:dtl1_code,     dsName:"ds_doc_type_dtl1",    selecttype:""}
+       //     {code:"MN_CTRW_KD",     dsName:"ds_mnCtrwKd", selecttype:""}
+    ];
+
+    // 
+	this.gfn_setPortalCommonCode(param);
+	
+	this.cbo_doc_type_dtl1.set_index(0);
+	// 전체선택 추가
+	/*
+	this.ds_doc_type_dtl1.insertRow(0);
+	this.ds_doc_type_dtl1.setColumn(0,'SIMP_C','');
+	this.ds_doc_type_dtl1.setColumn(0,'SIMP_CNM','-선택-');
+	*/
+	
+
+}]]></Script>
+  </Form>
+</FDL>

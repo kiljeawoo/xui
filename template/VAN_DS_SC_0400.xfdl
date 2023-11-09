@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0400" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="입고예약관리">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0" top="29" height="43" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="예약일자" left="15" top="10" width="79" height="21" cssclass="sta_WFSA_Label"/>
+              <Calendar id="Calendar00" taborder="7" dateformat="yyyy-MM-dd" left="94" top="10" width="100" height="21"/>
+              <Static id="Static01" taborder="8" text="차량번호" cssclass="sta_WFSA_Label" left="528" top="10" width="79" height="21"/>
+              <Static id="Static02" taborder="9" text="배송예정서번호" cssclass="sta_WFSA_Label" left="224" top="10" width="115" height="21"/>
+              <Edit id="Edit20" taborder="10" left="339" top="10" width="135" height="21" positionstep="1"/>
+              <Button id="Button00" taborder="11" cssclass="btn_WF_Searchbtn" left="477" top="10" width="21" height="21"/>
+              <Edit id="Edit00" taborder="12" left="607" top="10" width="127" height="21" positionstep="1"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="129" text="Div02" left="0" top="71" bottom="0" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static04" taborder="72" cssclass="sta_WF_Labelbg" left="327" top="42" right="0" height="29"/>
+              <Static id="Static03" taborder="66" cssclass="sta_WF_Labelbg" left="327" top="98" right="0" height="29"/>
+              <Static id="Static00" taborder="58" cssclass="sta_WF_Labelbg" left="327" top="70" height="29" right="0"/>
+              <Static id="Static07" taborder="2" text="차량번호" cssclass="sta_WF_Label" left="218" top="42" width="110" height="29"/>
+              <Static id="Static11" taborder="4" text="운전자명" cssclass="sta_WF_Label" left="512" top="42" width="110" height="29"/>
+              <Static id="Static36" taborder="17" text="전자태그번호" cssclass="sta_WF_Label" left="218" top="154" width="110" height="29"/>
+              <Button id="Button75" taborder="49" cssclass="btn_WFSA_SearchClose" left="363" top="0" height="12" right="362"/>
+              <Grid id="Grid01" taborder="53" binddataset="Dataset00" useinputpanel="false" left="0" top="298" right="0" bottom="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="100"/>
+                      <Column size="80"/>
+                      <Column size="90"/>
+                      <Column size="50"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="100"/>
+                      <Column size="130"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="차량번호"/>
+                      <Cell col="2" text="운전자명"/>
+                      <Cell col="3" text="연락처"/>
+                      <Cell col="4" text="회차"/>
+                      <Cell col="5" text="전자태그"/>
+                      <Cell col="6" text="TC(소터)"/>
+                      <Cell col="7" text="TC(벌크)"/>
+                      <Cell col="8" text="DC(RFID)"/>
+                      <Cell col="9" text="DC(일반)"/>
+                      <Cell col="10" text="공급업체코드"/>
+                      <Cell col="11" text="공급업체명"/>
+                      <Cell col="12" text="일자"/>
+                      <Cell col="13" text="삭제.."/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:Column0"/>
+                      <Cell col="1" text="bind:Column1"/>
+                      <Cell col="2" text="bind:Column2"/>
+                      <Cell col="3" text="bind:Column3"/>
+                      <Cell col="4" text="bind:Column4"/>
+                      <Cell col="5" text="bind:Column5"/>
+                      <Cell col="6" text="bind:Column6"/>
+                      <Cell col="7" text="bind:Column7"/>
+                      <Cell col="8"/>
+                      <Cell col="9"/>
+                      <Cell col="10"/>
+                      <Cell col="11"/>
+                      <Cell col="12"/>
+                      <Cell col="13"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static01" taborder="59" text="7" visible="false" left="328" top="100" width="7" height="28" style="background:#dc143c5b;"/>
+              <Static id="Static47" taborder="60" text="차량정보입력" cssclass="sta_WF_Subtitle" left="218" top="17" width="203" height="21"/>
+              <Edit id="Edit02" taborder="63" left="625" top="46" width="159" height="21" positionstep="1"/>
+              <Radio id="Radio00" taborder="64" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="335" top="102" width="258" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">TC(소터)</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">2.TC(벌크)</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">DC(일반)</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="Static02" taborder="65" text="DOCK구분" cssclass="sta_WF_Label" left="218" top="98" width="110" height="29"/>
+              <Combo id="Combo08" taborder="67" value="1" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="331" top="74" width="51" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">010</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">011</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static42" taborder="68" text="-" left="443" top="74" width="9" height="21"/>
+              <Static id="Static48" taborder="69" text="-" left="384" top="74" width="9" height="21"/>
+              <MaskEdit id="MaskEdit10" taborder="70" value="1234" left="452" top="74" width="48" height="21"/>
+              <MaskEdit id="MaskEdit11" taborder="71" value="1234" left="393" top="74" width="48" height="21"/>
+              <Edit id="Edit20" taborder="61" left="331" top="46" width="154" height="21" positionstep="1"/>
+              <Button id="Button00" taborder="62" cssclass="btn_WF_Searchbtn" left="488" top="46" width="21" height="21"/>
+              <Grid id="Grid00" taborder="73" binddataset="Dataset00" useinputpanel="false" left="0" top="42" width="203" height="215">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="150"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="배송예정서번호"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:Column0"/>
+                      <Cell col="1"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static05" taborder="74" text="배송예정서 정보" cssclass="sta_WF_Subtitle" left="0" top="17" width="203" height="21"/>
+              <Static id="Static06" taborder="75" text="연락처" cssclass="sta_WF_Label" left="218" top="70" width="110" height="29"/>
+              <Static id="Static08" taborder="76" cssclass="sta_WF_Labelbg" left="327" top="126" right="0" height="29"/>
+              <Static id="Static09" taborder="77" text="예약시간" cssclass="sta_WF_Label" left="218" top="126" width="110" height="29"/>
+              <Static id="Static10" taborder="78" text="삭제여부" cssclass="sta_WF_Label" left="512" top="126" width="110" height="29"/>
+              <CheckBox id="CheckBox00" taborder="79" left="629" top="130" width="56" height="21" text="삭제"/>
+              <Combo id="Combo00" taborder="80" text="선택안됨" left="331" top="130" width="178" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">선택안됨</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">가나다</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static12" taborder="81" cssclass="sta_WF_Labelbg" left="327" top="154" right="0" height="29"/>
+              <Combo id="Combo01" taborder="82" value="1" text="선택안됨" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="331" top="158" width="178" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">선택안됨</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">가나다</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static13" taborder="83" text="전자태그번호" cssclass="sta_WF_Label" left="218" top="182" width="110" height="75"/>
+              <Static id="Static14" taborder="84" cssclass="sta_WF_Labelbg" left="327" top="182" right="0" height="75"/>
+              <TextArea id="TextArea00" taborder="85" left="331" top="186" width="453" height="50"/>
+              <Static id="Static21" taborder="86" text="* 좌측(배송예정서정보)에서 해당 차량에 배정된 항목을 선택하십시요." cssclass="sta_WF_DescriptionB02" left="331" top="236" right="62" height="21"/>
+              <Button id="Button43" taborder="87" cssclass="btn_WF_Grdexpand" top="272" width="22" height="21" right="25"/>
+              <Button id="Button42" taborder="88" cssclass="btn_WF_Grdreduce" top="272" width="22" height="21" right="1"/>
+              <Static id="Static41" taborder="89" text="[처리대상건수 &lt;fc v='#0084ab'&gt;&lt;b v='true'&gt;0&lt;/b&gt;&lt;/fc&gt;건]" usedecorate="true" cssclass="sta_WF_GridCount" top="272" right="50" width="114" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static13" taborder="31" text="10" visible="false" left="310" top="30" width="95" height="10" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="105" text="Div01" left="0" top="0" height="21" right="563" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static00" taborder="106" text="10" visible="false" left="310" top="61" width="95" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="107" text="15" visible="false" left="788" top="-18" height="490" style="background:#00ffffb5;" width="15"/>
+        <Static id="Static03" taborder="108" text="8" visible="false" left="92.53%" top="21" right="1.87%" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="111" text="15" visible="false" left="92.53%" top="72" right="1.87%" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static14" taborder="115" text="15" visible="false" left="0.12%" top="30" right="98.01%" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static12" taborder="114" text="15" visible="false" left="92.53%" top="328" right="1.87%" height="15" style="background:#dc143c5b;"/>
+        <Button id="Button06" taborder="132" text="출력" cssclass="btn_WF_CRUD" top="0" right="118" width="41" height="21"/>
+        <Button id="Button08" taborder="133" text="저장" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Button id="Button09" taborder="134" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <CheckBox id="CheckBox00" taborder="135" text="CheckBox00" cssclass="chk_WF_allSlct" top="0" right="167" width="18" height="21"/>
+        <Static id="Static01" taborder="136" cssclass="sta_WF_Vdash" top="5" right="160" width="5" height="11"/>
+        <Combo id="Combo00" taborder="138" value="0" text="(주)도루코하나로상사[29001038000010]" innerdataset="ds_cmb" codecolumn="lv" datacolumn="data" index="0" displayrowcount="5" cssclass="WF_Essential" top="0" right="190" width="270" height="21"/>
+        <Static id="Static04" taborder="139" text="30" visible="false" left="195" top="16" width="30" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="140" text="30" visible="false" left="499" top="20" width="30" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static23" taborder="131" text="권한사업장" cssclass="sta_WF_MiniTitle" top="0" right="460" width="67" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+  </Form>
+</FDL>

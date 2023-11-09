@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4641" classname="pattern_01" left="0" top="0" width="803" height="654" titletext="공동인증서신청방법" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Static id="Static05" taborder="9" onclick="Static01_onclick" cssclass="sta_WF_Menulist" left="11" top="54" height="1" width="777" style="padding:0 0 0 18;"/>
+        <Static id="Static07" taborder="0" text="공동인증서 신청방법" left="11" top="23" height="26" style="padding:2 0 0 0;font:12 맑은 고딕;" width="777"/>
+        <Static id="Static09" taborder="1" text="공동인증서 신청절차" cssclass="sta_WF_Subtitle" left="11" top="72" height="21" width="777" style="padding:0 0 1 14;"/>
+        <Static id="TextArea00" taborder="13" text="1.배너 클릭" wordwrap="char" left="11" top="98" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:bold 9 arial;" readonly="true" width="777"/>
+        <Static id="TextArea02" taborder="14" text="하나로eSCM 공동인증서 발급신청 메뉴의 발급신청 배너를 클릭합니다." wordwrap="char" left="11" top="123" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:9 굴림;" readonly="true" width="777"/>
+        <Static id="TextArea03" taborder="15" text="공인인증기관 사이트에 접속하여 신청서에 정보를 입력합니다." wordwrap="char" left="11" top="173" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:9 굴림;" readonly="true" width="777"/>
+        <Static id="TextArea04" taborder="16" text="2.신청서 작성" wordwrap="char" left="11" top="148" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:bold 9 arial;" readonly="true" width="777"/>
+        <Static id="TextArea05" taborder="17" text="공동인증서 발급 수수료를 납부합니다." wordwrap="char" left="11" top="223" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:9 굴림;" readonly="true" width="777"/>
+        <Static id="TextArea06" taborder="18" text="3.수수료 납부" wordwrap="char" left="11" top="198" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:bold 9 arial;" oneditclick="TextArea06_oneditclick" readonly="true" width="777"/>
+        <Static id="TextArea07" taborder="19" text="신청서를 포함한 구비 서류를 준비하여 공동인증서 발급기관 및 등록대행기관에 접수합니다.&#13;&#10;*자세한 구비 서류 및 서류제출처는 공동인증서 발급신청 메뉴 참조" wordwrap="char" left="11" top="273" height="38" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:9 굴림;" readonly="true" width="777"/>
+        <Static id="TextArea08" taborder="20" text="4.서류 접수" wordwrap="char" left="11" top="248" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:bold 9 arial;" readonly="true" width="777"/>
+        <Static id="TextArea11" taborder="23" text="5.인증서 발급" wordwrap="char" left="11" top="316" height="20" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:bold 9 arial;" readonly="true" width="777"/>
+        <Static id="TextArea12" taborder="24" text="공동인증서 발급기관 홈페이지에서 인증서를 발급받습니다." wordwrap="char" left="11" top="341" height="22" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:9 굴림;" readonly="true" width="777"/>
+        <Static id="Static35" taborder="25" text="발급" cssclass="sta_WF_Label" left="11" top="391" height="29" style="padding:2 7 0 11;align:center middle;font:bold 9 arial;" wordwrap="char" width="259"/>
+        <Static id="Static25" taborder="26" text="-공동인증서를 발급받은 적이 없거나 인증기간 만료, 사업자변호 변경 등의 사유로 신규신청을 해야 하는 경우입니다.&#13;&#10;-수수료 납부 및 서류 접수가 필요합니다." cssclass="sta_WF_Labelbg" left="11" top="419" height="119" style="padding:2 7 0 7;align:left middle;" wordwrap="char" width="259"/>
+        <Static id="Static00" taborder="27" text="재발급" cssclass="sta_WF_Label" left="269" top="391" height="29" style="align:center middle;font:bold 9 arial;" width="259"/>
+        <Static id="Static01" taborder="28" text="-저장매체 고장, 분실 등의 사유로 인증서를 분실하였거나 암호 분실, 상호명이 변경되어 새 인증서를 신청해야 하는 경우입니다.&#13;&#10;-수수료 납부 및 서류 접수가 필요합니다." cssclass="sta_WF_Labelbg" left="269" top="419" height="119" style="align:left middle;" wordwrap="char" width="259"/>
+        <Static id="Static02" taborder="29" text="갱신" cssclass="sta_WF_Label" left="527" top="391" height="29" style="align:center middle;font:bold 9 arial;" width="259"/>
+        <Static id="Static03" taborder="30" text="-현재 사용하고 있는 공동인증서의 유효기간이 만료예정으로 1년 연장하기 위해 신청하는 경우입니다.(만료 1개월전 가능)" cssclass="sta_WF_Labelbg" left="527" top="419" height="119" style="align:left middle;" wordwrap="char" width="259"/>
+        <Static id="Static04" taborder="31" text="공동인증서 신청종류" cssclass="sta_WF_Subtitle" left="11" top="368" height="21" width="777" style="padding:0 0 1 14;"/>
+        <Static id="Static06" taborder="32" text="공동인증서 관련 유의사항" cssclass="sta_WF_Subtitle" left="11" top="548" height="21" width="777" style="padding:0 0 1 14;"/>
+        <Static id="TextArea13" taborder="33" text="-공동인증서 갱신은 유효기간 만료 1개월 전까지만 가능합니다.&#13;&#10;-공동인증서는 PC에 저장하신 후 이동디스크 (USB,디스켓) 등에 백업해 놓는 것이 좋습니다.&#13;&#10;-공동인증서를 발급받은 후 회사정보가 변경되었을 때는 재발급 받아야 합니다. (재신청)&#13;&#10;-금융권 인터넷뱅킹용 공동인증서는 전자거래 (전자세금계산서/전자계약/전자구매 등)서비스 이용 시 사용할 수 없습니다." wordwrap="char" left="11" top="570" height="74" style="padding:0 0 0 0;border:1 none #bfbfbfff ;font:9 굴림;" readonly="true" width="777"/>
+        <Static id="Static33" taborder="34" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.edt_menuId" propid="value" datasetid="ds_in" columnid="MENU_ID"/>
+      <BindItem id="item1" compid="divSearch.cbo_menuLevel" propid="value" datasetid="ds_in" columnid="MENU_LEVEL"/>
+      <BindItem id="item2" compid="divSearch.edt_menuName" propid="value" datasetid="ds_in" columnid="MENU_NAME"/>
+      <BindItem id="item3" compid="divSearch.edt_svcGroup" propid="value" datasetid="ds_in" columnid="SVC_GROUP"/>
+      <BindItem id="item4" compid="divSearch.edt_fileName" propid="value" datasetid="ds_in" columnid="FILE_NAME"/>
+      <BindItem id="item5" compid="divSearch.edt_fileType" propid="value" datasetid="ds_in" columnid="FILE_TYPE"/>
+      <BindItem id="item6" compid="divSearch.cbo_displayYn" propid="value" datasetid="ds_in" columnid="DISPLAY_YN"/>
+      <BindItem id="item7" compid="divSearch.cbo_useYn" propid="value" datasetid="ds_in" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+
+ 
+
+this.TextArea06_oneditclick = function(obj:TextArea,  e:nexacro.EditClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

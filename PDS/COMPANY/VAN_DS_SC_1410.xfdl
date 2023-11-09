@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_VAN_DS_SC_1410" classname="VAN_DS_SC_0160" left="0" top="0" width="803" height="490" titletext="자사사용자관리" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title00" taborder="7" text="사용자 조회구분" cssclass="sta_WFSA_Label" left="15" top="10" width="128" height="21"/>
+              <Radio id="rdo_select00" taborder="8" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="143" top="10" width="140" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">회원ID</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">사용자명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_title00" taborder="9" left="300" top="10" width="151" height="21"/>
+              <Static id="Static12" taborder="10" text="10" visible="false" left="42.11%" top="31" right="44.78%" height="10" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_menu" taborder="1" url="common::location.xfdl" text="Div01" left="0" top="0" right="596" height="21"/>
+        <Button id="btn_save00" taborder="4" text="저장" cssclass="btn_WF_CRUD" top="0" right="118" width="41" height="21" onclick="btn_save00_onclick"/>
+        <Button id="btn_search00" taborder="5" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search00_onclick"/>
+        <Div id="div_list" taborder="6" text="Div02" left="0" top="71" right="15" bottom="0" scrollbars="none" enableevent="true">
+          <Layouts>
+            <Layout width="788" height="421">
+              <Grid id="grd_main00" taborder="10" binddataset="ds_master_data" useinputpanel="false" autofittype="none" left="0" top="42" right="0" bottom="0" scrollbars="autoboth">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="160"/>
+                      <Column size="80"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="80"/>
+                      <Column size="170"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="회원ID"/>
+                      <Cell col="2" text="사용자명"/>
+                      <Cell col="3" text="협력업체 코드"/>
+                      <Cell col="4" text="협력업체명"/>
+                      <Cell col="5" text="전화번호"/>
+                      <Cell col="6" text="휴대전화번호"/>
+                      <Cell col="7" text="이메일"/>
+                      <Cell col="8" text="상태"/>
+                      <Cell col="9" text="최근접속일"/>
+                      <Cell col="10" text="사업자번호"/>
+                      <Cell col="11" text="우편번호"/>
+                      <Cell col="12" text="기본주소"/>
+                      <Cell col="13" text="승인"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell expr="expr:currow+1"/>
+                      <Cell col="1" text="bind:MB_ID"/>
+                      <Cell col="2" text="bind:USR_NM"/>
+                      <Cell col="3" text="bind:NA_TRPL_C"/>
+                      <Cell col="4" style="align:left;" text="bind:CLNTNM"/>
+                      <Cell col="5" text="bind:USR_TELNO"/>
+                      <Cell col="6" text="bind:USR_MPNO"/>
+                      <Cell col="7" text="bind:USR_EMAIL"/>
+                      <Cell col="8" text="bind:ENT_PRG_STSC"/>
+                      <Cell col="9" text="bind:LGIN_DTM" mask="####-##-##"/>
+                      <Cell col="10" text="bind:BZNO"/>
+                      <Cell col="11" text="bind:ZIP"/>
+                      <Cell col="12" text="bind:DONGUP"/>
+                      <Cell col="13" displaytype="checkbox" edittype="expr:MB_ID == application.gv_userId ? &quot;none&quot; : &quot;checkbox&quot;" text="bind:HOFF_APV_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_toggle00" taborder="11" cssclass="btn_WFSA_SearchClose" top="0" height="12" left="46.07%" onclick="div_list_btn_toggle00_onclick" width="62"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_auth" taborder="10" top="0" right="227" height="21" width="431" url="common::AuthorityWorkplace.xfdl">
+          <Layouts/>
+        </Div>
+        <Button id="btn_clear00" taborder="11" text="초기화" onclick="btn_clear00_onclick" cssclass="btn_WF_CRUD" top="0" right="161" height="21" width="53"/>
+        <Button id="btn_excel" taborder="12" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_master_data" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="MB_PW" type="STRING" size="256"/>
+          <Column id="USR_TPC" type="STRING" size="256"/>
+          <Column id="COMP_TPC" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+          <Column id="BIRTH" type="STRING" size="256"/>
+          <Column id="SEX_DSC" type="STRING" size="256"/>
+          <Column id="USR_TELNO" type="STRING" size="256"/>
+          <Column id="USR_MPNO" type="STRING" size="256"/>
+          <Column id="USR_EMAIL" type="STRING" size="256"/>
+          <Column id="SMS_RMS_YN" type="STRING" size="256"/>
+          <Column id="EMAIL_RMS_YN" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="BZNO" type="STRING" size="256"/>
+          <Column id="ENT_PRG_STSC" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="CHRG_BSNNM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+          <Column id="PW_LSRG_DT" type="STRING" size="256"/>
+          <Column id="MB_CV_DSC" type="STRING" size="256"/>
+          <Column id="ENT_PRG_CNTN" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="ZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="LGIN_DTM" type="STRING" size="256"/>
+          <Column id="HOFF_APV_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var TRPL_C = application.gv_glnCode;	//로그인 사업장 코드
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+   this.btnDisable(this.btn_save00);
+}
+
+//조회 메뉴 div 숨김 여부 이벤트
+this.div_list_btn_toggle00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+//조회
+this.btn_search00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var params = "TRPL_C="+this.getTrplCode() 											// 권한사업장 코드
+				+" RDO_CHK="+this.div_search.rdo_select00.value							// 사업장 구분 라디오
+				+" EDT_NM="+this.gfn_nullToEmpty(this.div_search.edt_title00.value);	// 사용자조건명
+	
+	var sSvcID        = "p_search";//통신아이디
+	var sURL          = "svc::rest/pds/company/Company/CompanyUsers";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_master_data=ds_master_data";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+//저장
+this.btn_save00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var bOk = application.confirm(this.gfn_getTextMessage('msg.isSave'));
+	if(bOk != true){
+		return;
+	}
+	
+	//페이지 로딩후 실행부분
+	var sSvcID        = "p_update";//통신아이디
+	var sURL          = "svc::rest/pds/company/Company/UpdateCompanyUsers";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_master_data=ds_master_data:A";//보내는데이터셋
+	var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "";// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)//첫번째 인자값은 통신 ID
+{
+	if(nCD < 0){
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "p_search" && sMSG == "SYSTEMERROR"){
+			this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+		}
+		if(svcID == "p_search" && sMSG == "SUCCESS"){
+			for(var i=0;i<this.ds_master_data.rowcount;i++){
+				var tt = this.ds_master_data.getColumn(i,"ENT_PRG_STSC");
+				if(tt == "0"){this.ds_master_data.setColumn(i,"ENT_PRG_STSC","진행중")}
+				if(tt == "1"){this.ds_master_data.setColumn(i,"ENT_PRG_STSC","신청완료")}
+				if(tt == "2"){this.ds_master_data.setColumn(i,"ENT_PRG_STSC","가입신청거절")}
+				if(tt == "3"){this.ds_master_data.setColumn(i,"ENT_PRG_STSC","수정요청중")}
+				if(tt == "4"){this.ds_master_data.setColumn(i,"ENT_PRG_STSC","수정요청거절")}
+				if(tt == "5"){this.ds_master_data.setColumn(i,"ENT_PRG_STSC","해지")}
+				
+				if(this.ds_master_data.getColumn(i,"HOFF_APV_YN") == "Y"){
+					this.ds_master_data.setColumn(i,"HOFF_APV_YN","1");
+				}else{
+					this.ds_master_data.setColumn(i,"HOFF_APV_YN","0");
+				}
+			}
+		}
+		if(svcID == "p_update" && sMSG == "SUCCESS"){
+			this.gfn_getMessage('alert','msg.comp.update');
+		}
+	}
+}
+
+//초기화
+this.btn_clear00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	var params = "TRPL_C="+this.getTrplCode() 											// 권한사업장 코드
+				+"&RDO_CHK="+this.div_search.rdo_select00.value							// 사업장 구분 라디오
+				+"&EDT_NM="+this.gfn_nullToEmpty(this.div_search.edt_title00.value);	// 사용자조건명
+	
+	//this.div_list.web_downExcelM.set_url(application.gv_server_url+"rest/excel/downloadExcelTrades?"+params);
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelCompanyUsers?"+params, this);
+}
+]]></Script>
+  </Form>
+</FDL>

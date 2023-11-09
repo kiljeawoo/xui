@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7290" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="미납 중지" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Button id="btn_excelListDown" taborder="37" text="엑셀" cssclass="btn_WF_CRUD" top="0" width="41" height="21" right="78" onclick="btn_excelListDown_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="102" right="15" bottom="-1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Grid id="grd_stop" taborder="2" useinputpanel="false" left="0" top="17" right="0" bottom="8" cellsizingtype="col" autofittype="col" summarytype="top" binddataset="ds_nPayStop" onsummclick="grd_stop_onsummclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="50"/>
+                      <Column size="50"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="선택"/>
+                      <Cell col="1" text="No"/>
+                      <Cell col="2" text="구분"/>
+                      <Cell col="3" text="일자"/>
+                      <Cell col="4" text="업체코드"/>
+                      <Cell col="5" text="업체명"/>
+                      <Cell col="6" text="미납금액"/>
+                      <Cell col="7" text="상태"/>
+                      <Cell col="8" text="수신자"/>
+                      <Cell col="9" text="수신번호"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="expr:(NS_STAT!='0')?'none':'checkbox'" style="align: ;" text="bind:NS_CHK" tooltiptext="bind:NS_CHK"/>
+                      <Cell col="1" displaytype="text" style="align: ;" expr="currow+1"/>
+                      <Cell col="2" displaytype="combo" text="bind:NS_FLAG" combodataset="ds_flag" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:NS_FLAG"/>
+                      <Cell col="3" displaytype="text" edittype="none" text="bind:NS_TIME" mask="expr:(NS_TIME==null)?'':'@@@@-@@-@@ @@:@@:@@'" tooltiptext="bind:NS_TIME"/>
+                      <Cell col="4" edittype="none" editfilter="integer" text="bind:NS_TRPL_C" tooltiptext="bind:NS_TRPL_C"/>
+                      <Cell col="5" style="align:left middle;" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="6" displaytype="number" edittype="none" editfilter="integer" style="align:right;" text="bind:NS_NPAY_AMT" tooltiptext="bind:NS_NPAY_AMT"/>
+                      <Cell col="7" displaytype="combo" text="bind:NS_STAT" combodataset="ds_stat" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:NS_STAT"/>
+                      <Cell col="8" displaytype="normal" edittype="none" editfilter="none" text="bind:NS_RCV_NM" tooltiptext="bind:NS_RCV_NM"/>
+                      <Cell col="9" displaytype="normal" edittype="none" text="bind:NS_RCV_NUM" tooltiptext="bind:NS_RCV_NUM"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell celltype="none" displaytype="checkbox" edittype="checkbox" style="align:center middle;" text="0"/>
+                      <Cell col="1" style="align:center middle;"/>
+                      <Cell col="2" style="align:center middle;"/>
+                      <Cell col="3" style="align:center middle;"/>
+                      <Cell col="4" expr="dataset.getCountNF()" tooltiptext="expr:dataset.getCountNF()"/>
+                      <Cell col="5"/>
+                      <Cell col="6" displaytype="number" expr="dataset.getSum(&quot;NS_NPAY_AMT&quot;)" tooltiptext="expr:dataset.getSum(&quot;NS_NPAY_AMT&quot;)"/>
+                      <Cell col="7" expr="expr:dataset.getCaseCount(&quot;NS_STAT!='5'&quot;)" tooltiptext="expr:dataset.getCaseCount(&quot;NS_STAT!='5'&quot;)"/>
+                      <Cell col="8" displaytype="normal"/>
+                      <Cell col="9" displaytype="normal"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button75" taborder="3" onclick="Div02_Button75_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_action" taborder="107" text="전송" onclick="btn_action_onclick" cssclass="btn_WF_CRUD" top="0" right="126" width="41" height="21"/>
+        <Div id="div_search" taborder="108" left="0" top="29" right="15" height="75" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="27" text="업체조회" cssclass="sta_WFSA_Label" left="24.55%" top="10" right="65.9%" height="21"/>
+              <Edit id="Edit_comnum" taborder="28" left="33.08%" top="10" right="58.02%" height="21"/>
+              <Edit id="Edit_comname" taborder="29" left="42.24%" top="10" right="48.35%" height="21"/>
+              <Button id="btn_comname" taborder="30" onclick="div_search_btn_comname_onclick" cssclass="btn_WF_Searchbtn" left="51.91%" top="10" right="45.42%" height="21"/>
+              <Static id="Static05" taborder="31" text="조회월" cssclass="sta_WFSA_Label" left="0.89%" top="10" height="21" right="90.59%"/>
+              <Div id="cal_month" taborder="32" url="common::calendarMonth.xfdl" left="9.41%" top="10" right="77.86%" height="21"/>
+              <Static id="Static06" taborder="33" text="수신번호" onclick="div_search_Static05_onclick" cssclass="sta_WFSA_Label" left="75.32%" top="10" right="15.01%" height="21"/>
+              <Static id="Static04" taborder="34" text="구분" onclick="div_search_Static05_onclick" left="74.17%" top="47" right="22.01%" height="21"/>
+              <Radio id="rdo_categ" taborder="35" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" onitemchanged="fn_categ_onitemchanged" left="78.63%" top="47" right="1.4%" height="21" style="font:9 Gulim;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">SMS</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">서비스중지</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="Edit_phoneNum" taborder="36" left="84.61%" top="10" right="2.67%" height="21"/>
+              <Static id="Static01" taborder="37" text="수신자" onclick="div_search_Static05_onclick" cssclass="sta_WFSA_Label" left="57.12%" top="10" right="34.86%" height="21"/>
+              <Edit id="Edit_phoneNm" taborder="38" left="64.76%" top="10" right="26.34%" height="21"/>
+              <Static id="Static03" taborder="39" text="77 bytes" left="66.67%" top="47" right="26.84%" height="21"/>
+              <TextArea id="txt_msg" taborder="40" value="하나로eSCM 이용료 미납으로 서비스 이용이 중지될 예정입니다.(10월12일중지예정)" onkeyup="div_search_txt_msg_onkeyup" left="9.41%" top="47" right="33.97%" height="21" style="align:left middle;font:8 arial;"/>
+              <Static id="Static02" taborder="41" text="전송내역" cssclass="sta_WFSA_Label" left="1.02%" top="47" right="89.57%" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <WebBrowser id="web_downExcel" left="35.87%" top="7" right="58.66%" height="14" taborder="109" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_nPayStop" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NS_CHK" type="INT" size="1"/>
+          <Column id="NS_FLAG" type="STRING" size="10"/>
+          <Column id="NS_TIME" type="DATETIME" size="20"/>
+          <Column id="NS_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="NS_NPAY_AMT" type="INT" size="256"/>
+          <Column id="NS_RCV_NM" type="STRING" size="50"/>
+          <Column id="NS_RCV_NUM" type="STRING" size="20"/>
+          <Column id="NS_STAT" type="STRING" size="10"/>
+          <Column id="NS_RANK" type="INT" size="5"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_flag" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="32" prop=""/>
+          <Column id="DATA" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="DATA">SMS전송</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="DATA">서비스중지</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_stat" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="32" prop=""/>
+          <Column id="DATA" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">0</Col>
+            <Col id="DATA">대기</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="DATA">전송성공</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="DATA">중지완료</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">3</Col>
+            <Col id="DATA">전송실패</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">4</Col>
+            <Col id="DATA">전송진행</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">5</Col>
+            <Col id="DATA">번호중복</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_search.rdo_categ" propid="value" datasetid="ds_dataM" columnid="DVY_VHC_DSC"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var toDay = "";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+/* Form Init: 페이지 호출 후 실행 */
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	toDay = this.gfn_today("yyyyMMdd");	
+	this.div_search.cal_month._setValue(this.gfn_firstDate(toDay).substr(0, 6));
+}
+
+/* Form Onload: DataSet 로딩 후 실행 */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.div_search.txt_msg.set_value('하나로eSCM 이용료 미납으로 서비스 이용이 중지될 예정입니다.(' + toDay.substr(4, 2) + '월12일중지예정)');
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/* 콜백 함수 */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+//	trace(this.ds_nPayStop.saveXML());
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	else
+	{
+		if(svcID == "retrieveNPayStopList")
+		{
+			if(this.ds_nPayStop.rowcount == 0)
+			{
+				this.Div02.grd_stop.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+		else if(svcID == "actionNPayStop")
+		{
+			var rtMsg = "";
+			     if(this.div_search.rdo_categ.value == 1) rtMsg = "SMS전송이 완료되었습니다.";
+			else if(this.div_search.rdo_categ.value == 2) rtMsg = "서비스중지가 완료되었습니다.";
+			alert(rtMsg);
+			this.btn_search_onclick();
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/* 조회조건 영역 펼치기, 접기 */
+this.Div02_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.btn_action_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams			=  "SVC_ST="	+ this.div_search.rdo_categ.value
+						+ " TXT_MSG="	+ "'" + this.div_search.txt_msg.value + "'"
+						+ " USER_ID="	+ application.gv_userId
+						;
+//	trace("sParams:" + sParams);
+	this.fn_action(sParams);
+}
+
+this.fn_action = function(sParams)
+{
+	var sSvcID			= "actionNPayStop";
+	var sURL			= "svc::rest/bl/actionNPayStop";
+	var sInDatasets		= "ds_nPayStop=ds_nPayStop";
+	var sOutDatasets	= "";
+	var sArgument		= sParams;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "U"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_excelListDown_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams			= "CAL_MON="	+ this.div_search.cal_month._getValue().substr(0, 6)
+						+ "&TRPL_C="	+ this.gfn_nullToEmpty(this.div_search.Edit_comnum.value)
+						+ "&CLNTNM="	+ this.gfn_nullToEmpty(this.div_search.Edit_comname.value)
+						+ "&SVC_ST="	+ this.div_search.rdo_categ.value
+						+ "&PHONE_NM="	+ this.gfn_nullToEmpty(this.div_search.Edit_phoneNm.value)
+						+ "&PHONE_NUM="	+ this.gfn_nullToEmpty(this.div_search.Edit_phoneNum.value)
+						;
+//	trace("sParams:" + sParams);
+	this.fn_excel(sParams);
+}
+
+this.fn_excel = function(sParams)
+{
+//	trace("엑셀 다운로드 params >>> " + sParams);
+	this.web_downExcel.set_url(application.gv_serverAdmin_url + "rest/excel/bl/downloadExcelNPayStopList?" + sParams);
+}
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams			= "CAL_MON="	+ this.div_search.cal_month._getValue().substr(0, 6)
+						+ " TRPL_C="	+ this.gfn_nullToEmpty(this.div_search.Edit_comnum.value)
+						+ " CLNTNM="	+ this.gfn_nullToEmpty(this.div_search.Edit_comname.value)
+						+ " SVC_ST="	+ this.div_search.rdo_categ.value
+						+ " PHONE_NM="	+ this.gfn_nullToEmpty(this.div_search.Edit_phoneNm.value)
+						+ " PHONE_NUM="	+ this.gfn_nullToEmpty(this.div_search.Edit_phoneNum.value)
+						;
+//	trace("sParams:" + sParams);
+	this.fn_search(sParams);
+}
+
+this.fn_search = function(sParams)
+{
+	var sSvcID			= "retrieveNPayStopList";
+	var sURL			= "svc::rest/bl/retrieveNPayStopList";
+	var sInDatasets		= "";
+	var sOutDatasets	= "ds_nPayStop=ds_nPayStop";
+	var sArgument		= sParams;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 업체 조회
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg			= "";
+	var sOption			= "autosize=true,title=true";
+	var sPopupCallBack	= "fn_popupAfter";
+	this.gfn_openPopup("trplSearchPopup", "OMG.BL::OMG_DS_SC_7230_P01.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+// 팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+//	trace(" strId : " + strId + " strVal : " + strVal);
+	if(strVal != '')
+	{
+		var paramsArr = strVal.split(",");
+		if(strId == "trplSearchPopup")
+		{
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+
+//	구분 RADIO 변경 시 동작함수
+this.fn_categ_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	var	rdonly_bgcolor = "#999999ff";
+	var	editable_bgcolor = "#ffffffff";
+
+	if(this.div_search.rdo_categ.value == '1')	// SMS
+	{
+		this.btn_action.set_text('전송');
+		this.div_search.Edit_phoneNm.set_readonly(false);
+		this.div_search.Edit_phoneNm.style.set_background(editable_bgcolor);
+		this.div_search.Edit_phoneNum.set_readonly(false);
+		this.div_search.Edit_phoneNum.style.set_background(editable_bgcolor);
+		this.div_search.txt_msg.set_readonly(false);
+		this.div_search.txt_msg.style.set_background(editable_bgcolor);
+		this.div_search.txt_msg.set_value('하나로eSCM 이용료 미납으로 서비스 이용이 중지될 예정입니다.(' + toDay.substr(4, 2) + '월12일중지예정)');
+	}
+	else if(this.div_search.rdo_categ.value == '2')	// 서비스중지
+	{
+		this.btn_action.set_text('중지');
+		this.div_search.Edit_phoneNm.set_readonly(true);
+		this.div_search.Edit_phoneNm.style.set_background(rdonly_bgcolor);
+		this.div_search.Edit_phoneNum.set_readonly(true);
+		this.div_search.Edit_phoneNum.style.set_background(rdonly_bgcolor);
+		this.div_search.txt_msg.set_readonly(true);
+		this.div_search.txt_msg.style.set_background(rdonly_bgcolor);
+	}
+}
+
+this.grd_stop_onsummclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.col == 0)
+	{
+		if(this.Div02.grd_stop.getCellProperty("Summ", 0, "text") == "0")
+		{
+			this.Div02.grd_stop.setCellProperty("Summ", 0, "text", "1");
+			for(var i = 0, length = this.ds_nPayStop.getRowCount(); i < length; i++)
+			{
+				this.ds_nPayStop.setColumn(i, "NS_CHK", "1");
+			}
+		}
+		else if(this.Div02.grd_stop.getCellProperty("Summ", 0, "text") == "1")
+		{
+			this.Div02.grd_stop.setCellProperty("Summ", 0, "text", "0");
+			for(var i = 0, length = this.ds_nPayStop.getRowCount(); i < length; i++)
+			{
+				this.ds_nPayStop.setColumn(i, "NS_CHK", "0");
+			}
+		}
+	}
+}
+
+this.fn_getByteLength = function(s)
+{
+	if (s == null || s.length == 0)
+	{
+		return 0;
+	}
+	var size = 0;
+	for ( var i = 0; i < s.length; i++)
+	{
+		size += this.fn_charByteSize(s.charAt(i));
+	}
+	return size;
+}
+
+this.fn_charByteSize = function(ch)
+{
+	if (ch == null || ch.length == 0)
+	{
+		return 0;
+	}
+	var charCode = ch.charCodeAt(0);
+	if (charCode <= 0x00007F)
+	{
+		return 1;
+	}
+	else if (charCode <= 0x0007FF)
+	{
+		return 2;
+	}
+	else if (charCode <= 0x00FFFF)
+	{
+		return 2;
+	}
+	else
+	{
+		return 4;
+	}
+}
+
+this.div_search_txt_msg_onkeyup = function(obj:TextArea, e:nexacro.KeyEventInfo)
+{
+	var msg_length = 0;
+	msg_length = this.fn_getByteLength(this.div_search.txt_msg.value);
+	this.div_search.Static03.set_text(msg_length + " bytes");
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="1056" height="387" titletext="공통코드테스트" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Div id="Div00" taborder="39" left="17" top="76" right="646" height="140" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Combo id="Combo00" taborder="40" innerdataset="@ds_USR_TP" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="34" top="123" width="150" height="21"/>
+        <Combo id="Combo01" taborder="41" innerdataset="@ds_HP" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="218" top="123" width="150" height="21"/>
+        <Static id="Static00" taborder="42" text="ds_USR_TP" left="36" top="98" width="120" height="21"/>
+        <Static id="Static01" taborder="43" text="ds_HP" left="220" top="98" width="120" height="21"/>
+        <ImageViewer id="ImageViewer00" taborder="44" left="519" top="167" width="90" height="100" image="URL('theme://images\ico_LF_treeitem.png')"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_USR_TP" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_HP" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var param = [  
+ 		{code:"USR_TP",   dsName:"ds_USR_TP",   selecttype:"A"},
+ 		{code:"HP"	,     dsName:"ds_HP", selecttype:"N"}
+    ];
+
+	this.gfn_setPortalCommonCode(param);
+	//this.gfn_setPortalCommonCode(param);  portal공통코드호출용
+}
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	
+	//콤보에 최상단Row보이도록 설정
+	this.Combo00.set_index(0);
+	this.Combo01.set_index(0);
+}
+]]></Script>
+  </Form>
+</FDL>

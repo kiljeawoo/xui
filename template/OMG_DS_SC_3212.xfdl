@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_3212" classname="OMG_DS_SC_3212" left="0" top="0" width="350" height="188" titletext="신청내역  intro화면">
+    <Layouts>
+      <Layout>
+        <Div id="Div03" taborder="0" text="Div03" left="0" top="0" width="350" height="188" cssclass="div_WF_MenuList">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="3" cssclass="sta_WF_Menulist" left="0" top="0" width="348" height="30"/>
+              <Button id="Button13" taborder="5" text="확인" left="153" top="150" width="41" height="21"/>
+              <Static id="Static20" taborder="6" text="사업자등록번호" cssclass="sta_WF_Label" left="14" top="45" width="110" height="29"/>
+              <Static id="Static28" taborder="7" cssclass="sta_WF_Labelbg" left="123" top="45" height="29" width="210"/>
+              <Static id="Static01" taborder="8" text="신청자" cssclass="sta_WF_Label" left="14" top="73" width="110" height="29"/>
+              <Static id="Static02" taborder="9" cssclass="sta_WF_Labelbg" left="123" top="73" height="29" width="210"/>
+              <Edit id="Edit01" taborder="10" left="127" top="77" width="202" height="21"/>
+              <Static id="Static03" taborder="11" text="휴대폰" cssclass="sta_WF_Label" left="14" top="101" width="110" height="29"/>
+              <Static id="Static04" taborder="12" cssclass="sta_WF_Labelbg" left="123" top="101" height="29" width="210"/>
+              <Combo id="Combo08" taborder="13" value="1" text="010" codecolumn="codecolumn" datacolumn="datacolumn" index="0" left="127" top="105" width="51" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">010</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">011</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static09" taborder="14" text="-" left="239" top="105" width="9" height="21"/>
+              <Static id="Static40" taborder="15" text="-" left="180" top="105" width="9" height="21"/>
+              <MaskEdit id="MaskEdit14" taborder="16" value="1234" left="189" top="105" width="48" height="21"/>
+              <MaskEdit id="MaskEdit15" taborder="17" value="1234" left="248" top="105" width="48" height="21"/>
+              <MaskEdit id="MaskEdit09" taborder="18" left="127" top="49" width="70" height="21"/>
+              <MaskEdit id="MaskEdit10" taborder="19" type="string" mask="#######" left="208" top="49" width="70" height="21"/>
+              <Static id="Static120" taborder="20" text="-" left="199" top="49" width="9" height="21"/>
+              <Button id="Button01" taborder="21" cssclass="btn_WF_PopupClose" left="311" top="0" width="37" height="30"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

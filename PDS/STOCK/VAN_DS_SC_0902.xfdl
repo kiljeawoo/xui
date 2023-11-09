@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_0902" classname="VAN_DS_SC_0900" left="0" top="0" width="803" height="490" titletext="물류센터 재고현황 상품별" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="0" url="common::location.xfdl" text="Div01" left="0" top="0" width="397" height="21"/>
+        <Div id="div_auth" taborder="1" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="118" width="431" height="21"/>
+        <Button id="btn_excel" taborder="2" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21"/>
+        <Button id="btn_search00" taborder="3" onclick="search" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21"/>
+        <Div id="div_search" taborder="5" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Radio id="rdo_wrs_chk" taborder="34" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="0" direction="vertical" left="94" top="36" width="132" height="21" onitemchanged="div_search_rdo_wrs_chk_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">구간</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="sta_title03" taborder="37" text="물류센터" cssclass="sta_WFSA_Label" left="15" top="10" width="79" height="21"/>
+              <Static id="sta_title01" taborder="38" text="상품코드" cssclass="sta_WFSA_Label" left="15" top="36" width="79" height="21"/>
+              <Edit id="edt_wrs_c_from" taborder="41" inputtype="number" maxlength="25" cssclass="WF_Essential" left="226" top="36" width="110" height="21"/>
+              <Edit id="edt_wrs_c_to" taborder="42" inputtype="number" maxlength="25" cssclass="WF_Essential" left="346" top="36" width="110" height="21"/>
+              <Static id="sta_between00" taborder="54" text="~" left="336" top="36" width="10" height="21"/>
+              <Static id="Static12" taborder="55" text="10" visible="false" left="233" top="57" width="103" height="10" style="background:#dc143c5b;"/>
+              <Static id="Static00" taborder="56" text="5" visible="false" left="233" top="31" width="103" height="5" style="background:#dc143c5b;"/>
+              <Combo id="cbo_nacode" taborder="57" innerdataset="@ds_NABizPlace" codecolumn="NA_BZPLC" datacolumn="SHRT_BZPLNM" displayrowcount="20" left="94" top="10" width="362" height="21"/>
+              <CheckBox id="chk_atl_yn" taborder="58" text="간선포함" value="0" truevalue="1" falsevalue="0" left="479" top="36" width="80" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="6" text="Div02" left="0" top="97" right="15" bottom="0" scrollbars="none">
+          <Layouts>
+            <Layout width="788" height="317">
+              <Grid id="grd_master" taborder="23" binddataset="ds_M" useinputpanel="false" left="0" top="42" right="0" bottom="44">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="62"/>
+                      <Column size="95"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="순번"/>
+                      <Cell col="1" rowspan="2" text="상품코드"/>
+                      <Cell col="2" rowspan="2" text="상품명"/>
+                      <Cell col="3" rowspan="2" text="물류센터코드"/>
+                      <Cell col="4" rowspan="2" text="물류센터명"/>
+                      <Cell col="5" rowspan="2" text="상품등급"/>
+                      <Cell col="6" rowspan="2" text="물류기능"/>
+                      <Cell col="7" rowspan="2" text="간선여부"/>
+                      <Cell col="8" rowspan="2" text="입수"/>
+                      <Cell col="9" colspan="3" text="총재고"/>
+                      <Cell col="12" colspan="5" text="가용재고"/>
+                      <Cell col="17" colspan="3" text="할당/적송재고"/>
+                      <Cell col="20" colspan="2" text="반품재고"/>
+                      <Cell row="1" col="9" text="수량"/>
+                      <Cell row="1" col="10" text="박스"/>
+                      <Cell row="1" col="11" text="금액"/>
+                      <Cell row="1" col="12" text="수량"/>
+                      <Cell row="1" col="13" text="박스"/>
+                      <Cell row="1" col="14" text="금액"/>
+                      <Cell row="1" col="15" text="일평균 출고량"/>
+                      <Cell row="1" col="16" text="예상 소진일자"/>
+                      <Cell row="1" col="17" text="수량"/>
+                      <Cell row="1" col="18" text="박스"/>
+                      <Cell row="1" col="19" text="금액"/>
+                      <Cell row="1" col="20" text="수량"/>
+                      <Cell row="1" col="21" text="금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:A1"/>
+                      <Cell col="2" text="bind:A2"/>
+                      <Cell col="3" text="bind:A3"/>
+                      <Cell col="4" text="bind:A4"/>
+                      <Cell col="5" text="bind:A20"/>
+                      <Cell col="6" text="bind:A19"/>
+                      <Cell col="7" text="bind:A21"/>
+                      <Cell col="8" text="bind:A18"/>
+                      <Cell col="9" text="bind:A5"/>
+                      <Cell col="10" text="bind:A6"/>
+                      <Cell col="11" text="bind:A7"/>
+                      <Cell col="12" text="bind:A8"/>
+                      <Cell col="13" text="bind:A9"/>
+                      <Cell col="14" text="bind:A10"/>
+                      <Cell col="15" text="bind:A11"/>
+                      <Cell col="16" text="bind:A12"/>
+                      <Cell col="17" text="bind:A13"/>
+                      <Cell col="18" text="bind:A14"/>
+                      <Cell col="19" text="bind:A15"/>
+                      <Cell col="20" text="bind:A16"/>
+                      <Cell col="21" text="bind:A17"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_toggle00" taborder="24" onclick="div_list_btn_toggle00_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" width="62" height="12"/>
+              <WebBrowser id="web_downExcelM" left="78.3%" top="10" right="16.88%" height="20" taborder="26" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_M">
+        <ColumnInfo>
+          <Column id="A1" type="string" size="32"/>
+          <Column id="A2" type="string" size="32"/>
+          <Column id="A3" type="string" size="32"/>
+          <Column id="A4" type="string" size="32"/>
+          <Column id="A5" type="float" size="32"/>
+          <Column id="A6" type="bigdecimal" size="32"/>
+          <Column id="A7" type="bigdecimal" size="32"/>
+          <Column id="A8" type="float" size="32"/>
+          <Column id="A9" type="bigdecimal" size="32"/>
+          <Column id="A10" type="bigdecimal" size="32"/>
+          <Column id="A11" type="bigdecimal" size="32"/>
+          <Column id="A12" type="bigdecimal" size="32"/>
+          <Column id="A13" type="float" size="32"/>
+          <Column id="A14" type="bigdecimal" size="32"/>
+          <Column id="A15" type="bigdecimal" size="32"/>
+          <Column id="A16" type="bigdecimal" size="32"/>
+          <Column id="A17" type="bigdecimal" size="32"/>
+          <Column id="A18" type="bigdecimal" size="32"/>
+          <Column id="A19" type="string" size="32"/>
+          <Column id="A20" type="string" size="32"/>
+          <Column id="A21" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_NABizPlace" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="string" size="32"/>
+          <Column id="SHRT_BZPLNM" type="string" size="32"/>
+          <Column id="BZPL_TPC" type="string" size="32"/>
+          <Column id="BZPL_DTI_TPC" type="string" size="32"/>
+          <Column id="BZPL_TPNM" type="string" size="32"/>
+          <Column id="BZPL_DTI_TPNM" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+   
+   //권한사업장 콤보박스 변경시 농협사업장 조회
+   this.div_auth.setFunctionName("fn_afterCall");	
+};
+this.fn_afterFormOnload = function()
+{
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.fn_getNABizPlace(application.gv_glnCode);
+}
+
+//권한사업장 콤보박스 변경시 농협사업장 조회
+this.fn_afterCall = function(sVal)
+{
+	this.fn_getNABizPlace(sVal);
+}
+
+//물류센터 조회
+this.fn_getNABizPlace = function(v_nacode)
+{
+	var nacode = v_nacode;
+	var search_type = "added";
+	
+	var param = "search_type="+search_type+
+				" splr_na_trpl_c="+nacode;
+	
+	trace("##### fn_getNABizPlace PARAM ################"+param);
+	
+	var sSvcID        = "getNABizPlace";//통신아이디
+	var sURL          = "svc::rest/common/getNABizPlace";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_NABizPlace=data";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+//조회 버튼
+this.search = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_M.clearData();
+	
+	if(!this.validation()){return};
+	
+	var PHD_NA_BZPLC = this.gfn_nullToEmpty(this.div_search.cbo_nacode.value); 					//물류센터	
+	var WRS_P = this.gfn_nullToEmpty(this.div_search.rdo_wrs_chk.value);								//상품코드 구분(0:전체 1:구간)
+	var WRS_C_FM_PI = "";
+	var WRS_C_FM_PO = "";
+	var atl_yn     = this.div_search.chk_atl_yn.value;    	                        // 간선여부 
+		
+	if(WRS_P == 0){		
+	}else{
+		WRS_C_FM_PI = this.gfn_nullToEmpty(this.div_search.edt_wrs_c_from.value);					//구간시작
+		WRS_C_FM_PO = this.gfn_nullToEmpty(this.div_search.edt_wrs_c_to.value);					//구간종료
+	}	
+	
+	var params = "PHD_NA_BZPLC="+PHD_NA_BZPLC
+				+" WRS_P="+WRS_P
+				+" WRS_C_FM_PI="+WRS_C_FM_PI
+				+" WRS_C_FM_PO="+WRS_C_FM_PO
+				+" TRPL_C="+this.getTrplCode()
+				+" atl_yn="       + atl_yn ;
+				
+	trace("##MASTER##PARAM##->"+params);	
+	
+	var sSvcID        = "centerStock_WRS";//통신아이디
+	var sURL          = "svc::rest/stock/centerStock_WRS";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_M=ds_M";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+		
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	trace("fn_callback");
+		
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+	
+		if(svcID == "centerStock_WRS"){											
+			if(this.ds_M.rowcount > 0){
+				trace("centerStock_WRS");
+				trace(this.ds_M.saveXML());
+			
+			}else{	
+				trace("centerStockWRS_NULL");
+			}
+		};
+		
+	
+		if(svcID == "getNABizPlace") {
+			
+			if(this.ds_NABizPlace.rowcount != 0){
+			
+				for (var i=0; i < this.ds_NABizPlace.rowcount ;i++)			
+				{
+					/*
+					if (this.ds_NABizPlace.getColumn(i,0) == '8808983000015'){					
+						this.ds_NABizPlace.deleteRow(i);					
+					}
+					*/
+						
+					this.ds_NABizPlace.setColumn(i,"SHRT_BZPLNM","["+this.ds_NABizPlace.getColumn(i,0)+"] "+this.ds_NABizPlace.getColumn(i,1));
+				}
+
+				if (this.ds_NABizPlace.insertRow(0) != -1){
+					this.ds_NABizPlace.setColumn(0,"NA_BZPLC","");
+					this.ds_NABizPlace.setColumn(0,"SHRT_BZPLNM","- 선택 -");
+				};
+			
+				this.div_search.cbo_nacode.set_index(0);
+			}
+		};
+	}
+}
+
+//유효성 체크
+this.validation = function()
+{
+	if(this.gfn_isNull(this.div_search.cbo_nacode.value)){
+		
+		alert("물류센터를 선택하세요.");
+		return false;
+	}	
+	return true;
+}
+
+//상품코드 라디오 버튼
+this.div_search_rdo_wrs_chk_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	//전체
+	if(this.div_search.rdo_wrs_chk.value=='0'){
+		this.div_search.edt_wrs_c_from.set_value('');
+		this.div_search.edt_wrs_c_to.set_value('');		
+	}
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	//this.ds_M.clearData();
+	
+	if(!this.validation()){return};
+	
+	var PHD_NA_BZPLC = this.gfn_nullToEmpty(this.div_search.cbo_nacode.value); 					//물류센터	
+	var WRS_P = this.gfn_nullToEmpty(this.div_search.rdo_wrs_chk.value);						//상품코드 구분(0:전체 1:구간)
+	var WRS_C_FM_PI = "";
+	var WRS_C_FM_PO = "";
+	var atl_yn  = this.div_search.chk_atl_yn.value;   // 간선포함 여부
+	
+	if(WRS_P == 0){		
+	}else{
+		WRS_C_FM_PI = this.gfn_nullToEmpty(this.div_search.edt_wrs_c_from.value);				//구간시작
+		WRS_C_FM_PO = this.gfn_nullToEmpty(this.div_search.edt_wrs_c_to.value);					//구간종료
+	}	
+				
+	var params = "PHD_NA_BZPLC="+PHD_NA_BZPLC
+				+"&WRS_P="+WRS_P
+				+"&WRS_C_FM_PI="+WRS_C_FM_PI
+				+"&WRS_C_FM_PO="+WRS_C_FM_PO
+				+"&atl_yn=" + atl_yn 
+				+"&TRPL_C="+this.getTrplCode();
+	
+	//params = encodeURI(encodeURI(params));
+	excelDownHandler(application.gv_server_url+"rest/excel/downloadExcelcenterStock_WRS?"+params, this);
+	
+}
+]]></Script>
+  </Form>
+</FDL>

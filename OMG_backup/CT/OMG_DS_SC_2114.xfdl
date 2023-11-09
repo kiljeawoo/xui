@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_2114" classname="pattern_01" left="0" top="0" width="803" height="483" titletext="계약서 변경 이력 상세" style="color:#999999ff;" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_close" taborder="133" text="닫기" cssclass="btn_WF_CRUD" top="0" width="41" height="21" right="15" onclick="btn_close_onclick"/>
+        <Static id="Static00" taborder="194" left="788" top="0" width="15" height="181" visible="false" style="background:#00ffff66;"/>
+        <Static id="Static01" taborder="196" text="상담신청이력" cssclass="sta_WF_Subtitle" left="15" top="44" width="301" height="21"/>
+        <Static id="Static12" taborder="198" text="20" visible="false" left="15" top="21" width="871" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="205" text="통보내역" cssclass="sta_WF_Subtitle" left="15" top="316" width="301" height="21"/>
+        <Static id="Static17" taborder="207" text="내용" cssclass="sta_WF_Label" left="15" top="341" width="110" height="122"/>
+        <Static id="Static22" taborder="209" cssclass="sta_WF_Labelbg" left="125" top="341" height="122" right="16"/>
+        <TextArea id="txa_cntn" taborder="214" left="129" top="345" width="654" height="114" wordwrap="char" readonly="true"/>
+        <Static id="Static02" taborder="246" text="20" visible="false" left="11" top="292" width="871" height="20" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="247" text="20" visible="false" left="11" top="463" width="871" height="20" style="background:#dc143c5b;"/>
+        <Grid id="Grid00" taborder="248" binddataset="ds_receive" useinputpanel="false" left="15" top="69" right="15" height="223">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="90"/>
+                <Column size="373"/>
+                <Column size="120"/>
+                <Column size="90"/>
+                <Column size="100"/>
+                <Column size="0"/>
+                <Column size="100"/>
+                <Column size="126"/>
+                <Column size="123"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="122"/>
+                <Column size="129"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" text="상태"/>
+                <Cell col="1" rowspan="2" text="제목"/>
+                <Cell col="2" rowspan="2" text="담당계약담당자"/>
+                <Cell col="3" rowspan="2" text="신청날짜"/>
+                <Cell col="4" rowspan="2" text="등록자"/>
+                <Cell col="5"/>
+                <Cell col="6" colspan="4" text="문자"/>
+                <Cell col="10" colspan="4" text="이메일"/>
+                <Cell row="1" col="5"/>
+                <Cell row="1" col="6" text="사용여부"/>
+                <Cell row="1" col="7" text="전달시간"/>
+                <Cell row="1" col="8" text="수신시간"/>
+                <Cell row="1" col="9" text="전송상태"/>
+                <Cell row="1" col="10" text="사용여부"/>
+                <Cell row="1" col="11" text="전달시간"/>
+                <Cell row="1" col="12" text="수신시간"/>
+                <Cell row="1" col="13" text="전송상태"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="none" text="bind:STS_NM"/>
+                <Cell col="1" edittype="none" cssclass="Cellgrd_WF_AlignLeft" text="bind:TINM"/>
+                <Cell col="2" text="bind:BUYER_NM"/>
+                <Cell col="3" edittype="none" text="bind:ST_DT" mask="####-##-##" calendardisplaynulltype="none"/>
+                <Cell col="4" edittype="none" text="bind:CHRG_BUYER_NM"/>
+                <Cell col="5" edittype="none" text="bind:CNTN"/>
+                <Cell col="6" edittype="none" text="bind:RLTM_NTC_SMS"/>
+                <Cell col="7" displaytype="expr:SMS_SEND_DATE==null?'none':'text'" edittype="none" text="bind:SMS_SEND_DATE" mask="@@@@-@@-@@ @@:@@:@@" calendardisplay="edit" calendardisplaynulltype="none"/>
+                <Cell col="8" displaytype="expr:SMS_READ_TIME==null?'none':'text'" edittype="none" text="bind:SMS_READ_DATE" mask="@@@@-@@-@@ @@:@@:@@" calendardisplaynulltype="none"/>
+                <Cell col="9" edittype="none" text="bind:SMS_STS"/>
+                <Cell col="10" edittype="none" text="bind:RLTM_NTC_EMAIL"/>
+                <Cell col="11" displaytype="expr:EMAIL_SEND_DATE==null?'none':'text'" edittype="none" text="bind:EMAIL_SEND_DATE" mask="@@@@-@@-@@ @@:@@:@@" calendardisplaynulltype="none"/>
+                <Cell col="12" displaytype="expr:EMAIL_READ_DATE==null?'none':'text'" edittype="none" text="bind:EMAIL_READ_DATE" mask="@@@@-@@-@@ @@:@@:@@" calendardisplaynulltype="none"/>
+                <Cell col="13" edittype="none" text="bind:EMAIL_STS"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_in" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TINM" type="STRING" size="256"/>
+          <Column id="CNTN" type="STRING" size="256"/>
+          <Column id="RLTM_NTC_SMS" type="STRING" size="256"/>
+          <Column id="CHRW_ATEL" type="STRING" size="256"/>
+          <Column id="CHRW_HTEL" type="STRING" size="256"/>
+          <Column id="CHRW_STEL" type="STRING" size="256"/>
+          <Column id="RLTM_NTC_EMAIL" type="STRING" size="256"/>
+          <Column id="CHRR_EMAIL" type="STRING" size="256"/>
+          <Column id="CHRG_BUYER_NM" type="STRING" size="256"/>
+          <Column id="BUYER_ATEL" type="STRING" size="256"/>
+          <Column id="BUYER_HTEL" type="STRING" size="256"/>
+          <Column id="BUYER_STEL" type="STRING" size="256"/>
+          <Column id="EVL_HDNGCN" type="STRING" size="256"/>
+          <Column id="TMS_STS" type="STRING" size="256"/>
+          <Column id="STS" type="STRING" size="256"/>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_receive" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="ds_receive_onrowposchanged">
+        <ColumnInfo>
+          <Column id="MN_CTRW_KDNM" type="STRING" size="256"/>
+          <Column id="STS_NM" type="STRING" size="256"/>
+          <Column id="TINM" type="STRING" size="256"/>
+          <Column id="BUYER_NM" type="STRING" size="256"/>
+          <Column id="ST_DT" type="STRING" size="256"/>
+          <Column id="CHRG_BUYER_NM" type="STRING" size="256"/>
+          <Column id="CNTN" type="STRING" size="256"/>
+          <Column id="RLTM_NTC_SMS" type="STRING" size="256"/>
+          <Column id="SMS_SEND_DATE" type="STRING" size="256"/>
+          <Column id="SMS_READ_TIME" type="STRING" size="256"/>
+          <Column id="SMS_STS" type="STRING" size="256"/>
+          <Column id="RLTM_NTC_EMAIL" type="STRING" size="256"/>
+          <Column id="EMAIL_SEND_DATE" type="STRING" size="256"/>
+          <Column id="EMAIL_READ_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item1" compid="txa_cntn" propid="value" datasetid="ds_receive" columnid="CNTN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{   
+   this.gfn_setInitForm(obj, e); //공통
+   
+}
+
+
+this.fn_afterFormOnload = function()
+{
+	//*조회 호출*/
+	this.search();
+	
+}
+
+ /*조회*/
+this.search = function()
+{	
+	var ds_parent = this.parent.dsArg;
+	var elt_ctrw_no = this.gfn_nullToEmpty(this.parent.elt_ctrw_no);  //상담신청번호
+	
+	param = " elt_ctrw_no="+elt_ctrw_no;
+
+	var sSvcID        = "search";
+	var sURL          = "svc::rest/ct/eltctrw/retrieveCtrwChgHstDscList";
+	var sInDatasets   = "ds_param=ds_param";
+	var sOutDatasets  = "ds_in=ds_in ds_receive=ds_receive";	
+	var sArgument     = param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{		
+	//trace("ErrorCode" + ErrorCode);
+		if(ErrorCode > -1){
+		//	alert("정상적으로 처리되었습니다.");
+			//this.close();
+		}
+// 		trace(this.ds_in.saveXML());
+// 		trace(this.ds_receive.saveXML());
+		
+		
+}
+
+ /*닫기*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.ds_receive_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	
+	this.txa_cntn.set_value(obj.getColumn(e.newrow ,"CNTN")  ) 
+
+}
+]]></Script>
+  </Form>
+</FDL>

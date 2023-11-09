@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="1056" height="387" titletext="회원가입테스트" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Button id="Button00" taborder="9" text="협력업체회원가입" left="75" top="99" width="120" height="21" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="10" text="본부회원가입" left="205" top="99" width="120" height="21" onclick="Button01_onclick"/>
+        <Button id="Button02" taborder="11" text="하나로마트회원가입" left="335" top="99" width="120" height="21" onclick="Button02_onclick"/>
+        <Button id="Button03" taborder="12" text="전환회원회원가입" left="75" top="142" width="120" height="21"/>
+        <Button id="Button04" taborder="13" text="미전환회원회원가입" left="206" top="142" width="120" height="21"/>
+        <Button id="Button05" taborder="14" text="협력업체회원변경" left="75" top="185" width="120" height="21"/>
+        <Button id="Button06" taborder="15" text="본부회원변경" left="205" top="185" width="120" height="21"/>
+        <Button id="Button07" taborder="16" text="하나로마트회원변경" left="335" top="185" width="120" height="21"/>
+        <Edit id="edt_MB_ID" taborder="17" value="do000015" left="17.23%" top="232" right="71.12%" height="21" maxlength="9"/>
+        <Static id="mb_id" taborder="18" text="아이디" left="8.14%" top="231" right="80.49%" height="21"/>
+        <Button id="bnt_idChk" taborder="19" text="아이디체크" left="30.3%" top="232" right="58.33%" height="21" onclick="bnt_idChk_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_USR_TP" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_HP" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="string" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="string" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	
+}
+
+/***************************************************
+	회원종류에 따른 화면 호출
+****************************************************/
+this.fn_joinUser = function (url) {	
+
+	var oArg = {paramMode:"U", dsArg:""};	
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId",url,oArg,sOption,sPopupCallBack);
+}
+
+/*협력업체회원가입*/
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_joinUser("OMG.PT::OMG_DS_SC_5110.xfdl");			
+}
+
+/*본부회원가입*/
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		this.fn_joinUser("OMG.PT::OMG_DS_SC_5111.xfdl");
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		this.fn_joinUser("OMG.PT::OMG_DS_SC_5112.xfdl");
+}
+
+this.bnt_idChk_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+/***************************************************
+	ID validation
+****************************************************/
+
+        
+	if(this.gfn_isNull(this.edt_MB_ID.value)){
+		alert("회원ID를 입력 하세요");	
+		this.edt_MB_ID.setFocus();
+		return false;
+	}  	  
+	  
+    /*ID체크로직*/    		
+	var idReg = /^[[a-zA-Z]{2}[[a-zA-Z0-9+]{5,7}$/g;
+	if( !idReg.test(this.edt_MB_ID.value)){
+		alert("회원ID는 영문자 두자리로 시작하는 7-9자 영문자 또는 숫자이어야 합니다.\n 예) aa1478 ");
+		return false;
+	}
+	
+	var id_chk_num = this.edt_MB_ID.value.search(/[0-9]/g); 
+	var id_chk_eng = this.edt_MB_ID.value.search(/[a-z]/ig); 
+	if(id_chk_num < 0 || id_chk_eng < 0){ 
+		alert("회원ID는 숫자와 영문자를 혼용하여야 합니다.\n 예) aa1478 ");
+		return false;
+	}    
+    alert("성공");
+	return true;
+
+
+}
+]]></Script>
+  </Form>
+</FDL>

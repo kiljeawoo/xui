@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7160_P02" classname="popup02" left="0" top="0" width="456" height="353" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="빌링검증 팝업" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="4" top="40" height="80" cssclass="div_WFSA_Searchbg" width="400" left="28">
+          <Layouts>
+            <Layout>
+              <Static id="st02" taborder="2" text="검증 후에 확정업무가 가능합니다" left="17.86%" top="41" right="17.14%" height="21" style="color:darkblue;align:center middle;font:9 arial;"/>
+              <Static id="st01" taborder="3" text="검증월: 2015년 01월" left="30.48%" top="14" right="29.76%" height="21" style="align:center middle;font:12 arial;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_verify_start" taborder="6" text="검증시작" cssclass="btn_WF_Popup" left="73" top="310" width="110" height="30" onclick="btn_verify_start_onclick"/>
+        <Button id="btn_close" taborder="15" left="419" top="0" width="37" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="16" text="빌링검증 팝업" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle" onclick="Static06_onclick"/>
+        <Grid id="grd_verify" taborder="17" binddataset="ds_verify" useinputpanel="false" cellsizingtype="col" autofittype="none" summarytype="default" treeusecheckbox="false" treeuseimage="false" treeuseexpandkey="true" left="28" top="130" width="400" height="170" enable="true" useselcolor="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="45"/>
+                <Column size="0"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="normal" edittype="none" text="제외"/>
+                <Cell col="1" text="No"/>
+                <Cell col="2" text="레벨"/>
+                <Cell col="3" text="제목"/>
+                <Cell col="4" text="결과"/>
+                <Cell col="5" text="상세"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHECK" tooltiptext="bind:CHECK"/>
+                <Cell col="1" displaytype="text" style="align: ;" expr="currow+1"/>
+                <Cell col="2" displaytype="number" text="bind:LEV" tooltiptext="bind:LEV"/>
+                <Cell col="3" style="align:left;" text="bind:DATA" tooltiptext="bind:DATA"/>
+                <Cell col="4" displaytype="combo" style="background:EXPR(RSLT=='F'?'yellow':'blue');background2:EXPR(RSLT=='F'?'yellow':'blue');color:EXPR(RSLT=='F'?'red':'white');color2:EXPR(RSLT=='F'?'red':'white');" text="bind:RSLT" combodataset="ds_rslt" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:RSLT"/>
+                <Cell col="5" displaytype="normal" style="align:left;" text="bind:DESC" combodataset="ds_rslt" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:DESC"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_cancel" taborder="18" text="실행취소" onclick="btn_cancel_onclick" cssclass="btn_WF_Popup" left="195" top="310" width="110" height="30"/>
+        <Button id="btn_verify_success" taborder="19" text="검증성공" onclick="btn_verify_success_onclick" cssclass="btn_WF_Popup" left="317" top="310" width="110" height="30" enable="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_verify" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="CHECK" type="STRING" size="256"/>
+          <Column id="DATA" type="STRING" size="256"/>
+          <Column id="RSLT" type="STRING" size="256"/>
+          <Column id="DESC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="DATA">일배치누락</Col>
+            <Col id="RSLT">R</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="DATA">빌링권한누락</Col>
+            <Col id="RSLT">R</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">03</Col>
+            <Col id="DATA">업체유형중복</Col>
+            <Col id="RSLT">R</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rslt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="DATA" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">R</Col>
+            <Col id="DATA">미실행</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">P</Col>
+            <Col id="DATA">실행중</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">S</Col>
+            <Col id="DATA">성공</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">F</Col>
+            <Col id="DATA">실패</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">E</Col>
+            <Col id="DATA">제외</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_return" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="MESG" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var bilMonth	= "";
+this.objRtnArr	= new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	
+}
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통 
+	bilMonth = this.getOwnerFrame().paramMode;
+	this.div_search.st01.set_text("검증월: " + bilMonth.substr(0, 4) + "년 " + bilMonth.substr(4, 2) + "월");
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+//	trace("ds_return:" + this.ds_return.saveXML());
+//	ErrorMsg 값이 서버에서 넣어준 값이아닌 "error.message.server.exception" 으로 무조건 출력하므로
+//	불가피하게 데이터셋으로 값을 받아 넣어준다
+	ErrorMsg = this.ds_return.getColumn(0, "MESG");
+//	초기화
+	this.ds_return.clearData();
+//	trace("svcID:" + svcID + " ErrorCode:" + ErrorCode + " ErrorMsg:" + ErrorMsg);
+
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	else
+	{
+		if(svcID == "chkBillDlyScmUgqt")
+		{			
+			if(ErrorCode == 0)		// 검증오류없음
+			{
+				this.ds_verify.setColumn(0, "RSLT", "S");
+			}
+			else if(ErrorCode == 1)	// 검증오류발생
+			{
+				this.ds_verify.setColumn(0, "RSLT", "F");
+			}
+			this.ds_verify.setColumn(0, "DESC", ErrorMsg);
+			this.fn_verify_step02();
+		}
+		else if(svcID == "chkBillUsrAuth")
+		{
+			if(ErrorCode == 0)		// 검증오류없음
+			{
+				this.ds_verify.setColumn(1, "RSLT", "S");
+			}
+			else if(ErrorCode == 1)	// 검증오류발생
+			{
+				this.ds_verify.setColumn(1, "RSLT", "F");
+			}
+			this.ds_verify.setColumn(1, "DESC", ErrorMsg);
+			this.fn_verify_step03();
+		}
+		else if(svcID == "chkBillDupType")
+		{
+			if(ErrorCode == 0)		// 검증오류없음
+			{
+				this.ds_verify.setColumn(2, "RSLT", "S");
+			}
+			else if(ErrorCode == 1)	// 검증오류발생
+			{
+				this.ds_verify.setColumn(2, "RSLT", "F");
+			}
+			this.ds_verify.setColumn(2, "DESC", ErrorMsg);
+			this.fn_verify_result();
+		}
+	}
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_verify_start_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_billing_verify();
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_verify_success_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.opener.btn_cnf.set_enable(true);
+//	trace("bilMonth:" + bilMonth);
+	this.objRtnArr[0] = bilMonth;
+//	trace("objRtnArr:" + this.objRtnArr.toString());
+	this.close(this.objRtnArr.toString());
+}
+
+//	일배치누락 검증
+this.fn_verify_step01 = function()
+{
+	if(this.ds_verify.getColumn(0, "CHECK") == 1)
+	{	// 제외체크
+		this.ds_verify.setColumn(0, "RSLT", "E");
+		this.ds_verify.setColumn(0, "DESC", "검증제외");
+		this.fn_verify_step02();
+	}
+	else
+	{
+		this.ds_verify.setColumn(0, "RSLT", "P");
+
+		var param			= "BILL_MONTH="	+ bilMonth;
+		var sSvcID			= "chkBillDlyScmUgqt";
+		var sURL			= "svc::rest/bl/chkBillDlyScmUgqt";
+		var sInDatasets		= "";						// 보내는데이터셋
+		var sOutDatasets	= "ds_return=ds_return";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument		= param;
+		var sCallbackFunc	= "fn_callBack";
+		var sTranType		= "S";						// U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+//	빌링권한누락 검증
+this.fn_verify_step02 = function()
+{
+	if(this.ds_verify.getColumn(1, "CHECK") == 1)
+	{	// 제외체크
+		this.ds_verify.setColumn(1, "RSLT", "E");
+		this.ds_verify.setColumn(1, "DESC", "검증제외");
+		this.fn_verify_step03();
+	}
+	else
+	{
+		this.ds_verify.setColumn(1, "RSLT", "P");
+
+		var param			= "BILL_MONTH="	+ bilMonth;
+		var sSvcID			= "chkBillUsrAuth";
+		var sURL			= "svc::rest/bl/chkBillUsrAuth";
+		var sInDatasets		= "";						// 보내는데이터셋
+		var sOutDatasets	= "ds_return=ds_return";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument		= param;
+		var sCallbackFunc	= "fn_callBack";
+		var sTranType		= "S";						// U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);	
+	}
+}
+
+//	업체유형중복 검증
+this.fn_verify_step03 = function()
+{
+	if(this.ds_verify.getColumn(2, "CHECK") == 1)
+	{	// 제외체크
+		this.ds_verify.setColumn(2, "RSLT", "E");
+		this.ds_verify.setColumn(2, "DESC", "검증제외");
+		this.fn_verify_result();
+	}
+	else
+	{
+		this.ds_verify.setColumn(2, "RSLT", "P");
+
+		var param			= "";
+		var sSvcID			= "chkBillDupType";
+		var sURL			= "svc::rest/bl/chkBillDupType";
+		var sInDatasets		= "";						// 보내는데이터셋
+		var sOutDatasets	= "ds_return=ds_return";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument		= param;
+		var sCallbackFunc	= "fn_callBack";
+		var sTranType		= "S";						// U:저장/삭제, S:조회
+
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+this.fn_verify_result = function()
+{
+	if(	(this.ds_verify.getColumn(0, "CHECK") == 1 || this.ds_verify.getColumn(0, "RSLT") == 'S') &&
+	    (this.ds_verify.getColumn(1, "CHECK") == 1 || this.ds_verify.getColumn(1, "RSLT") == 'S') &&
+	    (this.ds_verify.getColumn(2, "CHECK") == 1 || this.ds_verify.getColumn(2, "RSLT") == 'S') )
+	{
+		this.btn_verify_success.set_enable(true);
+	}
+}
+
+this.fn_billing_verify = function()
+{
+//	trace("CHECK:" + this.gfn_nullToEmpty(this.ds_verify.getColumn(0, "CHECK")));
+	this.fn_verify_step01();
+//	this.setTimer(1, 3000);
+}
+
+/*
+this.OMG_DS_SC_7160_P02_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	if(e.timerid == 1)
+	{
+		this.killTimer(1);
+		this.ds_verify.setColumn(0, "RSLT", "S");
+		this.fn_verify_step02();
+		this.setTimer(2, 3000);
+	}
+	else if(e.timerid == 2)
+	{
+		this.killTimer(2);
+		this.ds_verify.setColumn(1, "RSLT", "F");
+		this.ds_verify.setColumn(1, "DESC", "2개 업체가 빌링권한이 누락되었습니다.");
+		this.fn_verify_step03();
+		this.setTimer(3, 3000);
+	}
+	else if(e.timerid == 3)
+	{
+		this.killTimer(3);
+		this.ds_verify.setColumn(2, "RSLT", "S");
+		this.fn_verify_step04();
+		this.setTimer(4, 3000);
+	}
+	else if(e.timerid == 4)
+	{
+		this.killTimer(4);
+		this.ds_verify.setColumn(3, "RSLT", "S");
+		this.btn_verify_success.set_enable(true);
+	}
+}
+*/]]></Script>
+  </Form>
+</FDL>

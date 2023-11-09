@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="SYS_BATCH_1040" classname="pattern_01" left="0" top="0" width="803" height="700" titletext="전산작업일정관리" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="1" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="18" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="2" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="3" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="4" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_search" taborder="5" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Static id="Static00" taborder="7" text="네트웍상태" cssclass="sta_WFSA_Label" left="15" top="10" width="90" height="21"/>
+              <Static id="Static03" taborder="8" text="사용여부" cssclass="sta_WFSA_Label" left="15" top="39" width="90" height="21" style="padding:0 20 0 11;"/>
+              <Combo id="cbo_useYn" taborder="9" codecolumn="codecolumn" datacolumn="datacolumn" left="110" top="39" width="140" height="21" index="-1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">선택</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static04" taborder="11" text="30" onclick="Static04_onclick" visible="false" left="251" top="-2" width="30" height="67" style="background:#dc143c5b;"/>
+              <Static id="Static06" taborder="12" text="작업여부" cssclass="sta_WFSA_Label" left="281" top="39" width="90" height="21"/>
+              <Static id="Static01" taborder="13" text="작업일" cssclass="sta_WFSA_Label" left="281" top="10" width="90" height="21" style="padding:0 20 0 11;"/>
+              <Combo id="cbo_ifState" taborder="14" codecolumn="codecolumn" datacolumn="datacolumn" left="110" top="10" width="140" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">선택</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Radio id="rdo_wkDtm" taborder="15" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="376" top="10" width="140" height="21" style="font:9 Gulim;" onitemchanged="div_search_rdo_wkDtm_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">지정일</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Calendar id="dt_wkDtm" taborder="16" dateformat="yyyy-MM-dd" left="551" top="10" width="140" height="21" style="align:center middle;" enable="false"/>
+              <Combo id="cbo_successYn" taborder="20" codecolumn="codecolumn" datacolumn="datacolumn" left="376" top="39" width="140" height="21" index="-1">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn"/>
+                      <Col id="datacolumn">선택</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">여</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">부</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_save" taborder="6" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="0" right="82" width="42" height="21" style="background:URL('theme://images/btn_WF_CRUD.png') stretch 7,7;"/>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="97" right="15" height="650">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Static id="Static03" taborder="23" text="15" visible="false" left="667" top="1" width="56" height="41" style="background:#dc143c5b;"/>
+              <Button id="btn_flag" taborder="24" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+              <Button id="btn_addRow" taborder="25" text="행추가" onclick="btn_addrow_onclick" left="92.01%" top="11" right="0.38%" height="21"/>
+              <Grid id="Grid00" taborder="26" binddataset="ds_m" autoenter="select" useinputpanel="false" autofittype="col" left="1.78%" top="50" right="0%" height="549">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="43"/>
+                      <Column size="105"/>
+                      <Column size="140"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                      <Column size="224"/>
+                      <Column size="89"/>
+                      <Column size="89"/>
+                      <Column size="89"/>
+                      <Column size="89"/>
+                      <Column size="124"/>
+                      <Column size="124"/>
+                      <Column size="130"/>
+                      <Column size="64"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none" text="선택"/>
+                      <Cell col="1" text="업무 구분"/>
+                      <Cell col="2" text="시스템명"/>
+                      <Cell col="3" displaytype="normal" edittype="none" text="작업시작일시"/>
+                      <Cell col="4" text="작업종료일시"/>
+                      <Cell col="5" text="작업안내메시지"/>
+                      <Cell col="6" text="네트웍송수신"/>
+                      <Cell col="7" text="송신배치실행"/>
+                      <Cell col="8" text="수신배치실행"/>
+                      <Cell col="9" text="작업완료여부"/>
+                      <Cell col="10" text="휴대폰1"/>
+                      <Cell col="11" text="휴대폰2"/>
+                      <Cell col="12" text="수정일시"/>
+                      <Cell col="13" text="사용여부"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                      <Cell col="1" displaytype="expr:SQNO == &quot;&quot; || SQNO == null ? &quot;combo&quot; : &quot;normal&quot;" edittype="expr:SQNO == &quot;&quot; || SQNO == null ? &quot;combo&quot; : &quot;none&quot;" style="align:center;" text="bind:BSN_DSC" combodataset="ds_bsn" combocodecol="CD" combodatacol="NM" combodisplay="display"/>
+                      <Cell col="2" displaytype="text" edittype="text" style="align:center;" text="bind:WK_NAME"/>
+                      <Cell col="3" displaytype="date" edittype="date" style="align:center;" text="bind:WK_ST_DTM" mask="yyyy-MM-dd HH:mm" calendardisplay="display" calendardisplaynulltype="default"/>
+                      <Cell col="4" displaytype="date" edittype="date" style="align:center;" text="bind:WK_ED_DTM" mask="yyyy-MM-dd HH:mm" calendardisplay="display"/>
+                      <Cell col="5" displaytype="text" edittype="textarea" style="align:center;" text="bind:NOTICE_MSG"/>
+                      <Cell col="6" displaytype="checkbox" edittype="none" text="bind:IF_STAT" autosizecol="default"/>
+                      <Cell col="7" displaytype="checkbox" edittype="none" text="bind:SEND_PROC_STAT"/>
+                      <Cell col="8" displaytype="checkbox" edittype="none" text="bind:RECV_PROC_STAT"/>
+                      <Cell col="9" displaytype="checkbox" edittype="checkbox" text="bind:SUCCESS_YN"/>
+                      <Cell col="10" displaytype="text" edittype="text" style="align:center;" text="bind:MP_1"/>
+                      <Cell col="11" displaytype="text" edittype="text" style="align:center;" text="bind:MP_2"/>
+                      <Cell col="12" displaytype="date" edittype="none" style="align:center;" text="bind:LSCHG_DTM" mask="yyyy-MM-dd HH:mm" calendardisplay="edit" calendardisplaynulltype="nulltext"/>
+                      <Cell col="13" displaytype="checkbox" edittype="checkbox" text="bind:UYN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_m" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256"/>
+          <Column id="WK_NAME" type="STRING" size="256"/>
+          <Column id="WK_ST_DTM" type="STRING" size="256"/>
+          <Column id="WK_ED_DTM" type="STRING" size="256"/>
+          <Column id="NOTICE_MSG" type="STRING" size="2048"/>
+          <Column id="IF_STAT" type="STRING" size="256"/>
+          <Column id="SEND_PROC_STAT" type="STRING" size="256"/>
+          <Column id="RECV_PROC_STAT" type="STRING" size="256"/>
+          <Column id="SUCCESS_YN" type="STRING" size="256"/>
+          <Column id="MP_1" type="STRING" size="256"/>
+          <Column id="MP_2" type="STRING" size="256"/>
+          <Column id="UYN" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_bsn" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CD" type="STRING" size="256"/>
+          <Column id="NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CD">TAX</Col>
+            <Col id="NM">세금계산서</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item4" compid="div_search.dt_wkDtm" propid="value" datasetid="ds_survey" columnid="APL_ST_DT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+/* 페이지 로딩 후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+	
+	//페이지 로딩후 실행부분
+	/*초기값세팅*/
+	this.div_search.cbo_ifState.set_index(0);
+	this.div_search.cbo_successYn.set_index(0);
+	this.div_search.cbo_useYn.set_index(0);
+
+
+    /*조회 호출*/
+   this.btn_search.click();
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+ 
+/* 조회버튼 이벤트 */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+    this.fn_retrieveTxNtsIfList(); // 처음조회시 1페이지를 조회한다.
+}
+
+/* 리스트  조회*/
+this.fn_retrieveTxNtsIfList = function()
+{
+    var sParams = " IF_STATE="+this.gfn_nullToEmpty(this.div_search.cbo_ifState.value)
+				+ " DTM_TYPE="+this.gfn_nullToEmpty(this.div_search.rdo_wkDtm.value)
+				+ " WK_DTM="+this.gfn_nullToEmpty(this.div_search.dt_wkDtm.value)
+				+ " SUCCESS_YN="+this.gfn_nullToEmpty(this.div_search.cbo_successYn.value)
+				+ " UYN="+this.gfn_nullToEmpty(this.div_search.cbo_useYn.value)
+				;
+					
+	var sSvcID        = "retrieveTxNtsIfList";//통신아이디
+	var sURL          = "svc::rest/sys/retrieveTxNtsIfList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_m=ds_m";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = sParams;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 행추가
+this.btn_addrow_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    if(this.ds_m.rowcount < 1){
+        this.ds_m.addColumn("BSN_DSC"); // 업무구분: ESCM, CONSULT, ETC 
+        this.ds_m.addColumn("SQNO"); 	//  순번
+        this.ds_m.addColumn("WK_NAME"); // 작업명 
+        this.ds_m.addColumn("WK_ST_DTM"); // 작업시작일시                
+        this.ds_m.addColumn("WK_ED_DTM"); // 작업종료일시                
+        this.ds_m.addColumn("NOTICE_MSG"); // 작업안내메시지                     
+        this.ds_m.addColumn("IF_STAT"); // 네트웍 송수신 확인                               
+        this.ds_m.addColumn("SEND_PROC_STAT"); // 수신배치 실행 확인                              
+        this.ds_m.addColumn("RECV_PROC_STAT"); // 송신배치 실행 확인                 
+        this.ds_m.addColumn("SUCCESS_YN" ); // 작업완료여부 확인                               
+        this.ds_m.addColumn("MP_1"); // 휴대폰1                      
+        this.ds_m.addColumn("MP_2"); // 휴대폰2                      
+        this.ds_m.addColumn("UYN"); // 사용여부                         
+    }
+	var nRow = this.ds_m.addRow();
+	
+	var today = new Date();		
+	var d1 = this.gfn_today("yyyyMMdd") + String(today.getHours()).padLeft(2, "0") + String(today.getMinutes()).padLeft(4, "0");
+	today.setHours(today.getHours()+1);
+	var d2 = this.gfn_today("yyyyMMdd") + String(today.getHours()).padLeft(2, "0") + String(today.getMinutes()).padLeft(4, "0");
+	
+	this.ds_m.setColumn(this.ds_m.rowposition, "");
+	this.ds_m.setColumn(this.ds_m.rowposition, "BSN_DSC", "ESCM");
+	this.ds_m.setColumn(this.ds_m.rowposition, "WK_ST_DTM", d1);
+	this.ds_m.setColumn(this.ds_m.rowposition, "WK_ED_DTM", d2);
+	this.ds_m.setColumn(this.ds_m.rowposition, "IF_STAT", "0");
+	this.ds_m.setColumn(this.ds_m.rowposition, "SEND_PROC_STAT", "0");
+	this.ds_m.setColumn(this.ds_m.rowposition, "RECV_PROC_STAT", "0");
+	this.ds_m.setColumn(this.ds_m.rowposition, "SUCCESS_YN", "0");
+	this.ds_m.setColumn(this.ds_m.rowposition, "UYN", "0");
+	this.ds_m.set_updatecontrol(false);
+	this.ds_m.setRowType(nRow, Dataset.ROWTYPE_INSERT);
+	this.ds_m.set_updatecontrol(true); // 이걸 해주지 않으면 자동으로 바뀌지 않음
+} 
+
+/*
+ * 저장
+ */
+ this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    if(this.fn_validationCheck()){
+		var sSvcID        = "saveTxNtsIfList";//통신아이디
+		var sURL          = "svc::rest/sys/saveTxNtsIfList";// 호출할 서버 페이지 주소
+		var sInDatasets   = "ds_m=ds_m";//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = "";// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	}
+}
+
+/* 등록 및 수정시 사용되는 Validation Check */
+this.fn_validationCheck = function(){
+	
+	// 입력값 체크
+	for(var i = 0; i < this.ds_m.rowcount; i++){
+		if(this.gfn_isNull(this.ds_m.getColumn(i,"WK_NAME"))){
+			alert('시스템명을 입력바랍니다.');
+			return false;
+		}
+		if(this.gfn_isNull(this.ds_m.getColumn(i,"NOTICE_MSG"))){ 
+			this.alert('작업안내메세지를 입력바랍니다.');
+			return false;
+		}
+	}
+    return true;
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/* 조회-서비스 Call */
+
+/* 콜백메소드 */
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveTxNtsIfList"){
+			if(this.ds_m.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		} else if(svcID == "saveTxNtsIfList"){
+		    alert("저장되었습니다.");
+			this.fn_retrieveTxNtsIfList();
+		}
+	}
+}
+
+this.div_search_rdo_wkDtm_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if (obj.value == "2" && this.gfn_nullToEmpty(this.div_search.dt_wkDtm.value) == '') {
+		this.div_search.dt_wkDtm.set_enable(true);
+		this.div_search.dt_wkDtm.set_value(this.gfn_today("yyyyMMdd"));
+	}else{
+		this.div_search.dt_wkDtm.set_enable(false);
+		this.div_search.dt_wkDtm.set_value("");
+	}
+}
+
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+]]></Script>
+  </Form>
+</FDL>

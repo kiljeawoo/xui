@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6320" classname="pattern_01" left="0" top="0" width="993" height="490" titletext="서비스권한관리" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="0" top="29" height="43" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="서비스" left="15" top="10" width="127" height="21" cssclass="sta_WFSA_Label"/>
+              <Static id="Static02" taborder="2" text="대메뉴" left="281" top="10" width="79" height="21" cssclass="sta_WFSA_Label"/>
+              <Combo id="cbo_svc" taborder="17" left="83" top="10" width="151" height="21" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" onitemchanged="cbo_svc_onitemchanged">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">10</Col>
+                      <Col id="datacolumn">기본서비스</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">20</Col>
+                      <Col id="datacolumn">부가서비스</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">31</Col>
+                      <Col id="datacolumn">BI조회</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">32</Col>
+                      <Col id="datacolumn">추이분석</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">33</Col>
+                      <Col id="datacolumn">시장분석(자사)</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">34</Col>
+                      <Col id="datacolumn">시장분석(타사)</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Combo id="cbo_lMenu" taborder="20" codecolumn="MENU_ID" datacolumn="MENU_NM" left="348" top="10" width="151" height="21" innerdataset="@ds_lMenu"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_save" taborder="11" text="저장" top="0" width="41" height="21" right="75" cssclass="btn_WF_CRUD" onclick="btn_save_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Static id="Static02" taborder="20" text="15" left="569" top="61" width="55" height="10" visible="false" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="21" text="8" visible="false" left="921" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="22" text="15" visible="false" left="978" top="0" width="15" height="491" style="background:#00ffffb5;"/>
+        <Static id="Static07" taborder="25" text="5" visible="false" left="923" top="160" width="55" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="39" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Grid id="grd_result" taborder="40" useinputpanel="false" left="0" top="113" right="15" bottom="18" autofittype="col" binddataset="ds_svcAuth" oncellclick="grd_result_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="28"/>
+                <Column size="144"/>
+                <Column size="27"/>
+                <Column size="177"/>
+                <Column size="150"/>
+                <Column size="139"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="2" displaytype="normal" edittype="checkbox" text="대메뉴"/>
+                <Cell col="2" colspan="2" text="중메뉴"/>
+                <Cell col="4" text="소메뉴"/>
+                <Cell col="5"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="expr:MENU_ID.substring(4.8)==1001?'checkbox':'none'" edittype="checkbox" text="bind:UL_MENU_ID" suppress="0"/>
+                <Cell col="1" text="bind:L_MENU_NM" suppress="1"/>
+                <Cell col="2" displaytype="expr:MENU_ID.substring(6.8)==01?'checkbox':'none'" edittype="checkbox" text="bind:UM_MENU_ID"/>
+                <Cell col="3" displaytype="normal" edittype="none" text="bind:M_MENU_NM" suppress="2"/>
+                <Cell col="4" displaytype="normal" edittype="none" text="bind:S_MENU_NM"/>
+                <Cell col="5" displaytype="checkbox" edittype="checkbox" text="bind:US_MENU_ID"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static09" taborder="41" text="15" visible="false" left="816" top="45" width="20" height="67" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="43" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_svcAuth" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="UL_MENU_ID" type="string" size="32"/>
+          <Column id="L_MENU_ID" type="string" size="32"/>
+          <Column id="L_MENU_NM" type="string" size="32"/>
+          <Column id="UM_MENU_ID" type="string" size="32"/>
+          <Column id="M_MENU_ID" type="string" size="32"/>
+          <Column id="M_MENU_NM" type="string" size="32"/>
+          <Column id="US_MENU_ID" type="string" size="32"/>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="S_MENU_NM" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_lMenu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+          <Column id="MENU_NM" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_NM"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_in" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="string" size="32"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+
+	this.div_search.cbo_lMenu.set_index(0);
+	//페이지 로딩후 실행부분  
+   
+	this.btn_search.click();   
+		
+	
+   
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	
+	//콤보에 최상단Row보이도록 설정	
+	//this.div_search.
+}
+
+
+/*서비스그룹 클릭시 이벤트*/
+this.cbo_svc_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{	
+	if(this.div_search.cbo_svc.value == null){		
+		this.div_search.cbo_svc.set_index(0);
+	}
+	
+	this.grd_result.setCellProperty( "Head", 3, "text", this.div_search.cbo_svc.text);
+}
+
+/*체크박스선택시 이벤트*/
+this.grd_result_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	
+	/*대메뉴선택시*/	
+	if(e.col =='0'){		
+		var str = this.ds_svcAuth.getColumn(e.row,"L_MENU_ID").substring(0,2);
+		
+		//alert("L_MENU_ID="+str);
+		for(var i=0 ; i<this.ds_svcAuth.rowcount;i++){		
+			if(str  == this.ds_svcAuth.getColumn(i,"MENU_ID").substring(0,2)){
+				this.ds_svcAuth.setColumn(i,"UM_MENU_ID",this.grd_result.getCellValue(e.row, e.col));				
+				this.ds_svcAuth.setColumn(i,"US_MENU_ID",this.grd_result.getCellValue(e.row, e.col));				
+			}
+		}
+	}
+	/*중메뉴선택시*/
+	else if(e.col=='2'){
+		var str = this.ds_svcAuth.getColumn(e.row,"M_MENU_ID").substring(0,5);
+		for(var i=0 ; i<this.ds_svcAuth.rowcount;i++){		
+			if(str  == this.ds_svcAuth.getColumn(i,"MENU_ID").substring(0,5)){				
+				this.ds_svcAuth.setColumn(i,"US_MENU_ID",this.grd_result.getCellValue(e.row, e.col));				
+			}
+		}
+	} 	 
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var svcId=this.gfn_nullToEmpty(this.div_search.cbo_svc.value);	
+		
+	var sParams = "svc_id="+svcId
+				+ " lMenu_id="+this.gfn_nullToEmpty(this.div_search.cbo_lMenu.value)		
+				+ " str_svc_id=SVC_ID"
+				;
+		
+	var sSvcID        = "retrieveServiceMenuList";
+	var sURL          = "svc::rest/mg/retrieveServiceMenuList";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_svcAuth=ds_svcAuth ds_lMenu=ds_lMenu";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/*저장*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	var sPosition = 0;
+	for(var i = 0 ; i < this.ds_svcAuth.rowcount; i++){				
+		if(this.ds_svcAuth.getColumn(i, "US_MENU_ID") =='1'){		
+			this.ds_in.insertRow(sPosition);
+			this.ds_in.copyRow(sPosition,this.ds_svcAuth,i);			
+			sPosition= sPosition+1;
+		
+		}
+	}	
+	
+	var sParams = "svc_id="+this.gfn_nullToEmpty(this.div_search.cbo_svc.value);	
+	var sSvcID        = "saveServiceMenu";
+	var sURL          = "svc::rest/mg/saveServiceMenu";	
+	var sInDatasets   = "ds_in=ds_in";
+	var sOutDatasets  = "";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회			
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+ /*콜백메소드*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	//저장시 사용되는 ds초기화
+	this.ds_in.clearData();						
+	
+	if(ErrorCode < 0)	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID =="retrieveServiceMenuList"){						
+			this.cbo_svc_onitemchanged();									
+		}else if(svcID =="saveServiceMenu"){							
+			this.gfn_getMessage("alert", "result.message.save.success");
+		}
+	}	
+}
+ 
+
+/*대메뉴가 선택되지 않을 경우  action이 일어나지 않도록 이벤트처리*/
+this.fn_cbo_mMenu_ondropdown = function(obj:Combo, e:nexacro.EventInfo)
+{
+	if(this.div_search.cbo_lMenu.text ==""){
+		alert("대메뉴를 선택해주시기 바랍니다.");
+		this.div_search.cbo_lMenu.setFocus();
+		return;
+	}
+}
+
+ 
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211302" classname="pattern_01" left="0" top="0" width="788" height="228" titletext="물류센터 이용계약서(일반)" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static86" taborder="8" text="물류센터 이용계약서(일반)" cssclass="sta_WF_Subtitle" left="0" top="2" width="58.12%" height="21"/>
+        <Button id="Button10" taborder="0" text="계약서보기" top="0" width="76" height="21" visible="false" right="15" onclick="Button10_onclick"/>
+        <Static id="Static12" taborder="9" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <Static id="Static94" taborder="10" cssclass="sta_WF_Labelbg" left="21.07%" top="138" right="0%" height="82"/>
+        <TextArea id="txa_sctrSjt" taborder="7" wordwrap="char" ontextchanged="txatext_changed" left="23.35%" top="143" right="0.63%" height="72" lengthunit="ascii" maxlength="1998"/>
+        <Static id="Static93" taborder="11" text="특약사항" cssclass="sta_WF_Label" left="0" top="129" right="77.66%" height="91"/>
+        <Static id="Static00" taborder="12" cssclass="sta_WF_Labelbg" left="13.83%" top="83" right="0%" height="29"/>
+        <Static id="Static01" taborder="13" text="점별 통과상품(TC)" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="0" top="83" right="77.66%" height="29"/>
+        <Static id="Static09" taborder="14" text="보관 출고상품(DC)" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="37.31%" top="83" right="46.32%" height="29"/>
+        <Static id="Static10" taborder="15" text="물류 대행상품(간선)" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="68.27%" top="83" right="14.34%" height="29"/>
+        <Static id="Static13" taborder="17" text="%" position="fixed" left="65.48%" top="87" width="23" height="21"/>
+        <Static id="Static14" taborder="18" text="%" position="fixed" left="97.59%" top="87" width="23" height="21"/>
+        <MaskEdit id="mae_phdFeert00" taborder="2" mask="!990.00" limitbymask="both" ontextchanged="OMG_DS_SC_211302_ontextchanged" left="23.35%" top="87" right="66.24%" height="21" oneditclick="mae_phdFeert00_oneditclick"/>
+        <MaskEdit id="mae_phdFeert01" taborder="3" mask="!990.00" limitbymask="both" ontextchanged="OMG_DS_SC_211302_ontextchanged" left="54.44%" top="87" right="35.15%" height="21"/>
+        <MaskEdit id="mae_phdFeert02" taborder="4" mask="!990.00" limitbymask="both" ontextchanged="OMG_DS_SC_211302_ontextchanged" left="86.42%" top="87" right="3.17%" height="21"/>
+        <Static id="Static08" taborder="20" cssclass="sta_WF_Labelbg" left="13.96%" top="27" right="0%" height="29"/>
+        <Edit id="edt_pbCtrwTinm" taborder="1" value="물류센터 이용계약서(일반)" maxlength="64" ontextchanged="OMG_DS_SC_211310_ontextchanged" enable="false" left="22.72%" top="31" right="24.37%" height="21"/>
+        <Static id="Static04" taborder="19" text="계약서 제목" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="0" top="27" right="77.66%" height="29"/>
+        <Static id="Static05" taborder="23" cssclass="sta_WF_Labelbg" left="15.36%" top="111" right="0%" height="29"/>
+        <Static id="Static03" taborder="22" text="2. 저온물류상품(냉장, 냉동)" left="0" top="111" right="77.66%" height="29" cssclass="sta_WF_Label"/>
+        <Static id="Static06" taborder="24" cssclass="sta_WF_Labelbg" left="13.96%" top="55" right="0%" height="29"/>
+        <Static id="Static02" taborder="21" text="1. 상온물류상품" onclick="Div06_Static04_onclick" cssclass="sta_WF_Label" left="0" top="55" right="77.66%" height="29"/>
+        <MaskEdit id="mae_COLD_PHD" taborder="5" mask="!990.00" limitbymask="both" ontextchanged="OMG_DS_SC_211302_ontextchanged" left="23.35%" top="115" right="66.24%" height="21"/>
+        <Static id="Static11" taborder="16" text="%" position="fixed" left="34.52%" top="115" width="23" height="21"/>
+        <Static id="Static07" taborder="25" text="%" position="fixed" left="34.52%" top="88" width="23" height="21"/>
+        <CheckBox id="phd_Chk" taborder="6" left="39.47%" top="117" right="57.11%" height="18" onchanged="phd_Chk_onchanged" truevalue="1"/>
+        <Static id="Static15" taborder="26" text="해당없음" left="43.4%" top="116" right="43.02%" height="19"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_etcEltStylAmm204" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256" sumtext="계약서양식일련번호"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서종류코드"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_addEltCtrwDtl04" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="ADD_CTRW_KDC" type="STRING" size="256" sumtext="부가계약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="PB_CTRW_TINM" type="STRING" size="256" sumtext="PB계약서 제목"/>
+          <Column id="CNR_DT" type="STRING" size="256" sumtext="검수일"/>
+          <Column id="PSG_MM" type="STRING" size="256" sumtext="경과분/월"/>
+          <Column id="PSG_DD" type="STRING" size="256" sumtext="경과분/일"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_TINM" type="STRING" size="256" sumtext="계약서제목"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="ETC1" type="STRING" size="256"/>
+          <Column id="ETC2" type="STRING" size="256"/>
+          <Column id="ETC3" type="STRING" size="256"/>
+          <Column id="SCTR_SJT" type="STRING" size="256" sumtext="특약사항"/>
+          <Column id="ETC4" type="STRING" size="256" sumtext="물류수수료율"/>
+          <Column id="ETC5" type="STRING" size="256"/>
+          <Column id="ETC6" type="STRING" size="256"/>
+          <Column id="ETC7" type="STRING" size="256" sumtext="주류파렛트당"/>
+          <Column id="ETC8" type="STRING" size="256" sumtext="관리비일"/>
+          <Column id="ETC9" type="STRING" size="256"/>
+          <Column id="ETCA" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item4" compid="txa_sctrSjt" propid="value" datasetid="ds_addEltCtrwDtl04" columnid="SCTR_SJT"/>
+      <BindItem id="item1" compid="mae_phdFeert00" propid="value" datasetid="ds_addEltCtrwDtl04" columnid="ETC1"/>
+      <BindItem id="item2" compid="mae_phdFeert01" propid="value" datasetid="ds_addEltCtrwDtl04" columnid="ETC2"/>
+      <BindItem id="item3" compid="mae_phdFeert02" propid="value" datasetid="ds_addEltCtrwDtl04" columnid="ETC3"/>
+      <BindItem id="item0" compid="edt_pbCtrwTinm" propid="value" datasetid="ds_addEltCtrwDtl04" columnid="PB_CTRW_TINM"/>
+      <BindItem id="item5" compid="mae_COLD_PHD" propid="value" datasetid="ds_addEltCtrwDtl04" columnid="ETC4"/>
+      <BindItem id="item6" compid="phd_Chk" propid="value" datasetid="ds_addEltCtrwDtl04" columnid="ETC5"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "204") {
+			this.ds_etcEltStylAmm204.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	for (var i = 0; i < this.parent.ds_addEltCtrwDtl.rowcount; i++) {
+		if (this.parent.ds_addEltCtrwDtl.getColumn(i, "ADD_CTRW_KDC") == "204") {
+			fv_position = i;
+			fv_chk = 1;
+			this.parent.ds_addEltCtrwDtl.setColumn(i, "CNR_DT", " "); //검수일
+			this.parent.ds_addEltCtrwDtl.setColumn(i, "PSG_MM", " "); //경과분/월
+			this.parent.ds_addEltCtrwDtl.setColumn(i, "PSG_DD", " "); //경과분/일
+
+			if (this.parent.ds_addEltCtrwDtl.getColumn(i, "CTRW_STY_VER") == "") {
+				this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm204.getColumn(0, "CTRW_STY_VER"));
+			}
+
+			this.ds_addEltCtrwDtl04.addRow();
+			this.ds_addEltCtrwDtl04.copyRow(0, this.parent.ds_addEltCtrwDtl, fv_position);
+		}
+	}
+
+	if (fv_chk == 0) {
+ 		var nRow = this.parent.ds_addEltCtrwDtl.addRow();
+		fv_position = nRow;
+
+		this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ADD_CTRW_KDC", "204");
+		this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+		this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm204.getColumn(0, "CTRW_STY_VER"));
+		this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "PB_CTRW_TINM", "물류센터 이용계약서(일반)");
+
+		this.ds_addEltCtrwDtl04.addRow();
+		this.ds_addEltCtrwDtl04.copyRow(0, this.parent.ds_addEltCtrwDtl, fv_position);
+
+		this.parent.position_chk();
+	}
+}
+
+this.OMG_DS_SC_211302_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+	this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC1", this.mae_phdFeert00.value); //물류수수료율
+	this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC2", this.mae_phdFeert01.value);
+	this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC3", this.mae_phdFeert02.value);
+	this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC4", this.mae_COLD_PHD.value); //저온상품
+	this.phd_Chk_onchanged();
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	var strTitletext = "물품센터 이용계약서(일반)";
+
+ 	if (this.gfn_isNull(this.mae_phdFeert00.value) && this.gfn_isNull(this.parent.ds_addEltCtrwDtl.getColumn(fv_position, "ETC1"))) {
+		this.mae_phdFeert00.setFocus();
+ 		this.alert(strTitletext + " 점별 통과상품율을 입력하세요.");
+ 		return false;
+ 	}
+ 	if (this.gfn_isNull(this.mae_phdFeert01.value) && this.gfn_isNull(this.parent.ds_addEltCtrwDtl.getColumn(fv_position, "ETC2"))) {
+		this.mae_phdFeert01.setFocus();
+ 		this.alert(strTitletext + " 보관 풀고상품율을 입력하세요.");
+ 		return false;
+ 	}
+ 	if (this.gfn_isNull(this.mae_phdFeert02.value) && this.gfn_isNull(this.parent.ds_addEltCtrwDtl.getColumn(fv_position, "ETC3"))) {
+		this.mae_phdFeert02.setFocus();
+ 		this.alert(strTitletext + " 물류 대행상품율을 입력하세요.");
+ 		return false;
+ 	}
+ 	if (this.phd_Chk.value == false) {
+		if (this.gfn_isNull(this.mae_COLD_PHD.value) && this.gfn_isNull(this.parent.ds_addEltCtrwDtl.getColumn(fv_position, "ETC4"))) {
+		this.mae_COLD_PHD.setFocus();
+		alert(strTitletext + " 저온 물류 상품의 값을 입력해 주시기 바랍니다.");
+		return false;
+		}
+	}
+
+	this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC6", this.parent.cal_ctrStDt.value); //계약일자
+	this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+	return true;
+}
+
+this.txatext_changed = function(obj:TextArea, e:nexacro.TextChangedEventInfo)
+{
+	var text = this.txa_sctrSjt.value;
+	var lc = text.indexOf("^");
+	if (lc != -1) {
+		alert('^는 사용하실 수 없습니다.');
+		text = nexacro.replaceAll(text, "^", " ");
+		this.txa_sctrSjt.set_value(text);
+	}
+	this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+}
+
+this.phd_Chk_onchanged = function(obj:CheckBox, e:nexacro.CheckBoxChangeEventInfo)
+{
+	if (this.phd_Chk.value == "1") {
+		this.mae_COLD_PHD.value = "";
+		this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC4", ""); //저온상품
+		this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC5", this.phd_Chk.value); //저온상품
+		this.mae_COLD_PHD.set_enable(false);
+	} else {
+		this.mae_COLD_PHD.set_enable(true);
+		this.phd_Chk.value = "0";
+		this.parent.ds_addEltCtrwDtl.setColumn(fv_position, "ETC5", this.phd_Chk.value); //저온상품
+	}
+}]]></Script>
+  </Form>
+</FDL>

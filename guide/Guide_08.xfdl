@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Guide_08" classname="Guide_01" left="0" top="0" width="1070" height="1200" titletext="Search Area">
+    <Layouts>
+      <Layout>
+        <Static id="Static02" taborder="0" text="1줄  [조회영역사이즈 : W 788 * H 43 ] " cssclass="sta_WF_Subtitle" left="15" top="472" width="297" height="21"/>
+        <Div id="Div00" taborder="1" left="15" top="596" height="69" cssclass="div_WFSA_Searchbg" right="267">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="12" text="상품코드 조회구분" cssclass="sta_WFSA_Label" left="15" top="10" width="130" height="21"/>
+              <Static id="Static01" taborder="13" text="물류센터코드" cssclass="sta_WFSA_Label" left="15" top="36" width="130" height="21"/>
+              <Static id="Static02" taborder="14" text="적용일자" cssclass="sta_WFSA_Label" left="480" top="10" width="79" height="21"/>
+              <Static id="Static03" taborder="15" text="참조구분" cssclass="sta_WFSA_Label" left="480" top="36" width="79" height="21"/>
+              <Radio id="Radio00" taborder="16" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="557" top="36" width="157" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">발주전표</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">수기입력</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Radio id="Radio01" taborder="17" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="145" top="10" width="157" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">상품코드</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">상품명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="Edit00" taborder="18" left="299" top="10" width="151" height="21"/>
+              <Edit id="Edit01" taborder="19" enable="false" left="299" top="36" width="151" height="21"/>
+              <Calendar id="Calendar00" taborder="21" dateformat="yyyy-MM-dd" left="559" top="10" width="100" height="21"/>
+              <Calendar id="Calendar01" taborder="22" dateformat="yyyy-MM-dd" left="670" top="10" width="100" height="21"/>
+              <Static id="Static04" taborder="23" text="~" left="660" top="10" width="10" height="21"/>
+              <Edit id="Edit02" taborder="24" left="145" top="36" height="21" width="152"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="3" left="15" top="721" height="95" cssclass="div_WFSA_Searchbg" right="267">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit02" taborder="24" left="105" top="10" width="151" height="21"/>
+              <Static id="Static00" taborder="25" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="10" width="91" height="21"/>
+              <Static id="Static01" taborder="26" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="36" width="91" height="21"/>
+              <Edit id="Edit00" taborder="29" left="378" top="10" width="175" height="21"/>
+              <Static id="Static02" taborder="30" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="10" width="91" height="21"/>
+              <Static id="Static04" taborder="31" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="36" width="91" height="21"/>
+              <Static id="Static06" taborder="37" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="62" width="91" height="21"/>
+              <Static id="Static07" taborder="40" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="62" width="91" height="21"/>
+              <Edit id="Edit05" taborder="44" left="105" top="36" height="21" width="152"/>
+              <Edit id="Edit06" taborder="45" left="105" top="62" height="21" width="152"/>
+              <Edit id="Edit07" taborder="46" left="378" top="36" height="21" width="175"/>
+              <Edit id="Edit08" taborder="47" left="378" top="62" height="21" width="175"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="5" left="15" top="497" height="43" cssclass="div_WFSA_Searchbg" right="267">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit02" taborder="44" left="106" top="10" width="151" height="21"/>
+              <Static id="Static00" taborder="45" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="10" width="91" height="21"/>
+              <Edit id="Edit00" taborder="49" left="378" top="10" width="175" height="21"/>
+              <Static id="Static02" taborder="50" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="10" width="91" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="7" left="15" top="872" height="121" cssclass="div_WFSA_Searchbg" right="267">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit02" taborder="44" left="106" top="10" width="151" height="21"/>
+              <Static id="Static00" taborder="45" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="10" width="91" height="21"/>
+              <Static id="Static01" taborder="46" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="36" width="91" height="21"/>
+              <Edit id="Edit00" taborder="49" left="378" top="10" width="175" height="21"/>
+              <Static id="Static02" taborder="50" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="10" width="91" height="21"/>
+              <Static id="Static04" taborder="51" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="36" width="91" height="21"/>
+              <Static id="Static06" taborder="57" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="62" width="91" height="21"/>
+              <Static id="Static07" taborder="60" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="62" width="91" height="21"/>
+              <Static id="Static09" taborder="64" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="88" width="91" height="21"/>
+              <Static id="Static10" taborder="67" text="검색텍스트" cssclass="sta_WFSA_Label" left="287" top="88" width="91" height="21"/>
+              <Edit id="Edit06" taborder="71" left="105" top="36" height="21" width="152"/>
+              <Edit id="Edit07" taborder="72" left="105" top="62" height="21" width="152"/>
+              <Edit id="Edit08" taborder="73" left="105" top="88" height="21" width="152"/>
+              <Edit id="Edit01" taborder="74" left="378" top="36" height="21" width="175"/>
+              <Edit id="Edit04" taborder="75" left="378" top="62" height="21" width="175"/>
+              <Edit id="Edit05" taborder="76" left="378" top="88" height="21" width="175"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button01" taborder="6" cssclass="btn_WFSA_SearchClose" left="378" top="539" height="12" right="629"/>
+        <Button id="Button02" taborder="8" cssclass="btn_WFSA_SearchClose" left="378" top="992" height="12" right="629"/>
+        <Button id="Button75" taborder="2" cssclass="btn_WFSA_SearchClose" left="378" top="664" height="12" right="629"/>
+        <Button id="Button00" taborder="4" cssclass="btn_WFSA_SearchClose" left="378" top="815" height="12" right="629"/>
+        <Static id="Static01" taborder="10" text="2줄  [조회영역사이즈 : W 788 * H 69 ] " cssclass="sta_WF_Subtitle" left="15" top="571" width="297" height="21"/>
+        <Static id="Static03" taborder="11" text="3줄  [조회영역사이즈 : W 788 * H 95 ] " cssclass="sta_WF_Subtitle" left="15" top="696" width="297" height="21"/>
+        <Static id="Static04" taborder="12" text="4줄  [조회영역사이즈 : W 788 * H 121 ] " cssclass="sta_WF_Subtitle" left="15" top="847" width="297" height="21"/>
+        <Static id="Static07" taborder="16" text="Static07" left="752" top="974" width="1" height="46" style="background:red;"/>
+        <Static id="Static09" taborder="18" text="Static07" left="80" top="974" width="1" height="46" style="background:red;"/>
+        <Static id="Static60" taborder="25" text="Search Area" cssclass="sta_GID_Title" left="0" top="0" height="30" right="0"/>
+        <Div id="Div04" taborder="26" left="15" top="423" right="267" height="1" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Button id="Button03" taborder="27" cssclass="btn_WFSA_SearchClose" left="378" top="424" height="12" right="629"/>
+        <Static id="Static00" taborder="28" text="조회영역 접혔을때" cssclass="sta_WF_Subtitle" left="15" top="398" width="225" height="21"/>
+        <Button id="Button74" taborder="29" cssclass="btn_WFSA_SearchOpen" left="15" top="1109" width="63" height="12"/>
+        <Button id="Button04" taborder="30" cssclass="btn_WFSA_SearchClose" left="15" top="1147" width="63" height="12"/>
+        <Static id="Static37" taborder="31" text="class : &lt;b v='true'&gt;btn_WFSA_SearchOpen&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="95" top="1104" width="217" height="18"/>
+        <Static id="Static38" taborder="32" text="class : &lt;b v='true'&gt;btn_WFSA_SearchClose&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="95" top="1142" width="217" height="18"/>
+        <Static id="Static78" taborder="33" left="397" top="607" width="10" height="1" style="background:red;"/>
+        <Static id="Static79" taborder="34" left="397" top="596" width="10" height="1" style="background:red;"/>
+        <Static id="Static80" taborder="35" left="402" top="597" width="1" height="11" style="background:red;"/>
+        <Static id="Static88" taborder="36" text="10" left="408" top="594" width="15" height="17" style="color:red;"/>
+        <Static id="Static12" taborder="41" left="397" top="664" width="10" height="1" style="background:red;"/>
+        <Static id="Static13" taborder="42" left="397" top="653" width="10" height="1" style="background:red;"/>
+        <Static id="Static14" taborder="43" left="402" top="654" width="1" height="11" style="background:red;"/>
+        <Static id="Static21" taborder="44" text="10" left="408" top="651" width="15" height="17" style="color:red;"/>
+        <Static id="Static22" taborder="45" left="397" top="633" width="10" height="1" style="background:red;"/>
+        <Static id="Static23" taborder="46" left="397" top="627" width="10" height="1" style="background:red;"/>
+        <Static id="Static24" taborder="47" left="402" top="628" width="1" height="6" style="background:red;"/>
+        <Static id="Static25" taborder="48" text="5" left="412" top="623" width="15" height="17" style="color:red;"/>
+        <Static id="Static26" taborder="49" left="495" top="610" width="1" height="15" style="background:red;"/>
+        <Static id="Static27" taborder="50" left="466" top="610" width="1" height="15" style="background:red;"/>
+        <Static id="Static28" taborder="51" left="467" top="616" width="28" height="1" style="background:red;"/>
+        <Static id="Static29" taborder="52" text="30" left="476" top="594" width="15" height="17" style="color:red;"/>
+        <Static id="Static33" taborder="56" text="3" left="310" top="651" width="13" height="17" style="color:red;"/>
+        <Static id="Static34" taborder="57" left="312" top="633" width="3" height="17" style="background:red;"/>
+        <Static id="Static36" taborder="60" text="두단 이상일때 접기버튼사용 / 접기버튼 버튼 사용시 div박스(세로) 2px만 노출" cssclass="sta_WFSA_Label" left="15" top="1072" width="521" height="22" style="align:left middle;"/>
+        <Static id="Static35" taborder="61" text="class : &lt;b v='true'&gt;sta_WFSA_Label&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="15" top="1015" width="178" height="18"/>
+        <Static id="Static05" taborder="62" text="class : &lt;b v='true'&gt;div_WFSA_Searchbg&lt;/b&gt;" usedecorate="true" cssclass="sta_GID_txt" left="633" top="1017" width="200" height="18"/>
+        <Div id="Div05" taborder="63" left="15" top="211" height="159" cssclass="div_WFSA_Searchbg" width="270">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit02" taborder="57" left="70" top="10" width="140" height="21"/>
+              <Static id="Static00" taborder="58" text="가나" cssclass="sta_WFSA_Label" left="15" top="10" width="55" height="21"/>
+              <Static id="Static01" taborder="59" text="가나다" cssclass="sta_WFSA_Label" left="15" top="46" width="67" height="21"/>
+              <Edit id="Edit00" taborder="60" left="82" top="46" width="140" height="21"/>
+              <Static id="Static02" taborder="61" text="가나다라" cssclass="sta_WFSA_Label" left="15" top="82" width="79" height="21"/>
+              <Edit id="Edit01" taborder="62" left="94" top="82" width="140" height="21"/>
+              <Static id="Static03" taborder="63" text="가나다라마" cssclass="sta_WFSA_Label" left="15" top="118" width="91" height="21"/>
+              <Edit id="Edit03" taborder="64" left="106" top="118" width="140" height="21"/>
+              <Static id="Static06" taborder="65" visible="false" left="15" top="10" width="55" height="21" style="background:#fb7b7b7a;"/>
+              <Static id="Static04" taborder="66" visible="false" left="15" top="46" width="67" height="21" style="background:#fb7b7b7a;"/>
+              <Static id="Static05" taborder="67" visible="false" left="15" top="82" width="79" height="21" style="background:#fb7b7b7a;"/>
+              <Static id="Static07" taborder="68" visible="false" left="15" top="118" width="91" height="21" style="background:#fb7b7b7a;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static08" taborder="65" left="226" top="242" width="10" height="1" style="background:red;"/>
+        <Static id="Static10" taborder="66" left="226" top="222" width="10" height="1" style="background:red;"/>
+        <Static id="Static11" taborder="67" left="231" top="223" width="1" height="19" style="background:red;"/>
+        <Static id="Static15" taborder="68" text="21" left="237" top="225" width="15" height="17" style="color:red;"/>
+        <Static id="Static39" taborder="69" left="225" top="213" width="1" height="10" style="background:red;"/>
+        <Static id="Static40" taborder="70" left="86" top="213" width="1" height="10" style="background:red;"/>
+        <Static id="Static41" taborder="71" left="66" top="217" width="160" height="1" style="background:red;"/>
+        <Static id="Static42" taborder="72" left="66" top="213" width="1" height="10" style="background:red;"/>
+        <Static id="Static43" taborder="73" text="140" left="141" top="197" width="27" height="17" style="color:red;"/>
+        <Static id="Static44" taborder="74" text="Label width 정의" cssclass="sta_WF_Subtitle" left="15" top="140" width="225" height="21"/>
+        <Static id="Static46" taborder="76" left="74" top="182" width="35" height="1" style="background:red;"/>
+        <Static id="Static47" taborder="77" left="74" top="182" width="1" height="36" style="background:red;"/>
+        <Static id="Static48" taborder="78" text="right padding : 20px" cssclass="sta_GID_txt02" left="110" top="171" width="138" height="21"/>
+        <Static id="Static45" taborder="79" left="97" top="249" width="1" height="10" style="background:red;"/>
+        <Static id="Static49" taborder="80" left="31" top="249" width="1" height="10" style="background:red;"/>
+        <Static id="Static50" taborder="81" left="109" top="285" width="1" height="10" style="background:red;"/>
+        <Static id="Static51" taborder="82" left="31" top="285" width="1" height="10" style="background:red;"/>
+        <Static id="Static52" taborder="83" left="121" top="321" width="1" height="10" style="background:red;"/>
+        <Static id="Static53" taborder="84" left="31" top="321" width="1" height="10" style="background:red;"/>
+        <Static id="Static54" taborder="85" left="32" top="325" width="90" height="1" style="background:red;"/>
+        <Static id="Static55" taborder="86" left="31" top="289" width="78" height="1" style="background:red;"/>
+        <Static id="Static56" taborder="87" left="31" top="253" width="67" height="1" style="background:red;"/>
+        <Static id="Static57" taborder="88" text="+12" left="64" top="238" width="27" height="17" style="color:red;"/>
+        <Static id="Static58" taborder="89" text="+12" left="64" top="274" width="27" height="17" style="color:red;"/>
+        <Static id="Static59" taborder="90" text="+12" left="64" top="310" width="27" height="17" style="color:red;"/>
+        <Static id="Static61" taborder="91" text="Label width : 55" cssclass="sta_GID_txt02" left="305" top="223" width="143" height="21"/>
+        <Static id="Static62" taborder="92" text="Label width : 67" cssclass="sta_GID_txt02" left="305" top="258" width="143" height="21"/>
+        <Static id="Static63" taborder="93" text="Label width : 79" cssclass="sta_GID_txt02" left="305" top="295" width="143" height="21"/>
+        <Static id="Static64" taborder="94" text="Label width : 91" cssclass="sta_GID_txt02" left="305" top="331" width="143" height="21"/>
+        <Static id="Static65" taborder="95" left="801" top="618" width="1" height="10" style="background:red;"/>
+        <Static id="Static66" taborder="96" left="788" top="618" width="1" height="10" style="background:red;"/>
+        <Static id="Static67" taborder="97" left="789" top="622" width="13" height="1" style="background:red;"/>
+        <Static id="Static68" taborder="98" text="15" left="788" top="604" width="15" height="17" style="color:red;"/>
+        <Static id="Static69" taborder="99" left="31" top="614" width="1" height="10" style="background:red;"/>
+        <Static id="Static70" taborder="100" left="16" top="614" width="1" height="10" style="background:red;"/>
+        <Static id="Static71" taborder="101" left="17" top="618" width="15" height="1" style="background:red;"/>
+        <Static id="Static72" taborder="102" text="15" left="18" top="585" width="15" height="17" style="color:red;"/>
+        <Static id="Static115" taborder="103" text="- Search Area에 들어가는 Label Component와 입력 Component는 한 조합으로 쓰이고 둘의  heigt값은 21px로 고정이나 width는 가변적임.&#13;&#10;- Label Component는 두 글자를 기준 w55 으로 한 글자씩 늘어날 때마다 12px이 들어남.&#13;&#10;- 입력컴포넌트의 경우 최소 width값 140px으로하며 이 후  글자 수가 많아질 경우 글자수에 맞게 가변적으로 함.&#13;&#10;- 한 조합 (Title 컴포넌트 + 입력 컴포넌트) 간의 간격은 30px로 고정." cssclass="sta_GID_txt02" left="15" top="49" width="915" height="75"/>
+        <Static id="Static06" taborder="104" text="6 - 103&#13;&#10;7 - 115&#13;&#10;8 - 127&#13;&#10;9 - 139" cssclass="sta_GID_txt02" left="1017" top="225" width="62" height="70" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_radio" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">전체검사 신청서</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">완료검사 신청서</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">미완료검사 신청서</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nX   = system.clientToScreenX(obj, 0);
+    var nY   = system.clientToScreenY(obj, 21);
+	this.PopupMenu00.trackPopup(nX, nY);
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var i, j;
+	this.ProgressBar02.pos = 0;
+	for( i = 0 ; i < 200 ; i+=2 )
+	{
+		this.ProgressBar02.stepIt();
+		this.updateWindow();
+	}
+}
+
+this.Div02_Static03_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TypeDefinition version="1.2">
+  <Modules>
+    <Module url="CompBase.json"/>
+    <Module url="ComComp.json"/>
+    <Module url="Grid.json"/>
+    <Module url="DeviceAPI.json"/>
+    <Module url="EcoLibrary.json"/>
+    <Module url="ExtAPI.json"/>
+  </Modules>
+  <Components>
+    <Component type="JavaScript" id="Div" classname="nexacro.Div"/>
+    <Component type="JavaScript" id="Button" classname="nexacro.Button"/>
+    <Component type="JavaScript" id="PopupDiv" classname="nexacro.PopupDiv"/>
+    <Component type="JavaScript" id="Combo" classname="nexacro.Combo"/>
+    <Component type="JavaScript" id="CheckBox" classname="nexacro.CheckBox"/>
+    <Component type="JavaScript" id="ListBox" classname="nexacro.ListBox"/>
+    <Component type="JavaScript" id="Edit" classname="nexacro.Edit"/>
+    <Component type="JavaScript" id="MaskEdit" classname="nexacro.MaskEdit"/>
+    <Component type="JavaScript" id="TextArea" classname="nexacro.TextArea"/>
+    <Component type="JavaScript" id="Menu" classname="nexacro.Menu"/>
+    <Component type="JavaScript" id="Tab" classname="nexacro.Tab"/>
+    <Component type="JavaScript" id="ImageViewer" classname="nexacro.ImageViewer"/>
+    <Component type="JavaScript" id="Radio" classname="nexacro.Radio"/>
+    <Component type="JavaScript" id="Calendar" classname="nexacro.Calendar"/>
+    <Component type="JavaScript" id="Static" classname="nexacro.Static"/>
+    <Component type="JavaScript" id="Grid" classname="nexacro.Grid"/>
+    <Component type="JavaScript" id="Spin" classname="nexacro.Spin"/>
+    <Component type="JavaScript" id="PopupMenu" classname="nexacro.PopupMenu"/>
+    <Component type="JavaScript" id="GroupBox" classname="nexacro.GroupBox"/>
+    <Component type="JavaScript" id="ProgressBar" classname="nexacro.ProgressBar"/>
+    <Component type="JavaScript" id="Plugin" classname="nexacro.Plugin"/>
+    <Component type="JavaScript" id="Dataset" classname="nexacro.NormalDataset"/>
+    <Component type="JavaScript" id="WebBrowser" classname="nexacro.WebBrowser"/>
+    <Component type="JavaScript" id="FileUpload" classname="nexacro.FileUpload"/>
+    <Component type="JavaScript" id="FileDownload" classname="nexacro.FileDownload"/>
+    <Component type="JavaScript" id="ExcelExportObject" classname="nexacro.ExcelExportObject"/>
+    <Component type="JavaScript" id="ExcelImportObject" classname="nexacro.ExcelImportObject"/>
+  </Components>
+  <Services>
+    <Service prefixid="ANALYSIS.BIZ" type="form" url="./ANALYSIS/BIZ/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="ANALYSIS.INFO" type="form" url="./ANALYSIS/INFO/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="ANALYSIS.MARKET" type="form" url="./ANALYSIS/MARKET/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="ANALYSIS.STS" type="form" url="./ANALYSIS/STS/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="MOB.MD" type="form" url="./MOB/MD/" version="0" communicationversion="0"/>
+    <Service prefixid="MDS.DELIVERY" type="form" url="./MDS/DELIVERY" cachelevel="dynamic" version="0" communicationversion="0"/>
+    <Service prefixid="PDA.CN" type="form" url="./PDA/CN/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.BALANCE" type="form" url="./PDS/BALANCE/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.BAS" type="form" url="./PDS/BAS/" cachelevel="dynamic" version="0" communicationversion="0"/>
+    <Service prefixid="PDS.COMPANY" type="form" url="./PDS/COMPANY/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.COUPON" type="form" url="./PDS/COUPON/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.DMART" type="form" url="./PDS/DMART/" version="0" communicationversion="0"/>
+    <Service prefixid="PDS.OUTER" type="form" url="./PDS/OUTER/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.PARTNER" type="form" url="./PDS/PARTNER/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.PAY" type="form" url="./PDS/PAY/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.PRICAT" type="form" url="./PDS/PRICAT/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.RECADV" type="form" url="./PDS/RECADV/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.SALES" type="form" url="./PDS/SALES/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="PDS.STOCK" type="form" url="./PDS/STOCK/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="SCM.DELIVERY" type="form" url="./SCM/DELIVERY/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="SCM.EVENT" type="form" url="./SCM/EVENT/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="SCM.ORDER" type="form" url="./SCM/ORDER/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="SCM.RECADV" type="form" url="./SCM/RECADV/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="SCM.RESERVE" type="form" url="./SCM/RESERVE/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="SCM.RETANN" type="form" url="./SCM/RETANN/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="OMG.BT" type="form" url="./OMG/BT/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="OMG.BL" type="form" url="./OMG/BL/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="OMG.CT" type="form" url="./OMG/CT/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="OMG.MG" type="form" url="./OMG/MG/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="OMG.PT" type="form" url="./OMG/PT/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="OMG.TX" type="form" url="./OMG/TX/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="lib" type="js" url="./lib/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="guide" type="form" url="./guide/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="template" type="form" url="./template/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="sample" type="form" url="./sample/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="sample.rMateChart" type="form" url="./rMateChart/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="frame" type="form" url="./frame/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="common" type="form" url="./common/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="css" type="file" url="./css/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="img" type="form" url="./img/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="POPUP" type="form" url="./POPUP/" version="0" communicationversion="0" cachelevel="dynamic"/>
+    <Service prefixid="svc" type="JSP" url="http://localhost:8080/nhvan/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="svc_admin" type="JSP" url="http://localhost:8090/nhadmin/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="svc_prod" type="JSP" url="http://www.nhescm.co.kr:8090/mplug/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="svc_dev" type="JSP" url="http://121.156.58.242:8090/mplug/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="dsLayout" type="bs" url="http://121.156.58.242:8090/mplug/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="SYS.BATCH" type="form" url="./SYS/BATCH/" cachelevel="dynamic" version="0" communicationversion="0"/>
+  </Services>
+  <Update/>
+  <Protocols/>
+</TypeDefinition>

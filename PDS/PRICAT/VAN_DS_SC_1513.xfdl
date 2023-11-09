@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1513" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="필수상품속성정보조회" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="common_onclick"/>
+        <Static id="Static04" taborder="22" text="15" visible="false" top="1" width="15" height="491" style="background:#00ffffb5;" right="0"/>
+        <Div id="Div01" taborder="44" url="common::location.xfdl" text="Div01" left="0" top="0" right="563" height="21"/>
+        <Div id="div_grd" taborder="39" left="0" top="79" right="15" bottom="70">
+          <Layouts>
+            <Layout width="788" height="367">
+              <Button id="btn_flag" taborder="0" cssclass="btn_WFSA_SearchClose" left="329" top="0" right="332" height="12" onclick="btn_flag_onclick" position="absolute"/>
+              <Grid id="grd_product" taborder="12" binddataset="ds_product" useinputpanel="false" cellsizingtype="col" nodatatext="조회된 건수가 없습니다." left="0" top="40" right="0" bottom="31" scrollpixel="none" onheaddblclick="div_grd_grd_product_onheaddblclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="420"/>
+                      <Column size="420"/>
+                      <Column size="420"/>
+                      <Column size="420"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="35" band="head"/>
+                      <Row size="28"/>
+                      <Row size="35" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="MD명"/>
+                      <Cell col="1" text="매입처코드"/>
+                      <Cell col="2" text="매입처명칭"/>
+                      <Cell col="3" text="상품등록수"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="normal" text="bind:MD_NM"/>
+                      <Cell col="1" text="bind:SPYPL_NA_TRPL_C"/>
+                      <Cell col="2" text="bind:SPYPL_NA_TRPL_NM"/>
+                      <Cell col="3" style="align:right;" text="bind:NA_WRS_C_CNT"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="align:center;" text="합   계"/>
+                      <Cell col="1"/>
+                      <Cell col="2"/>
+                      <Cell col="3" displaytype="number" expr="expr:comp.parent.parent.ds_sum.getColumn(0,'SUM_NA_WRS_C_CNT')"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_search" taborder="47" left="0" top="29" right="15" height="50" scrollbars="none" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="48" text="매입처코드" cssclass="sta_WFSA_Label" left="15" top="15" width="103" height="21"/>
+              <Edit id="edt_trpl_corp_nm" taborder="49" onkeydown="edt_suppliee_onkeydown" onchanged="div_search_edt_suppliee_onchanged" left="106" top="15" width="157" height="21"/>
+              <Button id="btn_popup" taborder="50" onclick="common_onclick" cssclass="btn_WF_Searchbtn" left="266" top="15" width="21" height="21"/>
+              <Edit id="edt_na_trpl_c" taborder="51" enable="false" left="290" top="15" width="117" height="21"/>
+              <Static id="Static03" taborder="100" text="MD명" cssclass="sta_WFSA_Label" left="434" top="15" width="74" height="21"/>
+              <Edit id="edt_md_nm" taborder="101" onkeydown="div_search_edt_md_nm_onkeydown" left="515" top="15" width="204" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_init" taborder="52" text="초기화" onclick="btn_init_onclick" cssclass="btn_WF_CRUD" top="0" right="81" width="53" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_product" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MD_NM" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="SPYPL_NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="NA_WRS_C_CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_combo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_TCP" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_taxCopy" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="PBC_SQNO" type="STRING" size="256"/>
+          <Column id="NTS_TMS_SQNO" type="STRING" size="256"/>
+          <Column id="TXBIL_CNT" type="STRING" size="256"/>
+          <Column id="TXBIL_NO" type="STRING" size="256"/>
+          <Column id="TXBIL_SQNO" type="STRING" size="256"/>
+          <Column id="CRT_DT" type="STRING" size="256"/>
+          <Column id="TXBIL_KD" type="STRING" size="256"/>
+          <Column id="RCT_RQS_DSC" type="STRING" size="256"/>
+          <Column id="MOD_C" type="STRING" size="256"/>
+          <Column id="RMK1" type="STRING" size="256"/>
+          <Column id="RMK2" type="STRING" size="256"/>
+          <Column id="RMK3" type="STRING" size="256"/>
+          <Column id="REV_RPT_NO" type="STRING" size="256"/>
+          <Column id="BAT_ISU_ST_DT" type="STRING" size="256"/>
+          <Column id="BAT_ISU_ED_DT" type="STRING" size="256"/>
+          <Column id="REV_TTCN" type="STRING" size="256"/>
+          <Column id="SPLR_BZNO" type="STRING" size="256"/>
+          <Column id="SPLR_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="SPLR_MTALNM" type="STRING" size="256"/>
+          <Column id="SPLR_REPMNM" type="STRING" size="256"/>
+          <Column id="SPLR_ADR" type="STRING" size="256"/>
+          <Column id="SPLR_BZTPNM" type="STRING" size="256"/>
+          <Column id="SPLR_BZC" type="STRING" size="256"/>
+          <Column id="SPLR_DEPTNM" type="STRING" size="256"/>
+          <Column id="SPLR_CHRRNM" type="STRING" size="256"/>
+          <Column id="SPLR_CHRR_TELNO" type="STRING" size="256"/>
+          <Column id="SPLR_CHRR_EMAIL" type="STRING" size="256"/>
+          <Column id="SPLR_CHRR_MPNO" type="STRING" size="256"/>
+          <Column id="SPLR_FAXNO" type="STRING" size="256"/>
+          <Column id="BUY_DSC" type="STRING" size="256"/>
+          <Column id="BUY_BZNO" type="STRING" size="256"/>
+          <Column id="BUY_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MTAL" type="STRING" size="256"/>
+          <Column id="BUY_REPMNM" type="STRING" size="256"/>
+          <Column id="BUY_ADR" type="STRING" size="256"/>
+          <Column id="BUY_BZTPNM" type="STRING" size="256"/>
+          <Column id="BUY_BZC" type="STRING" size="256"/>
+          <Column id="BUY_FAXNO" type="STRING" size="256"/>
+          <Column id="BUY_DEPTNM1" type="STRING" size="256"/>
+          <Column id="BUY_CHRRNM1" type="STRING" size="256"/>
+          <Column id="BUY_CHRR_TELNO1" type="STRING" size="256"/>
+          <Column id="BUY_CHRR_EMAIL1" type="STRING" size="256"/>
+          <Column id="BUY_CHRR_MPNO1" type="STRING" size="256"/>
+          <Column id="BUY_DEPTNM2" type="STRING" size="256"/>
+          <Column id="BUY_CHRRNM2" type="STRING" size="256"/>
+          <Column id="BUY_CHRR_TELNO2" type="STRING" size="256"/>
+          <Column id="BUY_CHRR_EMAIL2" type="STRING" size="256"/>
+          <Column id="BUY_CHRR_MPNO2" type="STRING" size="256"/>
+          <Column id="ETR_BZNO" type="STRING" size="256"/>
+          <Column id="ETR_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="ETR_MTALNM" type="STRING" size="256"/>
+          <Column id="ETR_REPMNM" type="STRING" size="256"/>
+          <Column id="ETR_ADR" type="STRING" size="256"/>
+          <Column id="ETR_BZTPNM" type="STRING" size="256"/>
+          <Column id="ETR_BZC" type="STRING" size="256"/>
+          <Column id="ETR_DEPTNM" type="STRING" size="256"/>
+          <Column id="ETR_CHRRNM" type="STRING" size="256"/>
+          <Column id="ETR_CHRR_TELNO" type="STRING" size="256"/>
+          <Column id="ETR_CHRR_EMAIL" type="STRING" size="256"/>
+          <Column id="STL_METHC1" type="STRING" size="256"/>
+          <Column id="STL_AM1" type="STRING" size="256"/>
+          <Column id="STL_METHC2" type="STRING" size="256"/>
+          <Column id="STL_AM2" type="STRING" size="256"/>
+          <Column id="STL_METHC3" type="STRING" size="256"/>
+          <Column id="STL_AM3" type="STRING" size="256"/>
+          <Column id="STL_METHC4" type="STRING" size="256"/>
+          <Column id="STL_AM4" type="STRING" size="256"/>
+          <Column id="SPRTT" type="STRING" size="256"/>
+          <Column id="TXA_TT" type="STRING" size="256"/>
+          <Column id="TOT_AM" type="STRING" size="256"/>
+          <Column id="RQR_STS_C" type="STRING" size="256"/>
+          <Column id="RPBC_DSC" type="STRING" size="256"/>
+          <Column id="BYNG_SL_DSC" type="STRING" size="256"/>
+          <Column id="RSP_C" type="STRING" size="256"/>
+          <Column id="RSP_MSG" type="STRING" size="256"/>
+          <Column id="RQR_CHAN_DSC" type="STRING" size="256"/>
+          <Column id="EMAIL_PBC_RQR_YN" type="STRING" size="256"/>
+          <Column id="SMS_PBC_RQR_YN" type="STRING" size="256"/>
+          <Column id="FAX_PBC_RQR_YN" type="STRING" size="256"/>
+          <Column id="MOD_TAX_PBC_SQNO" type="STRING" size="256"/>
+          <Column id="MOD_TAX_NTS_TMS_SQNO" type="STRING" size="256"/>
+          <Column id="ISTT_PBC_YN" type="STRING" size="256"/>
+          <Column id="PBC_DT" type="STRING" size="256"/>
+          <Column id="ERP_REF_NO" type="STRING" size="256"/>
+          <Column id="ASP_TMS_DTM" type="STRING" size="256"/>
+          <Column id="ASP_RSP_DTM" type="STRING" size="256"/>
+          <Column id="DEPT_C" type="STRING" size="256"/>
+          <Column id="DEPTNM" type="STRING" size="256"/>
+          <Column id="BRC" type="STRING" size="256"/>
+          <Column id="BRNM" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="NA_BZPLNM" type="STRING" size="256"/>
+          <Column id="NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="NA_TEAMNM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_CLNTNM" type="STRING" size="256"/>
+          <Column id="NA_CLNT_TEAM_C" type="STRING" size="256"/>
+          <Column id="NA_CLNT_TEAMNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="NA_TOT_DSC" type="STRING" size="256"/>
+          <Column id="NA_TOT_DSNM" type="STRING" size="256"/>
+          <Column id="NA_TOT_DTI_DSC" type="STRING" size="256"/>
+          <Column id="NA_TOT_DTI_DSNM" type="STRING" size="256"/>
+          <Column id="TXBZ_TP_DSC" type="STRING" size="256"/>
+          <Column id="TXBZ_TP_PBCNM" type="STRING" size="256"/>
+          <Column id="RC_MSG" type="STRING" size="256"/>
+          <Column id="HOFC_BAT_RG_DSC" type="STRING" size="256"/>
+          <Column id="INPMN_ENO" type="STRING" size="256"/>
+          <Column id="APVMN_ENO" type="STRING" size="256"/>
+          <Column id="ELSG_YN" type="STRING" size="256"/>
+          <Column id="DCZ_UYN" type="STRING" size="256"/>
+          <Column id="ASP_ETR_YN" type="STRING" size="256"/>
+          <Column id="SIGN_R_VAL" type="STRING" size="256"/>
+          <Column id="SPYPL_C" type="STRING" size="256"/>
+          <Column id="VENDER_C" type="STRING" size="256"/>
+          <Column id="ORR_DT" type="STRING" size="256"/>
+          <Column id="ORR_NO" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_01" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_02" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_03" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_04" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_05" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_06" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_07" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_08" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_09" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_10" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_11" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_12" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_13" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_14" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_15" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_16" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_17" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_18" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_19" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_20" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_21" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_22" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_23" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_24" type="STRING" size="256"/>
+          <Column id="RSR_HDNG_25" type="STRING" size="256"/>
+          <Column id="SOAC_PBC_STSC" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="ELSG_CNTN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_combo2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_item" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_combo3" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="codecolumn" type="STRING" size="256"/>
+          <Column id="datacolumn" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="codecolumn">1</Col>
+            <Col id="datacolumn">작성일</Col>
+          </Row>
+          <Row>
+            <Col id="codecolumn">2</Col>
+            <Col id="datacolumn">등록일</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_buyer"/>
+      <Dataset id="ds_condition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="MD_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_teamC"/>
+      <Dataset id="ds_sum">
+        <ColumnInfo>
+          <Column id="SUM_NA_WRS_C_CNT" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item4" compid="div_search.edt_md_nm" propid="value" datasetid="ds_condition" columnid="NTS_TMS_SQNO"/>
+      <BindItem id="item6" compid="edt_na_trpl_c" propid="value" datasetid="ds_condition" columnid="NA_TRPL_C"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+include "lib::comTSToolKit.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.flag = true;
+this.enter = false;
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+   var param = [  
+ 		{code:"TXBIL_STSC",   dsName:"ds_combo",   selecttype:"A"}
+    ];
+    
+	this.gfn_setPortalCommonCode(param);
+}
+ 
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	trace("fn_commonAfterOnload");
+	//콤보에 최상단Row보이도록 설정
+	//조회된건수가 없습니다.
+	this.div_grd.grd_product.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveProductList = function()
+{
+
+	this.ds_product.clearData();
+	
+	var na_trpl_c	 	= this.gfn_nullToEmpty(this.div_search.edt_na_trpl_c.value);
+	var md_nm 			= this.gfn_nullToEmpty(this.div_search.edt_md_nm.value);
+	
+	var params = 	"na_trpl_c=" 	+ na_trpl_c + 
+					" md_nm=" 		+ md_nm;
+
+	var sSvcID        = "retrieveProductList";
+	var sURL          = "svc::rest/pds/pricat/Product/selectMDTempOdTrtwrsList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_sum=ds_sum ds_product=ds_product";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "retrieveProductList":
+				if(this.ds_product.rowcount > 0)
+				{ 
+									  
+				}
+				else if(this.ds_product.rowcount == 0)
+				{
+					this.div_grd.grd_product.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+				}
+				break;
+				
+		}
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_search":	
+		
+			
+			//if(this.gfn_isNull(this.div_search.edt_BizNo.value)){
+			//	this.alert("공급받는자사업자번호는 조회시 필수입니다");
+			//	this.div_search.edt_BizNo.setFocus();
+			//	return;
+			//}
+			
+			this.fn_retrieveProductList();
+			break;
+			
+		case "btn_popup":
+			
+			//var codes = this.gfn_nullToEmpty(this.div_search.edt_data02.value);
+			var codes="";
+			var texts = this.gfn_nullToEmpty(this.div_search.edt_trpl_corp_nm.value);
+			
+			var param = {
+						autoType:false,
+						searchCode:codes,
+						searchText:texts
+			};
+			if(typeof params == "boolean"){
+				if(!this.searPopValue(param)){return};
+			}
+	
+	
+			this.fn_openTrpl();
+			break;
+			
+	}
+}
+
+this.fn_openTrpl = function(){
+	var oArg = {searchWord:this.div_search.edt_trpl_corp_nm.value};
+	var sOption = "autosize=true,title=false";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("POPUP_TRPL","POPUP::POPUP_SRC_RVOPL_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.div_search_edt_md_nm_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == '13')
+	{
+		obj.updateToDataset();
+		//this.btn_search.click();
+		this.fn_retrieveProductList();
+	}
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.btn_flag_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_grd);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	trace(" strId : " + strId + " strVal : " + strVal);
+	switch(strId)
+	{
+		
+		case "POPUP_TRPL":
+			if(!this.gfn_isNull(strVal))
+			{
+				var strValNo = strVal.split(',');
+				this.div_search.edt_na_trpl_c.set_value(strValNo[0]);
+				this.div_search.edt_trpl_corp_nm.set_value(strValNo[1]);
+			}
+			break;	
+	}
+	 
+}
+
+this.btn_init_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+this.div_grd_grd_product_onheaddblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var objDs = this.objects[obj.binddataset];
+ 										
+	for (var i = 0; i < obj.getCellCount("head"); i++)
+	{	
+		var sHeadText = obj.getCellText(-1, i);
+        var nLen      = sHeadText.length - 1;  
+        
+   
+		if (i == e.cell)
+		{
+            var sColId = (obj.getCellProperty("body", e.col,"text")).toString().split(":");
+			if (sHeadText.substr(nLen) == "▲") 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▼");
+				objDs.set_keystring("S:-" + sColId[1]);
+			}
+			else if (sHeadText.substr(nLen) == "▼") 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen)+ "▲");
+				objDs.set_keystring("S:+" + sColId[1]);
+			}
+			else 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText+"▲");
+				objDs.set_keystring("S:+" + sColId[1]);
+			}
+			//this.alert("=================   ");
+		}
+		else
+		{
+			if (sHeadText.substr(nLen) == "▲" || sHeadText.substr(nLen) == "▼") 
+			{
+				obj.setCellProperty( "head", i, "text", sHeadText.substr(0, nLen));
+			}
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

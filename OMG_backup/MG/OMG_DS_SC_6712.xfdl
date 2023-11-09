@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="766" height="526" titletext="사용자 등록/수정" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_save" taborder="0" text="저장" cssclass="btn_WF_CRUD" top="47" right="56" width="41" height="21" onclick="btn_save_onclick"/>
+        <Button id="btn_close2" taborder="1" text="닫기" cssclass="btn_WF_CRUD" top="47" right="13" width="41" height="21" onclick="btn_close_onclick"/>
+        <Static id="Static51" taborder="2" text="사용자 등록/수정" cssclass="sta_WF_Subtitle" left="17" top="51" width="135" height="21"/>
+        <Static id="Static04" taborder="3" text="사용자 아이디" cssclass="sta_WF_Label" left="17" top="263" width="134" height="29"/>
+        <Static id="Static07" taborder="4" text="부 서 명" cssclass="sta_WF_Label" left="17" top="291" width="134" height="29"/>
+        <Static id="Static08" taborder="5" cssclass="sta_WF_Labelbg" left="150" top="263" right="17" height="29"/>
+        <Static id="Static11" taborder="6" cssclass="sta_WF_Labelbg" left="150" top="291" right="17" height="29"/>
+        <Static id="Static03" taborder="7" text="15" visible="false" left="673" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="78" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="9" text="사용자 관리" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="btn_close" taborder="10" cssclass="btn_WF_PopupClose" top="0" width="37" height="32" onclick="btn_close_onclick" right="1"/>
+        <Edit id="edit_user_id" taborder="11" left="154" top="267" height="21" cssclass="edt_WF_Essential" width="206" ontextchange="edit_user_id_ontextchange"/>
+        <Static id="Static01" taborder="14" cssclass="sta_WF_Labelbg" left="150" top="319" right="17" height="29"/>
+        <Edit id="edit_username" taborder="12" left="154" top="323" height="21" cssclass="edt_WF_Essential" width="206" readonly="false"/>
+        <Edit id="edit_deptname" taborder="28" cssclass="edt_WF_Readonly" left="154" top="295" height="21" readonly="true" width="206" ontextchanged="edit_deptname_ontextchanged"/>
+        <Static id="Static02" taborder="21" text="사용자 이름" cssclass="sta_WF_Label" left="17" top="319" height="29" width="134"/>
+        <Static id="Static00" taborder="22" text="직위" cssclass="sta_WF_Label" left="17" top="375" height="29" width="134"/>
+        <Static id="Static05" taborder="23" cssclass="sta_WF_Labelbg" left="150" top="375" right="17" height="29"/>
+        <Edit id="edit_grade" taborder="15" readonly="false" cssclass="edt_WF_Essential" left="154" top="379" height="21" width="206"/>
+        <Button id="btn_usernamechk" taborder="24" text="중복확인" left="363" top="267" height="21" width="54" onclick="btn_usernamechk_onclick"/>
+        <Static id="Static10" taborder="25" cssclass="sta_WF_Labelbg" left="150" top="347" right="17" height="29"/>
+        <Edit id="edit_pos" taborder="13" readonly="false" cssclass="edt_WF_Essential" left="154" top="351" height="21" width="206"/>
+        <Static id="Static12" taborder="26" text="직급" cssclass="sta_WF_Label" left="17" top="347" height="29" width="134"/>
+        <Static id="Static13" taborder="27" text="담당업무" cssclass="sta_WF_Label" left="17" top="403" height="106" width="135"/>
+        <Static id="Static14" taborder="29" cssclass="sta_WF_Labelbg" left="150" top="403" right="17" height="106"/>
+        <Edit id="edit_job" taborder="16" left="154" top="407" right="21" height="98" style="align:left top;"/>
+        <Static id="Static15" taborder="30" text="전화번호" cssclass="sta_WF_Label" left="17" top="508" height="29" width="134"/>
+        <Static id="Static16" taborder="31" cssclass="sta_WF_Labelbg" left="150" top="508" height="29" right="17"/>
+        <Edit id="edit_phone" taborder="17" cssclass="edt_WF_Essential" left="154" top="512" height="21" width="206"/>
+        <Static id="Static17" taborder="32" text="휴대폰" cssclass="sta_WF_Label" left="17" top="536" height="29" width="134"/>
+        <Static id="Static18" taborder="33" cssclass="sta_WF_Labelbg" left="150" top="536" right="17" height="29"/>
+        <Edit id="edit_mobile" taborder="18" cssclass="edt_WF_Readonly" left="154" top="540" height="21" width="206" readonly="true" value="010"/>
+        <Static id="Static19" taborder="34" text="이메일" cssclass="sta_WF_Label" left="17" top="564" height="29" width="134"/>
+        <Static id="Static20" taborder="35" cssclass="sta_WF_Labelbg" left="150" top="564" right="17" height="29"/>
+        <Edit id="edit_email" taborder="19" cssclass="edt_WF_Readonly" left="154" top="568" height="21" width="206" readonly="true" value="@"/>
+        <Static id="Static21" taborder="36" text="정렬순서" cssclass="sta_WF_Label" left="17" top="592" height="29" width="134"/>
+        <Static id="Static22" taborder="37" cssclass="sta_WF_Labelbg" left="150" top="592" right="17" height="29"/>
+        <Edit id="edit_sort" taborder="20" cssclass="edt_WF_Essential" left="154" top="596" height="21" width="206"/>
+        <Static id="Static25" taborder="38" text="사진" cssclass="sta_WF_Label" left="17" top="78" height="158" style="align:left middle;" width="134"/>
+        <Static id="Static27" taborder="39" cssclass="sta_WF_Labelbg" left="150" top="80" right="17" height="156"/>
+        <Static id="Static24" taborder="40" cssclass="sta_WF_Labelbg" left="150" top="235" right="17" height="29"/>
+        <Static id="Static23" taborder="41" text="사진 등록" cssclass="sta_WF_Label" left="17" top="235" height="29" style="align:left middle;" width="134"/>
+        <ImageViewer id="image00" taborder="42" left="158" top="85" height="146" width="140" stretch="fit"/>
+        <FileUpload id="FileUpload_picture" taborder="43" retry="0" index="0" left="360" top="239" height="21" scrollbars="autoboth" style="buttonsize:54;buttontext:사진등록;align:center middle;" width="57" onerror="FileUpload_picture_onerror" onsuccess="FileUpload_picture_onsuccess" onitemchanged="FileUpload_picture_onitemchanged"/>
+        <Edit id="edit_picturename" taborder="44" ontextchange="edit_user_id_ontextchange" left="154" top="239" height="21" cssclass="edt_WF_Readonly" readonly="true" width="206"/>
+        <Static id="Static26" taborder="45" cssclass="sta_WF_Labelbg" left="150" top="620" right="17" height="29"/>
+        <Static id="Static28" taborder="46" text="사용자 권한" cssclass="sta_WF_Label" left="17" top="620" width="134" height="29"/>
+        <Radio id="radio_auth" taborder="47" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" cssclass="rdo_WF_Essentia" left="155" top="623" width="365" height="23">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">1</Col>
+                <Col id="datacolumn">일반사용자</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">2</Col>
+                <Col id="datacolumn">팀관리자</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">3</Col>
+                <Col id="datacolumn">부관리자</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">4</Col>
+                <Col id="datacolumn">본부관리자</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Static id="Static29" taborder="48" text="(※200KB 이하만 가능)" left="300" top="210" height="21" width="140"/>
+        <Button id="btn_comname" taborder="49" onclick="btn_comname_onclick" cssclass="btn_WF_Searchbtn" left="363" top="295" height="21" width="21"/>
+        <Static id="Static30" taborder="50" text="(※숫자만 입력 가능)" left="364" top="598" width="139" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_user" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="USER_ID" type="STRING" size="64"/>
+          <Column id="DEPT_ID" type="STRING" size="64"/>
+          <Column id="USER_NAME" type="STRING" size="64"/>
+          <Column id="DEPT_NAME" type="STRING" size="128"/>
+          <Column id="POS" type="STRING" size="128"/>
+          <Column id="GRADE" type="STRING" size="128"/>
+          <Column id="JOB" type="STRING" size="512"/>
+          <Column id="PHONE" type="STRING" size="128"/>
+          <Column id="MOBILE" type="STRING" size="128"/>
+          <Column id="EMAIL" type="STRING" size="128"/>
+          <Column id="USER_SORT" type="STRING" size="32"/>
+          <Column id="PIC_FL_NM" type="STRING" size="100"/>
+          <Column id="PIC_FL_TMP_NM" type="STRING" size="50"/>
+          <Column id="PICTURE" type="BLOB" size="256"/>
+          <Column id="AUTH_TYPE_CD" type="STRING" size="10"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_picture" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_userchk">
+        <ColumnInfo>
+          <Column id="USER_ID" type="STRING" size="64"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="image00" propid="image" datasetid="ds_user" columnid="PICTURE"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var btn_save_enable = false;
+var dept_id = "";
+var save_exec = false;
+var paraMode = "";
+var picsuc = false;
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	paraMode = this.getOwnerFrame().paramMode;
+	if(paraMode == "I"){
+		this.edit_deptname.set_value(this.getOwnerFrame().deptname);
+		dept_id = this.getOwnerFrame().deptid;
+	}else if(paraMode == "U"){
+		this.ds_user.clearData();
+		this.ds_user.insertRow(0);
+		this.ds_user.copyRow(0,this.parent.dsArg,0);
+		
+		this.btn_usernamechk.set_visible("false");
+		this.edit_user_id.set_readonly("true");
+		this.edit_user_id.set_cssclass("edt_WF_Readonly");
+		btn_save_enable = true;
+		
+		this.edit_user_id.set_value(this.ds_user.getColumn(0,"USER_ID"));
+		dept_id = this.ds_user.getColumn(0,"DEPT_ID");
+		this.edit_username.set_value(this.ds_user.getColumn(0,"USER_NAME"));
+		this.edit_deptname.set_value(this.ds_user.getColumn(0,"DEPT_NAME"));
+		this.edit_pos.set_value(this.ds_user.getColumn(0,"POS"));
+		this.edit_grade.set_value(this.ds_user.getColumn(0,"GRADE"));
+		this.edit_job.set_value(this.ds_user.getColumn(0,"JOB"));
+		this.edit_phone.set_value(this.ds_user.getColumn(0,"PHONE"));
+		//this.edit_mobile.set_value(this.ds_user.getColumn(0,"MOBILE"));
+		//this.edit_email.set_value(this.ds_user.getColumn(0,"EMAIL"));
+		this.edit_sort.set_value(this.ds_user.getColumn(0,"USER_SORT"));
+		this.radio_auth.set_value(this.ds_user.getColumn(0, "AUTH_TYPE_CD"));
+		this.call_pic();
+	}
+}
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+/*콜백 함수*/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0 && svcID != "retrievePicture")
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "checkUserAmnid"){
+			if(this.ds_userchk.rowcount==0){
+				this.alert("사용 가능합니다.");
+				btn_save_enable = true;
+			}
+			else {
+				// this.alert("로우 카운트 ?? : "+this.ds_userchk.rowcount);
+				this.alert("이미 사용중입니다.");
+			}
+		}
+		else if(svcID == "insertUserAmn") {
+			this.gfn_getMessage("alert", "result.message.save.success");
+			btn_save_enable = false;
+			save_exec = true;
+			this.call_pic();
+		}
+		else if(svcID == "updateUserAmn") {
+			this.gfn_getMessage("alert", "result.message.save.success");
+			save_exec = true;
+			this.call_pic();
+		}
+		else if(svcID == "retrievePicture") {
+			this.edit_picturename.set_value(this.ds_user.getColumn(0,"PIC_FL_NM"));
+		}
+	}	
+
+}
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+/*추가등록 시 사용되는 Validation Check */
+this.fn_validationCheck = function() {
+	
+	if(this.gfn_isNull(this.edit_user_id.value)){
+		this.alert("사용자 아이디를 입력해주세요");
+		this.edit_user_id.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_username.value)){
+		this.alert("사용자 이름을 입력해주세요");
+		this.edit_username.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_pos.value)){
+		this.alert("직급을 입력해주세요");
+		this.edit_pos.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_grade.value)){
+		this.alert("직위를 입력해주세요");
+		this.edit_grade.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_phone.value)){
+		this.alert("전화번호를 입력해주세요");
+		this.edit_phone.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_mobile.value)){
+		this.alert("핸드폰 번호를 입력해주세요");
+		this.edit_mobile.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_email.value)){
+		this.alert("이메일을 입력해주세요");
+		this.edit_email.setFocus();
+		return false;
+	}
+	
+	if(this.gfn_isNull(this.edit_sort.value)){
+		this.alert("정렬순서를 입력해주세요");
+		this.edit_sort.setFocus();
+		return false;
+	}
+	
+	return true;
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+/* 그림 조회*/
+this.call_pic = function()
+{
+	var sParams = "user_id="+this.gfn_nullToEmpty(this.edit_user_id.value);
+	var sSvcID        = "retrievePicture";
+	var sURL          = "svc::rest/mg/retrievePicture";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_user=ds_user";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회  
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+/*닫기*/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(save_exec){
+		this.close(dept_id);
+	}else{
+		this.close();
+	}
+}
+
+/*저장*/
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(btn_save_enable){
+		if(this.fn_validationCheck()){
+			this.ds_user.insertRow();
+			this.ds_user.setColumn(0,"USER_ID",this.edit_user_id.value);
+			this.ds_user.setColumn(0,"DEPT_ID",dept_id);
+			this.ds_user.setColumn(0,"USER_NAME",this.edit_username.value);
+			this.ds_user.setColumn(0,"DEPT_NAME",this.edit_deptname.value);
+			this.ds_user.setColumn(0,"POS",this.edit_pos.value);
+			this.ds_user.setColumn(0,"GRADE",this.edit_grade.value);
+			this.ds_user.setColumn(0,"JOB",this.edit_job.value);
+			this.ds_user.setColumn(0,"PHONE",this.edit_phone.value);
+			this.ds_user.setColumn(0,"MOBILE",this.edit_mobile.value);
+			this.ds_user.setColumn(0,"EMAIL",this.edit_email.value);
+			this.ds_user.setColumn(0,"USER_SORT",this.edit_sort.value);
+			this.ds_user.setColumn(0,"AUTH_TYPE_CD",this.radio_auth.value);
+			if(picsuc){
+				this.ds_user.setColumn(0,"PIC_FL_NM",this.ds_picture.getColumn(0,"ORGFNAME"));
+				this.ds_user.setColumn(0,"PIC_FL_TMP_NM",this.ds_picture.getColumn(0,"SYSTEMFILENAME"));
+			}					
+			// alert("현재 파라모드 값 : " + paraMode);
+			if(paraMode == "I"){
+				var sParams = "";
+				var sSvcID        = "insertUserAmn";
+				var sURL          = "svc::rest/mg/insertUserAmn";	
+				var sInDatasets   = "ds_user=ds_user";
+				var sOutDatasets  = "";	
+				var sArgument     = sParams;
+				var sCallbackFunc = "fn_callBack";
+				var sTranType     = "U"; // U:저장/삭제, S:조회			
+				
+				this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+				btn_save_enable = false;
+			}else if(paraMode == "U"){
+				var sParams = "";
+				var sSvcID        = "updateUserAmn";
+				var sURL          = "svc::rest/mg/updateUserAmn";	
+				var sInDatasets   = "ds_user=ds_user";
+				var sOutDatasets  = "";	
+				var sArgument     = sParams;
+				var sCallbackFunc = "fn_callBack";
+				var sTranType     = "U"; // U:저장/삭제, S:조회			
+				
+				this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+			}
+		}
+ 	}
+ 	else {
+ 		this.alert("중복확인을 해주세요.");
+ 	}
+}
+
+this.edit_user_id_ontextchange = function(obj:Edit,  e:nexacro.TextChangeEventInfo)
+{
+	btn_save_enable = false;
+}
+
+/*사용자 아이디 중복체크*/
+this.btn_usernamechk_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.gfn_isNull(this.edit_user_id.value)){
+		this.alert("사용자 아이디를 입력해주세요");
+		this.edit_user_id.setFocus();
+		return false;
+	}
+	
+	var sParams = "user_id="+this.gfn_nullToEmpty(this.edit_user_id.value);
+	var sSvcID        = "checkUserAmnid";
+	var sURL          = "svc::rest/mg/checkUserAmnid";	
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_userchk=ds_userchk";	
+	var sArgument     = sParams;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회  
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.FileUpload_picture_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload00_onerror");
+	trace("e.errorcode: "+e.errorcode);
+	trace("e.errormsg: "+e.errormsg);
+}
+
+this.FileUpload_picture_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if( e.datasets != null )
+	{
+		this.ds_picture.clear();
+		this.ds_picture.copyData(e.datasets[0]);
+		if(this.ds_picture.getColumn(0,'FILESIZE')<=204800){
+			this.edit_picturename.set_value(this.ds_picture.getColumn(0,'ORGFNAME'));
+			picsuc=true;
+		}else{
+			alert("200KB 이하 사진을 사용해주세요.");
+		}
+	}
+}
+/*사진 첨부등록*/
+this.FileUpload_picture_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+//	this.image00.set_image("file://"+e.newvalue);
+}
+
+
+this.btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = {dept_id:dept_id};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_compopupAfter";    
+	this.gfn_openPopup("deptSearchPopup","OMG.MG::OMG_DS_SC_6712_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/*부서조회 팝업콜백 함수*/
+this.fn_compopupAfter = function(strId, strVal)
+{
+	if(strVal != ''){
+		var paramsArr = strVal.split(",");
+	
+		if(strId == "deptSearchPopup"){
+			dept_id = paramsArr[0];
+			this.edit_deptname.set_value(paramsArr[1]);
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

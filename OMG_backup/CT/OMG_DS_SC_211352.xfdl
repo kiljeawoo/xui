@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211352" classname="pattern_01" left="0" top="0" width="784" height="248" titletext="거래품목리스트" scrollbars="none" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static172" taborder="717" text="거래품목리스트" onclick="Div02_Static172_onclick" cssclass="sta_WF_Subtitle" left="0" top="0" width="467" height="21"/>
+        <Button id="Button15" taborder="718" text="계약서보기" left="704" top="0" width="77" height="21" onclick="Button15_onclick" visible="false"/>
+        <Static id="Static181" taborder="734" left="0" top="34" width="218" height="21"/>
+        <Grid id="grd_etcItemList" taborder="5" binddataset="ds_etcItemList" useinputpanel="false" onheadclick="ds_etcItemList_onheadclick" top="55" scrollbars="autoboth" autofittype="col" autoenter="select" bottom="88" right="0.51%" left="0">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="160"/>
+                <Column size="97"/>
+                <Column size="160"/>
+                <Column size="97"/>
+                <Column size="160"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" text="상품명"/>
+                <Cell col="2" displaytype="number" edittype="mask" text="규격(모델명)" mask="######"/>
+                <Cell col="3" text="상품코드"/>
+                <Cell col="4" displaytype="number" edittype="mask" text="원산지" mask="######"/>
+                <Cell col="5" text="제조업체/즉석제조"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM1"/>
+                <Cell col="2" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:PMTN_EMPE1"/>
+                <Cell col="3" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM2"/>
+                <Cell col="4" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:PMTN_EMPE2"/>
+                <Cell col="5" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:STORNM3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_sctrwPmtnEmpeDspcBrk_add" taborder="4" text="행추가" top="29" width="53" height="21" right="59" onclick="btn_etcItemList_addRow_onclick"/>
+        <Button id="btn_sctrwPmtnEmpeDspcBrk_del" taborder="764" text="행삭제" onclick="btn_etcItemList_delRow_onclick" top="29" width="53" height="21" right="4"/>
+        <Static id="Static12" taborder="765" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <Static id="Static94" taborder="766" cssclass="sta_WF_Labelbg" left="13.78%" top="164" right="0.51%" height="80"/>
+        <Static id="Static93" taborder="767" text="특약사항" cssclass="sta_WF_Label" left="0" top="164" right="86.1%" height="80"/>
+        <TextArea id="txa_sctrSjt" taborder="768" wordwrap="char" ontextchanged="txatext_changed" left="14.29%" top="168" right="0.51%" height="72" lengthunit="ascii" maxlength="1998"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_etcItemList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_etcItemList_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호   "/>
+          <Column id="ETC_CTRW_KDC" type="STRING" size="256" sumtext="기타 계약서종류  "/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼   "/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="순번"/>
+          <Column id="ITEM_NAME" type="STRING" size="256" sumtext="상품명"/>
+          <Column id="STANDARD" type="STRING" size="256" sumtext="규격"/>
+          <Column id="ITEM_CODE" type="STRING" size="256" sumtext="상품코드"/>
+          <Column id="COUNTRY" type="STRING" size="256" sumtext="원산지"/>
+          <Column id="COMPANY" type="STRING" size="256" sumtext="제조업체/즉석제조"/>
+          <Column id="SCTR_SJT" type="STRING" size="256" sumtext="특약사항"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm503" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_etcEltCtrw03" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호   "/>
+          <Column id="ETC_CTRW_KDC" type="STRING" size="256" sumtext="기타 계약서종류  "/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼   "/>
+          <Column id="LBRCS" type="STRING" size="256" sumtext="인건비"/>
+          <Column id="LBRCS_CLCN_BASS" type="STRING" size="256" sumtext="인건비 산출근거"/>
+          <Column id="ETC" type="STRING" size="256" sumtext="기타"/>
+          <Column id="ETC_CLCN_BASS" type="STRING" size="256" sumtext="기타 산출근거"/>
+          <Column id="NED_SS" type="STRING" size="256" sumtext="소용비용 계"/>
+          <Column id="MSLAM" type="STRING" size="256" sumtext="월매출액"/>
+          <Column id="MSLAM_PFT" type="STRING" size="256" sumtext="월매출액이익"/>
+          <Column id="RLZ_XPC_PFT" type="STRING" size="256" sumtext="실현예상이익"/>
+          <Column id="SCTR_SJT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item4" compid="txa_sctrSjt" propid="value" datasetid="ds_etcEltCtrw03" columnid="SCTR_SJT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "503") {
+			this.ds_etcEltStylAmm503.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	for (var i = 0; i < this.parent.ds_etcEltCtrw.rowcount; i++) {
+		if (this.parent.ds_etcEltCtrw.getColumn(i, "ETC_CTRW_KDC") == "503") {
+			fv_position = i;
+			fv_chk = 1;
+			this.ds_etcEltCtrw03.addRow();
+			this.ds_etcEltCtrw03.copyRow(0, this.parent.ds_etcEltCtrw, fv_position);
+		}
+ 	}
+
+	if (fv_chk == 0) {
+		var toDay = this.gfn_today("yyyyMMdd");
+		chkDay = this.gfn_addMonth(toDay, 1);
+
+		var nRow = this.parent.ds_etcEltCtrw.addRow();
+		fv_position = nRow;
+		this.parent.ds_etcEltCtrw.setColumn(fv_position, "ETC_CTRW_KDC", "503");
+		this.parent.ds_etcEltCtrw.setColumn(fv_position, 	"CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+		this.parent.ds_etcEltCtrw.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm503.getColumn(0, "CTRW_STY_VER"));
+		this.ds_etcEltCtrw03.addRow();
+		this.ds_etcEltCtrw03.copyRow(0, this.parent.ds_etcEltCtrw, fv_position);
+	}
+
+	if (this.parent.ds_etcItemList.rowcount > 0) {
+		this.ds_etcItemList.addRow();
+		this.ds_etcItemList.copyData(this.parent.ds_etcItemList);
+	} else {
+		this.ds_etcItemList.addRow();
+		this.ds_etcItemList.setColumn(0, "ETC_CTRW_KDC", "503");
+		this.ds_etcItemList.setColumn(0, "CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+	}
+}
+
+this.OMG_DS_SC_211331_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+
+}
+
+this.ds_etcItemList_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	this.parent.ds_etcItemList.copyData(this.ds_etcItemList);
+	this.fn_etcItemList_update();
+}
+
+this.btn_etcItemList_addRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_etcItemList.addRow();
+	var nRow = this.ds_etcItemList.rowcount -1;
+	this.ds_etcItemList.setColumn(nRow, "ETC_CTRW_KDC", "503");
+	this.ds_etcItemList.setColumn(nRow, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+	this.parent.ds_etcItemList.copyData(this.ds_etcItemList);
+	this.fn_etcItemList_update();
+}
+
+this.btn_etcItemList_delRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	for (var i = this.ds_etcItemList.rowcount; i > -1; i--) {
+		var nCheck = this.ds_etcItemList.getColumn(i, "ISCHECKED");
+
+		if (nCheck == 1) {
+			this.parent.ds_etcItemList.deleteRow(i);
+			this.ds_etcItemList.deleteRow(i);
+		}
+	}
+}
+
+this.ds_etcItemList_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_setGridCheckAll(obj, e);
+	}
+}
+
+this.fn_validationCheck = function()
+{
+	var strTitletext = "거래품목리스트";
+
+ 	for (var i = 0; i < this.ds_etcItemList.rowcount; i++) {
+		if (this.ds_etcItemList.getColumn(i, "ITEM_NAME") == '') {
+			alert('상품명을 입력해야 합니다.');
+			return;
+		}
+		if (this.ds_etcItemList.getColumn(i, "STANDARD") == '') {
+			alert('규격을 입력해야 합니다.');
+			return;
+		}
+		if (this.ds_etcItemList.getColumn(i, "ITEM_CODE") == '') {
+			alert('상품코드를 입력해야 합니다.');
+			return;
+		}
+		if (this.ds_etcItemList.getColumn(i, "COUNTRY") == '') {
+			alert('원산지를 입력해야 합니다.');
+			return;
+		}
+		if (this.ds_etcItemList.getColumn(i, "COMPANY") == '') {
+			alert('제조업체/즉석제조를 입력해야 합니다.');
+			return;
+		}
+ 	}
+
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+	return true;
+}
+
+this.fn_etcItemList_update = function()
+{
+	for (var i = 0; i < this.ds_etcItemList.rowcount; i++) {
+		this.parent.ds_etcItemList.set_updatecontrol(false);
+		this.parent.ds_etcItemList.setRowType(i, this.ds_etcItemList.getRowType(i));
+		this.parent.ds_etcItemList.set_updatecontrol(true);
+	}
+
+	if (this.ds_etcItemList == 0) {
+		for (var i = 0; i < this.parent.ds_etcItemList.rowcount; i++) {
+			this.parent.ds_etcItemList.set_updatecontrol(false);
+			this.parent.ds_etcItemList.setRowType(i, Dataset.ROWTYPE_DELETE);
+			this.parent.ds_etcItemList.set_updatecontrol(true);
+		}
+	}
+}
+
+this.Button15_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_validationCheck();
+}
+
+this.text_changed = function()
+{
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+}
+
+this.txatext_changed = function(obj:TextArea, e:nexacro.TextChangedEventInfo)
+{
+	var text = this.txa_sctrSjt.value;
+	if (!this.gfn_isNull(text)) {
+		var lc = text.indexOf("^");
+		if (lc != -1) {
+			alert('^는 사용하실 수 없습니다.');
+			text = nexacro.replaceAll(text, "^", " ");
+			this.txa_sctrSjt.set_value(text);
+		}
+ 	}
+	this.parent.ds_etcEltCtrw.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+}]]></Script>
+  </Form>
+</FDL>

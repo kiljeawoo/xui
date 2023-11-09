@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Intro" classname="Intro" left="0" top="0" width="1355" height="931" onload="form_onload" ontimer="Intro_ontimer" onsize="Intro_onsize" cssclass="frm_INTRO_New">
+    <Layouts>
+      <Layout>
+        <Div id="div_mainbg" taborder="27" left="0" top="0" height="380" right="0" style="background:URL('theme://images/new/main_bg.png') repeat-x left top;" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Div id="div_main_visual" taborder="0" left="0" top="0" width="1010" height="380" style="background:URL('theme://images/new/main_visual.png') center middle;" scrollbars="none">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="1" left="10" top="40" width="135" height="30" style="background:URL('theme://images/new/nh_logo.png') center middle;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_footer_bg" taborder="29" left="0" top="781" height="150" scrollbars="none" right="0" style="background:#f0f0f0ff;">
+          <Layouts>
+            <Layout width="1010" height="150"/>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <WebBrowser id="WebBrowser00" left="0%" top="0" right="0%" height="0" taborder="40"/>
+        <Div id="div_footer" taborder="42" url="frame::main_bottom_new.xfdl" left="0" top="781" width="1010" height="150" scrollbars="none" style="font:9 맑은 고딕, Gulim;"/>
+        <Div id="div_quick_wrap" taborder="43" left="0" top="380" height="95" right="0" style="background:#1385c9ff;" scrollbars="none" tabstop="false">
+          <Layouts>
+            <Layout>
+              <Div id="div_quick" taborder="0" left="0" top="0" width="1010" height="95" scrollbars="none" tabstop="false">
+                <Layouts>
+                  <Layout>
+                    <Button id="btn_quick01" taborder="0" text="eSCM 서비스" left="0" top="0" width="126" height="95" cssclass="btn_INTRO_quick01" onclick="button_onclick"/>
+                    <Button id="btn_quick02" taborder="1" text="전자 세금계산서" cssclass="btn_INTRO_quick02" left="126" top="0" width="126" height="95" onclick="button_onclick"/>
+                    <Button id="btn_quick03" taborder="2" text="이용료 안내" cssclass="btn_INTRO_quick03" left="252" top="0" width="126" height="95" onclick="button_onclick"/>
+                    <Button id="btn_quick04" taborder="3" text="공동인증서 안내" cssclass="btn_INTRO_quick04" left="378" top="0" width="126" height="95" onclick="button_onclick"/>
+                    <Button id="btn_quick05" taborder="4" text="판매상세정보 서비스" cssclass="btn_INTRO_quick05" left="504" top="0" width="126" height="95" onclick="button_onclick"/>
+                    <Button id="btn_quick06" taborder="5" text="데이터마트 서비스" cssclass="btn_INTRO_quick06" left="630" top="0" width="126" height="95" onclick="button_onclick"/>
+                    <Button id="btn_quick08" taborder="6" text="모바일 앱" cssclass="btn_INTRO_quick08" left="756" top="0" width="126" height="95" onclick="button_onclick"/>
+                    <Button id="btn_quick09" taborder="7" text="동영상 교육" onclick="button_onclick" cssclass="btn_INTRO_quick09" left="881" top="0" width="126" height="95" visible="false"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_related_wrap" taborder="44" left="0" top="730" height="46" style="background:white;border:1 solid #dbdbdbff,1 solid transparent,1 solid transparent,1 solid transparent;" scrollbars="none" right="0">
+          <Layouts>
+            <Layout width="1008" height="33">
+              <Div id="div_related" taborder="10" left="0" top="1" width="1010" height="45">
+                <Layouts>
+                  <Layout>
+                    <ImageViewer id="img_related01" taborder="0" onclick="img_related_onclick" left="182" top="0" width="162" height="45" style="background:URL('theme://images/new/family_00.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                    <ImageViewer id="img_related03" taborder="1" onclick="img_related_onclick" left="344" top="0" width="162" height="45" style="background:URL('theme://images/new/family_01.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                    <ImageViewer id="img_related02" taborder="2" onclick="img_related_onclick" left="506" top="0" width="162" height="45" style="background:URL('theme://images/new/family_03.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                    <ImageViewer id="img_related04" taborder="3" onclick="img_related_onclick" left="668" top="0" width="162" height="45" style="background:URL('theme://images/new/family_02.png') center middle;border:0 solid #e5e5e5ff ;cursor:hand;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_content_wrap" taborder="45" left="0" top="475" height="255" right="0" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Div id="div_content" taborder="0" left="0" top="0" width="1355" bottom="0" scrollbars="none">
+                <Layouts>
+                  <Layout width="1010" height="255">
+                    <Div id="div_notice_box" taborder="0" left="345" top="30" width="320" height="195" scrollbars="none">
+                      <Layouts>
+                        <Layout width="320" height="156">
+                          <Static id="Static02" taborder="5" text="공지사항" left="0" top="0" right="0" height="37" style="border:1 solid transparent,1 solid transparent,1 solid #a7a7a7ff,1 solid transparent;color:#3a3a3aff;padding:0 0 0 5;font:bold 12 맑은 고딕,Gulim;"/>
+                          <Grid id="grd_bbs" taborder="6" binddataset="ds_bbs" scrollbars="autovert" useinputpanel="false" autofittype="col" oncellclick="grd_oncellclick" left="10" top="47" right="0" bottom="10" cssclass="grd_INTRO_Notice2">
+                            <Formats>
+                              <Format id="default">
+                                <Columns>
+                                  <Column size="10"/>
+                                  <Column size="190"/>
+                                  <Column size="9"/>
+                                  <Column size="80"/>
+                                </Columns>
+                                <Rows>
+                                  <Row size="25"/>
+                                </Rows>
+                                <Band id="body">
+                                  <Cell displaytype="image" style="align:left middle;padding:0 0 0 0;" text="URL('theme://images/new/icon_dot.png')"/>
+                                  <Cell col="1" style=":mouseover {cursor:hand;}" text="bind:BBRD_TI"/>
+                                  <Cell col="2"/>
+                                  <Cell col="3" displaytype="normal" style="align:right middle;padding:3 3 3 0;color:#a0a0a0ff;color2:#a0a0a0ff;" text="bind:FSRG_DTM"/>
+                                </Band>
+                              </Format>
+                            </Formats>
+                          </Grid>
+                          <Static id="btn_more" taborder="7" top="10" height="20" style="background:URL('theme://images/new/icon_more.png') center middle;" right="0" width="20" visible="true" onclick="button_onclick"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <Div id="div_help_box" taborder="1" left="690" top="30" width="320" height="195">
+                      <Layouts>
+                        <Layout>
+                          <Static id="Static02" taborder="0" text="고객센터" left="0" top="0" right="0" height="37" style="color:#3a3a3aff;padding:0 0 0 5;font:bold 12 맑은 고딕,Gulim;"/>
+                          <Static id="Static06" taborder="1" left="15" top="47" height="45" width="46" style="background:URL('theme://images/new/icon_call.png') left middle;"/>
+                          <Static id="Static07" taborder="2" text="02) 1522-1211" cssclass="sta_INTRO_CSNum" left="81" top="47" height="45" style="color:#ff5e2dff;align:right middle;font:bold 23 맑은 고딕, Arial;" width="218"/>
+                          <Static id="Static08" taborder="3" text="평일 09:00 ~ 18:00&#13;&#10;점심 12:00 ~ 13:00" left="35" top="105" right="163" height="37" style="linespace:3;color:#717171ff;padding:0 0 0 0;align:left middle;font:bold 9 맑은 고딕, Gulim;"/>
+                          <Button id="btn_remote" taborder="4" onclick="button_onclick" cssclass="btn_INTRO_Remote2" left="185" top="105" height="37" style="cursor:hand;" width="114" text="원격지원"/>
+                          <Button id="btn_new" taborder="5" onclick="btn_new_onclick" cssclass="btn_INTRO_confirm" left="35" top="153" width="130" height="34" style="cursor:hand;" text="신규업체 계약상담"/>
+                          <Button id="btn_sms" taborder="6" onclick="button_onclick" cssclass="btn_INTRO_confirm" left="169" top="153" width="130" height="34" style="cursor:hand;" text="긴급 SMS"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <Div id="div_service" taborder="2" left="1035" top="30" width="320" height="195">
+                      <Layouts>
+                        <Layout>
+                          <Static id="Static02" taborder="7" text="고객만족 서비스" left="0" top="0" right="0" height="37" style="color:#3a3a3aff;padding:0 0 0 5;font:bold 12 맑은 고딕,Gulim;"/>
+                          <Static id="Static00" taborder="8" text="카카오톡 상담 - ID : hanaroescm" left="0" top="37" height="50" style="background:URL('theme://images/new/icon_talk.png') left middle;border:1 solid #ddddddff ;padding:0 0 0 65;font:bold 10 맑은 고딕, Gulim;" right="0"/>
+                          <Static id="Static01" taborder="9" text="긴급 SMS (로그인 후 문자기능 사용)" left="0" top="86" right="0" height="50" style="background:URL('theme://images/new/icon_sms.png') left middle;border:1 solid #ddddddff ;padding:0 0 0 65;font:bold 10 맑은 고딕, Gulim;"/>
+                          <Static id="Static03" taborder="10" text="모바일 앱 다운로드" left="0" top="135" right="0" height="50" style="background:URL('theme://images/new/icon_app.png') left middle;border:1 solid #ddddddff ;padding:0 0 0 65;font:bold 10 맑은 고딕, Gulim;"/>
+                          <ImageViewer id="img_svc_qr" taborder="11" left="275" top="139" width="41" height="41" style="background:URL('theme://images/new/icon_qr.png') center middle;"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <Div id="div_nhnotice_box" taborder="3" left="0" top="30" width="320" height="195" scrollbars="none">
+                      <Layouts>
+                        <Layout width="320" height="156">
+                          <Static id="Static02" taborder="12" text="농협 공지사항" left="0" top="0" right="0" height="37" style="border:1 solid transparent,1 solid transparent,1 solid #a7a7a7ff,1 solid transparent;color:#3a3a3aff;padding:0 0 0 5;font:bold 12 맑은 고딕,Gulim;"/>
+                          <Static id="btn_NHmore" taborder="10" visible="true" top="10" right="0" width="20" height="20" style="background:URL('theme://images/new/icon_more.png') center middle;" onclick="button_onclick"/>
+                          <Grid id="grd_notice" cssclass="grd_INTRO_Notice2" taborder="11" binddataset="ds_notice" scrollbars="autovert" useinputpanel="false" autofittype="col" oncellclick="grd_oncellclick" left="10" top="47" right="0" bottom="10">
+                            <Formats>
+                              <Format id="default">
+                                <Columns>
+                                  <Column size="10"/>
+                                  <Column size="190"/>
+                                  <Column size="9"/>
+                                  <Column size="80"/>
+                                </Columns>
+                                <Rows>
+                                  <Row size="25"/>
+                                </Rows>
+                                <Band id="body">
+                                  <Cell displaytype="image" style="align:left middle;padding:0 0 0 0;" text="URL('theme://images/new/icon_dot.png')"/>
+                                  <Cell col="1" style=":mouseover {cursor:hand;}" text="bind:OFANC_TINM"/>
+                                  <Cell col="2"/>
+                                  <Cell col="3" displaytype="normal" style="align:right middle;padding:3 3 3 0;color:#a0a0a0ff;color2:#a0a0a0ff;" text="bind:FSRG_DTM"/>
+                                </Band>
+                              </Format>
+                            </Formats>
+                          </Grid>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_checklist" taborder="46" top="180" width="720" height="190" ondrag="div_checklist_ondrag" ondragmove="div_checklist_ondragmove" ondrop="div_checklist_ondrop" scrollbars="none" cssclass="div_PORTAL_TodoBg" left="625">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="67" cssclass="sta_PORTAL_TodoDate" left="140" top="10" width="185" height="21"/>
+              <Static id="Static02" taborder="68" cssclass="sta_PORTAL_TodoTitle" left="15" top="12" height="16" width="99"/>
+              <Static id="Static00" taborder="69" text="수주 미확인 건수" cssclass="sta_PORTAL_TodoCountTitle" left="15" top="56" height="21" width="250" style="font:9 맑은 고딕, Gulim;"/>
+              <Static id="Static03" taborder="70" cssclass="sta_PORTAL_TodoLine" left="359" top="55" height="120" width="2"/>
+              <Static id="Static04" taborder="71" text="배송예정서 미작성 건수" cssclass="sta_PORTAL_TodoCountTitle" left="15" top="86" height="21" width="250" style="font:9 맑은 고딕, Gulim;"/>
+              <Static id="Static05" taborder="72" text="반품 미확인 건수" cssclass="sta_PORTAL_TodoCountTitle" left="15" top="116" height="21" width="250" style="font:9 맑은 고딕, Gulim;"/>
+              <Static id="Static06" taborder="73" text="반품확인서 미작성 건수" cssclass="sta_PORTAL_TodoCountTitle" top="56" right="94" height="21" width="250" style="font:9 맑은 고딕, Gulim;"/>
+              <Static id="Static07" taborder="74" text="검수 미확인 건수" cssclass="sta_PORTAL_TodoCountTitle" top="86" right="94" height="21" width="250" style="font:9 맑은 고딕, Gulim;"/>
+              <Static id="Static08" taborder="75" text="세금계산서 역발행 미발행 건수" cssclass="sta_PORTAL_TodoCountTitle" top="116" right="94" height="21" width="250" style="font:9 맑은 고딕, Gulim;"/>
+              <Button id="btn03" taborder="76" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" left="264" top="112" height="30" style="cursor:hand;" width="80"/>
+              <Button id="btn02" taborder="77" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" left="264" top="82" height="30" style="cursor:hand;" width="80"/>
+              <Button id="btn06" taborder="78" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" top="112" right="15" height="30" style="cursor:hand;" width="80"/>
+              <Button id="btn04" taborder="79" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" top="51" right="15" height="30" style="cursor:hand;" width="80"/>
+              <Button id="btn05" taborder="80" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" top="82" right="15" height="30" style="cursor:hand;" width="80"/>
+              <Button id="btn01" taborder="81" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" left="264" top="51" height="30" style="cursor:hand;" width="80"/>
+              <Button id="btn07" taborder="83" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" left="264" top="142" height="30" style="cursor:hand;" width="80"/>
+              <Static id="Static09" taborder="84" text="마트장비 배송예정서 미작성 건수" cssclass="sta_PORTAL_TodoCountTitle" left="15" top="146" height="21" width="250" style="font:9 맑은 고딕, Gulim;"/>
+              <Button id="btn_popupClose" taborder="82" onclick="div_checklist_btn_popupClose_onclick" cssclass="btn_WF_PopupClose" top="3" right="3" height="32" style="cursor:hand;" width="32"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static01" taborder="47" text="각 영역이 가이드 DIV 위치값(top, height)과 차이가 발생 할 때&#13;&#10;Intro_onsize의 값도 수정해야 함" visible="false" left="1383" top="380" width="136" height="551" style="background:#dc143c5b;padding:2 10 0 10;align:center middle;" wordwrap="char"/>
+        <Static id="Static00" taborder="48" text="퀵&#13;&#10;배&#13;&#10;너" visible="false" left="1358" top="730" width="22" height="46" style="background:#dc143c5b;align:center middle;"/>
+        <Static id="Static02" taborder="49" text="푸&#13;&#10;터" visible="false" left="1358" top="781" width="22" height="150" style="background:#3c24cc5b;align:center middle;"/>
+        <Static id="Static03" taborder="50" text="서&#13;&#10;비&#13;&#10;스&#13;&#10;안&#13;&#10;내" visible="false" left="1358" top="380" width="22" height="95" style="background:#dc143c5b;align:center middle;"/>
+        <Static id="Static04" taborder="51" text="주&#13;&#10;컨&#13;&#10;텐&#13;&#10;츠" visible="false" left="1358" top="475" width="22" height="255" style="background:#3c24cc5b;align:center middle;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_usrConsentCount" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CONSENT_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_survey">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="SUBTITLE" type="STRING" size="256"/>
+          <Column id="INTRO" type="STRING" size="256"/>
+          <Column id="APL_ST_DT" type="STRING" size="256"/>
+          <Column id="APL_ED_DT" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SRV_ST_DT" type="STRING" size="256"/>
+          <Column id="SRV_ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="SRV_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cnt04" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt05" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt06" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_usrConsent" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="CONSENT_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cnt07" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt03" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_bbs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="string" size="32" prop=""/>
+          <Column id="BLBD_ID" type="string" size="32" prop=""/>
+          <Column id="BBRD_ID" type="string" size="32" prop=""/>
+          <Column id="BBRD_TI" type="string" size="32" prop=""/>
+          <Column id="BBRD_CNTN" type="string" size="32" prop=""/>
+          <Column id="BLTN_ST_DTM" type="string" size="32" prop=""/>
+          <Column id="BLTN_ED_DTM" type="string" size="32" prop=""/>
+          <Column id="CKNL_DSC" type="string" size="32" prop=""/>
+          <Column id="BBRD_DEL_YN" type="string" size="32" prop=""/>
+          <Column id="BBRD_INQ_CN" type="string" size="32" prop=""/>
+          <Column id="BBRD_RGMNM" type="string" size="32" prop=""/>
+          <Column id="FSRG_DTM" type="string" size="32" prop=""/>
+          <Column id="FS_RGM" type="string" size="32" prop=""/>
+          <Column id="LSCHG_DTM" type="string" size="32" prop=""/>
+          <Column id="LS_CHGM" type="string" size="32" prop=""/>
+          <Column id="PRET_BBRD_ID" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_notice" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BBRD_SQNO" type="STRING" size="256"/>
+          <Column id="BLTN_ST_DTM" type="string" size="32"/>
+          <Column id="BLTN_ED_DTM" type="string" size="32"/>
+          <Column id="OFANC_TINM" type="STRING" size="256"/>
+          <Column id="OFANC_CNTN" type="STRING" size="256"/>
+          <Column id="OFANC_PRU_NT" type="STRING" size="256"/>
+          <Column id="BBRD_DEL_YN" type="STRING" size="256"/>
+          <Column id="CKNL_DSC" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_tax" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_bas_svc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var xPos,yPos, Xscreen, Yscreen;
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.Intro_onsize(this);
+	this.div_checklist.set_left(this.width - 754); // 724(DIV넓이) + 30(여백)
+	
+	this.gfn_setInitForm(obj, e); //공통
+	if (application.gv_userType == '01') {
+		this.div_quick_wrap.div_quick.btn_quick09.set_visible(true);
+	}
+}
+
+this.fn_afterFormOnload = function()
+{
+	var ut = application.gv_userType;
+	var today = this.gfn_today('yyyyMMdd');
+	
+	// 협력업체 본사일 때 설문조사 체크
+	if (ut == '01' && application.gv_mbcoType == '1') {
+		// 설문조사 체크 (01/본사)
+		this.surveyCheck();
+
+		// TRPL_DTL_TPC : 0002, 0003, 0004 농업인생산기업 팝업 (01/본사)
+		var dtlTpc = application.gv_trplDtlTpc;
+		if (dtlTpc == '0002' || dtlTpc == '0003' || dtlTpc == '0004') {
+			this.gfn_popupMsg(
+				"NAHHJOIN", // id
+				"농협하나로앱을 통하여 농협에서의 판매실적이나 재고현황을\n실시간으로 편리하게 확인하실 수 있습니다.\n농협하나로앱 가입화면으로 이동하시겠습니까?", // msg
+				"LINK", // type
+				"https://www.nhhanaro.co.kr/nahh_join.jsp" // action
+			);
+		}
+	}
+	
+	// 신규계약상담 (01, 04, 05, 81)
+	if (ut == '02' || ut == '03') {
+		this.div_content_wrap.div_content.div_help_box.btn_new.set_visible(false);
+	}
+	
+	// 공지사항
+	this.fn_retrieveBlbdOfancMainList();
+	if (ut == '05') {
+		this.div_content_wrap.div_content.div_nhnotice_box.set_visible(false);
+	} else {
+		// 농협공지 (01, 02, 03, 04, 81)
+		this.fn_retrieveNacfOfancMainList();
+	}
+	
+	// 미확인건수 (01, 04)
+	if (ut == '01' || ut == '04') {
+		var dayBefore = this.gfn_minusDate(today, 2);
+		this.div_checklist.Static01.set_text("("+ this.gfn_getFormat(dayBefore, "@@@@-@@-@@")+" ~ "+ this.gfn_getFormat(today, "@@@@-@@-@@")+")");
+		
+		if (ut == "04") {
+			this.div_checklist.btn01.set_visible(false);
+			this.div_checklist.btn02.set_visible(false);
+			this.div_checklist.btn03.set_visible(false);
+			this.div_checklist.btn04.set_visible(false);
+			this.div_checklist.btn05.set_visible(false);
+			this.div_checklist.btn07.set_visible(false);
+			this.div_checklist.Static00.set_visible(false);
+			this.div_checklist.Static03.set_visible(false);
+			this.div_checklist.Static04.set_visible(false);
+			this.div_checklist.Static05.set_visible(false);
+			this.div_checklist.Static06.set_visible(false);
+			this.div_checklist.Static07.set_visible(false);
+			this.div_checklist.Static09.set_visible(false);
+			
+			this.div_checklist.set_width(360);
+			this.div_checklist.set_height(90);
+			this.div_checklist.set_top(270);
+			this.div_checklist.set_left(this.div_checklist.left+110);
+			this.div_checklist.Static08.set_top(56);
+			this.div_checklist.btn06.set_top(51);
+		}
+		
+		this.fn_retrieveUnCnfCnInqCnt();
+	} else {
+		this.div_checklist.set_visible(false);
+	}
+	
+	// 잔액장 확인 (01, 04)
+	if (ut == '01' || ut == '04') {
+		this.fn_retrieveBasNoCheckCount();
+	}
+	
+	// this.fn_retrieveUsrConsent(); // 사용자 정보 제공 동의
+	
+	// 임시팝업
+	/*
+	if (today <= "20211227") {
+		var doNotShow = this.gfn_nullToEmpty(application.getPrivateProfile("elt_211217"));
+		if (doNotShow != "Y") {
+			this.gfn_openPopup("POPUP_TEMP_ELT", "POPUP::POPUP_TEMP.xfdl", {}, "autosize=true,title=true", "fn_popupAfter");
+		}
+	}
+	*/
+}
+
+/*
+ * 자사 판매정보 제공동의 
+ */
+this.consentPopup = function()
+{
+	var oArg = {paramMode:"U", dsArg:this.ds_notice};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+   	this.gfn_openPopup("popId", "OMG.PT::OMG_DS_SC_4513.xfdl", oArg, sOption, sPopupCallBack);	    
+}
+
+/*
+ * 사용자 만족도 설문조사 (협력업체 해당)
+ */
+this.surveyCheck = function()
+{
+	var sSvcID        = "retrievePopupsurvey";
+	var sURL          = "svc::rest/pt/survey/retrievePopupsurvey";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_survey=ds_survey";
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+/*
+ * 월잔액장 미확인 팝업
+ */
+this.basNoCheckPopup = function()
+{
+	var oArg = {searchWord:""};
+	var sOption = "autosize=true,title=false";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("POPUP_BAS_NO_CHECK","PDS.BAS::popup_balanceCheck.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/*
+ * eSCM 공지사항
+ */
+this.fn_retrieveBlbdOfancMainList = function()
+{
+	var sSvcID        = "retrieveBlbdOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveBlbdOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bbs=ds_bbs";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/*
+ * 농협 공지사항
+ */
+this.fn_retrieveNacfOfancMainList = function()
+{
+	var sSvcID        = "retrieveNacfOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveNacfOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_notice=ds_notice";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+/*
+ * 미확인 건수
+ */
+this.fn_retrieveUnCnfCnInqCnt = function() 
+{
+	var today = this.gfn_today('yyyyMMdd');
+	var dayBefore = this.gfn_minusDate(today, 2);
+	var glnCode = application.gv_glnCode;
+	
+	var params = "to=" + today
+					+" from=" + dayBefore
+					+" glnCode2=" + glnCode
+					+" userTPC=" + application.gv_userType;
+	
+	var sSvcID        = "retrieveUnCnfCnInqCnt";
+	var sURL          = "svc::rest/pt/comn/retrieveUnCnfCnInqCnt";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_cnt01=ds_cnt01 ds_cnt02=ds_cnt02 ds_cnt03=ds_cnt03 ds_cnt04=ds_cnt04 ds_cnt05=ds_cnt05 ds_cnt06=ds_cnt06 ds_cnt07=ds_cnt07";
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S";
+	
+	application.set_usewaitcursor(false);
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+this.fn_retrieveUsrConsent = function() 
+{
+	var bsnDsc = "sales_price";
+	var glnCode = application.gv_glnCode;
+	
+	var params =  "bsnDsc=" + bsnDsc
+				 + " naTrplC=" + glnCode 
+				 ;
+	
+	var sSvcID        = "retrieveUsrConsentCount";
+	var sURL          = "svc::rest/pt/usrinf/retrieveUsrConsentCount";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_usrConsentCount=ds_usrConsentCount";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // 
+	
+	application.set_usewaitcursor(false);
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+this.fn_retrieveBasNoCheckCount = function()
+{
+	var trplC = application.gv_glnCode; // 로그인 사업장코드
+	var toDay = this.gfn_today("yyyyMMdd");	
+	var oneMonthAgo = this.gfn_minusMonth(toDay, 1);
+	
+	var bas_ym = oneMonthAgo.substr(0, 6);
+	var bas_ym2 = oneMonthAgo.substr(0, 6);
+	var params = "bas_ym=" + bas_ym +
+	                " bas_ym2=" + bas_ym2 +
+					" trplC=" + trplC;
+	
+	var sSvcID        = "retrieveBasNoCheckCount";
+	var sURL          = "svc::rest/tx/retrieveBasNoCheckCount";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bas_svc=ds_bas_svc";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+ 	if (ErrorCode > -1) {
+		application.set_usewaitcursor(true);
+		
+		if (svcID == "retrieveBlbdOfancMainList") {
+		} else if (svcID == "retrieveNacfOfancMainList") {
+		} else if (svcID == "retrieveUnCnfCnInqCnt") {
+			if (application.gv_userType != '04') {
+				this.div_checklist.btn01.set_text(this.ds_cnt01.getColumn(0, "CNT"));
+				this.div_checklist.btn02.set_text(this.ds_cnt02.getColumn(0, "CNT"));
+				this.div_checklist.btn03.set_text(this.ds_cnt03.getColumn(0, "CNT"));
+				this.div_checklist.btn04.set_text(this.ds_cnt04.getColumn(0, "CNT"));
+				this.div_checklist.btn05.set_text(this.ds_cnt05.getColumn(0, "CNT"));
+				this.div_checklist.btn06.set_text(this.ds_cnt06.getColumn(0, "CNT"));
+				this.div_checklist.btn07.set_text(this.ds_cnt07.getColumn(0, "CNT"));
+			} else if (application.gv_userType == '04') {
+				this.div_checklist.btn06.set_text(this.ds_cnt06.getColumn(0, "CNT"));
+			}
+		} else if (svcID == "retrieveUsrConsentCount") {
+			var CONSENT_COUNT = this.ds_usrConsentCount.getColumn(0,"CONSENT_COUNT");
+			if (application.gv_userType == '01' && application.gv_mbcoType == '1' && CONSENT_COUNT == '0') {
+				this.consentPopup();
+			}
+		} else if (svcID == "retrievePopupsurvey") {
+			this.fn_surveyProcess();
+		} else if (svcID == "retrieveBasNoCheckCount") {
+			var noChkCnt = this.ds_bas_svc.getColumn(0, "CNT");
+			    
+			// 미확인 건수가 있을 경우 팝업 띄운다. 
+			if (noChkCnt * 1 > 0) {
+				this.basNoCheckPopup();
+			}
+		}
+ 	}
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (this.gfn_isNull(strVal)) {
+		return;
+	}
+	if (strId == "POPUP_BAS_NO_CHECK") {
+		var moveToMenu = "02005002"; // 월잔액장
+		// var moveToMenu = "12006001"; // 채권채무발행관리
+		
+		if (application.gv_userType == '04') {
+			moveToMenu = "42006001"; // 채권채무발행관리(세금계산서전용)
+			strVal += "|" + application.gv_glnCode;
+		}
+		this.fn_openMenu(moveToMenu, strVal);
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.button_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (obj.name == "btn_quick01") {
+		this.gfn_openIntroMenu(10100000);
+	} else if (obj.name == "btn_quick02") {
+		this.gfn_openIntroMenu(10200000);
+	} else if (obj.name == "btn_quick03") {
+		this.gfn_openIntroMenu(30100000);
+	} else if (obj.name == "btn_quick04") {
+		this.gfn_openIntroMenu(40100000);
+	} else if (obj.name == "btn_quick05") {
+		this.gfn_openIntroMenu(10300000);
+	} else if (obj.name == "btn_quick06") {
+		this.gfn_openIntroMenu(10400000);
+// 	} else if (obj.name == "btn_quick07") {
+// 		this.gfn_openIntroMenu(10500000);
+	} else if (obj.name == "btn_quick08") {
+		this.gfn_openIntroMenu(10600000);
+	} else if (obj.name == "btn_quick09") {
+		if (application.gv_userType == '01') {
+			this.fn_openMenu("16008002"); //26007001
+		}
+	} else if (obj.name == "btn_more") {
+		if (application.gv_userType == '01') {
+			this.fn_openMenu("16004003");
+		} else if (application.gv_userType == '02') {
+			this.fn_openMenu("26004003");
+		} else if (application.gv_userType == '03') {
+			this.fn_openMenu("36004003");
+		}
+	} else if (obj.name == "btn_NHmore") {
+		if (application.gv_userType == '01') {
+			this.fn_openMenu("16004001");
+		} else if (application.gv_userType == '02') {
+			this.fn_openMenu("26004001");
+		} else if (application.gv_userType == '03') {
+			this.fn_openMenu("36004001");
+		}
+	} else if (obj.name == "btn_remote") {
+		window.open("http://939.co.kr/nhescm/");
+	} else if (obj.name == "btn_sms") {
+		this.fn_openSMS();
+	}
+}
+
+// 신규업체 계약상담
+this.btn_new_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_moveServiceMenu("BT");
+}
+
+/**
+ * 서비스 메뉴 이동
+ * BT : 계약상담
+ */
+this.fn_moveServiceMenu = function(type)
+{
+	application.afrm_PotalFrame.set_formurl("");
+	application.afrm_VFrameSet0.set_separatesize("0, 65, *");
+	application.afrm_HFrameSet0.set_separatesize("190, *, 0");
+	application.afrm_VFrameSet1.set_separatesize("0, *");
+
+	if (type == "BT") {
+		application.afrm_LeftFrame.set_formurl("frame::LeftFrame_serviceBT.xfdl");
+		application.afrm_TopFrame.set_formurl("frame::TopFrame_serviceBT.xfdl");	
+	}
+	this.gfn_OpenMenuId("98010000", "", type);
+}
+
+/* 관련사이트 링크 */
+this.img_related_onclick = function(obj:ImageViewer,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "img_related01"://농협경제지주
+			window.open("http://www.nhabgroup.com");
+			break;
+		case "img_related03"://농협몰
+			window.open("http://www.nonghyupmall.com");
+			break;
+		case "img_related02"://하나로유통
+			window.open("http://www.nhhanaro.co.kr/mbshome/mbs/nahh002/index.do");
+			break;
+		case "img_related04"://농협유통
+			window.open("http://www.nhhanaro.co.kr/mbshome/mbs/nahh003/index.do");
+			break;
+	}
+}
+
+/**
+ * 설문조사 데이터 처리
+ */
+this.fn_surveyProcess = function()
+{
+    var today = this.gfn_getClientTime("yyyyMMdd");
+        
+	for (var i = 0; i < this.ds_survey.rowcount; i++) {
+	    var SRV_SEQ = this.ds_survey.getColumn(i, "SRV_SEQ");
+	    var param = {
+			TITLE: this.ds_survey.getColumn(i, "TITLE"),
+			SUBTITLE: this.ds_survey.getColumn(i, "SUBTITLE"),
+			INTRO: this.ds_survey.getColumn(i, "INTRO"),
+			SRV_SEQ: SRV_SEQ
+	    };
+	    
+	    var POPUP_WIDTH = 800;
+		var PATH = "";
+		
+		if (application.gv_serverType != "ADMIN") { //로컬,개발
+			if(SRV_SEQ == "8") {
+				PATH = "OMG.MG::OMG_DS_SC_8331.xfdl";
+				POPUP_WIDTH = 800;
+			} else if(SRV_SEQ == "9") {
+				PATH = "OMG.MG::OMG_DS_SC_8333.xfdl";
+				POPUP_WIDTH = 1150;
+			}
+		} else { //운영
+			if(SRV_SEQ == "10") {
+				PATH = "OMG.MG::OMG_DS_SC_8333.xfdl";
+				POPUP_WIDTH = 1150;
+			} else {
+				PATH = "OMG.MG::OMG_DS_SC_8331.xfdl";
+				POPUP_WIDTH = 800;
+			}
+		}
+		
+		var expire = application.getPrivateProfile(SRV_SEQ); //this.framename
+		if (expire == undefined) {
+			application.setPrivateProfile(SRV_SEQ, "N");
+			expire = "N";
+		}
+		if (expire == "N" || expire < today) {
+			//application.open("SPOPUP"+SRV_SEQ, PATH, this, param, "showtitlebar=false showstatusbar=true autosize=false resizable=true", (40*i), (40*i), POPUP_WIDTH, 740);
+			application.open("SPOPUP"+SRV_SEQ, PATH, this, param, "showtitlebar=false showstatusbar=true autosize=false resizable=false", (40*i), (40*i), POPUP_WIDTH, 740);
+		}
+	}
+}
+
+/* 미확인건수 클릭(협력업체, 세금계산서전용(역발행) */
+this.common_cnt_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var moveToMenu = "";
+	var docName = "";
+	
+	if (obj.name == "btn01") {
+		moveToMenu = "01001002"; //수주미확인건수:수주내역조회
+	} else if (obj.name == "btn02") {
+		moveToMenu = "01001002"; //배송예정서:수주내역조회
+	} else if (obj.name == "btn03") {
+		docName = "CONRET";
+		moveToMenu = "01005001"; //반품미확인:검수실적_전표별
+	} else if (obj.name == "btn04") {
+		moveToMenu = "01006002"; //반품확인서미작성:반품입고확인등록
+	} else if (obj.name == "btn05") {
+		docName = "CONADV";
+		moveToMenu = "01005001"; //검수미확인건수:검수실적_전표별
+	} else if (obj.name == "btn06") {
+		//세금계산서역발행:매출세금계산서(역발행)
+		if (application.gv_userType == '01') {
+			moveToMenu = "12002002";
+		} else {
+			moveToMenu = "42002002";
+		}
+	} else if (obj.name == "btn07") {
+		moveToMenu = "01003017"; //마트장비 배송예정서
+	}
+	
+	this.fn_openMenu(moveToMenu, docName);
+}
+
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (obj.name == "grd_notice") {
+		this.fn_openNhNotice(e.row);
+	} else if (obj.name == "grd_bbs") {
+		this.fn_openBbsNotice(e.row);
+	}
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_openSMS = function()
+{
+	var oArg = {};
+	var sOption = "autosize=true,title=true,modeless=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("POP_SMS","POPUP::POPUP_SMS.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_openNhNotice = function(nRow)
+{
+	var oArg = {noticeSeq:this.ds_notice.getColumn(nRow, "BBRD_SQNO")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4511","OMG.PT::OMG_DS_SC_4511.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_openBbsNotice = function(nRow)
+{
+	var oArg = {blbdId:this.ds_bbs.getColumn(nRow, "BLBD_ID"), bbrdId:this.ds_bbs.getColumn(nRow, "BBRD_ID")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4111","OMG.PT::OMG_DS_SC_4111.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.div_checklist_ondragmove = function(obj:Div, e:nexacro.DragEventInfo)
+{
+	Xscreen = e.screenX;
+	Yscreen = e.screenY;
+}
+
+this.div_checklist_ondrag = function(obj:Div, e:nexacro.DragEventInfo)
+{
+	xPos = obj.left - e.screenX;
+	yPos = obj.top - e.screenY;
+
+	this.setTimer(1,5);
+	return true;
+}
+
+this.Intro_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	this.div_checklist.move(Xscreen + xPos, Yscreen + yPos);
+}
+
+this.div_checklist_ondrop = function(obj:Div, e:nexacro.DragEventInfo)
+{
+	this.killTimer(1);
+}
+
+this.div_checklist_btn_popupClose_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.div_checklist.set_visible(false);
+}
+
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (obj.name == "Button03") {
+		this.fn_openMenu("22001001");
+	}
+}
+
+this.fn_openMenu = function(menuId, paObjList) //26004003
+{
+	var sMenuId = menuId.substr(0,2);//26
+	application.afrm_HFrameSet0.set_separatesize("190,*,0");
+	application.afrm_VFrameSet1.set_separatesize("32,*");
+	application.afrm_LeftFrame.form.ds_menu.filter("MENU_LEVEL >= 1 && MENU_ID.substr(0,2)=='"+sMenuId+"' && DISPLAY_YN!='N'");
+	
+	var nRow = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId);
+	var objGrid = application.afrm_LeftFrame.form.div_menu.grd_menu;
+	var nTopRow = application.gds_menu.findRow("MENU_ID", sMenuId+"000000");
+	var sLFTitleText = application.gds_menu.getColumn(nTopRow,"MENU_NAME");
+	
+	application.afrm_LeftFrame.form.btn_menuList.set_text(sLFTitleText);
+	
+	//중메뉴의 첫번째 소메뉴 선택
+	var nRow2 = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId.substr(0,5) + '000');
+	objGrid.setTreeStatus(objGrid.getTreeRow(nRow2),true);//26004000
+	application.afrm_LeftFrame.form.ds_menu.set_rowposition(nRow);
+	
+	var sMId = application.afrm_LeftFrame.form.ds_menu.getColumn(nRow,"MENU_ID");
+	
+	//해당Grid visible처리
+	application.afrm_LeftFrame.form.div_menu.grd_menu.set_visible(true);
+	application.afrm_LeftFrame.form.div_menu.grd_myInfo.set_visible(false);
+	
+	this.gfn_OpenMenuId(sMId, paObjList);
+}
+
+/* 화면리사이즈에 따른 레이아웃 유지 */
+var RESIZE_DIV = [ /* 가운데 정렬할 객체 */
+	 this.div_mainbg.div_main_visual
+	,this.div_footer
+	,this.div_quick_wrap.div_quick
+// 	,this.div_content_wrap.div_content // 별도 처리
+	,this.div_related_wrap.div_related
+];
+var RESIZE_WRAP = [ /* 정렬할 객체의 부모 레이아웃(기본 폭 유지) */
+	 this.div_mainbg
+	,this.div_footer_bg
+	,this.div_quick_wrap
+ 	,this.div_content_wrap
+	,this.div_related_wrap
+];
+
+this.Intro_onsize = function(obj:Form, e:nexacro.SizeEventInfo)
+{
+	var BASE_WIDTH = 1010; // 기본사이즈(넓이)
+	var BASE_HEIGHT = 931; // 기본사이즈(높이)
+	var CONT_WIDTH = BASE_WIDTH + 345;
+	var diffW = 0, diffH = 0, diffCW = 0;
+	if (obj.width > BASE_WIDTH) {
+		diffW = (obj.width - BASE_WIDTH) / 2;
+	} else {
+		diffW = 0;
+	}
+	
+	if (obj.height > BASE_HEIGHT) {
+		diffH = obj.height - BASE_HEIGHT;
+	} else {
+		diffH = 0;
+	}
+	
+	if (obj.width > CONT_WIDTH) {
+		diffCW = (obj.width - CONT_WIDTH) / 2;
+	} else {
+		diffCW = 0;
+	}
+	
+	// 기본 높이(BASE_HEIGHT)에 따른 하단(Footer) 위치 조절
+	this.div_related_wrap.set_top(730+diffH);
+	this.div_footer.set_top(781+diffH);
+	this.div_footer_bg.set_top(781+diffH);
+	
+	// 기본 넓이(BASE_WIDTH) 보다 넓을 때, 화면 가운데 정렬
+	for (var i=0; i<RESIZE_DIV.length; i++) {
+		RESIZE_DIV[i].set_left(diffW);
+	}
+	this.div_content_wrap.div_content.set_left(diffCW); // 서비스 영역 별도 처리(로그인 전 화면과 넓이가 다름)
+	
+	// 서비스 넓이(CONT_WIDTH)보다 좁을 때, 최소 넓이 유지(스크롤)
+	for (var i=0; i<RESIZE_WRAP.length; i++) {
+		if (diffCW == 0) {
+			RESIZE_WRAP[i].set_width(CONT_WIDTH);
+			RESIZE_WRAP[i].set_right("");
+		} else {
+			RESIZE_WRAP[i].set_width("");
+			RESIZE_WRAP[i].set_right(0);
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

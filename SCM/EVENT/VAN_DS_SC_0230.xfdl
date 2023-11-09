@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_van_ds_sc_0230" classname="pattern_01" left="0" top="0" width="803" height="1007" titletext="행사가격변동조회" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="103" left="0" top="29" right="15" height="118" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static03" taborder="8" text="행사일자" cssclass="sta_WFSA_Label" left="15" top="36" width="91" height="21"/>
+              <Static id="Static05" taborder="12" text="사업장" cssclass="sta_WFSA_Label" left="15" top="61" width="91" height="21"/>
+              <Edit id="edt_na_pzplc" taborder="13" left="118" top="62" width="105" height="21" onkeyup="div_search_edt_na_pzplc_onkeyup"/>
+              <Edit id="edt_shrt_bzplnm" taborder="14" left="225" top="62" width="187" height="21" onkeyup="div_search_edt_na_pzplc_onkeyup"/>
+              <Button id="btn_popup01" taborder="15" cssclass="btn_WF_Searchbtn" left="416" top="62" width="21" height="21" onclick="div_search_btn_popup01_onclick"/>
+              <Static id="Static00" taborder="25" text="행사번호" cssclass="sta_WFSA_Label" left="15" top="10" width="79" height="21"/>
+              <Static id="Static01" taborder="32" text="행사상품코드" cssclass="sta_WFSA_Label" left="16" top="86" width="103" height="21"/>
+              <Combo id="cbo_date_type" taborder="33" left="118" top="36" width="105" height="21" codecolumn="codecolumn" datacolumn="datacolumn" displayrowcount="-1" index="0" value="1" text="시작일">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">시작일</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">종료일</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Calendar id="cal_evt_st_dt" taborder="34" dateformat="yyyy-MM-dd" left="225" top="36" width="100" height="21"/>
+              <Calendar id="cal_evt_et_dt" taborder="35" dateformat="yyyy-MM-dd" left="337" top="36" width="100" height="21"/>
+              <Static id="Static04" taborder="36" text="~" left="327" top="36" width="10" height="21"/>
+              <Edit id="edt_na_wrs_c" taborder="37" left="118" top="87" width="105" height="21" onkeyup="div_search_edt_na_wrs_c_onkeyup"/>
+              <Edit id="edt_wrsnm" taborder="38" left="225" top="87" width="187" height="21" onkeyup="div_search_edt_na_wrs_c_onkeyup"/>
+              <Button id="btn_popup02" taborder="39" cssclass="btn_WF_Searchbtn" left="416" top="87" width="21" height="21" onclick="div_search_btn_popup02_onclick"/>
+              <Edit id="edt_evt_sqno" taborder="40" left="118" top="10" width="105" height="21" onkeyup="div_search_edt_evt_sqno_onkeyup"/>
+              <Edit id="edt_evtnm" taborder="41" left="225" top="10" width="187" height="21" onkeyup="div_search_edt_evt_sqno_onkeyup"/>
+              <Button id="btn_popup00" taborder="42" cssclass="btn_WF_Searchbtn" left="416" top="10" width="21" height="21" onclick="div_search_btn_popup00_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static09" taborder="102" text="15" visible="false" left="1" top="22" width="15" height="141" style="background:#dc143c5b;"/>
+        <Static id="Static15" taborder="90" text="5" visible="false" left="333" top="86" width="103" height="5" style="background:#dc143c5b;"/>
+        <Static id="Static13" taborder="100" text="10" visible="false" left="308" top="30" width="103" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static12" taborder="101" text="10" visible="false" left="224" top="137" width="103" height="10" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="47" text="Div01" left="0" top="0" height="21" right="539" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static05" taborder="58" text="15" visible="false" left="788" top="0" height="490" style="background:#00ffffb5;" width="15"/>
+        <Div id="div_list" taborder="64" left="0" top="146" right="15" bottom="19">
+          <Layouts>
+            <Layout width="978" height="503">
+              <Button id="Button10" taborder="12" cssclass="btn_WFSA_SearchClose" left="365" top="0" right="360" height="12" onclick="div_list_Button10_onclick"/>
+              <Grid id="grd_master" taborder="10" binddataset="ds_event_priceM" useinputpanel="false" autofittype="none" left="0" top="41" right="0" height="309" oncellclick="fn_grid01_search">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="80"/>
+                      <Column size="250"/>
+                      <Column size="120"/>
+                      <Column size="250"/>
+                      <Column size="97"/>
+                      <Column size="80"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="행사번호"/>
+                      <Cell col="2" text="통합행사명"/>
+                      <Cell col="3" text="사업장코드"/>
+                      <Cell col="4" text="사업장명"/>
+                      <Cell col="5" text="팀코드"/>
+                      <Cell col="6" text="팀명"/>
+                      <Cell col="7" text="행사시작일"/>
+                      <Cell col="8" text="행사종료일"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:EVT_SQNO"/>
+                      <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:EVTNM"/>
+                      <Cell col="3" text="bind:NA_BZPLC"/>
+                      <Cell col="4" cssclass="Cellgrd_WF_AlignLeft" text="bind:SHRT_BZPLNM"/>
+                      <Cell col="5" text="bind:NA_TEAM_C"/>
+                      <Cell col="6" cssclass="Cellgrd_WF_AlignLeft" text="bind:TEANNM"/>
+                      <Cell col="7" displaytype="date" text="bind:EVT_ST_DT" mask="yyyy-MM-dd" calendardisplaynulltype="none"/>
+                      <Cell col="8" displaytype="date" text="bind:EVT_ED_DT" mask="yyyy-MM-dd" calendardisplaynulltype="none"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_detail" taborder="11" useinputpanel="false" autofittype="none" left="0" top="370" right="0" binddataset="ds_event_priceD" height="468">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="120"/>
+                      <Column size="250"/>
+                      <Column size="260"/>
+                      <Column size="120"/>
+                      <Column size="0"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="상품코드"/>
+                      <Cell col="2" text="상품명"/>
+                      <Cell col="3" text="단축상품명"/>
+                      <Cell col="4" text="행사원가"/>
+                      <Cell col="5" text="권장판매가"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" text="bind:NA_WRS_C"/>
+                      <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:WRSNM"/>
+                      <Cell col="3" cssclass="Cellgrd_WF_AlignLeft" text="bind:WRS_ABR_NM"/>
+                      <Cell col="4" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:EVT_PCS" mask="#,##0"/>
+                      <Cell col="5" text="bind:ECG_SEL_UPR"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static06" taborder="13" text="40" visible="false" left="733" top="1" width="55" height="40" style="background:#dc143c5b;"/>
+              <Static id="Static01" taborder="16" text="20" visible="false" left="741" top="350" width="55" height="20" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_search" taborder="83" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Static id="Static00" taborder="104" text="8" visible="false" left="733" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="106" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="107" text="5" visible="false" left="107" top="61" width="103" height="5" style="background:#dc143c5b;"/>
+        <Div id="div_auth" taborder="109" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="68" width="431" height="21" visible="false"/>
+        <Static id="Static01" taborder="110" text="5" visible="false" left="309" top="111" width="103" height="5" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_event_priceM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="EVT_SQNO" type="STRING" size="256"/>
+          <Column id="EVTNM" type="STRING" size="256"/>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="SHRT_BZPLNM" type="STRING" size="256"/>
+          <Column id="NA_TEAM_C" type="STRING" size="256"/>
+          <Column id="TTEAMNM" type="STRING" size="256"/>
+          <Column id="EVT_ST_DT" type="STRING" size="256"/>
+          <Column id="EVT_ED_DT" type="STRING" size="256"/>
+          <Column id="PRGR_C" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_event_priceD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="발주처코드" type="STRING" size="256"/>
+          <Column id="발주처명" type="STRING" size="256"/>
+          <Column id="팀" type="STRING" size="256"/>
+          <Column id="예약발주BOX" type="STRING" size="256"/>
+          <Column id="발주확정BOX" type="STRING" size="256"/>
+          <Column id="확정구성비" type="STRING" size="256"/>
+          <Column id="확정발주금액" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/*##################################################################################
+ 화면명	: 행사가격조회
+ 화면ID  	: VAN_DS_SC_0230
+ 작성자 	: swha
+####################################################################################*/
+include "lib::comLib.xjs";
+
+/* Form Load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e);
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	this.div_list.grd_detail.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	//그리드클릭 이벤트 등록
+	this.div_list.grd_master.addEventHandler("oncellclick", this.grd_afterFnc, this);
+}
+
+/* Form Init*/
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	///페이지 로딩후 실행부분
+	this.div_search.cal_evt_st_dt.set_value(this.gfn_today("yyyyMMdd"));
+	this.div_search.cal_evt_et_dt.set_value(this.gfn_addDate(this.gfn_today("yyyyMMdd"), 7));
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	return true;
+}
+
+/* Search */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	//if (this.fn_validationCheck()) {
+	// if (true) {
+	this.ds_event_priceM.clearData();
+	this.ds_event_priceD.clearData();
+
+	var evtSqno = this.gfn_nullToEmpty(this.div_search.edt_evt_sqno.value);
+	var naWrsC = this.gfn_nullToEmpty(this.div_search.edt_na_wrs_c.value);
+	var dateType = this.gfn_nullToEmpty(this.div_search.cbo_date_type.value);
+	var evtStdt = this.gfn_nullToEmpty(this.div_search.cal_evt_st_dt.value);
+	var evtEtDt = this.gfn_nullToEmpty(this.div_search.cal_evt_et_dt.value);
+	var naPzplc = this.gfn_nullToEmpty(this.div_search.edt_na_pzplc.value);
+	var trplC 			= this.getTrplCode();
+
+	var params =  "EVT_SQNO=" + evtSqno
+				+ " NA_WRS_C=" + naWrsC
+				+ " DATE_TYPE=" + dateType
+				+ " EVT_ST_DT=" + evtStdt
+				+ " EVT_ET_DT="+ evtEtDt
+				+ " NA_PZPLC="+ naPzplc
+				+ " trplC="+trplC;
+
+	var sSvcID        = "retrieveEventPriceChange";//통신아이디
+	var sURL          = "svc::/rest/orders/retrieveEventPriceChange";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_event_priceM=ds_EventPriceM";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	// }
+}
+
+/* Event */
+this.grd_afterFnc = function(obj, e)
+{
+	var NA_BZPLC = this.gfn_nullToEmpty(this.ds_event_priceM.getColumn(this.ds_event_priceM.rowposition, "NA_BZPLC"))
+	var EVT_SQNO = this.gfn_nullToEmpty(this.ds_event_priceM.getColumn(this.ds_event_priceM.rowposition, "EVT_SQNO"))
+	var PRGR_C = this.gfn_nullToEmpty(this.ds_event_priceM.getColumn(this.ds_event_priceM.rowposition, "PRGR_C"))
+
+	if (!this.gfn_isNull(NA_BZPLC)) {
+		var params =  " NA_BZPLC="+ NA_BZPLC
+					 +" EVT_SQNO="+EVT_SQNO
+					 +" PRGR_C="+PRGR_C;
+
+		var sSvcID        = "retrieveEventPriceChangeD";//통신아이디
+		var sURL          = "svc::/rest/orders/retrieveEventPriceChangeDetail";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_event_priceD=ds_EventPriceD";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets , sOutDatasets , sArgument , sCallbackFunc , sTranType);
+	}
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "retrieveEventPriceChange") {
+			if (this.ds_event_priceM.rowcount == 0) {
+				//this.div_list.grd_master.set_nodatatext("result.message.search.no.exist.data");
+			}
+		} else {
+			if (this.ds_event_priceD.rowcount == 0) {
+				//this.div_list.grd_detail.set_nodatatext("result.message.search.no.exist.data");
+				//this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			}
+		}
+	}
+}
+
+this.div_search_btn_popup00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	var oArg = {form_id:"VAN_DS_SC_0230", trplC:trplC};
+	var sOption = "autosize=true, title=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("VAN_DS_FN_0206", "SCM.EVENT::VAN_DS_FN_0206.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+//상품조회 팝업
+this.div_search_btn_popup02_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	/*
+	var oArg = {form_id:"VAN_DS_SC_0230", trplC:this.getTrplCode()};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("searchWRS", "POPUP::POPUP_SRC_WRS.xfdl", oArg, sOption, sPopupCallBack);
+
+
+	var oArg = {form_id:"VAN_DS_SC_0300"};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("wrsSearchPop", "SCM.ORDER::VAN_DS_SC_0100_P02.xfdl", oArg, sOption, sPopupCallBack);
+	*/
+
+	this.fn_enterWrs();
+}
+
+//발주처조회 팝업
+this.div_search_btn_popup01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_enterOdrpl('0');
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (this.gfn_isNull(strVal)) { return; }
+	var paramsArr = strVal.split(",");
+
+	if (strId == "wrsSearchPop") {//상품조회 팝업
+		this.div_search.edt_na_wrs_c.set_value(paramsArr[0]);
+		this.div_search.edt_wrsnm.set_value(paramsArr[1]);
+	} else if (strId == "VAN_DS_FN_0206") {//통합행사 조회 팝업
+		this.div_search.edt_evt_sqno.set_value(paramsArr[0]);
+		this.div_search.edt_evtnm.set_value(paramsArr[1]);
+	} else if (strId == "POPUP_TRNREL_ODRPL") {//사업장조회 팝업
+		this.div_search.edt_na_pzplc.set_value(paramsArr[0]);
+		this.div_search.edt_shrt_bzplnm.set_value(paramsArr[1]);
+	}
+	/*
+	if (strId == "VAN_DS_FN_0202") {// 사업장 조회
+		this.div_search.edt_na_pzplc.set_value(paramsArr[0]);
+		this.div_search.edt_shrt_bzplnm.set_value(paramsArr[1]);
+	}
+	*/
+}
+
+this.div_list_Button10_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.div_search_edt_evt_sqno_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode==13) {
+		this.fn_enterEvtSqno(1);
+	}
+}
+
+this.fn_enterEvtSqno = function(auto) {
+	var evt_sqno 	= this.gfn_nullToEmpty(this.div_search.edt_evt_sqno.value);
+	var evtnm 		= this.gfn_nullToEmpty(this.div_search.edt_evtnm.value);
+	if (auto == "1") {
+		if (this.gfn_isNull(evt_sqno) && this.gfn_isNull(evtnm)) {
+			alert("행사번호 또는 행사명을 입력해 주세요");
+			return false;
+		}
+	}
+
+	//권한사업장 코드
+	var trplC = this.getTrplCode();
+	var oArg = {form_id:"VAN_DS_SC_0230", trplC:trplC, auto:auto, evt_sqno:evt_sqno, evtnm:evtnm};
+	var sOption = "autosize=true, title=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("VAN_DS_FN_0206", "SCM.EVENT::VAN_DS_FN_0206.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.div_search_edt_na_pzplc_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		this.fn_enterOdrpl('1');
+	}
+}
+
+this.fn_enterOdrpl = function(auto)
+{
+	var trplC = this.getTrplCode();//권한사업장
+	var trplO = this.gfn_nullToEmpty(this.div_search.edt_na_pzplc.value);
+	var trplON = this.gfn_nullToEmpty(this.div_search.edt_shrt_bzplnm.value);
+	var idx = "0";
+
+	if (auto == "1") {
+		if (this.gfn_length(trplO) < 7 && this.gfn_isNull(trplO) == false) {
+			alert("발주처 코드["+trplO+"] 6자리 이상 입력해 주세요");
+			return false;
+		} else if (this.gfn_length(trplON) < 4&& this.gfn_isNull(trplON) == false) {
+			alert("발주처명["+trplON+"] 3자리 이상 입력해 주세요");
+			return false;
+		} else if (this.gfn_isNull(trplO) && this.gfn_isNull(trplON)) {
+			alert("발주처코드나 명을 입력해 주세요");
+			return false;
+		} else {
+			if (this.gfn_length(trplO) > 0) {
+				idx = "0";
+			} else {
+				idx ="1";
+			}
+		}
+	}
+
+	var trplC = this.getTrplCode();//권한사업장
+	var oArg = {form_id:"VAN_DS_SC_0300", trplC:trplC, idx:idx, auto:auto, trplO:trplO, trplON:trplON};
+	var sOption = "autosize=true, title=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("POPUP_TRNREL_ODRPL", "POPUP::POPUP_TRNREL_ODRPL.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.div_search_edt_na_wrs_c_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == "13") {
+		this.fn_enterWrs(true);
+	}
+}
+
+this.fn_enterWrs = function(param)
+{
+	var params = {
+            autoType:param, 
+            searchCode:this.gfn_nullToEmpty(this.div_search.edt_na_wrs_c.value), 
+            searchText:this.gfn_nullToEmpty(this.div_search.edt_wrsnm.value)
+	}
+	if (typeof param == "boolean") {
+      if (!this.searPopValue(params)) {return};
+	}
+
+	var oArg = {autoPop:params};
+	var sOption = "autosize=true, titleText=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("POPUP_SRC_WRS", "POPUP::POPUP_SRC_WRS.xfdl", oArg, sOption, sPopupCallBack);
+}]]></Script>
+  </Form>
+</FDL>

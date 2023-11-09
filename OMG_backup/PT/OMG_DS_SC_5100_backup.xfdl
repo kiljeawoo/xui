@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_5100" classname="popup01" left="0" top="0" width="750" height="512" titletext="회원가입" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_step2" taborder="8" left="0" style="background:white;" scrollbars="none" right="0" height="512" top="525" visible="false">
+          <Layouts>
+            <Layout>
+              <TextArea id="txa_arr01" taborder="14" tabstop="false" scrollbars="autovert" wordwrap="char" readonly="true" oneditclick="Div01_TextArea00_oneditclick" left="10" top="117" height="100" style="padding:5 5 5 5;" right="10" cssclass="txt_modern"/>
+              <CheckBox id="chk_agr01" taborder="15" left="668" top="219" width="19" height="21"/>
+              <TextArea id="txa_arr02" taborder="16" tabstop="false" scrollbars="autovert" wordwrap="char" readonly="true" left="10" top="271" height="140" style="padding:5 5 5 5;font:12 Gulim;" right="10" cssclass="txt_modern"/>
+              <CheckBox id="chk_agr02" taborder="17" left="668" top="413" width="19" height="21"/>
+              <Div id="Div02" taborder="18" left="0" top="0" height="43" cssclass="div_WFSA_Searchbg" right="0">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="59" text="약관동의" left="15" top="9" width="107" height="21" style="font:bold 9 arial;"/>
+                    <Button id="btn_prev" taborder="60" text="이전화면" cssclass="btn_WF_CRUD" top="9" width="65" height="21" right="10" onclick="div_step2_Div02_btn_prev_onclick"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <TextArea id="argee02" taborder="19" oneditclick="Div01_TextArea00_oneditclick" left="10" top="49" right="24" height="36" readonly="true"/>
+              <Static id="Static00" taborder="20" text="하나로eSCM 서비스 이용약관, 개인정보 수집 및 이용에 &lt;b v='true'&gt;&lt;u v='true'&gt;모두 동의&lt;/u&gt;&lt;/b&gt;합니다." usedecorate="true" left="84" top="51" width="456" height="30"/>
+              <CheckBox id="chk_allAgree" taborder="21" onclick="Div01_chk_allAgree_onclick" left="570" top="57" width="46" height="21"/>
+              <Static id="Static01" taborder="22" text="&lt;b v='true'&gt;&lt;fc v='#ff0000ff'&gt;[필수]&lt;/fc&gt;하나로eSCM 서비스 이용약관을 끝까지 읽어 주시기 바랍니다.&lt;/b&gt;" usedecorate="true" onclick="Div01_chk_allAgree_onclick" left="10" top="96" width="542" height="21"/>
+              <Static id="Static02" taborder="23" text="하나로eSCM 서비스 이용약관에 동의합니다." usedecorate="true" onclick="Div01_Static01_onclick" left="416" top="219" width="252" height="21" style="color:red;"/>
+              <Static id="Static03" taborder="24" text="&lt;b v='true'&gt;&lt;fc v='#ff0000ff'&gt;[필수]&lt;/fc&gt;하나로eSCM 서비스 개인정보 수집 및 이용동의 끝까지 읽어 주시기 바랍니다.&lt;/b&gt;" usedecorate="true" onclick="Div01_Static01_onclick" left="10" top="250" width="677" height="21"/>
+              <Static id="Static04" taborder="25" text="하나로eSCM 서비스 개인정보 수집 및 이용에 동의합니다." usedecorate="true" onclick="Div01_Static01_onclick" left="344" top="413" width="321" height="21" style="color:red;"/>
+              <Button id="btn_agree" taborder="26" text="동의" onclick="Div01_Div02_btn_agree_onclick" cssclass="btn_WF_CRUD" left="363" top="447" width="70" height="40"/>
+              <Button id="btn_notAgree" taborder="27" text="동의안함" onclick="Div01_Div02_btn_notAgree_onclick" cssclass="btn_WF_CRUD" left="276" top="447" width="70" height="40"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_step1" taborder="17" left="0" top="0" height="512" right="0">
+          <Layouts>
+            <Layout width="700" height="500">
+              <Static id="Static02" taborder="0" cssclass="sta_WF_Labelbg" left="10" top="89" right="10" height="50"/>
+              <Edit id="edt_join_usrid" taborder="19" onkeyup="edt_join_bzno_onkeyup" left="135" top="99" width="196" height="30" style="align:center;font:12 맑은 고딕, Gulim;" lengthunit="ascii" maxlength="9" visible="false" enable="false"/>
+              <Static id="Static01" taborder="1" text="회원가입 가능 유형 확인" cssclass="sta_WF_Subtitle" left="10" top="60" width="250" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+              <Static id="sta_chk_input" taborder="2" text="사업자번호" cssclass="sta_WF_Label" left="10" top="89" width="120" height="50"/>
+              <Button id="btn_join_chk" taborder="4" text="확인" onclick="btn_join_chk_onclick" left="341" top="99" width="60" height="30"/>
+              <Static id="Static00" taborder="5" text="세부 가입유형 선택" cssclass="sta_WF_Subtitle" left="10" top="172" width="250" height="21" style="background:transparent URL('theme://images/sta_WF_Subtitle.png') left middle;"/>
+              <Div id="Div00" taborder="10" left="0" top="0" right="0" height="43" cssclass="div_WFSA_Searchbg">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static00" taborder="0" text="가입정보 확인" left="15" top="9" width="107" height="21" style="font:bold 9 arial;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div_type_nh" taborder="18" left="0" top="207" right="0" height="80" visible="false">
+                <Layouts>
+                  <Layout>
+                    <Button id="btn_join_02" taborder="4" text="본 부" onclick="btn_select_join" enable="false" left="4%" top="5" width="45%" height="30" style="font:10 맑은 고딕, Gulim; :disabled {padding:0 0 0 0;}"/>
+                    <Button id="btn_join_03" taborder="7" text="사업장" onclick="btn_select_join" enable="false" top="5" right="4%" width="45%" height="30" style="font:10 맑은 고딕, Gulim; :disabled {padding:0 0 0 0;}"/>
+                    <Static id="Static03" taborder="8" text="- 하나로유통 사무소에 등록된 사용자만 본부회원 가입이 가능합니다." left="4%" top="47" width="527" height="21"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Button id="btn_next" taborder="15" text="다 음" cssclass="btn_WF_CRUD" left="300" top="440" width="100" height="40" onclick="Div02_btn_next_onclick"/>
+              <Edit id="edt_hidden_tpc" taborder="16" top="173" width="65" height="17" style="align:center;font:12 맑은 고딕, Gulim;" enable="false" visible="false" right="15"/>
+              <Div id="div_type_co" taborder="17" left="0" top="207" height="80" right="0">
+                <Layouts>
+                  <Layout>
+                    <Button id="btn_join_01" taborder="0" text="협력업체" onclick="btn_select_join" enable="false" left="4%" top="5" width="20%" height="30" style="font:10 맑은 고딕, Gulim; :disabled {padding:0 0 0 0;}"/>
+                    <Button id="btn_join_04" taborder="1" text="세금계산서전용" onclick="btn_select_join" enable="false" left="28%" top="5" width="20%" height="30" style="font:10 맑은 고딕, Gulim; :disabled {padding:0 0 0 0;}"/>
+                    <Button id="btn_join_81" taborder="2" text="농협몰" onclick="btn_select_join" enable="false" top="5" width="20%" height="30" style="font:10 맑은 고딕, Gulim; :disabled {padding:0 0 0 0;}" right="28%"/>
+                    <Button id="btn_join_05" taborder="3" text="전자계약전용" onclick="btn_select_join" top="5" right="4%" width="20%" height="30" style="font:10 맑은 고딕, Gulim; :disabled {padding:0 0 0 0;}" enable="false"/>
+                    <Static id="Static03" taborder="4" text="- 사업자번호로 등록된 GLN이 없을 경우 전자계약전용 회원만 가능합니다. " left="4%" top="47" width="527" height="21"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div_check_co" taborder="20" left="135" top="99" width="196" height="30" scrollbars="none">
+                <Layouts>
+                  <Layout>
+                    <Edit id="edt_join_bzno1" taborder="0" inputtype="number" lengthunit="ascii" maxlength="3" onkeyup="edt_join_bzno_onkeyup" left="0" top="0" width="50" height="30" style="align:center;font:12 맑은 고딕, Gulim;"/>
+                    <Static id="Static03" taborder="1" text="-" left="53" top="0" width="15" height="30" style="align:center;"/>
+                    <Edit id="edt_join_bzno2" taborder="2" inputtype="number" lengthunit="ascii" maxlength="2" onkeyup="edt_join_bzno_onkeyup" left="71" top="0" width="40" height="30" style="align:center;font:12 맑은 고딕, Gulim;"/>
+                    <Static id="Static04" taborder="3" text="-" left="113" top="0" width="15" height="30" style="align:center;"/>
+                    <Edit id="edt_join_bzno3" taborder="4" inputtype="number" lengthunit="ascii" maxlength="5" onkeyup="edt_join_bzno_onkeyup" left="131" top="0" width="65" height="30" style="align:center;font:12 맑은 고딕, Gulim;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Edit id="edt_hidden_input" taborder="21" enable="false" visible="false" top="62" width="65" height="17" style="align:center;font:12 맑은 고딕, Gulim;" right="15"/>
+              <Static id="sta_info" taborder="22" left="4%" top="300" right="4%" bottom="80" style="padding:5 5 5 5;align:left top;" usedecorate="true"/>
+              <Button id="btn_info" taborder="23" text="이용료 안내" onclick="div_step1_btn_info_onclick" cssclass="btn_WF_CRUD" right="5.07%" width="91" height="21" bottom="90" visible="false"/>
+              <Edit id="edt_hidden_dept" taborder="24" enable="false" visible="false" top="173" right="85" width="65" height="17" style="align:center;font:12 맑은 고딕, Gulim;"/>
+              <Edit id="edt_hidden_bzplc" taborder="25" enable="false" visible="false" top="173" right="155" width="65" height="17" style="align:center;font:12 맑은 고딕, Gulim;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_step3" taborder="18" left="0" top="1056" right="0" height="512" style="background:white;" visible="false">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_naTrplC" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="USR_TPC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_bzplc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_dept_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="DEPT_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+include "lib::comPolicy.xjs";
+
+this.JOIN_TYPE; // 가입구분(CO:협력업체, NH:농협)
+this.sScrollYn = "";
+this.sScrollYn2 = "";
+
+var arrBtnCO = [this.div_step1.div_type_co.btn_join_01, this.div_step1.div_type_co.btn_join_04, this.div_step1.div_type_co.btn_join_81, this.div_step1.div_type_co.btn_join_05];
+var arrBtnNH = [this.div_step1.div_type_nh.btn_join_02, this.div_step1.div_type_nh.btn_join_03];
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.JOIN_TYPE = this.parent.JOIN_TYPE;
+	this.gfn_setInitForm(obj, e);
+	
+	this.div_step2.set_top(0);
+	this.div_step3.set_top(0);
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 가입구분에 따른 화면 구성
+	this.fn_initForm(this.JOIN_TYPE == "NH");
+	
+	// 약관 데이터 입력
+	this.div_step2.txa_arr01.set_value(this.policyTerms);
+	this.div_step2.txa_arr02.set_value(this.policyPrivacy);
+	this.div_step2.txa_arr01.addEventHandler("onvscroll", this.Div01_txa_arr01_onvscroll,this);
+	this.div_step2.txa_arr02.addEventHandler("onvscroll", this.Div01_txa_arr02_onvscroll,this);
+}
+
+/***************************************************
+	메뉴(화면) 관련 코드
+****************************************************/
+this.fn_initForm = function(isNH)
+{
+	this.div_step1.sta_chk_input.set_text(isNH ? "사원번호" : "사업자번호");
+	this.div_step1.edt_join_usrid.set_visible(isNH);
+	this.div_step1.edt_join_usrid.set_enable(isNH);
+	this.div_step1.div_check_co.set_visible(!isNH);
+	this.div_step1.div_check_co.edt_join_bzno1.set_enable(!isNH);
+	this.div_step1.div_check_co.edt_join_bzno2.set_enable(!isNH);
+	this.div_step1.div_check_co.edt_join_bzno3.set_enable(!isNH);
+	
+	this.div_step1.div_type_nh.set_visible(isNH);
+	this.div_step1.div_type_co.set_visible(!isNH);
+	
+	if (isNH) {
+		this.div_step1.edt_join_usrid.setFocus();
+	} else {
+		this.div_step1.div_check_co.edt_join_bzno1.setFocus();
+	}
+}
+
+/* 가입유형 버튼 활성/비활성화 */
+this.fn_changeBtnEnable = function(id)
+{
+	var arrList;
+	if (this.JOIN_TYPE == "NH") {
+		arrList = arrBtnNH;
+	} else {
+		arrList = arrBtnCO;
+	}
+
+	for (var i in arrList) {
+		if (arrList[i].id == id) {
+			arrList[i].style.set_color("#FFFFFFFF");
+			arrList[i].style.set_background("#1385C9FF");
+			arrList[i].style.set_border("1 solid #0d78b8ff");
+		} else {
+			arrList[i].style.set_color("");
+			arrList[i].style.set_background("");
+			arrList[i].style.set_border("");
+		}
+	}
+}
+
+/* 사업자번호 체크(GLN검사) */
+this.fn_checkBzno = function()
+{
+	var bzno1 = this.gfn_nullToEmpty(this.div_step1.div_check_co.edt_join_bzno1.value);
+	var bzno2 = this.gfn_nullToEmpty(this.div_step1.div_check_co.edt_join_bzno2.value);
+	var bzno3 = this.gfn_nullToEmpty(this.div_step1.div_check_co.edt_join_bzno3.value);
+	
+	if (bzno1.length != 3 || bzno2.length != 2 || bzno3.length != 5) {
+		this.alert("사업자번호를 확인해주세요.");
+		this.div_step1.div_check_co.edt_join_bzno1.setFocus();
+		return;
+	}
+	this.ds_naTrplC.clearData();
+	this.div_step1.sta_info.set_text("");
+	this.div_step1.sta_info.style.set_border("0 none #808080");
+	this.div_step1.edt_hidden_input.set_value(bzno1+bzno2+bzno3);
+	this.div_step1.edt_hidden_tpc.set_value("");
+	this.fn_changeBtnEnable();
+
+	var param = "bzNo1="+bzno1
+		+" bzNo2="+bzno2
+		+" bzNo3="+bzno3
+		+" usrTpc=01";
+
+	var sSvcID        = "retriveNaTrplCList";
+	var sURL          = "svc::rest/pt/usrinf/retriveNaTrplCList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_naTrplC=ds_naTrplC";
+	var sArgument     =  param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 사원번호 체크(ID검사) */
+this.fn_checkNhUser = function()
+{
+	var usrId = this.gfn_nullToEmpty(this.div_step1.edt_join_usrid.value);
+	
+	if (this.gfn_isNull(usrId)) {
+		this.alert("사원번호를 입력해주세요.");
+		this.div_step1.edt_join_usrid.setFocus();
+		return;
+	}
+	this.div_step1.sta_info.set_text("");
+	this.div_step1.sta_info.style.set_border("0 none #808080");
+	this.div_step1.edt_hidden_input.set_value(usrId);
+	this.div_step1.edt_hidden_tpc.set_value("");
+	this.div_step1.edt_hidden_dept.set_value("");
+	this.div_step1.edt_hidden_bzplc.set_value("");
+	this.fn_changeBtnEnable();
+
+	this.ds_bzplc.clearData();
+	var param = "userId="+usrId;
+
+	var sSvcID        = "retriveNhUserBzplc";
+	var sURL          = "svc::rest/pt/usrinf/retriveNhUserBzplc";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bzplc=ds_bzplc";
+	var sArgument     =  param;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/***************************************************
+	컴포넌트 이벤트 처리
+****************************************************/
+this.btn_join_chk_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.JOIN_TYPE == "NH") {
+		this.fn_checkNhUser();
+	} else {
+		this.fn_checkBzno();
+	}
+}
+
+this.edt_join_bzno_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.altKey || e.ctrlKey || e.shiftKey) { return; }
+	else if (e.keycode > 15 && e.keycode < 47) { return; }
+	
+	if (obj.id == "edt_join_bzno1") {
+		if (obj.getLength() == 3) {
+			this.div_step1.div_check_co.edt_join_bzno2.setFocus();
+		}
+	} else if (obj.id == "edt_join_bzno2") {
+		if (obj.getLength() == 2) {
+			this.div_step1.div_check_co.edt_join_bzno3.setFocus();
+		}
+	} else {
+		if (e.keycode == 13) {
+			if (this.JOIN_TYPE == "NH") {
+				this.fn_checkNhUser();
+			} else {
+				this.fn_checkBzno();
+			}
+		}
+	}
+}
+
+this.Div02_btn_next_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.gfn_isNull(this.div_step1.edt_hidden_tpc.value)) {
+		this.alert("세부 가입유형을 선택해주세요.");
+		return;
+	} else if (this.div_step1.edt_hidden_tpc.value == "02") {
+		// 본부 가입시에는 해당 사번이 하나로유통 사용자(PT_NH_USR_INF)에 등록이 되있어야 함
+		var row = this.ds_bzplc.findRowExpr("DEPT_DSC == '01' && JOIN_YN == 'Y'");
+		if (row == -1) {
+			this.alert("본 사번은 하나로유통 사용자로 등록되어 있지 않아 본부 유형으로 회원가입하실 수 없습니다.");
+			return;
+		} else {
+			this.div_step1.edt_hidden_dept.set_value(this.ds_bzplc.getColumn(row, "DEPT_ID") + "#" + this.ds_bzplc.getColumn(row, "DEPT_NAME"));
+			this.div_step1.edt_hidden_bzplc.set_value(this.ds_bzplc.getColumn(row, "NA_BZPLC"));
+		}
+	}
+	
+	this.changeStep(2);
+}
+
+this.div_step2_Div02_btn_prev_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.changeStep(1);
+}
+
+this.changeStep = function(step)
+{
+	this.div_step1.set_visible(step == 1);
+	this.div_step2.set_visible(step == 2);
+	this.div_step3.set_visible(step == 3);
+	
+	// 약관동의 화면 진입 시 초기화
+	if (step == 2) {
+		this.div_step2.chk_allAgree.set_value(false);
+		this.div_step2.chk_agr01.set_value(false);
+		this.div_step2.chk_agr02.set_value(false);
+		
+		this.div_step2.txa_arr01.vscrollbar.set_pos(0);
+		this.div_step2.txa_arr02.vscrollbar.set_pos(0);
+		this.div_step3.set_url("");
+	}
+}
+
+this.loadJoinForm = function()
+{
+	var tpc = this.div_step1.edt_hidden_tpc.value;
+	var url = "";
+	if (tpc == "01") {
+		url = "OMG.PT::OMG_DS_SC_5110.xfdl";
+	} else if (tpc == "02") {
+		url = "OMG.PT::OMG_DS_SC_5111.xfdl";
+	} else if (tpc == "03") {
+		url = "OMG.PT::OMG_DS_SC_5112.xfdl";
+	} else if (tpc == "04") {
+		url = "OMG.PT::OMG_DS_SC_5117.xfdl";
+	} else if (tpc == "05") {
+		url = "OMG.PT::OMG_DS_SC_5180.xfdl";
+	} else if (tpc == "81") {
+		url = "OMG.PT::OMG_DS_SC_5170.xfdl";
+	} else {
+		this.alert("회원유형 선택에 오류가 발생하였습니다.");
+		this.changeStep(1);
+		return;
+	}
+	this.div_step3.set_url(url);
+}
+
+this._getParentData = function()
+{
+	var data = this.gfn_nullToEmpty(this.div_step1.edt_hidden_input.value); // id
+	if (this.div_step1.edt_hidden_tpc.value == "02") {
+		data += "#" + this.gfn_nullToEmpty(this.div_step1.edt_hidden_dept.value); // + dept(id#name)
+		data += "#" + this.gfn_nullToEmpty(this.div_step1.edt_hidden_bzplc.value); // + bzplc
+	}
+	this.div_step3._setJoinData(data);
+}
+
+this._closeParent = function()
+{
+	this.close();
+}
+
+/* 가입유형 선택 */
+this.btn_select_join = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var isNh = false;
+	var info = "";
+	var fare = "무료";
+	if (obj.id == "btn_join_01") {
+		this.div_step1.edt_hidden_tpc.set_value("01");
+		fare = "월 20,000원 (본사만 부과, 부가세 별도)";
+		info =	"  ○ SCM업무(수주내역조회, 배송예정서작성 등)\n"+
+				"  ○ 전자계약\n"+
+				"  ○ 세금계산서";
+	} else if (obj.id == "btn_join_04") {
+		this.div_step1.edt_hidden_tpc.set_value("04");
+		fare = "세금계산서 건당 1,000원, 최대 월 5,000원 (부가세 별도)";
+		info =	"  ○ 세금계산서";
+	} else if (obj.id == "btn_join_81") {
+		this.div_step1.edt_hidden_tpc.set_value("81");
+		info =	"  ○ 농협몰 상품정보등록";
+	} else if (obj.id == "btn_join_05") {
+		this.div_step1.edt_hidden_tpc.set_value("05");
+		info =	"  ○ 전자계약";
+	} else if (obj.id == "btn_join_02") {
+		this.div_step1.edt_hidden_tpc.set_value("02");
+		this.div_step1.edt_hidden_dept.set_value("");
+		this.div_step1.edt_hidden_bzplc.set_value("");
+		isNh = true;
+		info =	"  ○ 계약상담\n" +
+				"  ○ 전자계약\n" +
+				"  ○ 세금계산서";
+	} else if (obj.id == "btn_join_03") {
+		this.div_step1.edt_hidden_tpc.set_value("03");
+		this.div_step1.edt_hidden_dept.set_value("");
+		this.div_step1.edt_hidden_bzplc.set_value("");
+		isNh = true;
+		info =	"  ○ 전자계약\n" +
+				"  ○ 세금계산서\n" +
+				"  ○ PDA검수";
+	}
+	
+	var msg = (isNh ? "" : "- 기본료 : <b v='true'>" + fare) + "</b>\n" + "- 주요 서비스 :\n"+ info;
+	this.div_step1.sta_info.set_text(msg);
+	this.div_step1.sta_info.style.set_border("1 solid #808080");
+	this.div_step1.btn_info.set_visible(fare != "무료");
+	this.fn_changeBtnEnable(obj.id);
+}
+
+/* 모두 동의 */
+this.Div01_chk_allAgree_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{	
+	if (this.div_step2.chk_allAgree.value) {
+		this.div_step2.chk_agr01.set_value(true);
+		this.div_step2.chk_agr02.set_value(true);
+	} else {
+		this.div_step2.chk_agr01.set_value(false);
+		this.div_step2.chk_agr02.set_value(false);
+	}
+}
+
+/* 동의함 */
+this.Div01_Div02_btn_agree_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (!this.div_step2.chk_agr01.value) {
+		alert("하나로eSCM 서비스 이용약관에 동의해주시기 바랍니다.")
+		return false;
+	} else if (!this.div_step2.chk_agr02.value) {
+		alert("하나로eSCM 서비스 개인정보 수집 및 이용에 동의해주시기 바랍니다.")
+		return false;
+	} else if (this.sScrollYn == "N") {
+		alert("하나로eSCM 서비스 이용약관을 끝까지 읽어 주시기 바랍니다.");
+		return false;
+	} else if (this.sScrollYn2 == "N") {
+		alert("하나로eSCM 서비스 개인정보 수집 및 이용을 끝까지 읽어 주시기 바랍니다.");
+		return false;
+	}
+	
+	//var str = this.div_step1.edt_hidden_tpc.value + "#" + this.gfn_nullToEmpty(this.div_step1.edt_hidden_input.value);
+	//this.close(str);
+	
+	this.changeStep(3);
+	this.loadJoinForm();
+}
+
+this.Div01_Div02_btn_notAgree_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/* 동의서 스크롤체크1 */
+this.Div01_txa_arr01_onvscroll = function(obj:TextArea, e:nexacro.ScrollEventInfo)
+{
+	if (this.div_step2.txa_arr01.vscrollbar.max  == e.pos) {
+		this.sScrollYn = "Y";
+	} else {
+		this.sScrollYn = "N";
+	}
+}
+
+/* 동의서 스크롤체크2 */
+this.Div01_txa_arr02_onvscroll = function(obj:TextArea, e:nexacro.ScrollEventInfo)
+{
+	if (this.div_step2.txa_arr02.vscrollbar.max  == e.pos) {
+		this.sScrollYn2 = "Y";
+	} else {
+		this.sScrollYn2 = "N";
+	}
+}
+
+/***************************************************
+	후처리(콜백)
+****************************************************/
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+	} else {
+		if (svcID == "retriveNaTrplCList") {
+			if (this.ds_naTrplC.rowcount > 0) {				
+				this.div_step1.div_type_co.btn_join_01.set_enable(true);
+				this.div_step1.div_type_co.btn_join_04.set_enable(true);
+				this.div_step1.div_type_co.btn_join_81.set_enable(true);
+			}
+			this.div_step1.div_type_co.btn_join_05.set_enable(true);
+		} else if (svcID == "retriveNhUserBzplc") {
+			if (ErrorCode > 0) {
+				this.alert("이미 회원가입되어 있는 사원번호입니다.");
+				this.div_step1.edt_join_usrid.set_value("");
+				this.div_step1.edt_join_usrid.setFocus();
+				return;
+			}
+			this.div_step1.div_type_nh.btn_join_02.set_enable(this.ds_bzplc.findRow("DEPT_DSC", "01") != -1);
+			this.div_step1.div_type_nh.btn_join_03.set_enable(this.ds_bzplc.findRow("DEPT_DSC", "02") != -1 || this.ds_bzplc.findRow("DEPT_DSC", "03") != -1);
+		}
+	}
+}
+
+/* 이용료 안내 */
+this.div_step1_btn_info_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var sOption = "title=true, width=810, height=600";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("popupFee", "OMG.PT::OMG_DS_SC_4630.xfdl", {}, sOption, sPopupCallBack);
+}]]></Script>
+  </Form>
+</FDL>

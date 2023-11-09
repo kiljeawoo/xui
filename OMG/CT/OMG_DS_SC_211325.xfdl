@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_211325" classname="pattern_01" left="0" top="0" width="788" height="580" titletext="상품공급추가약정서(특약매입)" scrollbars="none" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static25" taborder="735" cssclass="sta_WF_Labelbg" left="140" top="542" right="0" height="29"/>
+        <Static id="Static31" taborder="731" cssclass="sta_WF_Labelbg" left="108" top="474" right="0" height="29"/>
+        <Static id="Static164" taborder="704" text="정상판매수수료율 및 행사판매수수료율" cssclass="sta_WF_Subtitle" left="0" top="43" width="467" height="21"/>
+        <Grid id="grd_pmiwNmlMrgnRt" taborder="0" binddataset="ds_pmiwNmlMrgnRt" useinputpanel="false" left="0" top="67" height="139" onheadclick="grd_nmlMrgnRt_onheadclick" autoenter="select" autofittype="col" right="0">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="250"/>
+                <Column size="250"/>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" text="정상판매수수료율(%)"/>
+                <Cell col="2" text="행사판매수수료율(%)"/>
+                <Cell col="3" text="비고"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:NML_MRGN_RT" mask="##"/>
+                <Cell col="2" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:EVT_MRGN_RT" mask="##"/>
+                <Cell col="3" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:RMK"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_nmlMrgnRt_add" taborder="4" text="행추가" top="41" width="53" height="21" onclick="btn_nmlMrgnRt_addrow_onclick" right="55"/>
+        <Button id="btn_nmlMrgnRt_del" taborder="715" text="행삭제" top="41" width="53" height="21" onclick="btn_nmlMrgnRt_delrow_onclick" right="0%"/>
+        <Grid id="grd_pmiwCtrMrgnRt" taborder="1" binddataset="ds_pmiwCtrMrgnRt" useinputpanel="false" left="0" top="257" height="176" onheadclick="grd_ctrMrgnRt_onheadclick" autofittype="col" right="0" autoenter="select">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="95"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="34" band="head"/>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" colspan="5" text="할인판매 판매수수료율"/>
+                <Cell col="6" rowspan="2" text="비고"/>
+                <Cell row="1" col="1" text="10% 할인"/>
+                <Cell row="1" col="2" text="20% 할인"/>
+                <Cell row="1" col="3" text="30% 할인"/>
+                <Cell row="1" col="4" text="40% 할인"/>
+                <Cell row="1" col="5" text="50% 할인"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" cssclass="Cellgrd_WF_AlignLeft" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT10" mask="##"/>
+                <Cell col="2" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT20" mask="##"/>
+                <Cell col="3" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT30" mask="##"/>
+                <Cell col="4" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT40" mask="##"/>
+                <Cell col="5" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:DC_SEL_MRGN_RT50" mask="##"/>
+                <Cell col="6" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignLeft" text="bind:RMK"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_ctrMrgnRt_add" taborder="5" text="행추가" top="231" width="53" height="21" onclick="btn_ctrMrgnRt_addrow_onclick" right="55"/>
+        <Button id="btn_ctrMrgnRt_del" taborder="719" text="행삭제" top="231" width="53" height="21" onclick="btn_ctrMrgnRt_delrow_onclick" right="0%"/>
+        <Static id="Static19" taborder="725" text="[상품공급 추가 약정서(특약매입)]" cssclass="sta_WF_Subtitle" left="0" top="0" width="59.26%" height="21" style="background:left middle;padding:0 0 1 5;"/>
+        <Static id="Static00" taborder="726" text="&quot;구매자&quot;와 &quot;공급자&quot;간 협의에 의하여 시행하는 할인판매 행사 시 판매수수료율" cssclass="sta_WF_Subtitle" left="0" top="231" width="546" height="21"/>
+        <Static id="Static01" taborder="728" text="판매수수료율" cssclass="sta_WF_Subtitle" left="0" top="448" width="546" height="21"/>
+        <MaskEdit id="edt_ETC1" taborder="2" lengthunit="ascii" maxlength="200" left="276" top="478" width="47" height="21" onkillfocus="OMG_DS_SC_211324_ontextchanged" ontextchanged="OMG_DS_SC_211324_ontextchanged"/>
+        <Static id="Static33" taborder="730" text="수수료 변경기한" cssclass="sta_WF_Label" left="0" top="474" height="29" width="132"/>
+        <Static id="Static24" taborder="736" text="하자보증보험증권의 금액 또는 보증금" cssclass="sta_WF_Label" left="0" top="542" height="29" width="237"/>
+        <MaskEdit id="edt_ETC2" taborder="3" lengthunit="ascii" maxlength="20" onkillfocus="OMG_DS_SC_211324_ontextchanged" ontextchanged="OMG_DS_SC_211324_ontextchanged" left="463" top="546" height="21" style="align:right middle;" width="36"/>
+        <Static id="Static04" taborder="738" text="%" left="502" top="546" height="21" width="40"/>
+        <Static id="Static27" taborder="739" text="계약종료일 직전 월의 판매된 상품대금의" left="239" top="546" height="21" width="228"/>
+        <Static id="Static32" taborder="740" text="사후 고객관리를 위한 조치" cssclass="sta_WF_Subtitle" left="0" top="519" width="59.26%" height="21"/>
+        <Static id="Static02" taborder="741" text="개월 전" left="328" top="478" height="21" width="53"/>
+        <Static id="Static03" taborder="742" text="계약기간의 만료일로부터" left="135" top="478" height="21" width="138"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pmiwNmlMrgnRt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_sctrwNmlMrgnRt_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256" sumtext="특약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="일련번호"/>
+          <Column id="STORNM1" type="STRING" size="256" sumtext="점포명"/>
+          <Column id="NML_MRGN_RT" type="STRING" size="256" sumtext="정상마진율"/>
+          <Column id="EVT_MRGN_RT" type="STRING" size="256" sumtext="행사마진율"/>
+          <Column id="RMK" type="STRING" size="256" sumtext="비고"/>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="NML_MRGN_RTM" type="STRING" size="256"/>
+          <Column id="EVT_MRGN_RTM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pmiwCtrMrgnRt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_sctrwCtrMrgnRt_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="일련번호"/>
+          <Column id="STORNM1" type="STRING" size="256" sumtext="점포명"/>
+          <Column id="DC_SEL_MRGN_RT10" type="STRING" size="256" sumtext="할인판매마진율 10"/>
+          <Column id="DC_SEL_MRGN_RT20" type="STRING" size="256" sumtext="할인판매마진율 20"/>
+          <Column id="DC_SEL_MRGN_RT30" type="STRING" size="256" sumtext="할인판매마진율 30"/>
+          <Column id="DC_SEL_MRGN_RT40" type="STRING" size="256" sumtext="할인판매마진율 40"/>
+          <Column id="DC_SEL_MRGN_RT50" type="STRING" size="256" sumtext="할인판매마진율 50"/>
+          <Column id="RMK" type="STRING" size="256" sumtext="비고"/>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="256" sumtext="계약서양식일련번호"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_pmiwDtl" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="PMIW_KDC" type="STRING" size="256" sumtext="약정서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="BUY_AM" type="STRING" size="256" sumtext="구매금액"/>
+          <Column id="EVT_TINM" type="STRING" size="256" sumtext="행사제목"/>
+          <Column id="EVT_PRD_ST_DT" type="STRING" size="256" sumtext="행사기간 시작일자"/>
+          <Column id="EVT_PRD_ED_DT" type="STRING" size="256" sumtext="행사기간 종료일자"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="ETC1" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC2" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC3" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC4" type="STRING" size="256" sumtext=""/>
+          <Column id="ETC5" type="STRING" size="256" sumtext=""/>
+          <Column id="SCTR_SJT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item3" compid="edt_ETC1" propid="value" datasetid="ds_pmiwDtl" columnid="ETC1"/>
+      <BindItem id="item6" compid="edt_ETC2" propid="value" datasetid="ds_pmiwDtl" columnid="ETC2"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "309") {
+			this.ds_etcEltStylAmm.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	// 수정화면 일 때
+	for (var i = 0; i < this.parent.ds_pmiwDtl.rowcount; i++) {
+		if (this.parent.ds_pmiwDtl.getColumn(i, "PMIW_KDC") == "309") {
+			fv_position = i;
+			fv_chk = 1;
+			this.ds_pmiwDtl.addRow();
+			this.ds_pmiwDtl.copyRow(0, this.parent.ds_pmiwDtl, fv_position);
+		}
+	}
+
+	if (fv_chk == 0) {
+		var nRow = this.parent.ds_pmiwDtl.addRow();
+		fv_position = nRow;
+
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "PMIW_KDC", "309");
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+		this.parent.ds_pmiwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm.getColumn(0, "CTRW_STY_VER"));
+
+		this.ds_pmiwDtl.addRow();
+		this.ds_pmiwDtl.copyRow(0, this.parent.ds_pmiwDtl, fv_position);
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	var strTitletext = "[상품공급 추가 약정서(특약매입)]";
+
+	// 판매수수료율 변경기한
+	if (this.gfn_isNull(this.edt_ETC1.value)) {
+ 		this.alert("판매수수료율 변경기한을 입력해주세요.");
+		this.edt_ETC1.setFocus();
+ 		return false;
+ 	}
+
+	// 판매수수료율 변경기한
+	if (this.gfn_isNull(this.edt_ETC2.value)) {
+		this.alert("하자보증보험증권 가입 또는 보증금 예치 금액 비율을 입력해주세요.");
+		this.edt_ETC2.setFocus();
+ 		return false;
+ 	}
+
+	// 정상판매수수료율 및 행사판매수수료율
+	if (this.ds_pmiwNmlMrgnRt.getRowCount() == 0) {
+		alert("정상판매수수료율 및 행사판매수수료율을 입력해주세요.");
+		return false;
+	} else if (this.ds_pmiwNmlMrgnRt.getRowCount() > 0) {
+		for (var i=0; i<this.ds_pmiwNmlMrgnRt.getRowCount(); i++) {
+			var c1 = this.ds_pmiwNmlMrgnRt.getColumn(i, "NML_MRGN_RT");
+			var c2 = this.ds_pmiwNmlMrgnRt.getColumn(i, "EVT_MRGN_RT");
+
+			if (this.gfn_nullToEmpty(c1) == "" || this.gfn_nullToEmpty(c2) == "") {
+				alert("정상판매수수료율 및 행사판매수수료율 리스트에 입력되지 않은 행이 있습니다.\n해당 행을 입력하시거나 불필요한 경우 행삭제를 해주세요.");
+				return false;
+			}
+		}
+	}
+
+	// "구매자"와 "공급자"간 협의에 의하여 시행하는 할인판매 행사 시 판매수수료율
+	if (this.ds_pmiwCtrMrgnRt.getRowCount() == 0) {
+		alert('"구매자"와 "공급자"간 협의에 의하여 시행하는 할인판매 행사 시 판매수수료율을 입력해주세요.');
+		return false;
+	} else if (this.ds_pmiwCtrMrgnRt.getRowCount() > 0) {
+		for (var i=0; i<this.ds_pmiwCtrMrgnRt.getRowCount(); i++) {
+			var c1 = this.ds_pmiwCtrMrgnRt.getColumn(i, "DC_SEL_MRGN_RT10");
+			var c2 = this.ds_pmiwCtrMrgnRt.getColumn(i, "DC_SEL_MRGN_RT20");
+			var c3 = this.ds_pmiwCtrMrgnRt.getColumn(i, "DC_SEL_MRGN_RT30");
+			var c4 = this.ds_pmiwCtrMrgnRt.getColumn(i, "DC_SEL_MRGN_RT40");
+			var c5 = this.ds_pmiwCtrMrgnRt.getColumn(i, "DC_SEL_MRGN_RT50");
+
+			if (this.gfn_nullToEmpty(c1) == "" || this.gfn_nullToEmpty(c2) == "" || this.gfn_nullToEmpty(c3) == "" || this.gfn_nullToEmpty(c4) == "" || this.gfn_nullToEmpty(c5) == "") {
+				alert('"구매자"와 "공급자"간 협의에 의하여 시행하는 할인판매 행사 시 판매수수료율 리스트에 입력되지 않은 행이 있습니다.\n해당 행을 입력하시거나 불필요한 경우 행삭제를 해주세요.');
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+this.OMG_DS_SC_211324_ontextchanged = function(obj:Edit, e:nexacro.TextChangedEventInfo)
+{
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC1", this.edt_ETC1.value);
+	this.parent.ds_pmiwDtl.setColumn(fv_position, "ETC2", this.edt_ETC2.value);
+}
+
+/* 정상판매수수료율 및 행사판매수수료율 행추가 */
+this.btn_nmlMrgnRt_addrow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var nRow = this.ds_pmiwNmlMrgnRt.addRow();
+
+	//ds_rsclist
+	this.ds_pmiwNmlMrgnRt.setColumn(nRow, "ISCHECKED", "0");
+	this.ds_pmiwNmlMrgnRt.setColumn(nRow, "ELT_CTRW_NO", "");
+	this.ds_pmiwNmlMrgnRt.setColumn(nRow, "CHG_SQNO", "001");
+
+	this.ds_pmiwNmlMrgnRt.set_updatecontrol(false); //
+	this.ds_pmiwNmlMrgnRt.setRowType(nRow, Dataset.ROWTYPE_INSERT);
+	this.ds_pmiwNmlMrgnRt.set_updatecontrol(true); // 이걸 해주지 않으면 자동으로 바뀌지 않음
+}
+
+/* 정상판매수수료율 및 행사판매수수료율 행삭제 */
+this.btn_nmlMrgnRt_delrow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var cnt = this.ds_pmiwNmlMrgnRt.getRowCount();
+	if (cnt > 0) {
+		var updateDel = false;
+		for (var i=this.ds_pmiwNmlMrgnRt.getRowCount()-1; i>=0; i--) {
+			if (this.ds_pmiwNmlMrgnRt.getColumn(i, "ISCHECKED") == "1") {
+				if (this.gfn_nullToEmpty(this.ds_pmiwNmlMrgnRt.getColumn(i, "SQNO")) != "") {
+					updateDel = true;
+					continue;
+				}
+				this.ds_pmiwNmlMrgnRt.deleteRow(i);
+			}
+		}
+		if (updateDel) {
+			alert("계약서 작성시 입력한 기존 항목들은 화면에서 바로 행삭제가 되지 않으며, 계약서 수정시 오른쪽 체크박스를 선택한 항목들이 삭제됩니다.");
+		}
+	}
+}
+
+/* "구매자"와 "공급자"간 협의에 의하여 시행하는 할인판매 행사 시 판매수수료율 행추가 */
+this.btn_ctrMrgnRt_addrow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var nRow = this.ds_pmiwCtrMrgnRt.addRow();
+
+	//ds_rsclist
+	this.ds_pmiwCtrMrgnRt.setColumn(nRow, "ISCHECKED", "0");
+	this.ds_pmiwCtrMrgnRt.setColumn(nRow, "ELT_CTRW_NO", "");
+	this.ds_pmiwCtrMrgnRt.setColumn(nRow, "CHG_SQNO", "001");
+
+	this.ds_pmiwCtrMrgnRt.set_updatecontrol(false); //
+	this.ds_pmiwCtrMrgnRt.setRowType(nRow, Dataset.ROWTYPE_INSERT);
+	this.ds_pmiwCtrMrgnRt.set_updatecontrol(true); // 이걸 해주지 않으면 자동으로 바뀌지 않음
+}
+
+/* "구매자"와 "공급자"간 협의에 의하여 시행하는 할인판매 행사 시 판매수수료율 행삭제 */
+this.btn_ctrMrgnRt_delrow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var cnt = this.ds_pmiwCtrMrgnRt.getRowCount();
+	if (cnt > 0) {
+		var updateDel = false;
+		for (var i=this.ds_pmiwCtrMrgnRt.getRowCount()-1; i>=0; i--) {
+			if (this.ds_pmiwCtrMrgnRt.getColumn(i, "ISCHECKED") == "1") {
+				if (this.gfn_nullToEmpty(this.ds_pmiwCtrMrgnRt.getColumn(i, "SQNO")) != "") {
+					updateDel = true;
+					continue;
+				}
+				this.ds_pmiwCtrMrgnRt.deleteRow(i);
+			}
+		}
+		if (updateDel) {
+			alert("계약서 작성시 입력한 기존 항목들은 화면에서 바로 행삭제가 되지 않으며, 계약서 수정시 오른쪽 체크박스를 선택한 항목들이 삭제됩니다.");
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

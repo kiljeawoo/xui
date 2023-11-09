@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8321" classname="popup01" left="0" top="0" width="767" height="526" titletext="설문조사 질문등록-설문선택" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_close" taborder="10" text="닫기" cssclass="btn_WF_CRUD" top="15" right="13" width="41" height="21" onclick="fn_close_onclick"/>
+        <Static id="text_title" taborder="11" cssclass="sta_WF_Subtitle" left="17" top="19" width="135" height="21" text="설문 선택"/>
+        <Static id="Static00" taborder="70" text="17" visible="false" left="750" top="44" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="71" text="15" visible="false" left="673" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="72" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="73" text="8" visible="false" left="674" top="36" width="91" height="8" style="background:#dc143c5b;"/>
+        <Grid id="grd_comncList" taborder="96" binddataset="ds_survey" useinputpanel="false" cellsizingtype="col" autofittype="col" left="1" top="134" right="15" bottom="44" oncellclick="grd_comncList_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="469"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="번호"/>
+                <Cell col="1" text="제목"/>
+                <Cell col="2" text="시작일"/>
+                <Cell col="3" text="종료일"/>
+                <Cell col="4" displaytype="normal" text="선택"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SRV_SEQ"/>
+                <Cell col="1" text="bind:TITLE"/>
+                <Cell col="2" displaytype="date" text="bind:SRV_ST_DT"/>
+                <Cell col="3" displaytype="date" text="bind:SRV_ED_DT"/>
+                <Cell col="4" displaytype="button" edittype="button" text="선택"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="div_search" taborder="97" left="0" top="43" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Edit id="ed_title" taborder="13" maxlength="30" oneditclick="div_search_edt_menuId_oneditclick" left="57" top="10" width="442" height="21"/>
+              <Static id="Static05" taborder="14" text="제목" cssclass="sta_WFSA_Label" left="15" top="10" width="103" height="21" style="padding:0 20 0 11;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_paging" taborder="98" url="common::pagingBTN.xfdl" left="28.55%" bottom="-2" width="338" height="29" style="align:center middle;" visible="false"/>
+        <Static id="Static01" taborder="99" text="페이지당 게시물수" onclick="div_search_Static01_onclick" cssclass="sta_WFSA_Label" visible="false" left="527" top="55" width="139" height="21" style="padding:0 20 0 11;"/>
+        <Combo id="cbo_pageNum" taborder="100" value="20" text="20" codecolumn="codecolumn" datacolumn="datacolumn" index="0" visible="false" left="673" top="55" width="60" height="21">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">20</Col>
+                <Col id="datacolumn">20</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">50</Col>
+                <Col id="datacolumn">50</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">100</Col>
+                <Col id="datacolumn">100</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Button id="btn_search" taborder="101" onclick="fn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="54" right="32" width="58" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_survey">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="SUBTITLE" type="STRING" size="256"/>
+          <Column id="INTRO" type="STRING" size="256"/>
+          <Column id="APL_ST_DT" type="STRING" size="256"/>
+          <Column id="APL_ED_DT" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SRV_ST_DT" type="STRING" size="256"/>
+          <Column id="SRV_ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+          <Column id="CHECK_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <InitValue/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+	this.gfn_setInitForm(obj, e); //공통
+	this.fn_paging(1);
+}
+
+this.fn_afterFormOnload = function() //페이지 로딩후 실행부분
+{
+
+}
+
+/* Paging 처리 */
+this.fn_paging = function(vPageNum)
+{
+	this.ds_pageVO.clearData();
+	this.ds_pageVO.addRow();
+	
+	var vPageSize   = this.cbo_pageNum.value; // Grid에 보여줄 Row수 선택
+	var vTotalCount = 0;	// 전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+	
+ 	this.ds_pageVO.setColumn(0,"CURRENT_PAGE",vPageNum); //현재 페이지
+ 	this.ds_pageVO.setColumn(0,"PAGE_SIZE",vPageSize);
+ 	this.ds_pageVO.setColumn(0,"TOTAL_ROW_COUNT",vTotalCount);
+	 
+	var argumentObj = "";
+	
+	this.fn_retrieveSurveyList();
+}
+
+/* 조회-서비스 Call */ 
+this.fn_retrieveSurveyList = function()
+{		
+	this.ds_survey.clearData();
+	
+	var title		= this.gfn_nullToEmpty(this.div_search.ed_title.value);				// 제목
+
+	var sParam        = "TITLE=" + title;
+	var sSvcID        = "retrieveSurveyList";
+	var sURL          = "svc::rest/mg/survey/retrieveSurveyList";
+	var sInDatasets   = "ds_pageVO=ds_pageVO";
+	var sOutDatasets  = "ds_survey=ds_survey ds_pageVO=ds_pageVO";
+	var sArgument     = sParam;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+
+/* 창닫기 버튼 이벤트 */
+this.fn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+	var page_size    = this.ds_pageVO.getColumn(0,"PAGE_SIZE");
+	var sTotal    = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+	
+	trace("ErrorCode " + ErrorCode);
+	
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+	 	if (svcID == "retrieveSurveyList") {
+	 		if (this.ds_survey.rowcount > 0) {
+				this.div_paging.fn_pageSet(sTotal, page_size, "div_paging", current_page);
+			} else if(this.ds_survey.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+	 			this.div_paging.fn_pageSet(0, 0, "div_paging", current_page);
+			}
+		}
+	}
+}
+
+
+this.fn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_paging(1);
+}
+
+//그리드 클릭
+this.grd_comncList_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 4){
+		var title = this.ds_survey.getColumn(e.row,"TITLE");
+		var srv_seq = this.ds_survey.getColumn(e.row,"SRV_SEQ");
+		var SRV_ST_DT = this.ds_survey.getColumn(e.row,"SRV_ST_DT");
+		var SRV_ED_DT = this.ds_survey.getColumn(e.row,"SRV_ED_DT");
+		var INTRO = this.ds_survey.getColumn(e.row,"INTRO");
+		var SUBTITLE = this.ds_survey.getColumn(e.row,"SUBTITLE");
+		this.close(title + "|" + srv_seq + "|" + SRV_ST_DT + "|" + SRV_ED_DT + "|" + INTRO + "|" +SUBTITLE);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_21132" classname="pattern_01" left="0" top="0" width="788" height="303" titletext="특약서(매장위치 및 면적)" scrollbars="none" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static206" taborder="720" text="특약서(매장위치 및 면적)" cssclass="sta_WF_Subtitle" left="0" top="2" width="467" height="21"/>
+        <Button id="btn_sctrwDtl03" taborder="721" text="계약서보기" left="710" top="0" width="78" height="21" onclick="btn_sctrwDtl03_onclick" visible="false"/>
+        <Static id="Static208" taborder="724" text="계약일자" cssclass="sta_WF_Label" left="0" top="27" height="29" right="86%"/>
+        <Static id="Static209" taborder="725" cssclass="sta_WF_Labelbg" left="14%" top="27" height="29" right="0"/>
+        <Calendar id="cal_vldPrdStDt" taborder="0" dateformat="yyyy-MM-dd" left="14.34%" top="31" height="21" width="98" onchanged="Cal_onchanged"/>
+        <Static id="Static215" taborder="730" text="1. 매장위치 및 면적" left="0" top="71" width="218" height="21"/>
+        <Grid id="grd_sctrwAllXpcPmtnCst" taborder="3" binddataset="ds_sctrwAllXpcPmtnCst" useinputpanel="false" onheadclick="grd_sctrwAllXpcPmtnCst_onheadclick" left="0" top="95" height="121" autofittype="col" autoenter="select" right="0%">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="98"/>
+                <Column size="98"/>
+                <Column size="98"/>
+                <Column size="100"/>
+                <Column size="98"/>
+                <Column size="98"/>
+                <Column size="98"/>
+              </Columns>
+              <Rows>
+                <Row size="34" band="head"/>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="2" displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" colspan="2" text="점포명"/>
+                <Cell col="3" colspan="2" text="매장면적"/>
+                <Cell col="5" colspan="2" text="점포명"/>
+                <Cell col="7" colspan="2" text="매장면적"/>
+                <Cell row="1" col="1" text="명"/>
+                <Cell row="1" col="2" text="층"/>
+                <Cell row="1" col="3" text="㎡"/>
+                <Cell row="1" col="4" text="평"/>
+                <Cell row="1" col="5" text="명"/>
+                <Cell row="1" col="6" text="층"/>
+                <Cell row="1" col="7" text="㎡"/>
+                <Cell row="1" col="8" text="평"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                <Cell col="1" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignRight" text="bind:STORNM1" editlimit="50" editlengthunit="ascii"/>
+                <Cell col="2" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:STOR_LY1" mask="####"/>
+                <Cell col="3" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:SELA_AREA_M1" mask="####"/>
+                <Cell col="4" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:SELA_AREA_PCN1" mask="####"/>
+                <Cell col="5" displaytype="text" edittype="text" cssclass="Cellgrd_WF_AlignRight" text="bind:STORNM2" editlimit="50" editlengthunit="ascii"/>
+                <Cell col="6" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:STOR_LY2" mask="####"/>
+                <Cell col="7" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:SELA_AREA_M2" mask="####"/>
+                <Cell col="8" displaytype="number" edittype="mask" cssclass="Cellgrd_WF_AlignRight" text="bind:SELA_AREA_PCN2" mask="####"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_sctrwAllXpcPmtnCst_add" taborder="1" text="행추가" onclick="btn_sctrwAllXpcPmtnCst_addRow_onclick" top="68" width="53" height="21" right="55"/>
+        <Button id="btn_sctrwAllXpcPmtnCst_del" taborder="2" text="행삭제" onclick="btn_sctrwAllXpcPmtnCst_delRow_onclick" top="68" width="53" height="21" right="0%"/>
+        <Static id="Static12" taborder="762" text="27" visible="false" left="200" top="0" width="414" height="27" style="background:#dc143c5b;"/>
+        <Static id="Static94" taborder="763" cssclass="sta_WF_Labelbg" left="13.83%" top="215" right="0%" height="80"/>
+        <Static id="Static93" taborder="764" text="특약사항" cssclass="sta_WF_Label" left="0" top="215" right="86.04%" height="80"/>
+        <TextArea id="txa_sctrSjt" taborder="4" wordwrap="char" ontextchanged="txatext_changed" left="14.34%" top="219" right="0.38%" height="72" lengthunit="ascii" maxlength="498"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sctrwAllXpcPmtnCst" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_sctrwAllXpcPmtnCst_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="SQNO" type="STRING" size="256" sumtext="일련번호"/>
+          <Column id="STORNM1" type="STRING" size="256" sumtext="점포명1"/>
+          <Column id="STOR_LY1" type="STRING" size="256" sumtext="점포층1"/>
+          <Column id="SELA_AREA_M1" type="STRING" size="256" sumtext="매장면적 미터1"/>
+          <Column id="SELA_AREA_PCN1" type="STRING" size="256" sumtext="매장면적 평수1"/>
+          <Column id="STORNM2" type="STRING" size="256" sumtext="점포명2"/>
+          <Column id="STOR_LY2" type="STRING" size="256" sumtext="점포층2"/>
+          <Column id="SELA_AREA_M2" type="STRING" size="256" sumtext="매장면적 미터2"/>
+          <Column id="SELA_AREA_PCN2" type="STRING" size="256" sumtext="매장면적 평수2"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_etcEltStylAmm403" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CTRW_KDC" type="STRING" size="5000" sumtext="계약서내용"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sctrwDtl03" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ELT_CTRW_NO" type="STRING" size="256" sumtext="전자계약서번호"/>
+          <Column id="SCTRW_KDC" type="STRING" size="256" sumtext="특약서종류코드"/>
+          <Column id="CHG_SQNO" type="STRING" size="256"/>
+          <Column id="CTRW_STY_VER" type="STRING" size="256" sumtext="계약서양식버젼"/>
+          <Column id="VLD_PRD_ST_DT" type="STRING" size="256" sumtext="유효기간 시작일자"/>
+          <Column id="VLD_PRD_ED_DT" type="STRING" size="256" sumtext="유효기간 종료일자"/>
+          <Column id="DSPC_PRD_ST_DT" type="STRING" size="256" sumtext="파견기간 시작일자"/>
+          <Column id="DSPC_PRD_ED_DT" type="STRING" size="256" sumtext="파견기간 종료일자"/>
+          <Column id="WRK_ST_HR" type="STRING" size="256" sumtext="근무시간 시작시간"/>
+          <Column id="WRK_ED_HR" type="STRING" size="256" sumtext="근무시간 종료시간"/>
+          <Column id="EVT_PRD_ST_DT" type="STRING" size="256" sumtext="행사기간 시작일자"/>
+          <Column id="EVT_PRD_ED_DT" type="STRING" size="256" sumtext="행사기간 종료일자"/>
+          <Column id="CTRW_FLNM" type="STRING" size="256" sumtext="계약서 파일 이름"/>
+          <Column id="CTRW_FL_PATHNM" type="STRING" size="256" sumtext="계약서 파일전체경로"/>
+          <Column id="CTRW_FL_SZE" type="STRING" size="256" sumtext="계약서 파일크기"/>
+          <Column id="APDFLNM" type="STRING" size="256" sumtext="첨부파일 이름"/>
+          <Column id="APDFL_PATHNM" type="STRING" size="256" sumtext="첨부파일전체경로"/>
+          <Column id="APDFL_SZE" type="STRING" size="256" sumtext="첨부파일크기"/>
+          <Column id="SYS_FLNM" type="STRING" size="256" sumtext="시스템 파일이름"/>
+          <Column id="CTRW_CNTN" type="STRING" size="256" sumtext="계약서내용"/>
+          <Column id="PY_NT" type="STRING" size="256"/>
+          <Column id="SEL_SSDY_RTO" type="STRING" size="256"/>
+          <Column id="WRS_SPYAM" type="STRING" size="256"/>
+          <Column id="CTRW_SGNT" type="STRING" size="256" sumtext="계약서서명"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="SCTR_SJT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="cal_vldPrdStDt" propid="value" datasetid="ds_sctrwDtl03" columnid="VLD_PRD_ST_DT"/>
+      <BindItem id="item4" compid="txa_sctrSjt" propid="value" datasetid="ds_sctrwDtl03" columnid="SCTR_SJT"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var fv_position = 0; //위치값
+var fv_chk = 0; //데이터 체크
+
+// SCTRW_KD_C
+// 1.특약서(마진율)
+// 2.특약서(판촉사원의 파견
+// 3.특약서(매장위치 및 면적
+// 4.특약서(매장의 철수 등)
+// 5.특약서(원산지 등)
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	// 폼양식
+	for (var i = 0; i < this.parent.ds_etcEltStylAmm.rowcount; i++) {
+		if (this.parent.ds_etcEltStylAmm.getColumn(i, "CTRW_KDC") == "403") {
+			this.ds_etcEltStylAmm403.copyRow(0, this.parent.ds_etcEltStylAmm, i);
+		}
+	}
+
+	for (var i = 0; i < this.parent.ds_sctrwDtl.rowcount; i++) {
+		if (this.parent.ds_sctrwDtl.getColumn(i, "SCTRW_KDC") == "403") {
+			fv_position = i;
+			fv_chk = 1;
+			this.ds_sctrwDtl03.addRow();
+			this.ds_sctrwDtl03.copyRow(0, this.parent.ds_sctrwDtl, fv_position);
+
+		}
+	}
+
+ 	if (fv_chk == 0) {
+		var toDay = this.gfn_today("yyyyMMdd");
+		chkDay = this.gfn_addMonth(toDay, 1);
+
+		var nRow = this.parent.ds_sctrwDtl.addRow();
+		fv_position = nRow;
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTRW_KDC", "403");
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "CHG_SQNO", this.parent.ds_register.getColumn(0, "CHG_SQNO"));
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "CTRW_STY_VER", this.ds_etcEltStylAmm403.getColumn(0, "CTRW_STY_VER"));
+		this.parent.ds_sctrwDtl.setColumn(fv_position, "VLD_PRD_ST_DT", toDay);
+		this.ds_sctrwDtl03.addRow();
+		this.ds_sctrwDtl03.copyRow(0, this.parent.ds_sctrwDtl, fv_position);
+		//this.cal_vldPrdStDt.set_value(toDay);
+//		this.cal_evtPrdEdDt.set_value(chkDay);
+	}
+
+	if (this.parent.ds_sctrwAllXpcPmtnCst.rowcount  > 0) {
+		this.ds_sctrwAllXpcPmtnCst.addRow();
+		this.ds_sctrwAllXpcPmtnCst.copyData(this.parent.ds_sctrwAllXpcPmtnCst);
+	} else {
+		this.ds_sctrwAllXpcPmtnCst.addRow();
+		this.ds_sctrwAllXpcPmtnCst.setColumn(0, "SCTRW_KDC", "403");
+		this.ds_sctrwAllXpcPmtnCst.setColumn(0, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+	}
+}
+
+this.Cal_onchanged = function(obj:Calendar, e:nexacro.ChangeEventInfo)
+{
+	obj.updateToDataset();
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "VLD_PRD_ST_DT", this.cal_vldPrdStDt.value);
+}
+
+
+this.ds_sctrwAllXpcPmtnCst_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	this.parent.ds_sctrwAllXpcPmtnCst.copyData(this.ds_sctrwAllXpcPmtnCst);
+	this.fn_sctrwAllXpcPmtnCst_update();
+}
+
+this.btn_sctrwAllXpcPmtnCst_addRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.ds_sctrwAllXpcPmtnCst.addRow();
+	var nRow = this.ds_sctrwAllXpcPmtnCst.rowcount-1;
+	this.ds_sctrwAllXpcPmtnCst.setColumn(nRow, "SCTRW_KDC", "403");
+	this.ds_sctrwAllXpcPmtnCst.setColumn(nRow, "CHG_SQNO", this.parent.ds_register.getColumn(0 , "CHG_SQNO"));
+	this.parent.ds_sctrwAllXpcPmtnCst.copyData(this.ds_sctrwAllXpcPmtnCst);
+	this.fn_sctrwAllXpcPmtnCst_update();
+}
+
+this.btn_sctrwAllXpcPmtnCst_delRow_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	for (var i = this.ds_sctrwAllXpcPmtnCst.rowcount; i > -1; i--) {
+		var nCheck = this.ds_sctrwAllXpcPmtnCst.getColumn(i, "ISCHECKED");
+		if (nCheck == 1) {
+			this.parent.ds_sctrwAllXpcPmtnCst.deleteRow(i);
+			this.ds_sctrwAllXpcPmtnCst.deleteRow(i);
+		}
+	}
+}
+
+this.grd_sctrwAllXpcPmtnCst_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 0) {
+		this.gfn_setGridCheckAll(obj, e);
+	}
+}
+
+this.fn_validationCheck = function()
+{
+	var strTitletext = "특약서(매장위치 및 면적)";
+
+ 	if (this.gfn_isNull(this.cal_vldPrdStDt.value)) {
+		this.cal_vldPrdStDt.setFocus();
+ 		this.alert(strTitletext + " 계약일자를  입력하세요. ");
+ 		return false;
+ 	}
+
+	var strChk = this.gfn_checkImportant(this.grd_sctrwAllXpcPmtnCst, "STORNM1, STOR_LY1, SELA_AREA_M1, SELA_AREA_PCN1");
+	if (strChk == false) {
+		return false;
+	}
+
+	var strChk_STORNM2 = this.fn_checkImportant(this.grd_sctrwAllXpcPmtnCst, "STORNM2");
+	var strChk_STOR_LY2 = this.fn_checkImportant(this.grd_sctrwAllXpcPmtnCst, "STOR_LY2");
+	var strChk_SELA_AREA_M2 = this.fn_checkImportant(this.grd_sctrwAllXpcPmtnCst, "SELA_AREA_M2");
+	var strChk_SELA_AREA_PCN2 = this.fn_checkImportant(this.grd_sctrwAllXpcPmtnCst, "SELA_AREA_PCN2");
+
+	if (strChk_STORNM2 == true  || strChk_STOR_LY2 == true || strChk_SELA_AREA_M2 == true || strChk_SELA_AREA_PCN2 == true) {
+		var strChk2 = this.gfn_checkImportant(this.grd_sctrwAllXpcPmtnCst, "STORNM2, STOR_LY2, SELA_AREA_M2, SELA_AREA_PCN2");
+		if (strChk2 == false) {
+			return false;
+		}
+	}
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+	return true;
+}
+
+this.fn_checkImportant = function(obj:Grid, arrParam)
+{
+	var objGrid = obj;
+	var arrList = arrParam.split(",");
+
+	if (arrList.length == 0) return false;
+
+	var dsBind = this.gfn_getDataset(objGrid.binddataset);
+	if (dsBind != undefined) {
+		for (var iRow=0; iRow<dsBind.rowcount; iRow++) {
+			var iRowType = dsBind.getRowType( iRow);
+			if (iRowType == 8) continue;
+
+			for (var i=0; i<arrList.length; i++) {
+				var sColNm = arrList[i];
+				var iCellIdx = this.gfn_getCellIdx( objGrid, sColNm);
+				var sColVal = String( dsBind.getColumn( iRow, sColNm)).trim();
+				if (this.gfn_isNull(sColVal)) {
+					var bSucc = objGrid.setCellPos(iCellIdx);
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
+
+this.fn_sctrwAllXpcPmtnCst_update = function()
+{
+	for (var i = 0; i < this.ds_sctrwAllXpcPmtnCst.rowcount; i++) {
+		this.parent.ds_sctrwAllXpcPmtnCst.set_updatecontrol(false);
+		this.parent.ds_sctrwAllXpcPmtnCst.setRowType(i, this.ds_sctrwAllXpcPmtnCst.getRowType(i));
+		this.parent.ds_sctrwAllXpcPmtnCst.set_updatecontrol(true);
+	}
+
+	if (this.ds_sctrwAllXpcPmtnCst == 0) {
+		for (var i = 0; i < this.parent.ds_sctrwAllXpcPmtnCst.rowcount; i++) {
+			this.parent.ds_sctrwAllXpcPmtnCst.set_updatecontrol(false);
+			this.parent.ds_sctrwAllXpcPmtnCst.setRowType(i, Dataset.ROWTYPE_DELETE);
+			this.parent.ds_sctrwAllXpcPmtnCst.set_updatecontrol(true);
+		}
+	}
+}
+
+this.btn_sctrwDtl03_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_validationCheck();
+}
+
+//  평수 -> ㎡
+this.fn_cal = function(areaCalc)
+{
+	var cal = areaCalc;
+	cal = Math.round(cal * 3.305785 * 100) / 100;
+
+	return cal;
+}
+
+// ㎡ -> 평수
+this.fn_cal1 = function(areaCalc)
+{
+	var cal = areaCalc;
+	cal = Math.round(cal / 3.305785 * 100) / 100;
+	return cal;
+}
+
+this.txatext_changed = function(obj:TextArea, e:nexacro.TextChangedEventInfo)
+{
+	var text = this.txa_sctrSjt.value;
+	if (!this.gfn_isNull(text)) {
+		var lc = text.indexOf("^");
+		if (lc != -1) {
+			alert('^는 사용하실 수 없습니다.');
+			text = nexacro.replaceAll(text, "^", " ");
+			this.txa_sctrSjt.set_value(text);
+		}
+ 	}
+	this.parent.ds_sctrwDtl.setColumn(fv_position, "SCTR_SJT", this.txa_sctrSjt.value); //특약사항
+}]]></Script>
+  </Form>
+</FDL>

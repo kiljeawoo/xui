@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup_balanceCheck" classname="VAN_DS_SC_1542" left="0" top="0" width="456" height="500" titletext="월별 잔액대사 확인" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static04" taborder="1" text="15" visible="false" left="347" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="2" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" top="148" right="17" width="58" height="21"/>
+        <Div id="div_search" taborder="4" left="17" top="174" right="17" height="53" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="기준월" cssclass="sta_WFSA_Label" left="15" top="18" width="127" height="21"/>
+              <Div id="cal_bas_ym" taborder="1" url="common::calendarMonth.xfdl" left="106" top="18" width="100" height="21"/>
+              <Div id="cal_bas_ym2" taborder="2" url="common::calendarMonth.xfdl" left="218" top="18" width="100" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static06" taborder="6" text="월별 잔액대사 내역" cssclass="sta_WF_PopupTitle" left="0" top="0" width="345" height="32"/>
+        <Button id="btn_cancel" taborder="9" text="닫기" onclick="btn_close_onclick" cssclass="btn_WF_Popup" right="200" width="54" height="29" bottom="15"/>
+        <Static id="Static00" taborder="11" text="15" visible="false" left="422" top="194" height="15" style="background:#dc143c5b;" right="17"/>
+        <Grid id="grd_byng" taborder="13" binddataset="ds_bas_svc" useinputpanel="false" nodatatext="조회된 건수가 없습니다." left="17" top="237" right="17" bottom="50" oncellclick="grd_byng_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="90"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="35" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="기준월"/>
+                <Cell col="1" text="확인건수"/>
+                <Cell col="2" style="color:orangered;" text="미확인건수"/>
+                <Cell col="3" text="조 회"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:BAS_YM" mask="####-##"/>
+                <Cell col="1" displaytype="normal" text="bind:Y_CNT" calendardisplaynulltype="none"/>
+                <Cell col="2" displaytype="normal" style="color:orangered;color2:orangered;" text="bind:N_CNT" calendardisplaynulltype="none"/>
+                <Cell col="3" displaytype="expr:N_CNT == '0' ? 'none':'button'" edittype="expr:N_CNT == '0' ? 'none':'button'" text="선택(잔액장 조회)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="div_search00" taborder="14" left="17" top="48" right="17" height="90" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="422" height="127"/>
+          </Layouts>
+        </Div>
+        <Button id="btn_close" taborder="15" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" top="0" right="0" width="37" height="32"/>
+        <Static id="Static01" taborder="16" text="귀 사는 채권채무잔액대사 미확인 거래처 입니다. &#13;&#10;납품대금 지급을 위해 월 잔액장 상세내역을 확인하시고&#13;&#10;반드시 공인인증서 전자서명을 하시기 바랍니다. &#13;&#10;문의 02-2022-4443&#13;&#10;잔액대사 내역(전월)&#13;&#10;[계통계약에 한함]" left="34" top="48" width="388" height="90" wordwrap="char" style="linespace:0;align:center;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_balance">
+        <ColumnInfo>
+          <Column id="Year" type="STRING" size="256"/>
+          <Column id="Month" type="STRING" size="256"/>
+          <Column id="Check_yn" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Year">2014</Col>
+            <Col id="Month">03</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_bas_svc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BAS_YM" type="STRING" size="256"/>
+          <Column id="N_CNT" type="STRING" size="256"/>
+          <Column id="Y_CNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+var TRPL_C = application.gv_glnCode; // 로그인 사업장코드
+var TRPL_NM = application.gv_companyName; //로그인 사업장명
+
+var autoPop = this.parent.autoPop;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) 
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	var toDay = this.gfn_today("yyyyMMdd");
+	var oneMonthAgo = this.gfn_minusMonth(toDay, 1);
+	this.div_search.cal_bas_ym._setValue(oneMonthAgo.substr(0, 6));
+	this.div_search.cal_bas_ym2._setValue(oneMonthAgo.substr(0, 6));
+	
+	this.fn_retrieveBasSvcStatCount();
+	
+}
+
+//조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    this.fn_retrieveBasSvcStatCount();
+}
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveBasSvcStatCount = function()
+{
+	var trplC 			= TRPL_C;
+	var bas_ym 			= this.gfn_nullToEmpty(this.div_search.cal_bas_ym._getValue());
+	var bas_ym2 		= this.gfn_nullToEmpty(this.div_search.cal_bas_ym2._getValue());
+	
+	var params = 	"bas_ym=" 			+ bas_ym 		+ 
+	                " bas_ym2=" 		+ bas_ym2 		+ 
+					" trplC=" 		    + trplC
+					;
+					
+	// alert(params);
+	
+	var sSvcID        = "retrieveBasSvcStatCount";
+	var sURL          = "svc::rest/tx/retrieveBasSvcStatCount";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bas_svc=ds_bas_svc";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callback = function(svcID, nCD, sMSG)
+{
+	if(nCD < 0){
+		this.getMessage('alert',sMSG);
+		return;
+	}else{
+		if(svcID == "p_search"){
+			if(this.ds_cif.rowcount == 0){
+				this.gfn_getMessage('alert','result.message.search.no.exist.data');
+			}else if(this.ds_cif.rowcount == 1){
+				if(autoPop.autoType){
+					this.grd_main00.selectRow(0);
+					this.btn_ok_onclick();
+				}
+			}else{
+				this.grd_main00.selectRow(0);
+				this.ds_cif.setFocus();
+			}
+		}
+	}
+}
+
+//닫기
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.grd_byng_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if (e.cell == 3) {
+		var N_CNT = this.ds_bas_svc.getColumn(e.row, "N_CNT");
+		if (Number(N_CNT) > 0) {		
+			var BAS_YM = this.ds_bas_svc.getColumn(e.row, "BAS_YM");
+			this.close(BAS_YM);
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_6920" classname="pattern_01" left="0" top="0" width="803" height="797" titletext="폐사업자관리" onload="form_onload" name="OMG_DS_SC_6120">
+    <Layouts>
+      <Layout>
+        <Button id="btn_search" taborder="1" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="18" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="4" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="5" text="15" visible="false" left="787" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Div id="div_search" taborder="10" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout width="965" height="43">
+              <Static id="Static04" taborder="17" text="거래처코드" cssclass="sta_WFSA_Label" left="242" top="9" height="21" width="92"/>
+              <Edit id="edt_NA_TRPL_C" taborder="18" left="333" top="9" width="120" height="21"/>
+              <Static id="Static00" taborder="19" text="사업자번호" cssclass="sta_WFSA_Label" left="10" top="9" height="21" width="92"/>
+              <Edit id="edt_BZNO" taborder="20" left="101" top="9" width="120" height="21"/>
+              <Static id="Static01" taborder="21" text="폐업여부" cssclass="sta_WFSA_Label" left="474" top="9" width="92" height="21"/>
+              <Combo id="cbo_CLOSE_YN" taborder="22" value="A" text="전체" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="Div00_Combo00_onitemchanged" left="554" top="9" width="100" height="21" style="align:left middle;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">A</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">정상</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">폐업</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Static id="Static02" taborder="23" text="페이지당 게시물수" cssclass="sta_WFSA_Label" left="11" top="40" width="140" height="21" style="padding:0 20 0 11;"/>
+              <Combo id="cbo_pageNum" taborder="24" value="20" text="20" codecolumn="codecolumn" datacolumn="datacolumn" index="0" onitemchanged="div_search_cbo_displayYn_onitemchanged" left="137" top="39" width="100" height="21" style="align:left middle;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">20</Col>
+                      <Col id="datacolumn">20</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">50</Col>
+                      <Col id="datacolumn">50</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">100</Col>
+                      <Col id="datacolumn">100</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="0" text="Div02" left="0" top="97" right="15" bottom="0">
+          <Layouts>
+            <Layout width="965" height="444">
+              <Button id="btn_flag" taborder="0" onclick="btn_flag_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+              <Grid id="Grid00" taborder="1" binddataset="ds_branch" autoenter="select" useinputpanel="false" autofittype="col" left="0" top="42" right="0%" bottom="59">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="54"/>
+                      <Column size="76"/>
+                      <Column size="106"/>
+                      <Column size="108"/>
+                      <Column size="146"/>
+                      <Column size="79"/>
+                      <Column size="259"/>
+                      <Column size="126"/>
+                      <Column size="77"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none" text="선택"/>
+                      <Cell col="1" text="폐업여부"/>
+                      <Cell col="2" text="사업자번호"/>
+                      <Cell col="3" text="거래처코드"/>
+                      <Cell col="4" text="거래처명"/>
+                      <Cell col="5" text="대표자명"/>
+                      <Cell col="6" text="주소"/>
+                      <Cell col="7" text="최종변경일시"/>
+                      <Cell col="8" text="최종변경자"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:ISCHECKED"/>
+                      <Cell col="1" edittype="combo" text="bind:CLOSE_YN" expr="expr:CLOSE_YN=='1'?'폐업':'정상'" combodataset="ds_closeYn" combocodecol="code" combodatacol="value"/>
+                      <Cell col="2" text="bind:BZNO"/>
+                      <Cell col="3" displaytype="text" edittype="none" style="align:center middle;" text="bind:NA_TRPL_C"/>
+                      <Cell col="4" displaytype="text" edittype="none" style="align:center;" text="bind:CLNTNM"/>
+                      <Cell col="5" edittype="none" style="align:center;" text="bind:REPMNM"/>
+                      <Cell col="6" edittype="none" style="align:left;" text="bind:DONGUP"/>
+                      <Cell col="7" edittype="none" style="align:center;" text="bind:LSCHG_DTM"/>
+                      <Cell col="8" text="bind:LS_CHGM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Div id="div_paging" taborder="2" url="common::pagingBTN.xfdl" left="230" bottom="12" width="43.91%" height="37" style="align:center middle;" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_save" taborder="15" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="0" right="82" width="42" height="21" style="background:URL('theme://images/btn_WF_CRUD.png') stretch 7,7;"/>
+        <Button id="btn_excel" taborder="16" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" right="132" width="41" height="21"/>
+        <Grid id="grd_excel" taborder="8" binddataset="ds_excel" useinputpanel="false" autofittype="col" left="-11" top="865" right="1.37%" height="135" visible="false" style="border:0 none #808080ff,1 solid #d6d6d6ff,1 solid #d6d6d6ff,1 solid #d6d6d6ff;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="76"/>
+                <Column size="106"/>
+                <Column size="108"/>
+                <Column size="146"/>
+                <Column size="79"/>
+                <Column size="259"/>
+                <Column size="126"/>
+                <Column size="77"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="폐업여부"/>
+                <Cell col="1" text="사업자번호"/>
+                <Cell col="2" text="거래처코드"/>
+                <Cell col="3" text="거래처명"/>
+                <Cell col="4" text="대표자명"/>
+                <Cell col="5" text="주소"/>
+                <Cell col="6" text="최종변경일시"/>
+                <Cell col="7" text="최종변경자"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="combo" text="bind:CLOSE_YN" expr="expr:CLOSE_YN=='1'?'폐업':'정상'" combodataset="ds_closeYn" combocodecol="code" combodatacol="value"/>
+                <Cell col="1" text="bind:BZNO"/>
+                <Cell col="2" displaytype="text" edittype="none" style="align:center middle;" text="bind:NA_TRPL_C"/>
+                <Cell col="3" displaytype="text" edittype="none" style="align:center;" text="bind:CLNTNM"/>
+                <Cell col="4" edittype="none" style="align:center;" text="bind:REPMNM"/>
+                <Cell col="5" edittype="none" style="align:left;" text="bind:DONGUP"/>
+                <Cell col="6" edittype="none" style="align:center;" text="bind:LSCHG_DTM"/>
+                <Cell col="7" text="bind:LS_CHGM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_branch" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="32"/>
+          <Column id="BZNO" type="STRING" size="256"/>
+          <Column id="REPMNM" type="DATE" size="256"/>
+          <Column id="ZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="BZCCNM" type="STRING" size="256"/>
+          <Column id="BZTPNM" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="TX_REG" type="STRING" size="256"/>
+          <Column id="CLOSE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_closeYn">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="value">정상</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">폐업</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_excel" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="32"/>
+          <Column id="BZNO" type="STRING" size="256"/>
+          <Column id="REPMNM" type="DATE" size="256"/>
+          <Column id="ZIP" type="STRING" size="256"/>
+          <Column id="DONGUP" type="STRING" size="256"/>
+          <Column id="DONGBW" type="STRING" size="256"/>
+          <Column id="BZCCNM" type="STRING" size="256"/>
+          <Column id="BZTPNM" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="TX_REG" type="STRING" size="256"/>
+          <Column id="CLOSE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pageVO" firenextcount="0">
+        <ColumnInfo>
+          <Column id="CURRENT_PAGE" type="STRING" size="256"/>
+          <Column id="PAGE_SIZE" type="STRING" size="256"/>
+          <Column id="TOTAL_ROW_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CURRENT_PAGE">0</Col>
+            <Col id="PAGE_SIZE">0</Col>
+            <Col id="TOTAL_ROW_COUNT">0</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+/* 페이지 로딩 후 실행부분 */
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+ 
+/* 조회버튼 이벤트 */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+    this.fn_retrieveList(); // 처음조회시 1페이지를 조회한다.
+}
+
+/*  리스트  조회*/
+this.fn_retrieveList = function()
+{	
+	this.fn_paging(1); // 처음조회시 1페이지를 조회한다
+}
+
+/*Paging 처리*/
+this.fn_paging = function(vPageNum)
+{
+
+	// alert(this.gfn_nullToEmpty(this.div_search.edt_BZNO.value) );
+    
+    this.ds_branch.clearData(); //Grid에 Binding된 Dataset명
+    this.ds_pageVO.clearData();
+	this.ds_pageVO.addRow();
+	
+	var vPageSize = this.div_search.cbo_pageNum.value;
+	var vTotalCount = 0;	//전체건수. 화면조회후 리턴받아 사용 (구동시 갱신)
+
+	this.ds_pageVO.setColumn(0, "CURRENT_PAGE", vPageNum); //현재 페이지
+	this.ds_pageVO.setColumn(0, "PAGE_SIZE", vPageSize);
+	this.ds_pageVO.setColumn(0, "TOTAL_ROW_COUNT", vTotalCount);
+ 
+	var bzno  = this.gfn_nullToEmpty(this.div_search.edt_BZNO.value);
+	var trplC = this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value);
+	var closeYn = this.gfn_nullToEmpty(this.div_search.cbo_CLOSE_YN.value);
+
+	var param = "bzno=" + bzno
+	        + " trplC=" + trplC
+	        + " closeYn=" + closeYn
+			;
+			
+	var sSvcID        = "retrieveBranchList";//통신아이디
+	var sURL          = "svc::rest/mg/membership/retrieveBranchList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "ds_pageVO=ds_pageVO";//보내는데이터셋
+	var sOutDatasets  = "ds_pageVO=ds_pageVO ds_branch=ds_branch";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+
+}
+
+/*
+ * 저장
+ */
+ this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+    // alert('btn_save_onclick');
+    
+    var checkCnt =0 ;	//선택된 체크박스 개수
+	var position =0 ;	//선택된 체크박스 위치
+	for(var i = 0 ; i < this.ds_branch.rowcount; i++){		
+		if(this.ds_branch.getColumn(i, "ISCHECKED") =="1"){
+			checkCnt = checkCnt +1;			
+			position = i;
+		}
+	}
+    
+	var dsParams = "";
+	var params = "";
+
+	//trace("[ Params ] >>>>>> " + params);	
+	dsParams = "ds_branch=ds_branch ";
+	
+	if(checkCnt == 0){
+		alert("저장해야할 데이터를 선택해 주시기 바랍니다.");
+		return;
+	} else {
+
+		var sSvcID        = "saveBranchList";//통신아이디
+		var sURL          = "svc::rest/mg/membership/saveBranchList";// 호출할 서버 페이지 주소
+		var sInDatasets   = dsParams;//보내는데이터셋
+		var sOutDatasets  = "";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+		var sTranType     = "S"; // U:저장/삭제, S:조회
+		
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	
+	}
+}
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/* 조회-서비스 Call */
+
+/* 콜백메소드 */
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+
+    // alert(svcID);
+    
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}else{
+		if(svcID == "retrieveBranchList"){
+		
+			var current_page = this.ds_pageVO.getColumn(0, "CURRENT_PAGE");
+			var page_size = this.ds_pageVO.getColumn(0, "PAGE_SIZE");
+			var sTotal = this.ds_pageVO.getColumn(0, "TOTAL_ROW_COUNT");
+		
+			if(this.ds_branch.rowcount == 0){
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+				this.div_list.div_paging.fn_pageSet(0, 0, "Grid00,div_paging", current_page);
+			} else if (this.ds_branch.rowcount > 0) {
+				this.div_list.div_paging.fn_pageSet(sTotal, page_size, "Grid00,div_paging", current_page);
+			}
+			
+		} else if(svcID == "saveBranchList"){
+		    alert("저장되었습니다.");
+			this.fn_retrieveList();
+		}
+
+	}
+
+  //trace("ds_rsclist" + this.ds_rsclist.saveXML());
+}
+
+
+this.btn_excel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	
+	var bzno  = this.gfn_nullToEmpty(this.div_search.edt_BZNO.value);
+	var trplC = this.gfn_nullToEmpty(this.div_search.edt_NA_TRPL_C.value);
+	var closeYn = this.gfn_nullToEmpty(this.div_search.cbo_CLOSE_YN.value);
+	
+	var toDay = this.gfn_today("yyyyMMdd");
+    var fileName = "폐사업장관리_"+toDay+".xlsx";//엑셀 파일 이름
+	
+	var param = "&bzno="+bzno+
+			"&trplC="+trplC+
+			"&closeYn="+closeYn+
+			"&fileName="+fileName;
+
+    param = encodeURI(encodeURI(param));
+    
+    if(this.ds_branch.rowcount == 0){
+		this.gfn_getMessage("alert", "result.message.search.no.exist.data");	
+	} else if(this.ds_branch.rowcount > 0){
+		excelDownHandler(application.gv_serverAdmin_url+"rest/mg/membership/ExcelRetrieveBranchList?"+param, this);
+    }
+    
+	
+	
+}
+
+this.btn_flag_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+]]></Script>
+  </Form>
+</FDL>

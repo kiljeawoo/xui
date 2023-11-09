@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="POPUP_RGN" classname="popup01" left="0" top="0" width="563" height="189" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="지역코드 조회">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="4" left="17" top="61" right="17" height="43" cssclass="div_WFSA_Searchbg" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Combo id="cbo_wmc_loc_rgn_dsc" taborder="0" innerdataset="@ds_rgn_c00" codecolumn="SIMP_C" datacolumn="SIMP_CNM" onitemchanged="div_search_cbo_wmc_loc_rgn_dsc_onitemchanged" left="26" top="11" width="100" height="21"/>
+              <Combo id="cbo_ht_lov_rgn_c" taborder="1" innerdataset="@ds_rgn_c01" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="129" top="11" width="150" height="21" onitemchanged="div_search_cbo_ht_lov_rgn_c_onitemchanged"/>
+              <Edit id="searchText" taborder="2" enable="false" left="285" top="11" width="200" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" left="217" top="138" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" left="273" top="138" width="54" height="29" onclick="btn_cancel_onclick"/>
+        <Button id="btn_close" taborder="15" top="0" width="29" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick" right="0"/>
+        <Static id="Static06" taborder="16" text="지역코드 조회" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+        <Edit id="edt_result1" taborder="17" left="335" top="110" width="104" height="23" visible="false"/>
+        <Edit id="edt_result2" taborder="18" visible="false" left="441" top="110" width="104" height="23"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_searchType" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="s_code" type="string" size="13"/>
+          <Column id="s_name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="s_code">name</Col>
+            <Col id="s_name">바이어명</Col>
+          </Row>
+          <Row>
+            <Col id="s_code">code</Col>
+            <Col id="s_name">바이어코드</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rgn_c00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_rgn_c01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.getRgnCode();
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var result = "";
+	result += this.edt_result1.value;
+	result += "@#" + this.edt_result2.value;
+	this.close(result);
+}
+
+//지역코드
+this.getRgnCode = function(){
+	var sSvcID        = "retrieveRgnCM";//통신아이디
+	var sURL          = "svc::/rest/common/getRgnCode";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_rgn_c00=ds_rgn_c00";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = "";// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+
+//상세지역코드
+this.div_search_cbo_wmc_loc_rgn_dsc_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	var wmc_loc_rgn_dsc = this.div_search.cbo_wmc_loc_rgn_dsc.value;
+	
+	var params = " simpC="+wmc_loc_rgn_dsc;
+	
+	var sSvcID        = "retrieveRgnC";//통신아이디
+	var sURL          = "svc::/rest/common/getRgnCodeD";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_rgn_c01=ds_rgn_c01";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+	this.div_search.cbo_ht_lov_rgn_c.set_enable(true);
+	
+	this.chg_preview();
+}
+
+this.div_search_cbo_ht_lov_rgn_c_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.chg_preview();
+}
+
+this.chg_preview = function(){
+	var rgn;
+	var rgnc;
+
+	if (this.div_search.cbo_wmc_loc_rgn_dsc.value == "") {
+		rgn = "";
+		rgnc = "";
+	} else {
+		rgn = this.div_search.cbo_wmc_loc_rgn_dsc.text;
+		rgnc = this.div_search.cbo_wmc_loc_rgn_dsc.value;
+	}
+
+	if (this.div_search.cbo_ht_lov_rgn_c.value != "" && this.div_search.cbo_ht_lov_rgn_c.text != "") {
+		rgn += "/" + this.div_search.cbo_ht_lov_rgn_c.text;
+		rgnc = this.div_search.cbo_ht_lov_rgn_c.value;
+	}
+	if (rgn != "") {
+		this.edt_result1.set_value(rgnc);
+		this.edt_result2.set_value(rgn);
+		rgn +="("+rgnc+")";
+	}
+	this.div_search.searchText.set_value(rgn);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	} else {
+		if (svcID == "retrieveRgnCM") {
+			if (this.ds_rgn_c00.insertRow(0) != -1){
+				this.ds_rgn_c00.setColumn(0,"SIMP_C","");
+				this.ds_rgn_c00.setColumn(0,"SIMP_CNM","- 전체 -");
+			};
+			this.div_search.cbo_wmc_loc_rgn_dsc.set_index(0);
+		} else if (svcID == "retrieveRgnC") {
+			if (this.ds_rgn_c01.insertRow(0) != -1){
+				this.ds_rgn_c01.setColumn(0,"SIMP_C","");
+				this.ds_rgn_c01.setColumn(0,"SIMP_CNM","- 전체 -");
+			};
+			this.div_search.cbo_ht_lov_rgn_c.set_index(0);
+		}
+	}
+}]]></Script>
+  </Form>
+</FDL>

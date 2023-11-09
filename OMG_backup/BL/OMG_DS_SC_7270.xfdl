@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_7270" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="청구입금 보고서" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_execl" taborder="11" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="75" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <WebBrowser id="web_downExcel" left="80.07%" top="21" right="14.45%" height="14" taborder="104" visible="false"/>
+        <Div id="Div02" taborder="105" text="Div02" left="0" top="31" right="15" bottom="39">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid01" taborder="0" binddataset="ds_rqsDepInq" autoenter="none" useinputpanel="false" cellsizingtype="col" autofittype="none" summarytype="top" treeusecheckbox="false" treeuseimage="false" treeuseexpandkey="true" oncellclick="Grid01_oncellclick" onheadclick="Div02_Grid01_onheadclick" left="0" top="82" right="0" bottom="-33">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No"/>
+                      <Cell col="1" text="업체코드"/>
+                      <Cell col="2" text="업체명"/>
+                      <Cell col="3" displaytype="normal" expr="dataset.getColumn(0,&quot;RMS_MM1&quot;)"/>
+                      <Cell col="4" displaytype="normal" expr="dataset.getColumn(0,&quot;RMS_MM2&quot;)"/>
+                      <Cell col="5" displaytype="normal" expr="dataset.getColumn(0,&quot;RMS_MM3&quot;)"/>
+                      <Cell col="6" displaytype="normal" expr="dataset.getColumn(0,&quot;RMS_MM4&quot;)"/>
+                      <Cell col="7" displaytype="normal" expr="dataset.getColumn(0,&quot;RMS_MM5&quot;)"/>
+                      <Cell col="8" displaytype="normal" expr="dataset.getColumn(0,&quot;RMS_MM6&quot;)"/>
+                      <Cell col="9" text="청구합계" tooltiptext="청구합계"/>
+                      <Cell col="10" displaytype="normal" text="가상계좌" tooltiptext="가상계좌"/>
+                      <Cell col="11" displaytype="normal" text="자동이체" tooltiptext="자동이체"/>
+                      <Cell col="12" displaytype="normal" text="무통장" tooltiptext="무통장"/>
+                      <Cell col="13" text="입금합계" tooltiptext="입금합계"/>
+                      <Cell col="14" displaytype="normal" expr="dataset.getColumn(0,&quot;DEP_MM1&quot;)"/>
+                      <Cell col="15" displaytype="normal" expr="dataset.getColumn(0,&quot;DEP_MM2&quot;)"/>
+                      <Cell col="16" displaytype="normal" expr="dataset.getColumn(0,&quot;DEP_MM3&quot;)"/>
+                      <Cell col="17" displaytype="normal" expr="dataset.getColumn(0,&quot;DEP_MM4&quot;)"/>
+                      <Cell col="18" displaytype="normal" expr="dataset.getColumn(0,&quot;DEP_MM5&quot;)"/>
+                      <Cell col="19" displaytype="normal" expr="dataset.getColumn(0,&quot;DEP_MM6&quot;)"/>
+                      <Cell col="20" displaytype="normal" text="입금반영합계"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="number" style="align: ;" expr="currow+1"/>
+                      <Cell col="1" displaytype="text" edittype="none" text="bind:NA_TRPL_C" tooltiptext="bind:NA_TRPL_C"/>
+                      <Cell col="2" displaytype="text" edittype="none" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="3" displaytype="number" text="bind:RMS_VALUE1" tooltiptext="bind:RMS_VALUE1"/>
+                      <Cell col="4" displaytype="number" text="bind:RMS_VALUE2" tooltiptext="bind:RMS_VALUE2"/>
+                      <Cell col="5" displaytype="number" text="bind:RMS_VALUE3" tooltiptext="bind:RMS_VALUE3"/>
+                      <Cell col="6" displaytype="number" text="bind:RMS_VALUE4" tooltiptext="bind:RMS_VALUE4"/>
+                      <Cell col="7" displaytype="number" text="bind:RMS_VALUE5" tooltiptext="bind:RMS_VALUE5"/>
+                      <Cell col="8" displaytype="number" text="bind:RMS_VALUE6" tooltiptext="bind:RMS_VALUE6"/>
+                      <Cell col="9" displaytype="number" text="bind:RMS_SUM" tooltiptext="bind:RMS_SUM"/>
+                      <Cell col="10" displaytype="number" text="bind:VIRTUAL" tooltiptext="bind:VIRTUAL"/>
+                      <Cell col="11" displaytype="number" text="bind:CMS" tooltiptext="bind:CMS"/>
+                      <Cell col="12" displaytype="number" text="bind:NO_BANKBOOK" tooltiptext="bind:NO_BANKBOOK"/>
+                      <Cell col="13" displaytype="number" text="bind:DEPOSIT_SUM" tooltiptext="bind:DEPOSIT_SUM"/>
+                      <Cell col="14" displaytype="number" text="bind:DEP_VALUE1" tooltiptext="bind:DEP_VALUE1"/>
+                      <Cell col="15" displaytype="number" text="bind:DEP_VALUE2" tooltiptext="bind:DEP_VALUE2"/>
+                      <Cell col="16" displaytype="number" text="bind:DEP_VALUE3" tooltiptext="bind:DEP_VALUE3"/>
+                      <Cell col="17" displaytype="number" text="bind:DEP_VALUE4" tooltiptext="bind:DEP_VALUE4"/>
+                      <Cell col="18" displaytype="number" text="bind:DEP_VALUE5" tooltiptext="bind:DEP_VALUE5"/>
+                      <Cell col="19" displaytype="number" text="bind:DEP_VALUE6" tooltiptext="bind:DEP_VALUE6"/>
+                      <Cell col="20" displaytype="number" expr="bind:DEP_SUM" tooltiptext="bind:DEP_SUM"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell colspan="2" style="align:center middle;" text="합계"/>
+                      <Cell col="2" expr="dataset.getCountNF()"/>
+                      <Cell col="3" displaytype="number" expr="dataset.getSum(&quot;RMS_VALUE1&quot;)" tooltiptext="expr:dataset.getSum(&quot;RMS_VALUE1&quot;)"/>
+                      <Cell col="4" displaytype="number" expr="dataset.getSum(&quot;RMS_VALUE2&quot;)" tooltiptext="expr:dataset.getSum(&quot;RMS_VALUE2&quot;)"/>
+                      <Cell col="5" displaytype="number" expr="dataset.getSum(&quot;RMS_VALUE3&quot;)" tooltiptext="expr:dataset.getSum(&quot;RMS_VALUE3&quot;)"/>
+                      <Cell col="6" displaytype="number" expr="dataset.getSum(&quot;RMS_VALUE4&quot;)" tooltiptext="expr:dataset.getSum(&quot;RMS_VALUE4&quot;)"/>
+                      <Cell col="7" displaytype="number" expr="dataset.getSum(&quot;RMS_VALUE5&quot;)" tooltiptext="expr:dataset.getSum(&quot;RMS_VALUE5&quot;)"/>
+                      <Cell col="8" displaytype="number" expr="dataset.getSum(&quot;RMS_VALUE6&quot;)" tooltiptext="expr:dataset.getSum(&quot;RMS_VALUE6&quot;)"/>
+                      <Cell col="9" displaytype="number" expr="dataset.getSum(&quot;RMS_SUM&quot;)" tooltiptext="expr:dataset.getSum(&quot;RMS_SUM&quot;)"/>
+                      <Cell col="10" displaytype="number" expr="dataset.getSum(&quot;VIRTUAL&quot;)" tooltiptext="expr:dataset.getSum(&quot;VIRTUAL&quot;)"/>
+                      <Cell col="11" displaytype="number" expr="dataset.getSum(&quot;CMS&quot;)" tooltiptext="expr:dataset.getSum(&quot;CMS&quot;)"/>
+                      <Cell col="12" displaytype="number" expr="dataset.getSum(&quot;NO_BANKBOOK&quot;)" tooltiptext="expr:dataset.getSum(&quot;NO_BANKBOOK&quot;)"/>
+                      <Cell col="13" displaytype="number" expr="dataset.getSum(&quot;DEPOSIT_SUM&quot;)" tooltiptext="expr:dataset.getSum(&quot;DEPOSIT_SUM&quot;)"/>
+                      <Cell col="14" displaytype="number" expr="dataset.getSum(&quot;DEP_VALUE1&quot;)" tooltiptext="expr:dataset.getSum(&quot;DEP_VALUE1&quot;)"/>
+                      <Cell col="15" displaytype="number" expr="expr:dataset.getSum(&quot;DEP_VALUE2&quot;)" tooltiptext="expr:expr:dataset.getSum(&quot;DEP_VALUE2&quot;)"/>
+                      <Cell col="16" displaytype="number" expr="expr:dataset.getSum(&quot;DEP_VALUE3&quot;)" tooltiptext="expr:expr:dataset.getSum(&quot;DEP_VALUE3&quot;)"/>
+                      <Cell col="17" displaytype="number" expr="dataset.getSum(&quot;DEP_VALUE4&quot;)" tooltiptext="expr:dataset.getSum(&quot;DEP_VALUE4&quot;)"/>
+                      <Cell col="18" displaytype="number" expr="dataset.getSum(&quot;DEP_VALUE5&quot;)" tooltiptext="expr:dataset.getSum(&quot;DEP_VALUE5&quot;)"/>
+                      <Cell col="19" displaytype="number" expr="dataset.getSum(&quot;DEP_VALUE6&quot;)" tooltiptext="expr:dataset.getSum(&quot;DEP_VALUE6&quot;)"/>
+                      <Cell col="20" displaytype="number" expr="dataset.getSum(&quot;DEP_SUM&quot;)" tooltiptext="expr:dataset.getSum(&quot;DEP_SUM&quot;)"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_rqsDepInq" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="RMS_MM1" type="STRING" size="6"/>
+          <Column id="RMS_MM2" type="STRING" size="6"/>
+          <Column id="RMS_MM3" type="STRING" size="6"/>
+          <Column id="RMS_MM4" type="STRING" size="6"/>
+          <Column id="RMS_MM5" type="STRING" size="6"/>
+          <Column id="RMS_MM6" type="STRING" size="6"/>
+          <Column id="RMS_VALUE1" type="INT"/>
+          <Column id="RMS_VALUE2" type="INT"/>
+          <Column id="RMS_VALUE3" type="INT"/>
+          <Column id="RMS_VALUE4" type="INT"/>
+          <Column id="RMS_VALUE5" type="INT"/>
+          <Column id="RMS_VALUE6" type="INT"/>
+          <Column id="RMS_SUM" type="INT"/>
+          <Column id="DEP_MM1" type="STRING" size="6"/>
+          <Column id="DEP_MM2" type="STRING" size="6"/>
+          <Column id="DEP_MM3" type="STRING" size="6"/>
+          <Column id="DEP_MM4" type="STRING" size="6"/>
+          <Column id="DEP_MM5" type="STRING" size="6"/>
+          <Column id="DEP_MM6" type="STRING" size="6"/>
+          <Column id="DEP_VALUE1" type="INT"/>
+          <Column id="DEP_VALUE2" type="INT"/>
+          <Column id="DEP_VALUE3" type="INT"/>
+          <Column id="DEP_VALUE4" type="INT"/>
+          <Column id="DEP_VALUE5" type="INT"/>
+          <Column id="DEP_VALUE6" type="INT"/>
+          <Column id="DEP_SUM" type="INT"/>
+          <Column id="VIRTUAL" type="INT"/>
+          <Column id="CMS" type="INT"/>
+          <Column id="NO_BANKBOOK" type="INT"/>
+          <Column id="DEPOSIT_SUM" type="INT"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+// Form Onload: DataSet 로딩 후 실행
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+// gfn_setInitForm 처리 후 호출(CallBack)할 함수
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+//	this.btn_search_onclick();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	trace("svcID:" + svcID + " ErrorCode:" + ErrorCode);
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	else
+	{
+		if(svcID == "retrieveRqsDepInqList")
+		{
+			trace("this.ds_rqsDepInq:" + this.ds_rqsDepInq.saveXML());
+			if(this.ds_rqsDepInq.rowcount == 0)
+			{
+				this.Div02.Grid01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+// 청구입금 보고서 조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams			= "";
+	this.fn_search(sParams);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+this.fn_search = function(sParams)
+{
+	var sSvcID			= "retrieveRqsDepInqList";
+	var sURL			= "svc::rest/bl/retrieveRqsDepInqList";
+	var sInDatasets		= "";
+	var sOutDatasets	= "ds_rqsDepInq=ds_rqsDepInq";
+	var sArgument		= sParams;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S"; // U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sParams			= "";
+	this.fn_excel(sParams);
+}
+
+this.fn_excel = function(sParams)
+{
+//	trace("엑셀 다운로드 params >>> " + sParams);
+	this.web_downExcel.set_url(application.gv_serverAdmin_url + "rest/excel/bl/downloadExcelRqsDepInqList?" + sParams);
+}
+]]></Script>
+  </Form>
+</FDL>

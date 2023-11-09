@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_VAN_DS_SC_1430" classname="VAN_DS_SC_0160" left="0" top="0" width="803" height="490" titletext="메뉴권한관리" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title00" taborder="7" text="사용자 조회구분" cssclass="sta_WFSA_Label" left="15" top="10" width="128" height="21"/>
+              <Radio id="rdo_select00" taborder="8" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="143" top="10" width="140" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">회원ID</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">사용자명</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="edt_title00" taborder="9" left="300" top="10" width="151" height="21" lengthunit="ascii" maxlength="50"/>
+              <Static id="Static12" taborder="10" text="10" visible="false" left="42.11%" top="31" right="44.78%" height="10" style="background:#dc143c5b;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_menu" taborder="1" url="common::location.xfdl" text="Div01" left="0" top="0" right="596" height="21"/>
+        <Button id="btn_save00" taborder="4" text="저장" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_save00_onclick"/>
+        <Button id="btn_search00" taborder="5" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search00_onclick"/>
+        <Div id="div_list" taborder="6" text="Div02" left="0" top="71" right="15" bottom="0" scrollbars="none" enableevent="true">
+          <Layouts>
+            <Layout width="788" height="421">
+              <Grid id="grd_main00" taborder="10" binddataset="ds_userList" useinputpanel="false" left="0" top="42" right="0" bottom="0" scrollbars="autoboth" autofittype="none" readonly="true">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="120"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="2" text="순번"/>
+                      <Cell col="1" rowspan="2" text="회원ID"/>
+                      <Cell col="2" rowspan="2" text="사용자명"/>
+                      <Cell col="3" rowspan="2" text="빌링권한여부"/>
+                      <Cell col="4" rowspan="2" text="협력업체 코드"/>
+                      <Cell col="5" rowspan="2" text="협력업체명"/>
+                      <Cell col="6" colspan="4" text="SCM"/>
+                      <Cell col="10" text="부가정보"/>
+                      <Cell col="11" rowspan="2" text="판매상세정보"/>
+                      <Cell row="1" col="6" text="수주업무"/>
+                      <Cell row="1" col="7" text="배송업무"/>
+                      <Cell row="1" col="8" text="검수업무"/>
+                      <Cell row="1" col="9" text="출고정보"/>
+                      <Cell row="1" col="10" text="판매정보"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell expr="expr:currow+1"/>
+                      <Cell col="1" text="bind:MB_ID"/>
+                      <Cell col="2" text="bind:USR_NM"/>
+                      <Cell col="3" expr="expr:(BL_AUTH_YN == 'Y') ? '여' : '부'"/>
+                      <Cell col="4" text="bind:NA_TRPL_C"/>
+                      <Cell col="5" style="align:left;" text="bind:CLNTNM"/>
+                      <Cell col="6" displaytype="checkbox" edittype="checkbox" text="bind:SCM_ORDER_F"/>
+                      <Cell col="7" displaytype="checkbox" edittype="checkbox" text="bind:SCM_DELIVERY_F"/>
+                      <Cell col="8" displaytype="checkbox" edittype="checkbox" text="bind:SCM_RECADV_F"/>
+                      <Cell col="9" displaytype="checkbox" edittype="checkbox" text="bind:PDS_OUTER_F"/>
+                      <Cell col="10" displaytype="checkbox" edittype="checkbox" text="bind:PDS_SALES_F"/>
+                      <Cell col="11" displaytype="checkbox" edittype="checkbox" text="bind:ANL_MARKET_F"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_toggle00" taborder="11" cssclass="btn_WFSA_SearchClose" top="0" height="12" left="46.07%" onclick="div_list_btn_toggle00_onclick" width="62"/>
+              <Static id="Static138" taborder="12" text="* 빌링권한이 있는 사용자만 수정할 수 있습니다. 체크를 해제하면 해당 메뉴를 사용할 수 없습니다." cssclass="sta_WF_DescriptionE02" left="0" top="16" width="762" height="21" style="padding:2 0 0 3;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_auth" taborder="10" top="0" right="227" height="21" width="431" url="common::AuthorityWorkplace.xfdl">
+          <Layouts/>
+        </Div>
+        <Button id="btn_clear00" taborder="11" text="초기화" onclick="btn_clear00_onclick" cssclass="btn_WF_CRUD" top="0" right="118" height="21" width="53"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_userList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="USR_NM" type="STRING" size="256"/>
+          <Column id="BL_AUTH_YN" type="STRING" size="1"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="SCM_ORDER_F" type="STRING" size="1"/>
+          <Column id="SCM_DELIVERY_F" type="STRING" size="1"/>
+          <Column id="SCM_RECADV_F" type="STRING" size="1"/>
+          <Column id="PDS_OUTER_F" type="STRING" size="1"/>
+          <Column id="PDS_SALES_F" type="STRING" size="1"/>
+          <Column id="ANL_MARKET_F" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); // 공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	this.div_list.grd_main00.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	
+	if (application.gv_userAuth.indexOf("1") >= 0) { // 빌링권한이 있는 경우
+		this.div_list.grd_main00.set_readonly(false);
+	}
+}
+
+// 초기화
+this.btn_clear00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.reload();
+}
+
+// 저장
+this.btn_save00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var existUpdateData = false;
+	for (var i = 0; i < this.ds_userList.rowcount; i++) {
+		if (this.ds_userList.getRowType(i) == Dataset.ROWTYPE_UPDATE) {
+			existUpdateData = true;
+			break;
+		}
+	}
+	
+	if (application.gv_userAuth.indexOf("1") < 0) { // 빌링권한이 없는 경우
+		alert("빌링권한이 있는 사용자만 저장할 수 있습니다.");
+		return;
+	}
+	if (this.ds_userList.rowcount == 0) {
+		alert("저장할 데이터가 없습니다.");
+		return;
+	}
+	if (!existUpdateData) {
+		alert("변경된 데이터가 없습니다.");
+		return;
+	}
+	if (!confirm(this.gfn_getTextMessage("msg.isSave"))) {
+		return;
+	}
+	
+	var sSvcID        = "saveUsrMenuAuthList";
+	var sURL          = "svc::rest/pds/company/saveUsrMenuAuthList";
+	var sInDatasets   = "ds_userList=ds_userList:U"; // 변경된 내용만 보낸다.
+	var sOutDatasets  = "";
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callback";
+	var tranType      = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+// 조회
+this.btn_search00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var params = "TRPL_C=" + this.getTrplCode() 									// 권한사업장 코드
+			+ " RDO_CHK=" + this.div_search.rdo_select00.value						// 사용자 조회구분 (1: 회원ID, 2: 사용자명)
+			+ " EDT_NM=" + this.gfn_nullToEmpty(this.div_search.edt_title00.value);	// 사용자 조회값
+	
+	var sSvcID        = "retrieveUsrMenuAuthList";
+	var sURL          = "svc::rest/pds/company/retrieveUsrMenuAuthList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_userList=ds_userList";
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callback";
+	var tranType      = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+// 검색 영역 open/close
+this.div_list_btn_toggle00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+// 콜백
+this.fn_callback = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	}
+	
+	if (svcID == "saveUsrMenuAuthList") {
+		this.gfn_getMessage("alert", "msg.comp.save");
+	} else if (svcID == "retrieveUsrMenuAuthList") {
+		if (this.ds_userList.rowcount == 0) {
+			this.gfn_getMessage("alert", "result.message.search.no.exist.data");
+			return;
+		}
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

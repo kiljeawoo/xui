@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_8111" classname="popup01" left="0" top="0" width="767" height="400" titletext="교육신청 등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static38" taborder="18" cssclass="sta_WF_Labelbg" left="126" top="100" right="17" height="29"/>
+        <Static id="Static40" taborder="19" cssclass="sta_WF_Labelbg" left="126" top="128" right="17" height="195"/>
+        <Static id="Static08" taborder="14" cssclass="sta_WF_Labelbg" left="126" top="44" right="17" height="29"/>
+        <Static id="upper_level1" taborder="15" cssclass="sta_WF_Labelbg" left="126" top="72" right="17" height="29"/>
+        <Button id="btn_close" taborder="10" text="닫기" cssclass="btn_WF_CRUD" top="15" right="13" width="41" height="21" onclick="fn_close_onclick"/>
+        <Static id="text_title" taborder="11" cssclass="sta_WF_Subtitle" left="17" top="19" width="135" height="21" text="교육신청등록/수정"/>
+        <Static id="Static07" taborder="13" text="년/월" cssclass="sta_WF_Label" left="17" top="72" height="29" width="110" onclick="Static07_onclick"/>
+        <Static id="Static12" taborder="16" text="시간" cssclass="sta_WF_Label" left="17" top="100" width="110" height="29"/>
+        <Static id="Static24" taborder="17" text="내용" cssclass="sta_WF_Label" left="17" top="128" width="110" height="195"/>
+        <Static id="Static00" taborder="70" text="17" visible="false" left="750" top="44" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="71" text="15" visible="false" left="673" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static09" taborder="72" text="17" visible="false" left="0" top="67" width="17" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="73" text="8" visible="false" left="674" top="36" width="91" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="95" text="저장" cssclass="btn_WF_CRUD" top="15" right="57" width="43" height="21" onclick="fn_save_onclick"/>
+        <Edit id="ed_title" taborder="106" left="130" top="48" height="21" width="186" visible="true" oneditclick="edt_simpTpc_oneditclick"/>
+        <Static id="Static04" taborder="127" text="제목" cssclass="sta_WF_Label" left="17" top="44" height="29" width="110"/>
+        <Edit id="ed_time" taborder="129" left="130" top="104" height="21" width="186"/>
+        <TextArea id="ed_content" taborder="130" left="130" top="133" height="185" width="610"/>
+        <Static id="Static02" taborder="138" text="사용여부" cssclass="sta_WF_Label" left="17" top="322" height="29" width="110"/>
+        <Static id="Static10" taborder="139" cssclass="sta_WF_Labelbg" left="126" top="322" right="17" height="29"/>
+        <Radio id="use_yn" taborder="140" index="0" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" onitemclick="Radio00_onitemclick" left="130" top="326" height="21" width="158" value="Y">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">사용</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">사용안함</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Calendar id="ed_date" taborder="141" left="16.95%" top="76" right="68.71%" height="22" dateformat="yyyy-MM-dd" value="null"/>
+        <Static id="Static01" taborder="142" text="첨부파일" cssclass="sta_WF_Label" left="17" top="350" width="110" height="29"/>
+        <Static id="Static11" taborder="143" cssclass="sta_WF_Labelbg" left="126" top="350" right="17" height="29"/>
+        <FileUpload id="FileUpload" taborder="144" retry="0" index="0" scrollbars="none" onsuccess="popup_FileUpload_onsuccess" onerror="popup_FileUpload_onerror" onfindclick="div_pop_FileUpload_onfindclick" onitemchanged="popup_FileUpload_onitemchanged" left="130" top="354" right="565" height="24" multiselect="false"/>
+        <Edit id="ed_file" taborder="145" left="206" top="354" width="533" height="21"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_edu" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SEQ" type="STRING" size="32"/>
+          <Column id="TITLE" type="STRING" size="32"/>
+          <Column id="CONTENT" type="STRING" size="30"/>
+          <Column id="EDU_DATE" type="STRING" size="20"/>
+          <Column id="EDU_TIME" type="STRING" size="150"/>
+          <Column id="FILENAME" type="STRING" size="16"/>
+          <Column id="FILEPATH" type="STRING" size="30"/>
+          <Column id="FLIESIZE" type="STRING" size="16"/>
+          <Column id="FSYSNAME" type="STRING" size="1"/>
+          <Column id="USE_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_file" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_uploadresult_onload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILENAME" type="STRING" size="32"/>
+          <Column id="FILETYPE" type="STRING" size="32"/>
+          <Column id="FILESIZE" type="bigdecimal" size="8"/>
+          <Column id="ORGFNAME" type="STRING" size="32"/>
+          <Column id="SYSTEMFILENAME" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <InitValue/>
+    <Bind>
+      <BindItem id="item0" compid="ed_title" propid="value" datasetid="ds_edu" columnid="TITLE"/>
+      <BindItem id="item1" compid="ed_date" propid="value" datasetid="ds_edu" columnid="EDU_DATE"/>
+      <BindItem id="item2" compid="ed_time" propid="value" datasetid="ds_edu" columnid="EDU_TIME"/>
+      <BindItem id="item3" compid="ed_content" propid="value" datasetid="ds_edu" columnid="CONTENT"/>
+      <BindItem id="item4" compid="use_yn" propid="value" datasetid="ds_edu" columnid="USE_YN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo) //공통
+{
+   this.gfn_setInitForm(obj, e);
+}
+
+this.fn_afterFormOnload = function() //페이지 로딩후 실행부분
+{
+	this.ds_edu.addRow();
+	
+	var seq = this.getOwnerFrame().seq;
+	
+	if (this.gfn_isNull(seq)) {
+		this.ed_date.set_value(this.gfn_today("yyyyMMdd"));
+		this.use_yn.set_value("Y");
+	} else {
+		this.fn_search(seq);
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.fn_search = function (seq)
+{
+	var sSvcID        = "searchEdu";
+	var sURL          = "svc::rest/mg/edu/searchEdu";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_edu=ds_edu";
+	var sArgument     = "seq=" + seq;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+/* 저장 버튼 이벤트 */
+this.fn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if (!application.confirm("저장하시겠습니까?")) {
+		return;
+	}
+	
+	if (this.fn_validationCheck()) {
+		this.ds_edu.setColumn(0, "TITLE", this.gfn_nullToEmpty(this.ed_title.value));
+		this.ds_edu.setColumn(0, "CONTENT", this.gfn_nullToEmpty(this.ed_content.value));
+		this.ds_edu.setColumn(0, "EDU_DATE", this.gfn_nullToEmpty(this.ed_date.value));
+		this.ds_edu.setColumn(0, "EDU_TIME", this.gfn_nullToEmpty(this.ed_time.value));
+		
+		var sSvcID        = "insertEdu";
+		var sURL          = "svc::rest/mg/edu/insertEdu";
+		var sInDatasets   = "ds_edu=ds_edu";
+		var sOutDatasets  = "";
+		var sArgument     = "";
+		var sCallbackFunc = "fn_callBack";
+		var sTranType     = "U"; // U:저장/삭제, S:조회
+		
+		this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	}
+}
+
+/* 창닫기 버튼 이벤트 */
+this.fn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+/* 등록 및 수정시 사용되는 Validation Check */
+this.fn_validationCheck = function(){
+    
+	if (this.ed_title.value == '') {
+		alert('제목을 입력하세요.');
+		return;
+	}
+	
+	if (this.ed_time.value == '') {
+		alert('시간을 입력하세요.');
+		return;
+	}
+	
+	if (this.ed_content.value == '') {
+		alert('내용을 입력하세요');
+		return;
+	}
+	
+    return true;
+}
+
+//callback메소드
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "insertEdu") {
+			if (ErrorCode == 0) {
+				this.gfn_getMessage("alert", "result.message.save.success");
+				this.close();
+			}
+		} else if (svcID == "searchEdu") {
+			this.ed_file.set_value(this.ds_edu.getColumn(0, "FILEPATH"));
+			
+			trace("search success!!");
+		}
+	}
+}
+
+this.div_pop_FileUpload_onfindclick = function(obj:FileUpload,  e:nexacro.FileUploadItemEventInfo)
+{
+	if (this.gfn_isNull(this.txt_content.value) == false) {
+		if (application.confirm("내용을 삭제하고 팝업 이미지를 업로드 하겠습니다. ")  == false) {
+			this.ds_file.clearData();
+			this.txt_content.set_value(null);
+			return;
+		} else {
+//			this.txt_content.set_value(null);
+			return true;
+		}	
+	} else {
+		this.txt_content.set_value(null);
+		return true;
+	}
+}
+
+this.popup_FileUpload_onitemchanged = function(obj:FileUpload,  e:nexacro.FileUploadItemChangeEventInfo)
+{
+	this.gfn_callUpload(obj);
+}
+
+this.popup_FileUpload_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEventInfo)
+{
+	if (e.datasets == null) {
+		trace("업로드 실패");
+	} else {
+		this.ds_file.copyData(e.datasets[0]);
+		
+		if (this.ds_edu.rowcount < 0) {
+			this.ds_edu.addRow();
+		}
+		
+		this.ds_edu.setColumn(0, "FILENAME", this.ds_file.getColumn(0, "FILENAME"));
+		this.ds_edu.setColumn(0, "FILEPATH", this.ds_file.getColumn(0, "ORGFNAME"));
+		this.ds_edu.setColumn(0, "FILESIZE", this.ds_file.getColumn(0, "FILESIZE"));
+		this.ds_edu.setColumn(0, "FSYSNAME", this.ds_file.getColumn(0, "SYSTEMFILENAME"));
+		
+		this.ed_file.set_value(this.ds_file.getColumn(0, "ORGFNAME"));
+	}
+}
+
+this.popup_FileUpload_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
+{
+	trace("FileUpload_onerror !!");
+	trace("e.errorcode : " + e.errorcode);
+	trace("e.errormsg : " + e.errormsg);
+}
+]]></Script>
+  </Form>
+</FDL>

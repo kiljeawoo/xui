@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_3133" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="환입" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_save" taborder="280" text="발행" cssclass="btn_WF_CRUD" top="15" right="17" width="41" height="21" onclick="common_onclick" visible="true"/>
+        <Static id="Static09" taborder="331" text="합계금액" cssclass="sta_WF_Label" left="17" top="494" width="134" height="29" style="align:center middle;font:9 Gulim;" enable="true"/>
+        <Static id="Static10" taborder="332" text="외상미수금" cssclass="sta_WF_Label" left="477" top="494" width="134" height="29" style="align:center middle;" enable="true"/>
+        <Static id="Static11" taborder="333" text="현금" cssclass="sta_WF_Label" left="150" top="494" width="110" height="29" style="align:center middle;" enable="true"/>
+        <Static id="Static12" taborder="334" text="수표" cssclass="sta_WF_Label" left="259" top="494" width="110" height="29" style="align:center middle;" enable="true"/>
+        <Static id="Static15" taborder="335" text="어음" cssclass="sta_WF_Label" left="368" top="494" width="110" height="29" style="align:center middle;" enable="true"/>
+        <Static id="Static25" taborder="340" text="위 금액을          함       " cssclass="sta_WF_Label" left="610" top="494" right="17" height="57" style="align:right middle;" enable="true"/>
+        <Grid id="Grid02" taborder="341" binddataset="ds_taxDetail2" useinputpanel="false" autofittype="col" left="17" top="332" right="17" height="162" enable="true">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="130"/>
+                <Column size="60"/>
+                <Column size="40"/>
+                <Column size="70"/>
+                <Column size="80"/>
+                <Column size="70"/>
+                <Column size="158"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="월"/>
+                <Cell col="1" text="일"/>
+                <Cell col="2" text="품목"/>
+                <Cell col="3" text="규격"/>
+                <Cell col="4" text="수량"/>
+                <Cell col="5" text="단가"/>
+                <Cell col="6" text="공급가액"/>
+                <Cell col="7" text="세액"/>
+                <Cell col="8" text="비고"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" text="bind:TR_DT_MON"/>
+                <Cell col="1" displaytype="normal" text="bind:TR_DT_DAY"/>
+                <Cell col="2" style="align:left;" text="bind:LATCNM"/>
+                <Cell col="3" style="align:center;" text="bind:STD"/>
+                <Cell col="4" style="align:center;" text="bind:QT"/>
+                <Cell col="5" displaytype="number" style="align:right;" text="bind:UPR"/>
+                <Cell col="6" displaytype="number" style="align:right;" text="bind:SPPR"/>
+                <Cell col="7" displaytype="number" style="align:right;" text="bind:TXA"/>
+                <Cell col="8" style="align:left;" text="bind:RMK"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="Div01" taborder="343" text="Div00" left="17" top="44" width="47.95%" height="229" style="border:2 solid #d11255ff ;" enable="true">
+          <Layouts>
+            <Layout>
+              <Static id="Static18" taborder="18" text="공&#13;&#10;&#13;&#10;급&#13;&#10;&#13;&#10;자" cssclass="sta_WF_Label" left="0" top="0" bottom="0" width="23" style="background:#feb6b7ff;border:1 solid #e74449ff ;color:#cc0d15ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static07" taborder="19" text="등록&#13;&#10;번호" cssclass="sta_WF_Label" left="23" top="0" width="63" height="57" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static09" taborder="20" text="종사업장&#13;&#10;번호" cssclass="sta_WF_Label" left="255" top="0" width="59" height="57" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static20" taborder="21" text="상호" cssclass="sta_WF_Label" left="23" top="56" width="63" height="29" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static21" taborder="22" text="성명" cssclass="sta_WF_Label" left="255" top="56" width="59" height="29" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static10" taborder="23" text="사업장&#13;&#10;주소" cssclass="sta_WF_Label" left="23" top="84" width="63" height="57" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static15" taborder="24" text="업태" cssclass="sta_WF_Label" left="23" top="140" width="63" height="29" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static36" taborder="25" text="종목" cssclass="sta_WF_Label" left="187" top="140" width="63" height="29" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static37" taborder="26" text="이메일" cssclass="sta_WF_Label" left="23" top="168" width="63" height="57" style="background:#ffe1ffff;border:1 solid #df9ca4ff ;color:#a75758ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;" enable="true"/>
+              <Static id="Static01" taborder="27" left="85" top="56" width="171" height="29" style="background:#ffffffff;border:1 solid #df9ca4ff ;padding:2 2 2 2;" enable="true"/>
+              <Static id="Static02" taborder="28" wordwrap="char" left="85" top="84" right="0" height="57" style="background:#ffffffff;border:1 solid #df9ca4ff ;padding:2 2 2 2;" enable="true"/>
+              <Static id="Static03" taborder="29" left="85" top="140" width="103" height="29" style="background:#ffffffff;border:1 solid #df9ca4ff ;padding:2 2 2 2;" enable="true"/>
+              <Static id="Static04" taborder="30" left="85" top="168" right="0" bottom="0" style="background:#ffffffff;border:1 solid #df9ca4ff ;padding:2 2 2 2;" enable="true"/>
+              <Static id="Static05" taborder="31" left="249" top="140" right="0" height="29" style="background:#ffffffff;border:1 solid #df9ca4ff ;padding:2 2 2 2;" enable="true"/>
+              <Static id="Static06" taborder="32" left="313" top="56" right="0" height="29" style="background:#ffffffff;border:1 solid #df9ca4ff ;padding:2 2 2 2;" enable="true"/>
+              <Static id="Static08" taborder="33" left="313" top="0" right="0" height="57" style="background:#ffffffff;border:1 solid #df9ca4ff ;padding:2 2 2 2;" enable="true"/>
+              <MaskEdit id="MaskEdit01" taborder="34" type="string" mask="###-##-#####" maskchar=" " left="85" top="0" width="171" height="57" style="border:1 solid #df9ca4ff ;align:left middle;font:bold 15 Gulim;" enable="true"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="Grid03" taborder="345" binddataset="ds_tax2" useinputpanel="false" autofittype="col" left="17" top="273" right="17" height="59" enable="true">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="230"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="작성일자"/>
+                <Cell col="1" text="공급가액"/>
+                <Cell col="2" text="세액"/>
+                <Cell col="3" text="합계금액"/>
+                <Cell col="4" text="비고"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="date" edittype="date" text="bind:CRT_DT" calendardisplay="display"/>
+                <Cell col="1" displaytype="number" style="align:right;" text="bind:SPRTT"/>
+                <Cell col="2" displaytype="number" style="align:right;" text="bind:TXA_TT"/>
+                <Cell col="3" displaytype="number" style="align:right;" text="bind:TOT_AM"/>
+                <Cell col="4" edittype="text" style="align:left;" text="bind:RMK1" editdisplay="display"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <MaskEdit id="MaskEdit01" taborder="346" mask="#,###,###" left="17" top="522" width="134" height="29" enable="true" readonly="true"/>
+        <Static id="Static27" taborder="347" left="694" top="511" width="35" height="24" style="align:center middle;" enable="true"/>
+        <Static id="Static01" taborder="352" text="수정하여 교부하는 전자세금계산서" cssclass="sta_WF_Subtitle" left="17" top="15" width="399" height="21"/>
+        <Static id="Static04" taborder="358" text="17" visible="false" left="0" top="44" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static06" taborder="359" text="15" visible="false" left="171" top="0" width="91" height="15" style="background:#dc143c5b;"/>
+        <MaskEdit id="MaskEdit00" taborder="365" mask="#,###,###" left="150" top="522" width="110" height="29" readonly="true"/>
+        <MaskEdit id="MaskEdit02" taborder="366" mask="#,###,###" left="259" top="522" width="110" height="29" readonly="true"/>
+        <MaskEdit id="MaskEdit03" taborder="367" mask="#,###,###" left="368" top="522" width="110" height="29" readonly="true"/>
+        <MaskEdit id="MaskEdit04" taborder="368" mask="#,###,###" left="477" top="522" width="134" height="29" readonly="true"/>
+        <Static id="Static00" taborder="369" left="248" top="551" width="91" height="17" style="background:transparent;"/>
+        <Div id="Div02" taborder="370" text="Div00" left="50.06%" top="44" right="17" height="229" style="border:2 solid #0a07c6ff ;">
+          <Layouts>
+            <Layout>
+              <Static id="Static18" taborder="46" text="공&#13;&#10;&#13;&#10;급&#13;&#10;&#13;&#10;받&#13;&#10;&#13;&#10;는&#13;&#10;&#13;&#10;자" cssclass="sta_WF_Label" left="0" top="0" bottom="0" width="23" style="background:#c1dbecff;border:1 solid #424d9fff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static07" taborder="47" text="등록&#13;&#10;번호" cssclass="sta_WF_Label" left="23" top="0" width="63" height="57" style="background:#f2f4ffff;border:1 solid #8684c3ff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static09" taborder="48" text="종사업장&#13;&#10;번호" cssclass="sta_WF_Label" left="255" top="0" width="59" height="57" style="background:#f2f4ffff;border:1 solid #8684c3ff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static20" taborder="49" text="상호" cssclass="sta_WF_Label" left="23" top="56" width="63" height="29" style="background:#f2f4ffff;border:1 solid #8684c3ff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static21" taborder="50" text="성명" cssclass="sta_WF_Label" left="255" top="57" width="59" height="29" style="background:#f2f4ffff;border:1 solid #e9f1ffff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static10" taborder="51" text="사업장&#13;&#10;주소" cssclass="sta_WF_Label" left="23" top="84" width="63" height="57" style="background:#f2f4ffff;border:1 solid #8684c3ff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static15" taborder="52" text="업태" cssclass="sta_WF_Label" left="23" top="140" width="63" height="29" style="background:#f2f4ffff;border:1 solid #8684c3ff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static36" taborder="53" text="종목" cssclass="sta_WF_Label" left="187" top="140" width="63" height="29" style="background:#f2f4ffff;border:1 solid #e9f1ffff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static37" taborder="54" text="이메일" cssclass="sta_WF_Label" left="23" top="168" width="63" height="29" style="background:#f2f4ffff;border:1 solid #8684c3ff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <Static id="Static11" taborder="55" text="이메일" cssclass="sta_WF_Label" left="23" bottom="0" width="63" height="29" style="background:#f2f4ffff;border:1 solid #8684c3ff ;color:#1756b6ff;padding:0 0 0 0;align:center middle;font:bold 9 Gulim;"/>
+              <MaskEdit id="MaskEdit00" taborder="56" readonly="true" type="string" mask="###-##-#####" maskchar=" " left="85" top="0" width="171" height="57" style="border:1 solid #8684c3ff ;align:left middle;font:bold 15 Gulim;"/>
+              <Edit id="Edit00" taborder="57" readonly="true" left="313" top="0" right="0" height="57" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Edit id="Edit01" taborder="58" readonly="true" left="85" top="56" width="171" height="29" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Edit id="Edit02" taborder="59" readonly="true" left="313" top="56" right="0" height="29" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Edit id="Edit03" taborder="60" readonly="true" left="85" top="84" right="0" height="57" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Edit id="Edit06" taborder="61" readonly="true" left="249" top="140" right="0" height="29" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Edit id="Edit04" taborder="62" readonly="true" left="85" top="140" width="103" height="29" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Edit id="Edit05" taborder="63" readonly="false" left="85" top="168" right="0" height="29" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Edit id="Edit07" taborder="64" left="85" top="196" right="0" bottom="0" style="background:#ffffffff;border:1 solid #8684c3ff ;"/>
+              <Button id="btn_buyer" taborder="65" onclick="common_onclick" cssclass="btn_WF_Searchbtn" left="231" top="60" width="21" height="21" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Plugin id="TSXMLToolkit" left="384" top="11" right="326" height="21" visible="false" classid="{BBC1A21F-05A2-44ED-B67E-E7C762F0BE23}" taborder="371"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_combo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column5">2015-04-04</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">경제통합공급처모드</Col>
+            <Col id="Column2">2015-01-01</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">ABC123456789</Col>
+            <Col id="Column6">1234-567-890</Col>
+            <Col id="Column7">1234-567-890</Col>
+            <Col id="Column5">2015-04-04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_modC">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsTaxForSvc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_item" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_elsg" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PBC_SQNO" type="STRING" size="256"/>
+          <Column id="ELSG_CNTN" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="SIGN_R_VAL" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_tax2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_taxDetail2" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Bind>
+      <BindItem id="item14" compid="MaskEdit01" propid="value" datasetid="ds_tax2" columnid="TOT_AM"/>
+      <BindItem id="item15" compid="Static27" propid="text" datasetid="ds_tax2" columnid="RCT_RQS_DSC"/>
+      <BindItem id="item0" compid="Div01.MaskEdit01" propid="value" datasetid="ds_tax2" columnid="SPLR_BZNO"/>
+      <BindItem id="item16" compid="Div01.Static01" propid="text" datasetid="ds_tax2" columnid="SPLR_MTALNM"/>
+      <BindItem id="item17" compid="Div01.Static06" propid="text" datasetid="ds_tax2" columnid="SPLR_REPMNM"/>
+      <BindItem id="item22" compid="Div01.Static02" propid="text" datasetid="ds_tax2" columnid="SPLR_ADR"/>
+      <BindItem id="item23" compid="Div01.Static05" propid="text" datasetid="ds_tax2" columnid="SPLR_BZC"/>
+      <BindItem id="item24" compid="Div01.Static03" propid="text" datasetid="ds_tax2" columnid="SPLR_BZTPNM"/>
+      <BindItem id="item33" compid="Div01.Static04" propid="text" datasetid="ds_tax2" columnid="SPLR_CHRR_EMAIL"/>
+      <BindItem id="item39" compid="Static11" propid="text" datasetid="ds_tax2" columnid="STL_METHC1"/>
+      <BindItem id="item40" compid="Static12" propid="text" datasetid="ds_tax2" columnid="STL_METHC2"/>
+      <BindItem id="item41" compid="Static15" propid="text" datasetid="ds_tax2" columnid="STL_METHC3"/>
+      <BindItem id="item42" compid="Static10" propid="text" datasetid="ds_tax2" columnid="STL_METHC4"/>
+      <BindItem id="item5" compid="MaskEdit00" propid="value" datasetid="ds_tax2" columnid="STL_AM1"/>
+      <BindItem id="item6" compid="MaskEdit02" propid="value" datasetid="ds_tax2" columnid="STL_AM2"/>
+      <BindItem id="item7" compid="MaskEdit03" propid="value" datasetid="ds_tax2" columnid="STL_AM3"/>
+      <BindItem id="item8" compid="MaskEdit04" propid="value" datasetid="ds_tax2" columnid="STL_AM4"/>
+      <BindItem id="item1" compid="Div02.MaskEdit00" propid="value" datasetid="ds_tax2" columnid="BUY_BZNO"/>
+      <BindItem id="item2" compid="Div02.Edit00" propid="value" datasetid="ds_tax2" columnid=""/>
+      <BindItem id="item3" compid="Div02.Edit02" propid="value" datasetid="ds_tax2" columnid="BUY_REPMNM"/>
+      <BindItem id="item4" compid="Div02.Edit01" propid="value" datasetid="ds_tax2" columnid="BUY_MTALNM"/>
+      <BindItem id="item9" compid="Div02.Edit03" propid="value" datasetid="ds_tax2" columnid="BUY_ADR"/>
+      <BindItem id="item10" compid="Div02.Edit04" propid="value" datasetid="ds_tax2" columnid="BUY_BZTPNM"/>
+      <BindItem id="item11" compid="Div02.Edit06" propid="value" datasetid="ds_tax2" columnid="BUY_BZC"/>
+      <BindItem id="item12" compid="Div02.Edit05" propid="value" datasetid="ds_tax2" columnid="BUY_CHRR_EMAIL1"/>
+      <BindItem id="item13" compid="Div02.Edit07" propid="value" datasetid="ds_tax2" columnid="BUY_CHRR_EMAIL2"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+include "lib::comTSToolKit.xjs";
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+this.flag = true;
+this.sqNo = "20150504122106nheba18798";
+this.modC = "";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+   var param = [  
+ 		{code:"TXBIL_STSC",   dsName:"ds_combo",   selecttype:"N"},
+ 		{code:"MOD_C",   dsName:"ds_modC",   selecttype:"S"},
+ 		{code:"STL_METHC",   dsName:"ds_combo2",   selecttype:"S"}
+    ];
+    this.gfn_setPortalCommonCode(param);   
+}
+
+//gfn_setCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload = function()
+{
+	trace("fn_commonAfterOnload");
+	this.sqNo = this.getOwnerFrame().sqNo;
+	this.modC = this.getOwnerFrame().modC;
+	
+	trace("this.sqNo >> " + this.sqNo);
+	trace("this.modC >> " + this.modC);
+	this.fn_retrieveSlTxbilForMod();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_insertTaxMod = function()
+{
+	this.ds_tax2.setColumn(0, "FS_RGM", application.gv_userId);
+	this.ds_tax2.setColumn(0, "MOD_C", this.modC);
+	this.ds_tax2.setColumn(0, "MOD_TAX_PBC_SQNO", this.ds_tax2.getColumn(0, "PBC_SQNO"));
+	this.ds_tax2.setColumn(0, "MOD_TAX_NTS_TMS_SQNO", this.ds_tax2.getColumn(0, "NTS_TMS_SQNO"));
+	
+	var sSvcID        = "insertTaxMod";
+	var sURL          = "svc::rest/tx/insertTaxMod";
+	var sInDatasets   = "ds_taxDetailMod=ds_taxDetail2 ds_taxMod=ds_tax2";
+	var sOutDatasets  = "ds_tax2=ds_taxMod";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_retrieveSlTxbilForMod = function()
+{	
+	var sSvcID        = "retrieveSlTxbilForMod";
+	var sURL          = "svc::rest/tx/retrieveSlTxbilForMod";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_taxDetail2=ds_taxDetail ds_tax2=ds_tax";	
+	var sArgument     = "PBC_SQNO=" + this.sqNo;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_insertTxbilElsg = function(objDs)
+{
+	this.ds_elsg.clearData();
+	
+	for(var j = 0 ; j < objDs.rowcount; j++)
+	{
+		this.ds_elsg.addRow();
+		this.ds_elsg.setColumn(j, "ELSG_CNTN", objDs.getColumn(j, "ELSG_CNTN"));
+		this.ds_elsg.setColumn(j, "PBC_SQNO", objDs.getColumn(j, "PBC_SQNO"));
+		this.ds_elsg.setColumn(j, "SIGN_R_VAL", objDs.getColumn(j, "SIGN_R_VAL"));
+		this.ds_elsg.setColumn(j, "FS_RGM", application.gv_userId);
+		this.ds_elsg.setColumn(j, "LS_CHGM", application.gv_userId);
+	
+	}
+	
+	var sSvcID        = "insertTxbilElsg";
+	var sURL          = "svc::rest/tx/insertTxbilElsg";
+	var sInDatasets   = "ds_elsg=ds_elsg";
+	var sOutDatasets  = "";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_deleteTaxbil = function()
+{
+	var sSvcID        = "deleteTaxbil";
+	var sURL          = "svc::rest/tx/deleteTaxbil";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";	
+	var sArgument     = "PBC_SQNO=" + this.ds_tax2.getColumn(0,"PBC_SQNO");
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "U"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+		switch(svcID)
+		{
+			case "insertTaxMod":
+				switch(ErrorCode)
+				{
+					case -3:
+						alert("이미발행한 수정세금계산서가 있습니다.");
+						//this.gfn_getMessage("alert", "error.message.taxbill.duplication");
+						break;
+				}
+				break;
+		}
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "retrieveSlTxbilForMod":
+				this.ds_tax2.setColumn(0,"TXBIL_KD", "02" + String(this.ds_tax2.getColumn(0,"TXBIL_KD")).substr(2,2));
+				//작성일자 : 환입이 발생한 일자
+				//비고란 : 당초 세금계산서 작성일자
+				this.ds_tax2.setColumn(0, "RMK1", "당초 작성일자 : " + this.ds_tax2.getColumn(0, "CRT_DT"));
+				//(-)의 세금계산서 발행
+				this.fn_reverseAmt();
+				break;
+				
+			case "insertTaxMod":
+				alert("발행되었습니다.");
+				this.close();
+				/*
+				 * 사용료 세금계산서는 전자서명 배치에서 자동서명하므로 여기서는 안함
+				 */
+// 				this.ds_tax2.addColumn("ELSG_CNTN", "string");//생성된 taxInvoice return
+// 				this.ds_tax2.addColumn("SIGN_R_VAL", "string");//생성된 rvalue return
+// 				var rtnvalue = this.gfn_eTaxSign(this.TSXMLToolkit, this.ds_tax2, this.dsTaxForSvc, this.ds_item);
+// 				
+// 				if(rtnvalue)
+// 				{
+// 					this.fn_insertTxbilElsg(this.ds_tax2);
+// 				}
+// 				else
+// 				{
+// 					alert("인증실패");
+// 					this.fn_deleteTaxbil();
+// 				}
+				break;
+				
+			case "insertTxbilElsg":
+				alert("발행되었습니다.");
+				this.close();
+				break;
+				
+			case "deleteTaxbil":
+				trace("삭제완료");
+				break;
+		}
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_save":
+			this.fn_insertTaxMod();
+			break;
+	}
+	
+}
+
+this.ds_tax2_oncolumnchanged = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if(e.col == 2)
+	{
+		if(e.newvalue == undefined)
+		{
+			return false;
+		}
+		if(String(e.newvalue) > this.gfn_today("yyyyMMdd"))//작성일자가 미래날자이면 안된다.
+		{
+			alert("오늘 이후의 날짜는 선택할 수 없습니다.");
+			return false;
+		}
+		else if(String(e.newvalue).substr(0,6) != String(this.ds_tax2.getColumn(0, "CRT_DT")).substr(0,6) )//작성일자와 품목란에 거래일자가 동일하거나 동일월인지 확인
+		{
+			alert("작성일자와 거래일자는 동일월 이어야 합니다.");
+			return false;
+		}	
+	}
+}
+
+
+this.ds_tax2_cancolumnchange = function(obj:Dataset, e:nexacro.DSColChangeEventInfo)
+{
+	if(e.columnid == "CRT_DT")
+	{
+		//작성일과 품목란의 거래일자가 동일월이어야 한다.
+		if(e.newvalue == undefined)
+		{
+			return false;
+		}
+		if(String(e.newvalue) > this.gfn_today("yyyyMMdd"))//작성일은 미래일이면 안된다.
+		{
+			alert("오늘 이후의 날짜는 선택할 수 없습니다.");
+			return false;
+		}
+	}
+}
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_reverseAmt = function()
+{
+	for(var i = 0 ; i < this.ds_taxDetail2.rowcount ; i++)
+	{
+		this.ds_taxDetail2.setColumn(i, "SPPR", - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_taxDetail2.getColumn(i, "SPPR"))));
+		this.ds_taxDetail2.setColumn(i, "TXA", - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_taxDetail2.getColumn(i, "TXA"))));
+		this.ds_taxDetail2.setColumn(i, "QT", "");
+		this.ds_taxDetail2.setColumn(i, "UPR", "");
+	}
+	this.ds_tax2.setColumn(0, "SPRTT",  - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_tax2.getColumn(0, "SPRTT"))));
+	this.ds_tax2.setColumn(0, "TXA_TT",  - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_tax2.getColumn(0, "TXA_TT"))));
+	this.ds_tax2.setColumn(0, "TOT_AM", - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_tax2.getColumn(0, "TOT_AM"))));
+	this.ds_tax2.setColumn(0, "STL_AM1", - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_tax2.getColumn(0, "STL_AM1"))));
+	this.ds_tax2.setColumn(0, "STL_AM2", - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_tax2.getColumn(0, "STL_AM2"))));
+	this.ds_tax2.setColumn(0, "STL_AM3", - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_tax2.getColumn(0, "STL_AM3"))));
+	this.ds_tax2.setColumn(0, "STL_AM4", - nexacro.toNumber(this.gfn_nullToEmpty(this.ds_tax2.getColumn(0, "STL_AM4"))));
+}
+
+/************************************************************************************************
+ * 페이징처리
+************************************************************************************************/
+
+
+]]></Script>
+  </Form>
+</FDL>

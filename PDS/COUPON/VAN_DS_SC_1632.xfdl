@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="803" height="558" titletext="쿠폰대금업로드조회" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_excel" taborder="1" text="엑셀" cssclass="btn_WF_CRUD" top="47" right="75" width="41" height="21" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="3" cssclass="btn_WFSA_Searchbtn" top="47" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Div id="div_search" taborder="4" left="17" top="76" right="17" height="76" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static04" taborder="17" text="주관업체" cssclass="sta_WFSA_Label" left="13" top="10" width="106" height="21"/>
+              <Edit id="CPN_PBC_NA_TRPL_C" taborder="18" enable="false" left="102" top="10" width="134" height="21"/>
+              <Edit id="CLNTNM" taborder="19" enable="false" left="244" top="10" width="170" height="21"/>
+              <Static id="Static00" taborder="17" text="기준월" onclick="div_search_Static01_onclick" cssclass="sta_WFSA_Label" left="449" top="11" width="106" height="21"/>
+              <Div id="ADJ_YM" taborder="8" url="common::calendarMonth.xfdl" left="508" top="11" height="21" width="106"/>
+              <Static id="Static99" taborder="17" text="사업장" cssclass="sta_WFSA_Label" left="13" top="40" width="106" height="21"/>
+              <Radio id="rdo_is_na_all" taborder="18" codecolumn="codecolumn" datacolumn="datacolumn" value="all" direction="vertical" onitemchanged="div_search_rdo_is_na_all_onitemchanged" left="110" top="40" width="161" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">all</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">one</Col>
+                      <Col id="datacolumn">정산처</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Edit id="ADJPL_NA_TRPL_C" taborder="19" readonly="true" onkeyup="div_search_edt_na_bzplc_code_onkeyup" cssclass="WF_Essential" left="294" top="40" width="132" height="21"/>
+              <Edit id="NA_BZPLC_NM" taborder="20" readonly="true" cssclass="WF_Essential" left="434" top="40" width="152" height="21" style="background:#ffffffff;"/>
+              <Button id="btn_popup" taborder="21" onclick="div_search_btn_popup_onclick" cssclass="btn_WF_Searchbtn" enable="false" left="595" top="40" width="21" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grd_main" taborder="5" binddataset="ds_main" nodatatext="조회된 데이터가 없습니다." useinputpanel="false" left="17" top="167" right="17" height="371" autofittype="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="45"/>
+                <Column size="141"/>
+                <Column size="227"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="160"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="106"/>
+                <Column size="106"/>
+                <Column size="106"/>
+                <Column size="106"/>
+                <Column size="72"/>
+                <Column size="100"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="text" text="순번" wordwrap="char"/>
+                <Cell col="1" displaytype="text" text="정산처코드" wordwrap="char"/>
+                <Cell col="2" displaytype="text" text="정산처" wordwrap="char"/>
+                <Cell col="3" displaytype="text" text="발생구분" wordwrap="char"/>
+                <Cell col="4" text="적용일자"/>
+                <Cell col="5" text="쿠폰코드"/>
+                <Cell col="6" text="쿠폰명"/>
+                <Cell col="7" text="쿠폰회차"/>
+                <Cell col="8" displaytype="text" text="수량" wordwrap="char"/>
+                <Cell col="9" displaytype="text" text="쿠폰금액" wordwrap="char"/>
+                <Cell col="10" displaytype="text" text="수수료" wordwrap="char"/>
+                <Cell col="11" displaytype="text" text="수수료부가세" wordwrap="char"/>
+                <Cell col="12" displaytype="text" text="기흥수수료" wordwrap="char"/>
+                <Cell col="13" displaytype="text" text="기흥수수료부가세" wordwrap="char"/>
+                <Cell col="14" text="처리상태"/>
+                <Cell col="15" text="처리내용" wordwrap="char"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" text="bind:ADJPL_NA_TRPL_C"/>
+                <Cell col="2" style="align:left;" text="bind:CLNTNM"/>
+                <Cell col="3" text="bind:OCU_DSC"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+                <Cell col="6"/>
+                <Cell col="7"/>
+                <Cell col="8" displaytype="number" style="align:right;" text="bind:CPN_QT"/>
+                <Cell col="9" displaytype="number" style="align:right;" text="bind:CPN_AM"/>
+                <Cell col="10" displaytype="number" style="align:right;" text="bind:CPN_FEE"/>
+                <Cell col="11" displaytype="number" style="align:right;" text="bind:CPN_FEE_VAT"/>
+                <Cell col="12" displaytype="number" style="align:right;" text="bind:DIV_CPN_FEE"/>
+                <Cell col="13" displaytype="number" style="align:right;" text="bind:DIV_CPN_FEE_VAT"/>
+                <Cell col="14"/>
+                <Cell col="15" text="bind:COMPLETE_YN"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="76" width="17" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="710" top="539" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="12" text="8" visible="false" left="363" top="68" width="91" height="8" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" top="0" height="32" cssclass="btn_WF_PopupClose" right="0" width="39" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="16" text="쿠폰업로드내역" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_main" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ADJPL_NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="OCU_DSC" type="STRING" size="256"/>
+          <Column id="CPN_QT" type="STRING" size="256"/>
+          <Column id="CPN_AM" type="STRING" size="256"/>
+          <Column id="CPN_FEE" type="STRING" size="256"/>
+          <Column id="CPN_FEE_VAT" type="STRING" size="256"/>
+          <Column id="DIV_CPN_FEE" type="STRING" size="256"/>
+          <Column id="DIV_CPN_FEE_VAT" type="STRING" size="256"/>
+          <Column id="COMPLETE_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="ADJPL_NA_TRPL_C">가나다라마</Col>
+            <Col id="CLNTNM">가나다라마</Col>
+            <Col id="OCU_DSC">가나다라마</Col>
+            <Col id="CPN_QT">55555</Col>
+            <Col id="CPN_AM">1111</Col>
+            <Col id="CPN_FEE">44444</Col>
+            <Col id="CPN_FEE_VAT">1234</Col>
+            <Col id="DIV_CPN_FEE">123</Col>
+            <Col id="DIV_CPN_FEE_VAT">3330</Col>
+            <Col id="COMPLETE_YN">N</Col>
+          </Row>
+          <Row>
+            <Col id="ADJPL_NA_TRPL_C">가나다라마</Col>
+            <Col id="CLNTNM">가나다라마</Col>
+            <Col id="OCU_DSC">가나다라마</Col>
+            <Col id="CPN_QT">55555</Col>
+            <Col id="CPN_AM">1111</Col>
+            <Col id="CPN_FEE">44444</Col>
+            <Col id="CPN_FEE_VAT">1234</Col>
+            <Col id="DIV_CPN_FEE">123</Col>
+            <Col id="DIV_CPN_FEE_VAT">3330</Col>
+            <Col id="COMPLETE_YN">N</Col>
+          </Row>
+          <Row>
+            <Col id="ADJPL_NA_TRPL_C">가나다라마</Col>
+            <Col id="CLNTNM">가나다라마</Col>
+            <Col id="OCU_DSC">가나다라마</Col>
+            <Col id="CPN_QT">55555</Col>
+            <Col id="CPN_AM">1111</Col>
+            <Col id="CPN_FEE">44444</Col>
+            <Col id="CPN_FEE_VAT">1234</Col>
+            <Col id="DIV_CPN_FEE">123</Col>
+            <Col id="DIV_CPN_FEE_VAT">3330</Col>
+            <Col id="COMPLETE_YN">N</Col>
+          </Row>
+          <Row>
+            <Col id="ADJPL_NA_TRPL_C">가나다라마</Col>
+            <Col id="CLNTNM">가나다라마</Col>
+            <Col id="OCU_DSC">가나다라마</Col>
+            <Col id="CPN_QT">55555</Col>
+            <Col id="CPN_AM">1111</Col>
+            <Col id="CPN_FEE">44444</Col>
+            <Col id="CPN_FEE_VAT">1234</Col>
+            <Col id="DIV_CPN_FEE">123</Col>
+            <Col id="DIV_CPN_FEE_VAT">3330</Col>
+            <Col id="COMPLETE_YN">N</Col>
+          </Row>
+        </Rows>
+        -->
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.grd_main.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	this.div_search.CPN_PBC_NA_TRPL_C.set_value(application.gv_glnCode);
+	this.div_search.CLNTNM.set_value(application.gv_companyName);
+	//trace("call form_onload");
+	var todays = this.gfn_today('yyyyMM');
+	this.div_search.ADJ_YM._setValue(todays);
+
+}
+
+this.div_search_rdo_is_na_all_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(e.postvalue =='one') {
+		this.div_search.btn_popup.set_enable(true);
+	} else {
+		this.div_search.btn_popup.set_enable(false);
+	}
+}
+
+this.div_search_btn_popup_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	var oArg = "";
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("popId","POPUP::POPUP_SRC_RVOPL_TRPL.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	var strArray = strVal.split(',');
+	this.div_search.ADJPL_NA_TRPL_C.set_value(strArray[0]);
+	this.div_search.NA_BZPLC_NM.set_value(strArray[1]);
+	trace(" strId : " + strId + " strVal : " + strVal);
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_main.clearData();
+
+	var na_bizcode = this.div_search.ADJPL_NA_TRPL_C.value;
+	if(na_bizcode == null) {
+		trace('all');
+		na_bizcode='all';
+	}
+	
+	var params = "ADJPL_NA_TRPL_C="+na_bizcode
+				+" CPN_PBC_NA_TRPL_C="+this.div_search.CPN_PBC_NA_TRPL_C.value
+				+" ADJ_YM="+this.div_search.ADJ_YM._getValue();
+	
+	trace(params);				
+	
+	var sSvcID        = "getCouponSaleResultUploadList";//통신아이디
+	var sURL          = "svc::rest/pds/coupon/getCouponSaleResultUploadList";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_main=DATASET";
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var tranType 	  = "U"; // U:저장/삭제, S:조회
+	
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);	
+}
+
+
+this.fn_callback = function(svcID, ErrorCode, ErrorMsg)
+{
+
+	if(ErrorCode < 0)
+	{
+		alert(ErrorMsg);
+		return;
+	}else{
+		if(svcID == "getCouponSaleResultUploadList" && ErrorMsg=="SUCCESS"){
+		    if(this.ds_main.rowcount == 0) {
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+		    }
+		}
+	}	
+}
+
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	var na_bizcode = this.div_search.ADJPL_NA_TRPL_C.value;
+	if(na_bizcode == null) {
+		trace('all');
+		na_bizcode='all';
+	}
+	
+	var params = "ADJPL_NA_TRPL_C="+na_bizcode
+				+"&CPN_PBC_NA_TRPL_C="+this.div_search.CPN_PBC_NA_TRPL_C.value
+				+"&ADJ_YM="+this.div_search.ADJ_YM._getValue();
+														
+	var strDownUrl = application.gv_server_url+"rest/excel/pds/coupon/getCouponSaleResultUploadList?"+params;
+	excelDownHandler(strDownUrl, this);
+	//var wbs_dw     = this.gfn_createWebBorwserComponent(this);
+	//wbs_dw.set_url(strDownUrl);
+}
+]]></Script>
+  </Form>
+</FDL>

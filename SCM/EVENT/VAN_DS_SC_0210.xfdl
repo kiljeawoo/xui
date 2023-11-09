@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="frm_van_ds_sc_0210" classname="pattern_01" left="0" top="0" width="803" height="1007" titletext="예약행사집계현황" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="103" left="0" top="29" right="15" height="147" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="edt_bkg_evt_yy" taborder="21" left="118" top="10" width="75" height="21" style="background:#fffde7ff;"/>
+              <Edit id="edt_bkg_evt_no" taborder="22" left="195" top="10" width="82" height="21" style="background:#fffde7ff;" maxlength="5" inputtype="number" onkeydown="div_search_edt_bkg_evt_no_onkeydown"/>
+              <Edit id="edt_bkg_evtnm" taborder="23" left="279" top="10" width="143" height="21" style="background:#fffde7ff;" maxlength="100" onkeydown="div_search_edt_bkg_evt_no_onkeydown"/>
+              <Button id="Button67" taborder="24" cssclass="btn_WF_Searchbtn" left="424" top="10" width="21" height="21" onclick="div_search_Button67_onclick"/>
+              <Static id="Static11" taborder="25" text="예약구매번호" cssclass="sta_WFSA_Label" left="15" top="10" width="103" height="21"/>
+              <Button id="popup_OdrPl00" taborder="28" cssclass="btn_WF_Searchbtn" left="424" top="62" width="21" height="21" onclick="div_search_popup_OdrPl00_onclick"/>
+              <Edit id="edt_odrpl_na_trpl_n" taborder="29" left="279" top="62" width="143" height="21" onkeyup="div_search_edt_odrpl_na_trpl_c_onkeyup"/>
+              <Edit id="edt_odrpl_na_trpl_c" taborder="30" left="118" top="62" width="159" height="21" maxlength="13" inputtype="number" onkeyup="div_search_edt_odrpl_na_trpl_c_onkeyup"/>
+              <Static id="Static01" taborder="31" text="발주처" cssclass="sta_WFSA_Label" left="15" top="62" width="103" height="21"/>
+              <Button id="popup_OdrPl" taborder="32" cssclass="btn_WF_Searchbtn" left="424" top="36" width="21" height="21" onclick="div_search_popup_OdrPl_onclick"/>
+              <Edit id="edt_rvopl_na_trpl_n" taborder="33" left="279" top="36" width="143" height="21" onkeyup="div_search_edt_rvopl_na_trpl_c_onkeyup"/>
+              <Edit id="edt_rvopl_na_trpl_c" taborder="34" left="118" top="36" width="159" height="21" maxlength="13" inputtype="number" onkeyup="div_search_edt_rvopl_na_trpl_c_onkeyup"/>
+              <Static id="Static05" taborder="35" text="물류센터" cssclass="sta_WFSA_Label" left="15" top="36" width="103" height="21"/>
+              <Static id="Static03" taborder="36" text="발주마감일" cssclass="sta_WFSA_Label" left="15" top="88" width="103" height="21"/>
+              <Edit id="edt_orr_ddl_dt" taborder="37" enable="false" left="118" top="88" width="159" height="21"/>
+              <Static id="Static02" taborder="38" text="마감상태" cssclass="sta_WFSA_Label" left="15" top="114" width="79" height="21"/>
+              <Edit id="edt_na_odr_st" taborder="39" enable="false" left="118" top="114" width="75" height="21"/>
+              <Static id="Static18" taborder="40" text="상품" onclick="Div00_Static04_onclick" cssclass="sta_WFSA_Label" left="307" top="114" width="102" height="21"/>
+              <Edit id="edt_wrsnm" taborder="41" left="548" top="114" width="179" height="21" maxlength="50" onkeyup="div_search_edt_na_wrs_c_onkeyup"/>
+              <Button id="popup_Rvopl" taborder="42" cssclass="btn_WF_Searchbtn" left="730" top="114" width="21" height="21" onclick="div_search_popup_Rvopl_onclick"/>
+              <Edit id="edt_na_wrs_c" taborder="43" left="384" top="114" width="162" height="21" maxlength="25" inputtype="number" onkeyup="div_search_edt_na_wrs_c_onkeyup"/>
+              <Static id="Static00" taborder="44" text="조회구분" cssclass="sta_WFSA_Label" left="307" top="88" width="103" height="21"/>
+              <Radio id="rdo_trpl" taborder="45" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" onitemchanged="div_search_rdo_trpl_onitemchanged" left="384" top="88" width="180" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">물류센터별</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">발주처별</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static09" taborder="102" text="15" visible="false" left="1" top="30" width="15" height="141" style="background:#dc143c5b;"/>
+        <Static id="Static13" taborder="100" text="10" visible="false" left="320" top="30" width="103" height="10" style="background:#dc143c5b;"/>
+        <Div id="Div01" taborder="47" text="Div01" left="0" top="0" height="21" right="539" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static05" taborder="58" text="15" visible="false" left="788" top="0" height="490" style="background:#00ffffb5;" width="15"/>
+        <Div id="div_list" taborder="64" left="0" top="175" right="15" bottom="-2">
+          <Layouts>
+            <Layout width="978" height="503">
+              <Button id="Button10" taborder="12" cssclass="btn_WFSA_SearchClose" left="365" top="0" right="360" height="12" onclick="div_list_Button10_onclick"/>
+              <Grid id="grd_master" taborder="10" binddataset="ds_pre_event_sumM" useinputpanel="false" autofittype="none" left="0" top="37" right="0" height="260" oncellclick="fn_grid01_search">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="138"/>
+                      <Column size="200"/>
+                      <Column size="80"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="0"/>
+                      <Column size="0"/>
+                      <Column size="0"/>
+                      <Column size="0"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="업체코드"/>
+                      <Cell col="2" text="업체명"/>
+                      <Cell col="3" text="팀"/>
+                      <Cell col="4" text="예약발주BOX"/>
+                      <Cell col="5" text="발주확정BOX"/>
+                      <Cell col="6" text="구성비"/>
+                      <Cell col="7" text="발주금액"/>
+                      <Cell col="8" text="예약행사년도"/>
+                      <Cell col="9" text="예약행사번호"/>
+                      <Cell col="10" text="상품코드"/>
+                      <Cell col="11" text="조회구분"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" style="align:center;" text="bind:TRPL_C"/>
+                      <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:TRPL_N"/>
+                      <Cell col="3" text="bind:TEAM_N"/>
+                      <Cell col="4" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:RQ_QT" mask="#,##0"/>
+                      <Cell col="5" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:DFN_QT" mask="#,##0"/>
+                      <Cell col="6" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:DFN_RATE" mask="#,##0"/>
+                      <Cell col="7" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:GOOD_PR" mask="#,##0"/>
+                      <Cell col="8" text="bind:BKG_EVT_YY"/>
+                      <Cell col="9" text="bind:BKG_EVT_NO"/>
+                      <Cell col="10" style="align:center;" text="bind:NA_WRS_C"/>
+                      <Cell col="11" text="bind:TRPL_VIEW"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1" style="align:center;" text="합계"/>
+                      <Cell col="2"/>
+                      <Cell col="3"/>
+                      <Cell col="4" displaytype="number" expr="expr:dataset.getSum('RQ_QT');" mask="#,##0"/>
+                      <Cell col="5" displaytype="number" expr="expr:dataset.getSum('DFN_QT');" mask="#,##0"/>
+                      <Cell col="6" displaytype="number" expr="expr:dataset.getSum('DFN_RATE');" mask="#,##0"/>
+                      <Cell col="7" displaytype="number" expr="expr:dataset.getSum('GOOD_PR');" mask="#,##0"/>
+                      <Cell col="8"/>
+                      <Cell col="9"/>
+                      <Cell col="10"/>
+                      <Cell col="11"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_detail" taborder="11" useinputpanel="false" autofittype="none" left="0" top="335" right="0" binddataset="ds_pre_event_sumD" height="468">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="163"/>
+                      <Column size="204"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                      <Column size="140"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순번"/>
+                      <Cell col="1" text="상품코드"/>
+                      <Cell col="2" text="상품명"/>
+                      <Cell col="3" text="단위"/>
+                      <Cell col="4" text="입수"/>
+                      <Cell col="5" text="계약단가"/>
+                      <Cell col="6" text="총발주확정BOX"/>
+                      <Cell col="7" text="확정발주금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="expr:currow + 1"/>
+                      <Cell col="1" style="align:center;" text="bind:NA_WRS_C"/>
+                      <Cell col="2" cssclass="Cellgrd_WF_AlignLeft" text="bind:NA_WRS_N"/>
+                      <Cell col="3" style="align:center;" text="bind:WRS_STDNM"/>
+                      <Cell col="4" style="align:center;" text="bind:BOXPE_AQZ"/>
+                      <Cell col="5" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:GOOD_PR" mask="#,##0"/>
+                      <Cell col="6" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:DFN_QT" mask="#,##0"/>
+                      <Cell col="7" displaytype="number" cssclass="Cellgrd_WF_AlignRight" text="bind:S_GOOD_PR" mask="#,##0"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1" style="align:center;" text="합계"/>
+                      <Cell col="2"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                      <Cell col="6" displaytype="number" expr="expr:dataset.getSum('DFN_QT');" mask="#,##0"/>
+                      <Cell col="7" displaytype="number" expr="expr:dataset.getSum('S_GOOD_PR');" mask="#,##0"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static06" taborder="13" text="15" visible="false" left="733" top="1" width="55" height="15" style="background:#dc143c5b;"/>
+              <Static id="Static00" taborder="14" text="5" visible="false" left="758" top="32" right="6" height="5" style="background:#dc143c5b;"/>
+              <Button id="Button05" taborder="15" text="엑셀" top="11" right="0" width="41" height="21" onclick="div_list_Button05_onclick"/>
+              <Static id="Static01" taborder="16" text="15" visible="false" left="741" top="299" width="55" height="15" style="background:#dc143c5b;"/>
+              <Static id="Static02" taborder="17" text="5" visible="false" left="766" top="330" right="-2" height="5" style="background:#dc143c5b;"/>
+              <Button id="Button00" taborder="18" text="엑셀" top="309" right="0" width="41" height="21" onclick="div_list_Button00_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_excel" taborder="81" text="엑셀" cssclass="btn_WF_CRUD" top="0" right="118" width="41" height="21" onclick="btn_excel_onclick"/>
+        <Button id="btn_print" taborder="82" text="출력" cssclass="btn_WF_CRUD" top="0" right="75" width="41" height="21" onclick="btn_print_onclick"/>
+        <Button id="btn_search" taborder="83" cssclass="btn_WFSA_Searchbtn" top="0" right="15" width="58" height="21" onclick="btn_search_onclick"/>
+        <Static id="Static00" taborder="104" text="8" visible="false" left="733" top="21" width="55" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="106" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="div_auth" taborder="110" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="158" width="431" height="21"/>
+        <Static id="Static01" taborder="113" text="10" visible="false" left="456" top="165" width="103" height="10" style="background:#dc143c5b;"/>
+        <WebBrowser id="web_downExcel" left="641" top="22" width="44" height="14" taborder="114" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_pre_event_sumM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="TRPL_C" type="STRING" size="256"/>
+          <Column id="TRPL_N" type="STRING" size="257"/>
+          <Column id="TEAM_C" type="STRING" size="256"/>
+          <Column id="TEAM_N" type="STRING" size="258"/>
+          <Column id="RQ_QT" type="STRING" size="259"/>
+          <Column id="DFN_QT" type="STRING" size="260"/>
+          <Column id="DFN_RATE" type="STRING" size="261"/>
+          <Column id="GOOD_PR" type="STRING" size="262"/>
+          <Column id="BKG_EVT_YY" type="STRING" size="263"/>
+          <Column id="BKG_EVT_NO" type="STRING" size="264"/>
+          <Column id="NA_WRS_C" type="STRING" size="265"/>
+          <Column id="TRPL_VIEW" type="STRING" size="266"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_pre_event_sumD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="NA_WRS_N" type="STRING" size="257"/>
+          <Column id="UNIT" type="STRING" size="258"/>
+          <Column id="WRS_STDNM" type="STRING" size="259"/>
+          <Column id="GOOD_PR" type="STRING" size="260"/>
+          <Column id="S_GOOD_PR" type="STRING" size="261"/>
+          <Column id="DFN_QT" type="STRING" size="262"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/*##################################################################################
+ 화면명	: 예약행사집계현황
+ 화면ID  	: VAN_DS_SC_0210
+ 작성자 	: swha
+####################################################################################*/
+include "lib::comLib.xjs";
+
+/* form load */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e);
+	this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	this.div_list.grd_detail.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	//그리드클릭 이벤트 등록
+	this.div_list.grd_master.addEventHandler("oncellclick", this.grd_afterFnc, this);
+}
+
+/* form init*/
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	this.div_search.edt_bkg_evt_yy.set_value(this.gfn_today("yyyy"));
+	this.div_list.grd_master.setCellProperty("Head", 1, "text", "물류센터");
+	this.div_list.grd_master.setCellProperty("Head", 2, "text", "물류센터명");
+
+	//권한사업장 표시 여부(1:본사)
+	if (application.gv_mbcoType != '1') {
+		this.Div00.visible = false;
+	}
+}
+
+this.fn_afterFormload = function()
+{
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (this.gfn_isNull(strVal)) { return; }
+	var paramsArr = strVal.split(",");
+
+	if (strId == "VAN_DS_FN_0201") {//예약구매번호 조회
+		this.div_search.edt_bkg_evt_yy.set_value(paramsArr[0]);
+		this.div_search.edt_bkg_evt_no.set_value(paramsArr[1]);
+		this.div_search.edt_bkg_evtnm.set_value(paramsArr[2]);
+	} else if (strId == "POPUP_SRC_RVOPL_TRPL") {//물류센터 조회
+		this.div_search.edt_rvopl_na_trpl_c.set_value(paramsArr[0]);
+		this.div_search.edt_rvopl_na_trpl_n.set_value(paramsArr[1]);
+	} else if (strId == "VAN_DS_FN_0202") {//발주처조회
+		this.div_search.edt_odrpl_na_trpl_c.set_value(paramsArr[0]);
+		this.div_search.edt_odrpl_na_trpl_n.set_value(paramsArr[1]);
+	} else if (strId == "POPUP_SRC_WRS") {//상품조회
+		this.div_search.edt_na_wrs_c.set_value(paramsArr[0]);
+		this.div_search.edt_wrsnm.set_value(paramsArr[1]);
+	}
+}
+
+/* Validation Check */
+this.fn_validationCheck = function()
+{
+	/*
+	if (this.gfn_isNull(this.div_search.edt_BKG_EVT_YY.value)) {
+
+		this.alert('예약행사년도를 입력해 주세요');
+		return false;
+	}
+
+	if (this.gfn_isNull(this.div_search.edt_BKG_EVTNM.value)) {
+		this.alert('예약행사명을 선택해주세요');
+		return false;
+	}
+	*/
+
+	if (this.gfn_isNull(this.div_search.edt_bkg_evt_no.value)) {
+		this.alert('예약행사번호를 선택해주세요');
+		return false;
+	}
+	return true;
+}
+
+/* search */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		this.ds_pre_event_sumM.clearData();
+		this.ds_pre_event_sumD.clearData();
+
+		var bkg_evt_yy = this.gfn_nullToEmpty(this.div_search.edt_bkg_evt_yy.value);
+		var bkg_evt_no = this.gfn_nullToEmpty(this.div_search.edt_bkg_evt_no.value);
+		var orr_ddl_dt = this.gfn_nullToEmpty(this.div_search.edt_orr_ddl_dt.value);
+		var na_odr_st = this.gfn_nullToEmpty(this.div_search.edt_na_odr_st.value);
+		var rvopl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_rvopl_na_trpl_c.value);
+		var odrpl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_odrpl_na_trpl_c.value);
+		var na_was_c = this.gfn_nullToEmpty(this.div_search.edt_na_wrs_c.value);
+		var trpl_view = this.gfn_nullToEmpty(this.div_search.rdo_trpl.value);
+
+		var params =  "BKG_EVT_YY=" + bkg_evt_yy
+					+ " BKG_EVT_NO=" + bkg_evt_no
+					+ " ORR_DDL_DT=" + orr_ddl_dt
+					+ " NA_ODR_ST=" + na_odr_st
+					+ " RVOPL_NA_TRPL_C="+ rvopl_na_trpl_c
+					+ " ODRPL_NA_TRPL_C="+ odrpl_na_trpl_c
+					+ " TRPL_VIEW="+ trpl_view
+					+ " NA_WRS_C="+ na_was_c;
+
+		var sSvcID        = "retrievePreEventSumsM";//통신아이디
+		var sURL          = "svc::/rest/orders/retrievePreEventSums";// 호출할 서버 페이지 주소
+		var sInDatasets   = "";//보내는데이터셋
+		var sOutDatasets  = "ds_pre_event_sumM=ds_PreEventSumsM";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+		var sArgument     = params;// 파라미터
+		var sCallbackFunc = "fn_callBack";//콜백
+
+		//API 호출
+		this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, "S");
+	}
+}
+
+/* Event */
+this.grd_afterFnc = function(obj, e)
+{
+/*
+	if (e.reason == 51)
+	{
+      this.ds_pre_event_sumM.set_enableevent(false);
+      this.ds_pre_event_sumM.set_rowposition(-1);
+      this.ds_pre_event_sumM.set_enableevent(true);
+      return;
+   }
+*/
+
+	var params =  	 "BKG_EVT_YY=" + this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "BKG_EVT_YY"))
+					+ " BKG_EVT_NO=" + this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "BKG_EVT_NO"))
+					+ " NA_WRS_C=" + this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "NA_WRS_C"))
+					+ " TRPL_C=" + this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "TRPL_C"))
+					+ " TRPL_VIEW="+ this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "TRPL_VIEW"));
+
+
+	// trace("params : " + params);
+	var sSvcID        = "retrievePreEventSumD";//통신아이디
+	var sURL          = "svc::/rest/orders/retrievePreEventSumsDetail";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_pre_event_sumD=ds_PreEventSumD";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument     = params;// 파라미터
+	var sCallbackFunc = "fn_callBack";//콜백
+
+	//API 콜
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, "S");
+}
+
+/* 조회 구분에 따른 Grid 변경*/
+this.div_search_rdo_trpl_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if (this.div_search.rdo_trpl.value == '1') {
+		this.div_list.grd_master.setCellProperty("Head", 1, "text", "물류센터");
+		this.div_list.grd_master.setCellProperty("Head", 2, "text", "물류센터명");
+	} else {
+		this.div_list.grd_master.setCellProperty("Head", 1, "text", "발주처");
+		this.div_list.grd_master.setCellProperty("Head", 2, "text", "발주처명");
+	}
+}
+
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "retrievePreEventSumsM") {
+			if (this.ds_pre_event_sumM.rowcount == 0) {
+				this.div_list.grd_master.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			}
+		} else {
+			if (this.ds_pre_event_sumD.rowcount == 0) {
+				this.div_list.grd_detail.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			}
+		}
+	}
+}
+
+this.btn_excel_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		this.fn_excel("A");
+	}
+}
+
+this.fn_excel = function(flag)
+{
+	if (flag == "A") {
+		var bkg_evt_yy = this.gfn_nullToEmpty(this.div_search.edt_bkg_evt_yy.value);
+		var bkg_evt_no = this.gfn_nullToEmpty(this.div_search.edt_bkg_evt_no.value);
+		var orr_ddl_dt = this.gfn_nullToEmpty(this.div_search.edt_orr_ddl_dt.value);
+		var na_odr_st = this.gfn_nullToEmpty(this.div_search.edt_na_odr_st.value);
+		var rvopl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_rvopl_na_trpl_c.value);
+		var odrpl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_odrpl_na_trpl_c.value);
+		var na_was_c = this.gfn_nullToEmpty(this.div_search.edt_na_wrs_c.value);
+		var trpl_view = this.gfn_nullToEmpty(this.div_search.rdo_trpl.value);
+		//var trpl_c = this.
+		var fileName = "예약행사집계현황_마스터.xls";//파일명
+
+		var params =  "BKG_EVT_YY=" + bkg_evt_yy
+					+ "&BKG_EVT_NO=" + bkg_evt_no
+					+ "&ORR_DDL_DT=" + orr_ddl_dt
+					+ "&NA_ODR_ST=" + na_odr_st
+					+ "&RVOPL_NA_TRPL_C="+ rvopl_na_trpl_c
+					+ "&ODRPL_NA_TRPL_C="+ odrpl_na_trpl_c
+					+ "&TRPL_VIEW="+ trpl_view
+					+ "&NA_WRS_C="+ na_was_c
+					+ "&FILE_NAME="+fileName
+					+ "&SEPARATOR="+ flag;
+		params = encodeURI(encodeURI(params));
+		excelDownHandler(application.gv_server_url+"rest/excel/orders/downloadExcelPreEventSumsList?"+params, this);
+	} else if (flag == "B") {
+		var fileName = "예약행사집계현황_상세.xls"//파일명
+		var params =
+					"BKG_EVT_YY=" 	+ this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "BKG_EVT_YY"))
+					+ "&BKG_EVT_NO=" 	+ this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "BKG_EVT_NO"))
+					+ "&NA_WRS_C=" 		+ this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "NA_WRS_C"))
+					+ "&M_TRPL_C=" 		+ this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "TRPL_C"))
+					+ "&M_TEAM_C=" 		+ this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "TEAM_C"))
+					+ "&TRPL_VIEW="		+ this.gfn_nullToEmpty(this.ds_pre_event_sumM.getColumn(this.ds_pre_event_sumM.rowposition, "TRPL_VIEW"))
+					+ "&FILE_NAME="		+ fileName
+					+ "&SEPARATOR="		+ flag;
+
+		params = encodeURI(encodeURI(params));
+		excelDownHandler(application.gv_server_url+"rest/excel/orders/downloadExcelPreEventSumsList?"+params, this);
+	}
+}
+
+this.div_list_Button00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		this.fn_excel("B");
+	}
+}
+
+this.div_search_Button67_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_enterBkgEvtPopUp(0);
+}
+
+this.div_search_popup_OdrPl00_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_enterOdrplPopUp('0');
+}
+
+this.fn_enterOdrplPopUp = function(auto)
+{
+	var form_id = "VAN_DS_SC_0210";
+	var odrpl_na_trpl_c = this.gfn_nullToEmpty(this.div_search.edt_odrpl_na_trpl_c.value);
+	var odrpl_na_trpl_n = this.gfn_nullToEmpty(this.div_search.edt_odrpl_na_trpl_n.value);
+
+	if (auto == "1") {
+		if (this.gfn_isNull(this.div_search.edt_odrpl_na_trpl_c.value) && this.gfn_isNull(this.div_search.edt_odrpl_na_trpl_n.value)) {
+			alert("농협상업장 코드 또는 명을 입력해 주세요");
+			this.div_search.edt_odrpl_na_trpl_c.setFocus();
+			return false;
+		}
+	}
+	var oArg = {odrpl_na_trpl_c:odrpl_na_trpl_c, odrpl_na_trpl_n:odrpl_na_trpl_n, form_id:form_id, auto:auto};
+	var sOption = "autosize=true, titleText=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("VAN_DS_FN_0202", "SCM.EVENT::VAN_DS_FN_0202.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.div_search_popup_Rvopl_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_enterWrsPopUp(0);
+}
+
+this.div_list_Button05_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if (this.fn_validationCheck()) {
+		this.fn_excel("A");
+	}
+}
+
+/* 출력버튼 */
+this.btn_print_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var bkg_evt_yy 			= this.gfn_nullToEmpty(this.div_search.edt_bkg_evt_yy.value);
+	var bkg_evt_no 			= this.gfn_nullToEmpty(this.div_search.edt_bkg_evt_no.value);
+	var rvopl_na_trpl_c		= this.gfn_nullToEmpty(this.div_search.edt_rvopl_na_trpl_c.value);
+	var odrpl_na_trpl_c 		= this.gfn_nullToEmpty(this.div_search.edt_odrpl_na_trpl_c.value);
+	var na_wrs_c 			= this.gfn_nullToEmpty(this.div_search.edt_na_wrs_c.value);
+	var trpl_view 			= this.gfn_nullToEmpty(this.div_search.rdo_trpl.value);
+	var trplC          		= this.getTrplCode();
+	var bkg_evtnm       		= this.gfn_nullToEmpty(this.div_search.edt_bkg_evtnm.value);//예약행사명
+	var orr_ddl_dt       	= this.gfn_nullToEmpty(this.div_search.edt_orr_ddl_dt.value);//발주마감일
+	var trpl_view_txt 		= this.gfn_nullToEmpty(this.div_search.rdo_trpl.text); //조회구분텍스트
+	var na_wrs_c_txt 		= "";
+	var srhRvoplTxt 			= "";
+	var srhOdrplTxt 			= "";
+
+	//상품코드
+	if (na_wrs_c == '') {
+		na_wrs_c_txt = 'all';
+	}
+
+	//물류센터
+	if (rvopl_na_trpl_c == '') {
+		srhRvoplTxt = 'all';
+	} else {
+		srhRvoplTxt = "[" + rvopl_na_trpl_c + "]" + this.div_search.edt_rvopl_na_trpl_n.value;
+	}
+
+	//발주처
+	if (odrpl_na_trpl_c == '') {
+		srhOdrplTxt = 'all';
+	} else {
+		srhOdrplTxt = "[" + odrpl_na_trpl_c + "]" + this.div_search.edt_odrpl_na_trpl_n.value;
+	}
+
+	var searchText =  this.getTrplCodePrint()
+                  + ", 행사년번:" + bkg_evt_yy + "-" + bkg_evt_no + "-" + bkg_evtnm
+                  + ", 발주마감일:" + orr_ddl_dt + "주문마감, 상품:" + ((na_wrs_c_txt == 'all')?'전체': na_wrs_c)
+                  + ", 물류센터:" + ((srhRvoplTxt == 'all')?'전체': srhRvoplTxt)
+                  + ", 발주처:" + ((srhOdrplTxt == 'all')?'전체': srhOdrplTxt)
+                  + ", 조회구분:" + trpl_view_txt;
+
+	var ozParam = {
+		sId: 'VAN_DS_SC_0210', 
+		sUrl: '/rest/oz/orders/printPreEventSumsList', 
+		paramType: 'param', 
+		sParam:{
+			TRPL_C_TEXT:searchText, 
+			srhBkgEvtYy:bkg_evt_yy, 
+			srhBkgEvtNo:bkg_evt_no, 
+			srhNaWrsC:na_wrs_c, 
+			srhTrplView:trpl_view, 
+			srhRvoplNaTrplC:rvopl_na_trpl_c, 
+			srhOdrplNaTrplC:odrpl_na_trpl_c, 
+			TRPL_C:trplC, 
+		}
+	};
+	this.ozViewer(ozParam);
+}
+
+this.div_list_Button10_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+}
+
+this.div_search_edt_bkg_evt_no_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode==13) {
+		this.fn_enterBkgEvtPopUp(1);
+	}
+}
+
+this.fn_enterBkgEvtPopUp = function(auto)
+{
+	var bkg_evt_yy 	= this.gfn_nullToEmpty(this.gfn_trim(this.div_search.edt_bkg_evt_yy.value));//예약행사년도
+	var bkg_evt_no 	= this.gfn_nullToEmpty(this.gfn_trim(this.div_search.edt_bkg_evt_no.value));//예약행사번호
+	var bkg_evtnm 	= this.gfn_nullToEmpty(this.gfn_trim(this.div_search.edt_bkg_evtnm.value));	//예약행사명
+
+	if (this.gfn_isNull(bkg_evt_no) && this.gfn_isNull(bkg_evtnm) && auto=="1") {
+		alert("예약행사번호 또는 명을 입력해 주세요");
+		this.div_search.edt_bkg_evt_no.setFocus();
+		return false;
+	}
+
+	var oArg = {bkg_evt_yy:bkg_evt_yy, bkg_evt_no:bkg_evt_no, bkg_evtnm:bkg_evtnm, auto:auto};
+	var sOption = "autosize=true, titleText=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("VAN_DS_FN_0201", "SCM.EVENT::VAN_DS_FN_0201.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.div_search_edt_rvopl_na_trpl_c_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode==13) {
+		this.div_search_popup_OdrPl_onclick(true);
+	}
+}
+
+this.div_search_popup_OdrPl_onclick = function(param)
+{
+	var rvoplC = this.gfn_nullToEmpty(this.gfn_trim(this.div_search.edt_rvopl_na_trpl_c.value));//물류센터코드
+	var rvoplN = this.gfn_nullToEmpty(this.gfn_trim(this.div_search.edt_rvopl_na_trpl_n.value));//물류센터명
+
+	var param = {
+					autoType:param, 
+					searchCode:rvoplC, 
+					searchText:rvoplN
+				}
+
+	var oArg = {form_id:"VAN_DS_SC_0210", autoPop:param};
+	var sOption = "autosize=true, titleText=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("POPUP_SRC_RVOPL_TRPL", "POPUP::POPUP_SRC_RVOPL_TRPL.xfdl", oArg, sOption, sPopupCallBack);
+}
+
+this.div_search_edt_odrpl_na_trpl_c_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode==13) {
+		this.fn_enterOdrplPopUp('1');
+	}
+}
+
+this.div_search_edt_na_wrs_c_onkeyup = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode==13) {
+		this.fn_enterWrsPopUp(1);
+	}
+}
+
+this.fn_enterWrsPopUp = function(auto)
+{
+	var form_id = "VAN_DS_SC_0210";
+
+	var wrsnm = this.gfn_nullToEmpty(this.div_search.edt_wrsnm.value);
+	var naWrsC = this.gfn_nullToEmpty(this.div_search.edt_na_wrs_c.value);
+	if (auto == "1") {
+		if (this.gfn_isNull(wrsnm) && this.gfn_isNull(naWrsC)) {
+			alert("상품코드 또는 명을 입력해 주세요");
+			this.div_search.edt_na_wrs_c.setFocus();
+			return false;
+		}
+	}
+
+	//상품명 팝업
+	var oArg = {form_id:form_id, wrsnm:wrsnm, naWrsC:naWrsC, auto:auto};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("VAN_DS_FN_0203", "SCM.EVENT::VAN_DS_FN_0203.xfdl", oArg, sOption, sPopupCallBack);
+}]]></Script>
+  </Form>
+</FDL>

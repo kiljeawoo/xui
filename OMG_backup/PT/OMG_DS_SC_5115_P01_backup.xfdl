@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="900" height="474" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="사무소 조회">
+    <Layouts>
+      <Layout>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" top="427" width="54" height="29" onclick="btn_ok_onclick" right="77"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" top="427" width="54" height="29" onclick="btn_cancel_onclick" right="16"/>
+        <Button id="btn_close" taborder="15" top="0" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick" right="0" width="38"/>
+        <Static id="Static06" taborder="16" text="소속사업장 조회" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle" onclick="Static06_onclick"/>
+        <Grid id="Grid00" taborder="17" binddataset="ds_dept" useinputpanel="false" autofittype="col" left="15" top="115" right="15" oncelldblclick="Grid00_oncelldblclick" bottom="58">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="90"/>
+                <Column size="180"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="80"/>
+                <Column size="160"/>
+                <Column size="68"/>
+              </Columns>
+              <Rows>
+                <Row size="28" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사업장코드"/>
+                <Cell col="1" text="사업장명"/>
+                <Cell col="2" text="사업자번호"/>
+                <Cell col="3" text="사업장유형"/>
+                <Cell col="4" text="사무소코드"/>
+                <Cell col="5" text="사무소명"/>
+                <Cell col="6" text="선택"/>
+              </Band>
+              <Band id="body" style="selectcolor:EXPR(MY == 'Y' ? '#3333ffff' : '#333333ff');cellcolor:EXPR(MY == 'Y' ? '#3333ffff' : '#333333ff');cellcolor2:EXPR(MY == 'Y' ? '#3333ffff' : '#333333ff');">
+                <Cell text="bind:NA_BZPLC"/>
+                <Cell col="1" text="bind:CLNTNM"/>
+                <Cell col="2" text="bind:BIZ_NUMBER" mask="@@@-@@-@@@@@"/>
+                <Cell col="3" text="expr:DEPT_DSC == '01' ? '본부' : DEPT_DSC == '02' ? '사업장(직영점)' : '사업장(범농협)'"/>
+                <Cell col="4" text="expr:DEPT_DSC == '03' ? '없음' : DEPT_ID"/>
+                <Cell col="5" text="expr:DEPT_DSC == '03' ? '없음' : DEPT_NAME"/>
+                <Cell col="6" style="color:EXPR(comp.parent.fn_getJoinState(DEPT_ID, DEPT_DSC, NA_BZPLC, JOIN_YN, 'CLR'));color2:EXPR(comp.parent.fn_getJoinState(DEPT_ID, DEPT_DSC, NA_BZPLC, JOIN_YN, 'CLR'));selectcolor:EXPR(comp.parent.fn_getJoinState(DEPT_ID, DEPT_DSC, NA_BZPLC, JOIN_YN, 'CLR'));" expr="expr:comp.parent.fn_getJoinState(DEPT_ID, DEPT_DSC, NA_BZPLC, JOIN_YN)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_search" taborder="19" text="조회" onclick="btn_search_onclick" cssclass="btn_WF_Popup" top="47" right="-80" width="60" height="29" visible="false"/>
+        <Static id="sta_info" taborder="22" left="15" top="427" width="691" height="35" text="※ 소속사업장 관련 문의는 경제통합시스템에 문의바랍니다.&#13;&#10;※ 선택한 사업장이 하나로유통사무소(사업장유형-본부 or 직영점)일 경우 하나로유통 사용자 등록이 필요합니다."/>
+        <Div id="div_search" taborder="24" left="15" top="45" right="15" height="60" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="sta_type" taborder="55" text="소속사업장 조회 유형" cssclass="sta_WFSA_Label" left="15" top="5" width="165" height="21"/>
+              <Static id="Static00" taborder="61" text="하나로유통 사용자 정보" cssclass="sta_WFSA_Label" left="15" top="32" width="165" height="21"/>
+              <Edit id="edt_userid" taborder="64" readonly="true" cssclass="edt_WF_Readonly" top="5" right="15" width="141" height="21"/>
+              <Static id="sta_my" taborder="62" left="175" top="32" width="430" height="21" style="padding:0 0 0 0;font:bold 9 Gulim;"/>
+              <Static id="sta_user" taborder="63" left="175" top="5" width="430" height="21" style="padding:0 0 0 0;font:bold 9 Gulim;"/>
+              <Static id="sta_type00" taborder="65" text="사원번호 :" cssclass="sta_WFSA_Label" top="5" width="80" height="21" right="156"/>
+              <Static id="sta_type01" taborder="66" text=":" left="155" top="5" width="15" height="21" style="padding:0 0 0 0;align:center;"/>
+              <Static id="sta_type02" taborder="67" text=":" left="154" top="32" width="15" height="21" style="padding:0 0 0 0;align:center;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_dept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_dept_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="NA_BZPLC" type="STRING" size="256"/>
+          <Column id="CLNTNM" type="STRING" size="256"/>
+          <Column id="BIZ_NUMBER" type="STRING" size="256"/>
+          <Column id="DEPT_DSC" type="STRING" size="256"/>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="JOIN_YN" type="STRING" size="256"/>
+          <Column id="MY" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_my" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_dept_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="USER_ID" type="STRING" size="256"/>
+          <Column id="USER_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_ID" type="STRING" size="256"/>
+          <Column id="POS" type="STRING" size="256"/>
+          <Column id="GRADE" type="STRING" size="256"/>
+          <Column id="DEPT_NAME" type="STRING" size="256"/>
+          <Column id="DEPT_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.MODE;
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	if (this.gfn_isNull(application.gv_userId)) {
+		this.div_search.edt_userid.set_value(this.parent.MB_ID);
+		this.div_search.sta_type.set_text("소속사업장 조회 유형");
+		this.div_search.sta_user.set_text(this.parent.USR_TPC == "02" ? "본부" : "사업장(직영점, 범농협)");
+		this.MODE = "JOIN";
+	} else {
+		this.div_search.sta_type.set_text("현소속 정보");
+		this.div_search.sta_user.set_text(application.gv_glnCode + " / " + application.gv_companyName + " / " + (application.gv_userType == "02" ? "본부" : "사업장") + " 회원");
+		this.div_search.edt_userid.set_value(application.gv_userId);
+		this.MODE = "CHG";
+	}
+	this.call_dept();
+}
+
+/*조직도 불러오기*/
+this.call_dept = function()
+{
+	var param = "userId=" + this.div_search.edt_userid.value;
+	var sSvcID = "p_search"; //통신아이디
+	var sURL = "svc::rest/pt/usrinf/retriveNhUserBzplc";
+	var sInDatasets = ""; //보내는데이터셋
+	var sOutDatasets = "ds_dept=ds_bzplc ds_my=ds_my";
+	var sArgument = param; // 파라미터
+	var sCallbackFunc = "fn_callBack" ;//콜백
+	var tranType = "S"; // U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if (ErrorCode < 0) {
+		this.gfn_getMessage("alert", "error.message.server.exception");
+		return;
+	} else {
+		if (svcID == "p_search") {
+			if (this.parent.USR_TPC == "02") {
+				this.ds_dept.filter("DEPT_DSC == '01'");
+			} else if (this.parent.USR_TPC == "03") {
+				this.ds_dept.filter("DEPT_DSC != '01'");
+			}
+			
+			// 하나로유통 사용자 등록정보
+			var myDept;
+			if (this.ds_my.rowcount > 0) {
+				this.div_search.sta_my.set_text("등록됨 / " + this.ds_my.getColumn(0, "DEPT_ID") + " / " + this.ds_my.getColumn(0, "DEPT_NAME"));
+				myDept = this.ds_my.getColumn(0, "DEPT_ID");
+			} else {
+				this.div_search.sta_my.set_text("등록안됨");
+			}
+			
+			var dept = this.parent.DEPT_ID;
+			if (!this.gfn_isNull(application.gv_userId)) {
+				var curDsc = this.ds_dept.getColumn(this.ds_dept.findRow("NA_BZPLC", application.gv_glnCode), "DEPT_DSC"); // 현사업장 구분(01:본부,02:직영점,03:범농협)
+				
+				this.ds_dept.addColumn("MY", "string");
+				var row = -1;
+				if (curDsc == "03" || (this.gfn_isNull(dept) && this.gfn_isNull(myDept))) {
+					// 하나로유통X, 범농협O
+					row = this.ds_dept.findRow("NA_BZPLC", application.gv_glnCode);
+				} else {
+					if (this.gfn_isNull(dept)) {
+						dept = myDept;
+						this.alert("하나로유통 사용자에 등록되어 있으나, 회원정보에 소속부서 정보가 누락되어 있습니다.\n현소속으로 조회되는 소속부서로 변경해주시기 바랍니다.");
+					}
+					row = this.ds_dept.findRow("DEPT_ID", dept);
+				}
+				this.ds_dept.setColumn(row, "MY", "Y");
+			}
+		}
+	}
+}
+
+/*
+ * 가입상태에 따른 데이터
+ * expr:comp.parent.parent.fn_getJoinState(DEPT_ID, DEPT_DSC, NA_BZPLC, JOIN_YN, @type)
+ * @type : 메시지 MSG, 색상 CLR, 행 ROW
+ */
+this.fn_getJoinState = function(deptId, deptDsc, gln, joinYn, type)
+{
+	var curDept = this.parent.DEPT_ID;
+	if (this.gfn_isNull(curDept) && deptDsc != "03" && this.ds_my.rowcount > 0) {
+		curDept = this.ds_my.getColumn(0, "DEPT_ID");
+	}
+	
+	if (deptId == curDept || this.gfn_isNull(curDept) && application.gv_glnCode == gln) {
+		return type == "CLR" ? "#3333ffff" : "현소속";
+	} else if (joinYn == "Y" || (joinYn == "P" && this.MODE == "CHG")) {
+		return type == "CLR" ? "#333333ff" : "선택가능";
+	}
+	return type == "CLR" ? "#ff0000ff" : "선택불가";
+}
+
+/* 부서 검색기능 */
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.call_dept();
+}
+
+this.edt_search_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.call_dept();
+	}
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.fn_sendResult = function()
+{
+	var my = this.gfn_nullToEmpty(this.ds_dept.getColumn(this.ds_dept.rowposition, "MY"));
+	var dsc = this.ds_dept.getColumn(this.ds_dept.rowposition, "DEPT_DSC");
+	if (my == "Y" && !this.gfn_isNull(this.parent.DEPT_ID)) {
+		if ((dsc == "01" && application.gv_userType == "03") || (dsc == "02" && application.gv_userType == "02")) {
+			this.alert("현재 소속된 사업장과 동일하므로, 회원유형만 변경됩니다.");
+		} else {
+			this.alert("현재 소속된 사업장입니다.");
+			return;
+		}
+	}
+	
+	var joinYn = this.ds_dept.getColumn(this.ds_dept.rowposition, "JOIN_YN");
+	if (joinYn == "N") {
+		this.alert("하나로유통 사용자로 등록되어 있지 않아 선택하실 수 없습니다.");
+		return;
+	} else if (this.MODE == "JOIN" && joinYn == "P") {
+		this.alert("하나로유통 사용자 정보에 등록된 사무소코드와 일치하지 않아 선택하실 수 없습니다.");
+		return;
+	}
+	
+	if (!this.gfn_isNull(this.parent.USR_TPC)) {
+		if (this.parent.USR_TPC == "02" && dsc != "01") {
+			this.alert("본부 회원으로 가입할 수 없는 사업장입니다.\n회원가입 구분 선택 시 '사업장'을 선택하여 진행하시기 바랍니다.");
+			return;
+		} else if (this.parent.USR_TPC == "03" && dsc == "01") {
+			this.alert("사업장 회원으로 가입할 수 없는 사업장입니다.\n회원가입 구분 선택 시 '본부'를 선택하여 진행하시기 바랍니다.");
+			return;
+		}
+	}
+	
+	var dept = this.gfn_nullToEmpty(this.ds_dept.getColumn(this.ds_dept.rowposition, "DEPT_ID")); // 5
+	var gln = this.gfn_nullToEmpty(this.ds_dept.getColumn(this.ds_dept.rowposition, "NA_BZPLC")); // 0
+	var nm = this.gfn_nullToEmpty(this.ds_dept.getColumn(this.ds_dept.rowposition, "CLNTNM")); // 1
+	var bzno = this.gfn_nullToEmpty(this.ds_dept.getColumn(this.ds_dept.rowposition, "BIZ_NUMBER")); // 2
+	var deptNm = this.gfn_nullToEmpty(this.ds_dept.getColumn(this.ds_dept.rowposition, "DEPT_NAME")); // 3
+	
+	var dscNm;
+	if (dsc == '01') {
+		dscNm = "본부"; // 4
+	} else if (dsc == '02') {
+		dscNm = "사업장((주)농협하나로유통 직영점)"; // 4
+	} else {
+		dscNm = "사업장(범농협)"; // 4
+		dept = ""; // 5
+		deptNm = "없음(범농협)"; // 6
+	}
+
+	this.close(gln+"#"+nm+"#"+dsc+"#"+dscNm+"#"+bzno+"#"+dept+"#"+deptNm);
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_sendResult();
+}
+
+this.Grid00_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.fn_sendResult();
+}]]></Script>
+  </Form>
+</FDL>

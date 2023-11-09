@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SelectGLN" classname="AuthorityWorkplace" left="0" top="0" width="200" height="30" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static01" taborder="3" cssclass="sta_WF_Vdash" top="5" height="11" width="5" right="6"/>
+        <Edit id="edt_bzplc" taborder="4" cssclass="WF_Essential" left="0" top="0" right="29" onkeydown="edt_bzplc_onkeydown" height="30" displaynulltext="사업장코드 입력 + ENTER"/>
+        <Button id="btn_search" taborder="5" cssclass="btn_WF_Searchbtn" top="0" width="30" right="0" onclick="btn_search_onclick" height="30"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bzplc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onload="ds_authorityWorkplace_onload">
+        <ColumnInfo>
+          <Column id="NA_TRPL_C" type="string" size="32"/>
+          <Column id="CLNTNM" type="string" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+	try {
+		this.parent.parent.fn_callParent();
+	} catch(e) {}
+}
+
+this.btn_search_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_openSearchPopup(false);
+}
+
+this.fn_openSearchPopup = function(auto)
+{
+	var params = {
+		autoType:auto,
+		searchText:this.gfn_nullToEmpty(this.edt_bzplc.value)
+	}
+
+	var oArg = {autoPop:params};
+	var sOption = "autosize=true, titleText=false";
+	var sPopupCallBack = "fn_popupAfter";
+	this.gfn_openPopup("POPUP_BZPLC","POPUP::POPUP_SRC_BZPLC.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.fn_popupAfter = function(strId, strVal)
+{
+	if (strVal != undefined) {
+		var valueArr = strVal.split(",");	
+		if (strId == "POPUP_BZPLC") {
+			var na_trpl_c = valueArr[0];
+			var clntnm = valueArr[1];
+			this.edt_bzplc.set_value(na_trpl_c + " (" + clntnm + ")");
+			this.ds_bzplc.clearData();
+			this.ds_bzplc.addRow();
+			this.ds_bzplc.setColumn(0, "NA_TRPL_C", na_trpl_c);
+			this.ds_bzplc.setColumn(0, "CLNTNM", clntnm);
+		}
+	}
+}
+
+this.edt_bzplc_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if (e.keycode == 13) {
+		this.fn_openSearchPopup(true);
+	}
+}
+
+this.fn_getSelectedGln = function()
+{
+	if (this.ds_bzplc.rowcount == 0) {
+		return null;
+	}
+	return this.ds_bzplc.getColumn(0, "NA_TRPL_C");
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,773 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Potal" classname="Intro" left="0" top="0" width="1008" height="552" onload="form_onload" ontimer="Intro_ontimer">
+    <Layouts>
+      <Layout>
+        <Static id="Static08" taborder="27" left="0" height="330" cssclass="sta_PORTAL_Image" top="0" right="0"/>
+        <Static id="Static00" taborder="2" left="1149" top="25" width="21" height="40" style="background:#dc143c66;" visible="false"/>
+        <Div id="Div03" taborder="29" text="Div03" left="0" top="485" height="66" url="frame::main_bottom.xfdl" right="0"/>
+        <Div id="Div00" taborder="30" text="Div00" left="335" top="330" width="337" height="156" cssclass="div_INTRO_ContentsBg02" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="Static04" taborder="0" cssclass="sta_PORTAL_ContentsTitle01" left="20" top="13" width="109" height="23"/>
+              <Grid id="grd_notice" cssclass="grd_INTRO_Notice" taborder="1" binddataset="ds_notice" scrollbars="none" useinputpanel="false" left="20" top="44" width="301" height="102" oncellclick="grd_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="15"/>
+                      <Column size="200"/>
+                      <Column size="9"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="25"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="image" style="padding: ;" text="URL('theme://images/grdIco_INTRO_Notice.png')"/>
+                      <Cell col="1" style="padding:0 0 0 0;" cssclass="Cellgrd_WF_AlignLeft" text="bind:OFANC_TINM"/>
+                      <Cell col="2"/>
+                      <Cell col="3" displaytype="normal" style="align: ;color:#8f8f8fff;color2:#8f8f8fff;selectcolor:#8f8f8fff;selectfont:9 Gulim;" text="bind:FSRG_DTM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_NHmore" taborder="2" cssclass="btn_INTRO_Plus" left="303" top="14" width="18" height="18" onclick="button_onclick" style="cursor:hand;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="14" text="Div02" left="0" width="336" height="156" cssclass="div_INTRO_ContentsBg01" top="330">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="3" left="20" top="68" width="305" height="1" cssclass="sta_INTRO_ContentsLine"/>
+              <Button id="btn_counsel" taborder="14" cssclass="btn_INTRO_CS01" left="14" top="15" width="147" height="42" onclick="button_onclick" style="cursor:hand;"/>
+              <Static id="Static05" taborder="15" cssclass="sta_INTRO_ContentsLine" left="335" top="0" width="1" height="156"/>
+              <Static id="Static07" taborder="16" text="02) 1522 - 1211" cssclass="sta_PORTAL_CSNum" left="25.3%" top="75" right="9.52%" height="25"/>
+              <Static id="Static06" taborder="17" cssclass="sta_PORTAL_CSImage" left="4.46%" top="82" right="82.14%" height="45"/>
+              <Static id="Static08" taborder="18" text="[평일] 09:00 ~ 18:00&#13;&#10;[점심] 12:00 ~ 13:00" cssclass="sta_INTRO_CSTime" left="20.83%" top="102" right="42.86%" height="33"/>
+              <Button id="btn_remote" taborder="19" onclick="button_onclick" cssclass="btn_INTRO_Remote" top="104" right="24.4%" height="25" left="54.46%" style="cursor:hand;"/>
+              <Button id="btn_03" taborder="20" onclick="button_onclick" cssclass="btn_INTRO_Info03" left="173" top="6" width="60" height="60" style="background:URL('theme://images/btn_INTRO_Info03.png') stretch center middle;cursor:hand;"/>
+              <Button id="btn_04" taborder="21" onclick="button_onclick" cssclass="btn_INTRO_Info04" left="258" top="6" width="60" height="60" style="background:URL('theme://images/btn_INTRO_Info04.png') stretch center middle;cursor:hand;"/>
+              <Static id="Static02" taborder="22" cssclass="sta_INTRO_ContentsLine" left="245" top="4" width="1" height="58"/>
+              <Button id="btn_sms" taborder="23" onclick="button_onclick" cssclass="btn_INTRO_Remote" left="76.19%" top="104" right="1.19%" height="25" style="background:URL('theme://images/btn_INTRO_SMS.png') center middle;cursor:hand;" visible="true"/>
+              <Static id="Static09" taborder="24" text="* 하나로eSCM 고객센터 : 02) 1522 - 1211" cssclass="sta_INTRO_CSTime" left="20.83%" top="133" right="12.2%" height="21" style="color:#818181ff;padding:2 0 0 3;font:8 Dotum;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="13" text="Div01" left="671" top="330" height="156" cssclass="div_INTRO_ContentsBg02" right="0">
+          <Layouts>
+            <Layout>
+              <Button id="btn_more" taborder="0" cssclass="btn_INTRO_Plus" top="14" width="18" height="18" left="303" onclick="button_onclick" style="cursor:hand;"/>
+              <Static id="Static02" taborder="1" cssclass="sta_PORTAL_ContentsTitle02" left="20" top="13" width="109" height="23"/>
+              <Static id="Static05" taborder="3" cssclass="sta_INTRO_ContentsLine" left="0" top="0" width="1" height="154"/>
+              <Grid id="grd_bbs" cssclass="grd_INTRO_Notice" taborder="4" binddataset="ds_bbs" scrollbars="none" useinputpanel="false" top="44" height="102" left="20" width="301" oncellclick="grd_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="15"/>
+                      <Column size="200"/>
+                      <Column size="9"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="25"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="image" style="padding: ;" text="URL('theme://images/grdIco_INTRO_Notice.png')"/>
+                      <Cell col="1" style="padding:0 0 0 0;" cssclass="Cellgrd_WF_AlignLeft" text="bind:BBRD_TI"/>
+                      <Cell col="2"/>
+                      <Cell col="3" style="color:#8f8f8fff;color2:#8f8f8fff;selectcolor:#8f8f8fff;selectfont:9 Gulim;" text="bind:FSRG_DTM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static07" taborder="26" visible="false" left="1111" top="25" width="8" height="40" style="background:#dc143c66;"/>
+        <Static id="Static01" taborder="33" cssclass="sta_PORTAL_ImageBg" left="1007" top="0" right="0" height="330"/>
+        <Div id="Div05" taborder="34" text="Div05" top="85" height="190" cssclass="div_PORTAL_TodoBg" ondragmove="Div05_ondragmove" ondrag="Div05_ondrag" ondrop="Div05_ondrop" left="142" width="724">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="31" cssclass="sta_PORTAL_TodoDate" top="10" height="21" left="139" width="185"/>
+              <Static id="Static02" taborder="32" cssclass="sta_PORTAL_TodoTitle" left="4.43%" top="12" right="81.86%" height="16"/>
+              <Static id="Static00" taborder="33" text="수주 미확인 건수" cssclass="sta_PORTAL_TodoCountTitle" left="3.74%" top="56" right="60.11%" height="21"/>
+              <Static id="Static03" taborder="34" cssclass="sta_PORTAL_TodoLine" left="50.14%" top="55" right="49.72%" height="120"/>
+              <Static id="Static04" taborder="35" text="배송예정서 미작성 건수" cssclass="sta_PORTAL_TodoCountTitle" left="3.74%" top="86" right="60.11%" height="21"/>
+              <Static id="Static05" taborder="36" text="반품 미확인 건수" cssclass="sta_PORTAL_TodoCountTitle" left="3.74%" top="116" right="62.19%" height="21"/>
+              <Static id="Static06" taborder="37" text="반품확인서 미작성 건수" cssclass="sta_PORTAL_TodoCountTitle" left="53.74%" top="56" right="12.19%" height="21"/>
+              <Static id="Static07" taborder="38" text="검수 미확인 건수" cssclass="sta_PORTAL_TodoCountTitle" left="53.74%" top="86" right="12.19%" height="21"/>
+              <Static id="Static08" taborder="39" text="세금계산서 역발행 미발행 건수" cssclass="sta_PORTAL_TodoCountTitle" left="53.74%" top="116" right="12.19%" height="21"/>
+              <Button id="btn03" taborder="40" cssclass="btn_PORTAL_TodoCount" left="37.4%" top="112" right="51.8%" height="30" onclick="common_cnt_onclick" style="cursor:hand;"/>
+              <Button id="btn02" taborder="41" cssclass="btn_PORTAL_TodoCount" left="38.64%" top="82" right="51.8%" height="30" onclick="common_cnt_onclick" style="cursor:hand;"/>
+              <Button id="btn06" taborder="42" cssclass="btn_PORTAL_TodoCount" left="86.98%" top="112" right="2.22%" height="30" onclick="common_cnt_onclick" style="cursor:hand;"/>
+              <Button id="btn04" taborder="43" cssclass="btn_PORTAL_TodoCount" left="86.84%" top="51" right="2.22%" height="30" onclick="common_cnt_onclick" style="cursor:hand;"/>
+              <Button id="btn05" taborder="44" cssclass="btn_PORTAL_TodoCount" left="88.23%" top="82" right="2.22%" height="30" onclick="common_cnt_onclick" style="cursor:hand;"/>
+              <Button id="btn01" taborder="45" cssclass="btn_PORTAL_TodoCount" left="37.26%" top="51" right="51.8%" height="30" onclick="common_cnt_onclick" style="cursor:hand;"/>
+              <Button id="btn_popupClose" taborder="46" cssclass="btn_WF_PopupClose" left="94.74%" top="3" right="0.14%" height="32" onclick="Div05_btn_popupClose_onclick" style="cursor:hand;"/>
+              <Button id="btn07" taborder="47" onclick="common_cnt_onclick" cssclass="btn_PORTAL_TodoCount" left="37.4%" top="142" right="51.8%" height="30" style="cursor:hand;"/>
+              <Static id="Static09" taborder="48" text="마트장비 배송예정서 미작성 건수" cssclass="sta_PORTAL_TodoCountTitle" left="3.74%" top="146" right="62.19%" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bbs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="string" size="32" prop=""/>
+          <Column id="BLBD_ID" type="string" size="32" prop=""/>
+          <Column id="BBRD_ID" type="string" size="32" prop=""/>
+          <Column id="BBRD_TI" type="string" size="32" prop=""/>
+          <Column id="BBRD_CNTN" type="string" size="32" prop=""/>
+          <Column id="BLTN_ST_DTM" type="string" size="32" prop=""/>
+          <Column id="BLTN_ED_DTM" type="string" size="32" prop=""/>
+          <Column id="CKNL_DSC" type="string" size="32" prop=""/>
+          <Column id="BBRD_DEL_YN" type="string" size="32" prop=""/>
+          <Column id="BBRD_INQ_CN" type="string" size="32" prop=""/>
+          <Column id="BBRD_RGMNM" type="string" size="32" prop=""/>
+          <Column id="FSRG_DTM" type="string" size="32" prop=""/>
+          <Column id="FS_RGM" type="string" size="32" prop=""/>
+          <Column id="LSCHG_DTM" type="string" size="32" prop=""/>
+          <Column id="LS_CHGM" type="string" size="32" prop=""/>
+          <Column id="PRET_BBRD_ID" type="string" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_notice" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BBRD_SQNO" type="STRING" size="256"/>
+          <Column id="BLTN_ST_DTM" type="string" size="32"/>
+          <Column id="BLTN_ED_DTM" type="string" size="32"/>
+          <Column id="OFANC_TINM" type="STRING" size="256"/>
+          <Column id="OFANC_CNTN" type="STRING" size="256"/>
+          <Column id="OFANC_PRU_NT" type="STRING" size="256"/>
+          <Column id="BBRD_DEL_YN" type="STRING" size="256"/>
+          <Column id="CKNL_DSC" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_tax" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt02" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt03" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt04" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt05" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_cnt06" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+      <Dataset id="ds_usrConsent" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="MB_ID" type="STRING" size="256"/>
+          <Column id="CONSENT_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_usrConsentCount" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CONSENT_COUNT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_survey">
+        <ColumnInfo>
+          <Column id="BSN_DSC" type="STRING" size="256"/>
+          <Column id="SRV_SEQ" type="STRING" size="256"/>
+          <Column id="TITLE" type="STRING" size="256"/>
+          <Column id="SUBTITLE" type="STRING" size="256"/>
+          <Column id="INTRO" type="STRING" size="256"/>
+          <Column id="APL_ST_DT" type="STRING" size="256"/>
+          <Column id="APL_ED_DT" type="STRING" size="256"/>
+          <Column id="RMK_CNTN" type="STRING" size="256"/>
+          <Column id="SRV_ST_DT" type="STRING" size="256"/>
+          <Column id="SRV_ED_DT" type="STRING" size="256"/>
+          <Column id="USE_YN" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FSRGMN_ENO" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CMENO" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cnt07" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+var xPos,yPos, Xscreen, Yscreen;
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+	//this.fn_popupUnconfirmedDiv();
+}
+
+this.fn_afterFormOnload = function()
+{
+
+	if(application.gv_userType == '01' && application.gv_mbcoType == '1'){ /*협력업체일때 && 본사  설문조사 루트 탐*/
+		var mbco = application.gv_mbcoType;
+		
+		this.surveyCheck();
+
+		// TRPL_DTL_TPC : 0002, 0003, 0004 농업인생산기업 팝업
+		if (application.gv_trplDtlTpc == '0002' || application.gv_trplDtlTpc == '0003' || application.gv_trplDtlTpc == '0004') {			
+			this.gfn_popupMsg(
+				"NAHHJOIN", // id
+				"농협하나로앱을 통하여 농협에서의 판매실적이나 재고현황을\n실시간으로 편리하게 확인하실 수 있습니다.\n농협하나로앱 가입화면으로 이동하시겠습니까?", // msg
+				"LINK", // type
+				"https://www.nhhanaro.co.kr/nahh_join.jsp" // action
+			);
+		}
+	}
+	// 신규계약상담
+	if (application.gv_userType == '02' || application.gv_userType == '03') {
+		this.Div02.btn_counsel.set_visible(false);
+	}
+	 
+	this.fn_retrieveBlbdOfancMainList();
+	this.fn_retrieveNacfOfancMainList();
+	
+	var today = this.gfn_today('yyyyMMdd');
+	var dayBefore = this.gfn_minusDate(today, 2);
+	this.Div05.Static01.set_text("("+ this.gfn_getFormat(dayBefore, "@@@@-@@-@@")+" ~ "+ this.gfn_getFormat(today, "@@@@-@@-@@")+")");
+	
+	if (application.gv_userType != '04' && application.gv_userType != '81') this.fn_retrieveUnCnfCnInqCnt(); // 미확인건수
+	else if (application.gv_userType == '04' || application.gv_userType == '81') this.Div05.set_visible(false);
+	
+//	this.fn_checkOpenSMS(); // SMS 상시적용
+	//this.fn_retrieveUsrConsent(); // 사용자 정보 제공 동의
+}
+/*
+ * 자사 판매정보 제공동의 
+ */
+this.consentPopup = function()
+{
+
+	var oArg = {paramMode:"U", dsArg:this.ds_notice};
+	var sOption = "autosize=true";
+	var sPopupCallBack = "fn_popupAfter";    
+   	this.gfn_openPopup("popId","OMG.PT::OMG_DS_SC_4513.xfdl",oArg,sOption,sPopupCallBack);	    
+}
+/*
+사용자 만족도 설문조사 (협력업체 해당)
+*/
+this.surveyCheck = function()
+{
+
+	var sSvcID        = "retrievePopupsurvey";
+	var sURL          = "svc::rest/pt/survey/retrievePopupsurvey";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_survey=ds_survey";
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, sTranType);
+}
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_retrieveBlbdOfancMainList = function()
+{
+	var sSvcID        = "retrieveBlbdOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveBlbdOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bbs=ds_bbs";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+this.fn_retrieveNacfOfancMainList = function()
+{
+	var sSvcID        = "retrieveNacfOfancMainList";
+	var sURL          = "svc::rest/pt/blbd/retrieveNacfOfancMainList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_notice=ds_notice";	
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_retrieveUnCnfCnInqCnt = function() 
+{
+	var today = this.gfn_today('yyyyMMdd');
+	var dayBefore = this.gfn_minusDate(today, 2);
+	var glnCode = application.gv_glnCode;
+	
+	var params = 	"to="+today
+					+" from="+dayBefore
+					+" glnCode2="+glnCode
+					+" userTPC="+application.gv_userType;
+					
+	trace("##params >> " + params);
+	
+	var sSvcID        = "retrieveUnCnfCnInqCnt";
+	var sURL          = "svc::rest/pt/comn/retrieveUnCnfCnInqCnt";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_cnt01=ds_cnt01 ds_cnt02=ds_cnt02 ds_cnt03=ds_cnt03 ds_cnt04=ds_cnt04 ds_cnt05=ds_cnt05 ds_cnt06=ds_cnt06 ds_cnt07=ds_cnt07";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // 
+	
+	application.set_usewaitcursor(false);
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_retrieveUsrConsent = function() 
+{
+	var bsnDsc = "sales_price";
+	var glnCode = application.gv_glnCode;
+	
+	var params =  "bsnDsc=" + bsnDsc
+				 + " naTrplC=" + glnCode 
+				 ;
+
+					
+	trace("##params >> " + params);
+	
+	var sSvcID        = "retrieveUsrConsentCount";
+	var sURL          = "svc::rest/pt/usrinf/retrieveUsrConsentCount";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_usrConsentCount=ds_usrConsentCount";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // 
+	
+	application.set_usewaitcursor(false);
+	// alert('fn_retrieveUsrConsent');
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(svcID == "checkOpenSMS"){
+		trace("checkOpenSMS : " + ErrorCode);
+	}
+ 	if(ErrorCode > -1)
+ 	{
+		application.set_usewaitcursor(true);
+		
+		switch(svcID)
+		{
+			case "retrieveBlbdOfancMainList":
+				break;
+			case "retrieveNacfOfancMainList":
+				break;
+			case "retrieveUnCnfCnInqCnt":
+				if(application.gv_userType != '04')
+				{
+					this.Div05.btn01.set_text(this.ds_cnt01.getColumn(0, "CNT"));
+					this.Div05.btn02.set_text(this.ds_cnt02.getColumn(0, "CNT"));
+					this.Div05.btn03.set_text(this.ds_cnt03.getColumn(0, "CNT"));
+					this.Div05.btn04.set_text(this.ds_cnt04.getColumn(0, "CNT"));
+					this.Div05.btn05.set_text(this.ds_cnt05.getColumn(0, "CNT"));
+					this.Div05.btn06.set_text(this.ds_cnt06.getColumn(0, "CNT"));
+					this.Div05.btn07.set_text(this.ds_cnt07.getColumn(0, "CNT"));
+				}
+				else if(application.gv_userType == '04')
+				{
+					this.Div05.btn01.set_text("0");
+					this.Div05.btn02.set_text("0");
+					this.Div05.btn03.set_text("0");
+					this.Div05.btn04.set_text("0");
+					this.Div05.btn05.set_text("0");
+					this.Div05.btn06.set_text(this.ds_cnt06.getColumn(0, "CNT"));
+					this.Div05.btn07.set_text("0");
+				}
+				break;
+			case "checkOpenSMS":
+				this.Div02.Static07.set_text("긴급 SMS");
+				this.Div02.Static07.style.set_font("antialias bold 15 Arial");
+				this.Div02.Static08.style.set_font("8 Dotum");
+				this.Div02.Static08.set_text("[평일] 18:00 ~ 09:00\n[휴일] 00:00 ~ 23:59");
+				this.Div02.btn_remote.set_visible(false);
+				this.Div02.btn_sms.set_visible(true);
+				this.Div02.btn_sms.set_left(200);
+				this.Div02.btn_sms.set_top(108);
+				this.Div02.btn_sms.set_position("absolute");
+			
+				
+				
+				
+				
+				
+				//this.Div02.Static08.set_text("[평일] 09:00 ~ 18:00[점심] 12:00 ~ 13:00");
+				//this.fn_openSMS();
+			break;
+
+			case "retrieveUsrConsentCount":
+			    // alert('fn_retrieveUsrConsent callback');
+
+			   // alert("getRowCount " + this.ds_usrConsent.getRowCount());
+			   var CONSENT_COUNT = this.ds_usrConsentCount.getColumn(0,"CONSENT_COUNT");
+			   trace("CONSENT_COUNT >> " + CONSENT_COUNT);
+			   /*
+			    trace("getRowCount >> " + this.ds_usrConsentCount.getRowCount());
+			    
+			    trace("1 >> " + this.ds_usrConsentCount.getColumn(0,1));
+			    trace("application.gv_userAuth >> " + application.gv_userAuth);
+			    trace("application.gv_userAuth.indexOf('1') >> " + application.gv_userAuth.indexOf('1'));
+			    
+			    trace("application.gv_userType >> " + application.gv_userType);
+			    trace("application.gv_mbcoType >> " + application.gv_mbcoType);
+			    
+			   */
+			   
+				   // application.gv_userType != '01' -- 협력업체 
+				   // 본사 && application.gv_mbcoType ; // 1 본사. 
+				   // 빌링권한application.gv_userAuth     = this.gfn_nvl(this.ds_login.getColumn(0,"userAuth"),"");
+				   // indexof('1');
+				   
+			       // if(this.ds_cnt01.getColumn(0, "CONSENT_YN") != 'Y')
+			   
+			   
+			   if (application.gv_userType == '01' && application.gv_mbcoType == '1' && CONSENT_COUNT == '0' )
+			    {
+			        this.consentPopup();
+			    }
+			break;
+			
+			case "retrievePopupsurvey": 
+			this.popup();
+			break;
+
+		}
+ 	}else
+ 	{	
+		switch(svcID){
+			case "checkOpenSMS":
+				
+			break;
+			
+		}	
+		
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.button_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "btn_03":
+			this.gfn_openIntroMenu(30100000);
+			break;
+			
+		case "btn_04":
+			this.gfn_openIntroMenu(40100000);
+			break;
+			
+		case "btn_counsel":
+			application.afrm_TopFrame.set_formurl("");
+			application.afrm_LeftFrame.set_formurl("frame::LeftFrame_serviceBT.xfdl");
+			application.afrm_PotalFrame.set_formurl("");
+			application.afrm_TopFrame.set_formurl("frame::TopFrame_serviceBT.xfdl");
+			application.afrm_VFrameSet0.set_separatesize("0,65,*");
+			application.afrm_HFrameSet0.set_separatesize("190,*,0");
+			application.afrm_VFrameSet1.set_separatesize("0,*");
+			
+			this.gfn_OpenMenuId("10100000","","BT"); 
+			break;
+		case "btn_more":
+			switch( application.gv_userType)
+			{
+				case "01":
+					this.fn_openMenu("16004003");
+					break;
+				case "02":
+					this.fn_openMenu("26004003");
+					break;
+				case "03":
+					this.fn_openMenu("36004003");
+					break;
+			}
+			
+			break;
+		case "btn_NHmore":	
+			switch( application.gv_userType)
+			{
+				case "01":
+					this.fn_openMenu("16004001");
+					break;
+				case "02":
+					this.fn_openMenu("26004001");
+					break;
+				case "03":
+					this.fn_openMenu("36004001");
+					break;
+			}
+			break;
+			
+		case "btn_remote":
+			window.open("http://939.co.kr/nhescm/");
+			break;
+		case "btn_sms" :
+			this.fn_openSMS();
+			break;
+		
+	}
+}
+this.popup = function()
+{
+
+	this.url="";
+	this.popup_W= 0 ;
+	this.popup_H= 0;
+	this.BlbdId="";
+	this.framename = "popu0p";
+        
+	for(var i = 0 ; i < this.ds_survey.rowcount; i++){		
+	 
+	    this.TITLE = this.ds_survey.getColumn(i, "TITLE")  ;
+	    this.SUBTITLE = this.ds_survey.getColumn(i, "SUBTITLE")  ;
+	    this.INTRO = this.ds_survey.getColumn(i, "INTRO")  ;
+	    this.SRV_SEQ = this.ds_survey.getColumn(i, "SRV_SEQ")  ;
+		
+ 		application.open(this.framename, "OMG.MG::OMG_DS_SC_8331.xfdl", this,{URL:this.url,TITLE:this.TITLE,SUBTITLE:this.SUBTITLE,INTRO:this.INTRO,SRV_SEQ:this.SRV_SEQ}, "showtitlebar=false showstatusbar=true autosize=false resizable=true", this.popup_W, this.popup_H , 800,740);
+ 		this.popup_W = this.popup_W  + 40 ;
+		this.popup_H= this.popup_H + 40;	
+ 
+	} 			
+}
+this.common_cnt_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var moveToMenu = "";
+	
+	switch(obj.name)
+	{
+		case "btn01"://수주미확인건수:수주내역조회
+			if(application.gv_userType == '04')
+			 {
+			 alert("화면 권한이 없습니다.");
+			 return;
+			 }
+			 moveToMenu = "01001002";
+			break;
+		
+		case "btn02"://배송예정서:수주내역조회
+			if(application.gv_userType == '04')
+			 {
+			 alert("화면 권한이 없습니다.");
+			 return;
+			 }
+			moveToMenu = "01001002";
+			break;
+			
+		case "btn03"://반품미확인:검수실적_전표별
+			if(application.gv_userType == '04')
+			 {
+			 alert("화면 권한이 없습니다.");
+			 return;
+			 }
+			moveToMenu = "01005001";
+			break;
+			
+		case "btn04"://반품확인서미작성:반품입고확인등록
+			if(application.gv_userType == '04')
+			 {
+			 alert("화면 권한이 없습니다.");
+			 return;
+			 }
+			moveToMenu = "01006002";
+			break;
+			
+		case "btn05"://검수미확인건수:검수실적_전표별
+			if(application.gv_userType == '04')
+			 {
+			 alert("화면 권한이 없습니다.");
+			 return;
+			 }
+			moveToMenu = "01005001";
+			break;
+			
+		case "btn06"://세금계산서역발행:매출세금계산서(역발행)
+			switch( application.gv_userType)
+			{
+				case "01":
+					moveToMenu = "12002002";
+					break;
+				case "02":
+					moveToMenu = "22002002";
+					break;
+				case "03":
+					moveToMenu = "32002002";
+					break;
+				case "04":
+					moveToMenu = "42002002";
+					break;
+			}
+			break;
+			
+		case "btn07"://마트장비 배송예정서
+			if(application.gv_userType == '04')
+			 {
+			 alert("화면 권한이 없습니다.");
+			 return;
+			 }
+			moveToMenu = "01003017";
+			break;
+	}
+	
+	this.fn_openMenu(moveToMenu);
+}
+
+this.grd_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "grd_notice":
+			this.fn_openNhNotice(e.row);
+			break;
+		case "grd_bbs":
+			this.fn_openBbsNotice(e.row);
+			break;
+	}
+}
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+this.fn_openSMS = function()
+{
+	var oArg = {};
+	var sOption = "autosize=true,title=true,modeless=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("POP_SMS","POPUP::POPUP_SMS.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_checkOpenSMS = function(){
+	var sSvcID        = "checkOpenSMS";      
+	var sURL          = "svc::rest/pt/checkOpenSMS";
+	var sInDatasets   = "";
+	var sOutDatasets  = "";   
+	var sArgument     = "";
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회         
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_openNhNotice = function(nRow)
+{
+	var oArg = {noticeSeq:this.ds_notice.getColumn(nRow, "BBRD_SQNO")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4511","OMG.PT::OMG_DS_SC_4511.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_openBbsNotice = function(nRow)
+{
+	var oArg = {blbdId:this.ds_bbs.getColumn(nRow, "BLBD_ID"), bbrdId:this.ds_bbs.getColumn(nRow, "BBRD_ID")};
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("OMG_DS_SC_4111","OMG.PT::OMG_DS_SC_4111.xfdl",oArg,sOption,sPopupCallBack);	
+}
+
+this.fn_popupUnconfirmedDiv = function()
+{
+	var oArg = "";
+	var sOption = "autosize=true"; //,modeless=true
+	var sPopupCallBack = "fn_popupUnconfirmedDiv";    
+	this.gfn_openPopup("popupUnconfirmedDiv","frame::portal_unconfirmedDiv.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+this.Div05_ondragmove = function(obj:Div, e:nexacro.DragEventInfo)
+{
+	Xscreen = e.screenX;
+	Yscreen = e.screenY;
+}
+
+this.Div05_ondrag = function(obj:Div, e:nexacro.DragEventInfo)
+{
+	xPos = obj.left - e.screenX;
+	yPos = obj.top - e.screenY;
+
+	this.setTimer(1,5);
+	return true;
+}
+
+this.Intro_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+	this.Div05.move(Xscreen + xPos, Yscreen + yPos);
+}
+
+this.Div05_ondrop = function(obj:Div, e:nexacro.DragEventInfo)
+{
+	this.killTimer(1);
+}
+
+this.Div05_btn_popupClose_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Div05.set_visible(false);
+}
+
+this.common_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	switch(obj.name)
+	{
+		case "Button03":
+			this.fn_openMenu("22001001");
+			break;
+	}
+}
+
+this.fn_openMenu = function(menuId) //26004003
+{
+	var sMenuId = menuId.substr(0,2);//26
+	application.afrm_HFrameSet0.set_separatesize("190,*,0");
+	application.afrm_VFrameSet1.set_separatesize("32,*");
+	application.afrm_LeftFrame.form.ds_menu.filter("MENU_LEVEL >= 1 && MENU_ID.substr(0,2)=='"+sMenuId+"' && DISPLAY_YN!='N'");
+	
+	var nRow    = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId);
+	var objGrid = application.afrm_LeftFrame.form.div_menu.grd_menu;
+	
+	var nTopRow      = application.gds_menu.findRow("MENU_ID", sMenuId+"000000");
+	
+	var sLFTitleText = application.gds_menu.getColumn(nTopRow,"MENU_NAME");
+	
+	application.afrm_LeftFrame.form.btn_menuList.set_text(sLFTitleText);
+	
+	//중메뉴의 첫번째 소메뉴 선택
+	var nRow2   = application.afrm_LeftFrame.form.ds_menu.findRow("MENU_ID",menuId.substr(0,5) + '000');
+	objGrid.setTreeStatus(objGrid.getTreeRow(nRow2),true);//26004000
+	application.afrm_LeftFrame.form.ds_menu.set_rowposition(nRow);
+	
+	var sMId =application.afrm_LeftFrame.form.ds_menu.getColumn(nRow,"MENU_ID");
+	
+	//해당Grid visible처리
+	application.afrm_LeftFrame.form.div_menu.grd_menu.set_visible(true);
+	application.afrm_LeftFrame.form.div_menu.grd_myInfo.set_visible(false);
+	
+	this.gfn_OpenMenuId(sMId);
+}
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_openMenu("22004003");
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_013" classname="pattern_01" left="0" top="0" width="741" height="441" titletext="게시판(팝업)" cssclass="frm_WF_PopupBg" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static20" taborder="119" text="첨부파일" cssclass="sta_WF_Label" left="17" top="103" width="110" height="29"/>
+        <Static id="Static21" taborder="120" cssclass="sta_WF_Labelbg" left="126" top="103" right="18" height="29"/>
+        <Static id="Static06" taborder="102" text="공지사항" cssclass="sta_WF_PopupTitle" left="0%" top="0" right="53.44%" height="32"/>
+        <Button id="btn_close" taborder="103" onclick="btn_close_onclick" cssclass="btn_WF_PopupClose" left="94.74%" top="0" right="0.27%" height="32"/>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="993" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static09" taborder="104" text="17" visible="false" left="0%" top="76" right="97.71%" height="73" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="105" text="17" visible="false" left="97.57%" top="96" height="333" style="background:#dc143c5b;" width="17"/>
+        <Static id="Static05" taborder="106" text="17" visible="false" left="48.99%" top="423" right="38.73%" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static10" taborder="107" text="10" visible="false" left="48.99%" top="384" right="38.73%" height="10" style="background:#dc143c5b;"/>
+        <Button id="btn_ok" taborder="108" text="확인" onclick="btn_close_onclick" cssclass="btn_WF_Popup" right="17" height="29" width="54" bottom="18"/>
+        <Static id="Static11" taborder="109" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="110" text="8" visible="false" left="683" top="39" right="17" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static12" taborder="111" cssclass="sta_WF_Labelbg" left="572" top="47" right="18" height="29"/>
+        <Static id="Static13" taborder="112" cssclass="sta_WF_Labelbg" left="126" top="47" width="338" height="29"/>
+        <Static id="Static14" taborder="113" text="제목" cssclass="sta_WF_Label" left="17" top="47" width="110" height="29"/>
+        <Static id="Static15" taborder="114" text="날짜" cssclass="sta_WF_Label" left="463" top="47" width="110" height="29"/>
+        <Static id="Static16" taborder="115" cssclass="sta_WF_Labelbg" left="572" top="75" right="18" height="29"/>
+        <Static id="Static17" taborder="116" text="작성자" cssclass="sta_WF_Label" left="17" top="75" width="110" height="29"/>
+        <Static id="Static18" taborder="117" text="조회수" cssclass="sta_WF_Label" left="463" top="75" width="110" height="29"/>
+        <Static id="Static19" taborder="118" cssclass="sta_WF_Labelbg" left="126" top="75" width="338" height="29"/>
+        <Static id="Static22" taborder="121" cssclass="sta_WF_Labelbg" left="17" top="103" right="18" bottom="57"/>
+        <TextArea id="TextArea01" taborder="122" wordwrap="char" readonly="true" cssclass="txt_WF_file" left="33" top="119" mask="###,###" right="33" bottom="73"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bbs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ISCHECKED" type="STRING" size="256"/>
+          <Column id="BLBD_ID" type="STRING" size="256"/>
+          <Column id="BBRD_ID" type="STRING" size="256"/>
+          <Column id="BBRD_TI" type="STRING" size="256"/>
+          <Column id="BBRD_CNTN" type="STRING" size="256"/>
+          <Column id="BLTN_ST_DTM" type="STRING" size="256"/>
+          <Column id="BLTN_ED_DTM" type="STRING" size="256"/>
+          <Column id="CKNL_DSC" type="STRING" size="256"/>
+          <Column id="BBRD_DEL_YN" type="STRING" size="256"/>
+          <Column id="BBRD_INQ_CN" type="STRING" size="256"/>
+          <Column id="BBRD_RGMNM" type="STRING" size="256"/>
+          <Column id="FSRG_DTM" type="STRING" size="256"/>
+          <Column id="FS_RGM" type="STRING" size="256"/>
+          <Column id="LSCHG_DTM" type="STRING" size="256"/>
+          <Column id="LS_CHGM" type="STRING" size="256"/>
+          <Column id="LAST_CHG_USER" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ISCHECKED">1</Col>
+            <Col id="BLBD_ID">가나다라마바</Col>
+            <Col id="BBRD_ID">20150202</Col>
+            <Col id="BBRD_TI">200243</Col>
+            <Col id="BBRD_CNTN">가나다라마바아자</Col>
+            <Col id="BLTN_ST_DTM">ABC123456789</Col>
+            <Col id="BLTN_ED_DTM">가나다라마바아자</Col>
+            <Col id="CKNL_DSC">가나다라마바아자</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item6" compid="OMG_DS_SC_013" propid="" datasetid="ds_bbs" columnid=""/>
+      <BindItem id="item2" compid="OMG_DS_SC_013" propid="" datasetid="ds_bbs" columnid=""/>
+      <BindItem id="item7" compid="Static13" propid="text" datasetid="ds_bbs" columnid="BBRD_TI"/>
+      <BindItem id="item8" compid="Static19" propid="text" datasetid="ds_bbs" columnid="BBRD_RGMNM"/>
+      <BindItem id="item9" compid="Static12" propid="text" datasetid="ds_bbs" columnid="LSCHG_DTM"/>
+      <BindItem id="item10" compid="Static16" propid="text" datasetid="ds_bbs" columnid="BBRD_INQ_CN"/>
+      <BindItem id="item11" compid="Static21" propid="text" datasetid="ds_bbs" columnid=""/>
+      <BindItem id="item12" compid="TextArea01" propid="text" datasetid="ds_bbs" columnid=""/>
+      <BindItem id="item0" compid="TextArea01" propid="value" datasetid="ds_bbs" columnid="BBRD_CNTN"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+//this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+this.boardId = "";
+this.documentId = "";
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+
+this.fn_afterFormOnload = function()
+{
+   //페이지 로딩후 실행부분
+	this.boardId = this.getOwnerFrame().boardId;
+	this.documentId = this.getOwnerFrame().documentId;
+	
+	this.fn_getBbsContent();
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_getBbsContent = function()
+{
+	var sSvcID        = "retrieveBbsContent";
+	var sURL          = "svc::rest/portal/retrieveBbsContent";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_bbs=ds_bbs";	
+	var sArgument     = "boardId="+ this.boardId +
+	                    " documentId=" + this.documentId;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+ 	if(ErrorCode < 0) //에러
+ 	{
+		trace(">>>>>>>>>>>>>>> svcID ::" +  svcID + ",  ErrorCode :: " + ErrorCode + ",  ErrorMsg :: " + ErrorMsg);
+ 	}
+ 	else 
+ 	{
+		switch(svcID)
+		{
+			case "getBbsContent":
+				break;
+		}
+ 	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/
+
+
+]]></Script>
+  </Form>
+</FDL>

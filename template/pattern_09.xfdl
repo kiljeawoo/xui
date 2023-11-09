@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="pattern_01" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="Page Button">
+    <Layouts>
+      <Layout>
+        <Button id="Button07" taborder="10" text="초기화" top="0" width="53" height="21" cssclass="btn_WF_CRUD" right="161"/>
+        <Button id="Button08" taborder="11" text="저장" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="75"/>
+        <Button id="Button09" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15"/>
+        <Button id="Button02" taborder="37" text="엑셀" cssclass="btn_WF_CRUD" top="0" width="41" height="21" right="118"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+          <Layouts/>
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Div id="Div00" taborder="85" left="0" top="29" right="15" height="69" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit02" taborder="76" left="106" top="10" width="140" height="21"/>
+              <Static id="Static00" taborder="77" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="10" width="91" height="21"/>
+              <Static id="Static01" taborder="78" text="검색텍스트" cssclass="sta_WFSA_Label" left="15" top="36" width="91" height="21"/>
+              <Edit id="Edit01" taborder="79" enable="false" left="294" top="36" width="0" height="21"/>
+              <Combo id="Combo00" taborder="80" text="[1100] 서울" left="106" top="36" width="140" height="21"/>
+              <Edit id="Edit00" taborder="81" left="367" top="10" width="140" height="21"/>
+              <Static id="Static02" taborder="82" text="검색텍스트" cssclass="sta_WFSA_Label" left="276" top="10" width="91" height="21"/>
+              <Static id="Static04" taborder="83" text="검색텍스트" cssclass="sta_WFSA_Label" left="276" top="36" width="91" height="21"/>
+              <Combo id="Combo01" taborder="84" text="[1100] 서울" left="367" top="36" width="140" height="21"/>
+              <Static id="Static03" taborder="85" text="검색텍스트" cssclass="sta_WFSA_Label" left="537" top="10" width="91" height="21"/>
+              <Static id="Static05" taborder="86" text="검색텍스트" cssclass="sta_WFSA_Label" left="537" top="36" width="91" height="21"/>
+              <Combo id="Combo02" taborder="87" text="[1100] 서울" left="628" top="36" width="140" height="21"/>
+              <Edit id="Edit03" taborder="88" left="628" top="10" width="140" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="97" right="15" bottom="0">
+          <Layouts>
+            <Layout>
+              <Button id="Button04" taborder="0" text="행삭제" top="16" width="53" height="21" right="91"/>
+              <Button id="Button75" taborder="1" cssclass="btn_WFSA_SearchClose" top="0" height="12" left="46.07%" width="63"/>
+              <Grid id="Grid01" taborder="2" binddataset="Dataset00" useinputpanel="false" autofittype="col" left="0" top="42" right="0" bottom="29">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No."/>
+                      <Cell col="1" text="그리드타이틀01"/>
+                      <Cell col="2" text="그리드타이틀02"/>
+                      <Cell col="3" text="그리드타이틀03"/>
+                      <Cell col="4" text="그리드타이틀04"/>
+                      <Cell col="5" text="그리드타이틀05"/>
+                      <Cell col="6" text="그리드타이틀06"/>
+                      <Cell col="7" text="그리드타이틀07"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:Column0"/>
+                      <Cell col="1" text="bind:Column1"/>
+                      <Cell col="2" text="bind:Column2"/>
+                      <Cell col="3" text="bind:Column3"/>
+                      <Cell col="4" text="bind:Column4"/>
+                      <Cell col="5" text="bind:Column5"/>
+                      <Cell col="6" text="bind:Column6"/>
+                      <Cell col="7" text="bind:Column7"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button03" taborder="3" text="행추가" top="16" width="53" height="21" right="146"/>
+              <Button id="Button00" taborder="4" text="엑셀다운로드" top="16" width="89" height="21" right="0"/>
+              <Static id="Static03" taborder="5" text="15" visible="false" left="922" top="1" width="56" height="15" style="background:#dc143c5b;"/>
+              <Static id="Static05" taborder="6" text="5" visible="false" left="922" top="37" width="56" height="5" style="background:#dc143c5b;"/>
+              <Div id="Div03" taborder="7" url="common::pagingBTN.xfdl" text="Div03" left="38.34%" height="29" width="228" bottom="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="84" text="30" visible="false" left="508" top="31" width="30" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="86" visible="false" left="1" top="30" width="15" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="98" width="56" height="15" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="88" text="30" visible="false" left="247" top="29" width="30" height="67" style="background:#dc143c5b;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+          <Column id="Column5" type="STRING" size="256"/>
+          <Column id="Column6" type="STRING" size="256"/>
+          <Column id="Column7" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">10</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">11</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">12</Col>
+            <Col id="Column1">가나다라마바</Col>
+            <Col id="Column2">ABC123456789</Col>
+            <Col id="Column3">ABC123456789</Col>
+            <Col id="Column4">가나다라마바아자</Col>
+            <Col id="Column6">가나다라마바아자</Col>
+            <Col id="Column7">가나다라마바아자</Col>
+            <Col id="Column5">ABC123456789</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">13</Col>
+            <Col id="Column2">ABC123456789</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

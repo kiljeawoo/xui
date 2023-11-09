@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="PDA_CN_007001" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="검수실적 그룹관리" onload="form_onload" oninit="form_init">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="89" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Static id="Static02" taborder="31" text="사업장조회" cssclass="sta_WFSA_Label" left="27.61%" top="10" right="61.45%" height="21"/>
+              <Edit id="Edit_comnum" taborder="32" left="38.17%" top="10" right="52.93%" height="21"/>
+              <Edit id="Edit_comname" taborder="33" left="47.33%" top="10" right="43.26%" height="21" enable="true"/>
+              <Button id="btn_comname" taborder="34" onclick="div_search_btn_comname_onclick" cssclass="btn_WF_Searchbtn" left="57%" top="10" right="40.33%" height="21"/>
+              <Combo id="cb_groupNm" taborder="35" innerdataset="@ds_groupNm" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="8.4%" top="10" right="79.9%" height="21" style="align:left middle;" index="-1" displayrowcount="-1"/>
+              <Static id="Static01" taborder="36" text="그 룹" cssclass="sta_WFSA_Label" left="15" top="10" width="67" height="21"/>
+              <Static id="Static03" taborder="37" text="사용여부" cssclass="sta_WFSA_Label" left="68.83%" top="10" right="20.1%" height="21"/>
+              <Radio id="rdo_use" taborder="38" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="2" direction="vertical" left="77.1%" top="10" right="1.15%" height="21" style="font:9 Gulim;" onitemclick="div_search_rdo_use_onitemclick">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">전체</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">사용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">0</Col>
+                      <Col id="datacolumn">중지</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div02" taborder="81" text="Div02" left="0" top="71" right="15" bottom="1">
+          <Layouts>
+            <Layout width="788" height="420">
+              <Button id="Button75" taborder="3" onclick="Div_Md_Button75_onclick" cssclass="btn_WFSA_SearchClose" left="347" top="0" right="363" height="12"/>
+              <Grid id="Grd01" taborder="2" binddataset="ds_kpiGroup" useinputpanel="false" left="0" top="42" right="0" bottom="66" cellsizingtype="col" autofittype="col" summarytype="top" treeusebutton="use" treeusecheckbox="false" treeuseexpandkey="true" treeuseimage="false" treeuseline="true">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="140"/>
+                      <Column size="0"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="No"/>
+                      <Cell col="1" text="구분"/>
+                      <Cell col="2" text="그룹"/>
+                      <Cell col="3" text="사업장코드"/>
+                      <Cell col="4" text="사업장명"/>
+                      <Cell col="5" text="레벨"/>
+                      <Cell col="6" text="사용/중지"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="text" style="align: ;" expr="currow+1"/>
+                      <Cell col="1" displaytype="combo" edittype="combo" style="align: ;" text="bind:PD_KPI_FLAG" combodataset="ds_kpiFlag" combocodecol="CODE" combodatacol="DATA" tooltiptext="bind:PD_KPI_FLAG"/>
+                      <Cell col="2" displaytype="combo" edittype="combo" style="align: ;" text="bind:PD_KPI_GROUP_C" combodataset="ds_groupNmGrd" combocodecol="SIMP_C" combodatacol="SIMP_CNM" tooltiptext="bind:PD_KPI_GROUP_C"/>
+                      <Cell col="3" edittype="expr:(dataset.getRowType(currow)==2||NA_TRPL_C==null)?'normal':'none'" text="bind:NA_TRPL_C" tooltiptext="bind:NA_TRPL_C"/>
+                      <Cell col="4" style="align:left;" text="bind:CLNTNM" tooltiptext="bind:CLNTNM"/>
+                      <Cell col="5" displaytype="number" text="bind:LEV" tooltiptext="bind:LEV"/>
+                      <Cell col="6" displaytype="checkbox" edittype="checkbox" text="bind:USE_YN" tooltiptext="bind:USE_YN"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_execl" taborder="11" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="79" onclick="btn_excel_onclick"/>
+        <Button id="btn_search" taborder="12" top="0" width="58" height="21" cssclass="btn_WFSA_Searchbtn" right="15" onclick="btn_search_onclick"/>
+        <Div id="Div01" taborder="68" text="Div01" left="0" top="0" height="21" url="common::location.xfdl" right="563">
+        </Div>
+        <Static id="Static07" taborder="71" text="15" visible="false" left="788" top="0" width="15" height="490" style="background:#00ffffb5;"/>
+        <Static id="Static02" taborder="72" text="8" visible="false" left="732" top="21" width="56" height="8" style="background:#dc143c5b;"/>
+        <Static id="Static03" taborder="87" text="15" visible="false" left="732" top="72" width="56" height="41" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="88" visible="false" left="0.12%" top="30" right="98.01%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_save" taborder="91" text="저장" onclick="btn_save_onclick" cssclass="btn_WF_CRUD" top="0" right="126" width="41" height="21" visible="false"/>
+        <Button id="btn_insert" taborder="92" text="추가" onclick="btn_insert_onclick" cssclass="btn_WF_CRUD" top="0" right="174" width="41" height="21" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_kpiGroup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PD_KPI_FLAG" type="STRING" size="1"/>
+          <Column id="PD_KPI_GROUP_C" type="STRING" size="2"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="USE_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_groupNm" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_groupNmGrd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_CNM" type="STRING" size="32" prop=""/>
+          <Column id="SIMP_C_EXPL" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_kpiGroupChg" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="PD_KPI_FLAG" type="STRING" size="1"/>
+          <Column id="PD_KPI_GROUP_C" type="STRING" size="2"/>
+          <Column id="NA_TRPL_C" type="STRING" size="13"/>
+          <Column id="CLNTNM" type="STRING" size="50"/>
+          <Column id="USE_YN" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_kpiFlag" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="32" prop=""/>
+          <Column id="DATA" type="STRING" size="32" prop=""/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">1</Col>
+            <Col id="DATA">직영점</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">2</Col>
+            <Col id="DATA">계열사</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item2" compid="div_search.rdo_use" propid="value" datasetid="ds_dataM" columnid="DVY_VHC_DSC"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+// Form Init: 페이지 호출 후 실행
+this.form_init = function(obj:Form, e:nexacro.InitEventInfo)
+{
+ 
+}
+
+// Form Onload: DataSet 로딩 후 실행
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+
+    var param = [
+		{code:"PDA_KPI_GROUP"	, dsName:"ds_groupNm"		, selecttype:"A"},
+    ];
+    this.gfn_setPortalCommonCode(param); 
+
+//	시스템관리자가 아니면 권한확인을 한다
+	if(application.gv_userTPC != "admin")
+	{
+		this.fn_getAuth();
+	}	
+}
+
+this.fn_afterFormOnload = function() //onload
+{
+
+}
+
+// gfn_setCommonCode, gfn_setPortalCommonCode처리 후 호출할 함수
+this.fn_commonAfterOnload= function()
+{
+	this.div_search.cb_groupNm.set_index(0);
+
+//	ds_groupNm -> ds_groupNmGrd 전체 빼고 복사
+	for(var i = 1, length = this.ds_groupNm.getRowCount(); i < length; i++)
+	{
+		var nRow	= this.ds_groupNmGrd.addRow();
+		var bSucc	= this.ds_groupNmGrd.copyRow(nRow, this.ds_groupNm, i);	
+	}
+}
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+this.fn_setAuth = function()
+{
+//	권한에 따른 가능 및 제약업무 설정
+
+}
+
+// 콜백 함수
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", "error.message.server.exception");
+	}
+	else
+	{
+		if(svcID == "retrieveSmtPdaKpiGroupList")
+		{
+		//	trace("ds_kpiGroup:" + this.ds_kpiGroup.saveXML());
+			if(this.ds_kpiGroup.rowcount==0)
+			{
+				this.Div02.Grd01.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+			}
+		}
+		else if(svcID == "updateSmtPdaKpiGroup")
+		{
+		
+			if(ErrorCode == 0)
+			{
+				this.alert("변경내역을 반영 하였습니다.");
+				// 변경내역 저장 데이터셋 초기화
+				this.ds_kpiGroupChg.clearData();
+				this.fn_search();
+			}
+			else if(ErrorCode == 1)
+			{
+				this.alert(ErrorMsg + " 코드는 이미 등록되어 있습니다.");
+			}
+			else if(ErrorCode == 2)
+			{
+				this.alert(ErrorMsg + " 코드는 존재하지 않는 사업장코드 입니다.");
+			}
+			
+		
+			
+
+		}
+		else if(svcID == "getAuthSmtPdaKpiGroupChg")
+		{
+			trace("getAuthSmtPdaKpiGroupChg ErrorCode:" + ErrorCode);
+			if(ErrorCode == 1)
+			{
+				this.btn_insert.set_visible(true);
+				this.btn_save.set_visible(true);
+			}
+
+		}
+	}
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+// 조회조건 영역 펼치기, 접기
+this.Div_Md_Button75_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.Div02);
+}
+
+this.btn_insert_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var rownum = this.ds_kpiGroup.addRow();
+	// 초기값 설정
+	this.ds_kpiGroup.setColumn(rownum, "PD_KPI_FLAG", '1');
+	this.ds_kpiGroup.setColumn(rownum, "PD_KPI_GROUP_C", '01');
+	this.ds_kpiGroup.setColumn(rownum, "USE_YN", '1');
+}
+
+this.btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	this.ds_kpiGroupChg.clearData();
+	
+	for(var i = 0, length = this.ds_kpiGroup.getRowCount(); i < length; i++)
+	{
+		if(this.ds_kpiGroup.getRowType(i) == "2" || this.ds_kpiGroup.getRowType(i) == "4")	// INSERT OR UPDATE
+		{
+			var nRow	= this.ds_kpiGroupChg.addRow();
+			var bSucc	= this.ds_kpiGroupChg.copyRow(nRow, this.ds_kpiGroup, i);
+		}
+	}
+
+	if(this.ds_kpiGroupChg.getRowCount() > 0)
+	{
+		var ret = application.confirm(this.ds_kpiGroupChg.getRowCount() + "건에 대해 변경하시겠습니까?", "변경확인", "QUESTION");
+		if (ret == false)
+		{
+			//this.reload();
+			return;
+		}
+	}
+	else if(this.ds_kpiGroupChg.getRowCount() == 0)
+	{
+		alert("저장할 변경내역이 없습니다");
+		return;
+	}
+
+	trace("ds_kpiGroupChg:" + this.ds_kpiGroupChg.saveXML());
+	var params	      = "";
+	var sSvcID        = "updateSmtPdaKpiGroup"; 				// 통신아이디
+	var sURL          = "svc::rest/pda/updateSmtPdaKpiGroup";	// 호출할 서버 페이지 주소
+	var sInDatasets   = "in_ds=ds_kpiGroupChg:A";				// 보내는데이터셋
+	var sOutDatasets  = "";
+	var sArgument     = ""										// 파라미터
+	var sCallbackFunc = "fn_callBack";							// 콜백
+	var tranType 	  = "U";									// U:저장/삭제, S:조회
+
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets, sOutDatasets, sArgument, sCallbackFunc, tranType);
+}
+
+// 엑셀 다운로드
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var trplC	= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var clntNm	= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var grp_cd	= this.div_search.cb_groupNm.value;
+	if(grp_cd == "all")	grp_cd = "";
+	var use_cd	= this.div_search.rdo_use.value;
+	if(use_cd == '2')	use_cd = "";
+
+	var param	=  "TRPL_C="	+ trplC
+				+ "&CLNTNM="	+ clntNm
+				+ "&GROUP_C="	+ grp_cd
+				+ "&USE_CD="	+ use_cd
+				;
+
+	this.fn_excel(param);
+}
+
+this.fn_excel = function(param)
+{
+	trace("엑셀 다운로드 params >>> " + param);
+	excelDownHandler(application.gv_server_url + "rest/excel/pda/downloadExcelSmtPdaKpiGroupList?" + param, this);
+}
+
+/************************************************************************************************
+ * 사용자 함수 영역
+************************************************************************************************/	
+// 검수실적 그룹관리 목록조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_search();
+}
+
+this.fn_getAuth = function()
+{
+	var param			=  "USR_ID="	+ application.gv_userId;
+
+	var sSvcID			= "getAuthSmtPdaKpiGroupChg";
+	var sURL			= "svc::rest/pda/getAuthSmtPdaKpiGroupChg";
+	var sInDatasets		= "";				// 보내는데이터셋
+	var sOutDatasets	= "";				// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";				// U:저장/삭제, S:조회
+
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.fn_search = function()
+{
+	var trplC	= this.gfn_nullToEmpty(this.div_search.Edit_comnum.value);
+	var clntNm	= this.gfn_nullToEmpty(this.div_search.Edit_comname.value);
+	var grp_cd	= this.div_search.cb_groupNm.value;
+	if(grp_cd == "all")	grp_cd = "";
+	var use_cd	= this.div_search.rdo_use.value;
+	if(use_cd == '2')	use_cd = "";
+
+	var param	=  "TRPL_C="	+ trplC
+				+ " CLNTNM="	+ clntNm
+				+ " GROUP_C="	+ grp_cd
+				+ " USE_CD="	+ use_cd
+				;
+
+	var sSvcID			= "retrieveSmtPdaKpiGroupList";
+	var sURL			= "svc::rest/pda/retrieveSmtPdaKpiGroupList";
+	var sInDatasets		= "";							// 보내는데이터셋
+	var sOutDatasets	= "ds_kpiGroup=ds_kpiGroup";	// 화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	var sArgument		= param;
+	var sCallbackFunc	= "fn_callBack";
+	var sTranType		= "S";							// U:저장/삭제, S:조회
+
+//	trace("param:" + param);
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+// 업체 조회
+this.div_search_btn_comname_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var oArg = "";
+	var sOption = "autosize=true,title=true";
+	var sPopupCallBack = "fn_popupAfter";    
+	this.gfn_openPopup("trplSearchPopup","MOB.MD::MOB_MD_SC_1111_P01.xfdl",oArg,sOption,sPopupCallBack);
+}
+
+// 팝업작업 후 진행함수
+this.fn_popupAfter = function(strId, strVal)
+{
+//	trace(" strId : " + strId + " strVal : " + strVal);	
+	if(strId == "trplSearchPopup"){
+		if(strVal != ''){
+			var paramsArr = strVal.split(",");
+			this.div_search.Edit_comnum.set_value(paramsArr[0]);
+			this.div_search.Edit_comname.set_value(paramsArr[1]);
+		}
+	}
+}
+
+this.div_search_rdo_use_onitemclick = function(obj:Radio, e:nexacro.RadioMouseEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

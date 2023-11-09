@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="OMG_DS_SC_4614" classname="pattern_01" left="0" top="0" width="810" height="505" titletext="통계분석 서비스" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <ImageViewer id="ImageViewer00" taborder="0" left="15" top="15" width="780" height="165" style="background:URL('theme://images/new/con_img03.png') left middle;border:0 solid #bfbfbfff ;"/>
+        <Static id="Static00" taborder="1" text="통계분석 서비스" left="15" top="210" width="780" height="25" cssclass="sta_INFO_title"/>
+        <Static id="Static01" taborder="2" text="통계분석 서비스 이용요금" cssclass="sta_INFO_title" left="15" top="345" width="780" height="25"/>
+        <Static id="Static04" taborder="5" text="납품율분석 : 발주량 vs 배송예정량 vs 매입량 비교분석" cssclass="sta_INFO_txt1list" left="15" top="240" width="780" height="25"/>
+        <Static id="Static05" taborder="6" text="결품율분석 : 사업장별 재고 수량 “0” 인 상품조회 (전일자 마감)" cssclass="sta_INFO_txt1list" left="15" top="265" width="780" height="25"/>
+        <Static id="Static08" taborder="9" text="재고회전율(상품별) : 재고량 / 판매량 *100" cssclass="sta_INFO_txt1list" left="15" top="290" width="780" height="25"/>
+        <Static id="Static09" taborder="10" text="납품율분석 : 20,000원/월 (VAT별도)" cssclass="sta_INFO_txt1list" left="15" top="375" width="780" height="25"/>
+        <Static id="Static10" taborder="11" text="결품율분석 : 20,000원/월 (VAT별도)" cssclass="sta_INFO_txt1list" left="15" top="400" width="780" height="25"/>
+        <Static id="Static14" taborder="15" text="현재 서비스 개발중입니다.(18년 12월 서비스 제공예정)" cssclass="sta_INFO_txt2list" left="15" top="440" width="780" height="25"/>
+        <Static id="Static15" taborder="16" text="기타문의 및 궁금하신 사항은 항상 저희 고객센터(1522-1211)로 연락 주시기 바랍니다." cssclass="sta_INFO_txt2list" left="15" top="465" width="780" height="25"/>
+      </Layout>
+    </Layouts>
+    <Objects/>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[/************************************************************************************************
+ * 공통 라이브러리 INCLUDE 영역
+************************************************************************************************/
+include "lib::comLib.xjs";
+
+/************************************************************************************************
+ * FORM 변수 선언 영역
+************************************************************************************************/
+
+/************************************************************************************************
+ * FORM 공통 FUNCTION 영역
+************************************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+}
+this.fn_afterFormOnload = function()
+{
+
+}
+
+/************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+************************************************************************************************/
+
+
+
+/************************************************************************************************
+ * TRANSACTION 및 추가 FUNCTION 영역
+************************************************************************************************/
+
+
+ 
+this.Static02_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+this.Static47_onclick = function(obj:Static, e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>
