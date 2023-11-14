@@ -39,8 +39,8 @@
                 <Cell col="2" text="상품규격명"/>
                 <Cell col="3" text="상품단위코드"/>
                 <Cell col="4" text="상품단위명"/>
-                <Cell col="5" cssclass="pack_price" text="공병단가"/>
-                <Cell col="6" text="공병수수료"/>
+                <Cell col="5" cssclass="pack_price" text="expr:comp.parent.parent.autoPop.comboType==2 ?'공병단가':'공상자단가'"/>
+                <Cell col="6" text="expr:comp.parent.parent.autoPop.comboType==2 ?'공병수수료':'공상자수수료'"/>
                 <Cell col="7" text="상품분류코드"/>
                 <Cell col="8" text="상품분류명"/>
                 <Cell col="9" text="최초등록일시"/>
@@ -121,9 +121,9 @@ this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
 	trace("paramMode : "+this.getOwnerFrame().paramMode);
 	trace("dsArg : "+this.parent.dsArg.rowcount);
-	var param = [  
-		{code:"WRS_TPC", dsName:"ds_vcbtbx_tpc", selecttype:"S"}
-	];
+ 	var param = [  
+ 		{code:"WRS_TPC", dsName:"ds_vcbtbx_tpc", selecttype:"S"}
+ 	];
 	this.gfn_setCommonCode(param);
 	this.grd_vcbtbx.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));	
 	var searchParam =
@@ -136,10 +136,11 @@ this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 	};
 	this.addEventEnterSearch(searchParam);
 	
-	
 	if(autoPop.comboType){
 		this.div_search.WRS_TPC.set_value(autoPop.comboType);
 	}
+    
+    comp.parent.div_search.WRS_TPC.value
 	if(autoPop.autoType){
 		if(autoPop.searchCode && autoPop.searchText){
 			this.div_search.searchType.set_value("code");
@@ -158,12 +159,10 @@ this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 		}
 		this.btn_search_onclick();
 	}
-
 }
 
 this.fn_commonAfterOnload= function()
 {
-	this.edit_colnm(autoPop.comboType);
     this.div_search.WRS_TPC.set_index(0);
 }
 
@@ -230,7 +229,8 @@ this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
 		this.gfn_getMessage("alert", ErrorMsg);
 		return;
 	}else{
-		if(svcID == "searchVCBTBX"){										
+		if(svcID == "searchVCBTBX"){
+			this.edit
 			if(this.ds_vcbtbx.rowcount == 0){	
 				this.grd_vcbtbx.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));								
 			}else if(this.grd_vcbtbx.rowcount == 1){
@@ -256,26 +256,6 @@ this.grd_vcbtbx_onkeydown = function(obj:Grid, e:nexacro.KeyEventInfo)
 this.div_search_WRS_TPC_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
 {
 	this.edit_colnm(this.div_search.WRS_TPC.index);
-}
-
- // 아래로
-this.get_grid_cell = function (grid_nm,seq) {
-	return document.getElementById(grid_nm.head.bandctrl._unique_id)
-		.getElementsByTagName("div")[0]
-		.getElementsByTagName("div")[0]
-		.getElementsByTagName("div")[0]
-		.getElementsByTagName("div")[0]
-		.getElementsByTagName("div")[0]
-		.getElementsByTagName("div")[seq * 3 - 1];
-}
-//아래로
-this.edit_colnm = function (simp_c) {
-	if(String(simp_c).match('([2-3]){1}')) {//상품유형(SIMP_C)의 범위를 선택하는 정규식.
-		this.get_grid_cell(this.grd_vcbtbx, 6).innerText
-			= this.ds_vcbtbx_tpc.getColumn(simp_c,"SIMP_CNM")+"단가";
-		this.get_grid_cell(this.grd_vcbtbx, 7).innerText
-			= this.ds_vcbtbx_tpc.getColumn(simp_c,"SIMP_CNM")+"수수료";
-	}
 }
 ]]></Script>
   </Form>
