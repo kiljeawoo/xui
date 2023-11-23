@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1831" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="자사 월별 재고추이" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Button id="btn_excel" taborder="1" text="엑셀" cssclass="btn_WF_CRUD" onclick="btn_excel_onclick" top="0" width="41" height="21" right="118"/>
+        <Div id="div_menu" taborder="2" text="Div01" left="0" top="0" width="270" height="21" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static04" taborder="3" text="15" visible="false" left="788" top="0" height="490" style="background:#00ffffb5;" width="15"/>
+        <Button id="btn_search" taborder="60" onclick="search" cssclass="btn_WFSA_Searchbtn" top="0" right="15" height="21" width="58"/>
+        <Button id="btn_chart" taborder="6" text="챠트" cssclass="btn_WF_CRUD" top="0" height="21" width="41" right="75"/>
+        <Static id="Static12" taborder="7" text="10" visible="false" left="21.35%" top="72" right="65.67%" height="42" style="background:#dc143c5b;"/>
+        <Div id="div_auth" taborder="57" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" width="431" height="21" right="159"/>
+        <Div id="div_search" taborder="9" left="0" top="29" scrollbars="none" cssclass="div_WFSA_Searchbg" right="15" height="43">
+          <Layouts>
+            <Layout>
+              <Static id="sta_searchType" taborder="17" text="분석 항목" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="79"/>
+              <Radio id="rdo_analysis" taborder="18" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" onitemchanged="search" left="94" top="10" height="21" width="150">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">사업장별</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">상품별</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="49" text="Div02" left="0" top="71" right="15" bottom="0" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_list" taborder="0" binddataset="ds_stockMonthly" useinputpanel="false" left="0" top="42" right="0" autofittype="none" bottom="0">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="130"/>
+                      <Column size="130"/>
+                      <Column size="300"/>
+                      <Column size="130"/>
+                      <Column size="90"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="cursor: ;" text="년월"/>
+                      <Cell col="1" text="사업장코드"/>
+                      <Cell col="2" text="사업장명"/>
+                      <Cell col="3" text="매출액(천원)"/>
+                      <Cell col="4" text="수량"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:YMD" mask="@@@@-@@"/>
+                      <Cell col="1" text="bind:CODE"/>
+                      <Cell col="2" style="align:left;" text="bind:NAME"/>
+                      <Cell col="3" displaytype="number" style="align:right;" text="bind:AMOUNT"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="bind:QTY"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <WebBrowser id="wb_chart" left="0" top="42" right="0" bottom="0" taborder="1" visible="false"/>
+              <Button id="btn_show" taborder="3" onclick="btn_show_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" width="62"/>
+              <WebBrowser id="web_downExcel" left="49.87%" top="20" right="41.62%" height="17" taborder="4" visible="false"/>
+              <Div id="div_dateInfo" taborder="5" top="20" right="5" width="200" height="20" style="align:right middle;"/>
+            </Layout>
+          </Layouts>
+          <InitValue/>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_stockMonthly" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="YMD" type="STRING" size="256"/>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="AMOUNT" type="INT" size="256"/>
+          <Column id="QTY" type="INT" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_inte">
+        <ColumnInfo>
+          <Column id="RESULT" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+include 'lib::comChart.xjs';
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.btn_show_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+};
+
+this.fn_afterFormOnload = function(){	
+		
+	this.div_list.grd_list.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));
+	this.gridSortInit(this.div_list.grd_list);
+	this.chartBtnAddEvent();
+	this.authChkDisable();
+	this.addEventAuth();
+	this.search('init');
+};
+
+//조회
+this.search = function(trId){
+
+	var trId = trId || 'list';
+	
+	//데이터셋 초기화
+	this.ds_stockMonthly.clearData();	
+	
+	//파라미터
+	var json = this.getParamJson(this.components);
+	json.TRPL_C = this.getTrplCode();
+	var param = this.getParamJsonToString(json);
+	
+	//트랜젝션 아이디
+	var trId = "list";
+	
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/info/infoChange/retrieveStockMonthlyList", 
+						"", 
+						"ds_stockMonthly=ds_stockMonthly ds_inte=ds_inte", 
+						param,
+						"fn_callback",
+						'S'
+						);
+};
+
+this.fn_callback = function(trId, errCode, errMsg){
+
+	if(errCode < 0){
+		this.gfn_getMessage("alert", errMsg);
+		return;
+	}
+	
+	if(trId == "list" || trId == "init"){
+		var codeText = '';
+		var nameText = '';
+		var table = '';
+		var analysis = this.div_search.rdo_analysis.value;
+		var msg = '';
+		if(analysis == 1){
+			codeText = '사업장코드';
+			nameText = '사업장명';
+			table = 'IAS_STPL_MM_BZPLC';
+			msg = '등록된 관심사업장이 없습니다.\n관심사업장을 등록하세요.'
+		}
+		else if(analysis == 2){
+			codeText = '상품코드';
+			nameText = '상품명';
+			table = 'IAS_STPL_MM_WRS_C';
+			msg = '등록된 관심상품이 없습니다.\n관심상품을 등록하세요.'
+		}
+		
+		this.div_list.grd_list.setCellProperty('Head', 1, 'text', codeText);
+		this.div_list.grd_list.setCellProperty('Head', 2, 'text', nameText);
+		
+		var ds = this.ds_inte;
+		var result = ds.getColumn(0,'RESULT');
+		if(!eval(result)) alert(msg);
+		
+		if(trId == "init") this.chartBtn();
+		
+		//최근 업데이트		
+		var param = {
+			form: this,
+			table: table,
+			div: this.div_list.div_dateInfo
+		};
+		this.getInfoTableDt(param);
+		
+	}
+	
+};
+
+
+//엑셀
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){			
+	
+	var sId = "1831";
+	var json = this.getParamJson(this.components);
+	json.TRPL_C = this.getTrplCode();
+	var title = this.getScreenName();
+	var fileName = this.getExcelFileName();
+	var param = "title="+title+"&sId="+sId+"&ANALYSIS="+json.ANALYSIS+"&TRPL_C="+json.TRPL_C;
+	param = encodeURI(encodeURI(param));
+	param += "&fileName="+fileName;
+	excelDownHandler(application.gv_server_url+"rest/excel/analysis/info/infoChange/excelDown?"+param, this);	
+	//this.div_list.web_downExcel.set_url(application.gv_server_url+"rest/excel/analysis/info/infoChange/excelDown?"+param);
+};
+
+//챠트 정보 생성
+this.chartInfoProp = function(){
+
+	var webComp = this.div_list.wb_chart; //웹브라우저 
+	var ds = this.ds_stockMonthly; //데이터셋
+	var grid = this.div_list.grd_list; //그리드
+	var btn = this.btn_chart; //버튼
+	var chartInfo = {
+						chartId: "stockMonthly",
+						chartType: "LINE",
+						title: "자사 월별 재고 추이",
+						subTitle: "(단위:천원)",
+						xAxis: "YMD",
+						yAxis: "CODE:NAME", //프로퍼티명:TEXT
+						yAxisData: "AMOUNT",
+						orderBy: "S:YMD+NAME"
+					};
+	
+	return {
+		webComp: webComp,
+		ds: ds,
+		grid: grid,
+		btn: btn,
+		chartInfo: chartInfo,
+		chartText: "챠트", //버튼 챠트 텍스트
+		listText: "목록",  //버튼 목록 텍스트
+		emptyText: "챠트 데이터가 없습니다."
+	};	
+};]]></Script>
+  </Form>
+</FDL>

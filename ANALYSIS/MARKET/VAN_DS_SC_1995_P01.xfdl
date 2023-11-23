@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="popup01" classname="popup01" left="0" top="0" width="980" height="583" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="상품 분류 조회">
+    <Layouts>
+      <Layout>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" left="426" top="530" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" left="490" top="530" width="54" height="29" onclick="btn_cancel_onclick"/>
+        <Static id="Static09" taborder="8" text="17" visible="false" left="0" top="108" width="17" height="169" style="background:#dc143c5b;"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="439" top="559" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="439" top="504" width="91" height="26" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="307" top="87" width="91" height="31" style="background:#dc143c5b;"/>
+        <Static id="Static05" taborder="14" text="15" visible="false" left="363" top="95" width="76" height="111" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" left="933" top="0" width="37" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick"/>
+        <Static id="Static06" taborder="16" text="상품 분류 조회" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+        <Div id="div_searchR" taborder="20" text="div_searchR" left="17" right="17" top="95" height="417" visible="true" scrollbars="autovert">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_search" taborder="0" binddataset="ds_trplWrsList" useinputpanel="false" autofittype="col" left="0%" top="12" right="1.06%" bottom="7">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="98"/>
+                      <Column size="81"/>
+                      <Column size="88"/>
+                      <Column size="91"/>
+                      <Column size="118"/>
+                      <Column size="196"/>
+                      <Column size="40"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="대분류"/>
+                      <Cell col="1" text="중분류"/>
+                      <Cell col="2" text="소분류"/>
+                      <Cell col="3" text="세분류"/>
+                      <Cell col="4" text="상품코드"/>
+                      <Cell col="5" text="상품명"/>
+                      <Cell col="6" text="선택"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:WRS_LCLFNM"/>
+                      <Cell col="1" text="bind:WRS_MCLFNM"/>
+                      <Cell col="2" text="bind:WRS_SCLFNM"/>
+                      <Cell col="3" text="bind:WRS_DTCFNM"/>
+                      <Cell col="4" text="bind:NA_WRS_C"/>
+                      <Cell col="5" style="align:left;" text="bind:WRSNM"/>
+                      <Cell col="6" displaytype="checkbox" edittype="checkbox" text="bind:CHECK_BOX"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_selectR" taborder="20" text="div_selectR" left="17" height="422" visible="false" scrollbars="autovert" top="95" right="17">
+          <Layouts>
+            <Layout width="513" height="208">
+              <Grid id="grd_selectL" taborder="5" binddataset="ds_selectL" useinputpanel="false" left="0" top="8" height="96.68%" width="127" autofittype="col" style="align:center middle;" oncellclick="div_selectR_grd_selectL_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="대분류"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:left;" text="bind:WRS_LCLFNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_selectM" taborder="5" binddataset="ds_selectM" useinputpanel="false" left="13.32%" top="8" height="96.68%" width="128" autofittype="col" oncellclick="div_selectR_grd_selectM_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="중분류"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:left;" text="bind:WRS_MCLFNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_selectS" taborder="5" binddataset="ds_selectS" useinputpanel="false" left="26.74%" top="8" height="96.68%" width="128" autofittype="col" oncellclick="div_selectR_grd_selectS_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="소분류"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:left;" text="bind:WRS_SCLFNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_selectD" taborder="5" binddataset="ds_selectD" useinputpanel="false" left="40.27%" top="8" height="96.68%" width="128" autofittype="col" oncellclick="div_selectR_grd_selectD_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="130"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="세분류"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:left;" text="bind:WRS_DTCFNM"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_select" taborder="6" binddataset="ds_clsWrsList" useinputpanel="false" autofittype="col" left="53.81%" top="8" right="0.53%" bottom="6">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="228"/>
+                      <Column size="163"/>
+                      <Column size="40"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="상품명"/>
+                      <Cell col="1" text="업체명"/>
+                      <Cell col="2" text="선택"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:left;" text="bind:WRSNM"/>
+                      <Cell col="1" text="bind:NA_TRPL_NM"/>
+                      <Cell col="2" displaytype="checkbox" edittype="checkbox" text="bind:CHECK_BOX"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_search" taborder="21" left="1.73%" top="44" right="1.73%" height="43" cssclass="div_WFSA_Searchbg">
+          <Layouts>
+            <Layout>
+              <Edit id="searchText" taborder="0" left="454" top="9" right="24.68%" height="21"/>
+              <Radio id="searchMode" taborder="1" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="select" direction="vertical" onitemchanged="searchType_onitemchanged" left="0.53%" top="9" right="82.42%" height="21">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">select</Col>
+                      <Col id="datacolumn">분류별</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">search</Col>
+                      <Col id="datacolumn">검색어</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Button id="btn_search" taborder="2" onclick="btn_search_onclick" cssclass="btn_WFSA_Searchbtn" left="91.95%" top="9" right="1.91%" height="21"/>
+              <Combo id="cbo_nacode" taborder="3" innerdataset="ds_saveTrplList" codecolumn="CODE" datacolumn="NAME_YN" displayrowcount="20" left="267" top="9" right="53.39%" height="21" index="-1"/>
+              <Static id="sta_searchType" taborder="4" text="관심업체" onclick="div_search_sta_searchType_onclick" cssclass="sta_WFSA_Label" left="162" top="9" right="73.94%" height="21"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_searchR" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_LCLC">가나다라마</Col>
+            <Col id="NA_WRS_MCLC">123456789</Col>
+            <Col id="NA_WRS_SCLC">123456789</Col>
+            <Col id="NA_WRS_DTCF_C">123456789</Col>
+            <Col id="WRS_LCLFNM">123456789</Col>
+            <Col id="WRS_MCLFNM">123456789</Col>
+            <Col id="WRS_SCLFNM">123456789</Col>
+            <Col id="WRS_DTCFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectL" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_LCLC">가나다라마</Col>
+            <Col id="WRS_LCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectM" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_MCLC">가나다라마</Col>
+            <Col id="WRS_MCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectS" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--   
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_SCLC">가나다라마</Col>
+            <Col id="WRS_SCLFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_selectD" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_DTCF_C" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_ID_DSC" type="STRING" size="256"/>
+        </ColumnInfo>
+        <!--
+        <Rows>
+          <Row>
+            <Col id="NA_WRS_DTCF_C">가나다라마</Col>
+            <Col id="WRS_DTCFNM">123456789</Col>
+          </Row>
+        </Rows>
+-->
+      </Dataset>
+      <Dataset id="ds_clsWrsList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHECK_BOX" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTFC_C" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="INTE_TRPL_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_saveTrplList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="NAME_YN" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_trplWrsList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHECK_BOX" type="STRING" size="256"/>
+          <Column id="NA_WRS_LCLC" type="STRING" size="256"/>
+          <Column id="WRS_LCLFNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_MCLC" type="STRING" size="256"/>
+          <Column id="WRS_MCLFNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_SCLC" type="STRING" size="256"/>
+          <Column id="WRS_SCLFNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_DTFC_C" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="NA_TRPL_C" type="STRING" size="256"/>
+          <Column id="NA_TRPL_NM" type="STRING" size="256"/>
+          <Column id="INTE_TRPL_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(9); //팝업창 close시 전달할 값을 위한 배열 선언
+var NA_WRS_LCLC = "";
+var NA_WRS_MCLC = "";
+var NA_WRS_SCLC = "";
+var NA_WRS_DTCF_C = "";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	this.init();
+}
+
+
+this.init = function(){
+		this.div_selectR.set_visible(true);
+		this.div_searchR.set_visible(false);
+		// this.div_search.searchText.set_enable(false);
+		//this.div_search.btn_search.set_enable(false);
+		this.fn_getListWRS("L", "", "", "");
+		
+		this.initSearchForm();
+		
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+/*
+ *  저장버튼
+ *
+ */
+ 
+ 
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+    var objRdo = this.div_search.searchMode;
+
+	if(objRdo.value == 'search') {
+
+		this.fn_save_search(); // 관심업체콤보
+		
+	}else if(objRdo.value == 'select') {
+
+		this.fn_save_select();
+	}
+
+}
+
+
+this.fn_save_select = function(){
+	
+	var sqlType = '';
+	var saveCnt = this.ds_clsWrsList.getRowCount();
+	var selectCnt = this.checkIndexCnt(this.div_selectR.grd_select);	
+		
+	if(selectCnt == 0){
+		this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1850.alert.save3'));
+		return;
+	}
+
+	var confirmMsg = ' SKU를 ' + selectCnt + '개 선택하셨습니다. \n 관심 SKU 리스트에 등록하시겠습니까? \n \n SKU 등록 시 과금은 부과되지 않습니다. \n 등록된 SKU의 상세정보 엑셀 다운로드 시 과금이 부과됩니다. \n 자세한 사항은 이용안내를 참고 바랍니다. ';
+	var ds = 'ds_clsWrsList=ds_clsWrsList'; 
+
+	//	trace(ds);
+	if(!this.confirm(confirmMsg)){
+		return;
+	}
+
+	//트랜젝션 아이디
+	var trId = 'insertInteClsWrsList';
+
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/market/insertInteClsWrsList",
+						ds, 
+						"", 
+						"", 
+						"fn_callback",
+						'S'
+						);
+						
+}
+
+
+var isOthersWrs = false;
+
+this.fn_save_search = function(){
+
+	var msgOthersWrs = '';
+	var sqlType = 'INS';
+	var ds = 'ds_trplWrsList=ds_trplWrsList'; 
+	var saveCnt = this.ds_trplWrsList.getRowCount();
+	var selectCnt = this.checkIndexCnt(this.div_searchR.grd_search);	
+
+	if(selectCnt == 0){
+		this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1850.alert.save3'));
+		return;
+	}
+
+	var confirmMsg = ' SKU를 ' + selectCnt + '개 선택하셨습니다. \n 관심 SKU 리스트에 등록하시겠습니까? \n \n SKU 등록 시 과금은 부과되지 않습니다. \n 등록된 SKU의 상세정보 엑셀 다운로드 시 과금이 부과됩니다. \n 자세한 사항은 이용안내를 참고 바랍니다. ';
+	
+	if(!this.confirm(confirmMsg)){
+		return;
+	}
+
+	//파라미터
+	var analysis = '2';
+	
+	//트랜젝션 아이디
+	var trId = sqlType;
+
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/market/saveInteTrplWrsList",
+						ds, 
+						"", 
+						"analysis="+analysis+" sqlType="+sqlType, 
+						"fn_callback",
+						'S'
+						);
+}
+
+/*
+ * 조회조건 초기화
+ */
+ 
+ this.initSearchForm = function(){
+    var obj = this.div_search.searchMode;
+	if(obj.value == 'search') {
+		this.div_selectR.set_visible(false);
+		this.div_searchR.set_visible(true);
+		this.div_search.searchText.set_enable(true);
+		this.div_search.btn_search.set_enable(true);
+		
+		this.fn_retrieveInteTrplList(); // 관심업체콤보
+	}
+	if(obj.value == 'select') {
+		this.div_selectR.set_visible(true);
+		this.div_searchR.set_visible(false);
+		this.div_search.searchText.set_enable(false);
+		this.div_search.cbo_nacode.set_index(0);
+		//this.div_search.cbo_nacode.destroy();
+		//this.div_search.btn_search.set_enable(false);
+		this.fn_getListWRS("L", "", "", "");
+	}
+ 
+ }
+
+/*
+ * 라디오 버튼
+ */
+this.searchType_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+     // 라디오버튼 클릭시 조회조건 초기화
+     this.initSearchForm();
+}
+
+
+this.div_selectR_grd_selectL_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	
+	NA_WRS_LCLC = this.ds_selectL.getColumn(e.row,"NA_WRS_LCLC");
+	//alert(NA_WRS_LCLC);
+	this.ds_selectM.clearData();
+	this.ds_selectS.clearData();
+	this.ds_selectD.clearData();
+	this.fn_getListWRS("M", NA_WRS_LCLC, "", "");
+}
+
+this.div_selectR_grd_selectM_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	NA_WRS_MCLC = this.ds_selectM.getColumn(e.row,"NA_WRS_MCLC");
+	//alert(NA_WRS_MCLC);
+	this.ds_selectS.clearData();
+	this.ds_selectD.clearData();
+	this.fn_getListWRS("S", NA_WRS_LCLC, NA_WRS_MCLC, "");
+}
+
+this.div_selectR_grd_selectS_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	NA_WRS_SCLC = this.ds_selectS.getColumn(e.row,"NA_WRS_SCLC");
+	//alert(NA_WRS_SCLC);
+	this.ds_selectD.clearData();
+	this.fn_getListWRS("D", NA_WRS_LCLC, NA_WRS_MCLC, NA_WRS_SCLC);
+}
+
+// 분류 정보 가져오기
+this.fn_getListWRS = function(level,NA_WRS_LCLC, NA_WRS_MCLC, NA_WRS_SCLC){
+	var searchMode = 'select';
+
+	var param = "searchMode="+searchMode+
+				" level="+level+
+				" NA_WRS_LCLC="+NA_WRS_LCLC+
+				" NA_WRS_MCLC="+NA_WRS_MCLC+
+				" NA_WRS_SCLC="+NA_WRS_SCLC;
+				
+	trace("##MASTER##PARAM##->"+param);	
+			
+	var sSvcID        = "selectWRSPopUp_selectL";//통신아이디
+	if(level == "M") {
+		sSvcID  = "selectWRSPopUp_selectM";
+	} else if (level =="S") {
+		sSvcID  = "selectWRSPopUp_selectS";
+	} else if (level == "D") {
+		sSvcID  = "selectWRSPopUp_selectD";
+	}
+	var sURL          = "svc::rest/popup/selectWRSPopUp";// 호출할 서버 페이지 주소
+	var sInDatasets   = "";//보내는데이터셋
+	var sOutDatasets  = "ds_selectL=DATASET";	//화면에서 받는 데이터셋=보낸이름(1대1 맵핑)
+	if(level == "M") {
+		sOutDatasets  = "ds_selectM=DATASET";
+	} else if (level =="S") {
+		sOutDatasets  = "ds_selectS=DATASET";
+	} else if (level == "D") {
+		sOutDatasets  = "ds_selectD=DATASET";
+	}
+	var sArgument     = param;// 파라미터
+	var sCallbackFunc = "fn_callback";//콜백
+	var sTranType     = "S"; // U:저장/삭제, S:조회
+			
+	//API 호출
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+
+	return true;
+}
+
+
+this.div_searchR_grd_searchR_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.btn_ok_onclick();
+}
+
+this.div_selectR_grd_selectD_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.fn_retrieveClsWrsList();
+}
+
+
+
+
+/*
+  관심업체 상품조회
+*/
+this.fn_retrieveClsWrsList = function() 
+{
+/*
+	NA_WRS_LCLC = this.ds_selectL.getColumn(e.row,"NA_WRS_LCLC");
+	NA_WRS_MCLC = this.ds_selectM.getColumn(e.row,"NA_WRS_MCLC");
+	NA_WRS_SCLC = this.ds_selectS.getColumn(e.row,"NA_WRS_SCLC");
+	NA_WRS_DTCF_C = this.ds_selectM.getColumn(e.row,"NA_WRS_DTCF_C");
+*/
+
+	NA_WRS_LCLC = this.ds_selectL.getColumn(this.ds_selectL.rowposition,"NA_WRS_LCLC");
+	NA_WRS_MCLC = this.ds_selectM.getColumn(this.ds_selectM.rowposition,"NA_WRS_MCLC");
+	NA_WRS_SCLC = this.ds_selectS.getColumn(this.ds_selectS.rowposition,"NA_WRS_SCLC");
+	NA_WRS_DTCF_C = this.ds_selectD.getColumn(this.ds_selectD.rowposition,"NA_WRS_DTCF_C");
+	
+	
+	
+
+	var bsnDsc = "sales_price";
+	// var naTrplC =  application.gv_glnCode;
+	// var inteTrplC =  this.div_search.cbo_nacode.value;
+	
+	var params =   "NA_WRS_LCLC=" + NA_WRS_LCLC
+				 + " NA_WRS_MCLC=" + NA_WRS_MCLC
+				 + " NA_WRS_MCLC=" + NA_WRS_MCLC
+				 + " NA_WRS_SCLC=" + NA_WRS_SCLC
+				 + " NA_WRS_DTCF_C=" + NA_WRS_DTCF_C
+				 ;
+
+	trace("##params >> " + params);
+	
+	var sSvcID        = "retrieveClsWrsList";
+	var sURL          = "svc::rest/analysis/market/retrieveClsWrsList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_clsWrsList=ds_clsWrsList";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callback";
+	var sTranType     = "S"; // 
+	
+	// application.set_usewaitcursor(false);
+	// alert('fn_retrieveClsWrsList');
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+//관심업체 콤보
+this.fn_retrieveInteTrplList = function() 
+{
+//var glnCode =this.div_search.cbo_nacode.value;
+	// alert('fn_retrieveInteTrplList');
+	var glnCode = application.gv_glnCode;
+	var params =  "naTrplC=" + glnCode 
+   	 ;
+
+	trace("##params >> " + params);
+	
+	var sSvcID        = "retrieveInteTrplList";
+	var sURL          = "svc::rest/analysis/market/retrieveInteTrplList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_saveTrplList=ds_saveList";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callback";
+	var sTranType     = "S"; // 
+	
+	// application.set_usewaitcursor(false);
+	// alert('fn_retrieveUsrConsent');
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+	
+} // fn_retrieveInteTrplList
+
+
+
+
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var objRdo = this.div_search.searchMode;
+
+	if(objRdo.value == 'search') {
+
+		this.fn_retrieveTrplWrsList(); // 상품조회
+	}else if(objRdo.value == 'select') {
+
+		 this.fn_retrieveClsWrsList();  // 카테고리별 선택
+	}
+
+}
+
+
+
+
+
+/*
+  관심업체 상품조회
+*/
+this.fn_retrieveTrplWrsList = function() 
+{
+	// alert('fn_retrieveUsrConsentList');
+	var searchMode = this.gfn_nullToEmpty(this.div_search.searchMode.value);
+	var searchText = this.gfn_nullToEmpty(this.div_search.searchText.value);
+	
+	/*
+	if(searchMode == 'search') {
+
+	} else {
+		alert("검색어 검색의 경우에만 조회 가능합니다.");
+	}
+	*/
+	
+	var bsnDsc = "sales_price";
+	var naTrplC =  application.gv_glnCode;
+	var inteTrplC =  this.div_search.cbo_nacode.value;
+	
+	var params =  "bsnDsc=" + bsnDsc
+				 + " naTrplC=" + naTrplC
+				 + " inteTrplC=" + inteTrplC
+				 + " searchWrsNm=" + searchText;
+
+				 ;
+				
+	trace("##params >> " + params);
+	
+	var sSvcID        = "retrieveTrplWrsList";
+	var sURL          = "svc::rest/analysis/market/retrieveTrplWrsList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_trplWrsList=ds_trplWrsList";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callback";
+	var sTranType     = "S"; // 
+	
+	// application.set_usewaitcursor(false);
+	// alert('fn_retrieveUsrConsent');
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+
+this.search = function(){
+
+    var objRdo = this.div_search.searchMode;
+
+	if(objRdo.value == 'search') {
+
+		this.fn_retrieveTrplWrsList(); // 상품조회
+		
+	}else if(objRdo.value == 'select') {
+
+		 this.fn_retrieveClsWrsList();  // 카테고리별 선택
+	}
+	
+
+}
+
+
+/* Call Back */
+this.fn_callback = function(svcID, ErrorCode, ErrorMsg)
+{	
+
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "selectWRSPopUp"){										
+			if(this.ds_searchR.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}			
+		}else if(svcID == "retrieveClsWrsList") {
+		
+			if(this.ds_clsWrsList.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}else{
+
+			}
+			
+		}else if(svcID == "insertInteClsWrsList") {
+
+			if(this.ds_clsWrsList.rowcount == 0){				
+				this.gfn_getMessage("alert", "result.message.search.no.exist.data");								
+			}else{
+			    // 등록시 재조회
+			    this.search();
+			    // 상품등록시 오프너 조회
+			    this.opener.search('div');
+			}
+			
+		}else if(svcID == 'retrieveInteTrplList'){		//조회	
+	
+	        // 전체선택 추가
+		    this.ds_saveTrplList.insertRow(0);
+		    this.ds_saveTrplList.setColumn(0,'CODE','');
+		    this.ds_saveTrplList.setColumn(0,'NAME_YN','-선택-');
+
+		    this.div_search.cbo_nacode.setInnerDataset(this.ds_saveTrplList);
+		    this.div_search.cbo_nacode.set_index(0);
+
+		    return;
+		    
+	    }else if(svcID == 'INS'){
+
+		    this.alert(this.gfn_getTextMessage('msg.comp.insert'));
+		    //this.search();
+		    this.fn_retrieveTrplWrsList();
+		    // 상품등록시 오프너 조회
+			 this.opener.search('div');
+			    
+		    return;		
+	    } // if
+	
+		
+	} // if
+
+
+}
+]]></Script>
+  </Form>
+</FDL>

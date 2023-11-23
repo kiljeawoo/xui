@@ -16,11 +16,11 @@
         <Static id="sta_back_bar02" cssclass="sta_WF_Labelbg" left="489" top="365" right="15" height="85" taborder="27"/>
         <Static id="sta_title04" text="상품명" cssclass="sta_WF_Label" left="0" top="365" width="110" height="29" style="color:red;padding:2 7 0 7;font:bold 9 Gulim;" taborder="20"/>
         <Static id="sta_back_bar01" cssclass="sta_WF_Labelbg" left="109" top="337" right="15" height="29" taborder="19"/>
-        <Static id="sta_title05" text="상품약어명" cssclass="sta_WF_Label" left="0" top="393" width="110" height="29" style="color:#353e41ff;padding:2 7 0 7;" taborder="22"/>
+        <Static id="sta_title05" text="상품약어명" cssclass="sta_WF_Label" left="0" top="393" width="110" height="29" style="color:red;padding:2 7 0 7;font:bold 9 Gulim;" taborder="22"/>
         <Static id="sta_title07" text="상품분류" cssclass="sta_WF_Label" left="0" top="337" width="110" height="29" style="color:red;padding:2 7 0 7;font:bold 9 Gulim;" taborder="18"/>
         <Static id="sta_title09" text="규격" cssclass="sta_WF_Label" left="0" top="449" width="110" height="29" style="color:red;padding:2 7 0 7;font:bold 9 Gulim;" taborder="28"/>
         <Static id="sta_back_bar05" cssclass="sta_WF_Labelbg" top="449" right="15" height="29" left="109" onclick="sta_back_bar05_onclick" taborder="29"/>
-        <Edit id="edt_WRS_ABR_NM" left="113" top="397" width="264" height="21" cssclass="WF_Essential" lengthunit="ascii" maxlength="30" oneditclick="edt_data04_oneditclick" taborder="120"/>
+        <Edit id="edt_WRS_ABR_NM" left="113" top="397" width="264" height="21" cssclass="WF_Essential" lengthunit="ascii" maxlength="100" oneditclick="edt_data04_oneditclick" taborder="120"/>
         <Edit id="edt_WRS_ENM" left="113" top="425" width="264" height="21" cssclass="WF_Essential" lengthunit="ascii" maxlength="30" taborder="121"/>
         <Combo id="cbo_list_wrs00" innerdataset="@ds_wrs_id_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="911" top="427" width="143" height="21" readonly="true" enable="false" index="-1" visible="false" taborder="173"/>
         <Edit id="edt_WRS_STDNM" left="113" top="453" width="264" height="21" cssclass="WF_Essential" lengthunit="ascii" maxlength="30" taborder="123"/>
@@ -84,7 +84,7 @@
               <Static id="Static07" cssclass="sta_WF_Labelbg" left="109" top="140" right="0" height="29" taborder="16"/>
               <Static id="Static08" text="박스당입수" cssclass="sta_WF_Label" left="0" top="196" width="110" height="29" style="color:red;padding:2 7 0 7;font:bold 9 Gulim;" taborder="21"/>
               <Static id="Static16" text="RFID사용여부" cssclass="sta_WF_Label" left="435" top="84" width="110" height="29" style="padding:2 7 0 7;" taborder="11"/>
-              <Combo id="cbo_div_list00" innerdataset="@ds_wrs_dsc" codecolumn="NA_WRS_ATTR_C" datacolumn="NA_WRS_ATTNM" left="196" top="60" width="70" height="21" index="-1" onitemchanged="fn_makeWrsName" taborder="45"/>
+              <Combo id="cbo_div_list00" innerdataset="@ds_wrs_dsc" codecolumn="NA_WRS_ATTR_C" datacolumn="NA_WRS_ATTNM" left="196" top="60" width="70" height="21" index="-1" taborder="45"/>
               <Combo id="cbo_div_list02" codecolumn="NA_WRS_ATTR_C" datacolumn="NA_WRS_ATTNM" left="113" top="116" width="151" height="21" innerdataset="@ds_wrs_dsc3" taborder="51"/>
               <Static id="sta_title01" text="주류상품여부" cssclass="sta_WF_Label" left="435" top="0" width="110" height="29" style="padding:2 7 0 7;" taborder="2"/>
               <Radio id="rdo_store_code00" index="0" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="113" top="4" width="317" height="21" style="font:9 Gulim;" value="1" readonly="true" enable="false" taborder="33" tabstop="false">
@@ -116,8 +116,8 @@
               <Edit id="edt_div_data01" inputtype="number" cssclass="WF_Essential" left="113" top="32" width="80" height="21" maxlength="25" onkeydown="div_search_edt_div_data01_onkeydown" oneditclick="div_search_edt_div_data01_oneditclick" taborder="35"/>
               <Edit id="edt_div_data02" cssclass="WF_Essential" left="196" top="32" width="100" height="21" onkeydown="div_search_edt_div_data02_onkeydown" enable="false" oneditclick="div_search_edt_div_data02_oneditclick" taborder="36" enableevent="false"/>
               <Button id="btn_popup00" cssclass="btn_WF_Searchbtn" left="299" top="32" width="21" height="21" onclick="div_search_btn_popup00_onclick" taborder="37" tabstop="false"/>
-              <Edit id="edt_div_data03" maxlength="3" cssclass="WF_Essential" left="323" top="32" width="30" height="21" inputtype="number" taborder="38"/>
-              <Static id="Static13" text="개" left="358" top="32" width="20" height="21" onclick="div_search_Static13_onclick" taborder="39"/>
+              <Edit id="edt_div_data03" maxlength="3" cssclass="WF_Essential" left="323" top="32" width="54" height="21" inputtype="number" taborder="38"/>
+              <Static id="Static13" text="개" left="384" top="32" width="20" height="21" onclick="div_search_Static13_onclick" taborder="39"/>
               <Static id="Static14" text="/" left="186" top="60" width="10" height="21" taborder="44"/>
               <Static id="Static15" text="/" left="269" top="60" width="10" height="21" visible="false" taborder="46"/>
               <Radio id="rdo_store_code01" index="1" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" left="113" top="88" width="151" height="21" value="0" taborder="49" tabstop="false">
@@ -537,7 +537,7 @@
         <Edit id="edt_div_data05" inputtype="digit" maxlength="4" cssclass="WF_Essential" left="222" top="564" width="44" height="21" taborder="132"/>
         <Static id="Static21" text="단위" onclick="Static03_onclick" left="347" top="564" width="29" height="21" taborder="135"/>
         <Edit id="edt_div_data13" inputtype="digit" maxlength="4" cssclass="WF_Essential" left="298" top="564" width="44" height="21" taborder="134"/>
-        <Combo id="cbo_div_list03" innerdataset="@ds_pak_qlt_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" onitemchanged="fn_makeWrsName" left="655" top="564" width="104" height="21" taborder="138"/>
+        <Combo id="cbo_div_list03" innerdataset="@ds_pak_qlt_dsc" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="655" top="564" width="104" height="21" taborder="138"/>
         <Static id="sta_title24" text="상품업태" cssclass="sta_WF_Label" left="435" top="588" width="110" height="29" style="padding:2 7 0 7;font:9 Gulim;" onclick="sta_title24_onclick" taborder="39"/>
         <Static id="Static22" left="793" top="2933" right="15" height="24" taborder="185"/>
         <Radio id="rdo_store_code06" index="1" codecolumn="codecolumn" datacolumn="datacolumn" value="0" direction="vertical" left="113" top="592" width="151" height="21" onitemchanged="rdo_store_code06_onitemchanged" taborder="139" tabstop="false">
@@ -1978,6 +1978,10 @@ this.fn_callback = function(svcID,nCD,sMSG) //첫번째 인자값은 통신 ID
 			this.move_and_blink_effect(this.edt_gtin, 'white');
 			return;
 		}
+		if (svcID == "p_save" && nCD == -2) {
+			this.alert("입력값이 기준 길이를 초과하였습니다.");
+			return;
+		}
 		this.gfn_getMessage("alert", sMSG);
 		return;
 	} else {		
@@ -2032,6 +2036,7 @@ this.fn_callback = function(svcID,nCD,sMSG) //첫번째 인자값은 통신 ID
 			if (!WRS_LCLC) {
 				this.div_search.cbo_div_list00.set_index(0);
 				this.cbo_div_list01.set_index(0);
+				this.cbo_div_list03.set_index(0);
 				this.div_search.cbo_div_list02.set_index(0);
 				this.div_search.cbo_div_list04.set_index(0);
 			}
@@ -2099,6 +2104,7 @@ this.fn_callback = function(svcID,nCD,sMSG) //첫번째 인자값은 통신 ID
 // 				if(this.ds_wrs_rg_req.getColumn(0,"PRC_YN") == 'E'){
 // 					//alert('신규상품등록내역조회 화면에서 전송상태가 오류인지를 확인하시오.');
 // 				}
+				//this.pakQltFilter("U");
 			}
 			// if CUD_DSC is 'I'. it's not had been register yet.
 			else if(this.ds_gd_wrs.getColumn(0,'REQ_STS_DSC')=='I'){
@@ -2147,7 +2153,7 @@ this.fn_callback = function(svcID,nCD,sMSG) //첫번째 인자값은 통신 ID
 			// if product is standard cord.
 			else if(this.ds_gd_wrs.getColumn(0,'REQ_STS_DSC')=='S'){
 				this.ds_wrs_rg_req_lg.addRow();
-				this.sta_result00.set_text("신청가능(표준상품)");
+				this.sta_result00.set_text("신청가능(등록)");
 				this.btn_save00.set_enable(true);
 				this.ds_wrs_rg_req.setColumn(0,'MFT_NA_TRPL_C',TRPL_C);
 				this.ds_wrs_rg_req.setColumn(0,'WRS_DSC','2');
@@ -2295,13 +2301,13 @@ this.validation = function()
 			totcnt++;
 		}
 	}
-	if (totcnt > 200) {
-		this.alert("상품상세 설명은 200자 이내로 입력하세요\n 현재 입력 수["+totcnt+"]");
-		// this.txa_contents00.setFocus();
-		this.move_and_blink_effect(this.txa_contents00, 'white');
-		return false;
-	}
-	
+// 	if (totcnt > 200) {
+// 		this.alert("상품상세 설명은 200자 이내로 입력하세요\n 현재 입력 수["+totcnt+"]");
+// 		// this.txa_contents00.setFocus();
+// 		this.move_and_blink_effect(this.txa_contents00, 'white');
+// 		return false;
+// 	}
+// 	
 	/* 확인 후 변경
 	if((this.gfn_nullToEmpty(this.edt_data17.value).length > 0) && (this.cbo_list_wrs02.value != '1')){ // 물류센터와 계약구분
 		this.gfn_getMessage("alert",'msg.van_ds_sc_1540.view.simple.text20');
@@ -3654,14 +3660,20 @@ this.div_search_chk_wrsnm_onchanged = function(obj,e)
 
 /* 1차상품 - 상품명 생성 */
 this.fn_makeWrsName = function()
-{
+{	
+	console.log("/* 1차상품 - 상품명 생성 */");
+	console.log(this.cbo_div_list01.value);	
+	
+	//this.pakQltFilter("I");
+	
 	if (this.rdo_WRS_DSC.value != "1") {
 		return;
 	}
 
 	var name = AUTO_WRS_NM;
 	var fullname = "";
-
+	
+		
 	// 단량
 	if (!this.gfn_isNull(this.div_search.edt_div_data04.value) && !this.gfn_isNull(this.div_search.cbo_div_list00.value)) {
 		name += "/" + this.div_search.edt_div_data04.text + this.div_search.cbo_div_list00.text;
@@ -3809,14 +3821,6 @@ this.fn_setSaveData = function(val)
 		this.ds_namo_editor.clearData();
 		this.ds_wrs_nfty_hdng.clearData();
 		
-		//ce/nhonfmimg/vancno/
-		//나모웹에디터MIMEValue 데이터 셋팅
-		//this.NAMO_DATA = this.NAMO_DATA.replace(/(\/ce\/image\/)/gm, "/ce/nhonfmimg/" + this.edt_na_wrs_c.value + "/"); // 이미지 경로 변경
-		
-		aRow = this.ds_namo_editor.addRow();
-		this.ds_namo_editor.setColumn(aRow, "MHT_DATA", this.NAMO_DATA);
-		this.ds_namo_editor.setColumn(aRow, "IMG_DATA", this.NAMO_IMG);
-
 		//상품고시항목상세정보셋팅 사용
 		for (var i = 0 ; i < this.ds_wrs_nfty_hdng_sel.rowcount ; i++) {
 			aRow = this.ds_wrs_nfty_hdng.addRow();
@@ -3835,10 +3839,22 @@ this.fn_setSaveData = function(val)
 		var imgSizeS = this.NAMO_IMGSIZE;
 		var arrVal = this.NAMO_IMG.split(",");	
 		var arrSizeVal = this.NAMO_IMGSIZE.split(",");
+		
 		for(var j=0; j < arrVal.length; j++) {
 			 var num = 16+j;
-			 var fileNm = "$namo"+arrVal[j].substring(arrVal[j].indexOf("#"));
+			 var ceNum = j+1;
+			 //var fileNm = "$namo"+arrVal[j].substring(arrVal[j].indexOf("#"));
+			 var fileNm = "$namo"+this.edt_gtin.value+"_ceimg0"+ceNum+"."+arrVal[j].substring(arrVal[j].indexOf("#")+1,arrVal[j].length);
+			 //8801043069700_ceimg01.jpg
 			 var sysNm=arrVal[j].substring(0, arrVal[j].indexOf("#"));
+			 
+			 console.log('sysNm: '+sysNm);
+			 console.log('sysNm:_1 '+this.edt_gtin.value+"_ceimg0"+ceNum+"."+arrVal[j].substring(arrVal[j].indexOf("#")+1,arrVal[j].length));
+			 this.NAMO_DATA = this.NAMO_DATA.replace(arrVal[j], this.edt_gtin.value+"_ceimg0"+ceNum+"."+arrVal[j].substring(arrVal[j].indexOf("#")+1,arrVal[j].length));
+			 
+			 console.log('imgS : '+imgS);
+			 console.log('arrVal_'+j+' : '+arrVal[j]);
+			 console.log('fileNm : '+fileNm);
 			 var pval = num //나모웹 에디터 상세 이미지 시퀀스
 						 +"&"+fileNm //나모에디터에서 넘겨주는 원본파일명 확인
 						 +"&"+arrSizeVal[j] //나모에디터에서 넘겨주는 파일사이즈 확인
@@ -3846,6 +3862,13 @@ this.fn_setSaveData = function(val)
 						 +"&"+"ONL0"+(5+j)//파일종류 (상품상세설명)
 			 this.addRowFileDs(pval);
 		}
+		
+		//나모웹에디터MIMEValue 데이터 셋팅
+		this.NAMO_DATA = this.NAMO_DATA.replace(/(\/ce\/image\/)/gm, "/ce/nhmimg/"); // 이미지 경로 변경
+		
+		aRow = this.ds_namo_editor.addRow();
+		this.ds_namo_editor.setColumn(aRow, "MHT_DATA", this.NAMO_DATA);
+		this.ds_namo_editor.setColumn(aRow, "IMG_DATA", this.NAMO_IMG);		
 	}	
 }
 
@@ -4021,6 +4044,55 @@ this.VAN_DS_SC_1543_onvscroll = function(obj,e)
 	document.getElementById(obj.stc_namo_msg03._unique_id).style.marginTop = e.pos+'px';
 	document.getElementById(obj.stc_namo_msg03._unique_id).style.zIndex = '3';
 
-}]]></Script>
+}
+
+// this.pakQltFilter = function(crud)
+// {
+// 	if(this.cbo_div_list01.value == "0") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '0'");
+// 	}
+// 	else if(this.cbo_div_list01.value == "1") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '1' || SIMP_C == '2' || SIMP_C == '11' || SIMP_C == '12'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "2") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '4' || SIMP_C == '12'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "3") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '4'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "4") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '9'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "5") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '10'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "6") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '12'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "7") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '2'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "8") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '12'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "9") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '6' || SIMP_C == '7'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "10") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '4'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "11") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '12'");		
+// 	}
+// 	else if(this.cbo_div_list01.value == "12") {
+// 		this.ds_pak_qlt_dsc.filter("SIMP_C == '' || SIMP_C == '12'");		
+// 	}
+// 	else{
+// 		this.ds_pak_qlt_dsc.filter("");
+// 	}
+// 	if(crud == "I"){
+// 		this.cbo_div_list03.set_index(0);
+// 	}	
+// }]]></Script>
   </Form>
 </FDL>

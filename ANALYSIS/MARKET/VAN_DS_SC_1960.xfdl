@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1950" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="사업장별 ABC분석" onload="form_onload" ontimer="timerHandler">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="0" top="29" height="69" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="sta_date" taborder="0" text="조회일자" left="15" top="10" height="21" cssclass="sta_WFSA_Label" onclick="div_search_sta_date_onclick" width="86" style="padding:0 15 0 11;"/>
+              <Static id="sta_bzplc" taborder="1" text="그룹설정" left="15" top="36" height="21" cssclass="sta_WFSA_Label" onclick="div_search_sta_location_onclick" width="86"/>
+              <Calendar id="cal_date" taborder="9" left="101" top="10" height="21" width="207" locale="ko_KR" value="null" dateformat="yyyy-MM-dd ddd" readonly="false"/>
+              <Edit id="edt_aStart" taborder="10" left="179" top="36" height="21" width="35" maxlength="3" value="0" readonly="true"/>
+              <Static id="sta_a" taborder="11" text="A그룹(자동)" left="101" top="36" height="21" width="70"/>
+              <Static id="sta_mm" taborder="12" text=" ~ " left="214" top="36" height="21" width="18"/>
+              <Edit id="edt_aEnd" taborder="13" maxlength="3" left="232" top="36" height="21" width="35" value="80" readonly="true"/>
+              <Static id="sta_c" taborder="14" text="C그룹(자동)" left="516" top="36" height="21" width="70"/>
+              <Edit id="edt_cStart" taborder="15" maxlength="3" left="594" top="36" height="21" width="35" value="95" readonly="true"/>
+              <Static id="sta_mm00" taborder="16" text=" ~ " left="629" top="36" height="21" width="19"/>
+              <Edit id="edt_cEnd" taborder="17" maxlength="3" left="648" top="36" height="21" width="35" readonly="true" value="100"/>
+              <Static id="sta_b" taborder="18" text="B그룹(설정)" left="293" top="36" height="21" width="70"/>
+              <Static id="sta_mm01" taborder="20" text=" ~ " left="422" top="36" height="21" width="19"/>
+              <Spin id="spin_s" taborder="22" value="80" left="371" top="36" height="21" max="99" min="0" width="50" ontextchanged="spinChange"/>
+              <Spin id="spin_e" taborder="23" value="95" max="100" min="1" left="441" top="36" height="21" width="50" ontextchanged="spinChange"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_menu" taborder="37" text="Div01" left="0" top="0" width="345" height="21" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static00" taborder="38" text="15" visible="false" left="263" top="271" width="15" height="115" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="39" text="15" visible="false" left="788" top="0" height="490" style="background:#00ffffb5;" width="15"/>
+        <Static id="Static09" taborder="43" text="15" visible="false" left="0" top="30" right="787" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static13" taborder="45" text="10" visible="false" left="0" top="30" height="10" style="background:#dc143c5b;" width="700"/>
+        <Static id="Static12" taborder="47" text="10" visible="false" left="217" top="87" right="502" height="10" style="background:#dc143c5b;"/>
+        <Div id="div_list" taborder="49" text="Div02" top="97" right="15" bottom="0" scrollbars="none" left="0">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_list" taborder="2" binddataset="ds_list" useinputpanel="false" left="0" top="42" bottom="0" autofittype="none" oncellclick="itemDetail" right="0.13%">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="220" band="left"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="37" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="상품명/사업장명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:left;padding:0 0 0 3;background2:transparent;" text="bind:NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_show" taborder="3" onclick="btn_show_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" width="62"/>
+              <Div id="div_a_color" taborder="4" top="22" height="10" style="background:#cef279ff;" right="230" width="34">
+                <Layouts>
+                  <Layout/>
+                </Layouts>
+              </Div>
+              <Div id="div_a_text" taborder="5" text="A그룹" top="18" height="20" style="font:9 Gulim;" right="180" width="50"/>
+              <Div id="div_b_color" taborder="6" top="22" height="10" style="background:#b2ccffff;color:#333333ff;" right="132" width="34">
+                <Layouts>
+                  <Layout/>
+                </Layouts>
+              </Div>
+              <Div id="div_b_text" taborder="7" top="18" right="87" height="20" text="B그룹" width="50"/>
+              <WebBrowser id="web_downExcel" left="91.5%" top="4" right="0%" height="17" taborder="8" visible="false"/>
+              <Div id="div_c_color" taborder="9" top="22" height="10" style="background:#ffd8d8ff;" right="42" width="38"/>
+              <Div id="div_c_text" taborder="10" text="C그룹" top="18" right="-5" height="20" width="50"/>
+            </Layout>
+          </Layouts>
+          <InitValue/>
+        </Div>
+        <Static id="Static01" taborder="58" text="42" visible="false" left="21.3%" top="97" right="65.63%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="60" onclick="searchBtn" cssclass="btn_WFSA_Searchbtn" top="0" right="15" height="21" width="58"/>
+        <Div id="div_auth" taborder="61" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" height="21" width="431" right="115"/>
+        <Button id="btn_excel" taborder="62" text="엑셀" onclick="btn_excel_onclick" cssclass="btn_WF_CRUD" top="0" height="21" width="41" right="74"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_bGroup" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="MIN" type="INT" size="256"/>
+          <Column id="MAX" type="INT" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_bzplc" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="TOTAL" type="INT" size="256"/>
+          <Column id="BZPLC0" type="STRING" size="256"/>
+          <Column id="BZPLC1" type="INT" size="256"/>
+          <Column id="BZPLC2" type="INT" size="256"/>
+          <Column id="BZPLC3" type="INT" size="256"/>
+          <Column id="BZPLC4" type="INT" size="256"/>
+          <Column id="BZPLC5" type="INT" size="256"/>
+          <Column id="BZPLC6" type="INT" size="256"/>
+          <Column id="BZPLC7" type="INT" size="256"/>
+          <Column id="BZPLC8" type="INT" size="256"/>
+          <Column id="BZPLC9" type="INT" size="256"/>
+          <Column id="BZPLC10" type="INT" size="256"/>
+          <Column id="BZPLC_P0" type="INT" size="256"/>
+          <Column id="BZPLC_P1" type="INT" size="256"/>
+          <Column id="BZPLC_P2" type="INT" size="256"/>
+          <Column id="BZPLC_P3" type="INT" size="256"/>
+          <Column id="BZPLC_P4" type="INT" size="256"/>
+          <Column id="BZPLC_P5" type="INT" size="256"/>
+          <Column id="BZPLC_P6" type="INT" size="256"/>
+          <Column id="BZPLC_P7" type="INT" size="256"/>
+          <Column id="BZPLC_P8" type="INT" size="256"/>
+          <Column id="BZPLC_P9" type="INT" size="256"/>
+          <Column id="BZPLC_P10" type="INT" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo){
+	
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.btn_show_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+};
+
+this.fn_afterFormOnload = function(){
+	
+	this.getCompInfo().grd_list.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+	this.getCompInfo().cal_date.set_value(this.getDate(-1));
+	this.authChkDisable();
+	this.addEventAuth('onitemchanged', this.searchBtn);
+	this.search('init');
+};
+
+this.searchBtn = function(){
+	this.search('list');
+};
+
+//조회
+this.search = function(searchType){
+
+	var trId = searchType || 'list'; 
+	var in_ds = "";
+	var json = "";
+	var param = "searchType="+trId;
+	
+	if(trId == 'list'){
+		var ds= this.getCompInfo().ds_bzplc;
+		if(ds.getRowCount() == 0){
+			this.alert(this.gfn_getTextMessage("msg.van_ds_sc_1960.server.bzplc.nodate"));
+			return;
+		}
+	}
+	
+	if(trId == 'init'){
+		in_ds = "ds_bGroup=ds_bGroup ds_bzplc=ds_bzplc";
+	}else{
+		this.displayClear();
+		in_ds = "ds_list=ds_list";
+		var TRPL_C = this.getTrplCode();
+		var date = this.getCompInfo().cal_date.value;
+		var bs = this.getCompInfo().spin_s.value;
+		var be = this.getCompInfo().spin_e.value;
+		param += " TRPL_C="+TRPL_C+" date="+date+" bs="+bs+" be="+be;
+	}	
+			
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/market/abcStore", 
+						"",
+						in_ds,
+						param,
+						"fn_callback",
+						"S"
+						);
+};
+
+//콜백
+this.fn_callback = function(trId, errCode, errMsg){
+
+	if(errCode < 0){
+		this.gfn_getMessage("alert", errMsg);
+		return;
+	}	
+	
+	if(trId == 'init'){				
+		var ds = this.getCompInfo().ds_bGroup;
+		var bMin = ds.getColumn(0, 'MIN');
+		var bMax = ds.getColumn(0, 'MAX');
+		if(bMin==0) bMin = 80;
+		if(bMax==0) bMax = 95;
+		this.getCompInfo().spin_s.set_value(bMin);
+		this.getCompInfo().spin_e.set_value(bMax);
+		this.initGrid();
+	}
+	
+	if(trId == 'list'){				
+		this.getCompInfo().ds_list.set_rowposition(-1);
+		this.initDs();
+	}
+};
+
+this.initGrid = function(){
+
+	var grid = this.getCompInfo().grd_list;
+	var ds = this.getCompInfo().ds_bzplc;	
+	var colIdx = '';
+	
+	for(var i=0 ; i<ds.getRowCount();i++){
+		var code = ds.getColumn(i, "CODE");
+		var name = ds.getColumn(i, "NAME");
+		if(name.length > 7){
+			var name1 = name.substring(0,7);
+			var name2 = name.substring(7,name.length);
+			name = name1 + "\n" + name2;
+		}
+		
+		colIdx = grid.appendContentsCol();
+		grid.setFormatColProperty(colIdx, "size", 120);
+		grid.setCellProperty("Head", colIdx, "text", name);
+		grid.setCellProperty("Body", colIdx, "style", "align:right");
+		grid.setCellProperty("Body", colIdx, "displaytype", "number");
+		grid.setCellProperty("Body", colIdx, "text", "bind:BZPLC"+(i+1));
+	}
+	colIdx = grid.appendContentsCol();
+	grid.setFormatColProperty(colIdx, "size", 90);
+	grid.setCellProperty("Head", colIdx, "text", "총합계");
+	grid.setCellProperty("Body", colIdx, "style", "align:right");
+	grid.setCellProperty("Body", colIdx, "displaytype", "number");
+	grid.setCellProperty("Body", colIdx, "text", "bind:BZPLC0");
+	
+	var bg = "#D5D5D5";
+	colIdx = grid.appendContentsCol();
+	grid.setFormatColProperty(colIdx, "size", 10);
+	grid.setCellProperty("Head", colIdx, "style", "background:"+bg);
+	grid.setCellProperty("Body", colIdx, "style", "background:"+bg);
+	grid.setCellProperty("Body", colIdx, "style", "background2:"+bg);
+	
+	colIdx = grid.appendContentsCol();
+	grid.setFormatColProperty(colIdx, "size", 40);
+	grid.setCellProperty("Head", colIdx, "text", "No");
+	grid.setCellProperty("Body", colIdx, "style", "align:right");
+	grid.setCellProperty("Body", colIdx, "displaytype", "number");
+	grid.setCellProperty("Body", colIdx, "expr", "currow+1");
+	
+	for(var i=0 ; i<ds.getRowCount();i++){
+		var code = ds.getColumn(i, "CODE");
+		var name = ds.getColumn(i, "NAME");
+		if(name.length > 7){
+			var name1 = name.substring(0,7);
+			var name2 = name.substring(7,name.length);
+			name = name1 + "\n" + name2;
+		}
+		colIdx = grid.appendContentsCol();
+		grid.setFormatColProperty(colIdx, "size", 120);
+		grid.setCellProperty("Head", colIdx, "text", name);
+		grid.setCellProperty("Body", colIdx, "style", "align:right");
+		grid.setCellProperty("Body", colIdx, "displaytype", "number");
+		grid.setCellProperty("Body", colIdx, "text", "bind:BZPLC_P"+(i+1));
+	}
+	this.addEventGridResize(grid);
+};
+
+this.initDs = function(){
+	
+	var grid = this.getCompInfo().grd_list;
+	var ds = this.getCompInfo().ds_list;
+	var ds_bzplc = this.getCompInfo().ds_bzplc;	
+	var total_arr = [];
+	
+	for(var i=0 ; i < ds.getRowCount() ; i++){
+		for(var j=0 ; j < ds_bzplc.getRowCount()+1 ; j++){
+			var tot = ds.getColumn(i, "BZPLC"+j);
+			if(isNaN(tot)) tot = 0;
+			tot *= 1;
+			if(i==0) total_arr.push(tot);
+			else total_arr[j] += tot;
+		}
+	}
+	
+	var sum_arr = [];
+	var a = this.getCompInfo().spin_s.value;
+	var b = this.getCompInfo().spin_e.value;
+	var a_index = -1;
+	var b_index = -1;	
+	var dott_id_arr = [];
+	var dott_a_arr = [];
+	var dott_b_arr = [];
+	var dott_c_arr = [];
+
+	for(var i=0 ; i < ds.getRowCount() ; i++){
+	
+		var maxRow = ds.getRowCount()+1;
+		
+		for(var j=0 ; j < ds_bzplc.getRowCount()+1 ; j++){
+			
+			var tot = ds.getColumn(i, "BZPLC"+j);
+			if(isNaN(tot)) tot = 0;
+			tot*=1;
+			if(i==0){ 
+				sum_arr.push(tot);
+				dott_id_arr[j] = "BZPLC_P"+j;
+				dott_a_arr[j] = maxRow;
+				dott_b_arr[j] = maxRow;
+				dott_c_arr[j] = maxRow;
+			}else{ 
+				sum_arr[j] += tot;
+			}
+			
+			var total = 0;
+			if(total_arr[j] != 0 ) total = (sum_arr[j] / total_arr[j]*100).toFixed(2);
+			ds.setColumn(i, "BZPLC_P"+j, total);
+			
+			if(total > a && dott_a_arr[j] == maxRow){
+				//dott_a_arr[j] = i-1;
+				dott_a_arr[j] = i;
+			}
+			if(total > b && dott_b_arr[j] == maxRow){
+				//dott_b_arr[j] = i-1;
+				//dott_c_arr[j] = i;
+				dott_b_arr[j] = i;
+				dott_c_arr[j] = i+1;
+			}
+		}
+	}
+	
+	var a_color = '#CEF279';
+	var b_color = '#B2CCFF';
+	var c_color = '#FFD8D8';
+	
+	dott_id_arr[0] = 'BZPLC0'
+	
+	for(var i=0 ; i < dott_id_arr.length ; i++){
+		grid.setCellProperty("Body", this.getIndexByColId(grid, dott_id_arr[i]), "style", "background:EXPR(currow < "+ dott_a_arr[i] + " ? '" + a_color + "' : currow < " + dott_b_arr[i]+" ? '"+b_color+"' : currow < " + (ds.getRowCount()+1) + " ? '" + c_color + "' : '')");
+		grid.setCellProperty("Body", this.getIndexByColId(grid, dott_id_arr[i]), "style", "background2:EXPR(currow < " + dott_a_arr[i] + " ? '" + a_color + "' : currow < " + dott_b_arr[i]+" ? '"+b_color+"' : currow < " + (ds.getRowCount()+1) + " ? '" + c_color + "' : '')");
+	}
+};
+
+//디스플레이 초기화
+this.displayClear = function(){
+
+	this.getCompInfo().ds_list.clearData();
+};
+
+this.spinChange = function(obj, e){	
+
+	this.setTimer(999,100);
+};
+
+this.timerHandler = function(obj, e){
+	
+	if(e.timerid == 999) this.afterSpin();
+	
+};
+
+this.afterSpin = function(){
+
+	var minValue= 0;
+	var maxValue= 100;
+	
+	var s = Number(this.getCompInfo().spin_s.value);
+	var e = Number(this.getCompInfo().spin_e.value);
+	this.initDs();
+	
+	if(s == e) {
+		this.killTimer(999);
+		this.getCompInfo().spin_s.set_value(e-1);
+		return;
+	}
+	
+	if(s < minValue || s > maxValue-1){
+		this.killTimer(999);
+		return;
+	}
+	
+	if(e > maxValue || e < minValue + 1){
+		this.killTimer(999);
+		return;
+	}
+	this.killTimer(999);
+	this.getCompInfo().edt_aEnd.set_value(s);
+	this.getCompInfo().edt_cStart.set_value(e);
+}
+
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	
+	var title = this.getScreenName();
+	var fileName = this.getExcelFileName();
+	var TRPL_C = this.getTrplCode();
+	var date = this.getCompInfo().cal_date.value;
+	var bs = this.getCompInfo().spin_s.value;
+	var be = this.getCompInfo().spin_e.value;
+	var group_txt = "A그룹:0~" + bs + " " + "B그룹:" + bs + "~" + be + " C그룹:" + be +"~100";
+	if(!date){
+		this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1960.excel.alert'));
+		return;
+	}	
+	var sId = "1960";	
+	var param1 = "title="+title+"&sId="+sId;
+	var param2 = "&TRPL_C="+TRPL_C+"&DATE="+date;
+	var param3 = "&GROUP_TEXT="+group_txt;
+	var param = param1+param2+param3;
+	param = encodeURI(encodeURI(param));
+	param += "&fileName="+fileName;
+	excelDownHandler(application.gv_server_url+"rest/excel/analysis/market/excelDown?"+param, this);
+	//this.div_list.web_downExcel.set_url(application.gv_server_url+"rest/excel/analysis/market/excelDown?"+param);
+};
+
+this.getCompInfo = function(){
+
+	var compInfo = {};
+	compInfo.ds_bzplc = this.ds_bzplc;
+	compInfo.ds_list = this.ds_list;	
+	compInfo.ds_bGroup = this.ds_bGroup;
+	compInfo.grd_list = this.div_list.grd_list;
+	compInfo.cal_date = this.div_search.cal_date;
+	compInfo.edt_aEnd = this.div_search.edt_aEnd;
+	compInfo.edt_cStart = this.div_search.edt_cStart;
+	compInfo.spin_s = this.div_search.spin_s;
+	compInfo.spin_e = this.div_search.spin_e;
+	return compInfo;
+};
+]]></Script>
+  </Form>
+</FDL>

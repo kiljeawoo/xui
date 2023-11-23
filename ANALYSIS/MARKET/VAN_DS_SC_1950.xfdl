@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1950" classname="pattern_01" left="0" top="0" width="803" height="490" titletext="주별 판매순위 랭킹" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" left="0" top="29" height="69" cssclass="div_WFSA_Searchbg" right="15">
+          <Layouts>
+            <Layout>
+              <Static id="sta_date" taborder="0" text="조회기간" left="15" top="10" height="21" cssclass="sta_WFSA_Label" onclick="div_search_sta_date_onclick" width="79" style="padding:0 15 0 11;"/>
+              <Static id="sta_location" taborder="1" text="지역" left="15" top="36" height="21" cssclass="sta_WFSA_Label" onclick="div_search_sta_location_onclick" width="79"/>
+              <Combo id="cbo_date" taborder="5" codecolumn="CODE" datacolumn="NAME" index="-1" left="94" top="10" height="21" innerdataset="@ds_date" width="207" onitemchanged="btnClick"/>
+              <Combo id="cbo_locMain" taborder="8" innerdataset="@ds_locMain" codecolumn="SIMP_C" datacolumn="SIMP_CNM" left="94" top="36" height="21" width="207" onitemchanged="btnClick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_excel" taborder="11" text="엑셀" top="0" width="41" height="21" cssclass="btn_WF_CRUD" right="74" onclick="btn_excel_onclick"/>
+        <Div id="div_menu" taborder="37" text="Div01" left="0" top="0" width="345" height="21" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static00" taborder="38" text="15" visible="false" left="263" top="271" width="15" height="115" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="39" text="15" visible="false" left="788" top="0" height="490" style="background:#00ffffb5;" width="15"/>
+        <Static id="Static09" taborder="43" text="15" visible="false" left="0" top="30" right="787" height="67" style="background:#dc143c5b;"/>
+        <Static id="Static13" taborder="45" text="10" visible="false" left="0" top="30" height="10" style="background:#dc143c5b;" width="700"/>
+        <Static id="Static12" taborder="47" text="10" visible="false" left="217" top="87" right="502" height="10" style="background:#dc143c5b;"/>
+        <Div id="div_list" taborder="49" text="Div02" left="0" top="97" right="15" bottom="0" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_right" taborder="1" binddataset="ds_right" useinputpanel="false" top="42" left="35.28%" bottom="0" right="0" style="background:#c0504dff;align:left;" autofittype="col" summarytype="top">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="45"/>
+                      <Column size="200"/>
+                      <Column size="80"/>
+                      <Column size="45"/>
+                      <Column size="90"/>
+                      <Column size="80"/>
+                      <Column size="90"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="33" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="순위"/>
+                      <Cell col="1" text="공급업체"/>
+                      <Cell col="2" text="판매액&#13;&#10;(천원)"/>
+                      <Cell col="3" text="순위&#13;&#10;(전월)"/>
+                      <Cell col="4" text="판매액&#13;&#10;(전월)"/>
+                      <Cell col="5" text="점유율(%)"/>
+                      <Cell col="6" text="그래프"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:RN"/>
+                      <Cell col="1" style="align:left;" text="bind:NAME"/>
+                      <Cell col="2" displaytype="number" style="align:right;" text="bind:AMOUNT"/>
+                      <Cell col="3" displaytype="number" text="bind:PRE_RN"/>
+                      <Cell col="4" displaytype="number" style="align:right;" text="bind:PRE_AMOUNT"/>
+                      <Cell col="5" displaytype="number" style="align:right;" text="bind:POINT"/>
+                      <Cell col="6" displaytype="bar" style="controlbackground:cornsilk;controlcolor:#ffffff00;" text="bind:POINT"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_left" taborder="2" binddataset="ds_left" useinputpanel="false" left="0" top="42" bottom="0" autofittype="col" oncellclick="itemDetail" right="66.62%">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="90"/>
+                      <Column size="200"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="33" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="소분류코드"/>
+                      <Cell col="1" text="소분류명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:CODE"/>
+                      <Cell col="1" style="align:left;" text="bind:NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_show" taborder="3" onclick="btn_show_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" width="62"/>
+              <Static id="div_dateInfo" taborder="4" onclick="div_search_sta_date_onclick" top="22" right="5" height="18" style="align:right;font:9 arial;" width="200"/>
+              <WebBrowser id="web_downExcel" left="91.5%" top="4" right="0%" height="17" taborder="5" visible="false"/>
+            </Layout>
+          </Layouts>
+          <InitValue/>
+        </Div>
+        <Static id="Static01" taborder="58" text="42" visible="false" left="21.3%" top="97" right="65.63%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="60" onclick="btnClick" cssclass="btn_WFSA_Searchbtn" top="0" right="15" height="21" width="58"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_date" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_left" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_locMain" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_right" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="AMOUNT" type="INT" size="256"/>
+          <Column id="QTY" type="INT" size="256"/>
+          <Column id="POINT" type="FLOAT" size="256"/>
+          <Column id="RN" type="INT" size="256"/>
+          <Column id="PRE_AMOUNT" type="INT" size="256"/>
+          <Column id="PRE_QTY" type="INT" size="256"/>
+          <Column id="PRE_RN" type="INT" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_myCategory">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo){
+	
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.btn_show_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+};
+
+this.fn_afterFormOnload = function(){
+	
+	this.getCompInfo().grd_left.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));		
+	this.search();
+};
+
+//조회버튼 클릭시
+this.btnClick = function(){
+	this.search('left');
+};
+
+//LEFT 그리드 셀 클릭시
+this.itemDetail = function(obj:Grid, e:nexacro.GridClickEventInfo){
+	
+	var ds = this.getCompInfo().ds_left;
+	var code = ds.getColumn(e.row, 0);
+	this.search('right', code);
+};
+
+//조회
+this.search = function(searchType, code){
+
+	var json = this.getParamJson(this.components);
+	json.pageType = "W";
+	
+	var trId = "";
+	var in_ds = "";
+	
+	if(!searchType){ //검색조건 초기화
+		in_ds = "ds_locMain=ds_locMain ds_date=ds_date";
+		trId = "init";
+		searchType = "";
+	}
+	else if(searchType == 'left'){ //LEFT 조회		
+		in_ds = "ds_left=ds_left";
+		trId = "left";	
+	}
+	else{ //RIGHT 조회
+		in_ds = "ds_right=ds_right";
+		json.CODE = code;
+		trId = "right";	
+	}
+	in_ds += " ds_myCategory=ds_myCategory"
+	
+	this.displayClear(searchType);
+	
+	/*
+	if(trId != 'init'){
+		if(!json.LOCMAIN){
+			this.alert(this.gfn_getTextMessage('validation.message.select.location'));
+			return;
+		}
+	}
+	*/
+	
+	json.searchType = searchType;
+	var param = this.getParamJsonToString(json);
+	
+	if(trId != 'init'){
+		if(this.ds_myCategory.rowcount == 0){
+			this.gfn_getMessage("alert", 'msg.van_ds_sc_19xx.alert.category');
+			return;
+		}
+	}
+			
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/market/SalesRanking", 
+						"",
+						in_ds,
+						param,
+						"fn_callback",
+						"S"
+						);
+};
+
+//콜백
+this.fn_callback = function(trId, errCode, errMsg){
+
+	if(errCode < 0){
+		this.gfn_getMessage("alert", errMsg);
+		return;
+	}
+	
+	var param = {
+			form: this,
+			table: 'IAS_SL_WW_BZPLC_CLS',
+			div: this.div_list.div_dateInfo
+		};
+	this.getInfoTableDt(param);
+	
+	if(trId == 'init'){		
+		var ds = this.ds_locMain;
+		ds.insertRow(0);
+		ds.setColumn(0,'SIMP_C','');
+		//ds.setColumn(0,'SIMP_CNM',this.gfn_getTextMessage('validation.message.select.location'));
+		ds.setColumn(0,'SIMP_CNM','- 전체 -');
+		this.getCompInfo().cbo_date.set_index(0);
+		this.getCompInfo().cbo_locMain.set_index(0);
+		
+	}else if(trId == 'left'){
+		this.getCompInfo().grd_left.setCellProperty("Body", 0, "style", "cursor:hand;");
+		this.getCompInfo().grd_left.setCellProperty("Body", 1, "style", "cursor:hand;");
+		
+		if(this.getCompInfo().ds_left.getRowCount() == 0){
+			this.getCompInfo().grd_right.set_nodatatext('');
+		}else{
+			this.getCompInfo().grd_right.set_nodatatext(this.gfn_getTextMessage('msg.van_ds_sc_1940.view.emptyText'));
+		}
+			
+	}else{
+		this.getCompInfo().grd_right.set_nodatatext(this.gfn_getTextMessage('result.message.search.no.exist.data'));	
+	}
+};
+
+//디스플레이 초기화
+this.displayClear = function(searchType){
+
+	if(!searchType || searchType == 'left'){
+		this.getCompInfo().ds_left.clearData();	
+		this.getCompInfo().ds_right.clearData();	
+	}else{
+		this.getCompInfo().ds_right.clearData();	
+	}
+};
+
+this.getCompInfo = function(){
+
+	var compInfo = {};
+	compInfo.ds_left = this.ds_left;
+	compInfo.ds_right = this.ds_right;
+	compInfo.grd_left = this.div_list.grd_left;
+	compInfo.grd_right = this.div_list.grd_right;
+	compInfo.cbo_date = this.div_search.cbo_date;
+	compInfo.cbo_locMain =	this.div_search.cbo_locMain;
+	return compInfo;
+};
+
+//엑셀
+this.btn_excel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){		
+	
+	if(this.ds_myCategory.rowcount == 0){
+		this.gfn_getMessage("alert", 'msg.van_ds_sc_19xx.alert.category');
+		return;
+	}		
+
+	var title = this.getScreenName();
+	var fileName = this.getExcelFileName();
+	var json = this.getParamJson(this.components);
+	
+	/*
+	if(!json.LOCMAIN || !json.DATE){
+		this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1940.excel.alert'));
+		return;
+	}
+	*/
+		
+	var sId = "1950";
+	var json2 = this.getParamJson(this.components, false, true);
+	var pageType = "W";	
+	var param1 = "title="+title+"&sId="+sId+"&pageType="+pageType;
+	var param2 = "&DATE="+json.DATE+"&LOCMAIN="+json.LOCMAIN;
+	var param3 = "&DATE_TEXT="+json2.DATE+"&LOCMAIN_TEXT="+json2.LOCMAIN;
+	var param = param1+param2+param3;
+	param = encodeURI(encodeURI(param));
+	param += "&fileName="+fileName;
+	excelDownHandler(application.gv_server_url+"rest/excel/analysis/market/excelDown?"+param, this);
+	//this.div_list.web_downExcel.set_url(application.gv_server_url+"rest/excel/analysis/market/excelDown?"+param);
+};]]></Script>
+  </Form>
+</FDL>

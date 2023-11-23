@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="CLS_INTE_WRS" classname="popup01" left="0" top="0" width="688" height="503" cssclass="frm_WF_PopupBg" onload="form_onload" titletext="상품 조회">
+    <Layouts>
+      <Layout>
+        <Button id="btn_ok" taborder="6" text="확인" cssclass="btn_WF_Popup" left="290" top="451" width="54" height="29" onclick="btn_ok_onclick"/>
+        <Button id="btn_cancel" taborder="7" text="취소" cssclass="btn_WF_Popup" left="346" top="451" width="54" height="29" onclick="btn_cancel_onclick"/>
+        <Static id="Static01" taborder="10" text="17" visible="false" left="363" top="480" width="91" height="17" style="background:#dc143c5b;"/>
+        <Static id="Static02" taborder="11" text="10" visible="false" left="363" top="441" width="91" height="10" style="background:#dc143c5b;"/>
+        <Static id="Static04" taborder="13" text="15" visible="false" left="242" top="32" width="91" height="15" style="background:#dc143c5b;"/>
+        <Button id="btn_close" taborder="15" top="0" width="37" height="32" cssclass="btn_WF_PopupClose" onclick="btn_close_onclick" right="0"/>
+        <Static id="Static06" taborder="16" text="상품 조회" left="0" top="0" width="345" height="32" cssclass="sta_WF_PopupTitle"/>
+        <Grid id="grd_save" taborder="17" binddataset="ds_saveList" useinputpanel="false" autofittype="col" left="1.45%" top="78" right="2.47%" bottom="64">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="41"/>
+                <Column size="93"/>
+                <Column size="116"/>
+                <Column size="104"/>
+                <Column size="145"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="선택"/>
+                <Cell col="1" text="번호"/>
+                <Cell col="2" text="세분류명"/>
+                <Cell col="3" text="업체명"/>
+                <Cell col="4" text="상품코드"/>
+                <Cell col="5" text="상품명"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHECK_BOX"/>
+                <Cell col="1" text="bind:NO"/>
+                <Cell col="2" text="bind:WRS_DTCFNM"/>
+                <Cell col="3" text="bind:INTE_TRPL_NM"/>
+                <Cell col="4" text="bind:WRS_C"/>
+                <Cell col="5" style="align:left;" text="bind:WRSNM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_del" taborder="18" text="삭제" left="88.37%" top="46" right="2.91%" height="21" onclick="btn_del_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_wrs" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="NA_WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="BOXPE_AQZ" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+          <Column id="VCBT_NA_WRS_C" type="STRING" size="256"/>
+          <Column id="VCBX_NA_WRS_C" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_searchType" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="s_code" type="string" size="13"/>
+          <Column id="s_name" type="string" size="13"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="s_code">name</Col>
+            <Col id="s_name">상품명</Col>
+          </Row>
+          <Row>
+            <Col id="s_code">code</Col>
+            <Col id="s_name">상품코드</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_saveList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHECK_BOX" type="STRING" size="256"/>
+          <Column id="NO" type="STRING" size="256"/>
+          <Column id="WRS_DTCFNM" type="STRING" size="256"/>
+          <Column id="WRS_C" type="STRING" size="256"/>
+          <Column id="WRSNM" type="STRING" size="256"/>
+          <Column id="INTE_TRPL_C" type="STRING" size="256"/>
+          <Column id="INTE_TRPL_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.objRtnArr = new Array(2); //팝업창 close시 전달할 값을 위한 배열 선언
+
+var autoPop = this.parent.autoPop;
+
+var LCLC = '';
+var MCLC = '';
+var SCLC = '';
+var DTCF_C = '';
+	
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	if(autoPop.autoType){
+	
+		LCLC = autoPop.LCLC;      // 대분류
+		MCLC = autoPop.MCLC;      // 중분류
+		SCLC = autoPop.SCLC;      // 소분류
+		DTCF_C = autoPop.DTCF_C;  // 세분류
+
+		this.btn_search_onclick();  // 조회
+	}
+}
+
+
+// 조회
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		   this.fn_retrieveClsInteWrsList();  // 조회
+}
+
+
+/*
+  등록 관심 상품조회
+*/
+this.fn_retrieveClsInteWrsList = function() 
+{
+	// alert('fn_retrieveUsrConsentList');
+	
+	var bsnDsc = "sales_price";
+	var naTrplC =  application.gv_glnCode; // 관심상품 조회는 로그인 업체코드로 조회
+	var inteTrplC =  '';
+	
+	var params =  "bsnDsc=" + bsnDsc
+				 + " naTrplC=" + naTrplC
+				 + " inteTrplC=" + inteTrplC
+				 + " LCLC=" + LCLC
+				 + " MCLC=" + MCLC
+				 + " SCLC=" + SCLC
+				 + " DTCF_C=" + DTCF_C
+				 ;
+
+	trace("##params >> " + params);
+	
+	var sSvcID        = "retrieveClsInteWrsList";
+	var sURL          = "svc::rest/analysis/market/retrieveClsInteWrsList";
+	var sInDatasets   = "";
+	var sOutDatasets  = "ds_saveList=ds_saveList";	
+	var sArgument     = params;
+	var sCallbackFunc = "fn_callBack";
+	var sTranType     = "S"; // 
+	
+	// application.set_usewaitcursor(false);
+	// alert('fn_retrieveUsrConsent');
+	
+	this.gfn_callService(sSvcID, sURL, sInDatasets ,sOutDatasets , sArgument , sCallbackFunc, sTranType);
+}
+
+this.btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_close_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.btn_ok_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.objRtnArr[0] = this.ds_wrs.getColumn(this.ds_wrs.rowposition,"NA_WRS_C");
+	this.objRtnArr[1] = this.ds_wrs.getColumn(this.ds_wrs.rowposition,"WRSNM");
+	trace(this.objRtnArr.toString());
+	this.close(this.objRtnArr.toString());
+}
+
+
+
+/* Validation Check */
+this.fn_validationCheck = function(){
+	
+
+	return true;
+}
+
+/* Call Back */
+this.fn_callBack = function(svcID, ErrorCode, ErrorMsg)
+{	
+	if(ErrorCode < 0)
+	{
+		this.gfn_getMessage("alert", ErrorMsg);
+		return;
+	}else{
+		if(svcID == "searchWRS"){
+			if(this.ds_wrs.rowcount == 0){
+				this.grd_wrs.set_nodatatext(this.gfn_getTextMessage("result.message.search.no.exist.data"));
+			}else if(this.ds_wrs.rowcount == 1){
+				if(autoPop.autoType == true){
+					this.grd_wrs.selectRow(0);
+					this.btn_ok_onclick();
+				}
+			}else{
+				this.grd_wrs.selectRow(0);
+				this.ds_wrs.setFocus();
+			}		
+		}else if(svcID == "delete"){
+		
+		    this.fn_retrieveClsInteWrsList();  // 조회
+		
+		}
+	}
+}
+
+
+this.grd_wrs_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.objRtnArr[0] = this.ds_wrs.getColumn(e.row,"NA_WRS_C");
+	this.objRtnArr[1] = this.ds_wrs.getColumn(e.row,"WRSNM");
+	trace(this.objRtnArr.toString());
+	this.close(this.objRtnArr.toString());
+}
+
+this.grd_wrs_onkeydown = function(obj:Grid, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode == 13){
+		this.btn_ok_onclick();
+	}
+}
+
+
+//저장,삭제
+
+var isOthersWrs = false;
+				
+this.btn_del_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+
+	trace("application.gv_userAuth "  + application.gv_userAuth);
+	
+	if (application.gv_userAuth.indexOf("1") < 0) { // 빌링권한이 없는 경우
+		alert("빌링권한이 있는 사용자만 사용할 수 있습니다.");
+		return;
+	}
+
+	var my_trpl_c = application.gv_glnCode;	
+	var isRowChecked = '0';
+	var isOthersWrs = false;
+	var sqlType = 'DEL';
+
+	var curRowPos = -1;
+	
+	for(var i =0; i < this.ds_saveList.getRowCount(); i++){
+	
+		//curRowPos = this.ds_saveList.rowposition;
+		isRowChecked =  this.ds_saveList.getColumn(i, 'CHECK_BOX');
+
+		if(isRowChecked == '1') {
+
+			var curTrplC =  this.ds_saveList.getColumn(i, 'INTE_TRPL_C');
+
+			// 권한사업장과 상품 제조처 코드가 다를 경우 타사상품 여부 세팅
+			if(curTrplC != my_trpl_c) {
+				isOthersWrs = true;
+			}
+		} // if(isRowChecked 
+	} // for
+	
+	var selectCnt = this.checkIndexCnt(this.grd_save);
+	
+	if(selectCnt == 0){
+		this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1850.alert.save3'));
+		return;
+	}
+
+	this.btn_save(sqlType, isOthersWrs);
+};
+
+//설정저장
+this.btn_save = function(sqlType, isOthersWrs){
+
+	var ds = "";
+	var confirmMsg = '';
+	var msgOthersWrs = '';
+
+	if(isOthersWrs == true) {
+		msgOthersWrs = ' 타사상품이 선택되었습니다. ';
+	}else {
+	    msgOthersWrs = '';
+	
+	}
+	
+
+	if(sqlType == 'DEL'){
+		confirmMsg = 'msg.isDelete';
+		ds = 'ds_saveList=ds_saveList'; 
+	}
+	//	trace(ds);
+	if(!this.confirm( msgOthersWrs + this.gfn_getTextMessage(confirmMsg))){
+		return;
+	}
+	
+	//파라미터
+	var analysis = '2';
+	
+	//트랜젝션 아이디
+	var trId = 'delete';
+
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/market/saveInteTrplWrsList",
+						ds, 
+						"", 
+						"analysis="+analysis+" sqlType="+sqlType, 
+						"fn_callBack",
+						'S'
+						);
+};
+
+]]></Script>
+  </Form>
+</FDL>

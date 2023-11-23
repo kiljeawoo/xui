@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form id="VAN_DS_SC_1850" classname="pattern_01" left="0" top="0" width="801" height="490" titletext="관심 사업장/상품 등록" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_menu" taborder="37" text="Div01" left="0" top="0" width="282" height="21" url="common::location.xfdl">
+          <Layouts/>
+        </Div>
+        <Static id="Static04" taborder="39" text="15" visible="false" left="786" top="0" height="490" style="background:#00ffffb5;" width="15"/>
+        <Div id="div_search" taborder="58" left="0" top="29" right="15" height="43" cssclass="div_WFSA_Searchbg" applystyletype="cascade,keep" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Static id="sta_searchType" taborder="9" text="설정항목" cssclass="sta_WFSA_Label" left="15" top="10" height="21" width="79"/>
+              <Radio id="rdo_analysis" taborder="13" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="1" direction="vertical" left="94" top="10" height="21" onitemchanged="divChange" width="170">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">사업장</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">상품</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Radio>
+              <Static id="sta_location" taborder="14" text="지역" onclick="div_search_sta_location_onclick" cssclass="sta_WFSA_Label" left="270" top="10" height="21" width="79"/>
+              <Combo id="cbo_locMain" taborder="15" onitemchanged="search" left="349" top="10" height="21" width="200" innerdataset="@ds_locMain" datacolumn="SIMP_CNM" codecolumn="SIMP_C"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_list" taborder="61" text="Div02" left="0" top="71" right="15" bottom="0" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_save" taborder="24" binddataset="ds_saveList" useinputpanel="false" left="52.93%" top="42" right="0" bottom="0" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="25"/>
+                      <Column size="60"/>
+                      <Column size="120"/>
+                      <Column size="200"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="checkbox" edittype="checkbox"/>
+                      <Cell col="1" text="번호"/>
+                      <Cell col="2" text="사업장코드"/>
+                      <Cell col="3" text="사업장명"/>
+                      <Cell col="4" text="등록일"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHECK_BOX"/>
+                      <Cell col="1" text="bind:NO"/>
+                      <Cell col="2" text="bind:CODE"/>
+                      <Cell col="3" style="align:left;" text="bind:NAME"/>
+                      <Cell col="4" text="bind:YMD"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="grd_select" taborder="25" binddataset="ds_selectList" useinputpanel="false" left="0" top="42" right="52.29%" bottom="0" autofittype="col">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="25"/>
+                      <Column size="120"/>
+                      <Column size="300"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="30" band="head"/>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none"/>
+                      <Cell col="1" text="사업장코드"/>
+                      <Cell col="2" text="사업장명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox" text="bind:CHECK_BOX"/>
+                      <Cell col="1" text="bind:CODE"/>
+                      <Cell col="2" style="align:left;" text="bind:NAME"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="sta_select" taborder="26" text="선택목록" cssclass="sta_WF_Subtitle" left="0" top="17" right="53.94%" height="21"/>
+              <Static id="sta_save" taborder="27" text="저장목록(최대 10개)" cssclass="sta_WF_Subtitle" left="53.05%" top="17" right="1.27%" height="21"/>
+              <Button id="btn_leftMove" taborder="30" cssclass="btn_WF_ShuttleL" left="49.11%" top="263" height="22" onclick="btn_moveData_onclick" width="22"/>
+              <Button id="btn_rightMove" taborder="31" cssclass="btn_WF_ShuttleR" left="49.11%" top="240" height="22" onclick="btn_moveData_onclick" width="22"/>
+              <Button id="btn_show" taborder="3" onclick="btn_show_onclick" cssclass="btn_WFSA_SearchClose" left="46.07%" top="0" height="12" width="62"/>
+              <Edit id="edt_search" taborder="32" left="70" top="15" height="22" width="200" readonly="false"/>
+              <Button id="Button00" taborder="33" text="초기화" left="313" top="15" height="22" width="49" onclick="div_list_Button00_onclick"/>
+              <Button id="Button01" taborder="34" text="검색" onclick="ds_filter" left="271" top="15" width="40" height="22"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="67" text="10" visible="false" left="71.29%" top="72" right="15.73%" height="42" style="background:#dc143c5b;"/>
+        <Div id="div_auth" taborder="68" url="common::AuthorityWorkplace.xfdl" text="Div00" top="0" right="116" height="21" width="431"/>
+        <Static id="Static01" taborder="69" text="10" visible="false" left="46.82%" top="311" height="42" style="background:#dc143c5b;" width="10"/>
+        <Static id="Static02" taborder="70" text="10" visible="false" left="50.81%" top="311" right="47.94%" height="42" style="background:#dc143c5b;"/>
+        <Button id="btn_search" taborder="60" onclick="search" cssclass="btn_WFSA_Searchbtn" top="0" right="15" height="21" width="58"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_selectList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHECK_BOX" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="CODE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_saveList" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="CHECK_BOX" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="NO" type="INT" size="256"/>
+          <Column id="YMD" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_locMain" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SIMP_C" type="STRING" size="256"/>
+          <Column id="SIMP_CNM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind/>
+    <Script type="xscript5.0"><![CDATA[include "lib::comLib.xjs";
+
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo){
+	
+	this.gfn_setInitForm(obj, e); //공통
+};
+
+this.btn_show_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfn_searchDivResize(obj, this.div_search, this.div_list);
+};
+
+this.fn_afterFormOnload = function(){ //onload
+
+	this.div_list.edt_search.set_value('조회후에 필터링 사용가능합니다.');
+	this.div_list.edt_search.set_readonly(true);
+	
+	var param = [this.div_list.grd_select, this.div_list.grd_save];
+	this.ds_selectList.addEventHandler("onload", function(ds, e){
+		if(ds.getRowCount() > 0){
+			this.div_list.edt_search.set_value('');
+			this.div_list.edt_search.set_readonly(false);
+			this.div_list.edt_search.setFocus();
+		}else{
+			this.div_list.edt_search.set_value('조회후에 필터링 사용가능합니다.');
+			this.div_list.edt_search.set_readonly(true);
+		}
+	}, this);	
+	//엔터키 검색 이벤트 등록
+	var searchParam =
+	{
+				form: this,
+				param:[{									
+						edit: this.div_list.edt_search,
+						fnc: 'ds_filter'
+				}]
+	};
+	this.addEventEnterSearch(searchParam);	
+	this.gridCheckboxInit([this.div_list.grd_save]); //체크박스 이벤트 등록	
+	this.div_list.grd_select.set_nodatatext(this.gfn_getTextMessage('msg.van_ds_sc_1850.view.grid.nodata1'));
+	this.div_list.grd_save.set_nodatatext(this.gfn_getTextMessage('msg.van_ds_sc_1850.view.grid.nodata2'));
+	this.gridSortInit(this.div_list.grd_select,[1,2]);
+	this.gridSortInit(this.div_list.grd_save,[1,2]);
+	this.authChkDisable();
+	this.addEventAuth();
+	this.search('init');
+};
+
+this.divChange = function(obj, e){
+	if(e && e.preindex == 1){
+		if(!this.div_search.cbo_locMain.value){ 
+			this.div_search.sta_location.set_visible(true);
+			this.div_search.cbo_locMain.set_visible(true);
+			this.ds_selectList.clearData();
+			//return;
+		}
+	}	
+	this.search('div');
+};
+
+//조회
+this.search = function(trId){
+
+	var div = this.div_search.rdo_analysis.value;
+	if(div == '1'){
+		this.div_search.sta_location.set_visible(true);
+		this.div_search.cbo_locMain.set_visible(true);
+	}else{
+		this.div_search.sta_location.set_visible(false);
+		this.div_search.cbo_locMain.set_visible(false);
+	}
+
+	if(!trId) trId = 'list';
+
+	//데이터셋 초기화
+	this.ds_selectList.clearData();
+	
+	//파라미터
+	var json = this.getParamJson(this.components);
+	json.TRPL_C = this.getTrplCode();
+	json.pageType = trId;
+	var param = this.getParamJsonToString(json);	
+	var in_ds = "ds_selectList=ds_selectList ds_locMain=ds_locMain";
+	in_ds += " ds_saveList=ds_saveList";
+	
+	if(trId == 'init' || trId == 'div'){
+		this.ds_saveList.clearData();
+	}else{
+		/*
+		if(!json.LOCMAIN && div == '1'){
+			this.alert(this.gfn_getTextMessage('validation.message.select.location'));
+			this.div_list.edt_search.set_value('조회후에 필터링 사용가능합니다.');
+			this.div_list.edt_search.set_readonly(true);
+			return;
+		}
+		*/
+	}
+	
+	var ds = this.ds_saveList;
+	var str = "";
+	for(var i=0 ; i < ds.getRowCount() ; i++){
+		var code = ds.getColumn(i, "CODE");
+		str += code +",";		
+		if(i==ds.getRowCount()-1) str = str.substring(0,str.length-1);
+	}
+	param += " saveDs="+str;
+	
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/info/infoChange/retrieveInterestList", 
+						"", 
+						in_ds,
+						param,
+						"fn_callback",
+						'S'
+						);
+};
+
+//설정저장
+this.btn_save = function(sqlType){
+	
+	var ds = "";
+	var confirmMsg = '';
+	if(sqlType == 'INS'){ 
+		confirmMsg = 'msg.isInsert';
+		ds = 'ds=ds_selectList'; 
+	}else if(sqlType == 'DEL'){
+		confirmMsg = 'msg.isDelete';
+		ds = 'ds=ds_saveList'; 
+	}
+	
+	if(!this.confirm(this.gfn_getTextMessage(confirmMsg))){
+		return;
+	}
+	
+	//파라미터
+	var analysis = this.div_search.rdo_analysis.value;
+	
+	//트랜젝션 아이디
+	var trId = sqlType;
+	
+	this.gfn_callService(
+						trId, 
+						"svc::rest/analysis/info/infoChange/saveInterestList", 
+						ds, 
+						"", 
+						"analysis="+analysis+" sqlType="+sqlType, 
+						"fn_callback",
+						'S'
+						);
+};
+
+//저장,삭제
+this.btn_moveData_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	
+	var trpl_c = this.getTrplCode();
+	var my_trpl_c = application.gv_glnCode;	
+	if(this.isHeadquarters()){ //본사
+		if(trpl_c != my_trpl_c){
+			this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1850.alert.save1'));
+			return;
+		}
+	}
+	
+	var sqlType = '';
+	if(obj.id == 'btn_rightMove') sqlType = 'INS';
+	else sqlType = 'DEL';
+	
+	if(sqlType == 'INS'){		
+		var saveCnt = this.ds_saveList.getRowCount();
+		var selectCnt = this.checkIndexCnt(this.div_list.grd_select);		
+		if(selectCnt == 0){
+			this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1850.alert.save3'));
+			return;
+		}
+		//trace(saveCnt+selectCnt);
+		if(saveCnt+selectCnt > this.maxSaveCnt()){
+			this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1850.alert.save2'));
+			return;
+		}
+	
+	}else{
+		var selectCnt = this.checkIndexCnt(this.div_list.grd_save);
+		if(selectCnt == 0){
+			this.alert(this.gfn_getTextMessage('msg.van_ds_sc_1850.alert.save3'));
+			return;
+		}
+	}
+	
+	this.btn_save(sqlType);
+};
+
+//콜백
+this.fn_callback = function(trId, errCode, errMsg){
+
+	if(errCode < 0){
+		this.gfn_getMessage("alert", errMsg);
+		return;
+	}
+	
+	this.setNo(this);
+	
+	if(trId == 'init'){
+		var ds = this.ds_locMain;
+		ds.insertRow(0);
+		ds.setColumn(0,'SIMP_C','');
+		//ds.setColumn(0,'SIMP_CNM',this.gfn_getTextMessage('validation.message.select.location'));
+		ds.setColumn(0,'SIMP_CNM','- 전체 -');
+		this.div_search.cbo_locMain.set_index(0);
+		return;
+	};
+	
+	if(trId == 'list' || trId == 'div'){		//조회		
+		var codeText = '';
+		var nameText = '';
+		var analysis = this.div_search.rdo_analysis.value;
+		if(analysis == 1){
+			codeText = '사업장코드';
+			nameText = '사업장명';
+		}
+		else if(analysis == 2){
+			codeText = '상품코드';
+			nameText = '상품명';
+		}		
+		this.div_list.grd_select.setCellProperty("Head", 1, "text", codeText);
+		this.div_list.grd_select.setCellProperty("Head", 2, "text", nameText);
+		this.div_list.grd_save.setCellProperty("Head", 2, "text", codeText);
+		this.div_list.grd_save.setCellProperty("Head", 3, "text", nameText);
+		return;
+	}
+	
+	if(trId == 'INS'){
+		this.alert(this.gfn_getTextMessage('msg.comp.insert'));
+		this.search();
+		return;		
+	}
+	
+	if(trId == 'DEL'){
+		this.alert(this.gfn_getTextMessage('msg.comp.delete'));
+		this.search();
+		return;		
+	}
+};
+
+this.setNo = function(form){
+	
+	var ds = form.ds_saveList;
+	for(var i=0 ; i<ds.getRowCount();i++){
+		ds.setColumn(i,"NO",(i+1));
+	}
+};
+//최대 저장 갯수
+this.maxSaveCnt = function(){
+	return 10;
+};
+
+//데이터셋 필터링
+this.div_list_Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	
+	this.div_list.edt_search.set_value('');
+	this.ds_selectList.filter('');
+	this.div_list.edt_search.setFocus();
+};
+
+this.ds_filter = function(obj, e){
+
+	var txt = this.div_list.edt_search.value;
+	if(txt != '' && !txt) return;
+    var s = "NAME.indexOf('" + txt.replace("'","\\'") + "') != -1";
+	this.ds_selectList.filter(s);
+};]]></Script>
+  </Form>
+</FDL>
